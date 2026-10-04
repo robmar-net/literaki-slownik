@@ -1,6 +1,6 @@
 # Warianty pierwszego generatora — materiał do decyzji
 
-Data: 2026-10-04. Faza: porównanie rozwiązań po zatwierdzonym audycie. **Użytkownik wybrał G1 (odpowiedź A na D1): BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP.** **D2=A/N1: pierwszy wynik SGJP/KWJP, NKJP później po wyjaśnieniu warunków.** **D3=A/C1: udokumentowane konstrukcje istniejących leksemów w głównych kandydatach po kontroli klas.** Konwergencja zakresu zakończona; propozycje techniczne podlegają zatwierdzeniu projektu. Zgoda „tak i tak” włączyła porównanie i projekt, nie implementację.
+Data: 2026-10-04. Faza: porównanie rozwiązań po zatwierdzonym audycie. **Użytkownik wybrał G1 (odpowiedź A na D1): BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP.** **D2=A/N1: pierwszy wynik SGJP/KWJP, NKJP później po wyjaśnieniu warunków.** **D3=A/C1: udokumentowane konstrukcje istniejących leksemów w głównych kandydatach po kontroli klas.** Konwergencja zakresu zakończona; metody techniczne zatwierdzono później wraz z projektem. Zgoda „tak i tak” włączyła porównanie i projekt, nie implementację.
 
 ## TL;DR
 
@@ -18,9 +18,9 @@ NKJP pozostaje BLOCKED we wszystkich opcjach. Brak dowodów dotyczących licencj
 
 **D2 zatwierdzona — N1:** pierwszy wynik korzysta z SGJP/KWJP; NKJP pozostaje wymaganiem pełnego projektu i dołączy po wyjaśnieniu warunków w nowym wydaniu.
 
-**D3 zatwierdzona — C1:** konstrukcje istniejących leksemów należą do BROAD/STANDARD po kontroli reguł każdej klasy. Lista konkretnych reguł nadal wymaga dowodów. Q2 jest konsekwencją G1: niepełny pilot nie zastępuje odbioru. F1 i O2/O3 pozostają propozycjami technicznymi projektu.
+**D3 zatwierdzona — C1:** konstrukcje istniejących leksemów należą do BROAD/STANDARD po kontroli reguł każdej klasy. Lista konkretnych reguł nadal wymaga dowodów. Q2 jest konsekwencją G1: niepełny pilot nie zastępuje odbioru. F1 i O2/O3 zostały zatwierdzone jako metody techniczne projektu, bez zgadywania semantyki reguł.
 
-**Rekomendacje techniczne do późniejszego projektu:** lokalne polecenia i jedna relacyjna baza, zachowane rekordy źródłowe i manifesty, brak API i usług. SQLite jest hipotezą startową, nie wynikiem testu wydajności. [Model procesu](../analysis/findings/model-procesu.md).
+**Metody techniczne zatwierdzone w późniejszym projekcie:** lokalne polecenia i jedna relacyjna baza, zachowane rekordy źródłowe i manifesty, brak API i usług. SQLite jest hipotezą startową, nie wynikiem testu wydajności. [Model procesu](../analysis/findings/model-procesu.md).
 
 ## Open Questions / Risks
 
@@ -159,4 +159,4 @@ Proponowana kolejność rozmowy:
 
 Użytkownik kolejno wybrał G1, N1 i C1. Odrzucono pilot jako wynik końcowy, cztery warianty w pierwszym wydaniu, oczekiwanie na NKJP i osobne rozszerzenie konstrukcyjne. Zachowano wymóg kontroli kompletności.
 
-Nie pytamy o znaczenie nierozstrzygniętych kwalifikatorów: wymaga dowodów. Jeśli badanie ujawni nowy wybór normatywny, należy wrócić z konkretnymi przykładami. Techniczne F1 i O2/O3 zostaną ocenione w projekcie; nie są osobno zatwierdzoną polityką.
+Nie pytamy o znaczenie nierozstrzygniętych kwalifikatorów: wymaga dowodów. Jeśli badanie ujawni nowy wybór normatywny, należy wrócić z konkretnymi przykładami. Techniczne F1 i O2/O3 zatwierdzono z projektem; nie stanowią zgody na nieudowodnione reguły językowe.

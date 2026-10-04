@@ -6,8 +6,9 @@ Pierwsze prace dotyczą audytu źródeł do słowników języka polskiego: SGJP 
 
 - [Specyfikacja projektu v3](docs/literaki-niezalezne-slowniki-prompt-v3.md) — materiał wejściowy i zakres pierwszego etapu w rozdziale 15.
 - [Raport audytu — zatwierdzony](.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/research-report.md).
-- [Projekt pierwszego generatora — do zatwierdzenia](.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/high-level-design.md).
-- [Rejestr decyzji zakresu i propozycji architektury](.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/decision-log.md).
+- [Projekt pierwszego generatora — zatwierdzony](.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/high-level-design.md).
+- [Rejestr decyzji zakresu i architektury](.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/decision-log.md).
+- [Raport końcowy i przekazanie do implementacji](.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/research-handoff.md).
 - [Odtwarzanie pomiarów i organizacja repozytorium](docs/odtwarzanie-audytu.md).
 - [Zasady współpracy](AGENTS.md).
 

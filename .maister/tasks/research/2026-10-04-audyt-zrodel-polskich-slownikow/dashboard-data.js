@@ -1,9 +1,9 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T09:07:55Z",
+  "generated": "2026-10-04T10:51:14Z",
   "task": {
     "title": "Audyt źródeł polskich słowników — etap 1",
     "description": "Realizacja rozdziału 15 specyfikacji v3: źródła, pomiary, filtry, dopasowania i projekt odtwarzalności.",
-    "status": "in_progress",
+    "status": "completed",
     "tags": [
       "slowniki",
       "SGJP",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "research",
     "path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow",
-    "current_activity": "Zatwierdzenie projektu generatora"
+    "current_activity": "Zakończone — projekt zatwierdzony, przekazanie gotowe"
   },
   "characteristics": {
     "scope": "Zatwierdzony audyt §15 oraz porównanie i projekt; bez implementacji"
@@ -201,14 +201,14 @@ window.MAISTER_DATA = {
       "id": "phase_5",
       "name": "Projekt (opcjonalnie)",
       "icon_hint": "analysis",
-      "status": "in_progress",
+      "status": "completed",
       "started": "2026-10-04T09:01:57Z",
-      "completed": null,
+      "completed": "2026-10-04T10:50:15Z",
       "skip_reason": null,
-      "summary": "Gotowy projekt lokalnego generatora Python/SQLite: sześć modułów, dwa kandydaty, dziesięć kryteriów odbioru; pięć ADR. Projekt i metody techniczne oczekują zatwierdzenia.",
+      "summary": "Projekt Python/SQLite i pięć ADR zatwierdzone odpowiedzią „ok”; luki językowe pozostają jawnymi warunkami pełnego wydania.",
       "decisions": [
-        "Propozycja: lokalny proces Python/SQLite, jawne manifesty i nowe katalogi przebiegów",
-        "Propozycja: VariantDecision także dla analiz rekonstruowanych; kontrola pełnego zakresu przed eksportem"
+        "Zatwierdzone: lokalny proces Python/SQLite, jawne manifesty i nowe katalogi przebiegów",
+        "Zatwierdzone: VariantDecision także dla analiz rekonstruowanych; kontrola pełnego zakresu przed eksportem"
       ],
       "risks": [
         "Semantyka mieszanych kwalifikatorów i kategorii nazw nadal do wyjaśnienia",
@@ -233,28 +233,46 @@ window.MAISTER_DATA = {
       ],
       "gate": {
         "id": "design_approval",
-        "status": "pending",
+        "status": "resolved",
         "question": "Czy zatwierdzasz projekt wysokiego poziomu jako podstawę następnego zadania implementacyjnego?",
         "options": {
           "A": "Zatwierdź projekt i kryteria odbioru; zakończ research i przygotuj przekazanie (rekomendowane).",
           "B": "Popraw wskazane elementy projektu przed przekazaniem."
         },
-        "answer": null
+        "answer": "A",
+        "user_response": "ok",
+        "answered_at": "2026-10-04T10:50:15Z"
       }
     },
     {
       "id": "phase_6",
       "name": "Przekazanie wyników",
       "icon_hint": "analysis",
-      "status": "pending",
-      "started": null,
-      "completed": null,
+      "status": "completed",
+      "started": "2026-10-04T10:50:15Z",
+      "completed": "2026-10-04T10:51:14Z",
       "skip_reason": null,
-      "summary": null,
-      "decisions": [],
-      "risks": [],
-      "artifacts": [],
-      "gate": null
+      "summary": "Zakończono audyt i zatwierdzony projekt; zapisano końcowy raport oraz opis przekazania do osobnego zadania implementacyjnego. Kontrola artefaktów, linków, HTML i integralności audytu poprawna.",
+      "decisions": [
+        "Research zakończony; generator pozostaje do implementacji",
+        "Raport końcowy dopisuje decyzje bez zmiany zamrożonych dowodów audytu"
+      ],
+      "risks": [
+        "Semantyka mieszanych kwalifikatorów i kategorii nazw nadal do wyjaśnienia",
+        "Macierz fleksji/konstrukcji i polityka ortograficzna wymagają domknięcia przed wydaniem",
+        "Wydajność SQLite niezmierzona; brak autoryzacji implementacji"
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/research-handoff.md",
+          "label": "Raport końcowy i przekazanie",
+          "html": "outputs/research-handoff.html"
+        }
+      ],
+      "gate": {
+        "question": null,
+        "answer": null
+      }
     }
   ],
   "verification": {

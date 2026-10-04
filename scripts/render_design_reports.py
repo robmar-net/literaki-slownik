@@ -8,9 +8,10 @@ from render_report import CSS, inline
 
 TASK = Path(__file__).resolve().parents[1] / '.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow'
 REPORTS = {
+    'research-handoff': ('Przekazanie', 'Research zakończony', [('2', 'kandydaci w projekcie'), ('3', 'wybory zakresu'), ('0', 'wdrożonych generatorów')]),
     'solution-exploration': ('Porównanie', 'Wybory zakresu zatwierdzone', [('3', 'warianty wyniku'), ('G1', 'wybrany zakres'), ('N1', 'NKJP później'), ('C1', 'konstrukcje w bazie')]),
-    'high-level-design': ('Projekt', 'Projekt do zatwierdzenia', [('6', 'modułów'), ('2', 'kandydatów'), ('10', 'kryteriów odbioru')]),
-    'decision-log': ('Decyzje', 'Statusy według rejestru', [('5', 'ADR'), ('2', 'ADR zaakceptowane'), ('3', 'propozycje architektury')]),
+    'high-level-design': ('Projekt', 'Projekt zatwierdzony', [('6', 'modułów'), ('2', 'kandydatów'), ('10', 'kryteriów odbioru')]),
+    'decision-log': ('Decyzje', 'Statusy według rejestru', [('5', 'ADR'), ('5', 'ADR zaakceptowane'), ('3', 'decyzje zakresu')]),
 }
 
 

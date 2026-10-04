@@ -1,13 +1,15 @@
 {
   "orchestrator": {
     "workflow": "research",
-    "current_phase": "phase_5",
-    "started_phase": "phase_5",
+    "current_phase": "phase_6",
+    "started_phase": "phase_6",
     "completed_phases": [
       "phase_1",
       "phase_2",
       "phase_3",
-      "phase_4"
+      "phase_4",
+      "phase_5",
+      "phase_6"
     ],
     "failed_phases": [],
     "options": {
@@ -18,13 +20,13 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T01:56:09Z",
-    "updated": "2026-10-04T09:07:55Z",
+    "updated": "2026-10-04T10:51:14Z",
     "task_path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow"
   },
   "task": {
     "title": "Audyt źródeł polskich słowników — etap 1",
     "description": "Realizacja rozdziału 15 specyfikacji v3: źródła, pomiary, filtry, dopasowania i projekt odtwarzalności.",
-    "status": "in_progress",
+    "status": "completed",
     "tags": [
       "slowniki",
       "SGJP",
@@ -193,10 +195,10 @@
       "completed": "2026-10-04T09:01:57Z"
     },
     "phase_5": {
-      "summary": "Gotowy projekt lokalnego generatora Python/SQLite: sześć modułów, dwa kandydaty, dziesięć kryteriów odbioru; pięć ADR. Projekt i metody techniczne oczekują zatwierdzenia.",
+      "summary": "Projekt Python/SQLite i pięć ADR zatwierdzone odpowiedzią „ok”; luki językowe pozostają jawnymi warunkami pełnego wydania.",
       "decisions": [
-        "Propozycja: lokalny proces Python/SQLite, jawne manifesty i nowe katalogi przebiegów",
-        "Propozycja: VariantDecision także dla analiz rekonstruowanych; kontrola pełnego zakresu przed eksportem"
+        "Zatwierdzone: lokalny proces Python/SQLite, jawne manifesty i nowe katalogi przebiegów",
+        "Zatwierdzone: VariantDecision także dla analiz rekonstruowanych; kontrola pełnego zakresu przed eksportem"
       ],
       "risks": [
         "Semantyka mieszanych kwalifikatorów i kategorii nazw nadal do wyjaśnienia",
@@ -221,16 +223,43 @@
       ],
       "gate": {
         "id": "design_approval",
-        "status": "pending",
+        "status": "resolved",
         "question": "Czy zatwierdzasz projekt wysokiego poziomu jako podstawę następnego zadania implementacyjnego?",
         "options": {
           "A": "Zatwierdź projekt i kryteria odbioru; zakończ research i przygotuj przekazanie (rekomendowane).",
           "B": "Popraw wskazane elementy projektu przed przekazaniem."
         },
-        "answer": null
+        "answer": "A",
+        "user_response": "ok",
+        "answered_at": "2026-10-04T10:50:15Z"
       },
       "started": "2026-10-04T09:01:57Z",
-      "completed": null
+      "completed": "2026-10-04T10:50:15Z"
+    },
+    "phase_6": {
+      "summary": "Zakończono audyt i zatwierdzony projekt; zapisano końcowy raport oraz opis przekazania do osobnego zadania implementacyjnego. Kontrola artefaktów, linków, HTML i integralności audytu poprawna.",
+      "decisions": [
+        "Research zakończony; generator pozostaje do implementacji",
+        "Raport końcowy dopisuje decyzje bez zmiany zamrożonych dowodów audytu"
+      ],
+      "risks": [
+        "Semantyka mieszanych kwalifikatorów i kategorii nazw nadal do wyjaśnienia",
+        "Macierz fleksji/konstrukcji i polityka ortograficzna wymagają domknięcia przed wydaniem",
+        "Wydajność SQLite niezmierzona; brak autoryzacji implementacji"
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/research-handoff.md",
+          "label": "Raport końcowy i przekazanie",
+          "html": "outputs/research-handoff.html"
+        }
+      ],
+      "gate": {
+        "question": null,
+        "answer": null
+      },
+      "started": "2026-10-04T10:50:15Z",
+      "completed": "2026-10-04T10:51:14Z"
     }
   },
   "verification_context": {
@@ -439,6 +468,41 @@
       "result": "gotowy do zatwierdzenia z jawnymi zależnościami dowodowymi",
       "html_checks": "3 dokumenty, szerokości 390/1280, bez przepełnienia i błędnych kotwic; screenshot obejrzany",
       "audit_integrity": "wszystkie hashe scripts/outputs pierwotnego manifestu zgodne"
+    },
+    "design_approval": {
+      "user_response": "ok",
+      "approved_at": "2026-10-04T10:50:15Z",
+      "artifact_revision": "e09a13d",
+      "scope": "architektura i kryteria odbioru; implementacja jako osobne zadanie"
+    },
+    "research_outputs": {
+      "research_report": "outputs/research-handoff.md",
+      "frozen_audit_report": "outputs/research-report.md",
+      "findings_directory": "analysis/findings/",
+      "solution_exploration": "outputs/solution-exploration.md",
+      "high_level_design": "outputs/high-level-design.md",
+      "decision_log": "outputs/decision-log.md"
+    },
+    "handoff": {
+      "workflow": "maister-development",
+      "task_path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow",
+      "report": "outputs/research-handoff.md",
+      "started": false,
+      "next_action": "osobne zadanie: analiza repo, specyfikacja i plan implementacji, wraz z domknięciem zadań dowodowych"
+    },
+    "completion_checks": {
+      "checked_at": "2026-10-04T10:51:14Z",
+      "registered_artifacts": "present",
+      "local_links": "passed",
+      "audit_checksums": "unchanged",
+      "input_prompt_sha256": "unchanged",
+      "html_viewports": [
+        390,
+        1280
+      ],
+      "html_overflow": false,
+      "html_broken_anchors": 0,
+      "implementation_started": false
     }
   }
 }

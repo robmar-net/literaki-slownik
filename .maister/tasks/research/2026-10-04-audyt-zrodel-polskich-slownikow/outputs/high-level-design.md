@@ -2,7 +2,7 @@
 
 ## TL;DR
 
-Projekt do zatwierdzenia: lokalny proces wsadowy, SQLite, jawne reguły i deterministyczne eksporty.
+Projekt zatwierdzony: lokalny proces wsadowy, SQLite, jawne reguły i deterministyczne eksporty.
 Wynikiem mają być LL-PL-BROAD i LL-PL-STANDARD z pełną dopuszczalną fleksją i kontrolowanymi konstrukcjami.
 SGJP dostarcza jednostek językowych, KWJP dowodów użycia; NKJP dołączy później po wyjaśnieniu warunków.
 Import i raporty można budować wcześniej, ale niepełny wynik nie spełnia kryterium końcowego.
@@ -11,7 +11,7 @@ To projekt, nie gotowy generator ani zatwierdzenie wszystkich reguł językowych
 ## Key Decisions
 
 - Zatwierdzone przez użytkownika: D1=G1, D2=N1, D3=C1. [Porównanie i historia wyborów](solution-exploration.md).
-- Proponowane: lokalne polecenia, jedna baza na przebieg, jawny manifest wejść, eksport dopiero po kontroli kompletności. [Rejestr decyzji](decision-log.md).
+- Zatwierdzone w projekcie: lokalne polecenia, jedna baza na przebieg, jawny manifest wejść, eksport dopiero po kontroli kompletności. [Rejestr decyzji](decision-log.md).
 - Zachowujemy dane źródłowe, homonimię, niepewność i pełny ślad pochodzenia; scenariusz przesiewu z audytu nie jest finalnym filtrem.
 - Nie zmieniamy słownika działającej gry. Implementacja wymaga osobnego zadania Maister.
 
@@ -56,7 +56,7 @@ Opiekun słownika
 NKJP: UNAVAILABLE z powodem; benchmark: poza tym procesem
 ```
 
-Są to moduły jednego narzędzia, nie sześć usług. Proponujemy Python, aby wykorzystać wiedzę z istniejących skryptów audytowych, oraz standardową bazę SQLite. Wybór ten jest propozycją do zatwierdzenia; audytowe skrypty wymagają adaptacji i testów przed użyciem jako importerów.
+Są to moduły jednego narzędzia, nie sześć usług. Proponujemy Python, aby wykorzystać wiedzę z istniejących skryptów audytowych, oraz standardową bazę SQLite. Wybór ten został zatwierdzony w projekcie; audytowe skrypty wymagają adaptacji i testów przed użyciem jako importerów.
 
 | Moduł | Odpowiedzialność | Granica błędu |
 |---|---|---|
@@ -158,6 +158,6 @@ Próbki obejmują krótkie słowa, homonimy, historyczne formy, fachowe słownic
 
 ## 10. Warunki przekazania do implementacji
 
-Zatwierdzenie tego dokumentu zamyka projekt architektury i kryteriów odbioru. Kolejne zadanie ma przygotować analizę repo, specyfikację, plan, testy i implementację w maister-development. Nie musi czekać z importerem na wszystkie badania językowe, ale nie może zakończyć odbioru G1 bez K1–K10.
+Użytkownik zatwierdził ten dokument odpowiedzią „ok”, zamykając projekt architektury i kryteriów odbioru. Kolejne zadanie ma przygotować analizę repo, specyfikację, plan, testy i implementację w maister-development. Nie musi czekać z importerem na wszystkie badania językowe, ale nie może zakończyć odbioru G1 bez K1–K10.
 
 Do specyfikacji trzeba wnieść osobne zadania dowodowe: semantyka kwalifikatorów/nazw, klasy skrótowców, macierz konstrukcji i ortografii. Jeśli ujawnią rzeczywisty wybór polityki, wracamy do użytkownika z przykładami; brak danych nie upoważnia do arbitralnego filtra. Wynik projektu pozostaje użyteczny nawet wtedy, gdy pełne wydanie będzie czekało na rozstrzygnięcie tych kwestii.
