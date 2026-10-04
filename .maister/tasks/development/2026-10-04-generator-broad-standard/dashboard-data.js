@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T15:12:17Z",
+  "generated": "2026-10-04T21:21:34Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "G4/G6 częściowe: mechanika ocen i działające diagnostyczne explain"
+    "current_activity": "Sprawdzono oryginalny SGJP: import bez utraty pięciu pól"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -313,6 +313,10 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/diagnostic-explain-runtime.json",
           "label": "Rzeczywiste explain i kontrola odczytu bez zmian"
+        },
+        {
+          "path": "analysis/evidence/original-package-audit.md",
+          "label": "Oryginalny SGJP: pełne porównanie i granica eksportu"
         }
       ],
       "gate": {

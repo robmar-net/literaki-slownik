@@ -1,0 +1,135 @@
+{
+  "scope": "original pinned SGJP gzip versus every stored raw field; original source archive inventory",
+  "sgjp_source": "cache/sgjp/sgjp-20260823.tab.gz",
+  "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+  "header_lines": 28,
+  "rows": 7458520,
+  "field_widths": {
+    "5": 7458520
+  },
+  "original_vs_import": "all five raw fields identical for every row; no extra or missing records",
+  "sjpdor_markers_in_tag_names_qualifiers": {},
+  "seconds": 14.11541354196379,
+  "archive": "cache/sgjp-docs/morfeusz-src-20260823.tar.gz",
+  "archive_sha256": "276320473e6daff68ff13a276ba5da190edbabbe9bc0be5ede0cd1bb3bf2f7ea",
+  "archive_file_count": 406,
+  "candidate_metadata_paths": [
+    "Morfeusz/input/segmenty.dat",
+    "Morfeusz/input/morfeusz1-sgjp.tagset",
+    "Morfeusz/input/empty.txt",
+    "Morfeusz/input/dodatki.tab",
+    "Morfeusz/input/emoji.tab",
+    "Morfeusz/input/PoliMorfSmall.tab",
+    "Morfeusz/input/segmenty1.dat",
+    "Morfeusz/input/morfeusz-sgjp.tagset",
+    "Morfeusz/tests/generator/test_qualifiers/tagset.dat",
+    "Morfeusz/tests/generator/test_qualifiers/output.txt",
+    "Morfeusz/tests/generator/test_qualifiers/input.txt",
+    "Morfeusz/tests/generator/test_qualifiers/dictionary.tab",
+    "Morfeusz/tests/generator/test_qualifiers/ARGS",
+    "Morfeusz/tests/generator/test_qualifiers/segmentation.dat",
+    "Morfeusz/tests/generator/test_segtypes/tagset.dat",
+    "Morfeusz/tests/generator/test_digits/tagset.dat",
+    "Morfeusz/tests/generator/test_additional_atomic_segments/tagset.dat",
+    "Morfeusz/tests/generator/test_names/tagset.dat",
+    "Morfeusz/tests/analyzer/test_qualifiers/tagset.dat",
+    "Morfeusz/tests/analyzer/test_qualifiers/output.txt",
+    "Morfeusz/tests/analyzer/test_qualifiers/input.txt",
+    "Morfeusz/tests/analyzer/test_qualifiers/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_qualifiers/ARGS",
+    "Morfeusz/tests/analyzer/test_qualifiers/segmentation.dat",
+    "Morfeusz/tests/analyzer/test_prefixes_with_uppercase_in_the_middle/tagset.dat",
+    "Morfeusz/tests/analyzer/test_segtypes/tagset.dat",
+    "Morfeusz/tests/analyzer/test_multisegments/tagset.dat",
+    "Morfeusz/tests/analyzer/test_inflection_graph_numbers/tagset.dat",
+    "Morfeusz/tests/analyzer/test_whitespace_handling_append/tagset.dat",
+    "Morfeusz/tests/analyzer/test_prefixes_with_uppercase_at_the_beginning/tagset.dat",
+    "Morfeusz/tests/analyzer/test_dict_copyright/tagset.dat",
+    "Morfeusz/tests/analyzer/test_digits_roman/tagset.dat",
+    "Morfeusz/tests/analyzer/test_mixed_case/tagset.dat",
+    "Morfeusz/tests/analyzer/test_digits/tagset.dat",
+    "Morfeusz/tests/analyzer/test_copyright/tagset.dat",
+    "Morfeusz/tests/analyzer/test_names/tagset.dat",
+    "Morfeusz/tests/analyzer/test_segtypes_with_homonyms/tagset.dat",
+    "Morfeusz/fsabuilder/morfeuszbuilder/fsa/test/polimorf.tagset",
+    "Morfeusz/fsabuilder/morfeuszbuilder/utils/extractTagset.py",
+    "Morfeusz/fsabuilder/morfeuszbuilder/segrules/test/polimorf.tagset",
+    "Morfeusz/fsabuilder/morfeuszbuilder/tagset/tagset.py",
+    "Morfeusz/fsabuilder/morfeuszbuilder/tagset/__init__.py",
+    "Morfeusz/fsabuilder/morfeuszbuilder/tagset/segtypes.py"
+  ],
+  "structured_data_paths": [
+    "Morfeusz/input/dodatki.tab",
+    "Morfeusz/input/emoji.tab",
+    "Morfeusz/input/PoliMorfSmall.tab",
+    "Morfeusz/tests/generator/test_qualifiers/dictionary.tab",
+    "Morfeusz/tests/generator/test_segtypes/dictionary.tab",
+    "Morfeusz/tests/generator/test_digits/dictionary.tab",
+    "Morfeusz/tests/generator/test_additional_atomic_segments/dictionary.tab",
+    "Morfeusz/tests/generator/test_names/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_qualifiers/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_prefixes_with_uppercase_in_the_middle/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_segtypes/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_multisegments/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_inflection_graph_numbers/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_whitespace_handling_append/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_prefixes_with_uppercase_at_the_beginning/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_dict_copyright/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_digits_roman/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_mixed_case/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_digits/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_copyright/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_names/dictionary.tab",
+    "Morfeusz/tests/analyzer/test_segtypes_with_homonyms/dictionary.tab",
+    "Morfeusz/fsabuilder/morfeuszbuilder/fsa/test/PoliMorfSmall.tab",
+    "Morfeusz/gui/launch4j-config32.xml",
+    "Morfeusz/gui/launch4j-config64.xml"
+  ],
+  "metadata_source_code": [
+    {
+      "path": "cache/sgjp-docs/Morfeusz/fsabuilder/morfeuszbuilder/fsa/convertinput.py",
+      "sha256": "75195b2a64c528966ad203a59384dc0fe4c3bd09ae9c8f108c4ded5b9af9bed0",
+      "inspected_sections": "55–76"
+    },
+    {
+      "path": "cache/sgjp-docs/Morfeusz/fsabuilder/morfeuszbuilder/fsa/encode.py",
+      "sha256": "37b213018e1063f5a25dce0cfbf003869f66572b8bbefb453245fc670933e3b5",
+      "inspected_sections": "178–226"
+    },
+    {
+      "path": "cache/sgjp-docs/Morfeusz/fsabuilder/morfeuszbuilder/fsa/serializer.py",
+      "sha256": "3e1fdfc227a9e30e801293e60251c8828210a57b9bd4acde83e1538377e425f5",
+      "inspected_sections": "86–103,155–181"
+    },
+    {
+      "path": "cache/sgjp-docs/Morfeusz/buildDict.sh",
+      "sha256": "1d810f6d6a5e8e0cf8bbe03e79c6da80aa2254290f9cad3cc345821f355deb59",
+      "inspected_sections": "38–57"
+    }
+  ],
+  "binary_format_conclusion": "Inspected pinned compiler input parser, encoded interpretation fields and binary epilogue. They retain form/lemma/tag/name/qualifier and segmentation metadata, not SJPDor membership/editorial provenance. This is a format/source-code conclusion, not a claim of complete downloaded binary archive inspection.",
+  "excluded_data": "Only archive filenames inventoried; no PoliMorf lexical data read or activated; no new generator inputs.",
+  "upstream_database_conclusion": "Official SGJP instruction and pinned Kuznia model show SJPDor membership in upstream database; five-field published export does not include it. Absence of marker cannot be treated as independent editorial provenance.",
+  "header_conclusion": "28-line dictionary identifier/copyright header, no SJPDor or per-lexeme editorial provenance field.",
+  "access_limitations": [
+    {
+      "url": "https://download.sgjp.pl/morfeusz/20260823/morfeusz2-dictionary-sgjp-20260823.tgz",
+      "status": "partial_download_not_valid_archive",
+      "attempts": [
+        {
+          "max_time_seconds": 40,
+          "exit_code": 28,
+          "received_bytes": 999124
+        },
+        {
+          "max_time_seconds": 120,
+          "exit_code": 28,
+          "received_bytes": 2903782,
+          "escalated": true
+        }
+      ],
+      "expected_bytes": 7504150,
+      "claim_limit": "No complete binary archive inspection or pinned archive hash; compiler format inspected instead."
+    }
+  ]
+}

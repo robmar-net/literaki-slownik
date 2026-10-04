@@ -44,3 +44,6 @@ Dokumentacja bieżącego CLI, README/AGENTS/INDEX z rozdzieleniem historycznego 
 
 ### 2026-10-04T15:12:17Z — sprawdzenie przyrostu przed commitem
 38/38 testów generatora, 5/5 audytu; git diff --check bez błędów, explain --help działa, profil zgodny z kanonicznym pl-v1. Przejrzano rozdzielenie warstw, brak cross-key/cross-homonym accept, SQL parametryzowany i readonly, brak ukrytej aktywacji/finalnego verdict oraz rozróżnienie miary korpusowej od słowa. To sprawdzenie przyrostu, nie kanoniczna weryfikacja całego Maister. Pozostałe bramki nadal obowiązują.
+
+### 2026-10-04T21:21:34Z — kontrola oryginalnych danych na zlecenie użytkownika
+Przed dalszą implementacją wykonano pełne porównanie oryginalnego gzipu i raw SQLite: 7 458 520/7 458 520 wierszy, pięć pól identycznych, 14,12 s. Inwentarz 406 plików źródeł, kod parsera/encode/serializer i buildDict przeczytany oraz hashowany. Membership SJPDor istnieje w bazie macierzystej, nie w publicznym pięciopolowym eksporcie. Brak pole nie jest utratą w naszym importerze. Pobranie binarnego archiwum ograniczone timeoutem; nie deklarujemy pełnego odczytu. Brak zmian kodu/źródeł/reguł, bez potrzeby ponawiania testów kodu.

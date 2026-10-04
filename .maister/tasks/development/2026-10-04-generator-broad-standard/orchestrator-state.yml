@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-04T15:12:17Z",
+    "updated": "2026-10-04T21:21:34Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -287,6 +287,10 @@
         {
           "path": "analysis/evidence/diagnostic-explain-runtime.json",
           "label": "Rzeczywiste explain i kontrola odczytu bez zmian"
+        },
+        {
+          "path": "analysis/evidence/original-package-audit.md",
+          "label": "Oryginalny SGJP: pełne porównanie i granica eksportu"
         }
       ],
       "gate": {
@@ -362,7 +366,8 @@
       "evidence_gaps": "reviewed_by_coordinator",
       "research_artifacts": "verified",
       "g3_lanes": "Three read-only lanes reconciled against pinned DB and primary documentation by coordinator; required semantic gaps remain pending",
-      "supplementary_audit": "Coordinator verified all local hashes, all 26 contraction requests, primary code and z D. definition. SGJP production metadata license/snapshot pending; Wiktionary game eligibility/history unproved; WSJP/PWN access/use limitations recorded. No active source added."
+      "supplementary_audit": "Coordinator verified all local hashes, all 26 contraction requests, primary code and z D. definition. SGJP production metadata license/snapshot pending; Wiktionary game eligibility/history unproved; WSJP/PWN access/use limitations recorded. No active source added.",
+      "original_package": "All 7,458,520 original gzip rows and five fields compared to raw SQLite, identical; 406-file source archive inventoried; pinned binary format compiler inspected. Upstream SJPDor membership exists but is not published in five-field export."
     },
     "implementation_started": true,
     "conditional_phases": {
