@@ -1,10 +1,13 @@
 {
   "orchestrator": {
     "workflow": "development",
-    "current_phase": "phase_2",
-    "started_phase": "phase_2",
+    "current_phase": "phase_5",
+    "started_phase": "phase_5",
     "completed_phases": [
-      "phase_1"
+      "phase_1",
+      "phase_2",
+      "phase_3",
+      "phase_4"
     ],
     "failed_phases": [],
     "options": {
@@ -13,7 +16,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-04T11:08:54Z",
+    "updated": "2026-10-04T11:31:15Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -60,7 +63,7 @@
       "completed": "2026-10-04T11:08:54Z"
     },
     "phase_2": {
-      "summary": "Zakres implementacji obejmuje narzędzie oraz domknięcie zadań dowodowych K1–K10; cel G1/N1/C1 zachowany. Oczekuje bramka zakresu przed specyfikacją.",
+      "summary": "Użytkownik zatwierdził pełny zakres wraz z zadaniami dowodowymi K1–K10 odpowiedzią A.",
       "decisions": [
         "G1/N1/C1 już zatwierdzone; nie są ponownie głosowane"
       ],
@@ -76,15 +79,79 @@
       ],
       "gate": {
         "id": "scope_approval",
-        "status": "pending",
+        "status": "approved",
         "question": "Czy zatwierdzasz zakres implementacji opisany w analizie luk, obejmujący narzędzie i domknięcie dowodów językowych?",
         "options": {
           "A": "Zatwierdź cały zakres i przejdź do specyfikacji oraz planu (rekomendowane).",
           "B": "Wskaż korektę zakresu przed specyfikacją."
         },
-        "answer": null
+        "answer": "A",
+        "answered_at": "2026-10-04T11:25:24Z"
       },
       "started": "2026-10-04T11:08:54Z",
+      "completed": "2026-10-04T11:25:24Z"
+    },
+    "phase_3": {
+      "summary": "Nowa funkcjonalność, bez reprodukowalnego defektu; test-first będzie w grupach implementacji.",
+      "decisions": [],
+      "risks": [],
+      "artifacts": [],
+      "gate": {
+        "question": null,
+        "answer": null
+      },
+      "started": "2026-10-04T11:25:24Z",
+      "completed": "2026-10-04T11:25:24Z",
+      "status": "skipped",
+      "skip_reason": "Nowa funkcjonalność, bez reprodukowalnego defektu; test-first będzie w grupach implementacji."
+    },
+    "phase_4": {
+      "summary": "Lokalne CLI, brak UI-heavy.",
+      "decisions": [],
+      "risks": [],
+      "artifacts": [],
+      "gate": {
+        "question": null,
+        "answer": null
+      },
+      "started": "2026-10-04T11:25:24Z",
+      "completed": "2026-10-04T11:25:24Z",
+      "status": "skipped",
+      "skip_reason": "Lokalne CLI, brak UI-heavy."
+    },
+    "phase_5": {
+      "summary": "Gotowe wymagania R01–R12 i specyfikacja: manifesty, SQLite, pięć komend, reguły/konstrukcje, dowody KWJP, przegląd próbek i K1–K10. Oczekuje zatwierdzenie.",
+      "decisions": [
+        "Python 3.11+ i biblioteka standardowa; jawne manifesty i oddzielne build/verify/export",
+        "Deterministyczne próbkowanie quality-v1 przed pomiarem, po 30 jednostek na warstwę",
+        "Dowody językowe obowiązkowe; unresolved zmieniające zakres blokuje wydanie"
+      ],
+      "risks": [
+        "Tabele etykiet i macierz klas do domknięcia w implementacji",
+        "Warunki publikacji własnego kodu i danych do ustalenia przed K10",
+        "Pełny koszt przebiegu do zmierzenia"
+      ],
+      "artifacts": [
+        {
+          "path": "analysis/requirements.md",
+          "label": "Wymagania R01–R12"
+        },
+        {
+          "path": "implementation/spec.md",
+          "label": "Specyfikacja wykonawcza"
+        }
+      ],
+      "gate": {
+        "id": "spec_approval",
+        "status": "pending",
+        "question": "Czy zatwierdzasz specyfikację wykonawczą generatora BROAD i STANDARD?",
+        "options": {
+          "A": "Zatwierdź specyfikację; przejdź do audytu i planu (rekomendowane).",
+          "B": "Wskaż korektę specyfikacji przed planem."
+        },
+        "answer": null
+      },
+      "started": "2026-10-04T11:25:24Z",
       "completed": null
     }
   },

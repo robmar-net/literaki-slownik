@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T11:08:54Z",
+  "generated": "2026-10-04T11:31:15Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Zatwierdzenie zakresu implementacji przed specyfikacją"
+    "current_activity": "Zatwierdzenie specyfikacji przed audytem i planem"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -63,11 +63,11 @@ window.MAISTER_DATA = {
       "id": "phase_2",
       "name": "Luki i zakres",
       "icon_hint": "analysis",
-      "status": "in_progress",
+      "status": "completed",
       "started": "2026-10-04T11:08:54Z",
-      "completed": null,
+      "completed": "2026-10-04T11:25:24Z",
       "skip_reason": null,
-      "summary": "Zakres implementacji obejmuje narzędzie oraz domknięcie zadań dowodowych K1–K10; cel G1/N1/C1 zachowany. Oczekuje bramka zakresu przed specyfikacją.",
+      "summary": "Użytkownik zatwierdził pełny zakres wraz z zadaniami dowodowymi K1–K10 odpowiedzią A.",
       "decisions": [
         "G1/N1/C1 już zatwierdzone; nie są ponownie głosowane"
       ],
@@ -83,56 +83,89 @@ window.MAISTER_DATA = {
       ],
       "gate": {
         "id": "scope_approval",
-        "status": "pending",
+        "status": "approved",
         "question": "Czy zatwierdzasz zakres implementacji opisany w analizie luk, obejmujący narzędzie i domknięcie dowodów językowych?",
         "options": {
           "A": "Zatwierdź cały zakres i przejdź do specyfikacji oraz planu (rekomendowane).",
           "B": "Wskaż korektę zakresu przed specyfikacją."
         },
-        "answer": null
+        "answer": "A",
+        "answered_at": "2026-10-04T11:25:24Z"
       }
     },
     {
       "id": "phase_3",
       "name": "TDD red",
       "icon_hint": "analysis",
-      "status": "pending",
-      "started": null,
-      "completed": null,
-      "skip_reason": null,
-      "summary": null,
+      "status": "skipped",
+      "started": "2026-10-04T11:25:24Z",
+      "completed": "2026-10-04T11:25:24Z",
+      "skip_reason": "Nowa funkcjonalność, bez reprodukowalnego defektu; test-first będzie w grupach implementacji.",
+      "summary": "Nowa funkcjonalność, bez reprodukowalnego defektu; test-first będzie w grupach implementacji.",
       "decisions": [],
       "risks": [],
       "artifacts": [],
-      "gate": null
+      "gate": {
+        "question": null,
+        "answer": null
+      }
     },
     {
       "id": "phase_4",
       "name": "Makiety UI",
       "icon_hint": "analysis",
-      "status": "pending",
-      "started": null,
-      "completed": null,
-      "skip_reason": null,
-      "summary": null,
+      "status": "skipped",
+      "started": "2026-10-04T11:25:24Z",
+      "completed": "2026-10-04T11:25:24Z",
+      "skip_reason": "Lokalne CLI, brak UI-heavy.",
+      "summary": "Lokalne CLI, brak UI-heavy.",
       "decisions": [],
       "risks": [],
       "artifacts": [],
-      "gate": null
+      "gate": {
+        "question": null,
+        "answer": null
+      }
     },
     {
       "id": "phase_5",
       "name": "Specyfikacja",
       "icon_hint": "analysis",
-      "status": "pending",
-      "started": null,
+      "status": "in_progress",
+      "started": "2026-10-04T11:25:24Z",
       "completed": null,
       "skip_reason": null,
-      "summary": null,
-      "decisions": [],
-      "risks": [],
-      "artifacts": [],
-      "gate": null
+      "summary": "Gotowe wymagania R01–R12 i specyfikacja: manifesty, SQLite, pięć komend, reguły/konstrukcje, dowody KWJP, przegląd próbek i K1–K10. Oczekuje zatwierdzenie.",
+      "decisions": [
+        "Python 3.11+ i biblioteka standardowa; jawne manifesty i oddzielne build/verify/export",
+        "Deterministyczne próbkowanie quality-v1 przed pomiarem, po 30 jednostek na warstwę",
+        "Dowody językowe obowiązkowe; unresolved zmieniające zakres blokuje wydanie"
+      ],
+      "risks": [
+        "Tabele etykiet i macierz klas do domknięcia w implementacji",
+        "Warunki publikacji własnego kodu i danych do ustalenia przed K10",
+        "Pełny koszt przebiegu do zmierzenia"
+      ],
+      "artifacts": [
+        {
+          "path": "analysis/requirements.md",
+          "label": "Wymagania R01–R12"
+        },
+        {
+          "path": "implementation/spec.md",
+          "label": "Specyfikacja wykonawcza"
+        }
+      ],
+      "gate": {
+        "id": "spec_approval",
+        "status": "pending",
+        "question": "Czy zatwierdzasz specyfikację wykonawczą generatora BROAD i STANDARD?",
+        "options": {
+          "A": "Zatwierdź specyfikację; przejdź do audytu i planu (rekomendowane).",
+          "B": "Wskaż korektę specyfikacji przed planem."
+        },
+        "answer": null
+      }
     },
     {
       "id": "phase_6",
