@@ -18,10 +18,11 @@
     "full_category_and_orthography_matrix",
     "mobile_host_matrix",
     "game_attestation_for_preposition_n_contractions",
-    "scope_and_version_of_game_source_eligibility"
+    "documented_game_conditions_without_sjp_editorial_source_policy"
   ],
   "release_blocked": true,
   "schema_version": 1,
   "status": "incomplete",
-  "version": "coverage-discovery-v1"
+  "version": "coverage-discovery-v1",
+  "policy_clarification": "No agreed SJPDor exclusion or later independent editing requirement; see source-policy-clarification.md"
 }

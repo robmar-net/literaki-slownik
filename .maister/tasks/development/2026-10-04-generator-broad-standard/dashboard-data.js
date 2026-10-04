@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T21:21:34Z",
+  "generated": "2026-10-04T21:49:35Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Sprawdzono oryginalny SGJP: import bez utraty pięciu pól"
+    "current_activity": "Quality-v1 działa; przed filtrem niezal. oczekujemy decyzji użytkownika"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,18 +240,19 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "G4 mechanika i G6 diagnostyczne explain działają. Wszystkie interpretacje, odrębne oceny i powiązania korpusu zachowane; 8 zapytań pełnej bazy bez zmian hashy. G3 i pełna polityka/konstrukcje nadal nieukończone.",
+      "summary": "Dodano quality-v1 i szablon przeglądu; 45/45 testów generatora i 5/5 audytu. Sprostowano nieuzgodniony warunek SJPDor. Przed filtrem niezal. oczekujemy decyzji użytkownika. G3–G6 nadal częściowe.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
         "Reguły gry niezmienione; częściowych konfiguracji discovery nie aktywowano",
         "Wykonano niezależny fragment KWJP według wyjątku planu; G3/G4/G8 nie oznaczone complete",
         "A supplementary_attestation_inputs approved; audit conditions before supplementary data activation",
-        "User authorized code continuation; diagnostic mechanics do not activate incomplete linguistic policy or bypass release"
+        "User authorized code continuation; diagnostic mechanics do not activate incomplete linguistic policy or bypass release",
+        "Użytkownik: decyzje zmieniające kryteria i skład słownika omawiamy przed wdrożeniem; bez automatycznego kopiowania polityki źródeł SJP.pl."
       ],
       "risks": [
-        "Brak growych poświadczeń części kontrakcji i pełnych metadanych pochodzenia haseł",
-        "Złożone kwalifikatory i pełna macierz klas nadal pending; K4/K5 blokują wydanie"
+        "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
+        "Mechanika próbek nie zastępuje integracji raportów, pełnych analiz w przeglądzie ani odbioru G8."
       ],
       "artifacts": [
         {
@@ -317,19 +318,31 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/original-package-audit.md",
           "label": "Oryginalny SGJP: pełne porównanie i granica eksportu"
+        },
+        {
+          "path": "analysis/evidence/source-policy-clarification.md",
+          "label": "Sprostowanie polityki źródeł"
+        },
+        {
+          "path": "analysis/evidence/quality-runtime.json",
+          "label": "Powtarzalne próbki rzeczywistego lemma-all"
+        },
+        {
+          "path": "analysis/evidence/disrecommended-decision.md",
+          "label": "Decyzja przed filtrem form niezalecanych"
         }
       ],
       "gate": {
-        "id": "supplementary_attestation_inputs",
-        "status": "approved",
-        "question": "Czy rozszerzamy wejścia dowodowe o audytowane oficjalne metadane SGJP i niezależne poświadczenia słownikowe konstrukcji, bez dodawania nowych leksemów i zmiany zasad gry?",
+        "id": "disrecommended_forms_policy",
+        "status": "pending",
+        "question": "Czy kwalifikator niezal. sam wyklucza interpretację ze STANDARD?",
         "options": {
-          "A": "Tak: audyt i włączenie wyłącznie dopuszczonych uzupełniających danych; rekomendowane.",
-          "B": "Na razie bez nowych wejść: tylko niezależna mechanika, unresolved nadal blokuje pełne wydanie."
+          "A": "Nie: samo niezal. nie odrzuca w BROAD ani STANDARD; pozostałe warunki obowiązują (rekomendowane).",
+          "B": "Tak: niezal. odrzuca interpretację w STANDARD, lecz samo nie odrzuca w BROAD."
         },
-        "answer": "A",
-        "artifact": "analysis/evidence/source-extension-decision.md",
-        "answered_at": "2026-10-04T14:40:29Z"
+        "answer": null,
+        "artifact": "analysis/evidence/disrecommended-decision.md",
+        "created_at": "2026-10-04T21:49:35Z"
       }
     },
     {

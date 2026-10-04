@@ -24,3 +24,5 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Decyzja o dodatkowych wejściach](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/source-extension-decision.md) — bramka rozszerzenia dowodów, bez zmiany reguł gry.
 
 - [Bieżące CLI generatora](../../docs/generator/cli.md) — import i diagnostyczne explain; pełna polityka, konstrukcje i wydanie pozostają nieukończone.
+- [Dobór próbek jakości](../../docs/generator/jakosc.md) — mechanika quality-v1 i szablon przeglądu; integracja z pełnymi raportami pozostaje nieukończona.
+- [Sprostowanie polityki źródeł](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/source-policy-clarification.md) — brak automatycznego przejęcia ograniczeń źródeł SJP.pl; decyzje zmieniające skład list omawiamy przed wdrożeniem.

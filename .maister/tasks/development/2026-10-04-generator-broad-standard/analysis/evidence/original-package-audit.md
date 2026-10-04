@@ -5,6 +5,9 @@ Oryginalna baza SGJP ma membership SJPDor. Opublikowany tekstowy eksport Morfeus
 Nasza baza zachowała wszystkie pięć surowych pól z każdego z 7 458 520 wierszy; żadnych metadanych nie zgubiono w imporcie.
 Sprawdzono także inwentarz oryginalnego archiwum źródeł oraz kod formatu binarnego.
 
+
+> Sprostowanie po rozmowie z użytkownikiem: wymaganie filtra SJPDor i późniejszego niezależnego opracowania nie było uzgodnione. Wyniki audytu pozostają aktualne; wcześniejszy opis ich konieczności nie jest bieżącą polityką generatora. Zob. [wyjaśnienie](source-policy-clarification.md).
+
 ## Key Decisions
 - Oddzielamy macierzystą bazę internetową SGJP od jej publicznego eksportu Morfeusza oraz naszego importu SQLite.
 - Brak pola pochodzenia w eksporcie nie oznacza braku tego pola w bazie źródłowej ani niezależnego opracowania hasła.

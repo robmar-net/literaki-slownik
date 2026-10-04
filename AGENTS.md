@@ -12,3 +12,4 @@ Jeśli włączamy materiały w innych językach, zachowujemy ich oryginalną tre
 - Nie umieszczamy w publicznym repozytorium sekretów ani materiałów bez ustalonych warunków publikacji.
 - Historyczny pierwszy etap specyfikacji v3 (rozdział 15) obejmował audyt, analizę i projekt; jego zatwierdzone wyniki pozostają zamrożone.
 - Aktualna implementacja ma zatwierdzoną specyfikację i plan w `.maister/tasks/development/2026-10-04-generator-broad-standard/`. Nie oznaczamy pełnego wydania przy unresolved wpływających na listy; reguł gry nie zmieniamy.
+- Decyzje zmieniające skład słownika lub kryteria dopuszczalności omawiamy z użytkownikiem przed ich wdrożeniem: przedstawiamy przykłady, alternatywy i przewidywany wpływ. Nie przejmujemy automatycznie polityki redakcyjnej ani ograniczeń źródłowych SJP.pl.

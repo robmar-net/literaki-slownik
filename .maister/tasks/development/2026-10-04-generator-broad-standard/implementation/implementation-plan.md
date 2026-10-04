@@ -100,7 +100,7 @@ Zależności: G2/G3/G4. Pliki: `literaki_slownik/links.py`, `tests/test_links.py
 
 ### G6 — explain, raporty i deterministyczne próbki
 
-Niezależny fragment po zleceniu kontynuacji kodu: diagnostyczne explain tekst/JSON, wszystkie source interpretacje i rozwinięcia, wpis versus gra/profil, niepełny import, pełne powiązania bez powielania F. Osiem rzeczywistych zapytań i hashe read-only sprawdzone. Accept z finalnej polityki, rekonstrukcje, raporty i próbkowanie pozostają do wykonania; kroków nie oznaczono complete.
+Niezależny fragment po zleceniu kontynuacji kodu: diagnostyczne explain tekst/JSON, wszystkie source interpretacje i rozwinięcia, wpis versus gra/profil, niepełny import, pełne powiązania bez powielania F. Osiem rzeczywistych zapytań i hashe read-only sprawdzone. Dodano mechanikę quality-v1 i szablon przeglądu: 7 testów, powtarzalna próbka 90 jednostek na rzeczywistych 184 917 rekordach lemma-all. Przynależność do pełnych warstw, analizy w przeglądzie, integracja raportów i finalne decyzje pozostają do wykonania; kroków nie oznaczono complete.
 
 Zależności: G4/G5. Pliki: `literaki_slownik/{explain,reports,quality}.py`, `tests/{test_explain,test_reports,test_quality}.py`; CLI/build aktualizowane sekwencyjnie. K7/K9 oraz K8; R07/R09/R11.
 

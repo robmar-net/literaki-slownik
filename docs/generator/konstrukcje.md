@@ -12,7 +12,7 @@ Macierz rozdziela poprawność językową, dopuszczalność gry i kompletność 
 
 ## Open Questions / Risks
 - Całe kontrakcje przyimkowe potrzebują niezależnego poświadczenia wymaganego dla gry; sama reguła składania go nie daje.
-- Pełny zakres stosowania ZDS, łącznie z warunkami pochodzenia haseł, wymaga rozstrzygnięcia opisanego w macierzy. Nie aktualizujemy reguł gry przez odczyt bieżącej witryny.
+- Warunki konstrukcji odnosimy do udokumentowanych zasad gry, bez automatycznego przejmowania redakcyjnej polityki źródeł SJP.pl. Zob. [sprostowanie](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/source-policy-clarification.md). Nie aktualizujemy reguł gry przez odczyt bieżącej witryny.
 - Lista hostów mobilnych zakończeń wymaga dowodu morfemu, nie tylko końcowych liter.
 
 ## Fleksja

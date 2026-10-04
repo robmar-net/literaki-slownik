@@ -5,6 +5,9 @@ Obecne SGJP/KWJP nie wystarczają do potwierdzenia wszystkich growych warunków 
 Użytkownik zatwierdził wariant A: audyt i dopuszczenie uzupełniających dowodów, bez tworzenia nowych leksemów i zmiany zasad gry.
 Zgoda obejmuje rozszerzenie po pozytywnym audycie. Nie dodano jeszcze nowych aktywnych wejść produkcyjnych.
 
+
+> Sprostowanie po rozmowie z użytkownikiem: wymaganie filtra SJPDor i późniejszego niezależnego opracowania nie było uzgodnione. Wyniki audytu pozostają aktualne; wcześniejszy opis ich konieczności nie jest bieżącą polityką generatora. Zob. [wyjaśnienie](source-policy-clarification.md).
+
 ## Key Decisions
 - Reguły gry pozostają wiążące. Nie proponujemy pomijania poświadczenia kontrakcji ani automatycznej akceptacji niewiadomych.
 - Dodanie nowego artefaktu danych wymaga jawnej roli, wersji, hasha, warunków pozyskania/użycia i odpowiedniego rozszerzenia manifestu. Dotychczasowy kontrakt produkcyjny ma jeden eksport SGJP i 13 list KWJP.

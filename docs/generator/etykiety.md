@@ -12,7 +12,7 @@ Semantyka techniczna eksportu jest potwierdzona; pełna polityka złożonych ety
 
 ## Open Questions / Risks
 - Pełne nazwy „dawne, dziś gwarowe/rzadkie/frazeologiczne” oraz „przestarzałe, dziś książkowe” wskazują współczesne ograniczenie użycia. Nadal trzeba ustalić ich wpływ na STANDARD oraz historyczne literalne etykiety przecinkowe; nie są one alternatywą sensów.
-- Nie ustalono pełnej zgodności danych o pochodzeniu leksemów z wyłączeniami źródłowymi ZDS. `z_D.` oznacza łączenie zaimka z określeniem przymiotnikowym w dopełniaczu, a nie pochodzenie z Doroszewskiego.
+- Nie przyjmujemy automatycznie wyłączeń źródłowych SJP.pl; brak metadanych SJPDor nie jest uzgodnionym powodem odrzucenia. Zob. [sprostowanie polityki źródeł](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/source-policy-clarification.md). `z_D.` oznacza łączenie zaimka z określeniem przymiotnikowym w dopełniaczu, a nie pochodzenie z Doroszewskiego.
 
 ## Dowód formatu
 [Kod eksportera Kuźni](https://git.nlp.ipipan.waw.pl/SGJP/Kuznia/blob/61daf78fb2378b1f33e707a364c7d912f8edd255/export/lexeme_export.py), wiersze 206–235, pobiera zbiór kwalifikatorów leksemu, odmiany i końcówki; wiersze 244–250 pobierają klasyfikację pospolitości. Model `dictionary/models.py`, wiersze 97–163, przechowuje dosłowną etykietę. Są to dowody sposobu reprezentacji, bez twierdzenia, że bieżący commit był kompilatorem eksportu 20260823. Format zgadza się z parserem przypiętego Morfeusza.

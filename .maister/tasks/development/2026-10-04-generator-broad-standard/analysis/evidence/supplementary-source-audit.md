@@ -4,6 +4,9 @@
 Wykonano audyt dostępności i warunków dodatkowych źródeł. Nie aktywowano nowych danych produkcyjnych.
 G3 nadal wymaga pełnej semantyki i poświadczeń zgodnych z regułami gry; całe zadanie pozostaje w toku.
 
+
+> Sprostowanie po rozmowie z użytkownikiem: wymaganie filtra SJPDor i późniejszego niezależnego opracowania nie było uzgodnione. Wyniki audytu pozostają aktualne; wcześniejszy opis ich konieczności nie jest bieżącą polityką generatora. Zob. [wyjaśnienie](source-policy-clarification.md).
+
 ## Key Decisions
 - Zatwierdzenie A obowiązuje; brak ponownej bramki na tę samą pracę.
 - Kod Kuźni potwierdza metadane SJPDor i dokładnych klas. Jego BSD-2-Clause nie licencjonuje automatycznie internetowej bazy SGJP.

@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-04T21:21:34Z",
+    "updated": "2026-10-04T21:49:35Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,18 +214,19 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "G4 mechanika i G6 diagnostyczne explain działają. Wszystkie interpretacje, odrębne oceny i powiązania korpusu zachowane; 8 zapytań pełnej bazy bez zmian hashy. G3 i pełna polityka/konstrukcje nadal nieukończone.",
+      "summary": "Dodano quality-v1 i szablon przeglądu; 45/45 testów generatora i 5/5 audytu. Sprostowano nieuzgodniony warunek SJPDor. Przed filtrem niezal. oczekujemy decyzji użytkownika. G3–G6 nadal częściowe.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
         "Reguły gry niezmienione; częściowych konfiguracji discovery nie aktywowano",
         "Wykonano niezależny fragment KWJP według wyjątku planu; G3/G4/G8 nie oznaczone complete",
         "A supplementary_attestation_inputs approved; audit conditions before supplementary data activation",
-        "User authorized code continuation; diagnostic mechanics do not activate incomplete linguistic policy or bypass release"
+        "User authorized code continuation; diagnostic mechanics do not activate incomplete linguistic policy or bypass release",
+        "Użytkownik: decyzje zmieniające kryteria i skład słownika omawiamy przed wdrożeniem; bez automatycznego kopiowania polityki źródeł SJP.pl."
       ],
       "risks": [
-        "Brak growych poświadczeń części kontrakcji i pełnych metadanych pochodzenia haseł",
-        "Złożone kwalifikatory i pełna macierz klas nadal pending; K4/K5 blokują wydanie"
+        "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
+        "Mechanika próbek nie zastępuje integracji raportów, pełnych analiz w przeglądzie ani odbioru G8."
       ],
       "artifacts": [
         {
@@ -291,19 +292,31 @@
         {
           "path": "analysis/evidence/original-package-audit.md",
           "label": "Oryginalny SGJP: pełne porównanie i granica eksportu"
+        },
+        {
+          "path": "analysis/evidence/source-policy-clarification.md",
+          "label": "Sprostowanie polityki źródeł"
+        },
+        {
+          "path": "analysis/evidence/quality-runtime.json",
+          "label": "Powtarzalne próbki rzeczywistego lemma-all"
+        },
+        {
+          "path": "analysis/evidence/disrecommended-decision.md",
+          "label": "Decyzja przed filtrem form niezalecanych"
         }
       ],
       "gate": {
-        "id": "supplementary_attestation_inputs",
-        "status": "approved",
-        "question": "Czy rozszerzamy wejścia dowodowe o audytowane oficjalne metadane SGJP i niezależne poświadczenia słownikowe konstrukcji, bez dodawania nowych leksemów i zmiany zasad gry?",
+        "id": "disrecommended_forms_policy",
+        "status": "pending",
+        "question": "Czy kwalifikator niezal. sam wyklucza interpretację ze STANDARD?",
         "options": {
-          "A": "Tak: audyt i włączenie wyłącznie dopuszczonych uzupełniających danych; rekomendowane.",
-          "B": "Na razie bez nowych wejść: tylko niezależna mechanika, unresolved nadal blokuje pełne wydanie."
+          "A": "Nie: samo niezal. nie odrzuca w BROAD ani STANDARD; pozostałe warunki obowiązują (rekomendowane).",
+          "B": "Tak: niezal. odrzuca interpretację w STANDARD, lecz samo nie odrzuca w BROAD."
         },
-        "answer": "A",
-        "artifact": "analysis/evidence/source-extension-decision.md",
-        "answered_at": "2026-10-04T14:40:29Z"
+        "answer": null,
+        "artifact": "analysis/evidence/disrecommended-decision.md",
+        "created_at": "2026-10-04T21:49:35Z"
       },
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
@@ -318,6 +331,18 @@
           },
           "answer": "Użytkownik: wpis w słowniku i dopuszczalność w grze to osobne rzeczy; reguł gry nie zmieniamy.",
           "answered_at": "2026-10-04T13:33:33Z"
+        },
+        {
+          "id": "supplementary_attestation_inputs",
+          "status": "approved",
+          "question": "Czy rozszerzamy wejścia dowodowe o audytowane oficjalne metadane SGJP i niezależne poświadczenia słownikowe konstrukcji, bez dodawania nowych leksemów i zmiany zasad gry?",
+          "options": {
+            "A": "Tak: audyt i włączenie wyłącznie dopuszczonych uzupełniających danych; rekomendowane.",
+            "B": "Na razie bez nowych wejść: tylko niezależna mechanika, unresolved nadal blokuje pełne wydanie."
+          },
+          "answer": "A",
+          "artifact": "analysis/evidence/source-extension-decision.md",
+          "answered_at": "2026-10-04T14:40:29Z"
         }
       ]
     }
@@ -423,8 +448,8 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "Independent diagnostic explain authorized by plan §2 and user continue code",
-        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged",
-        "remaining": "Final decisions/derivations explain, reports/filter impact, quality-v1 and canonical index"
+        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample",
+        "remaining": "Full strata membership, review analysis payloads, reporting/build integration, final decisions/derivations explain, canonical index"
       },
       "G7": {
         "status": "pending",
@@ -460,6 +485,14 @@
       "audit_artifact": "analysis/evidence/supplementary-source-audit.md",
       "active_artifacts_added": 0
     },
-    "verification_note": "Implementation increment checks passed: 38/38 generator + 5/5 audit, diff check, CLI help/runtime; canonical phase_10/11 pending"
+    "verification_note": "Increment: 45/45 generator + 5/5 audit; quality runtime checked. Canonical phase_10/11 and complete release pending.",
+    "source_policy_clarification": {
+      "recorded_at": "2026-10-04T21:49:35Z",
+      "artifact": "analysis/evidence/source-policy-clarification.md",
+      "sjpdor_exclusion_agreed": false,
+      "later_independent_editing_required": false,
+      "changes_to_eligibility_require_prior_discussion": true,
+      "active_filter_changed": false
+    }
   }
 }
