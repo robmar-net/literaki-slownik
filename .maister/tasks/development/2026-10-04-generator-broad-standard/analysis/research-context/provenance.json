@@ -1,0 +1,32 @@
+[
+  {
+    "source": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/research-report.md",
+    "snapshot": "analysis/research-context/research-report.md",
+    "sha256": "ebb9afc85ab107bdd1c01a900810ccee7e4b0215c4b4dc31ba15aad782b51efd",
+    "links_base": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs"
+  },
+  {
+    "source": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/research-handoff.md",
+    "snapshot": "analysis/research-context/research-handoff.md",
+    "sha256": "105a6de9f1f8860cc13bae7c80c25c2ef70fb350426b21dee1eb526a4e8f6327",
+    "links_base": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs"
+  },
+  {
+    "source": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/solution-exploration.md",
+    "snapshot": "analysis/research-context/solution-exploration.md",
+    "sha256": "1b2e34cdddd9e3745c92b6c0bbd557e688513db20808b48daa10c04529c4e23a",
+    "links_base": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs"
+  },
+  {
+    "source": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/high-level-design.md",
+    "snapshot": "analysis/research-context/high-level-design.md",
+    "sha256": "8d8558004ff63b7c587db1768b76d99d84d6795719beaa96e50bbe66966ab2c1",
+    "links_base": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs"
+  },
+  {
+    "source": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/decision-log.md",
+    "snapshot": "analysis/research-context/decision-log.md",
+    "sha256": "f54fb2a216db402b6a1fc9d3511c4784c91459a7733a798307423531bf22a784",
+    "links_base": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs"
+  }
+]

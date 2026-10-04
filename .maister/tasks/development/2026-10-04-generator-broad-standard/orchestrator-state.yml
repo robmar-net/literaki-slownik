@@ -1,0 +1,151 @@
+{
+  "orchestrator": {
+    "workflow": "development",
+    "current_phase": "phase_2",
+    "started_phase": "phase_2",
+    "completed_phases": [
+      "phase_1"
+    ],
+    "failed_phases": [],
+    "options": {
+      "html_output": true,
+      "mockup_format": "html"
+    },
+    "auto_fix_attempts": {},
+    "created": "2026-10-04T11:05:21Z",
+    "updated": "2026-10-04T11:08:54Z",
+    "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
+  },
+  "task": {
+    "title": "Pierwszy generator BROAD i STANDARD",
+    "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
+    "status": "in_progress",
+    "tags": [
+      "slowniki",
+      "generator",
+      "SGJP",
+      "KWJP"
+    ],
+    "priority": null
+  },
+  "phase_summaries": {
+    "phase_1": {
+      "summary": "Zbadano skrypty SGJP/KWJP/pilota i testy; potwierdzono brak generatora, jawne punkty adaptacji i luki językowe. Baseline 5/5 OK, research spójny.",
+      "decisions": [
+        "Nowy kod generatora z jawnymi ścieżkami; zamrożony audyt pozostaje odtwarzalny"
+      ],
+      "risks": [
+        "Przesiew audytu nie jest finalną polityką",
+        "Brak pełnych dowodów semantyki etykiet i macierzy klas"
+      ],
+      "artifacts": [
+        {
+          "path": "analysis/codebase-analysis.md",
+          "label": "Analiza kodu"
+        },
+        {
+          "path": "analysis/research-context/INDEX.md",
+          "label": "Kontekst i źródła research"
+        },
+        {
+          "path": "analysis/research-context/provenance.json",
+          "label": "Pochodzenie snapshotów"
+        }
+      ],
+      "gate": {
+        "question": null,
+        "answer": null
+      },
+      "started": "2026-10-04T11:05:21Z",
+      "completed": "2026-10-04T11:08:54Z"
+    },
+    "phase_2": {
+      "summary": "Zakres implementacji obejmuje narzędzie oraz domknięcie zadań dowodowych K1–K10; cel G1/N1/C1 zachowany. Oczekuje bramka zakresu przed specyfikacją.",
+      "decisions": [
+        "G1/N1/C1 już zatwierdzone; nie są ponownie głosowane"
+      ],
+      "risks": [
+        "Dalsze dowody mogą ujawnić rzeczywisty wybór językowej polityki",
+        "Pełnego wyniku nie można odebrać przy nierozstrzygnięciach zmieniających listy"
+      ],
+      "artifacts": [
+        {
+          "path": "analysis/gap-analysis.md",
+          "label": "Luki i zakres implementacji"
+        }
+      ],
+      "gate": {
+        "id": "scope_approval",
+        "status": "pending",
+        "question": "Czy zatwierdzasz zakres implementacji opisany w analizie luk, obejmujący narzędzie i domknięcie dowodów językowych?",
+        "options": {
+          "A": "Zatwierdź cały zakres i przejdź do specyfikacji oraz planu (rekomendowane).",
+          "B": "Wskaż korektę zakresu przed specyfikacją."
+        },
+        "answer": null
+      },
+      "started": "2026-10-04T11:08:54Z",
+      "completed": null
+    }
+  },
+  "verification_context": {
+    "last_status": null,
+    "issues_found": [],
+    "fixes_applied": [],
+    "decisions_made": [],
+    "reverify_count": 0
+  },
+  "task_context": {
+    "research_reference": {
+      "task_path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow",
+      "approved_revision": "6361a1b",
+      "provenance": "analysis/research-context/provenance.json",
+      "selected_decisions": [
+        "G1",
+        "N1",
+        "C1"
+      ],
+      "design_approved": true
+    },
+    "authorization": {
+      "user_request": "wykonaj implementacje tej fazy",
+      "recorded_at": "2026-10-04T11:05:21Z",
+      "scope": "pierwszy generator według zatwierdzonego projektu"
+    },
+    "applicable_standards": [
+      "AGENTS.md"
+    ],
+    "project_documents": [
+      "docs/literaki-niezalezne-slowniki-prompt-v3.md",
+      "docs/odtwarzanie-audytu.md"
+    ],
+    "characteristics": {
+      "has_reproducible_defect": false,
+      "modifies_existing": true,
+      "new_capability": true,
+      "data_operations": true,
+      "ui_heavy": false,
+      "risk_level": "high"
+    },
+    "source_coverage": {
+      "codepaths": "reviewed_by_coordinator",
+      "evidence_gaps": "reviewed_by_coordinator",
+      "research_artifacts": "verified"
+    },
+    "implementation_started": false,
+    "conditional_phases": {
+      "phase_3": {
+        "enabled": false,
+        "reason": "Nowa funkcjonalność, bez reprodukowalnego defektu; test-first będzie w grupach implementacji."
+      },
+      "phase_4": {
+        "enabled": false,
+        "reason": "Lokalne CLI, brak UI-heavy."
+      },
+      "phase_6": {
+        "recommended": true,
+        "reason": "Integralność danych i niejednoznaczne reguły."
+      }
+    }
+  }
+}
