@@ -5,7 +5,7 @@
 Dziewięć grup i 36 kroków obejmuje narzędzie, dowody językowe i pełny odbiór K1–K10.
 Wykonanie sekwencyjne: fundament → import → dowody → reguły → KWJP → explain/raporty → wydanie → dwa pełne przebiegi → dokumentacja.
 Każda grupa kodowa zaczyna od testów; pilot i INCOMPLETE nie są końcowym wynikiem.
-Status: plan do zatwierdzenia przed fazą implementacji.
+Status: plan zatwierdzony przez użytkownika odpowiedzią A; implementacja rozpoczęta.
 
 ## Key Decisions
 
@@ -47,19 +47,19 @@ W każdym kroku rollback oznacza zatrzymanie nowego przebiegu i zachowanie poprz
 
 Zależności: zatwierdzony plan. Pliki: `literaki_slownik/{__init__,__main__,cli,inputs,run,canonical}.py`, `tests/{__init__,helpers,test_inputs,test_run,test_cli}.py`, `config/generator/{sources,profile,quality}.json`. Kontrola K1/K8; R01/R08/R11.
 
-- [ ] 1.1 Test-first: manifest poprawny/błędny, role, BLOCKED/benchmark/wyłączone pochodzenie, hash, ścieżki względne i istniejący katalog; fixtures jawnie testowe.
-- [ ] 1.2 Wdrożyć jawny schemat wejść i inspect-sources, SHA256 strumieniowo, typy/role/proweniencję, metadane źródeł/dowodów oraz profil 32 liter/2–15.
-- [ ] 1.3 Wdrożyć szkielet CLI i obsługę kodów wyjścia/JSON/stderr, statusy etapów i atomowy manifest; nowe katalogi bez nadpisywania; brak efektów importu modułu.
-- [ ] 1.4 Green dla testów G1; `python3 -m literaki_slownik --help` i `inspect-sources --help`; przejrzeć zmapowanie 1 SGJP/13 KWJP względem rejestrów, nie dopuszczać fikstury do produkcyjnego VERIFIED.
+- [x] 1.1 Test-first: manifest poprawny/błędny, role, BLOCKED/benchmark/wyłączone pochodzenie, hash, ścieżki względne i istniejący katalog; fixtures jawnie testowe.
+- [x] 1.2 Wdrożyć jawny schemat wejść i inspect-sources, SHA256 strumieniowo, typy/role/proweniencję, metadane źródeł/dowodów oraz profil 32 liter/2–15.
+- [x] 1.3 Wdrożyć szkielet CLI i obsługę kodów wyjścia/JSON/stderr, statusy etapów i atomowy manifest; nowe katalogi bez nadpisywania; brak efektów importu modułu.
+- [x] 1.4 Green dla testów G1; `python3 -m literaki_slownik --help` i `inspect-sources --help`; przejrzeć zmapowanie 1 SGJP/13 KWJP względem rejestrów, nie dopuszczać fikstury do produkcyjnego VERIFIED.
 
 ### G2 — baza oraz pełne parsery/import
 
 Zależności: G1. Pliki: `literaki_slownik/{database,sgjp,kwjp,build}.py`, `literaki_slownik/schema.sql`, `tests/{test_database,test_sgjp,test_kwjp,test_build}.py`. K2/K8; R02/R08.
 
-- [ ] 2.1 Test-first: UTF-8/gzip, pięć pól, brak nagłówka, duplikaty, pełne ID homonimu i rozwinięcia tagów; CSV lemma/orth/orth_lc/bigram, puste nagłówki, decimal/zera, uszkodzenie i błąd po commicie porcji.
-- [ ] 2.2 Wdrożyć schemat/FK/unikalności i strumieniowe importy z porcjami do 10 000 rekordów, surowe zapisy i odrębne jednostki; failed/running nie oznacza kompletności.
-- [ ] 2.3 Dodać rozliczenie importu, indeksy wyszukiwania i pełną inwentaryzację tagów/kombinacji; uruchomić pełny import przypiętych źródeł w nowym katalogu diagnostycznym, bez wydania.
-- [ ] 2.4 Green dla G2 i baseline audytu; zachować raport rzeczywistych metryk versus manifest/rejestry, jawnie wyjaśnić różnice jednostek, nie zmieniać historycznych statystyk.
+- [x] 2.1 Test-first: UTF-8/gzip, pięć pól, brak nagłówka, duplikaty, pełne ID homonimu i rozwinięcia tagów; CSV lemma/orth/orth_lc/bigram, puste nagłówki, decimal/zera, uszkodzenie i błąd po commicie porcji.
+- [x] 2.2 Wdrożyć schemat/FK/unikalności i strumieniowe importy z porcjami do 10 000 rekordów, surowe zapisy i odrębne jednostki; failed/running nie oznacza kompletności.
+- [x] 2.3 Dodać rozliczenie importu, indeksy wyszukiwania i pełną inwentaryzację tagów/kombinacji; uruchomić pełny import przypiętych źródeł w nowym katalogu diagnostycznym, bez wydania.
+- [x] 2.4 Green dla G2 i baseline audytu; zachować raport rzeczywistych metryk versus manifest/rejestry, jawnie wyjaśnić różnice jednostek, nie zmieniać historycznych statystyk.
 
 ### G3 — domknięcie dowodów językowych i mapowania
 

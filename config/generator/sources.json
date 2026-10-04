@@ -1,0 +1,781 @@
+{
+  "schema_version": 1,
+  "project": "literaki-slownik",
+  "mode": "production",
+  "artifacts": [
+    {
+      "source_id": "sgjp-20260823",
+      "kind": "sgjp_tab",
+      "role": "lexical",
+      "origin": "SGJP",
+      "status": "ALLOWED",
+      "path": "../../cache/sgjp/sgjp-20260823.tab.gz",
+      "sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+      "version": "pl.sgjp.sgjp-2026.08.24",
+      "url": "https://download.sgjp.pl/morfeusz/20260823/sgjp-20260823.tab.gz",
+      "retrieved_at": "2026-10-04T02:04:27Z",
+      "authors": "Copyright © 2007–2026 Marcin Woliński, Zbigniew Bronk, Włodzimierz Gruszczyński, Witold Kieraś, Zygmunt Saloni, Danuta Skowrońska, Robert Wołosz",
+      "license": "BSD-2-Clause 2-Clause",
+      "license_scope": "Ten tekstowy eksport SGJP, nie pełna baza internetowa.",
+      "used_for": "generator: leksemy/fleksja",
+      "attribution": "Copyright © 2007–2026 Marcin Woliński, Zbigniew Bronk, Włodzimierz Gruszczyński, Witold Kieraś, Zygmunt Saloni, Danuta Skowrońska, Robert Wołosz\n\nAll rights reserved.\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are\nmet:\n\nRedistributions of source code must retain the above copyright notice,\nthis list of conditions and the following disclaimer.\nRedistributions in binary form must reproduce the above copyright\nnotice, this list of conditions and the following disclaimer in the\ndocumentation and/or other materials provided with the distribution.\n\nTHIS SOFTWARE IS PROVIDED BY COPYRIGHT HOLDERS “AS IS” AND ANY EXPRESS\nOR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\nWARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS OR CONTRIBUTORS BE\nLIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\nCONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF\nSUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS\nINTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN\nCONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)\nARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF\nTHE POSSIBILITY OF SUCH DAMAGE.\n",
+      "dependencies": "Eksport SGJP; dokumentacja oddziela SGJP od PoliMorfa. Cała historia redakcyjna SGJP nie została ustalona. Nie uruchomiono analizatora z domyślnym słownikiem.",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/sgjp-license.txt",
+          "sha256": "8c7dbdfb6d5398a85b79c3d839f5b161cb3499502a31ac8f0bac0b43cd52a4d8"
+        },
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/sgjp-source.json",
+          "sha256": "7c689df74ed250419bd4ec337eee6b821467c900aac08970d0290f4f40000020"
+        }
+      ],
+      "expected_counts": {
+        "records": 7458520
+      }
+    },
+    {
+      "source_id": "KWJP100-kwjp100-slowa-lemma-all",
+      "kind": "kwjp_lemma",
+      "role": "corpus_evidence",
+      "origin": "KWJP",
+      "status": "ALLOWED",
+      "path": "../../cache/kwjp/kwjp100-slowa-lemma-all.csv.gz",
+      "sha256": "5206e80669a054ad4d3c9d39b7643d13e75435afa3612a15d2847f39f42bb5fc",
+      "version": "26d82bd8b906dfed1cfcf8f903b1650b56daeabf",
+      "url": "https://raw.githubusercontent.com/ipipan/kwjp100-varia/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/freqlists/kwjp100-slowa-lemma-all.csv.gz",
+      "retrieved_at": "2026-10-04T02:01:58.689474+00:00",
+      "authors": "Instytut Podstaw Informatyki PAN; zespół KWJP (Marciniak i in., 2023; Kieraś i in., 2025)",
+      "license": "Creative Commons Attribution 4.0",
+      "license_scope": "Wszystkie zasoby zamieszczone w repozytorium, w tym ten plik freqlists; nie przenosimy deklaracji na pełne teksty całego korpusu ani witrynę.",
+      "used_for": "generator: dowody użycia, bez rozszerzania leksemów",
+      "attribution": "Źródło danych: Korpus Współczesnego Języka Polskiego (IPI PAN), kwjp100-varia, commit 26d82bd8b906dfed1cfcf8f903b1650b56daeabf, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Audyt i wyliczenia: projekt literaki-slownik; przetworzono format i obliczono statystyki. Autorzy i zalecane cytowanie: https://kwjp.pl/overview.",
+      "dependencies": "Listy z KWJP100; automatyczna Hydra, korekta lematów Morfeusz SGJP. Składnia Hydra/HerBERT, PDB/Składnica; nazwy PolDeepNer2/NKJP1M. Nieustalone wersje modeli/słownika anotacji i pełne pochodzenie danych treningowych; nie są to bezpośrednie wejścia generatora.",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md",
+          "sha256": "86151fe216ef801a0badd0012d3d22ec536b356feca74093b5e5ead9b14b19d8"
+        },
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json",
+          "sha256": "c3495f85fa50cc089db1d60f61e049570679cbde57e9d0b779cad7a79f3d87f8"
+        }
+      ],
+      "genre": "all",
+      "header": [
+        "",
+        "",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "columns": [
+        "lemma",
+        "pos",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "publication_threshold": 5,
+      "denominator": 81664894,
+      "expected_counts": {
+        "records": 184917,
+        "sum_freq": 81664894
+      }
+    },
+    {
+      "source_id": "KWJP100-kwjp100-slowa-lemma-fakt",
+      "kind": "kwjp_lemma",
+      "role": "corpus_evidence",
+      "origin": "KWJP",
+      "status": "ALLOWED",
+      "path": "../../cache/kwjp/kwjp100-slowa-lemma-fakt.csv.gz",
+      "sha256": "ee427e7461006ab968f5e7c4590332918071268447d5cccac5eb059ad1b4def0",
+      "version": "26d82bd8b906dfed1cfcf8f903b1650b56daeabf",
+      "url": "https://raw.githubusercontent.com/ipipan/kwjp100-varia/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/freqlists/kwjp100-slowa-lemma-fakt.csv.gz",
+      "retrieved_at": "2026-10-04T02:02:31.340666+00:00",
+      "authors": "Instytut Podstaw Informatyki PAN; zespół KWJP (Marciniak i in., 2023; Kieraś i in., 2025)",
+      "license": "Creative Commons Attribution 4.0",
+      "license_scope": "Wszystkie zasoby zamieszczone w repozytorium, w tym ten plik freqlists; nie przenosimy deklaracji na pełne teksty całego korpusu ani witrynę.",
+      "used_for": "generator: dowody użycia, bez rozszerzania leksemów",
+      "attribution": "Źródło danych: Korpus Współczesnego Języka Polskiego (IPI PAN), kwjp100-varia, commit 26d82bd8b906dfed1cfcf8f903b1650b56daeabf, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Audyt i wyliczenia: projekt literaki-slownik; przetworzono format i obliczono statystyki. Autorzy i zalecane cytowanie: https://kwjp.pl/overview.",
+      "dependencies": "Listy z KWJP100; automatyczna Hydra, korekta lematów Morfeusz SGJP. Składnia Hydra/HerBERT, PDB/Składnica; nazwy PolDeepNer2/NKJP1M. Nieustalone wersje modeli/słownika anotacji i pełne pochodzenie danych treningowych; nie są to bezpośrednie wejścia generatora.",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md",
+          "sha256": "86151fe216ef801a0badd0012d3d22ec536b356feca74093b5e5ead9b14b19d8"
+        },
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json",
+          "sha256": "c3495f85fa50cc089db1d60f61e049570679cbde57e9d0b779cad7a79f3d87f8"
+        }
+      ],
+      "genre": "fakt",
+      "header": [
+        "",
+        "",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "columns": [
+        "lemma",
+        "pos",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "publication_threshold": 5,
+      "denominator": 28579794,
+      "expected_counts": {
+        "records": 164651,
+        "sum_freq": 28579794
+      }
+    },
+    {
+      "source_id": "KWJP100-kwjp100-slowa-lemma-fikcja",
+      "kind": "kwjp_lemma",
+      "role": "corpus_evidence",
+      "origin": "KWJP",
+      "status": "ALLOWED",
+      "path": "../../cache/kwjp/kwjp100-slowa-lemma-fikcja.csv.gz",
+      "sha256": "cd9e6628acfce40837c4e8308031e24c8ffadde6944a52ab26ffacbbaa7000ec",
+      "version": "26d82bd8b906dfed1cfcf8f903b1650b56daeabf",
+      "url": "https://raw.githubusercontent.com/ipipan/kwjp100-varia/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/freqlists/kwjp100-slowa-lemma-fikcja.csv.gz",
+      "retrieved_at": "2026-10-04T02:02:36.781220+00:00",
+      "authors": "Instytut Podstaw Informatyki PAN; zespół KWJP (Marciniak i in., 2023; Kieraś i in., 2025)",
+      "license": "Creative Commons Attribution 4.0",
+      "license_scope": "Wszystkie zasoby zamieszczone w repozytorium, w tym ten plik freqlists; nie przenosimy deklaracji na pełne teksty całego korpusu ani witrynę.",
+      "used_for": "generator: dowody użycia, bez rozszerzania leksemów",
+      "attribution": "Źródło danych: Korpus Współczesnego Języka Polskiego (IPI PAN), kwjp100-varia, commit 26d82bd8b906dfed1cfcf8f903b1650b56daeabf, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Audyt i wyliczenia: projekt literaki-slownik; przetworzono format i obliczono statystyki. Autorzy i zalecane cytowanie: https://kwjp.pl/overview.",
+      "dependencies": "Listy z KWJP100; automatyczna Hydra, korekta lematów Morfeusz SGJP. Składnia Hydra/HerBERT, PDB/Składnica; nazwy PolDeepNer2/NKJP1M. Nieustalone wersje modeli/słownika anotacji i pełne pochodzenie danych treningowych; nie są to bezpośrednie wejścia generatora.",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md",
+          "sha256": "86151fe216ef801a0badd0012d3d22ec536b356feca74093b5e5ead9b14b19d8"
+        },
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json",
+          "sha256": "c3495f85fa50cc089db1d60f61e049570679cbde57e9d0b779cad7a79f3d87f8"
+        }
+      ],
+      "genre": "fikcja",
+      "header": [
+        "",
+        "",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "columns": [
+        "lemma",
+        "pos",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "publication_threshold": 5,
+      "denominator": 24137485,
+      "expected_counts": {
+        "records": 134453,
+        "sum_freq": 24137485
+      }
+    },
+    {
+      "source_id": "KWJP100-kwjp100-slowa-lemma-publicystyka",
+      "kind": "kwjp_lemma",
+      "role": "corpus_evidence",
+      "origin": "KWJP",
+      "status": "ALLOWED",
+      "path": "../../cache/kwjp/kwjp100-slowa-lemma-publicystyka.csv.gz",
+      "sha256": "1e03e221b97ffb67aeadf6294aa381a308f8ece0a896d13de0141844c9543f4e",
+      "version": "26d82bd8b906dfed1cfcf8f903b1650b56daeabf",
+      "url": "https://raw.githubusercontent.com/ipipan/kwjp100-varia/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/freqlists/kwjp100-slowa-lemma-publicystyka.csv.gz",
+      "retrieved_at": "2026-10-04T02:02:31.793620+00:00",
+      "authors": "Instytut Podstaw Informatyki PAN; zespół KWJP (Marciniak i in., 2023; Kieraś i in., 2025)",
+      "license": "Creative Commons Attribution 4.0",
+      "license_scope": "Wszystkie zasoby zamieszczone w repozytorium, w tym ten plik freqlists; nie przenosimy deklaracji na pełne teksty całego korpusu ani witrynę.",
+      "used_for": "generator: dowody użycia, bez rozszerzania leksemów",
+      "attribution": "Źródło danych: Korpus Współczesnego Języka Polskiego (IPI PAN), kwjp100-varia, commit 26d82bd8b906dfed1cfcf8f903b1650b56daeabf, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Audyt i wyliczenia: projekt literaki-slownik; przetworzono format i obliczono statystyki. Autorzy i zalecane cytowanie: https://kwjp.pl/overview.",
+      "dependencies": "Listy z KWJP100; automatyczna Hydra, korekta lematów Morfeusz SGJP. Składnia Hydra/HerBERT, PDB/Składnica; nazwy PolDeepNer2/NKJP1M. Nieustalone wersje modeli/słownika anotacji i pełne pochodzenie danych treningowych; nie są to bezpośrednie wejścia generatora.",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md",
+          "sha256": "86151fe216ef801a0badd0012d3d22ec536b356feca74093b5e5ead9b14b19d8"
+        },
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json",
+          "sha256": "c3495f85fa50cc089db1d60f61e049570679cbde57e9d0b779cad7a79f3d87f8"
+        }
+      ],
+      "genre": "publicystyka",
+      "header": [
+        "",
+        "",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "columns": [
+        "lemma",
+        "pos",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "publication_threshold": 5,
+      "denominator": 28947615,
+      "expected_counts": {
+        "records": 157968,
+        "sum_freq": 28947615
+      }
+    },
+    {
+      "source_id": "KWJP100-kwjp100-slowa-orth-all",
+      "kind": "kwjp_orth",
+      "role": "corpus_evidence",
+      "origin": "KWJP",
+      "status": "ALLOWED",
+      "path": "../../cache/kwjp/kwjp100-slowa-orth-all.csv.gz",
+      "sha256": "95e27d103250f23533bf5b87accf846fb489d2b5ea3914950857163a22ae4a5a",
+      "version": "26d82bd8b906dfed1cfcf8f903b1650b56daeabf",
+      "url": "https://raw.githubusercontent.com/ipipan/kwjp100-varia/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/freqlists/kwjp100-slowa-orth-all.csv.gz",
+      "retrieved_at": "2026-10-04T02:02:32.472193+00:00",
+      "authors": "Instytut Podstaw Informatyki PAN; zespół KWJP (Marciniak i in., 2023; Kieraś i in., 2025)",
+      "license": "Creative Commons Attribution 4.0",
+      "license_scope": "Wszystkie zasoby zamieszczone w repozytorium, w tym ten plik freqlists; nie przenosimy deklaracji na pełne teksty całego korpusu ani witrynę.",
+      "used_for": "generator: dowody użycia, bez rozszerzania leksemów",
+      "attribution": "Źródło danych: Korpus Współczesnego Języka Polskiego (IPI PAN), kwjp100-varia, commit 26d82bd8b906dfed1cfcf8f903b1650b56daeabf, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Audyt i wyliczenia: projekt literaki-slownik; przetworzono format i obliczono statystyki. Autorzy i zalecane cytowanie: https://kwjp.pl/overview.",
+      "dependencies": "Listy z KWJP100; automatyczna Hydra, korekta lematów Morfeusz SGJP. Składnia Hydra/HerBERT, PDB/Składnica; nazwy PolDeepNer2/NKJP1M. Nieustalone wersje modeli/słownika anotacji i pełne pochodzenie danych treningowych; nie są to bezpośrednie wejścia generatora.",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md",
+          "sha256": "86151fe216ef801a0badd0012d3d22ec536b356feca74093b5e5ead9b14b19d8"
+        },
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json",
+          "sha256": "c3495f85fa50cc089db1d60f61e049570679cbde57e9d0b779cad7a79f3d87f8"
+        }
+      ],
+      "genre": "all",
+      "header": [
+        "",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "columns": [
+        "form",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "publication_threshold": 5,
+      "denominator": 81042800,
+      "expected_counts": {
+        "records": 419961,
+        "sum_freq": 81042800
+      }
+    },
+    {
+      "source_id": "KWJP100-kwjp100-slowa-orth-fakt",
+      "kind": "kwjp_orth",
+      "role": "corpus_evidence",
+      "origin": "KWJP",
+      "status": "ALLOWED",
+      "path": "../../cache/kwjp/kwjp100-slowa-orth-fakt.csv.gz",
+      "sha256": "5299fa7c72ac57820d0248e510c95f272f60639695b1abe718beb825eee400bb",
+      "version": "26d82bd8b906dfed1cfcf8f903b1650b56daeabf",
+      "url": "https://raw.githubusercontent.com/ipipan/kwjp100-varia/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/freqlists/kwjp100-slowa-orth-fakt.csv.gz",
+      "retrieved_at": "2026-10-04T02:04:37.342269+00:00",
+      "authors": "Instytut Podstaw Informatyki PAN; zespół KWJP (Marciniak i in., 2023; Kieraś i in., 2025)",
+      "license": "Creative Commons Attribution 4.0",
+      "license_scope": "Wszystkie zasoby zamieszczone w repozytorium, w tym ten plik freqlists; nie przenosimy deklaracji na pełne teksty całego korpusu ani witrynę.",
+      "used_for": "generator: dowody użycia, bez rozszerzania leksemów",
+      "attribution": "Źródło danych: Korpus Współczesnego Języka Polskiego (IPI PAN), kwjp100-varia, commit 26d82bd8b906dfed1cfcf8f903b1650b56daeabf, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Audyt i wyliczenia: projekt literaki-slownik; przetworzono format i obliczono statystyki. Autorzy i zalecane cytowanie: https://kwjp.pl/overview.",
+      "dependencies": "Listy z KWJP100; automatyczna Hydra, korekta lematów Morfeusz SGJP. Składnia Hydra/HerBERT, PDB/Składnica; nazwy PolDeepNer2/NKJP1M. Nieustalone wersje modeli/słownika anotacji i pełne pochodzenie danych treningowych; nie są to bezpośrednie wejścia generatora.",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md",
+          "sha256": "86151fe216ef801a0badd0012d3d22ec536b356feca74093b5e5ead9b14b19d8"
+        },
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json",
+          "sha256": "c3495f85fa50cc089db1d60f61e049570679cbde57e9d0b779cad7a79f3d87f8"
+        }
+      ],
+      "genre": "fakt",
+      "header": [
+        "",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "columns": [
+        "form",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "publication_threshold": 5,
+      "denominator": 28326758,
+      "expected_counts": {
+        "records": 384453,
+        "sum_freq": 28326758
+      }
+    },
+    {
+      "source_id": "KWJP100-kwjp100-slowa-orth-fikcja",
+      "kind": "kwjp_orth",
+      "role": "corpus_evidence",
+      "origin": "KWJP",
+      "status": "ALLOWED",
+      "path": "../../cache/kwjp/kwjp100-slowa-orth-fikcja.csv.gz",
+      "sha256": "4f88136ffc9beca8917538726cc00f7688945389a787f09bc746e6bcf7423b8d",
+      "version": "26d82bd8b906dfed1cfcf8f903b1650b56daeabf",
+      "url": "https://raw.githubusercontent.com/ipipan/kwjp100-varia/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/freqlists/kwjp100-slowa-orth-fikcja.csv.gz",
+      "retrieved_at": "2026-10-04T02:04:37.011981+00:00",
+      "authors": "Instytut Podstaw Informatyki PAN; zespół KWJP (Marciniak i in., 2023; Kieraś i in., 2025)",
+      "license": "Creative Commons Attribution 4.0",
+      "license_scope": "Wszystkie zasoby zamieszczone w repozytorium, w tym ten plik freqlists; nie przenosimy deklaracji na pełne teksty całego korpusu ani witrynę.",
+      "used_for": "generator: dowody użycia, bez rozszerzania leksemów",
+      "attribution": "Źródło danych: Korpus Współczesnego Języka Polskiego (IPI PAN), kwjp100-varia, commit 26d82bd8b906dfed1cfcf8f903b1650b56daeabf, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Audyt i wyliczenia: projekt literaki-slownik; przetworzono format i obliczono statystyki. Autorzy i zalecane cytowanie: https://kwjp.pl/overview.",
+      "dependencies": "Listy z KWJP100; automatyczna Hydra, korekta lematów Morfeusz SGJP. Składnia Hydra/HerBERT, PDB/Składnica; nazwy PolDeepNer2/NKJP1M. Nieustalone wersje modeli/słownika anotacji i pełne pochodzenie danych treningowych; nie są to bezpośrednie wejścia generatora.",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md",
+          "sha256": "86151fe216ef801a0badd0012d3d22ec536b356feca74093b5e5ead9b14b19d8"
+        },
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json",
+          "sha256": "c3495f85fa50cc089db1d60f61e049570679cbde57e9d0b779cad7a79f3d87f8"
+        }
+      ],
+      "genre": "fikcja",
+      "header": [
+        "",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "columns": [
+        "form",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "publication_threshold": 5,
+      "denominator": 23956698,
+      "expected_counts": {
+        "records": 331568,
+        "sum_freq": 23956698
+      }
+    },
+    {
+      "source_id": "KWJP100-kwjp100-slowa-orth-publicystyka",
+      "kind": "kwjp_orth",
+      "role": "corpus_evidence",
+      "origin": "KWJP",
+      "status": "ALLOWED",
+      "path": "../../cache/kwjp/kwjp100-slowa-orth-publicystyka.csv.gz",
+      "sha256": "f5dda9f1c7c36b2cf4c89d38e924425c7d24bb425b1e5ad68b616d560245ade6",
+      "version": "26d82bd8b906dfed1cfcf8f903b1650b56daeabf",
+      "url": "https://raw.githubusercontent.com/ipipan/kwjp100-varia/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/freqlists/kwjp100-slowa-orth-publicystyka.csv.gz",
+      "retrieved_at": "2026-10-04T02:04:36.759136+00:00",
+      "authors": "Instytut Podstaw Informatyki PAN; zespół KWJP (Marciniak i in., 2023; Kieraś i in., 2025)",
+      "license": "Creative Commons Attribution 4.0",
+      "license_scope": "Wszystkie zasoby zamieszczone w repozytorium, w tym ten plik freqlists; nie przenosimy deklaracji na pełne teksty całego korpusu ani witrynę.",
+      "used_for": "generator: dowody użycia, bez rozszerzania leksemów",
+      "attribution": "Źródło danych: Korpus Współczesnego Języka Polskiego (IPI PAN), kwjp100-varia, commit 26d82bd8b906dfed1cfcf8f903b1650b56daeabf, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Audyt i wyliczenia: projekt literaki-slownik; przetworzono format i obliczono statystyki. Autorzy i zalecane cytowanie: https://kwjp.pl/overview.",
+      "dependencies": "Listy z KWJP100; automatyczna Hydra, korekta lematów Morfeusz SGJP. Składnia Hydra/HerBERT, PDB/Składnica; nazwy PolDeepNer2/NKJP1M. Nieustalone wersje modeli/słownika anotacji i pełne pochodzenie danych treningowych; nie są to bezpośrednie wejścia generatora.",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md",
+          "sha256": "86151fe216ef801a0badd0012d3d22ec536b356feca74093b5e5ead9b14b19d8"
+        },
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json",
+          "sha256": "c3495f85fa50cc089db1d60f61e049570679cbde57e9d0b779cad7a79f3d87f8"
+        }
+      ],
+      "genre": "publicystyka",
+      "header": [
+        "",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "columns": [
+        "form",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "publication_threshold": 5,
+      "denominator": 28759344,
+      "expected_counts": {
+        "records": 366287,
+        "sum_freq": 28759344
+      }
+    },
+    {
+      "source_id": "KWJP100-kwjp100-slowa-orth_lc-all",
+      "kind": "kwjp_orth_lc",
+      "role": "corpus_evidence",
+      "origin": "KWJP",
+      "status": "ALLOWED",
+      "path": "../../cache/kwjp/kwjp100-slowa-orth_lc-all.csv.gz",
+      "sha256": "20f71004b99ba9ebb158e68360aa88c627aa2e0f4ce43e18979187b0a2fa3949",
+      "version": "26d82bd8b906dfed1cfcf8f903b1650b56daeabf",
+      "url": "https://raw.githubusercontent.com/ipipan/kwjp100-varia/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/freqlists/kwjp100-slowa-orth_lc-all.csv.gz",
+      "retrieved_at": "2026-10-04T02:02:32.183431+00:00",
+      "authors": "Instytut Podstaw Informatyki PAN; zespół KWJP (Marciniak i in., 2023; Kieraś i in., 2025)",
+      "license": "Creative Commons Attribution 4.0",
+      "license_scope": "Wszystkie zasoby zamieszczone w repozytorium, w tym ten plik freqlists; nie przenosimy deklaracji na pełne teksty całego korpusu ani witrynę.",
+      "used_for": "generator: dowody użycia, bez rozszerzania leksemów",
+      "attribution": "Źródło danych: Korpus Współczesnego Języka Polskiego (IPI PAN), kwjp100-varia, commit 26d82bd8b906dfed1cfcf8f903b1650b56daeabf, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Audyt i wyliczenia: projekt literaki-slownik; przetworzono format i obliczono statystyki. Autorzy i zalecane cytowanie: https://kwjp.pl/overview.",
+      "dependencies": "Listy z KWJP100; automatyczna Hydra, korekta lematów Morfeusz SGJP. Składnia Hydra/HerBERT, PDB/Składnica; nazwy PolDeepNer2/NKJP1M. Nieustalone wersje modeli/słownika anotacji i pełne pochodzenie danych treningowych; nie są to bezpośrednie wejścia generatora.",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md",
+          "sha256": "86151fe216ef801a0badd0012d3d22ec536b356feca74093b5e5ead9b14b19d8"
+        },
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json",
+          "sha256": "c3495f85fa50cc089db1d60f61e049570679cbde57e9d0b779cad7a79f3d87f8"
+        }
+      ],
+      "genre": "all",
+      "header": [
+        "",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "columns": [
+        "form",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "publication_threshold": 5,
+      "denominator": 81318653,
+      "expected_counts": {
+        "records": 360472,
+        "sum_freq": 81318653
+      }
+    },
+    {
+      "source_id": "KWJP100-kwjp100-slowa-orth_lc-fakt",
+      "kind": "kwjp_orth_lc",
+      "role": "corpus_evidence",
+      "origin": "KWJP",
+      "status": "ALLOWED",
+      "path": "../../cache/kwjp/kwjp100-slowa-orth_lc-fakt.csv.gz",
+      "sha256": "0de4f9a434b143abe0127001145a96d0938d61168f6d22ce91a93c6c905accbf",
+      "version": "26d82bd8b906dfed1cfcf8f903b1650b56daeabf",
+      "url": "https://raw.githubusercontent.com/ipipan/kwjp100-varia/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/freqlists/kwjp100-slowa-orth_lc-fakt.csv.gz",
+      "retrieved_at": "2026-10-04T02:04:36.830102+00:00",
+      "authors": "Instytut Podstaw Informatyki PAN; zespół KWJP (Marciniak i in., 2023; Kieraś i in., 2025)",
+      "license": "Creative Commons Attribution 4.0",
+      "license_scope": "Wszystkie zasoby zamieszczone w repozytorium, w tym ten plik freqlists; nie przenosimy deklaracji na pełne teksty całego korpusu ani witrynę.",
+      "used_for": "generator: dowody użycia, bez rozszerzania leksemów",
+      "attribution": "Źródło danych: Korpus Współczesnego Języka Polskiego (IPI PAN), kwjp100-varia, commit 26d82bd8b906dfed1cfcf8f903b1650b56daeabf, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Audyt i wyliczenia: projekt literaki-slownik; przetworzono format i obliczono statystyki. Autorzy i zalecane cytowanie: https://kwjp.pl/overview.",
+      "dependencies": "Listy z KWJP100; automatyczna Hydra, korekta lematów Morfeusz SGJP. Składnia Hydra/HerBERT, PDB/Składnica; nazwy PolDeepNer2/NKJP1M. Nieustalone wersje modeli/słownika anotacji i pełne pochodzenie danych treningowych; nie są to bezpośrednie wejścia generatora.",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md",
+          "sha256": "86151fe216ef801a0badd0012d3d22ec536b356feca74093b5e5ead9b14b19d8"
+        },
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json",
+          "sha256": "c3495f85fa50cc089db1d60f61e049570679cbde57e9d0b779cad7a79f3d87f8"
+        }
+      ],
+      "genre": "fakt",
+      "header": [
+        "",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "columns": [
+        "form",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "publication_threshold": 5,
+      "denominator": 28437454,
+      "expected_counts": {
+        "records": 331932,
+        "sum_freq": 28437454
+      }
+    },
+    {
+      "source_id": "KWJP100-kwjp100-slowa-orth_lc-fikcja",
+      "kind": "kwjp_orth_lc",
+      "role": "corpus_evidence",
+      "origin": "KWJP",
+      "status": "ALLOWED",
+      "path": "../../cache/kwjp/kwjp100-slowa-orth_lc-fikcja.csv.gz",
+      "sha256": "6bcd39734d890e415e9104953d6002ba3da453aa10bcd725d40fb891f4e8d501",
+      "version": "26d82bd8b906dfed1cfcf8f903b1650b56daeabf",
+      "url": "https://raw.githubusercontent.com/ipipan/kwjp100-varia/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/freqlists/kwjp100-slowa-orth_lc-fikcja.csv.gz",
+      "retrieved_at": "2026-10-04T02:04:38.313497+00:00",
+      "authors": "Instytut Podstaw Informatyki PAN; zespół KWJP (Marciniak i in., 2023; Kieraś i in., 2025)",
+      "license": "Creative Commons Attribution 4.0",
+      "license_scope": "Wszystkie zasoby zamieszczone w repozytorium, w tym ten plik freqlists; nie przenosimy deklaracji na pełne teksty całego korpusu ani witrynę.",
+      "used_for": "generator: dowody użycia, bez rozszerzania leksemów",
+      "attribution": "Źródło danych: Korpus Współczesnego Języka Polskiego (IPI PAN), kwjp100-varia, commit 26d82bd8b906dfed1cfcf8f903b1650b56daeabf, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Audyt i wyliczenia: projekt literaki-slownik; przetworzono format i obliczono statystyki. Autorzy i zalecane cytowanie: https://kwjp.pl/overview.",
+      "dependencies": "Listy z KWJP100; automatyczna Hydra, korekta lematów Morfeusz SGJP. Składnia Hydra/HerBERT, PDB/Składnica; nazwy PolDeepNer2/NKJP1M. Nieustalone wersje modeli/słownika anotacji i pełne pochodzenie danych treningowych; nie są to bezpośrednie wejścia generatora.",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md",
+          "sha256": "86151fe216ef801a0badd0012d3d22ec536b356feca74093b5e5ead9b14b19d8"
+        },
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json",
+          "sha256": "c3495f85fa50cc089db1d60f61e049570679cbde57e9d0b779cad7a79f3d87f8"
+        }
+      ],
+      "genre": "fikcja",
+      "header": [
+        "",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "columns": [
+        "form",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "publication_threshold": 5,
+      "denominator": 24032881,
+      "expected_counts": {
+        "records": 287133,
+        "sum_freq": 24032881
+      }
+    },
+    {
+      "source_id": "KWJP100-kwjp100-slowa-orth_lc-publicystyka",
+      "kind": "kwjp_orth_lc",
+      "role": "corpus_evidence",
+      "origin": "KWJP",
+      "status": "ALLOWED",
+      "path": "../../cache/kwjp/kwjp100-slowa-orth_lc-publicystyka.csv.gz",
+      "sha256": "5c8351319a629f43a6d61fb1b14cbf4de4a5c062cf4212d6d8ea8d594b5ed5b4",
+      "version": "26d82bd8b906dfed1cfcf8f903b1650b56daeabf",
+      "url": "https://raw.githubusercontent.com/ipipan/kwjp100-varia/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/freqlists/kwjp100-slowa-orth_lc-publicystyka.csv.gz",
+      "retrieved_at": "2026-10-04T02:04:37.074405+00:00",
+      "authors": "Instytut Podstaw Informatyki PAN; zespół KWJP (Marciniak i in., 2023; Kieraś i in., 2025)",
+      "license": "Creative Commons Attribution 4.0",
+      "license_scope": "Wszystkie zasoby zamieszczone w repozytorium, w tym ten plik freqlists; nie przenosimy deklaracji na pełne teksty całego korpusu ani witrynę.",
+      "used_for": "generator: dowody użycia, bez rozszerzania leksemów",
+      "attribution": "Źródło danych: Korpus Współczesnego Języka Polskiego (IPI PAN), kwjp100-varia, commit 26d82bd8b906dfed1cfcf8f903b1650b56daeabf, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Audyt i wyliczenia: projekt literaki-slownik; przetworzono format i obliczono statystyki. Autorzy i zalecane cytowanie: https://kwjp.pl/overview.",
+      "dependencies": "Listy z KWJP100; automatyczna Hydra, korekta lematów Morfeusz SGJP. Składnia Hydra/HerBERT, PDB/Składnica; nazwy PolDeepNer2/NKJP1M. Nieustalone wersje modeli/słownika anotacji i pełne pochodzenie danych treningowych; nie są to bezpośrednie wejścia generatora.",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md",
+          "sha256": "86151fe216ef801a0badd0012d3d22ec536b356feca74093b5e5ead9b14b19d8"
+        },
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json",
+          "sha256": "c3495f85fa50cc089db1d60f61e049570679cbde57e9d0b779cad7a79f3d87f8"
+        }
+      ],
+      "genre": "publicystyka",
+      "header": [
+        "",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "columns": [
+        "form",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "total_freq"
+      ],
+      "publication_threshold": 5,
+      "denominator": 28848318,
+      "expected_counts": {
+        "records": 315420,
+        "sum_freq": 28848318
+      }
+    },
+    {
+      "source_id": "KWJP100-kwjp100-2grams-lemma-all",
+      "kind": "kwjp_bigram",
+      "role": "corpus_evidence",
+      "origin": "KWJP",
+      "status": "ALLOWED",
+      "path": "../../cache/kwjp/kwjp100-2grams-lemma-all.csv.gz",
+      "sha256": "de3d4750ad814935de52e4847265471c07403bd40d69eeb462a61fc9884833df",
+      "version": "26d82bd8b906dfed1cfcf8f903b1650b56daeabf",
+      "url": "https://raw.githubusercontent.com/ipipan/kwjp100-varia/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/freqlists/kwjp100-2grams-lemma-all.csv.gz",
+      "retrieved_at": "2026-10-04T02:02:32.948132+00:00",
+      "authors": "Instytut Podstaw Informatyki PAN; zespół KWJP (Marciniak i in., 2023; Kieraś i in., 2025)",
+      "license": "Creative Commons Attribution 4.0",
+      "license_scope": "Wszystkie zasoby zamieszczone w repozytorium, w tym ten plik freqlists; nie przenosimy deklaracji na pełne teksty całego korpusu ani witrynę.",
+      "used_for": "generator: dowody użycia, bez rozszerzania leksemów",
+      "attribution": "Źródło danych: Korpus Współczesnego Języka Polskiego (IPI PAN), kwjp100-varia, commit 26d82bd8b906dfed1cfcf8f903b1650b56daeabf, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Audyt i wyliczenia: projekt literaki-slownik; przetworzono format i obliczono statystyki. Autorzy i zalecane cytowanie: https://kwjp.pl/overview.",
+      "dependencies": "Listy z KWJP100; automatyczna Hydra, korekta lematów Morfeusz SGJP. Składnia Hydra/HerBERT, PDB/Składnica; nazwy PolDeepNer2/NKJP1M. Nieustalone wersje modeli/słownika anotacji i pełne pochodzenie danych treningowych; nie są to bezpośrednie wejścia generatora.",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md",
+          "sha256": "86151fe216ef801a0badd0012d3d22ec536b356feca74093b5e5ead9b14b19d8"
+        },
+        {
+          "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json",
+          "sha256": "c3495f85fa50cc089db1d60f61e049570679cbde57e9d0b779cad7a79f3d87f8"
+        }
+      ],
+      "genre": "all",
+      "header": [
+        "",
+        "",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "Dice",
+        "total_freq"
+      ],
+      "columns": [
+        "unit_1",
+        "unit_2",
+        "freq",
+        "ipm",
+        "ARF",
+        "DP",
+        "DP_norm",
+        "1-DP",
+        "Dice",
+        "total_freq"
+      ],
+      "publication_threshold": 5,
+      "denominator": 62690472,
+      "expected_counts": {
+        "records": 1627126,
+        "sum_freq": 62690472
+      }
+    }
+  ],
+  "configurations": {
+    "profile": {
+      "path": "../../config/generator/profile.json",
+      "sha256": "1ce95e7ce4075614d4a914deb3c79d98de6bdd4221f88928581c221f57a87c91"
+    },
+    "quality": {
+      "path": "../../config/generator/quality.json",
+      "sha256": "b70690021c76bba1c296664380fcd3a1d094ccf20cd0a1eac578220b001755b2"
+    }
+  },
+  "unavailable": [
+    {
+      "source_id": "NKJP",
+      "reason": "BLOCKED_LICENSE_VERSION_UNRESOLVED"
+    }
+  ]
+}

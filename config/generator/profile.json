@@ -1,0 +1,9 @@
+{
+  "version": "pl-v1",
+  "alphabet": "aąbcćdeęfghijklłmnńoóprsśtuwyzźż",
+  "minimum": 2,
+  "maximum": 15,
+  "normalization": "NFC",
+  "case": "lower",
+  "blank_in_word": false
+}

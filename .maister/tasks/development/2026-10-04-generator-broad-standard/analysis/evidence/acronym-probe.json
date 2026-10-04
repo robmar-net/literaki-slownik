@@ -1,0 +1,208 @@
+{
+  "scope": "Jednoznaczna nazwa_pospolita, tag subst; wielkie litery jako przesiew, nie dowód klasy skrótowca. Brak końcowej kwalifikacji i delty słownika.",
+  "upper_compact_interpretations": 241,
+  "upper_game_keys": 177,
+  "profile_valid_compact_interpretations": 209,
+  "profile_valid_game_keys": 155,
+  "examples_columns": [
+    "original",
+    "game_key",
+    "lemma_id",
+    "tag",
+    "names",
+    "qualifiers"
+  ],
+  "examples": {
+    "PCR": [
+      [
+        "PCR",
+        "pcr",
+        "PCR",
+        "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:f",
+        "nazwa_pospolita",
+        "biochem."
+      ],
+      [
+        "PCR",
+        "pcr",
+        "PCR",
+        "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:n:ncol",
+        "nazwa_pospolita",
+        "biochem."
+      ]
+    ],
+    "PCV": [
+      [
+        "PCV",
+        "pcv",
+        "PCV",
+        "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:m3",
+        "nazwa_pospolita",
+        "chem."
+      ],
+      [
+        "PCV",
+        "pcv",
+        "PCV",
+        "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:n:ncol",
+        "nazwa_pospolita",
+        "chem."
+      ]
+    ],
+    "PESEL": [
+      [
+        "PESEL",
+        "pesel",
+        "PESEL",
+        "subst:sg:nom.acc:m3",
+        "nazwa_pospolita",
+        ""
+      ]
+    ],
+    "AGD": [
+      [
+        "AGD",
+        "agd",
+        "AGD",
+        "subst:pl:nom.gen.dat.acc.inst.loc.voc:n:pt",
+        "nazwa_pospolita",
+        ""
+      ]
+    ],
+    "RNA": [
+      [
+        "RNA",
+        "rna",
+        "RNA",
+        "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:m3",
+        "nazwa_pospolita",
+        ""
+      ],
+      [
+        "RNA",
+        "rna",
+        "RNA",
+        "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:n:ncol",
+        "nazwa_pospolita",
+        ""
+      ]
+    ],
+    "DNA": [
+      [
+        "DNA",
+        "dna",
+        "DNA",
+        "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:m3",
+        "nazwa_pospolita",
+        ""
+      ],
+      [
+        "DNA",
+        "dna",
+        "DNA",
+        "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:n:ncol",
+        "nazwa_pospolita",
+        ""
+      ]
+    ],
+    "AIDS": [
+      [
+        "AIDS",
+        "aids",
+        "AIDS",
+        "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:m3",
+        "nazwa_pospolita",
+        ""
+      ],
+      [
+        "AIDS",
+        "aids",
+        "AIDS",
+        "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:n:ncol",
+        "nazwa_pospolita",
+        ""
+      ],
+      [
+        "AIDS",
+        "aids",
+        "AIDS",
+        "subst:sg:nom.acc:m3",
+        "nazwa_pospolita",
+        ""
+      ],
+      [
+        "AIDS",
+        "aids",
+        "AIDS",
+        "subst:sg:nom:m2",
+        "nazwa_pospolita",
+        ""
+      ]
+    ],
+    "aids": [
+      [
+        "aids",
+        "aids",
+        "aids",
+        "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:m3",
+        "nazwa_pospolita",
+        ""
+      ],
+      [
+        "aids",
+        "aids",
+        "aids",
+        "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:n:ncol",
+        "nazwa_pospolita",
+        ""
+      ],
+      [
+        "aids",
+        "aids",
+        "aids",
+        "subst:sg:nom.acc:m3",
+        "nazwa_pospolita",
+        ""
+      ],
+      [
+        "aids",
+        "aids",
+        "aids",
+        "subst:sg:nom:m2",
+        "nazwa_pospolita",
+        "pot."
+      ]
+    ]
+  },
+  "source_manifest_sha256": "5873fb214f77726ea5f43ccd0a6a082c283bbb059c95c9b303ead2d8922ae301",
+  "lowercase_other_analyses_columns": [
+    "original",
+    "lemma_id",
+    "tag",
+    "names",
+    "qualifiers"
+  ],
+  "lowercase_other_analyses": [
+    [
+      "dna",
+      "dna",
+      "subst:sg:nom:f",
+      "nazwa_pospolita",
+      ""
+    ],
+    [
+      "dna",
+      "dno",
+      "subst:pl:nom.acc.voc:n:ncol",
+      "nazwa_pospolita",
+      ""
+    ],
+    [
+      "dna",
+      "dno",
+      "subst:sg:gen:n:ncol",
+      "nazwa_pospolita",
+      ""
+    ]
+  ]
+}

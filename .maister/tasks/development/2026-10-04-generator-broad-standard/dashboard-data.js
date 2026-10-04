@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T12:40:22Z",
+  "generated": "2026-10-04T13:17:19Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Zatwierdzenie planu przed implementacją"
+    "current_activity": "G3: oczekiwanie na wybór polityki pospolitych skrótowców"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -200,11 +200,11 @@ window.MAISTER_DATA = {
       "id": "phase_7",
       "name": "Plan implementacji",
       "icon_hint": "analysis",
-      "status": "in_progress",
+      "status": "completed",
       "started": "2026-10-04T12:40:22Z",
-      "completed": null,
+      "completed": "2026-10-04T12:47:44Z",
       "skip_reason": null,
-      "summary": "Plan 9 grup i 36 kroków: kod, dowody językowe, dwa pełne odtworzenia i dokumentacja. Oczekuje zatwierdzenie planu i I1–I3.",
+      "summary": "Plan 9 grup/36 kroków i doprecyzowania I1–I3 zatwierdzone odpowiedzią A.",
       "decisions": [
         "Wykonanie sekwencyjne; koordynator właścicielem wszystkich grup",
         "Test-first grup kodowych; pełny zakres K1–K10 bez pilota zamiast odbioru"
@@ -216,33 +216,55 @@ window.MAISTER_DATA = {
       "artifacts": [
         {
           "path": "implementation/implementation-plan.md",
-          "label": "Plan 9 grup i 36 kroków"
+          "label": "Plan 9 grup i 36 kroków",
+          "html": "implementation/implementation-plan.html"
         }
       ],
       "gate": {
         "id": "plan_approval",
-        "status": "pending",
+        "status": "approved",
         "question": "Czy zatwierdzasz plan dziewięciu grup i doprecyzowania I1–I3, aby rozpocząć implementację?",
         "options": {
           "A": "Zatwierdź plan i rozpocznij implementację (rekomendowane).",
           "B": "Wskaż korektę planu przed implementacją."
         },
-        "answer": null
+        "answer": "A",
+        "answered_at": "2026-10-04T12:47:44Z"
       }
     },
     {
       "id": "phase_8",
       "name": "Implementacja",
       "icon_hint": "analysis",
-      "status": "pending",
-      "started": null,
+      "status": "in_progress",
+      "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": null,
-      "decisions": [],
+      "summary": "G1/G2 complete: pełny import zgodny z audytem; 21 testów generatora i 5 audytu green. G3 trwa; wybór polityki pospolitych skrótowców oczekuje na użytkownika.",
+      "decisions": [
+        "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline"
+      ],
       "risks": [],
-      "artifacts": [],
-      "gate": null
+      "artifacts": [
+        {
+          "path": "analysis/evidence/full-import.json",
+          "label": "Pełny import i zgodność liczników"
+        },
+        {
+          "path": "analysis/evidence/acronym-decision.md",
+          "label": "Wybór polityki skrótowców"
+        }
+      ],
+      "gate": {
+        "id": "common_acronyms_case_policy",
+        "status": "pending",
+        "question": "Czy dopuszczamy pospolite skrótowce zapisywane w SGJP wielkimi literami w BROAD i STANDARD?",
+        "options": {
+          "A": "Dopuść źródłowo potwierdzone pospolite skrótowce; rekomendowane.",
+          "B": "Dopuść tylko ich źródłowe formy małoliterowe."
+        },
+        "answer": null
+      }
     },
     {
       "id": "phase_9",

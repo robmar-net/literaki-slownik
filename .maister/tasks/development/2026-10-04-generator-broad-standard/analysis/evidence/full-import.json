@@ -1,0 +1,99 @@
+{
+  "kind": "diagnostic_import_not_release",
+  "command": "python3 -m literaki_slownik build --manifest config/generator/sources.json --run-dir data/work/import-20261004-1302 --json",
+  "counts": {
+    "KWJP100-kwjp100-2grams-lemma-all": {
+      "records": 1627126,
+      "sum_freq": 62690472
+    },
+    "KWJP100-kwjp100-slowa-lemma-all": {
+      "records": 184917,
+      "sum_freq": 81664894
+    },
+    "KWJP100-kwjp100-slowa-lemma-fakt": {
+      "records": 164651,
+      "sum_freq": 28579794
+    },
+    "KWJP100-kwjp100-slowa-lemma-fikcja": {
+      "records": 134453,
+      "sum_freq": 24137485
+    },
+    "KWJP100-kwjp100-slowa-lemma-publicystyka": {
+      "records": 157968,
+      "sum_freq": 28947615
+    },
+    "KWJP100-kwjp100-slowa-orth-all": {
+      "records": 419961,
+      "sum_freq": 81042800
+    },
+    "KWJP100-kwjp100-slowa-orth-fakt": {
+      "records": 384453,
+      "sum_freq": 28326758
+    },
+    "KWJP100-kwjp100-slowa-orth-fikcja": {
+      "records": 331568,
+      "sum_freq": 23956698
+    },
+    "KWJP100-kwjp100-slowa-orth-publicystyka": {
+      "records": 366287,
+      "sum_freq": 28759344
+    },
+    "KWJP100-kwjp100-slowa-orth_lc-all": {
+      "records": 360472,
+      "sum_freq": 81318653
+    },
+    "KWJP100-kwjp100-slowa-orth_lc-fakt": {
+      "records": 331932,
+      "sum_freq": 28437454
+    },
+    "KWJP100-kwjp100-slowa-orth_lc-fikcja": {
+      "records": 287133,
+      "sum_freq": 24032881
+    },
+    "KWJP100-kwjp100-slowa-orth_lc-publicystyka": {
+      "records": 315420,
+      "sum_freq": 28848318
+    },
+    "sgjp-20260823": {
+      "duplicates": 0,
+      "expanded_alternatives": 17234910,
+      "interpretations": 7458520,
+      "lexemes": 387398,
+      "original_forms": 5028852,
+      "records": 7458520
+    }
+  },
+  "sgjp_audit_comparison": {
+    "expected": {
+      "records": 7458520,
+      "interpretations": 7458520,
+      "expanded_alternatives": 17234910,
+      "original_forms": 5028852,
+      "lexemes": 387398
+    },
+    "match": true,
+    "nfc_lower_keys": 4934967,
+    "nfc_lower_keys_audit": 4934967
+  },
+  "performance": {
+    "database_bytes": 4673687552,
+    "import_kwjp": {
+      "seconds": 277.9129225410288
+    },
+    "import_sgjp": {
+      "seconds": 74.67775654199068
+    },
+    "peak_rss": {
+      "unit": "bytes on macOS, KiB on Linux",
+      "value": 255983616
+    }
+  },
+  "readiness": "INCOMPLETE",
+  "pending": [
+    "constructions",
+    "decisions",
+    "links",
+    "reports"
+  ],
+  "definitions": "Rekord to wiersz źródła. Interpretacja jest unikalną piątką pól SGJP. Rozwinięcia gramatyczne to iloczyn alternatyw tagu; nie są dodatkowymi słowami. F KWJP sumujemy po wierszach jednej listy; nie sumujemy gatunków ani list razem."
+}

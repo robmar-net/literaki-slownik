@@ -1,24 +1,26 @@
 {
   "orchestrator": {
     "workflow": "development",
-    "current_phase": "phase_7",
-    "started_phase": "phase_7",
+    "current_phase": "phase_8",
+    "started_phase": "phase_8",
     "completed_phases": [
       "phase_1",
       "phase_2",
       "phase_3",
       "phase_4",
       "phase_5",
-      "phase_6"
+      "phase_6",
+      "phase_7"
     ],
     "failed_phases": [],
     "options": {
       "html_output": true,
-      "mockup_format": "html"
+      "mockup_format": "html",
+      "sequential": true
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-04T12:40:22Z",
+    "updated": "2026-10-04T13:17:19Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -181,7 +183,7 @@
       "completed": "2026-10-04T12:40:22Z"
     },
     "phase_7": {
-      "summary": "Plan 9 grup i 36 kroków: kod, dowody językowe, dwa pełne odtworzenia i dokumentacja. Oczekuje zatwierdzenie planu i I1–I3.",
+      "summary": "Plan 9 grup/36 kroków i doprecyzowania I1–I3 zatwierdzone odpowiedzią A.",
       "decisions": [
         "Wykonanie sekwencyjne; koordynator właścicielem wszystkich grup",
         "Test-first grup kodowych; pełny zakres K1–K10 bez pilota zamiast odbioru"
@@ -193,20 +195,51 @@
       "artifacts": [
         {
           "path": "implementation/implementation-plan.md",
-          "label": "Plan 9 grup i 36 kroków"
+          "label": "Plan 9 grup i 36 kroków",
+          "html": "implementation/implementation-plan.html"
         }
       ],
       "gate": {
         "id": "plan_approval",
-        "status": "pending",
+        "status": "approved",
         "question": "Czy zatwierdzasz plan dziewięciu grup i doprecyzowania I1–I3, aby rozpocząć implementację?",
         "options": {
           "A": "Zatwierdź plan i rozpocznij implementację (rekomendowane).",
           "B": "Wskaż korektę planu przed implementacją."
         },
-        "answer": null
+        "answer": "A",
+        "answered_at": "2026-10-04T12:47:44Z"
       },
       "started": "2026-10-04T12:40:22Z",
+      "completed": "2026-10-04T12:47:44Z"
+    },
+    "phase_8": {
+      "summary": "G1/G2 complete: pełny import zgodny z audytem; 21 testów generatora i 5 audytu green. G3 trwa; wybór polityki pospolitych skrótowców oczekuje na użytkownika.",
+      "decisions": [
+        "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline"
+      ],
+      "risks": [],
+      "artifacts": [
+        {
+          "path": "analysis/evidence/full-import.json",
+          "label": "Pełny import i zgodność liczników"
+        },
+        {
+          "path": "analysis/evidence/acronym-decision.md",
+          "label": "Wybór polityki skrótowców"
+        }
+      ],
+      "gate": {
+        "id": "common_acronyms_case_policy",
+        "status": "pending",
+        "question": "Czy dopuszczamy pospolite skrótowce zapisywane w SGJP wielkimi literami w BROAD i STANDARD?",
+        "options": {
+          "A": "Dopuść źródłowo potwierdzone pospolite skrótowce; rekomendowane.",
+          "B": "Dopuść tylko ich źródłowe formy małoliterowe."
+        },
+        "answer": null
+      },
+      "started": "2026-10-04T12:47:44Z",
       "completed": null
     }
   },
@@ -254,7 +287,7 @@
       "evidence_gaps": "reviewed_by_coordinator",
       "research_artifacts": "verified"
     },
-    "implementation_started": false,
+    "implementation_started": true,
     "conditional_phases": {
       "phase_3": {
         "enabled": false,
@@ -267,6 +300,49 @@
       "phase_6": {
         "recommended": true,
         "reason": "Integralność danych i niejednoznaczne reguły."
+      }
+    },
+    "implementation_groups": {
+      "G1": {
+        "status": "complete",
+        "attempts": 1,
+        "completed": "2026-10-04T12:59:47Z",
+        "tests": "10/10 focused tests; preflight 14/14 source hashes/evidence OK"
+      },
+      "G2": {
+        "status": "complete",
+        "attempts": 1,
+        "tests": "9/9 focused + total 21/21 + audit 5/5; full import 14/14 counts match",
+        "completed": "2026-10-04T13:17:19Z"
+      },
+      "G3": {
+        "status": "in_progress",
+        "attempts": 1,
+        "decision_pending": "common_acronyms_case_policy"
+      },
+      "G4": {
+        "status": "pending",
+        "attempts": 0
+      },
+      "G5": {
+        "status": "pending",
+        "attempts": 0
+      },
+      "G6": {
+        "status": "pending",
+        "attempts": 0
+      },
+      "G7": {
+        "status": "pending",
+        "attempts": 0
+      },
+      "G8": {
+        "status": "pending",
+        "attempts": 0
+      },
+      "G9": {
+        "status": "pending",
+        "attempts": 0
       }
     }
   }

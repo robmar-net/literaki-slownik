@@ -1,0 +1,6 @@
+{
+  "version": "quality-v1",
+  "seed": "literaki-slownik-g1-v1",
+  "size_per_stratum": 30,
+  "encoding": "canonical JSON array [seed,stratum,key], UTF-8"
+}
