@@ -4,7 +4,7 @@
 
 Jeden zapis ortograficzny może odpowiadać kilku jednostkom źródłowym.
 Rozdzielamy obowiązkową fleksję od dodatkowych konstrukcji istniejących leksemów.
-Rekomendujemy uwzględniać udokumentowane konstrukcje w głównych kandydatach po kontroli reguł; D3 pozostaje otwarta.
+Rekomendujemy uwzględniać udokumentowane konstrukcje w głównych kandydatach po kontroli reguł; D3=A/C1 zatwierdzona przez użytkownika.
 
 ## Key Decisions
 
@@ -14,7 +14,7 @@ Rekomendujemy uwzględniać udokumentowane konstrukcje w głównych kandydatach 
 
 ## Open Questions / Risks
 
-- D3: czy dodatkowe konstrukcje istniejących leksemów uwzględnić w BROAD/STANDARD, czy zbadać osobno? Nie dotyczy to ponownego głosowania nad pełną fleksją.
+- D3=A/C1 rozstrzyga włączenie konstrukcji do głównych kandydatów; gotowość wykonawcza poszczególnych reguł pozostaje do wykazania.
 - Nie zakończono macierzy wszystkich klas ani przeglądu ich kwalifikatorów. Dowód pisowni nie oznacza jeszcze przyjęcia do każdego wariantu.
 - Mobilne końcówki, np. przy zaimkach/spójnikach, potrzebują osobnej kontroli. Niezgodność reguły z aktualną pisownią musi dawać jawny wynik, nie automatyczne sklejenie.
 

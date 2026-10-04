@@ -1,6 +1,6 @@
 # Warianty pierwszego generatora — materiał do decyzji
 
-Data: 2026-10-04. Faza: porównanie rozwiązań po zatwierdzonym audycie. **Użytkownik wybrał G1 (odpowiedź A na D1): BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP.** **D2=A/N1: pierwszy wynik SGJP/KWJP, NKJP później po wyjaśnieniu warunków.** Pozostałe osie nie są jeszcze zatwierdzone. Zgoda „tak i tak” włączyła porównanie i projekt, nie implementację.
+Data: 2026-10-04. Faza: porównanie rozwiązań po zatwierdzonym audycie. **Użytkownik wybrał G1 (odpowiedź A na D1): BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP.** **D2=A/N1: pierwszy wynik SGJP/KWJP, NKJP później po wyjaśnieniu warunków.** **D3=A/C1: udokumentowane konstrukcje istniejących leksemów w głównych kandydatach po kontroli klas.** Konwergencja zakresu zakończona; propozycje techniczne podlegają zatwierdzeniu projektu. Zgoda „tak i tak” włączyła porównanie i projekt, nie implementację.
 
 ## TL;DR
 
@@ -18,14 +18,14 @@ NKJP pozostaje BLOCKED we wszystkich opcjach. Brak dowodów dotyczących licencj
 
 **D2 zatwierdzona — N1:** pierwszy wynik korzysta z SGJP/KWJP; NKJP pozostaje wymaganiem pełnego projektu i dołączy po wyjaśnieniu warunków w nowym wydaniu.
 
-**Rekomendacje do zatwierdzenia:** kontrolowana lista udokumentowanych reguł konstrukcji; dane nierozstrzygnięte zachowane osobno. Niżej każda z tych osi jest rozpatrywana osobno. Wybór jednego wiersza nie zatwierdza pozostałych.
+**D3 zatwierdzona — C1:** konstrukcje istniejących leksemów należą do BROAD/STANDARD po kontroli reguł każdej klasy. Lista konkretnych reguł nadal wymaga dowodów. Q2 jest konsekwencją G1: niepełny pilot nie zastępuje odbioru. F1 i O2/O3 pozostają propozycjami technicznymi projektu.
 
 **Rekomendacje techniczne do późniejszego projektu:** lokalne polecenia i jedna relacyjna baza, zachowane rekordy źródłowe i manifesty, brak API i usług. SQLite jest hipotezą startową, nie wynikiem testu wydajności. [Model procesu](../analysis/findings/model-procesu.md).
 
 ## Open Questions / Risks
 
-- Oczekuje D3: zakres konstrukcji, z rozdzielonymi klasami i nowymi dowodami w [uzupełnieniu](../analysis/findings/construction-scope.md).
-- Które klasy samodzielnych zapisów z kilku istniejących leksemów należą do planowanych kandydatów, a które tylko do eksperymentu? Pełna fleksja zakwalifikowanych leksemów pozostaje obowiązkowa niezależnie od odpowiedzi.
+- Przyjęto C1; [uzupełnienie](../analysis/findings/construction-scope.md) rozdziela dowody klas od wyboru zakresu.
+- Wykonawcza macierz klas i kompletność ich reguł pozostają do udowodnienia; pełna fleksja jest obowiązkowa.
 - Nie mamy jeszcze podziału wszystkich nietypowych zapisów na zwykłe wyrazy, skrótowce, nazwy i symbole ani dowodu semantyki mieszanych kwalifikatorów. Rozstrzygnięcie wymaga dalszych przykładów i źródeł, nie automatycznego `lower()`.
 - Nie wykazano kompletności wszystkich klas odmiany. Wstrzymanie dowolnej wymaganej klasy daje wynik niepełny; nie może realizować obietnicy końcowej pełnej fleksji.
 - NKJP nie bierze udziału w generowaniu. Nieustalone pozostają też część historii anotacji KWJP i jakość przyszłych rankingów znajomości.
@@ -153,4 +153,10 @@ Proponowana kolejność rozmowy:
 **Historia D2 — rozstrzygnięta A / N1:** Czy pierwszy wynik ma czekać na wyjaśnienie warunków NKJP? A / N1: SGJP i KWJP najpierw, NKJP później (rekomendacja); B / N2: prace SGJP/KWJP mogą trwać, ale wydanie czeka; C / N3: wyjaśnienie NKJP przed implementacją. Wszystkie opcje zachowują blokadę użycia oraz NKJP jako wymaganie pełnego projektu.
 
 
-**D3 — oczekuje odpowiedzi:** Czy udokumentowane konstrukcje istniejących leksemów, takie jak przyimek z `-ń` i rozkaźnik z partykułą, uwzględniamy w głównych kandydatach? A/C1: tak, po kontroli każdej klasy (rekomendacja); B/C2: osobne rozszerzenie; C/C3: decyzja po pełnej macierzy klas. [Dowody, granice i konsekwencje](../analysis/findings/construction-scope.md). Wymagana fleksja, w tym kontrola `bym/byśmy`, nie podlega ponownemu głosowaniu.
+**Historia D3 — rozstrzygnięta A / C1:** Czy udokumentowane konstrukcje istniejących leksemów, takie jak przyimek z `-ń` i rozkaźnik z partykułą, uwzględniamy w głównych kandydatach? A/C1: tak, po kontroli każdej klasy (rekomendacja); B/C2: osobne rozszerzenie; C/C3: decyzja po pełnej macierzy klas. [Dowody, granice i konsekwencje](../analysis/findings/construction-scope.md). Wymagana fleksja, w tym kontrola `bym/byśmy`, nie podlega ponownemu głosowaniu.
+
+## 8. Wynik konwergencji
+
+Użytkownik kolejno wybrał G1, N1 i C1. Odrzucono pilot jako wynik końcowy, cztery warianty w pierwszym wydaniu, oczekiwanie na NKJP i osobne rozszerzenie konstrukcyjne. Zachowano wymóg kontroli kompletności.
+
+Nie pytamy o znaczenie nierozstrzygniętych kwalifikatorów: wymaga dowodów. Jeśli badanie ujawni nowy wybór normatywny, należy wrócić z konkretnymi przykładami. Techniczne F1 i O2/O3 zostaną ocenione w projekcie; nie są osobno zatwierdzoną polityką.

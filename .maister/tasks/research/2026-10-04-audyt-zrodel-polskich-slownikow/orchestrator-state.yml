@@ -1,12 +1,13 @@
 {
   "orchestrator": {
     "workflow": "research",
-    "current_phase": "phase_4",
-    "started_phase": "phase_4",
+    "current_phase": "phase_5",
+    "started_phase": "phase_5",
     "completed_phases": [
       "phase_1",
       "phase_2",
-      "phase_3"
+      "phase_3",
+      "phase_4"
     ],
     "failed_phases": [],
     "options": {
@@ -17,7 +18,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T01:56:09Z",
-    "updated": "2026-10-04T08:55:44Z",
+    "updated": "2026-10-04T09:07:55Z",
     "task_path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow"
   },
   "task": {
@@ -138,7 +139,8 @@
       "artifacts": [
         {
           "path": "outputs/solution-exploration.md",
-          "label": "Porównanie wariantów generatora"
+          "label": "Porównanie wariantów generatora",
+          "html": "outputs/solution-exploration.html"
         }
       ],
       "gate": {
@@ -149,10 +151,11 @@
       "completed": "2026-10-04T08:46:48Z"
     },
     "phase_4": {
-      "summary": "G1 i N1 zatwierdzone. Uzupełniono dowody pisowni i rozdzielono klasy konstrukcji; oczekuje D3 dotycząca ich miejsca w kandydatach.",
+      "summary": "D1=G1, D2=N1, D3=C1 zatwierdzone. Znane wybory zakresu rozstrzygnięte; luki dowodowe przeniesiono jawnie do warunków gotowości projektu.",
       "decisions": [
         "D1=G1: BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP; kontrola kompletności przed odbiorem",
-        "D2=N1: SGJP/KWJP w pierwszym wyniku; NKJP dołączone później po wyjaśnieniu warunków"
+        "D2=N1: SGJP/KWJP w pierwszym wyniku; NKJP dołączone później po wyjaśnieniu warunków",
+        "D3=C1: udokumentowane konstrukcje istniejących leksemów w BROAD/STANDARD, po odrębnej kontroli klas"
       ],
       "risks": [
         "Pełny wynik wymaga domknięcia dowodów fleksji i istotnych klas",
@@ -161,7 +164,8 @@
       "artifacts": [
         {
           "path": "outputs/solution-exploration.md",
-          "label": "Porównanie wariantów generatora"
+          "label": "Porównanie wariantów generatora",
+          "html": "outputs/solution-exploration.html"
         },
         {
           "path": "analysis/findings/construction-scope.md",
@@ -174,16 +178,58 @@
       ],
       "gate": {
         "id": "D3",
-        "status": "pending",
+        "status": "resolved",
         "question": "Czy udokumentowane konstrukcje istniejących leksemów uwzględniamy w głównych kandydatach BROAD/STANDARD?",
         "options": {
           "A": "C1: włączyć po kontroli reguł każdej klasy, np. przezeń i czytajże (rekomendowane).",
           "B": "C2: badać dodatkowe konstrukcje jako osobne rozszerzenie; pełna wymagana fleksja pozostaje w bazie.",
           "C": "C3: odłożyć wybór do pełnej macierzy klas i skutków."
         },
-        "answer": null
+        "answer": "A",
+        "user_response": "A",
+        "answered_at": "2026-10-04T09:01:57Z"
       },
       "started": "2026-10-04T08:46:48Z",
+      "completed": "2026-10-04T09:01:57Z"
+    },
+    "phase_5": {
+      "summary": "Gotowy projekt lokalnego generatora Python/SQLite: sześć modułów, dwa kandydaty, dziesięć kryteriów odbioru; pięć ADR. Projekt i metody techniczne oczekują zatwierdzenia.",
+      "decisions": [
+        "Propozycja: lokalny proces Python/SQLite, jawne manifesty i nowe katalogi przebiegów",
+        "Propozycja: VariantDecision także dla analiz rekonstruowanych; kontrola pełnego zakresu przed eksportem"
+      ],
+      "risks": [
+        "Semantyka mieszanych kwalifikatorów i kategorii nazw nadal do wyjaśnienia",
+        "Macierz fleksji/konstrukcji i polityka ortograficzna wymagają domknięcia przed wydaniem",
+        "Wydajność SQLite niezmierzona; brak autoryzacji implementacji"
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/high-level-design.md",
+          "label": "Projekt generatora",
+          "html": "outputs/high-level-design.html"
+        },
+        {
+          "path": "outputs/decision-log.md",
+          "label": "Rejestr decyzji",
+          "html": "outputs/decision-log.html"
+        },
+        {
+          "path": "outputs/design-preview.png",
+          "label": "Podgląd projektu"
+        }
+      ],
+      "gate": {
+        "id": "design_approval",
+        "status": "pending",
+        "question": "Czy zatwierdzasz projekt wysokiego poziomu jako podstawę następnego zadania implementacyjnego?",
+        "options": {
+          "A": "Zatwierdź projekt i kryteria odbioru; zakończ research i przygotuj przekazanie (rekomendowane).",
+          "B": "Popraw wskazane elementy projektu przed przekazaniem."
+        },
+        "answer": null
+      },
+      "started": "2026-10-04T09:01:57Z",
       "completed": null
     }
   },
@@ -305,7 +351,7 @@
       "implementation_authorized": false
     },
     "convergence": {
-      "active_decision": "D3",
+      "active_decision": null,
       "selections": {
         "D1": {
           "option": "G1",
@@ -325,13 +371,19 @@
             "Pierwszy wynik SGJP/KWJP bez NKJP",
             "NKJP pozostaje wymaganiem pełnego projektu; dołączenie po wyjaśnieniu warunków w nowym wydaniu"
           ]
+        },
+        "D3": {
+          "option": "C1",
+          "answer": "A",
+          "answered_at": "2026-10-04T09:01:57Z",
+          "accepted_tradeoffs": [
+            "Konstrukcje istniejących leksemów w głównych kandydatach po kontroli klas",
+            "Więcej reguł i kontroli przed odbiorem; bez swobodnego słowotwórstwa"
+          ]
         }
       },
-      "remaining_areas": [
-        "zakres konstrukcji po uzupełnieniu dowodów",
-        "pozostałe rzeczywiste wybory polityki, jeśli ujawnią je dowody"
-      ],
-      "html_companion_due": "po rozstrzygnięciu konwergencji",
+      "remaining_areas": [],
+      "html_companion_due": null,
       "gate_history": [
         {
           "id": "D1",
@@ -358,8 +410,35 @@
           "answer": "A",
           "user_response": "A",
           "answered_at": "2026-10-04T08:52:25Z"
+        },
+        {
+          "id": "D3",
+          "status": "resolved",
+          "question": "Czy udokumentowane konstrukcje istniejących leksemów uwzględniamy w głównych kandydatach BROAD/STANDARD?",
+          "options": {
+            "A": "C1: włączyć po kontroli reguł każdej klasy, np. przezeń i czytajże (rekomendowane).",
+            "B": "C2: badać dodatkowe konstrukcje jako osobne rozszerzenie; pełna wymagana fleksja pozostaje w bazie.",
+            "C": "C3: odłożyć wybór do pełnej macierzy klas i skutków."
+          },
+          "answer": "A",
+          "user_response": "A",
+          "answered_at": "2026-10-04T09:01:57Z"
         }
-      ]
+      ],
+      "residual_evidence_gaps": [
+        "Semantyka kwalifikatorów i pól nazw",
+        "Kategorie skrótowców i zgodność z pisownią",
+        "Macierz klas fleksji i konstrukcji"
+      ],
+      "closure_reason": "D1–D3 rozstrzygają znane wybory zakresu. Q2 wynika z G1; F1 i O2/O3 są propozycjami technicznymi do zatwierdzenia w projekcie. Braki dowodów nie są głosowaniem nad faktami.",
+      "html_companion": "outputs/solution-exploration.html"
+    },
+    "design_review": {
+      "checked_at": "2026-10-04T09:07:55Z",
+      "scope": "zgodność z D1–D3, granice źródeł, brak zatwierdzania nieznanych reguł, awarie i odbiór",
+      "result": "gotowy do zatwierdzenia z jawnymi zależnościami dowodowymi",
+      "html_checks": "3 dokumenty, szerokości 390/1280, bez przepełnienia i błędnych kotwic; screenshot obejrzany",
+      "audit_integrity": "wszystkie hashe scripts/outputs pierwotnego manifestu zgodne"
     }
   }
 }

@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T08:55:44Z",
+  "generated": "2026-10-04T09:07:55Z",
   "task": {
     "title": "Audyt źródeł polskich słowników — etap 1",
     "description": "Realizacja rozdziału 15 specyfikacji v3: źródła, pomiary, filtry, dopasowania i projekt odtwarzalności.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "research",
     "path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow",
-    "current_activity": "Decyzja D3: konstrukcje w głównych słownikach"
+    "current_activity": "Zatwierdzenie projektu generatora"
   },
   "characteristics": {
     "scope": "Zatwierdzony audyt §15 oraz porównanie i projekt; bez implementacji"
@@ -141,7 +141,8 @@ window.MAISTER_DATA = {
       "artifacts": [
         {
           "path": "outputs/solution-exploration.md",
-          "label": "Porównanie wariantów generatora"
+          "label": "Porównanie wariantów generatora",
+          "html": "outputs/solution-exploration.html"
         }
       ],
       "gate": {
@@ -153,14 +154,15 @@ window.MAISTER_DATA = {
       "id": "phase_4",
       "name": "Wybór rozwiązania (opcjonalnie)",
       "icon_hint": "analysis",
-      "status": "in_progress",
+      "status": "completed",
       "started": "2026-10-04T08:46:48Z",
-      "completed": null,
+      "completed": "2026-10-04T09:01:57Z",
       "skip_reason": null,
-      "summary": "G1 i N1 zatwierdzone. Uzupełniono dowody pisowni i rozdzielono klasy konstrukcji; oczekuje D3 dotycząca ich miejsca w kandydatach.",
+      "summary": "D1=G1, D2=N1, D3=C1 zatwierdzone. Znane wybory zakresu rozstrzygnięte; luki dowodowe przeniesiono jawnie do warunków gotowości projektu.",
       "decisions": [
         "D1=G1: BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP; kontrola kompletności przed odbiorem",
-        "D2=N1: SGJP/KWJP w pierwszym wyniku; NKJP dołączone później po wyjaśnieniu warunków"
+        "D2=N1: SGJP/KWJP w pierwszym wyniku; NKJP dołączone później po wyjaśnieniu warunków",
+        "D3=C1: udokumentowane konstrukcje istniejących leksemów w BROAD/STANDARD, po odrębnej kontroli klas"
       ],
       "risks": [
         "Pełny wynik wymaga domknięcia dowodów fleksji i istotnych klas",
@@ -169,7 +171,8 @@ window.MAISTER_DATA = {
       "artifacts": [
         {
           "path": "outputs/solution-exploration.md",
-          "label": "Porównanie wariantów generatora"
+          "label": "Porównanie wariantów generatora",
+          "html": "outputs/solution-exploration.html"
         },
         {
           "path": "analysis/findings/construction-scope.md",
@@ -182,29 +185,62 @@ window.MAISTER_DATA = {
       ],
       "gate": {
         "id": "D3",
-        "status": "pending",
+        "status": "resolved",
         "question": "Czy udokumentowane konstrukcje istniejących leksemów uwzględniamy w głównych kandydatach BROAD/STANDARD?",
         "options": {
           "A": "C1: włączyć po kontroli reguł każdej klasy, np. przezeń i czytajże (rekomendowane).",
           "B": "C2: badać dodatkowe konstrukcje jako osobne rozszerzenie; pełna wymagana fleksja pozostaje w bazie.",
           "C": "C3: odłożyć wybór do pełnej macierzy klas i skutków."
         },
-        "answer": null
+        "answer": "A",
+        "user_response": "A",
+        "answered_at": "2026-10-04T09:01:57Z"
       }
     },
     {
       "id": "phase_5",
       "name": "Projekt (opcjonalnie)",
       "icon_hint": "analysis",
-      "status": "pending",
-      "started": null,
+      "status": "in_progress",
+      "started": "2026-10-04T09:01:57Z",
       "completed": null,
       "skip_reason": null,
-      "summary": null,
-      "decisions": [],
-      "risks": [],
-      "artifacts": [],
-      "gate": null
+      "summary": "Gotowy projekt lokalnego generatora Python/SQLite: sześć modułów, dwa kandydaty, dziesięć kryteriów odbioru; pięć ADR. Projekt i metody techniczne oczekują zatwierdzenia.",
+      "decisions": [
+        "Propozycja: lokalny proces Python/SQLite, jawne manifesty i nowe katalogi przebiegów",
+        "Propozycja: VariantDecision także dla analiz rekonstruowanych; kontrola pełnego zakresu przed eksportem"
+      ],
+      "risks": [
+        "Semantyka mieszanych kwalifikatorów i kategorii nazw nadal do wyjaśnienia",
+        "Macierz fleksji/konstrukcji i polityka ortograficzna wymagają domknięcia przed wydaniem",
+        "Wydajność SQLite niezmierzona; brak autoryzacji implementacji"
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/high-level-design.md",
+          "label": "Projekt generatora",
+          "html": "outputs/high-level-design.html"
+        },
+        {
+          "path": "outputs/decision-log.md",
+          "label": "Rejestr decyzji",
+          "html": "outputs/decision-log.html"
+        },
+        {
+          "path": "outputs/design-preview.png",
+          "label": "Podgląd projektu"
+        }
+      ],
+      "gate": {
+        "id": "design_approval",
+        "status": "pending",
+        "question": "Czy zatwierdzasz projekt wysokiego poziomu jako podstawę następnego zadania implementacyjnego?",
+        "options": {
+          "A": "Zatwierdź projekt i kryteria odbioru; zakończ research i przygotuj przekazanie (rekomendowane).",
+          "B": "Popraw wskazane elementy projektu przed przekazaniem."
+        },
+        "answer": null
+      }
     },
     {
       "id": "phase_6",

@@ -17,3 +17,7 @@
 2026-10-04T08:52:25Z — D2=A/N1: pierwszy wynik SGJP/KWJP, NKJP po wyjaśnieniu warunków w osobnym wydaniu. Zachowano wymaganie NKJP i status BLOCKED. Rozpoczęto ograniczone uzupełnienie dowodów konstrukcji, w szczególności aktualnej pisowni; bez implementacji.
 
 2026-10-04T08:55:44Z — dodano construction-scope.md i construction-sources.json: RJP §4.4–4.6 oraz Podstawy teoretyczne SGJP, kontrola kodu segmenty.dat. Zapisano hashe PDF, cache ignorowany. Rozdzielono pełną fleksję od konstrukcji kilku leksemów i niezweryfikowanych mobilnych końcówek; D3 pending, bez akceptacji reguł wykonawczych. Pierwotny manifest i wyniki audytu zachowane.
+
+2026-10-04T09:01:57Z — D3=A/C1 zatwierdzone. Zakończono konwergencję: Q2 wynika z G1, metody F/O przechodzą jako propozycje do projektu, luki semantyczne pozostają warunkami gotowości. Rozpoczęto fazę5. Brak .codex/agents potwierdzono rg (kod2, katalog nie istnieje); projektant realizowany inline z kontraktem maister-research. Przeczytano design-techniques oraz styl HTML.
+
+2026-10-04T09:07:55Z — zapisano high-level-design.md i decision-log.md oraz trzy widoki HTML (projekt/rejestr jako wersje do przeglądu). Przegląd: model obejmuje analizy rekonstruowane, niewiadome nie stają się filtrem, pełna kontrola K1–K10 przed wydaniem, jawne różnice hashy danych i metadanych czasu. Sprawdzono linki, HTML390/1280, kotwice, podgląd oraz wszystkie hashe skryptów/wyników audytu; git diff --check czysty. Faza5 oczekuje design_approval, implementacja nierozpoczęta.
