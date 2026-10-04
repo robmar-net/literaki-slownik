@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T02:30:41Z",
+  "generated": "2026-10-04T08:29:35Z",
   "task": {
     "title": "Audyt źródeł polskich słowników — etap 1",
     "description": "Realizacja rozdziału 15 specyfikacji v3: źródła, pomiary, filtry, dopasowania i projekt odtwarzalności.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "research",
     "path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow",
-    "current_activity": "Raport audytu gotowy — oczekuje zatwierdzenia fazy1"
+    "current_activity": "Audyt zatwierdzony; wybór opcjonalnego porównania wariantów i projektu"
   },
   "characteristics": {
     "scope": "Audyt §15, bez produkcyjnych słowników"
@@ -23,11 +23,11 @@ window.MAISTER_DATA = {
       "id": "phase_1",
       "name": "Podstawa badania",
       "icon_hint": "analysis",
-      "status": "in_progress",
+      "status": "completed",
       "started": "2026-10-04T01:57:27Z",
-      "completed": null,
+      "completed": "2026-10-04T08:29:35Z",
       "skip_reason": null,
-      "summary": "Audyt10 punktów wykonany z jawnymi ograniczeniami. SGJP7 458 520 rekordów,13 list KWJP; NKJP technicznie zbadany, BLOCKED do konstrukcji. Raport gotowy do przeglądu.",
+      "summary": "Audyt zatwierdzony przez użytkownika. Artefakty i wszystkie hashe manifestu zgodne przy wznowieniu; scenariusze filtrów pozostają materiałem do dalszych decyzji.",
       "decisions": [
         "SGJP i KWJP jako udokumentowane wejścia audytu",
         "Preferencja pełnych form eksportu; brak automatycznej nadgeneracji",
@@ -67,23 +67,57 @@ window.MAISTER_DATA = {
           "A": "Zatwierdź raport i przejdź do wyboru dalszych kroków (rekomendowane). Nie zatwierdza finalnej polityki filtrów.",
           "B": "Pogłęb wskazane punkty audytu przed przejściem dalej."
         },
-        "answer": null,
-        "status": "pending"
+        "answer": "A",
+        "status": "resolved",
+        "user_response": "idzmy dalej",
+        "answered_at": "2026-10-04T08:29:35Z"
       }
     },
     {
       "id": "phase_2",
       "name": "Decyzja o dalszych fazach",
       "icon_hint": "analysis",
-      "status": "pending",
-      "started": null,
+      "status": "in_progress",
+      "started": "2026-10-04T08:29:35Z",
       "completed": null,
       "skip_reason": null,
-      "summary": null,
+      "summary": "Przygotowano niezależną ocenę porównania wariantów i projektu wysokiego poziomu. Obie fazy rekomendowane, żadna jeszcze niewłączona.",
       "decisions": [],
-      "risks": [],
-      "artifacts": [],
-      "gate": null
+      "risks": [
+        "Otwarte decyzje dotyczące kwalifikowania i konstrukcji z segmentów",
+        "NKJP nadal BLOCKED do konstrukcji"
+      ],
+      "artifacts": [
+        {
+          "path": "planning/next-phases.md",
+          "label": "Zakres dalszych faz"
+        }
+      ],
+      "gate": {
+        "status": "pending",
+        "question": "Czy włączyć każdą z opcjonalnych faz? Decyzje niezależne.",
+        "questions": [
+          {
+            "id": "brainstorming_enabled",
+            "question": "Czy włączyć porównanie wariantów i ich późniejszy wybór?",
+            "options": [
+              "Tak (rekomendowane)",
+              "Nie — pozostaw decyzje do następnego zadania"
+            ],
+            "answer": null
+          },
+          {
+            "id": "design_enabled",
+            "question": "Czy włączyć projekt wysokiego poziomu pierwszego generatora?",
+            "options": [
+              "Tak (rekomendowane)",
+              "Nie — przekaż wyniki bez pełnego projektu"
+            ],
+            "answer": null
+          }
+        ],
+        "answer": null
+      }
     },
     {
       "id": "phase_3",

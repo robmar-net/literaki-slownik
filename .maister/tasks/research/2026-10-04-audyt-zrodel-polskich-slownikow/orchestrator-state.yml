@@ -1,9 +1,11 @@
 {
   "orchestrator": {
     "workflow": "research",
-    "current_phase": "phase_1",
-    "started_phase": "phase_1",
-    "completed_phases": [],
+    "current_phase": "phase_2",
+    "started_phase": "phase_2",
+    "completed_phases": [
+      "phase_1"
+    ],
     "failed_phases": [],
     "options": {
       "html_output": true,
@@ -13,7 +15,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T01:56:09Z",
-    "updated": "2026-10-04T02:30:41Z",
+    "updated": "2026-10-04T08:29:35Z",
     "task_path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow"
   },
   "task": {
@@ -30,7 +32,7 @@
   },
   "phase_summaries": {
     "phase_1": {
-      "summary": "Audyt10 punktów wykonany z jawnymi ograniczeniami. SGJP7 458 520 rekordów,13 list KWJP; NKJP technicznie zbadany, BLOCKED do konstrukcji. Raport gotowy do przeglądu.",
+      "summary": "Audyt zatwierdzony przez użytkownika. Artefakty i wszystkie hashe manifestu zgodne przy wznowieniu; scenariusze filtrów pozostają materiałem do dalszych decyzji.",
       "decisions": [
         "SGJP i KWJP jako udokumentowane wejścia audytu",
         "Preferencja pełnych form eksportu; brak automatycznej nadgeneracji",
@@ -70,10 +72,53 @@
           "A": "Zatwierdź raport i przejdź do wyboru dalszych kroków (rekomendowane). Nie zatwierdza finalnej polityki filtrów.",
           "B": "Pogłęb wskazane punkty audytu przed przejściem dalej."
         },
-        "answer": null,
-        "status": "pending"
+        "answer": "A",
+        "status": "resolved",
+        "user_response": "idzmy dalej",
+        "answered_at": "2026-10-04T08:29:35Z"
       },
       "started": "2026-10-04T01:57:27Z",
+      "completed": "2026-10-04T08:29:35Z"
+    },
+    "phase_2": {
+      "summary": "Przygotowano niezależną ocenę porównania wariantów i projektu wysokiego poziomu. Obie fazy rekomendowane, żadna jeszcze niewłączona.",
+      "decisions": [],
+      "risks": [
+        "Otwarte decyzje dotyczące kwalifikowania i konstrukcji z segmentów",
+        "NKJP nadal BLOCKED do konstrukcji"
+      ],
+      "artifacts": [
+        {
+          "path": "planning/next-phases.md",
+          "label": "Zakres dalszych faz"
+        }
+      ],
+      "gate": {
+        "status": "pending",
+        "question": "Czy włączyć każdą z opcjonalnych faz? Decyzje niezależne.",
+        "questions": [
+          {
+            "id": "brainstorming_enabled",
+            "question": "Czy włączyć porównanie wariantów i ich późniejszy wybór?",
+            "options": [
+              "Tak (rekomendowane)",
+              "Nie — pozostaw decyzje do następnego zadania"
+            ],
+            "answer": null
+          },
+          {
+            "id": "design_enabled",
+            "question": "Czy włączyć projekt wysokiego poziomu pierwszego generatora?",
+            "options": [
+              "Tak (rekomendowane)",
+              "Nie — przekaż wyniki bez pełnego projektu"
+            ],
+            "answer": null
+          }
+        ],
+        "answer": null
+      },
+      "started": "2026-10-04T08:29:35Z",
       "completed": null
     }
   },
@@ -172,6 +217,12 @@
     },
     "input_sha256": "acdd6fd7d040e98e05613809bfa78f6db37439d99a4e5f450d27350b99689a9d",
     "source_coverage_verified_by_coordinator": true,
-    "implementation_started": false
+    "implementation_started": false,
+    "audit_approval": {
+      "approved_at": "2026-10-04T08:29:35Z",
+      "user_response": "idzmy dalej",
+      "artifact_revision": "6137e23",
+      "scope": "raport audytu jako podstawa dalszych decyzji; bez zatwierdzenia finalnej polityki filtrów"
+    }
   }
 }
