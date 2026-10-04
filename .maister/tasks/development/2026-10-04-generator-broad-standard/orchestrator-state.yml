@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-04T14:55:00Z",
+    "updated": "2026-10-04T15:12:17Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,13 +214,14 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "Po A audyt dodatkowych źródeł wykonany; brak dopuszczonego snapshotu SGJP i pełnych growych poświadczeń. G3 nadal częściowe. Pełny techniczny fragment G5: 13/13 list, raporty mianowników i FK OK.",
+      "summary": "G4 mechanika i G6 diagnostyczne explain działają. Wszystkie interpretacje, odrębne oceny i powiązania korpusu zachowane; 8 zapytań pełnej bazy bez zmian hashy. G3 i pełna polityka/konstrukcje nadal nieukończone.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
         "Reguły gry niezmienione; częściowych konfiguracji discovery nie aktywowano",
         "Wykonano niezależny fragment KWJP według wyjątku planu; G3/G4/G8 nie oznaczone complete",
-        "A supplementary_attestation_inputs approved; audit conditions before supplementary data activation"
+        "A supplementary_attestation_inputs approved; audit conditions before supplementary data activation",
+        "User authorized code continuation; diagnostic mechanics do not activate incomplete linguistic policy or bypass release"
       ],
       "risks": [
         "Brak growych poświadczeń części kontrakcji i pełnych metadanych pochodzenia haseł",
@@ -282,6 +283,10 @@
         {
           "path": "analysis/evidence/full-links-performance.json",
           "label": "Koszt pełnego powiązania"
+        },
+        {
+          "path": "analysis/evidence/diagnostic-explain-runtime.json",
+          "label": "Rzeczywiste explain i kontrola odczytu bez zmian"
         }
       ],
       "gate": {
@@ -393,8 +398,12 @@
         "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified"
       },
       "G4": {
-        "status": "pending",
-        "attempts": 0
+        "status": "in_progress",
+        "attempts": 1,
+        "partial": true,
+        "dependency_exception": "User explicitly authorized continuing code with evidence gaps: policy mechanics only, no active unresolved linguistic rules",
+        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused",
+        "remaining": "Full confirmed language/game metadata policy, constructions, persistent full decisions and G3 closure"
       },
       "G5": {
         "status": "in_progress",
@@ -405,8 +414,12 @@
         "remaining": "Build integration after constructions, final availability/quality and canonical acceptance"
       },
       "G6": {
-        "status": "pending",
-        "attempts": 0
+        "status": "in_progress",
+        "attempts": 1,
+        "partial": true,
+        "dependency_exception": "Independent diagnostic explain authorized by plan §2 and user continue code",
+        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged",
+        "remaining": "Final decisions/derivations explain, reports/filter impact, quality-v1 and canonical index"
       },
       "G7": {
         "status": "pending",
@@ -441,6 +454,7 @@
       "excluded": "SJP/OSPS/PoliMorf lexical data and benchmark; future-directions external data remain BLOCKED",
       "audit_artifact": "analysis/evidence/supplementary-source-audit.md",
       "active_artifacts_added": 0
-    }
+    },
+    "verification_note": "Implementation increment checks passed: 38/38 generator + 5/5 audit, diff check, CLI help/runtime; canonical phase_10/11 pending"
   }
 }

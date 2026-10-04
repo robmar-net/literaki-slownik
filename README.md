@@ -13,4 +13,6 @@ Pierwsze prace dotyczą audytu źródeł do słowników języka polskiego: SGJP 
 - [Odtwarzanie pomiarów i organizacja repozytorium](docs/odtwarzanie-audytu.md).
 - [Zasady współpracy](AGENTS.md).
 
+Rozpoczęta implementacja udostępnia import danych oraz diagnostyczne `explain`; pełne listy BROAD/STANDARD pozostają nieukończone. [Instrukcja CLI i ograniczenia](docs/generator/cli.md).
+
 Istotne artefakty procesu Maister znajdują się w `.maister/` i są wersjonowane. Duże dane źródłowe oraz pliki tymczasowe pozostają poza Git. Warunki źródeł zewnętrznych opisują rejestry audytu; publiczność repozytorium sama nie ustala licencji przyszłych wyników.

@@ -24,6 +24,11 @@ def main(argv=None):
         builder.add_argument('--manifest', required=True, help='Manifest lokalnych wejść')
         builder.add_argument('--run-dir', required=True, help='Nowy katalog przebiegu')
         builder.add_argument('--json', action='store_true', help='Odpowiedź JSON')
+        explainer = sub.add_parser('explain', help='Wyjaśnij źródłowe analizy i niewiadome (diagnostyka)')
+        explainer.add_argument('--run-dir', required=True, help='Katalog przebiegu do odczytu')
+        explainer.add_argument('--word', required=True, help='Słowo do wyszukania przez NFC/lower')
+        explainer.add_argument('--variant', choices=('broad', 'standard'), default='standard', help='Wariant słownika')
+        explainer.add_argument('--json', action='store_true', help='Wszystkie analizy w JSON')
         args = parser.parse_args(argv)
         if args.command == 'inspect-sources':
             checked = inspect_sources(args.manifest)
@@ -31,6 +36,9 @@ def main(argv=None):
         elif args.command == 'build':
             from .build import build
             result['result'] = build(args.manifest, args.run_dir)
+        elif args.command == 'explain':
+            from .explain import explain
+            result['result'] = explain(args.run_dir, args.word, args.variant)
         code = 0
     except GeneratorError as error:
         result.update(status='error', diagnostics=[error.diagnostic()])
@@ -46,5 +54,9 @@ def main(argv=None):
     if '--json' in argv:
         print(dumps(result))
     elif result['status'] == 'ok':
-        print('Kontrola zakończona: ' + dumps(result.get('result', {})))
+        if command == 'explain':
+            from .explain import format_explanation
+            print(format_explanation(result['result']))
+        else:
+            print('Kontrola zakończona: ' + dumps(result.get('result', {})))
     return code

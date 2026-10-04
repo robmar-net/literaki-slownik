@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T14:55:00Z",
+  "generated": "2026-10-04T15:12:17Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "G3: udokumentowane luki źródłowe; G5 pełne powiązania techniczne"
+    "current_activity": "G4/G6 częściowe: mechanika ocen i działające diagnostyczne explain"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,13 +240,14 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Po A audyt dodatkowych źródeł wykonany; brak dopuszczonego snapshotu SGJP i pełnych growych poświadczeń. G3 nadal częściowe. Pełny techniczny fragment G5: 13/13 list, raporty mianowników i FK OK.",
+      "summary": "G4 mechanika i G6 diagnostyczne explain działają. Wszystkie interpretacje, odrębne oceny i powiązania korpusu zachowane; 8 zapytań pełnej bazy bez zmian hashy. G3 i pełna polityka/konstrukcje nadal nieukończone.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
         "Reguły gry niezmienione; częściowych konfiguracji discovery nie aktywowano",
         "Wykonano niezależny fragment KWJP według wyjątku planu; G3/G4/G8 nie oznaczone complete",
-        "A supplementary_attestation_inputs approved; audit conditions before supplementary data activation"
+        "A supplementary_attestation_inputs approved; audit conditions before supplementary data activation",
+        "User authorized code continuation; diagnostic mechanics do not activate incomplete linguistic policy or bypass release"
       ],
       "risks": [
         "Brak growych poświadczeń części kontrakcji i pełnych metadanych pochodzenia haseł",
@@ -308,6 +309,10 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/full-links-performance.json",
           "label": "Koszt pełnego powiązania"
+        },
+        {
+          "path": "analysis/evidence/diagnostic-explain-runtime.json",
+          "label": "Rzeczywiste explain i kontrola odczytu bez zmian"
         }
       ],
       "gate": {

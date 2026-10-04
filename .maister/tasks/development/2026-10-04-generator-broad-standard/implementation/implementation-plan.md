@@ -78,6 +78,8 @@ G3 to badanie źródłowe, bez z góry obiecanego wyniku. Pobieranie nowych doku
 
 ### G4 — kwalifikacja, rekonstrukcje i agregacja
 
+Częściowo wykonano mechanikę policy/decisions: odrębne warstwy, zachowanie przyczyn, reject mimo innych niewiadomych, brak domyślnego accept oraz agregacja jednej spójnej analizy. Nie aktywowano pełnej polityki językowej ani konstrukcji; 4.1–4.4 nadal wymagają pełnego domknięcia.
+
 Zależności: G2/G3. Pliki: `literaki_slownik/{policy,constructions,decisions}.py`, `tests/{test_policy,test_constructions,test_decisions}.py`, `config/generator/policy.json`. K3/K4/K5; R03/R04/R05.
 
 - [ ] 4.1 Test-first z G3: odrębna kwalifikacja językowa/growa/profil, obowiązkowa wielka litera bez dopuszczenia przez lower, jedna spójna analiza, accept mimo odrzuconego homonimu, unresolved, zależny segment vs pospolita forma, mieszane etykiety, brak korpusu, profil NFC/znaki/limity, STANDARD ⊆ BROAD.
@@ -97,6 +99,8 @@ Zależności: G2/G3/G4. Pliki: `literaki_slownik/links.py`, `tests/test_links.py
 - [ ] 5.4 Green oraz pełny raport liczebności/metod/niejednoznaczności/niedopasowań; źródłowy przegląd mapowania powiązany z macierzą i późniejszą próbką jakości.
 
 ### G6 — explain, raporty i deterministyczne próbki
+
+Niezależny fragment po zleceniu kontynuacji kodu: diagnostyczne explain tekst/JSON, wszystkie source interpretacje i rozwinięcia, wpis versus gra/profil, niepełny import, pełne powiązania bez powielania F. Osiem rzeczywistych zapytań i hashe read-only sprawdzone. Accept z finalnej polityki, rekonstrukcje, raporty i próbkowanie pozostają do wykonania; kroków nie oznaczono complete.
 
 Zależności: G4/G5. Pliki: `literaki_slownik/{explain,reports,quality}.py`, `tests/{test_explain,test_reports,test_quality}.py`; CLI/build aktualizowane sekwencyjnie. K7/K9 oraz K8; R07/R09/R11.
 
