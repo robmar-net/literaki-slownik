@@ -4,7 +4,7 @@
 Użytkownik zatwierdził przejście dalej po raporcie słowami „idzmy dalej”.
 Faza badawcza jest zakończona; jej artefakty i sumy kontrolne zweryfikowano przy wznowieniu.
 Rekomendujemy porównanie wariantów, a następnie projekt pierwszego generatora.
-Włączenie każdej z tych dwóch opcjonalnych faz wymaga osobnej decyzji w procesie Maister.
+Użytkownik włączył obie opcjonalne fazy odpowiedzią „tak i tak”.
 
 ## Key Decisions
 - Akceptacja audytu potwierdza podstawę dalszych decyzji, nie zatwierdza automatycznie wszystkich scenariuszy filtrów.
@@ -12,8 +12,6 @@ Włączenie każdej z tych dwóch opcjonalnych faz wymaga osobnej decyzji w proc
 - Raport i manifest zachowują postać zamrożonego materiału z commita `6137e23`; aktualny status zatwierdzenia zapisują stan zadania i dziennik.
 
 ## Open Questions / Risks
-- Czy włączyć porównanie wariantów (brainstorming i późniejszy wybór)? Rekomendacja: tak.
-- Czy włączyć projekt wysokiego poziomu po rozstrzygnięciu potrzebnych decyzji? Rekomendacja: tak.
 - NKJP pozostaje BLOCKED do konstrukcji do czasu uzyskania dowodów dotyczących warunków; wybór dalszej ścieżki nie znosi tej blokady.
 
 ## 1. Porównanie wariantów i wybór — rekomendowane
@@ -45,9 +43,9 @@ Wynik: `outputs/high-level-design.md` oraz `outputs/decision-log.md`, oparte na 
 
 Pominięcie jest możliwe: przekazujemy audyt i ewentualnie wybrane warianty do późniejszego zadania projektowego/implementacyjnego. Pozostają brakujące kontrakty przepływu i obsługi błędów.
 
-## Decyzje do zapisania niezależnie
+## Zapisane decyzje
 
-1. Porównanie wariantów: **tak (rekomendowane)** / nie.
-2. Projekt wysokiego poziomu: **tak (rekomendowane)** / nie.
+1. Porównanie wariantów: **tak — zatwierdzone**.
+2. Projekt wysokiego poziomu: **tak — zatwierdzone**.
 
-Można wybrać każdą kombinację. Obie decyzje dotyczą dalszych faz badawczo-projektowych; implementacja pozostaje osobnym zadaniem.
+Obie decyzje dotyczą dalszych faz badawczo-projektowych; implementacja pozostaje osobnym zadaniem.

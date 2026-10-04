@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T08:29:35Z",
+  "generated": "2026-10-04T08:46:48Z",
   "task": {
     "title": "Audyt źródeł polskich słowników — etap 1",
     "description": "Realizacja rozdziału 15 specyfikacji v3: źródła, pomiary, filtry, dopasowania i projekt odtwarzalności.",
@@ -13,10 +13,10 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "research",
     "path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow",
-    "current_activity": "Audyt zatwierdzony; wybór opcjonalnego porównania wariantów i projektu"
+    "current_activity": "Decyzja D1: zakres pierwszego wyniku generatora"
   },
   "characteristics": {
-    "scope": "Audyt §15, bez produkcyjnych słowników"
+    "scope": "Zatwierdzony audyt §15 oraz porównanie i projekt; bez implementacji"
   },
   "phases": [
     {
@@ -77,12 +77,15 @@ window.MAISTER_DATA = {
       "id": "phase_2",
       "name": "Decyzja o dalszych fazach",
       "icon_hint": "analysis",
-      "status": "in_progress",
+      "status": "completed",
       "started": "2026-10-04T08:29:35Z",
-      "completed": null,
+      "completed": "2026-10-04T08:38:11Z",
       "skip_reason": null,
-      "summary": "Przygotowano niezależną ocenę porównania wariantów i projektu wysokiego poziomu. Obie fazy rekomendowane, żadna jeszcze niewłączona.",
-      "decisions": [],
+      "summary": "Użytkownik włączył niezależnie porównanie wariantów i projekt wysokiego poziomu.",
+      "decisions": [
+        "brainstorming_enabled=true",
+        "design_enabled=true"
+      ],
       "risks": [
         "Otwarte decyzje dotyczące kwalifikowania i konstrukcji z segmentów",
         "NKJP nadal BLOCKED do konstrukcji"
@@ -94,7 +97,7 @@ window.MAISTER_DATA = {
         }
       ],
       "gate": {
-        "status": "pending",
+        "status": "resolved",
         "question": "Czy włączyć każdą z opcjonalnych faz? Decyzje niezależne.",
         "questions": [
           {
@@ -104,7 +107,8 @@ window.MAISTER_DATA = {
               "Tak (rekomendowane)",
               "Nie — pozostaw decyzje do następnego zadania"
             ],
-            "answer": null
+            "answer": "Tak",
+            "answered_at": "2026-10-04T08:38:11Z"
           },
           {
             "id": "design_enabled",
@@ -113,39 +117,69 @@ window.MAISTER_DATA = {
               "Tak (rekomendowane)",
               "Nie — przekaż wyniki bez pełnego projektu"
             ],
-            "answer": null
+            "answer": "Tak",
+            "answered_at": "2026-10-04T08:38:11Z"
           }
         ],
-        "answer": null
+        "answer": "tak i tak",
+        "answered_at": "2026-10-04T08:38:11Z"
       }
     },
     {
       "id": "phase_3",
       "name": "Alternatywy (opcjonalnie)",
       "icon_hint": "analysis",
-      "status": "pending",
-      "started": null,
-      "completed": null,
+      "status": "completed",
+      "started": "2026-10-04T08:38:11Z",
+      "completed": "2026-10-04T08:46:48Z",
       "skip_reason": null,
-      "summary": null,
+      "summary": "Porównano trzy zakresy pierwszego wyniku oraz niezależne osie konstrukcji, kwalifikatorów, pisowni i harmonogramu NKJP. Dowody pochodzą z zatwierdzonego audytu; rekomendacje pozostają do rozstrzygnięcia.",
       "decisions": [],
-      "risks": [],
-      "artifacts": [],
-      "gate": null
+      "risks": [
+        "Rekomendacje nie są jeszcze decyzjami użytkownika"
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/solution-exploration.md",
+          "label": "Porównanie wariantów generatora"
+        }
+      ],
+      "gate": {
+        "question": null,
+        "answer": null
+      }
     },
     {
       "id": "phase_4",
       "name": "Wybór rozwiązania (opcjonalnie)",
       "icon_hint": "analysis",
-      "status": "pending",
-      "started": null,
+      "status": "in_progress",
+      "started": "2026-10-04T08:46:48Z",
       "completed": null,
       "skip_reason": null,
-      "summary": null,
+      "summary": "Oczekuje decyzja D1: pierwszy docelowy wynik generatora. Dalsze osie będą rozstrzygane osobno.",
       "decisions": [],
-      "risks": [],
-      "artifacts": [],
-      "gate": null
+      "risks": [
+        "Pełny wynik wymaga domknięcia dowodów fleksji i istotnych klas",
+        "NKJP pozostaje BLOCKED; harmonogram nie jest jeszcze wybrany"
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/solution-exploration.md",
+          "label": "Porównanie wariantów generatora"
+        }
+      ],
+      "gate": {
+        "id": "D1",
+        "status": "pending",
+        "question": "Co uznajemy za pierwszy docelowy wynik generatora?",
+        "options": {
+          "A": "G1: BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP (rekomendowane).",
+          "B": "G2: wcześniejszy pilot techniczny, jawnie niepełny (INCOMPLETE).",
+          "C": "G3: G1 oraz ATTESTED-LEXEME i ATTESTED-FORM; szerszy pierwszy etap."
+        },
+        "answer": null
+      }
     },
     {
       "id": "phase_5",

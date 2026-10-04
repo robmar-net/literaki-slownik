@@ -1,21 +1,23 @@
 {
   "orchestrator": {
     "workflow": "research",
-    "current_phase": "phase_2",
-    "started_phase": "phase_2",
+    "current_phase": "phase_4",
+    "started_phase": "phase_4",
     "completed_phases": [
-      "phase_1"
+      "phase_1",
+      "phase_2",
+      "phase_3"
     ],
     "failed_phases": [],
     "options": {
       "html_output": true,
       "mockup_format": "html",
-      "brainstorming_enabled": null,
-      "design_enabled": null
+      "brainstorming_enabled": true,
+      "design_enabled": true
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T01:56:09Z",
-    "updated": "2026-10-04T08:29:35Z",
+    "updated": "2026-10-04T08:46:48Z",
     "task_path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow"
   },
   "task": {
@@ -81,8 +83,11 @@
       "completed": "2026-10-04T08:29:35Z"
     },
     "phase_2": {
-      "summary": "Przygotowano niezależną ocenę porównania wariantów i projektu wysokiego poziomu. Obie fazy rekomendowane, żadna jeszcze niewłączona.",
-      "decisions": [],
+      "summary": "Użytkownik włączył niezależnie porównanie wariantów i projekt wysokiego poziomu.",
+      "decisions": [
+        "brainstorming_enabled=true",
+        "design_enabled=true"
+      ],
       "risks": [
         "Otwarte decyzje dotyczące kwalifikowania i konstrukcji z segmentów",
         "NKJP nadal BLOCKED do konstrukcji"
@@ -94,7 +99,7 @@
         }
       ],
       "gate": {
-        "status": "pending",
+        "status": "resolved",
         "question": "Czy włączyć każdą z opcjonalnych faz? Decyzje niezależne.",
         "questions": [
           {
@@ -104,7 +109,8 @@
               "Tak (rekomendowane)",
               "Nie — pozostaw decyzje do następnego zadania"
             ],
-            "answer": null
+            "answer": "Tak",
+            "answered_at": "2026-10-04T08:38:11Z"
           },
           {
             "id": "design_enabled",
@@ -113,12 +119,60 @@
               "Tak (rekomendowane)",
               "Nie — przekaż wyniki bez pełnego projektu"
             ],
-            "answer": null
+            "answer": "Tak",
+            "answered_at": "2026-10-04T08:38:11Z"
           }
         ],
-        "answer": null
+        "answer": "tak i tak",
+        "answered_at": "2026-10-04T08:38:11Z"
       },
       "started": "2026-10-04T08:29:35Z",
+      "completed": "2026-10-04T08:38:11Z"
+    },
+    "phase_3": {
+      "summary": "Porównano trzy zakresy pierwszego wyniku oraz niezależne osie konstrukcji, kwalifikatorów, pisowni i harmonogramu NKJP. Dowody pochodzą z zatwierdzonego audytu; rekomendacje pozostają do rozstrzygnięcia.",
+      "decisions": [],
+      "risks": [
+        "Rekomendacje nie są jeszcze decyzjami użytkownika"
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/solution-exploration.md",
+          "label": "Porównanie wariantów generatora"
+        }
+      ],
+      "gate": {
+        "question": null,
+        "answer": null
+      },
+      "started": "2026-10-04T08:38:11Z",
+      "completed": "2026-10-04T08:46:48Z"
+    },
+    "phase_4": {
+      "summary": "Oczekuje decyzja D1: pierwszy docelowy wynik generatora. Dalsze osie będą rozstrzygane osobno.",
+      "decisions": [],
+      "risks": [
+        "Pełny wynik wymaga domknięcia dowodów fleksji i istotnych klas",
+        "NKJP pozostaje BLOCKED; harmonogram nie jest jeszcze wybrany"
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/solution-exploration.md",
+          "label": "Porównanie wariantów generatora"
+        }
+      ],
+      "gate": {
+        "id": "D1",
+        "status": "pending",
+        "question": "Co uznajemy za pierwszy docelowy wynik generatora?",
+        "options": {
+          "A": "G1: BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP (rekomendowane).",
+          "B": "G2: wcześniejszy pilot techniczny, jawnie niepełny (INCOMPLETE).",
+          "C": "G3: G1 oraz ATTESTED-LEXEME i ATTESTED-FORM; szerszy pierwszy etap."
+        },
+        "answer": null
+      },
+      "started": "2026-10-04T08:46:48Z",
       "completed": null
     }
   },
@@ -148,7 +202,8 @@
     "research_question": "Czy i jak z udokumentowanych źródeł SGJP, KWJP100 i NKJP przygotować odtwarzalny generator zgodny ze specyfikacją v3?",
     "scope": {
       "included": [
-        "rozdział15: wszystkie10 punktów, audyt wraz ze skryptami i projektem modelu"
+        "rozdział15: wszystkie10 punktów, audyt wraz ze skryptami i projektem modelu",
+        "zatwierdzone porównanie wariantów oraz projekt wysokiego poziomu; bez implementacji"
       ],
       "excluded": [
         "SJP.pl: pobieranie i benchmark",
@@ -223,6 +278,24 @@
       "user_response": "idzmy dalej",
       "artifact_revision": "6137e23",
       "scope": "raport audytu jako podstawa dalszych decyzji; bez zatwierdzenia finalnej polityki filtrów"
+    },
+    "optional_phase_approval": {
+      "user_response": "tak i tak",
+      "approved_at": "2026-10-04T08:38:11Z",
+      "brainstorming_enabled": true,
+      "design_enabled": true,
+      "implementation_authorized": false
+    },
+    "convergence": {
+      "active_decision": "D1",
+      "selections": {},
+      "remaining_areas": [
+        "pierwszy wynik",
+        "harmonogram NKJP",
+        "zakres konstrukcji po uzupełnieniu dowodów",
+        "pozostałe rzeczywiste wybory polityki, jeśli ujawnią je dowody"
+      ],
+      "html_companion_due": "po rozstrzygnięciu konwergencji"
     }
   }
 }
