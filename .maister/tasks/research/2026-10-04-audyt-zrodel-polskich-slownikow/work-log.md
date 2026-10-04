@@ -13,3 +13,7 @@
 2026-10-04T08:46:48Z — zakończono fazę3 po przeglądzie porównania agenta: trzy odmienne zakresy i niezależne osie, pełna fleksja zachowana, NKJP pozostaje wymaganiem pełnego projektu z blokadą. Zweryfikowano przykłady bonowali/burtowali/AI z utrwalonych statystyk; nie pozyskano nowych danych. AUTO-CONTINUE do fazy4, zapisano pending D1; brak wyboru użytkownika. HTML porównania powstanie po rozstrzygnięciu konwergencji zgodnie z kontraktem framework §9.
 
 2026-10-04T08:50:26Z — użytkownik wybrał A w D1: G1, BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i KWJP. Zapisano wybór oraz warunek kompletności; warianty ATTESTED odroczone. Sprawdzono dostępność artefaktów i ponownie odczytano audyt NKJP. Zapisano pending D2 z niezależnymi wariantami N1/N2/N3; nie zmieniono statusu NKJP ani nie rozpoczęto implementacji.
+
+2026-10-04T08:52:25Z — D2=A/N1: pierwszy wynik SGJP/KWJP, NKJP po wyjaśnieniu warunków w osobnym wydaniu. Zachowano wymaganie NKJP i status BLOCKED. Rozpoczęto ograniczone uzupełnienie dowodów konstrukcji, w szczególności aktualnej pisowni; bez implementacji.
+
+2026-10-04T08:55:44Z — dodano construction-scope.md i construction-sources.json: RJP §4.4–4.6 oraz Podstawy teoretyczne SGJP, kontrola kodu segmenty.dat. Zapisano hashe PDF, cache ignorowany. Rozdzielono pełną fleksję od konstrukcji kilku leksemów i niezweryfikowanych mobilnych końcówek; D3 pending, bez akceptacji reguł wykonawczych. Pierwotny manifest i wyniki audytu zachowane.

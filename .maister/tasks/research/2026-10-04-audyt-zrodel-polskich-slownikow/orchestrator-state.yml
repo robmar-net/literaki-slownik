@@ -17,7 +17,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T01:56:09Z",
-    "updated": "2026-10-04T08:50:26Z",
+    "updated": "2026-10-04T08:55:44Z",
     "task_path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow"
   },
   "task": {
@@ -149,28 +149,37 @@
       "completed": "2026-10-04T08:46:48Z"
     },
     "phase_4": {
-      "summary": "Wybrano G1; oczekuje D2 dotycząca harmonogramu NKJP. Pozostałe reguły i projekt wymagają dalszego rozstrzygnięcia.",
+      "summary": "G1 i N1 zatwierdzone. Uzupełniono dowody pisowni i rozdzielono klasy konstrukcji; oczekuje D3 dotycząca ich miejsca w kandydatach.",
       "decisions": [
-        "D1=G1: BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP; kontrola kompletności przed odbiorem"
+        "D1=G1: BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP; kontrola kompletności przed odbiorem",
+        "D2=N1: SGJP/KWJP w pierwszym wyniku; NKJP dołączone później po wyjaśnieniu warunków"
       ],
       "risks": [
         "Pełny wynik wymaga domknięcia dowodów fleksji i istotnych klas",
-        "NKJP pozostaje BLOCKED; harmonogram nie jest jeszcze wybrany"
+        "NKJP pozostaje BLOCKED do użycia; pierwszy wynik bez tego źródła zgodnie z N1"
       ],
       "artifacts": [
         {
           "path": "outputs/solution-exploration.md",
           "label": "Porównanie wariantów generatora"
+        },
+        {
+          "path": "analysis/findings/construction-scope.md",
+          "label": "Konstrukcje: dowody i zakres D3"
+        },
+        {
+          "path": "analysis/findings/construction-sources.json",
+          "label": "Źródła uzupełnienia"
         }
       ],
       "gate": {
-        "id": "D2",
+        "id": "D3",
         "status": "pending",
-        "question": "Czy pierwszy wynik ma czekać na wyjaśnienie warunków użycia NKJP?",
+        "question": "Czy udokumentowane konstrukcje istniejących leksemów uwzględniamy w głównych kandydatach BROAD/STANDARD?",
         "options": {
-          "A": "N1: pierwszy wynik SGJP/KWJP, NKJP dołączone później po wyjaśnieniu warunków (rekomendowane).",
-          "B": "N2: rozwijać SGJP/KWJP, ale wstrzymać wydanie do wyjaśnienia i dołączenia NKJP.",
-          "C": "N3: najpierw wyjaśnić NKJP, potem rozpocząć implementację."
+          "A": "C1: włączyć po kontroli reguł każdej klasy, np. przezeń i czytajże (rekomendowane).",
+          "B": "C2: badać dodatkowe konstrukcje jako osobne rozszerzenie; pełna wymagana fleksja pozostaje w bazie.",
+          "C": "C3: odłożyć wybór do pełnej macierzy klas i skutków."
         },
         "answer": null
       },
@@ -253,6 +262,13 @@
         "category": "game_rules",
         "coverage": "inspected",
         "evidence": "analysis/findings/game-policy.md"
+      },
+      {
+        "category": "ortografia i interpretacja konstrukcji",
+        "coverage": "targeted_sections_inspected",
+        "status": "ALLOWED",
+        "scope": "bibliograficzny, bez importu list",
+        "evidence": "analysis/findings/construction-sources.json"
       }
     ],
     "confidence_level": "wysoka dla formatów/pomiarów, umiarkowana dla finalnej polityki; otwarte warunki NKJP",
@@ -289,7 +305,7 @@
       "implementation_authorized": false
     },
     "convergence": {
-      "active_decision": "D2",
+      "active_decision": "D3",
       "selections": {
         "D1": {
           "option": "G1",
@@ -300,10 +316,18 @@
             "Pilot nie jest wynikiem końcowym",
             "ATTESTED odroczone"
           ]
+        },
+        "D2": {
+          "option": "N1",
+          "answer": "A",
+          "answered_at": "2026-10-04T08:52:25Z",
+          "accepted_tradeoffs": [
+            "Pierwszy wynik SGJP/KWJP bez NKJP",
+            "NKJP pozostaje wymaganiem pełnego projektu; dołączenie po wyjaśnieniu warunków w nowym wydaniu"
+          ]
         }
       },
       "remaining_areas": [
-        "harmonogram NKJP",
         "zakres konstrukcji po uzupełnieniu dowodów",
         "pozostałe rzeczywiste wybory polityki, jeśli ujawnią je dowody"
       ],
@@ -321,6 +345,19 @@
           "answer": "A",
           "user_response": "A",
           "answered_at": "2026-10-04T08:50:26Z"
+        },
+        {
+          "id": "D2",
+          "status": "resolved",
+          "question": "Czy pierwszy wynik ma czekać na wyjaśnienie warunków użycia NKJP?",
+          "options": {
+            "A": "N1: pierwszy wynik SGJP/KWJP, NKJP dołączone później po wyjaśnieniu warunków (rekomendowane).",
+            "B": "N2: rozwijać SGJP/KWJP, ale wstrzymać wydanie do wyjaśnienia i dołączenia NKJP.",
+            "C": "N3: najpierw wyjaśnić NKJP, potem rozpocząć implementację."
+          },
+          "answer": "A",
+          "user_response": "A",
+          "answered_at": "2026-10-04T08:52:25Z"
         }
       ]
     }

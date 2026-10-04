@@ -1,0 +1,36 @@
+[
+  {
+    "title": "RJP PAN: Zasady pisowni i interpunkcji polskiej",
+    "url": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf",
+    "version": "Warszawa 2024; tekst jednolity w ścieżce 2025/11, dla zasad od 2026",
+    "sections": [
+      "4.4.4, s.25",
+      "4.5, s.25–27",
+      "4.6, s.27"
+    ],
+    "verified_at": "2026-10-04T08:54:49Z",
+    "sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+    "bytes": 842173,
+    "cache_path": "cache/constructions/rjp-2026.pdf",
+    "status": "ALLOWED",
+    "scope": "odczyt bibliograficzny i własne omówienie reguł; nie import danych leksykalnych ani redystrybucja PDF",
+    "license_for_redistribution": "nie ustalano; nie publikujemy źródłowego dokumentu"
+  },
+  {
+    "title": "Podstawy teoretyczne SGJP",
+    "url": "https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf",
+    "version": "wydanie czwarte; wersja pliku identyfikowana hashem",
+    "sections": [
+      "6.4.2, s.96–98",
+      "7.3, s.124",
+      "9.1, s.144"
+    ],
+    "verified_at": "2026-10-04T08:54:49Z",
+    "sha256": "3e3d104b1a210e0097c511b36f1440de539413ec64079fba505c47c3bf7684ca",
+    "bytes": 568070,
+    "cache_path": "cache/constructions/sgjp-theory.pdf",
+    "status": "ALLOWED",
+    "scope": "odczyt bibliograficzny i własne omówienie reguł; nie import danych leksykalnych ani redystrybucja PDF",
+    "license_for_redistribution": "nie ustalano; nie publikujemy źródłowego dokumentu"
+  }
+]

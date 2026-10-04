@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T08:50:26Z",
+  "generated": "2026-10-04T08:55:44Z",
   "task": {
     "title": "Audyt źródeł polskich słowników — etap 1",
     "description": "Realizacja rozdziału 15 specyfikacji v3: źródła, pomiary, filtry, dopasowania i projekt odtwarzalności.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "research",
     "path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow",
-    "current_activity": "Decyzja D2: harmonogram dołączenia NKJP"
+    "current_activity": "Decyzja D3: konstrukcje w głównych słownikach"
   },
   "characteristics": {
     "scope": "Zatwierdzony audyt §15 oraz porównanie i projekt; bez implementacji"
@@ -157,28 +157,37 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T08:46:48Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Wybrano G1; oczekuje D2 dotycząca harmonogramu NKJP. Pozostałe reguły i projekt wymagają dalszego rozstrzygnięcia.",
+      "summary": "G1 i N1 zatwierdzone. Uzupełniono dowody pisowni i rozdzielono klasy konstrukcji; oczekuje D3 dotycząca ich miejsca w kandydatach.",
       "decisions": [
-        "D1=G1: BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP; kontrola kompletności przed odbiorem"
+        "D1=G1: BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP; kontrola kompletności przed odbiorem",
+        "D2=N1: SGJP/KWJP w pierwszym wyniku; NKJP dołączone później po wyjaśnieniu warunków"
       ],
       "risks": [
         "Pełny wynik wymaga domknięcia dowodów fleksji i istotnych klas",
-        "NKJP pozostaje BLOCKED; harmonogram nie jest jeszcze wybrany"
+        "NKJP pozostaje BLOCKED do użycia; pierwszy wynik bez tego źródła zgodnie z N1"
       ],
       "artifacts": [
         {
           "path": "outputs/solution-exploration.md",
           "label": "Porównanie wariantów generatora"
+        },
+        {
+          "path": "analysis/findings/construction-scope.md",
+          "label": "Konstrukcje: dowody i zakres D3"
+        },
+        {
+          "path": "analysis/findings/construction-sources.json",
+          "label": "Źródła uzupełnienia"
         }
       ],
       "gate": {
-        "id": "D2",
+        "id": "D3",
         "status": "pending",
-        "question": "Czy pierwszy wynik ma czekać na wyjaśnienie warunków użycia NKJP?",
+        "question": "Czy udokumentowane konstrukcje istniejących leksemów uwzględniamy w głównych kandydatach BROAD/STANDARD?",
         "options": {
-          "A": "N1: pierwszy wynik SGJP/KWJP, NKJP dołączone później po wyjaśnieniu warunków (rekomendowane).",
-          "B": "N2: rozwijać SGJP/KWJP, ale wstrzymać wydanie do wyjaśnienia i dołączenia NKJP.",
-          "C": "N3: najpierw wyjaśnić NKJP, potem rozpocząć implementację."
+          "A": "C1: włączyć po kontroli reguł każdej klasy, np. przezeń i czytajże (rekomendowane).",
+          "B": "C2: badać dodatkowe konstrukcje jako osobne rozszerzenie; pełna wymagana fleksja pozostaje w bazie.",
+          "C": "C3: odłożyć wybór do pełnej macierzy klas i skutków."
         },
         "answer": null
       }

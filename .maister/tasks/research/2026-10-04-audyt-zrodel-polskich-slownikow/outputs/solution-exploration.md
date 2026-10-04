@@ -1,6 +1,6 @@
 # Warianty pierwszego generatora — materiał do decyzji
 
-Data: 2026-10-04. Faza: porównanie rozwiązań po zatwierdzonym audycie. **Użytkownik wybrał G1 (odpowiedź A na D1): BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP.** Pozostałe osie nie są jeszcze zatwierdzone. Zgoda „tak i tak” włączyła porównanie i projekt, nie implementację.
+Data: 2026-10-04. Faza: porównanie rozwiązań po zatwierdzonym audycie. **Użytkownik wybrał G1 (odpowiedź A na D1): BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP.** **D2=A/N1: pierwszy wynik SGJP/KWJP, NKJP później po wyjaśnieniu warunków.** Pozostałe osie nie są jeszcze zatwierdzone. Zgoda „tak i tak” włączyła porównanie i projekt, nie implementację.
 
 ## TL;DR
 
@@ -16,13 +16,15 @@ NKJP pozostaje BLOCKED we wszystkich opcjach. Brak dowodów dotyczących licencj
 
 **D1 zatwierdzona — G1:** dwa pełne kandydaty BROAD i STANDARD, wyjaśnienia i dowody KWJP; kontrola kompletności przed odbiorem. Oznaczenie INCOMPLETE nie spełnia kryterium wyniku końcowego.
 
-**Rekomendacje do zatwierdzenia:** kontrolowana lista udokumentowanych reguł konstrukcji; dane nierozstrzygnięte zachowane osobno; SGJP/KWJP niezależne harmonogramowo od wyjaśnienia NKJP. Niżej każda z tych osi jest rozpatrywana osobno. Wybór jednego wiersza nie zatwierdza pozostałych.
+**D2 zatwierdzona — N1:** pierwszy wynik korzysta z SGJP/KWJP; NKJP pozostaje wymaganiem pełnego projektu i dołączy po wyjaśnieniu warunków w nowym wydaniu.
+
+**Rekomendacje do zatwierdzenia:** kontrolowana lista udokumentowanych reguł konstrukcji; dane nierozstrzygnięte zachowane osobno. Niżej każda z tych osi jest rozpatrywana osobno. Wybór jednego wiersza nie zatwierdza pozostałych.
 
 **Rekomendacje techniczne do późniejszego projektu:** lokalne polecenia i jedna relacyjna baza, zachowane rekordy źródłowe i manifesty, brak API i usług. SQLite jest hipotezą startową, nie wynikiem testu wydajności. [Model procesu](../analysis/findings/model-procesu.md).
 
 ## Open Questions / Risks
 
-- Czy pierwszy wynik ma czekać na wyjaśnienie warunków NKJP? Oczekuje decyzja D2; rekomendacja N1.
+- Oczekuje D3: zakres konstrukcji, z rozdzielonymi klasami i nowymi dowodami w [uzupełnieniu](../analysis/findings/construction-scope.md).
 - Które klasy samodzielnych zapisów z kilku istniejących leksemów należą do planowanych kandydatów, a które tylko do eksperymentu? Pełna fleksja zakwalifikowanych leksemów pozostaje obowiązkowa niezależnie od odpowiedzi.
 - Nie mamy jeszcze podziału wszystkich nietypowych zapisów na zwykłe wyrazy, skrótowce, nazwy i symbole ani dowodu semantyki mieszanych kwalifikatorów. Rozstrzygnięcie wymaga dalszych przykładów i źródeł, nie automatycznego `lower()`.
 - Nie wykazano kompletności wszystkich klas odmiany. Wstrzymanie dowolnej wymaganej klasy daje wynik niepełny; nie może realizować obietnicy końcowej pełnej fleksji.
@@ -30,7 +32,7 @@ NKJP pozostaje BLOCKED we wszystkich opcjach. Brak dowodów dotyczących licencj
 
 ## 1. Punkty wyjścia i kryteria
 
-Materiałem są zatwierdzony [raport](research-report.md), [synteza](../analysis/synthesis.md), dowody [SGJP](../analysis/findings/sgjp-rules.md), [KWJP](../analysis/findings/kwjp-findings.md), [NKJP](../analysis/findings/nkjp-audit.md) i [zakres dalszych faz](../planning/next-phases.md). Nie pozyskano nowych danych ani nie przeliczono scenariuszy. Oceny poniżej są rekomendacjami projektowymi, nie pomiarami.
+Materiałem są zatwierdzony [raport](research-report.md), [synteza](../analysis/synthesis.md), dowody [SGJP](../analysis/findings/sgjp-rules.md), [KWJP](../analysis/findings/kwjp-findings.md), [NKJP](../analysis/findings/nkjp-audit.md) i [zakres dalszych faz](../planning/next-phases.md). Pierwotne porównanie nie obejmowało nowych pomiarów. W konwergencji dodano [uzupełnienie bibliograficzne konstrukcji](../analysis/findings/construction-scope.md); pomiarów scenariuszy nie zmieniano. Oceny poniżej są rekomendacjami projektowymi, nie pomiarami.
 
 Pytania otwierające alternatywy:
 
@@ -148,4 +150,7 @@ Proponowana kolejność rozmowy:
 
 **Rozstrzygnięcie D1: A / G1.** Zaakceptowany koszt: końcowi kandydaci wymagają kontroli pełnej dopuszczalnej fleksji i rozstrzygnięcia istotnych klas. Pilot nie zastępuje odbioru, ATTESTED odroczone. Pozostałe rekomendacje nie są automatycznie zatwierdzone.
 
-**D2 — oczekuje odpowiedzi:** Czy pierwszy wynik ma czekać na wyjaśnienie warunków NKJP? A / N1: SGJP i KWJP najpierw, NKJP później (rekomendacja); B / N2: prace SGJP/KWJP mogą trwać, ale wydanie czeka; C / N3: wyjaśnienie NKJP przed implementacją. Wszystkie opcje zachowują blokadę użycia oraz NKJP jako wymaganie pełnego projektu.
+**Historia D2 — rozstrzygnięta A / N1:** Czy pierwszy wynik ma czekać na wyjaśnienie warunków NKJP? A / N1: SGJP i KWJP najpierw, NKJP później (rekomendacja); B / N2: prace SGJP/KWJP mogą trwać, ale wydanie czeka; C / N3: wyjaśnienie NKJP przed implementacją. Wszystkie opcje zachowują blokadę użycia oraz NKJP jako wymaganie pełnego projektu.
+
+
+**D3 — oczekuje odpowiedzi:** Czy udokumentowane konstrukcje istniejących leksemów, takie jak przyimek z `-ń` i rozkaźnik z partykułą, uwzględniamy w głównych kandydatach? A/C1: tak, po kontroli każdej klasy (rekomendacja); B/C2: osobne rozszerzenie; C/C3: decyzja po pełnej macierzy klas. [Dowody, granice i konsekwencje](../analysis/findings/construction-scope.md). Wymagana fleksja, w tym kontrola `bym/byśmy`, nie podlega ponownemu głosowaniu.
