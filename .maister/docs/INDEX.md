@@ -28,3 +28,5 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Sprostowanie polityki źródeł](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/source-policy-clarification.md) — brak automatycznego przejęcia ograniczeń źródeł SJP.pl; decyzje zmieniające skład list omawiamy przed wdrożeniem.
 
 - [Raport wpływu filtrów](../../docs/generator/raporty.md) — strumieniowe efekty samodzielne/kolejne/łączne; bez deklaracji pełnego wydania.
+
+- [Odroczenie źródeł społecznościowych](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/wiktionary-attestation-decision.md) — decyzja użytkownika: Wikisłownik i podobne źródła dopiero później; obecne dane bez ich użycia.

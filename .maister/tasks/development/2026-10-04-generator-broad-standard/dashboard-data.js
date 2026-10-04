@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T22:29:14Z",
+  "generated": "2026-10-04T22:33:39Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Wiek form i raport filtrów działają; decyzja o Wikisłowniku jako poświadczeniu"
+    "current_activity": "Dane SGJP/KWJP; źródła społecznościowe odłożone, brakujące dowody unresolved"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "A dla mieszanej dawności wdrożone; 160/16 etykiet i pełny przegląd 7,46 mln rekordów. Dodano raport wpływu filtrów; 70/70 testów. Przed aktywacją pomocniczych poświadczeń oczekujemy decyzji o Wikisłowniku. G3–G6 nadal partial.",
+      "summary": "Reguły wieku i raport filtrów wdrożone. Użytkownik odłożył Wikisłownik i podobne źródła społecznościowe na później; brak nowych aktywnych źródeł. G3–G6 nadal częściowe, niewiadome zachowane.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -250,7 +250,8 @@ window.MAISTER_DATA = {
         "User authorized code continuation; diagnostic mechanics do not activate incomplete linguistic policy or bypass release",
         "Użytkownik: decyzje zmieniające kryteria i skład słownika omawiamy przed wdrożeniem; bez automatycznego kopiowania polityki źródeł SJP.pl.",
         "A: samo niezal. nie odrzuca interpretacji w BROAD ani STANDARD; pozostałe kryteria nadal obowiązują.",
-        "A mixed_history_priority: dodatkowe daw./przest. wyklucza konkretną interpretację ze STANDARD mimo dziś; samo dziś nie wyklucza, BROAD bez wyłączenia przez dawność."
+        "A mixed_history_priority: dodatkowe daw./przest. wyklucza konkretną interpretację ze STANDARD mimo dziś; samo dziś nie wyklucza, BROAD bez wyłączenia przez dawność.",
+        "Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -355,16 +356,8 @@ window.MAISTER_DATA = {
         }
       ],
       "gate": {
-        "id": "wiktionary_auxiliary_attestation_policy",
-        "status": "pending",
-        "created_at": "2026-10-04T22:23:40Z",
-        "question": "Czy Wikisłownik może być pomocniczym źródłem poświadczenia całej istniejącej konstrukcji SGJP, po pozytywnym audycie konkretnego wpisu?",
-        "options": {
-          "A": "Tak: pełne polskie hasło może być pomocniczym dowodem; audyt, uwagi o poprawności i pozostałe warunki obowiązują (rekomendowane).",
-          "B": "Nie: wymagamy poświadczeń ze słowników instytucjonalnych/profesjonalnych; Wikisłownik tylko orientacyjnie."
-        },
-        "answer": null,
-        "artifact": "analysis/evidence/wiktionary-attestation-decision.md"
+        "question": null,
+        "answer": null
       }
     },
     {

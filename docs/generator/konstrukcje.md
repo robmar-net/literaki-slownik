@@ -39,3 +39,7 @@ Przypadki rozdzielające pochodzą z danych SGJP: `jam` ma niezależną analizę
 `literaki_slownik.constructions` tworzy kandydatów dla rozkaźnika z jedną partykułą i źródłowego `by` (comp/part) z czterema końcówkami aglt nwok. Każdy wynik zachowuje pełne składniki, ID homonimów i źródłowe kwalifikatory. Nie tworzymy podwojonej partykuły ani nie zgadujemy hosta po końcowych literach. Nieznana klasa lub niezgodne zakończenie daje błąd pokrycia. Kandydaci nie są jeszcze integrowani z build ani kwalifikowani do list.
 
 Pełny runtime: 92 622 źródłowe rekordy impt → 93 438 rozwiniętych analiz, 91 104 różne napisy; 4 100 napisów odpada już w profilu alfabetu/długości. To nie końcowa delta listy. Dwa źródłowe by × cztery aglt dają osiem analiz czterech napisów. [Raport](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/approved-rules-runtime.json).
+
+## Źródła społecznościowe — bieżąca faza
+
+Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych.

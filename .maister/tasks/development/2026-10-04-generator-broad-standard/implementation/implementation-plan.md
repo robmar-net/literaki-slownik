@@ -185,3 +185,7 @@ Nazwy katalogów są przykładowe; ponowienie zawsze używa nowego celu. Pełna 
 ## 6. Bramka planu
 
 A: zatwierdzić dziewięć grup i I1–I3, rozpocząć implementację według executora. B: wskazać korektę przed kodem. Zatwierdzenie planu nie udziela zgody na destrukcyjny rollback ani na arbitralną zmianę polityki językowej.
+
+## Źródła społecznościowe — decyzja użytkownika
+
+Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych.

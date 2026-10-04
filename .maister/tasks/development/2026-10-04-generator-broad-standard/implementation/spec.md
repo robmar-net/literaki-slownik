@@ -181,3 +181,7 @@ Nowe źródło, reguła lub schemat oznacza nową wersję i nowy katalog; raport
 ## 13. Bramka specyfikacji
 
 Rekomendacja A: zatwierdzić kontrakty i kryteria; następnie wykonać audyt specyfikacji i przygotować plan do osobnego zatwierdzenia. B: wskazać korektę. Zatwierdzenie dokumentu nie oznacza, że finalne reguły językowe lub warunki publikacji zostały już dowiedzione. Ich ustalenie pozostaje obowiązkowym zadaniem implementacji.
+
+## Źródła społecznościowe — decyzja użytkownika
+
+Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych.

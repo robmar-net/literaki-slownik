@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-04T22:29:14Z",
+    "updated": "2026-10-04T22:33:39Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "A dla mieszanej dawności wdrożone; 160/16 etykiet i pełny przegląd 7,46 mln rekordów. Dodano raport wpływu filtrów; 70/70 testów. Przed aktywacją pomocniczych poświadczeń oczekujemy decyzji o Wikisłowniku. G3–G6 nadal partial.",
+      "summary": "Reguły wieku i raport filtrów wdrożone. Użytkownik odłożył Wikisłownik i podobne źródła społecznościowe na później; brak nowych aktywnych źródeł. G3–G6 nadal częściowe, niewiadome zachowane.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -224,7 +224,8 @@
         "User authorized code continuation; diagnostic mechanics do not activate incomplete linguistic policy or bypass release",
         "Użytkownik: decyzje zmieniające kryteria i skład słownika omawiamy przed wdrożeniem; bez automatycznego kopiowania polityki źródeł SJP.pl.",
         "A: samo niezal. nie odrzuca interpretacji w BROAD ani STANDARD; pozostałe kryteria nadal obowiązują.",
-        "A mixed_history_priority: dodatkowe daw./przest. wyklucza konkretną interpretację ze STANDARD mimo dziś; samo dziś nie wyklucza, BROAD bez wyłączenia przez dawność."
+        "A mixed_history_priority: dodatkowe daw./przest. wyklucza konkretną interpretację ze STANDARD mimo dziś; samo dziś nie wyklucza, BROAD bez wyłączenia przez dawność.",
+        "Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -329,16 +330,8 @@
         }
       ],
       "gate": {
-        "id": "wiktionary_auxiliary_attestation_policy",
-        "status": "pending",
-        "created_at": "2026-10-04T22:23:40Z",
-        "question": "Czy Wikisłownik może być pomocniczym źródłem poświadczenia całej istniejącej konstrukcji SGJP, po pozytywnym audycie konkretnego wpisu?",
-        "options": {
-          "A": "Tak: pełne polskie hasło może być pomocniczym dowodem; audyt, uwagi o poprawności i pozostałe warunki obowiązują (rekomendowane).",
-          "B": "Nie: wymagamy poświadczeń ze słowników instytucjonalnych/profesjonalnych; Wikisłownik tylko orientacyjnie."
-        },
-        "answer": null,
-        "artifact": "analysis/evidence/wiktionary-attestation-decision.md"
+        "question": null,
+        "answer": null
       },
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
@@ -391,6 +384,20 @@
           "answer": "A",
           "artifact": "analysis/evidence/mixed-history-decision.md",
           "answered_at": "2026-10-04T22:09:27Z"
+        },
+        {
+          "id": "wiktionary_auxiliary_attestation_policy",
+          "status": "deferred_by_user",
+          "created_at": "2026-10-04T22:23:40Z",
+          "question": "Czy Wikisłownik może być pomocniczym źródłem poświadczenia całej istniejącej konstrukcji SGJP, po pozytywnym audycie konkretnego wpisu?",
+          "options": {
+            "A": "Tak: pełne polskie hasło może być pomocniczym dowodem; audyt, uwagi o poprawności i pozostałe warunki obowiązują (rekomendowane).",
+            "B": "Nie: wymagamy poświadczeń ze słowników instytucjonalnych/profesjonalnych; Wikisłownik tylko orientacyjnie."
+          },
+          "answer": "takie narzedzia jak wikislownik mozemy wprowadzic do uzycia pozniej, na razie chcemy miec czyste dane",
+          "artifact": "analysis/evidence/wiktionary-attestation-decision.md",
+          "answered_at": "2026-10-04T22:33:39Z",
+          "resolution": "No current use of Wiktionary or similar community sources; revisit only after user authorization. Not option B as a permanent professional-only requirement."
         }
       ]
     }
@@ -440,7 +447,8 @@
       "research_artifacts": "verified",
       "g3_lanes": "Three read-only lanes reconciled against pinned DB and primary documentation by coordinator; required semantic gaps remain pending",
       "supplementary_audit": "Coordinator verified all local hashes, all 26 contraction requests, primary code and z D. definition. SGJP production metadata license/snapshot pending; Wiktionary game eligibility/history unproved; WSJP/PWN access/use limitations recorded. No active source added.",
-      "original_package": "All 7,458,520 original gzip rows and five fields compared to raw SQLite, identical; 406-file source archive inventoried; pinned binary format compiler inspected. Upstream SJPDor membership exists but is not published in five-field export."
+      "original_package": "All 7,458,520 original gzip rows and five fields compared to raw SQLite, identical; 406-file source archive inventoried; pinned binary format compiler inspected. Upstream SJPDor membership exists but is not published in five-field export.",
+      "community_attestations": "Explicitly user-deferred for current phase. Historical audit retained; required construction evidence remains unresolved, not complete or rejected."
     },
     "implementation_started": true,
     "conditional_phases": {
@@ -531,7 +539,14 @@
       "scope": "Audited official SGJP metadata and independent lexical attestations for existing SGJP lexemes/constructions; no new lexemes, game rules unchanged.",
       "excluded": "SJP/OSPS/PoliMorf lexical data and benchmark; future-directions external data remain BLOCKED",
       "audit_artifact": "analysis/evidence/supplementary-source-audit.md",
-      "active_artifacts_added": 0
+      "active_artifacts_added": 0,
+      "community_sources": {
+        "status": "DEFERRED_BY_USER",
+        "recorded_at": "2026-10-04T22:33:39Z",
+        "current_build_use": false,
+        "current_eligibility_evidence_use": false,
+        "artifact": "analysis/evidence/wiktionary-attestation-decision.md"
+      }
     },
     "verification_note": "Increment: 70/70 generator, baseline audit 5/5, production preflight 14/14 and configuration hashes OK; JSON, completed artifacts, local links, dashboard projection and diff checked. Canonical verification and full release pending.",
     "source_policy_clarification": {

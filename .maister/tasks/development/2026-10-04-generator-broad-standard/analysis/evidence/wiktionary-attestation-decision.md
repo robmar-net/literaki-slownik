@@ -2,7 +2,7 @@
 
 ## TL;DR
 Audyt dodatkowych źródeł jest już zatwierdzony; nie prosimy ponownie o zgodę na ten audyt.
-Do rozstrzygnięcia pozostaje kryterium jakości źródła: czy dopuszczamy słownik tworzony społecznościowo jako pomocniczy dowód całej formy.
+Użytkownik rozstrzygnął: Wikisłownik i podobne źródła społecznościowe odkładamy na później; nie używamy ich w bieżącej fazie.
 Dotyczy to istniejących kandydatów SGJP, np. przyimek + ń, a nie importu nowych leksemów.
 Nie aktywowano danych Wikisłownika ani automatycznej akceptacji słów.
 
@@ -31,3 +31,9 @@ Obie rewizje są zgodne z artefaktami cache wcześniejszego audytu; obecne otwar
 **B:** poświadczenia wymagają słownika instytucjonalnego lub profesjonalnego; Wikisłownik pozostaje materiałem orientacyjnym. Ogranicza to rodzaj dowodów i może wydłużyć pozyskanie danych, lecz audyt innych źródeł pozostaje zatwierdzony.
 
 W obu wariantach wszystkie niezależne warunki językowe, gry i profilu nadal obowiązują. Samo znalezienie strony lub wystąpienie w przykładzie/korpusie nie staje się pełnym poświadczeniem hasłowym.
+
+## Rozstrzygnięcie użytkownika — 2026-10-04T22:33:39Z
+
+Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych.
+
+To odroczenie użycia tych źródeł, a nie trwały wybór B ani zatwierdzenie A. Powrót do nich wymaga nowej decyzji użytkownika. Audyt dodatkowych wejść i pozostałe zadania dowodowe nie są oznaczone jako ukończone przez to odroczenie.
