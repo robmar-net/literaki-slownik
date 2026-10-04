@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "user_instruction": "Wpis do słownika i dopuszczalność w grze oddzielnie; reguł gry nie zmieniamy; sprawdź wzorzec SJP.pl.",
+  "wiki_revision": "b024b73127e261c3c72020024b075d3d4ab34e57",
+  "existing_documents": [
+    {
+      "path_in_workspace": "literaki.wiki/Zasady.md",
+      "sha256": "70d79c67960a505f8b7752b68ac482e411192c9ac5c7b45d5480d1b4648890ae",
+      "role": "readonly_existing_game_documentation",
+      "publication": "reference_only_no_document_copy"
+    },
+    {
+      "path_in_workspace": "literaki.wiki/Rules.md",
+      "sha256": "fb82b8257b714d8ccf6face8d569a86b72aedce753231cbca33b199da1856af9",
+      "role": "readonly_existing_game_documentation",
+      "publication": "reference_only_no_document_copy"
+    },
+    {
+      "path_in_workspace": "literaki.wiki/Licenses.md",
+      "sha256": "62e89ee8950aaef7fac52a09696809a96462cbc35f4f8d60679b4012623b24f8",
+      "role": "readonly_existing_game_documentation",
+      "publication": "reference_only_no_document_copy"
+    },
+    {
+      "path_in_workspace": ".maister/tasks/product-design/2026-08-21-literaki-online-platform/analysis/research/literaki-rules.md",
+      "sha256": "3edb780f7323446db186dcd22253bae50fea81ea6a846a65fa96236c9a79c7f9",
+      "role": "readonly_existing_game_documentation",
+      "publication": "reference_only_no_document_copy"
+    }
+  ],
+  "sjp_observations": [
+    {
+      "url": "https://sjp.pl/PESEL",
+      "role": "readonly_behavior_reference",
+      "status": "inspected"
+    },
+    {
+      "url": "https://sjp.pl/AGD",
+      "role": "readonly_behavior_reference",
+      "status": "inspected"
+    },
+    {
+      "url": "https://sjp.pl/sl/dp.phtml",
+      "role": "readonly_behavior_reference",
+      "status": "inspected"
+    },
+    {
+      "url": "https://sjp.pl/PCR",
+      "role": "readonly_behavior_reference",
+      "status": "unavailable_web_open"
+    }
+  ],
+  "sjp_not_used_for": [
+    "lexical_build_inputs",
+    "benchmark",
+    "automatic_game_rule_update"
+  ]
+}

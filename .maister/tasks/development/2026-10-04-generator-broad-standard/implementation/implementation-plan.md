@@ -15,7 +15,7 @@ Status: plan zatwierdzony przez użytkownika odpowiedzią A; implementacja rozpo
 
 ## Open Questions / Risks
 
-- G3 może ujawnić rzeczywisty wybór polityki językowej; wtedy przedstawiamy przykłady użytkownikowi, bez arbitralnego filtra.
+- G3 może ujawnić rzeczywisty wybór polityki językowej; wtedy przedstawiamy przykłady użytkownikowi, bez arbitralnego filtra. Doprecyzowanie użytkownika: reguł gry nie zmieniamy; odróżniamy wpis od dopuszczalności, nie głosujemy nad zniesieniem istniejących wyłączeń.
 - Przed K10 trzeba ustalić warunki publikacji własnego kodu/dokumentacji/wyników; zakres nie jest zmniejszany, jeśli wymaga to decyzji.
 - G8 mierzy pełny koszt dwóch przebiegów; brak zasobów pozostaje blokadą do rozwiązania.
 
@@ -76,8 +76,8 @@ G3 to badanie źródłowe, bez z góry obiecanego wyniku. Pobieranie nowych doku
 
 Zależności: G2/G3. Pliki: `literaki_slownik/{policy,constructions,decisions}.py`, `tests/{test_policy,test_constructions,test_decisions}.py`, `config/generator/policy.json`. K3/K4/K5; R03/R04/R05.
 
-- [ ] 4.1 Test-first z G3: jedna spójna analiza, accept mimo odrzuconego homonimu, unresolved, zależny segment vs pospolita forma, mieszane etykiety, brak korpusu, profil NFC/znaki/limity, STANDARD ⊆ BROAD.
-- [ ] 4.2 Wdrożyć wersjonowany, zamknięty zestaw reguł, accept/reject/unresolved i wszystkie przyczyny; zachować oryginały, agregować dopiero po kwalifikacji i osobno pokazać profil gry.
+- [ ] 4.1 Test-first z G3: odrębna kwalifikacja językowa/growa/profil, obowiązkowa wielka litera bez dopuszczenia przez lower, jedna spójna analiza, accept mimo odrzuconego homonimu, unresolved, zależny segment vs pospolita forma, mieszane etykiety, brak korpusu, profil NFC/znaki/limity, STANDARD ⊆ BROAD.
+- [ ] 4.2 Wdrożyć wersjonowany, zamknięty zestaw reguł, accept/reject/unresolved i wszystkie przyczyny; zachować oryginały, agregować dopiero po kwalifikacji i osobno pokazać reguły gry oraz profil płytek. Obecność wpisu nie oznacza dopuszczenia growego.
 - [ ] 4.3 Test-first i implementacja każdej potwierdzonej konstrukcji z dodatnimi/ujemnymi przykładami, kompletem składników i dziedziczeniem; brak nowych leksemów/nadgeneracji, deduplikacja wyników bez utraty śladów.
 - [ ] 4.4 Green i kontrola pełnego pokrycia konfiguracji/macierz/testy; raport wszystkich niewiadomych oraz ich wpływu. Znane luki zmieniające pełny zakres blokują wydanie, nie mają automatycznego override.
 
@@ -94,7 +94,7 @@ Zależności: G2/G3/G4. Pliki: `literaki_slownik/links.py`, `tests/test_links.py
 
 Zależności: G4/G5. Pliki: `literaki_slownik/{explain,reports,quality}.py`, `tests/{test_explain,test_reports,test_quality}.py`; CLI/build aktualizowane sekwencyjnie. K7/K9 oraz K8; R07/R09/R11.
 
-- [ ] 6.1 Test-first: accept/reject/unresolved/absent, failed build, wszystkie homonimy/składniki, odrzucenie profilu, brak KWJP; wszystkie analizy w JSON, żadnego cichego ucięcia.
+- [ ] 6.1 Test-first: accept/reject/unresolved/absent, failed build, wszystkie homonimy/składniki, odrzucenie profilu, brak KWJP; wszystkie analizy w JSON, żadnego cichego ucięcia; wpis istniejący lecz niedopuszczalny growo ma osobny powód i pozostaje osiągalny.
 - [ ] 6.2 Wdrożyć explain tekst/JSON oraz raporty importu, inwentaryzacji, pokrycia, niewiadomych, powiązań i filtrów (samodzielnie/kolejno/łącznie, analizy versus utracone formy).
 - [ ] 6.3 Test-first i implementacja quality-v1/I3, do 30 jednostek na każdą warstwę/metodę/kategorię; stabilny dobór, populacje i nakładanie, szablon review związany hashami; brak pustej warstwy jako dowodu klasy.
 - [ ] 6.4 Green, runtime CLI explain na małej fiksturze i rzeczywistym diagnostycznym build; przygotowanie `canonical-index.json` i logical-content według I2, odrębnie performance/log/czasy.

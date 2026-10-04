@@ -1,6 +1,18 @@
 # Decyzja G3: pospolite skrótowce zapisywane wielkimi literami
 
-Status: oczekuje na decyzję użytkownika. To wybór zakresu obu słowników, nie potwierdzenie technicznego importu.
+## TL;DR
+Bramka A/B wycofana po doprecyzowaniu użytkownika: reguł gry nie zmieniamy.
+Poniższe opcje zachowano jako historię wcześniejszego, błędnie sformułowanego pytania.
+Wpis słownikowy i dopuszczalność growa są odrębnymi wynikami.
+
+## Key Decisions
+- Wiążące doprecyzowanie: [dictionary-vs-game.md](dictionary-vs-game.md).
+- Obowiązkowa wielka litera nie staje się dopuszczalna przez lower.
+
+## Open Questions / Risks
+- Pozostałe discovery G3 nadal wymagane; wycofanie bramki nie kończy grupy.
+
+Status: superseded. Nie oczekuje na odpowiedź A/B; opcje poniżej nie obowiązują.
 
 ## Dowody
 

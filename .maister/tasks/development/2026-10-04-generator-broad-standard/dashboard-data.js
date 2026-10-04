@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T13:17:19Z",
+  "generated": "2026-10-04T13:33:33Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "G3: oczekiwanie na wybór polityki pospolitych skrótowców"
+    "current_activity": "G3: dowody językowe; wpisy oddzielone od niezmienionych zasad gry"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,9 +240,10 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "G1/G2 complete: pełny import zgodny z audytem; 21 testów generatora i 5 audytu green. G3 trwa; wybór polityki pospolitych skrótowców oczekuje na użytkownika.",
+      "summary": "G1/G2 complete; G3 trwa. Użytkownik rozdzielił wpis słownikowy i dopuszczalność gry; reguły gry niezmienione, bramka skrótowców superseded.",
       "decisions": [
-        "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline"
+        "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
+        "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry."
       ],
       "risks": [],
       "artifacts": [
@@ -253,17 +254,22 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/acronym-decision.md",
           "label": "Wybór polityki skrótowców"
+        },
+        {
+          "path": "analysis/evidence/dictionary-vs-game.md",
+          "label": "Wpis słownikowy a dopuszczalność growa"
         }
       ],
       "gate": {
         "id": "common_acronyms_case_policy",
-        "status": "pending",
+        "status": "superseded",
         "question": "Czy dopuszczamy pospolite skrótowce zapisywane w SGJP wielkimi literami w BROAD i STANDARD?",
         "options": {
           "A": "Dopuść źródłowo potwierdzone pospolite skrótowce; rekomendowane.",
           "B": "Dopuść tylko ich źródłowe formy małoliterowe."
         },
-        "answer": null
+        "answer": "Użytkownik: wpis w słowniku i dopuszczalność w grze to osobne rzeczy; reguł gry nie zmieniamy.",
+        "answered_at": "2026-10-04T13:33:33Z"
       }
     },
     {

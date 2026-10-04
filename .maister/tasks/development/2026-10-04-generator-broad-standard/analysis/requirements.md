@@ -10,7 +10,7 @@ Niepełny wynik pozostaje roboczy; nie zastępuje pełnego słownika.
 ## Key Decisions
 
 - Źródło wymagań: [prompt v3](../../../../../docs/literaki-niezalezne-slowniki-prompt-v3.md), doprecyzowany [zatwierdzonym projektem](../../../research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/high-level-design.md) i [zakresem](gap-analysis.md).
-- Lokalny Python/SQLite; podstawą dopuszczalności jest SGJP, KWJP dostarcza odrębnych dowodów użycia.
+- Lokalny Python/SQLite; SGJP jest podstawą leksykalną, KWJP dostarcza odrębnych dowodów użycia. Dopuszczalność growa wynika z niezmienionych reguł gry i jest oceniana osobno od obecności wpisu.
 - Jedna spójna analiza musi spełniać wszystkie warunki; nie składamy akceptacji z różnych homonimów.
 
 ## Open Questions / Risks
@@ -28,11 +28,11 @@ Opiekun przygotowuje manifest lokalnych wejść, uruchamia build w nowym katalog
 |---|---|---|
 | R01 | Jawne, wersjonowane wejścia i reguły; kontrola statusów, ról, wersji i hashy | K1 |
 | R02 | Pełny import SGJP i 13 przypiętych list KWJP, zachowanie oryginałów i rozliczenie jednostek | K2 |
-| R03 | Decyzje accept/reject/unresolved dla spójnych analiz, osobno dla wariantów; STANDARD ⊆ BROAD | K3 |
+| R03 | Decyzje accept/reject/unresolved dla spójnych analiz, osobno kwalifikacja językowa i growa; oba warianty stosują niezmienione reguły gry; STANDARD ⊆ BROAD | K3 |
 | R04 | Pełna dopuszczalna fleksja i udokumentowane konstrukcje istniejących leksemów, bez nowych leksemów | K4 |
 | R05 | Pełna inwentaryzacja niewiadomych i odmowa wydania przy lukach zmieniających zakres list | K5 |
 | R06 | Powiązania KWJP zachowują jednostki, niepewność i statusy braków; brak kopiowania częstości | K6 |
-| R07 | Explain dla każdej formy, również odrzuconej, nierozstrzygniętej i nieobecnej | K7 |
+| R07 | Explain dla każdej formy; odrębnie obecność/kwalifikacja językowa, reguły gry, profil i członkostwo w liście, także reject/unresolved/absent | K7 |
 | R08 | Deterministyczne wyniki, dwa odtworzenia i bezpieczne zachowanie przy awarii | K8 |
 | R09 | Wpływ filtrów osobno i kolejno oraz przegląd deterministycznie dobranych prób jakościowych | K9 |
 | R10 | Kontrolowany pakiet dwóch list, manifestów, raportów i atrybucji, z warunkami publikacji | K10 |
