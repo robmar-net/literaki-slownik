@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T13:33:33Z",
+  "generated": "2026-10-04T14:15:33Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "G3: dowody językowe; wpisy oddzielone od niezmienionych zasad gry"
+    "current_activity": "Decyzja o dodatkowych dowodach: G3 częściowa, moduł KWJP przetestowany"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,12 +240,17 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "G1/G2 complete; G3 trwa. Użytkownik rozdzielił wpis słownikowy i dopuszczalność gry; reguły gry niezmienione, bramka skrótowców superseded.",
+      "summary": "G1/G2 complete; G3 częściowa: pełne etykiety, defektywność i KWJP odtworzone; niezależny fragment G5 red→green. Pending decyzja rozszerzenia wejść dowodowych.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
-        "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry."
+        "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
+        "Reguły gry niezmienione; częściowych konfiguracji discovery nie aktywowano",
+        "Wykonano niezależny fragment KWJP według wyjątku planu; G3/G4/G8 nie oznaczone complete"
       ],
-      "risks": [],
+      "risks": [
+        "Brak growych poświadczeń części kontrakcji i pełnych metadanych pochodzenia haseł",
+        "Złożone kwalifikatory i pełna macierz klas nadal pending; K4/K5 blokują wydanie"
+      ],
       "artifacts": [
         {
           "path": "analysis/evidence/full-import.json",
@@ -258,18 +263,38 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/dictionary-vs-game.md",
           "label": "Wpis słownikowy a dopuszczalność growa"
+        },
+        {
+          "path": "analysis/evidence/g3-review.md",
+          "label": "Zweryfikowane dowody G3 i otwarte luki"
+        },
+        {
+          "path": "analysis/evidence/source-extension-decision.md",
+          "label": "Decyzja dodatkowych wejść"
+        },
+        {
+          "path": "analysis/evidence/label-coverage.json",
+          "label": "Pełne kombinacje i mieszaniny nazw"
+        },
+        {
+          "path": "analysis/evidence/kwjp-mapping.json",
+          "label": "Pełne mapowanie lemma-all"
+        },
+        {
+          "path": "../../../../docs/literaki-prosty-jezyk-minimum-leksykalne-kierunki.md",
+          "label": "Notatka użytkownika: przyszłe słowniki znajomości"
         }
       ],
       "gate": {
-        "id": "common_acronyms_case_policy",
-        "status": "superseded",
-        "question": "Czy dopuszczamy pospolite skrótowce zapisywane w SGJP wielkimi literami w BROAD i STANDARD?",
+        "id": "supplementary_attestation_inputs",
+        "status": "pending",
+        "question": "Czy rozszerzamy wejścia dowodowe o audytowane oficjalne metadane SGJP i niezależne poświadczenia słownikowe konstrukcji, bez dodawania nowych leksemów i zmiany zasad gry?",
         "options": {
-          "A": "Dopuść źródłowo potwierdzone pospolite skrótowce; rekomendowane.",
-          "B": "Dopuść tylko ich źródłowe formy małoliterowe."
+          "A": "Tak: audyt i włączenie wyłącznie dopuszczonych uzupełniających danych; rekomendowane.",
+          "B": "Na razie bez nowych wejść: tylko niezależna mechanika, unresolved nadal blokuje pełne wydanie."
         },
-        "answer": "Użytkownik: wpis w słowniku i dopuszczalność w grze to osobne rzeczy; reguł gry nie zmieniamy.",
-        "answered_at": "2026-10-04T13:33:33Z"
+        "answer": null,
+        "artifact": "analysis/evidence/source-extension-decision.md"
       }
     },
     {

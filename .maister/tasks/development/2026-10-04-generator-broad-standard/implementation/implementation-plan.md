@@ -63,6 +63,8 @@ Zależności: G1. Pliki: `literaki_slownik/{database,sgjp,kwjp,build}.py`, `lite
 
 ### G3 — domknięcie dowodów językowych i mapowania
 
+Status częściowy: pełna inwentaryzacja, defektywność próby i mapowanie lemma-all sprawdzone. [Przegląd](../analysis/evidence/g3-review.md) oraz [bramka dodatkowych wejść](../analysis/evidence/source-extension-decision.md); żaden krok nie jest oznaczony complete przez częściowy wynik.
+
 Zależności: G2. Pliki: `docs/generator/{etykiety,konstrukcje,ortografia,mapowanie-kwjp}.md`, `config/generator/{evidence,coverage,qualifiers,categories,pos-map,constructions,orthography}.json`, ewentualnie `scripts/probe_generator_evidence.py`; nowe wyniki w `analysis/evidence/` tego zadania. K4/K5/K6; R04/R05/R06.
 
 - [ ] 3.1 Przeanalizować wszystkie rzeczywiście występujące pola/kombinacje nazw i kwalifikatorów oraz klasy skrótowców; ustalić semantykę na źródłach pierwotnych, policzyć wpływ i zachować przykłady, m.in. PCR/PCV.
@@ -82,6 +84,8 @@ Zależności: G2/G3. Pliki: `literaki_slownik/{policy,constructions,decisions}.p
 - [ ] 4.4 Green i kontrola pełnego pokrycia konfiguracji/macierz/testy; raport wszystkich niewiadomych oraz ich wpływu. Znane luki zmieniające pełny zakres blokują wydanie, nie mają automatycznego override.
 
 ### G5 — powiązania KWJP i dostępność dowodów
+
+Fragment wykonany niezależnie podczas blokady dowodowej G3: moduł links, 4 testy red→green i pełny przegląd lemma-all. Integracja etapu build i pełne powiązania wszystkich list pozostają do wykonania; grupa i kroki nieukończone.
 
 Zależności: G2/G3/G4. Pliki: `literaki_slownik/links.py`, `tests/test_links.py`; dopracowanie `config/generator/pos-map.json`. K6; R06.
 

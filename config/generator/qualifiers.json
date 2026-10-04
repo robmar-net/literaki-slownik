@@ -1,0 +1,3047 @@
+{
+  "comma_is_literal_inside_label": true,
+  "invented_sense_cross_product": false,
+  "literal_labels": {
+    "anat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 846
+    },
+    "anat.,muz.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "anat.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "anat.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 5
+    },
+    "antr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 43
+    },
+    "arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4563
+    },
+    "arch.,char.,biol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "arch.,char.,bot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 32
+    },
+    "arch.,char.,bud.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "arch.,char.,chem.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "arch.,char.,chem.,fiz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "arch.,char.,chor.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "arch.,char.,edyt.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "arch.,char.,ekon.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "arch.,char.,fiz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "arch.,char.,geol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "arch.,char.,hist.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "arch.,char.,hydrol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "arch.,char.,jęz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "arch.,char.,komp.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "arch.,char.,kulin.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "arch.,char.,lit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "arch.,char.,mat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "arch.,char.,med.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 44
+    },
+    "arch.,char.,meteor.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "arch.,char.,mit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 5
+    },
+    "arch.,char.,mors.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "arch.,char.,mot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "arch.,char.,muz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 6
+    },
+    "arch.,char.,paleont.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "arch.,char.,praw.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 7
+    },
+    "arch.,char.,psych.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 7
+    },
+    "arch.,char.,rel.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "arch.,char.,sport.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "arch.,char.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 6
+    },
+    "arch.,char.,term.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "arch.,char.,wojsk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "arch.,char.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 5
+    },
+    "arch.,char.,żegl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "arch._(tylko_po_\"ku\")": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2272
+    },
+    "archeol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 29
+    },
+    "archit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 114
+    },
+    "archit.,bud.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "archit.,hist.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "archit.,rel.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "archit.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 130
+    },
+    "astrol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "astrol.,ekon.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "astron.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 192
+    },
+    "astron.,handl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 130
+    },
+    "bank.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "bibl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 274
+    },
+    "biblt.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "biochem.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 149
+    },
+    "biochem.,farm.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "biol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1096
+    },
+    "biol.,chem.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 227
+    },
+    "biol.,fiz.,miner.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "biol.,kulin.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 5
+    },
+    "biol.,med.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 77
+    },
+    "biol.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "bot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4382
+    },
+    "bot.,chem.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "bot.,geol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "bot.,hist.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "bot.,kulin.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 56
+    },
+    "bot.,med.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "bot.,miner.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "bot.,ogr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 70
+    },
+    "bot.,włók.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "bot.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "bud.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1567
+    },
+    "bud.,hist.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "bud.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1898
+    },
+    "char.,anat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "char.,archit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "char.,biol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "char.,bot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 13
+    },
+    "char.,bot.,kulin.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "char.,bud.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "char.,chor.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "char.,fot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "char.,gry": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "char.,hist.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 7
+    },
+    "char.,kulin.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "char.,lit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "char.,meteor.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "char.,mit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "char.,mors.,żegl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "char.,muz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 10
+    },
+    "char.,muz.,teatr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "char.,praw.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "char.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "char.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 10
+    },
+    "char.,łow.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "char.,żegl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 7
+    },
+    "chem.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2450
+    },
+    "chem.,farm.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "chem.,fiz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 163
+    },
+    "chem.,fiz.,muz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "chem.,ogr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 130
+    },
+    "chem.,wojsk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "chor.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 654
+    },
+    "chor.,lit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "chor.,muz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 80
+    },
+    "daw.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 397972
+    },
+    "daw.,anat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "daw.,arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 269
+    },
+    "daw.,arch.,char.,rel.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "daw.,bot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "daw.,bud.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 152
+    },
+    "daw.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 102
+    },
+    "daw.,char.,karc.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "daw.,chem.,fiz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "daw.,daw._dziś_gwar.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "daw.,daw._dziś_gwar.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 92
+    },
+    "daw.,etn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "daw.,flis.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "daw.,gry": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "daw.,gwar.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 144
+    },
+    "daw.,górn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "daw.,hist.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 112
+    },
+    "daw.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 370
+    },
+    "daw.,hom.,karc.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "daw.,hom.,rel.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "daw.,indyw.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 37
+    },
+    "daw.,iron.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 110
+    },
+    "daw.,jęz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 130
+    },
+    "daw.,karc.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 76
+    },
+    "daw.,kulin.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 33
+    },
+    "daw.,mat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "daw.,meteor.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "daw.,mikol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "daw.,monet.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 33
+    },
+    "daw.,niepopr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 40
+    },
+    "daw.,niezal.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 461
+    },
+    "daw.,num.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "daw.,pogard.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 48
+    },
+    "daw.,pot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 68
+    },
+    "daw.,praw.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 35
+    },
+    "daw.,przest.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 826
+    },
+    "daw.,przest.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 143
+    },
+    "daw.,pszcz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "daw.,reg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1166
+    },
+    "daw.,reg.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "daw.,reg.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "daw.,rel.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 32
+    },
+    "daw.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1967
+    },
+    "daw.,rzad.,akcent": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "daw.,rzad.,anat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "daw.,rzad.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "daw.,rzad.,hist.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "daw.,rzad.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "daw.,rzad.,jęz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 423
+    },
+    "daw.,rzad.,term.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 130
+    },
+    "daw.,rzad.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "daw.,sport.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "daw.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "daw.,wojsk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 13
+    },
+    "daw.,wulg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "daw.,z_D.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "daw.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 33
+    },
+    "daw.,łow.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 57
+    },
+    "daw.,środ.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 36
+    },
+    "daw.,żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 156
+    },
+    "daw.,żegl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 33
+    },
+    "daw._dziś_fraz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "daw._dziś_gwar.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 572
+    },
+    "daw._dziś_gwar.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "daw._dziś_gwar.,z_D.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "daw._dziś_rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 173
+    },
+    "daw._dziś_środ.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 142
+    },
+    "druk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 35
+    },
+    "druk.,hist.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "edyt.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 21
+    },
+    "ekon.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1322
+    },
+    "ekon.,praw.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "elektr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 66
+    },
+    "elektr.,komp.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "erud.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 52
+    },
+    "etn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 929
+    },
+    "etnolog.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 33
+    },
+    "euf.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1278
+    },
+    "euf.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 163
+    },
+    "farm.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 45
+    },
+    "film.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 90
+    },
+    "filoz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 311
+    },
+    "filoz.,rel.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "fiz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 366
+    },
+    "fiz.,mat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "fiz.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "form.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1237
+    },
+    "fot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 162
+    },
+    "fraz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 93
+    },
+    "fraz.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 35
+    },
+    "genet.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "geogr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 163
+    },
+    "geogr.,geol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "geol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 361
+    },
+    "geol.,komp.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 130
+    },
+    "geol.,med.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "gry": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 122
+    },
+    "gry,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "gwar.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 25759
+    },
+    "gwar.,archit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "gwar.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 17
+    },
+    "gwar.,etn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "gwar.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 14
+    },
+    "gwar.,pot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 107
+    },
+    "gwar.,pot.,żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 10
+    },
+    "gwar.,przest.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "gwar.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 237
+    },
+    "gwar.,rzad.,arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "gwar.,rzad.,archit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "gwar.,rzad.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "gwar.,z_D.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "gwar.,łow.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "gwar.,środ.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "górn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 811
+    },
+    "górn.,rzem.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "górn.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "handl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 859
+    },
+    "hip.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 142
+    },
+    "hist.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3785
+    },
+    "hist.,lit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "hist.,mit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "hist.,monet.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "hist.,mors.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 34
+    },
+    "hist.,poligr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "hist.,polit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hist.,roln.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "hist.,sport.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "hist.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "hist.,wojsk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 24
+    },
+    "hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 6305
+    },
+    "hom.,anat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,archit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "hom.,biol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "hom.,bot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 45
+    },
+    "hom.,bot.,kulin.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,bud.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "hom.,chem.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,chem.,fiz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,chor.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "hom.,edyt.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,ekon.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "hom.,fiz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "hom.,fot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,geol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,gry": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,hist.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 29
+    },
+    "hom.,hydrol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,jęz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "hom.,komp.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,kulin.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "hom.,lit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 6
+    },
+    "hom.,mat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,med.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 44
+    },
+    "hom.,meteor.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 5
+    },
+    "hom.,mit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 7
+    },
+    "hom.,mors.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,mors.,żegl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,mot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "hom.,muz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 16
+    },
+    "hom.,muz.,teatr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,paleont.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "hom.,praw.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 8
+    },
+    "hom.,psych.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 7
+    },
+    "hom.,rel.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "hom.,sport.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "hom.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 9
+    },
+    "hom.,term.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,wojsk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "hom.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 15
+    },
+    "hom.,łow.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "hom.,żegl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 8
+    },
+    "hydrol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 10
+    },
+    "indyw.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 32162
+    },
+    "indyw.,arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "indyw.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 8
+    },
+    "indyw.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "indyw.,niepopr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 14
+    },
+    "indyw.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 42
+    },
+    "indyw.,rzad.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "indyw.,żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "iron.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 27
+    },
+    "iron.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "iron.,książk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 13
+    },
+    "iron.,pogard.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 23
+    },
+    "iron.,pot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "iron.,pot.,żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "iron.,przest.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "iron.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 34
+    },
+    "iron.,rzad.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "iron.,żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 93
+    },
+    "iron.,żart.,arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "iron.,żart.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "jęz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2914
+    },
+    "jęz.,komp.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 227
+    },
+    "jęz.,lit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "jęz.,mat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "karc.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 551
+    },
+    "kolej.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "komp.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1949
+    },
+    "komp.,lit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 35
+    },
+    "komp.,mat.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "komp.,muz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "komp.,psych.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 131
+    },
+    "książk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2584
+    },
+    "książk.,arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "książk.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "książk.,niepopr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "książk.,niepopr.,pogard.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "książk.,poet.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "książk.,pogard.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 21
+    },
+    "książk.,przest.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 78
+    },
+    "książk.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 172
+    },
+    "książk.,z_D.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "książk.,żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 46
+    },
+    "książk.,żart.,arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "książk.,żart.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "kulin.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1287
+    },
+    "kulin.,mikol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "kulin.,sport.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "kulin.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "lekcew.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 246
+    },
+    "lekcew.,pot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 457
+    },
+    "lekcew.,pot.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "lekcew.,wulg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 14
+    },
+    "leśn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 489
+    },
+    "leśn.,ogr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "lit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1076
+    },
+    "lit.,muz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "lotn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 390
+    },
+    "mat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 859
+    },
+    "mat.,muz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "med.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2828
+    },
+    "med.,praw.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "med.,psych.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 48
+    },
+    "med.,wet.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "med.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "meteor.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 737
+    },
+    "mikol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 605
+    },
+    "mikol.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "miner.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 107
+    },
+    "mit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1386
+    },
+    "monet.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 343
+    },
+    "mors.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1619
+    },
+    "mors.,wojsk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "mors.,żegl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 56
+    },
+    "mot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 154
+    },
+    "muz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1657
+    },
+    "muz.,teatr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "muz.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "niepopr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2581
+    },
+    "niepopr.,astron.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "niepopr.,biol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "niepopr.,biol.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "niepopr.,filoz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "niepopr.,fiz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "niepopr.,genet.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "niepopr.,jęz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 20
+    },
+    "niepopr.,jęz.,lit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "niepopr.,lit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "niepopr.,med.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 7
+    },
+    "niepopr.,muz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "niepopr.,polit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "niepopr.,pot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "niepopr.,pot.,żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "niepopr.,przest.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 20
+    },
+    "niepopr.,rel.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 17
+    },
+    "niepopr.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 241
+    },
+    "niepopr.,rzad.,arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "niepopr.,rzad.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "niepopr.,sport.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "niepopr.,szt.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "niepopr.,wulg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 163
+    },
+    "niezal.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1513
+    },
+    "niezal.,pot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "niezal.,przest.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 228
+    },
+    "niezal.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 127
+    },
+    "num.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 132
+    },
+    "ogr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 459
+    },
+    "paleont.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 300
+    },
+    "pisane_łącznie_z_przyimkiem": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "plast.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "po_liczebniku": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 14
+    },
+    "podniosłe": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 15
+    },
+    "poet.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 760
+    },
+    "poet.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 371
+    },
+    "pogard.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 904
+    },
+    "pogard.,pot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1304
+    },
+    "pogard.,pot.,arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "pogard.,pot.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "pogard.,pot.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "pogard.,pot.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 15
+    },
+    "pogard.,przest.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 13
+    },
+    "pogard.,przest._dziś_książk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "pogard.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 15
+    },
+    "pogard.,wulg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "pogard.,żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 37
+    },
+    "poligr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 623
+    },
+    "polit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 209
+    },
+    "pot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 62286
+    },
+    "pot.,anat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 44
+    },
+    "pot.,arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 4
+    },
+    "pot.,bot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 594
+    },
+    "pot.,bot.,geol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "pot.,bot.,kulin.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "pot.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 16
+    },
+    "pot.,etn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 13
+    },
+    "pot.,gry": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "pot.,hist.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 24
+    },
+    "pot.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 20
+    },
+    "pot.,karc.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 121
+    },
+    "pot.,komp.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 707
+    },
+    "pot.,kulin.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 176
+    },
+    "pot.,monet.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "pot.,mors.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 66
+    },
+    "pot.,mors.,wojsk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "pot.,muz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 5
+    },
+    "pot.,num.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "pot.,po_liczebniku": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "pot.,przest.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 451
+    },
+    "pot.,przest.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "pot.,przest.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "pot.,reg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 527
+    },
+    "pot.,reg.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 195
+    },
+    "pot.,rub.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "pot.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1612
+    },
+    "pot.,rzad.,karc.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 10
+    },
+    "pot.,rzad.,wulg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "pot.,slang": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "pot.,sport.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 34
+    },
+    "pot.,szkol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 5
+    },
+    "pot.,wojsk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "pot.,wulg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 330
+    },
+    "pot.,z_D.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "pot.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "pot.,środ.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 207
+    },
+    "pot.,środ.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "pot.,środ.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "pot.,żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 809
+    },
+    "pot.,żart.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "pot.,żart.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "pot.,żegl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 44
+    },
+    "praw.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1187
+    },
+    "przen.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 111
+    },
+    "przen.,arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "przen.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "przen.,rzad.,wulg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 130
+    },
+    "przest.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 182059
+    },
+    "przest.,anat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "przest.,arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 135
+    },
+    "przest.,arch.,char.,lit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "przest.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 55
+    },
+    "przest.,druk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "przest.,fiz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 59
+    },
+    "przest.,gry": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 21
+    },
+    "przest.,hip.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "przest.,hist.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "przest.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 187
+    },
+    "przest.,hom.,lit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "przest.,jęz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "przest.,karc.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "przest.,leśn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "przest.,lit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 21
+    },
+    "przest.,mat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "przest.,med.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "przest.,monet.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "przest.,muz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 14
+    },
+    "przest.,paleont.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "przest.,podniosłe": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 62
+    },
+    "przest.,przest._dziś_książk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 32
+    },
+    "przest.,reg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 91
+    },
+    "przest.,roln.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 10
+    },
+    "przest.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1202
+    },
+    "przest.,rzad.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "przest.,rzad.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "przest.,rzad.,żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "przest.,sport.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 24
+    },
+    "przest.,szkol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "przest.,szt.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "przest.,teatr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "przest.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 320
+    },
+    "przest.,wojsk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 122
+    },
+    "przest.,wulg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 13
+    },
+    "przest.,z_D.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "przest.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 23
+    },
+    "przest.,łow.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "przest.,środ.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "przest.,żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 186
+    },
+    "przest.,żegl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "przest._dziś_gwar.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 36
+    },
+    "przest._dziś_książk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1900
+    },
+    "przest._dziś_książk.,arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "przest._dziś_książk.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3
+    },
+    "przest._dziś_książk.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 47
+    },
+    "przest._dziś_książk.,żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 110
+    },
+    "psych.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 535
+    },
+    "pszcz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 267
+    },
+    "reg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 5351
+    },
+    "reg.,bud.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 54
+    },
+    "reg.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "reg.,hist.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "reg.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "reg.,kulin.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 55
+    },
+    "reg.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 336
+    },
+    "reg.,rzad.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "reg.,wulg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "reg.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "reg.,łow.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "rel.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1049
+    },
+    "roln.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2076
+    },
+    "roln.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "rub.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3818
+    },
+    "rub.,rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 260
+    },
+    "rub.,żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 23
+    },
+    "ryb.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 516
+    },
+    "ryb.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "rzad.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 177946
+    },
+    "rzad.,anat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "rzad.,arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 6
+    },
+    "rzad.,arch.,char.,term.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "rzad.,biol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "rzad.,bot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 49
+    },
+    "rzad.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 9
+    },
+    "rzad.,chem.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "rzad.,elektr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "rzad.,etn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "rzad.,etnolog.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "rzad.,fot.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "rzad.,geogr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "rzad.,hist.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 39
+    },
+    "rzad.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 169
+    },
+    "rzad.,hom.,term.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "rzad.,kulin.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 28
+    },
+    "rzad.,kulin.,sport.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "rzad.,lit.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 227
+    },
+    "rzad.,lotn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 66
+    },
+    "rzad.,mat.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "rzad.,med.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 5
+    },
+    "rzad.,med.,wet.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "rzad.,meteor.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "rzad.,mikol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 13
+    },
+    "rzad.,muz.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 130
+    },
+    "rzad.,num.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "rzad.,ogr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "rzad.,rel.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 108
+    },
+    "rzad.,roln.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "rzad.,ryb.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "rzad.,rzem.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "rzad.,slang": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 13
+    },
+    "rzad.,sport.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 31
+    },
+    "rzad.,szt.,włók.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "rzad.,techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 863
+    },
+    "rzad.,term.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1058
+    },
+    "rzad.,wojsk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "rzad.,wulg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 97
+    },
+    "rzad.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 55
+    },
+    "rzad.,łow.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 7
+    },
+    "rzad.,łow.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "rzad.,łow.,zootechn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "rzad.,środ.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 260
+    },
+    "rzad.,środ.,łow.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "rzad.,żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 76
+    },
+    "rzad.,żegl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 23
+    },
+    "rzem.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 294
+    },
+    "slang": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 79
+    },
+    "slang,wulg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 26
+    },
+    "sport.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2105
+    },
+    "sport.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "sport.,żegl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "spoż.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 132
+    },
+    "szach.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 153
+    },
+    "szkol.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 66
+    },
+    "szt.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 457
+    },
+    "teatr.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 55
+    },
+    "techn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 8410
+    },
+    "term.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1244
+    },
+    "wet.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 22
+    },
+    "wet.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "wojsk.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1024
+    },
+    "wulg.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 13239
+    },
+    "wulg.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "wulg.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2
+    },
+    "włók.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 430
+    },
+    "włók.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "z_D.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 12
+    },
+    "zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 6730
+    },
+    "zootechn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 284
+    },
+    "łow.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1768
+    },
+    "łow.,zool.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "łow.,zootechn.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "łow.,żegl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 227
+    },
+    "środ.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 2319
+    },
+    "środ.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "środ.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "środ.,sport.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 13
+    },
+    "środ.,łow.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 11
+    },
+    "żart.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 666
+    },
+    "żart.,arch.,char.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "żart.,hom.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 1
+    },
+    "żegl.": {
+      "classification_status": "pending_full_semantic_review",
+      "compact_interpretations": 3317
+    }
+  },
+  "raw_combinations": {
+    "": 6423658,
+    "anat.": 846,
+    "anat.,muz.,techn.": 11,
+    "anat.,techn.": 11,
+    "anat.,zool.": 5,
+    "antr.": 43,
+    "arch.,char.": 4563,
+    "arch.,char.,biol.": 1,
+    "arch.,char.,bot.": 32,
+    "arch.,char.,bud.": 1,
+    "arch.,char.,chem.": 1,
+    "arch.,char.,chem.,fiz.": 1,
+    "arch.,char.,chor.": 1,
+    "arch.,char.,edyt.": 1,
+    "arch.,char.,ekon.": 3,
+    "arch.,char.,fiz.": 3,
+    "arch.,char.,geol.": 1,
+    "arch.,char.,hist.": 22,
+    "arch.,char.,hydrol.": 1,
+    "arch.,char.,jęz.": 12,
+    "arch.,char.,komp.": 1,
+    "arch.,char.,kulin.": 1,
+    "arch.,char.,lit.": 4,
+    "arch.,char.,mat.": 1,
+    "arch.,char.,med.": 44,
+    "arch.,char.,meteor.": 4,
+    "arch.,char.,mit.": 5,
+    "arch.,char.,mors.": 1,
+    "arch.,char.,mot.": 2,
+    "arch.,char.,muz.": 6,
+    "arch.,char.,paleont.": 2,
+    "arch.,char.,praw.": 7,
+    "arch.,char.,psych.": 7,
+    "arch.,char.,rel.": 4,
+    "arch.,char.,sport.": 2,
+    "arch.,char.,techn.": 6,
+    "arch.,char.,term.": 1,
+    "arch.,char.,wojsk.": 2,
+    "arch.,char.,zool.": 5,
+    "arch.,char.,żegl.": 1,
+    "arch._(tylko_po_\"ku\")": 2272,
+    "archeol.": 29,
+    "archit.": 114,
+    "archit.,bud.": 11,
+    "archit.,hist.": 11,
+    "archit.,rel.": 11,
+    "archit.,techn.": 32,
+    "archit.,techn.|daw.,gwar.": 98,
+    "astrol.": 11,
+    "astrol.,ekon.": 11,
+    "astron.": 192,
+    "astron.,handl.": 130,
+    "bank.": 1,
+    "bibl.": 274,
+    "biblt.": 11,
+    "biochem.": 149,
+    "biochem.,farm.": 11,
+    "biol.": 1096,
+    "biol.,chem.": 227,
+    "biol.,fiz.,miner.,techn.": 11,
+    "biol.,kulin.": 5,
+    "biol.,med.": 77,
+    "biol.,zool.": 11,
+    "bot.": 4382,
+    "bot.,chem.": 12,
+    "bot.,geol.": 11,
+    "bot.,hist.": 11,
+    "bot.,kulin.": 56,
+    "bot.,med.": 22,
+    "bot.,miner.": 11,
+    "bot.,ogr.": 70,
+    "bot.,włók.": 1,
+    "bot.,zool.": 11,
+    "bud.": 1437,
+    "bud.,hist.": 11,
+    "bud.,techn.": 11,
+    "bud.|daw.": 130,
+    "char.": 1898,
+    "char.,anat.": 1,
+    "char.,archit.": 2,
+    "char.,biol.": 3,
+    "char.,bot.": 13,
+    "char.,bot.,kulin.": 1,
+    "char.,bud.": 1,
+    "char.,chor.": 3,
+    "char.,fot.": 1,
+    "char.,gry": 1,
+    "char.,hist.": 7,
+    "char.,kulin.": 2,
+    "char.,lit.": 2,
+    "char.,meteor.": 1,
+    "char.,mit.": 3,
+    "char.,mors.,żegl.": 1,
+    "char.,muz.": 10,
+    "char.,muz.,teatr.": 1,
+    "char.,praw.": 1,
+    "char.,techn.": 3,
+    "char.,zool.": 10,
+    "char.,łow.": 1,
+    "char.,żegl.": 7,
+    "chem.": 2450,
+    "chem.,farm.": 11,
+    "chem.,fiz.": 163,
+    "chem.,fiz.,muz.": 11,
+    "chem.,ogr.": 130,
+    "chem.,wojsk.": 11,
+    "chor.": 654,
+    "chor.,lit.": 11,
+    "chor.,muz.": 80,
+    "daw.": 397198,
+    "daw.,anat.": 1,
+    "daw.,arch.,char.": 269,
+    "daw.,arch.,char.,rel.": 1,
+    "daw.,bot.": 11,
+    "daw.,bud.": 152,
+    "daw.,char.": 102,
+    "daw.,char.,karc.": 1,
+    "daw.,chem.,fiz.": 11,
+    "daw.,daw._dziś_gwar.": 2,
+    "daw.,daw._dziś_gwar.,rzad.": 92,
+    "daw.,etn.": 12,
+    "daw.,flis.": 11,
+    "daw.,gry": 22,
+    "daw.,gwar.": 46,
+    "daw.,górn.": 11,
+    "daw.,hist.": 112,
+    "daw.,hom.": 370,
+    "daw.,hom.,karc.": 1,
+    "daw.,hom.,rel.": 1,
+    "daw.,indyw.": 37,
+    "daw.,iron.": 110,
+    "daw.,jęz.": 130,
+    "daw.,karc.": 76,
+    "daw.,kulin.": 33,
+    "daw.,mat.": 11,
+    "daw.,meteor.": 11,
+    "daw.,mikol.": 22,
+    "daw.,monet.": 33,
+    "daw.,niepopr.": 40,
+    "daw.,niezal.": 461,
+    "daw.,num.": 11,
+    "daw.,pogard.": 48,
+    "daw.,pot.": 68,
+    "daw.,praw.": 35,
+    "daw.,przest.": 826,
+    "daw.,przest.,rzad.": 143,
+    "daw.,pszcz.": 11,
+    "daw.,reg.": 1166,
+    "daw.,reg.,char.": 1,
+    "daw.,reg.,hom.": 1,
+    "daw.,rel.": 32,
+    "daw.,rzad.": 1967,
+    "daw.,rzad.,akcent": 2,
+    "daw.,rzad.,anat.": 1,
+    "daw.,rzad.,char.": 1,
+    "daw.,rzad.,hist.": 1,
+    "daw.,rzad.,hom.": 2,
+    "daw.,rzad.,jęz.": 423,
+    "daw.,rzad.,term.": 130,
+    "daw.,rzad.,zool.": 1,
+    "daw.,sport.": 11,
+    "daw.,techn.": 11,
+    "daw.,wojsk.": 13,
+    "daw.,wulg.": 11,
+    "daw.,z_D.": 2,
+    "daw.,zool.": 33,
+    "daw.,łow.": 57,
+    "daw.,środ.": 36,
+    "daw.,żart.": 156,
+    "daw.,żegl.": 33,
+    "daw._dziś_fraz.": 2,
+    "daw._dziś_gwar.": 572,
+    "daw._dziś_gwar.,rzad.": 2,
+    "daw._dziś_gwar.,z_D.": 4,
+    "daw._dziś_rzad.": 173,
+    "daw._dziś_środ.": 142,
+    "daw.|górn.": 98,
+    "daw.|indyw.": 122,
+    "daw.|pot.": 196,
+    "daw.|techn.": 98,
+    "daw.|żegl.": 130,
+    "druk.": 35,
+    "druk.,hist.": 11,
+    "edyt.": 21,
+    "ekon.": 1322,
+    "ekon.,praw.": 11,
+    "elektr.": 66,
+    "elektr.,komp.": 11,
+    "erud.": 52,
+    "etn.": 929,
+    "etnolog.": 33,
+    "euf.": 1278,
+    "euf.,rzad.": 163,
+    "farm.": 45,
+    "film.": 90,
+    "filoz.": 311,
+    "filoz.,rel.": 11,
+    "fiz.": 366,
+    "fiz.,mat.": 11,
+    "fiz.,techn.": 11,
+    "form.": 1237,
+    "fot.": 162,
+    "fraz.": 93,
+    "fraz.,rzad.": 35,
+    "genet.": 11,
+    "geogr.": 163,
+    "geogr.,geol.": 11,
+    "geol.": 361,
+    "geol.,komp.": 130,
+    "geol.,med.": 11,
+    "gry": 122,
+    "gry,zool.": 11,
+    "gwar.": 25759,
+    "gwar.,archit.": 11,
+    "gwar.,char.": 17,
+    "gwar.,etn.": 12,
+    "gwar.,hom.": 14,
+    "gwar.,pot.": 107,
+    "gwar.,pot.,żart.": 10,
+    "gwar.,przest.": 11,
+    "gwar.,rzad.": 237,
+    "gwar.,rzad.,arch.,char.": 1,
+    "gwar.,rzad.,archit.": 1,
+    "gwar.,rzad.,hom.": 4,
+    "gwar.,z_D.": 2,
+    "gwar.,łow.": 11,
+    "gwar.,środ.": 12,
+    "górn.": 713,
+    "górn.,rzem.": 12,
+    "górn.,techn.": 12,
+    "handl.": 859,
+    "hip.": 142,
+    "hist.": 3785,
+    "hist.,lit.": 12,
+    "hist.,mit.": 11,
+    "hist.,monet.": 11,
+    "hist.,mors.": 34,
+    "hist.,poligr.": 11,
+    "hist.,polit.": 1,
+    "hist.,roln.": 22,
+    "hist.,sport.": 2,
+    "hist.,techn.": 11,
+    "hist.,wojsk.": 24,
+    "hom.": 6305,
+    "hom.,anat.": 1,
+    "hom.,archit.": 2,
+    "hom.,biol.": 4,
+    "hom.,bot.": 45,
+    "hom.,bot.,kulin.": 1,
+    "hom.,bud.": 2,
+    "hom.,chem.": 1,
+    "hom.,chem.,fiz.": 1,
+    "hom.,chor.": 4,
+    "hom.,edyt.": 1,
+    "hom.,ekon.": 3,
+    "hom.,fiz.": 3,
+    "hom.,fot.": 1,
+    "hom.,geol.": 1,
+    "hom.,gry": 1,
+    "hom.,hist.": 29,
+    "hom.,hydrol.": 1,
+    "hom.,jęz.": 12,
+    "hom.,komp.": 1,
+    "hom.,kulin.": 3,
+    "hom.,lit.": 6,
+    "hom.,mat.": 1,
+    "hom.,med.": 44,
+    "hom.,meteor.": 5,
+    "hom.,mit.": 7,
+    "hom.,mors.": 1,
+    "hom.,mors.,żegl.": 1,
+    "hom.,mot.": 2,
+    "hom.,muz.": 16,
+    "hom.,muz.,teatr.": 1,
+    "hom.,paleont.": 2,
+    "hom.,praw.": 8,
+    "hom.,psych.": 7,
+    "hom.,rel.": 4,
+    "hom.,sport.": 2,
+    "hom.,techn.": 9,
+    "hom.,term.": 1,
+    "hom.,wojsk.": 2,
+    "hom.,zool.": 15,
+    "hom.,łow.": 1,
+    "hom.,żegl.": 8,
+    "hydrol.": 10,
+    "indyw.": 32040,
+    "indyw.,arch.,char.": 4,
+    "indyw.,char.": 8,
+    "indyw.,hom.": 11,
+    "indyw.,niepopr.": 14,
+    "indyw.,rzad.": 42,
+    "indyw.,rzad.,hom.": 1,
+    "indyw.,żart.": 11,
+    "iron.": 27,
+    "iron.,char.": 1,
+    "iron.,książk.": 13,
+    "iron.,pogard.": 23,
+    "iron.,pot.": 12,
+    "iron.,pot.,żart.": 12,
+    "iron.,przest.": 12,
+    "iron.,rzad.": 34,
+    "iron.,rzad.,hom.": 1,
+    "iron.,żart.": 93,
+    "iron.,żart.,arch.,char.": 1,
+    "iron.,żart.,hom.": 1,
+    "jęz.": 2914,
+    "jęz.,komp.": 227,
+    "jęz.,lit.": 11,
+    "jęz.,mat.": 11,
+    "karc.": 551,
+    "kolej.": 11,
+    "komp.": 1949,
+    "komp.,lit.": 35,
+    "komp.,mat.,techn.": 11,
+    "komp.,muz.": 11,
+    "komp.,psych.": 131,
+    "książk.": 2584,
+    "książk.,arch.,char.": 3,
+    "książk.,hom.": 3,
+    "książk.,niepopr.": 4,
+    "książk.,niepopr.,pogard.": 2,
+    "książk.,poet.": 3,
+    "książk.,pogard.": 21,
+    "książk.,przest.": 78,
+    "książk.,rzad.": 172,
+    "książk.,z_D.": 2,
+    "książk.,żart.": 46,
+    "książk.,żart.,arch.,char.": 1,
+    "książk.,żart.,hom.": 1,
+    "kulin.": 1287,
+    "kulin.,mikol.": 12,
+    "kulin.,sport.": 11,
+    "kulin.,zool.": 11,
+    "lekcew.": 246,
+    "lekcew.,pot.": 457,
+    "lekcew.,pot.,rzad.": 1,
+    "lekcew.,wulg.": 14,
+    "leśn.": 489,
+    "leśn.,ogr.": 11,
+    "lit.": 1076,
+    "lit.,muz.": 22,
+    "lotn.": 390,
+    "mat.": 859,
+    "mat.,muz.": 11,
+    "med.": 2828,
+    "med.,praw.": 12,
+    "med.,psych.": 48,
+    "med.,wet.": 22,
+    "med.,zool.": 22,
+    "meteor.": 737,
+    "mikol.": 605,
+    "mikol.,zool.": 11,
+    "miner.": 107,
+    "mit.": 1386,
+    "monet.": 343,
+    "mors.": 1619,
+    "mors.,wojsk.": 22,
+    "mors.,żegl.": 56,
+    "mot.": 154,
+    "muz.": 1657,
+    "muz.,teatr.": 12,
+    "muz.,techn.": 11,
+    "niepopr.": 2581,
+    "niepopr.,astron.": 4,
+    "niepopr.,biol.": 3,
+    "niepopr.,biol.,zool.": 2,
+    "niepopr.,filoz.": 12,
+    "niepopr.,fiz.": 2,
+    "niepopr.,genet.": 1,
+    "niepopr.,jęz.": 20,
+    "niepopr.,jęz.,lit.": 2,
+    "niepopr.,lit.": 2,
+    "niepopr.,med.": 7,
+    "niepopr.,muz.": 2,
+    "niepopr.,polit.": 4,
+    "niepopr.,pot.": 3,
+    "niepopr.,pot.,żart.": 2,
+    "niepopr.,przest.": 20,
+    "niepopr.,rel.": 17,
+    "niepopr.,rzad.": 241,
+    "niepopr.,rzad.,arch.,char.": 1,
+    "niepopr.,rzad.,hom.": 1,
+    "niepopr.,sport.": 2,
+    "niepopr.,szt.": 4,
+    "niepopr.,wulg.": 163,
+    "niezal.": 1513,
+    "niezal.,pot.": 1,
+    "niezal.,przest.": 228,
+    "niezal.,rzad.": 127,
+    "num.": 132,
+    "ogr.": 459,
+    "paleont.": 300,
+    "pisane_łącznie_z_przyimkiem": 2,
+    "plast.": 11,
+    "po_liczebniku": 14,
+    "podniosłe": 15,
+    "poet.": 760,
+    "poet.,rzad.": 371,
+    "pogard.": 904,
+    "pogard.,pot.": 1304,
+    "pogard.,pot.,arch.,char.": 3,
+    "pogard.,pot.,char.": 1,
+    "pogard.,pot.,hom.": 4,
+    "pogard.,pot.,rzad.": 15,
+    "pogard.,przest.": 13,
+    "pogard.,przest._dziś_książk.": 12,
+    "pogard.,rzad.": 15,
+    "pogard.,wulg.": 12,
+    "pogard.,żart.": 37,
+    "poligr.": 623,
+    "polit.": 209,
+    "pot.": 62090,
+    "pot.,anat.": 44,
+    "pot.,arch.,char.": 4,
+    "pot.,bot.": 594,
+    "pot.,bot.,geol.": 11,
+    "pot.,bot.,kulin.": 11,
+    "pot.,char.": 16,
+    "pot.,etn.": 13,
+    "pot.,gry": 11,
+    "pot.,hist.": 24,
+    "pot.,hom.": 20,
+    "pot.,karc.": 121,
+    "pot.,komp.": 707,
+    "pot.,kulin.": 176,
+    "pot.,monet.": 11,
+    "pot.,mors.": 66,
+    "pot.,mors.,wojsk.": 11,
+    "pot.,muz.": 5,
+    "pot.,num.": 11,
+    "pot.,po_liczebniku": 1,
+    "pot.,przest.": 451,
+    "pot.,przest.,char.": 1,
+    "pot.,przest.,hom.": 1,
+    "pot.,reg.": 527,
+    "pot.,reg.,rzad.": 195,
+    "pot.,rub.": 22,
+    "pot.,rzad.": 1612,
+    "pot.,rzad.,karc.": 10,
+    "pot.,rzad.,wulg.": 1,
+    "pot.,slang": 11,
+    "pot.,sport.": 34,
+    "pot.,szkol.": 5,
+    "pot.,wojsk.": 11,
+    "pot.,wulg.": 330,
+    "pot.,z_D.": 2,
+    "pot.,zool.": 11,
+    "pot.,środ.": 207,
+    "pot.,środ.,char.": 1,
+    "pot.,środ.,hom.": 1,
+    "pot.,żart.": 809,
+    "pot.,żart.,char.": 2,
+    "pot.,żart.,hom.": 2,
+    "pot.,żegl.": 44,
+    "praw.": 1187,
+    "przen.": 111,
+    "przen.,arch.,char.": 2,
+    "przen.,hom.": 2,
+    "przen.,rzad.,wulg.": 130,
+    "przest.": 181976,
+    "przest.,anat.": 1,
+    "przest.,arch.,char.": 135,
+    "przest.,arch.,char.,lit.": 1,
+    "przest.,char.": 55,
+    "przest.,druk.": 12,
+    "przest.,fiz.": 59,
+    "przest.,gry": 21,
+    "przest.,hip.": 11,
+    "przest.,hist.": 12,
+    "przest.,hom.": 187,
+    "przest.,hom.,lit.": 1,
+    "przest.,jęz.": 22,
+    "przest.,karc.": 12,
+    "przest.,leśn.": 11,
+    "przest.,lit.": 21,
+    "przest.,mat.": 11,
+    "przest.,med.": 11,
+    "przest.,monet.": 22,
+    "przest.,muz.": 14,
+    "przest.,paleont.": 22,
+    "przest.,podniosłe": 62,
+    "przest.,przest._dziś_książk.": 32,
+    "przest.,reg.": 91,
+    "przest.,roln.": 10,
+    "przest.,rzad.": 1202,
+    "przest.,rzad.,hom.": 3,
+    "przest.,rzad.,techn.": 1,
+    "przest.,rzad.,żart.": 11,
+    "przest.,sport.": 24,
+    "przest.,szkol.": 11,
+    "przest.,szt.": 12,
+    "przest.,teatr.": 11,
+    "przest.,techn.": 320,
+    "przest.,wojsk.": 122,
+    "przest.,wulg.": 13,
+    "przest.,z_D.": 2,
+    "przest.,zool.": 23,
+    "przest.,łow.": 12,
+    "przest.,środ.": 22,
+    "przest.,żart.": 186,
+    "przest.,żegl.": 12,
+    "przest._dziś_gwar.": 36,
+    "przest._dziś_książk.": 1900,
+    "przest._dziś_książk.,arch.,char.": 3,
+    "przest._dziś_książk.,hom.": 3,
+    "przest._dziś_książk.,rzad.": 47,
+    "przest._dziś_książk.,żart.": 110,
+    "przest.|środ.": 83,
+    "psych.": 535,
+    "pszcz.": 267,
+    "reg.": 5351,
+    "reg.,bud.": 54,
+    "reg.,char.": 2,
+    "reg.,hist.": 12,
+    "reg.,hom.": 2,
+    "reg.,kulin.": 55,
+    "reg.,rzad.": 336,
+    "reg.,rzad.,zool.": 1,
+    "reg.,wulg.": 11,
+    "reg.,zool.": 11,
+    "reg.,łow.": 11,
+    "rel.": 1049,
+    "roln.": 1946,
+    "roln.,techn.": 11,
+    "roln.|techn.": 130,
+    "rub.": 3818,
+    "rub.,rzad.": 260,
+    "rub.,żart.": 23,
+    "ryb.": 516,
+    "ryb.,techn.": 11,
+    "rzad.": 177946,
+    "rzad.,anat.": 12,
+    "rzad.,arch.,char.": 6,
+    "rzad.,arch.,char.,term.": 1,
+    "rzad.,biol.": 1,
+    "rzad.,bot.": 49,
+    "rzad.,char.": 9,
+    "rzad.,chem.": 1,
+    "rzad.,elektr.": 2,
+    "rzad.,etn.": 1,
+    "rzad.,etnolog.": 11,
+    "rzad.,fot.": 1,
+    "rzad.,geogr.": 11,
+    "rzad.,hist.": 39,
+    "rzad.,hom.": 169,
+    "rzad.,hom.,term.": 1,
+    "rzad.,kulin.": 28,
+    "rzad.,kulin.,sport.": 11,
+    "rzad.,lit.": 227,
+    "rzad.,lotn.": 66,
+    "rzad.,mat.": 2,
+    "rzad.,med.": 5,
+    "rzad.,med.,wet.": 1,
+    "rzad.,meteor.": 2,
+    "rzad.,mikol.": 13,
+    "rzad.,muz.": 130,
+    "rzad.,num.": 1,
+    "rzad.,ogr.": 2,
+    "rzad.,rel.": 108,
+    "rzad.,roln.": 2,
+    "rzad.,ryb.,techn.": 1,
+    "rzad.,rzem.": 2,
+    "rzad.,slang": 13,
+    "rzad.,sport.": 31,
+    "rzad.,szt.,włók.": 1,
+    "rzad.,techn.": 863,
+    "rzad.,term.": 1058,
+    "rzad.,wojsk.": 1,
+    "rzad.,wulg.": 97,
+    "rzad.,zool.": 55,
+    "rzad.,łow.": 7,
+    "rzad.,łow.,zool.": 1,
+    "rzad.,łow.,zootechn.": 1,
+    "rzad.,środ.": 260,
+    "rzad.,środ.,łow.": 1,
+    "rzad.,żart.": 76,
+    "rzad.,żegl.": 23,
+    "rzem.": 294,
+    "slang": 79,
+    "slang,wulg.": 26,
+    "sport.": 2105,
+    "sport.,zool.": 11,
+    "sport.,żegl.": 11,
+    "spoż.": 132,
+    "szach.": 153,
+    "szkol.": 66,
+    "szt.": 457,
+    "teatr.": 55,
+    "techn.": 8182,
+    "term.": 1244,
+    "wet.": 22,
+    "wet.,zool.": 11,
+    "wojsk.": 1024,
+    "wulg.": 13239,
+    "wulg.,char.": 2,
+    "wulg.,hom.": 2,
+    "włók.": 430,
+    "włók.,zool.": 11,
+    "z_D.": 12,
+    "zool.": 6730,
+    "zootechn.": 284,
+    "łow.": 1768,
+    "łow.,zool.": 11,
+    "łow.,zootechn.": 11,
+    "łow.,żegl.": 227,
+    "środ.": 2236,
+    "środ.,char.": 1,
+    "środ.,hom.": 1,
+    "środ.,sport.": 13,
+    "środ.,łow.": 11,
+    "żart.": 666,
+    "żart.,arch.,char.": 1,
+    "żart.,hom.": 1,
+    "żegl.": 3187
+  },
+  "schema_version": 1,
+  "status": "not_active_policy",
+  "technical_separator": "|",
+  "version": "qualifiers-discovery-v1"
+}

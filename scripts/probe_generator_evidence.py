@@ -3,6 +3,8 @@
 import argparse
 import json
 import sqlite3
+import unicodedata
+from collections import Counter, defaultdict
 from pathlib import Path
 
 
@@ -33,9 +35,60 @@ def probe(database, profile):
     }
 
 
+def label_coverage(database):
+    """Pełne wartości pól; przecinek nie jest technicznym separatorem."""
+    with sqlite3.connect(Path(database).resolve().as_uri() + '?mode=ro', uri=True) as db:
+        inventory = {field: dict(db.execute(f'select {field},count(*) from interpretation group by {field} order by {field}'))
+                     for field in ('names', 'qualifiers', 'tag')}
+        mixed = list(db.execute('''select f.original,l.lemma_id,i.tag,i.names,i.qualifiers
+            from interpretation i join surface_form f on f.id=i.form_id
+            join lexeme l on l.id=i.lexeme_id
+            where i.names like '%nazwa_pospolita%' and i.names<>'nazwa_pospolita'
+            order by f.original,l.lemma_id,i.tag,i.qualifiers'''))
+        labels = Counter()
+        for raw, count in inventory['qualifiers'].items():
+            for label in set(raw.split('|')) - {''}:
+                labels[label] += count
+        return {'schema_version': 1, 'compact_interpretations': sum(inventory['tag'].values()),
+                'inventory': inventory, 'pipe_qualifier_labels': dict(sorted(labels.items())),
+                'mixed_common_name_count': len(mixed),
+                'mixed_common_name_without_uppercase': sum(not any(c.isupper() for c in row[0]) for row in mixed),
+                'mixed_common_name_rows': mixed,
+                'notice': 'Pełne pola i literalne etykiety. Brak decyzji językowej, delty list lub podziału przecinka na znaczenia.'}
+
+
+def kwjp_mapping(database):
+    with sqlite3.connect(Path(database).resolve().as_uri() + '?mode=ro', uri=True) as db:
+        lexemes = {i: (lid, unicodedata.normalize('NFC', base)) for i, lid, base in db.execute('select id,lemma_id,lemma_base from lexeme')}
+        index = defaultdict(set)
+        classes = Counter()
+        for lid, tag in db.execute('select lexeme_id,tag from interpretation'):
+            pos = tag.split(':', 1)[0]
+            index[lexemes[lid][1], pos].add(lexemes[lid][0])
+            classes[pos] += 1
+        counts = defaultdict(Counter)
+        examples, non_nfc = {}, []
+        for unit, pos, freq in db.execute("select unit_1,pos,freq from corpus_evidence where source_id='KWJP100-kwjp100-slowa-lemma-all' order by row_number"):
+            matches = index.get((unicodedata.normalize('NFC', unit), pos), set())
+            status = 'UNMATCHED' if not matches else 'AMBIGUOUS' if len(matches) > 1 else 'EXACT_LEMMA_POS_CANDIDATE'
+            counts[pos][status] += 1
+            examples.setdefault((pos, status), [unit, freq, sorted(matches)])
+            if unicodedata.normalize('NFC', unit) != unit:
+                non_nfc.append([unit, pos, freq, sorted(matches)])
+        return {'method': 'NFC, case-preserving exact lemma_base + POS; suffix retained in full lemma_id; no allocation of frequencies',
+                'sgjp_classes': dict(sorted(classes.items())),
+                'kwjp_lemma_all_status_by_pos': {pos: dict(sorted(c.items())) for pos, c in sorted(counts.items())},
+                'first_examples': [{'pos': p, 'status': s, 'data': data} for (p, s), data in sorted(examples.items())],
+                'non_nfc': non_nfc}
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--database', required=True)
     parser.add_argument('--profile', default='config/generator/profile.json')
+    parser.add_argument('--mode', choices=['acronyms', 'labels', 'kwjp'], default='acronyms')
     args = parser.parse_args()
-    print(json.dumps(probe(args.database, json.loads(Path(args.profile).read_text())), ensure_ascii=False, indent=2))
+    result = (label_coverage(args.database) if args.mode == 'labels' else
+              kwjp_mapping(args.database) if args.mode == 'kwjp' else
+              probe(args.database, json.loads(Path(args.profile).read_text())))
+    print(json.dumps(result, ensure_ascii=False, indent=2))

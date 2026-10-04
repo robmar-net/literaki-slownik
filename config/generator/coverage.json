@@ -1,0 +1,27 @@
+{
+  "confirmed": [
+    "export_pipe_set_semantics",
+    "full_inventory",
+    "mixed_names_uppercase_no_direct_game_acceptance",
+    "120_excess_defective_paradigms",
+    "winien_tag_discrepancies_zero_missing_words",
+    "kwjp_structural_mapping"
+  ],
+  "full_source_compact_interpretations": 7458520,
+  "observed_combinations": {
+    "names": 79,
+    "qualifiers": 615,
+    "tag": 682
+  },
+  "pending": [
+    "all_compound_qualifier_semantics_and_variant_policy",
+    "full_category_and_orthography_matrix",
+    "mobile_host_matrix",
+    "game_attestation_for_preposition_n_contractions",
+    "scope_and_version_of_game_source_eligibility"
+  ],
+  "release_blocked": true,
+  "schema_version": 1,
+  "status": "incomplete",
+  "version": "coverage-discovery-v1"
+}

@@ -1,0 +1,108 @@
+{
+  "czytajże": [],
+  "czytajżeż": [],
+  "ja": [
+    [
+      "ja",
+      "ja",
+      "ppron12:sg:nom:m1.m2.m3.f.n:pri",
+      "",
+      ""
+    ]
+  ],
+  "jam": [
+    [
+      "jam",
+      "jam",
+      "frag",
+      "",
+      ""
+    ],
+    [
+      "jam",
+      "jama",
+      "subst:pl:gen:f",
+      "nazwa_pospolita",
+      ""
+    ]
+  ],
+  "my": [
+    [
+      "my",
+      "my",
+      "ppron12:pl:nom:m1.m2.m3.f.n:pri",
+      "",
+      ""
+    ],
+    [
+      "my",
+      "my",
+      "ppron12:pl:voc:m1.m2.m3.f.n:pri",
+      "",
+      ""
+    ]
+  ],
+  "myśmy": [],
+  "ty": [
+    [
+      "ty",
+      "ty",
+      "ppron12:sg:nom:m1.m2.m3.f.n:sec",
+      "",
+      ""
+    ],
+    [
+      "ty",
+      "ty",
+      "ppron12:sg:voc:m1.m2.m3.f.n:sec",
+      "",
+      ""
+    ]
+  ],
+  "tyś": [],
+  "wy": [
+    [
+      "wy",
+      "wy",
+      "ppron12:pl:nom:m1.m2.m3.f.n:sec",
+      "",
+      ""
+    ],
+    [
+      "wy",
+      "wy",
+      "ppron12:pl:voc:m1.m2.m3.f.n:sec",
+      "",
+      ""
+    ]
+  ],
+  "wyście": [],
+  "zróbżeż": [],
+  "że": [
+    [
+      "że",
+      "ż",
+      "part:wok",
+      "",
+      ""
+    ],
+    [
+      "że",
+      "że:M",
+      "comp",
+      "",
+      ""
+    ],
+    [
+      "że",
+      "że:T",
+      "part",
+      "",
+      ""
+    ]
+  ],
+  "żem": [],
+  "żeś": [],
+  "żeście": [],
+  "żeśmy": []
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "version": "orthography-discovery-v1",
+  "status": "not_active_policy",
+  "normalization": "NFC",
+  "lookup_key": "NFC_LOWER_NFC",
+  "normalization_grants_game_eligibility": false,
+  "preserve_original": true,
+  "rewrite_source_spelling": false,
+  "free_ne_prefix_generation": false,
+  "winien_conditional_join": "excluded_separate_spelling",
+  "game_rules": "unchanged",
+  "game_rule_reference_is_automatic_update": false,
+  "historical_spelling_matrix": "pending",
+  "evidence": ["rjp:4.4-4.6,4.9", "game-rules-references.json", "dictionary-vs-game.md"]
+}

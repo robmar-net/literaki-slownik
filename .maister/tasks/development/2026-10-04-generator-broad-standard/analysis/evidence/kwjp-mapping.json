@@ -1,0 +1,1104 @@
+{
+  "first_examples": [
+    {
+      "data": [
+        "wolny",
+        16858,
+        [
+          "wolny:A~en~ny",
+          "wolny:A~ny"
+        ]
+      ],
+      "pos": "adj",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "ten",
+        724343,
+        [
+          "ten"
+        ]
+      ],
+      "pos": "adj",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "Xx",
+        689,
+        []
+      ],
+      "pos": "adj",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "polski",
+        3051,
+        [
+          "polski:A"
+        ]
+      ],
+      "pos": "adja",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "austro-węgierskieiacki",
+        43,
+        []
+      ],
+      "pos": "adja",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "gotowy",
+        1437,
+        [
+          "gotowy"
+        ]
+      ],
+      "pos": "adjc",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "gotoowy",
+        33,
+        []
+      ],
+      "pos": "adjc",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "prosty",
+        25947,
+        [
+          "prosty:A"
+        ]
+      ],
+      "pos": "adjp",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "omacki",
+        291,
+        []
+      ],
+      "pos": "adjp",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "jak",
+        343343,
+        [
+          "jak:D"
+        ]
+      ],
+      "pos": "adv",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "niczym",
+        2287,
+        []
+      ],
+      "pos": "adv",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "być",
+        746254,
+        [
+          "być"
+        ]
+      ],
+      "pos": "aglt",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "łabyć",
+        39,
+        []
+      ],
+      "pos": "aglt",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "być",
+        203344,
+        [
+          "być"
+        ]
+      ],
+      "pos": "bedzie",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "yć",
+        158,
+        []
+      ],
+      "pos": "bedzie",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "rok",
+        81389,
+        [
+          "rok"
+        ]
+      ],
+      "pos": "brev",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "artykuł",
+        16695,
+        []
+      ],
+      "pos": "brev",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "że",
+        852200,
+        [
+          "że:M"
+        ]
+      ],
+      "pos": "comp",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "niczym",
+        1595,
+        []
+      ],
+      "pos": "comp",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "i",
+        1838568,
+        [
+          "i:C"
+        ]
+      ],
+      "pos": "conj",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "and",
+        2211,
+        []
+      ],
+      "pos": "conj",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "Polak",
+        10,
+        [
+          "Polak:Sm1~cy",
+          "Polak:Sm1~kowie"
+        ]
+      ],
+      "pos": "depr",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "chłopak",
+        787,
+        [
+          "chłopak"
+        ]
+      ],
+      "pos": "depr",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "bachor",
+        18,
+        []
+      ],
+      "pos": "depr",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "a",
+        285,
+        []
+      ],
+      "pos": "dig",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "należeć",
+        32145,
+        [
+          "należeć:Vi",
+          "należeć:Vp"
+        ]
+      ],
+      "pos": "fin",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "być",
+        797270,
+        [
+          "być"
+        ]
+      ],
+      "pos": "fin",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "powinien",
+        444,
+        []
+      ],
+      "pos": "fin",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "de",
+        4801,
+        [
+          "de:F"
+        ]
+      ],
+      "pos": "frag",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "la",
+        617,
+        []
+      ],
+      "pos": "frag",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "posiadać",
+        3428,
+        [
+          "posiadać:Vi",
+          "posiadać:Vp"
+        ]
+      ],
+      "pos": "ger",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "prowadzić",
+        7624,
+        [
+          "prowadzić"
+        ]
+      ],
+      "pos": "ger",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "kwitnieć",
+        162,
+        []
+      ],
+      "pos": "ger",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "wysłać",
+        483,
+        [
+          "wysłać:Vp~cielę",
+          "wysłać:Vp~ślę"
+        ]
+      ],
+      "pos": "imps",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "znaleźć",
+        1855,
+        [
+          "znaleźć"
+        ]
+      ],
+      "pos": "imps",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "wać",
+        5,
+        []
+      ],
+      "pos": "imps",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "przestać",
+        1377,
+        [
+          "przestać:Vp~anę",
+          "przestać:Vp~oję"
+        ]
+      ],
+      "pos": "impt",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "dać",
+        5065,
+        [
+          "dać"
+        ]
+      ],
+      "pos": "impt",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "wynocha",
+        48,
+        []
+      ],
+      "pos": "impt",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "stać",
+        6758,
+        [
+          "stać:Vi",
+          "stać:Vp"
+        ]
+      ],
+      "pos": "inf",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "być",
+        119853,
+        [
+          "być"
+        ]
+      ],
+      "pos": "inf",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "ć",
+        27,
+        []
+      ],
+      "pos": "inf",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "o",
+        7651,
+        [
+          "o:I"
+        ]
+      ],
+      "pos": "interj",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "hmm",
+        424,
+        []
+      ],
+      "pos": "interj",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "i",
+        411,
+        []
+      ],
+      "pos": "interp",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "wiele",
+        80820,
+        [
+          "wiele:Npl",
+          "wiele:Npl.sg"
+        ]
+      ],
+      "pos": "num",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "dwa",
+        108438,
+        [
+          "dwa"
+        ]
+      ],
+      "pos": "num",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "dość",
+        502,
+        []
+      ],
+      "pos": "num",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "dwa",
+        26,
+        [
+          "dwa"
+        ]
+      ],
+      "pos": "numcomp",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "dwuy",
+        88,
+        []
+      ],
+      "pos": "numcomp",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "promować",
+        750,
+        [
+          "promować:Vi",
+          "promować:Vi.p"
+        ]
+      ],
+      "pos": "pact",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "dotyczyć",
+        18120,
+        [
+          "dotyczyć"
+        ]
+      ],
+      "pos": "pact",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "niemać",
+        293,
+        []
+      ],
+      "pos": "pact",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "oprzeć",
+        45,
+        [
+          "oprzeć:Vp~rę",
+          "oprzeć:Vp~zeję"
+        ]
+      ],
+      "pos": "pant",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "począć",
+        1269,
+        [
+          "począć"
+        ]
+      ],
+      "pos": "pant",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "słyszeć",
+        27,
+        []
+      ],
+      "pos": "pant",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "nie",
+        1357771,
+        [
+          "nie:T"
+        ]
+      ],
+      "pos": "part",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "się",
+        1733236,
+        []
+      ],
+      "pos": "part",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "stawać",
+        1095,
+        [
+          "stawać:Vi~ję",
+          "stawać:Vi~wam"
+        ]
+      ],
+      "pos": "pcon",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "mówić",
+        9973,
+        [
+          "mówić"
+        ]
+      ],
+      "pos": "pcon",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "zważywć",
+        105,
+        []
+      ],
+      "pos": "pcon",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "wysłać",
+        1381,
+        [
+          "wysłać:Vp~cielę",
+          "wysłać:Vp~ślę"
+        ]
+      ],
+      "pos": "ppas",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "prowadzić",
+        9492,
+        [
+          "prowadzić"
+        ]
+      ],
+      "pos": "ppas",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "Zjednoczyć",
+        253,
+        []
+      ],
+      "pos": "ppas",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "ja",
+        358212,
+        [
+          "ja"
+        ]
+      ],
+      "pos": "ppron12",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "jo",
+        71,
+        []
+      ],
+      "pos": "ppron12",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "on",
+        1389621,
+        [
+          "on:S"
+        ]
+      ],
+      "pos": "ppron3",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "non",
+        667,
+        []
+      ],
+      "pos": "ppron3",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "stać",
+        54396,
+        [
+          "stać:Vi",
+          "stać:Vp"
+        ]
+      ],
+      "pos": "praet",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "być",
+        531918,
+        [
+          "być"
+        ]
+      ],
+      "pos": "praet",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "to",
+        218,
+        []
+      ],
+      "pos": "praet",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "to",
+        316590,
+        [
+          "to:V"
+        ]
+      ],
+      "pos": "pred",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "oto",
+        1059,
+        []
+      ],
+      "pos": "pred",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "co",
+        28403,
+        [
+          "co:Pacc.nom",
+          "co:Pgen"
+        ]
+      ],
+      "pos": "prep",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "w",
+        2629030,
+        [
+          "w"
+        ]
+      ],
+      "pos": "prep",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "mało",
+        528,
+        []
+      ],
+      "pos": "prep",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "II",
+        17422,
+        []
+      ],
+      "pos": "romandig",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "siebie",
+        211982,
+        []
+      ],
+      "pos": "siebie",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "rok",
+        315221,
+        [
+          "rok:Sm3~lata",
+          "rok:Sm3~roki"
+        ]
+      ],
+      "pos": "subst",
+      "status": "AMBIGUOUS"
+    },
+    {
+      "data": [
+        "to",
+        606226,
+        [
+          "to:S"
+        ]
+      ],
+      "pos": "subst",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "A",
+        2220,
+        []
+      ],
+      "pos": "subst",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "x",
+        421,
+        []
+      ],
+      "pos": "sym",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "powinien",
+        56313,
+        [
+          "powinien"
+        ]
+      ],
+      "pos": "winien",
+      "status": "EXACT_LEMMA_POS_CANDIDATE"
+    },
+    {
+      "data": [
+        "ien",
+        5,
+        []
+      ],
+      "pos": "winien",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "The",
+        4725,
+        []
+      ],
+      "pos": "xxs",
+      "status": "UNMATCHED"
+    },
+    {
+      "data": [
+        "the",
+        3605,
+        []
+      ],
+      "pos": "xxx",
+      "status": "UNMATCHED"
+    }
+  ],
+  "kwjp_lemma_all_status_by_pos": {
+    "adj": {
+      "AMBIGUOUS": 4,
+      "EXACT_LEMMA_POS_CANDIDATE": 14109,
+      "UNMATCHED": 5192
+    },
+    "adja": {
+      "EXACT_LEMMA_POS_CANDIDATE": 807,
+      "UNMATCHED": 44
+    },
+    "adjc": {
+      "EXACT_LEMMA_POS_CANDIDATE": 8,
+      "UNMATCHED": 9
+    },
+    "adjp": {
+      "EXACT_LEMMA_POS_CANDIDATE": 127,
+      "UNMATCHED": 36
+    },
+    "adv": {
+      "EXACT_LEMMA_POS_CANDIDATE": 3150,
+      "UNMATCHED": 401
+    },
+    "aglt": {
+      "EXACT_LEMMA_POS_CANDIDATE": 1,
+      "UNMATCHED": 9
+    },
+    "bedzie": {
+      "EXACT_LEMMA_POS_CANDIDATE": 1,
+      "UNMATCHED": 9
+    },
+    "brev": {
+      "EXACT_LEMMA_POS_CANDIDATE": 270,
+      "UNMATCHED": 1137
+    },
+    "comp": {
+      "EXACT_LEMMA_POS_CANDIDATE": 53,
+      "UNMATCHED": 55
+    },
+    "conj": {
+      "EXACT_LEMMA_POS_CANDIDATE": 45,
+      "UNMATCHED": 85
+    },
+    "depr": {
+      "AMBIGUOUS": 2,
+      "EXACT_LEMMA_POS_CANDIDATE": 74,
+      "UNMATCHED": 16
+    },
+    "dig": {
+      "UNMATCHED": 50
+    },
+    "fin": {
+      "AMBIGUOUS": 162,
+      "EXACT_LEMMA_POS_CANDIDATE": 7974,
+      "UNMATCHED": 182
+    },
+    "frag": {
+      "EXACT_LEMMA_POS_CANDIDATE": 48,
+      "UNMATCHED": 155
+    },
+    "ger": {
+      "AMBIGUOUS": 121,
+      "EXACT_LEMMA_POS_CANDIDATE": 6516,
+      "UNMATCHED": 131
+    },
+    "imps": {
+      "AMBIGUOUS": 46,
+      "EXACT_LEMMA_POS_CANDIDATE": 2366,
+      "UNMATCHED": 2
+    },
+    "impt": {
+      "AMBIGUOUS": 57,
+      "EXACT_LEMMA_POS_CANDIDATE": 1954,
+      "UNMATCHED": 34
+    },
+    "inf": {
+      "AMBIGUOUS": 158,
+      "EXACT_LEMMA_POS_CANDIDATE": 7864,
+      "UNMATCHED": 64
+    },
+    "interj": {
+      "EXACT_LEMMA_POS_CANDIDATE": 202,
+      "UNMATCHED": 405
+    },
+    "interp": {
+      "UNMATCHED": 72
+    },
+    "num": {
+      "AMBIGUOUS": 8,
+      "EXACT_LEMMA_POS_CANDIDATE": 69,
+      "UNMATCHED": 179
+    },
+    "numcomp": {
+      "EXACT_LEMMA_POS_CANDIDATE": 5,
+      "UNMATCHED": 35
+    },
+    "pact": {
+      "AMBIGUOUS": 10,
+      "EXACT_LEMMA_POS_CANDIDATE": 3308,
+      "UNMATCHED": 93
+    },
+    "pant": {
+      "AMBIGUOUS": 11,
+      "EXACT_LEMMA_POS_CANDIDATE": 377,
+      "UNMATCHED": 4
+    },
+    "part": {
+      "EXACT_LEMMA_POS_CANDIDATE": 162,
+      "UNMATCHED": 260
+    },
+    "pcon": {
+      "AMBIGUOUS": 8,
+      "EXACT_LEMMA_POS_CANDIDATE": 2841,
+      "UNMATCHED": 8
+    },
+    "ppas": {
+      "AMBIGUOUS": 60,
+      "EXACT_LEMMA_POS_CANDIDATE": 6268,
+      "UNMATCHED": 304
+    },
+    "ppron12": {
+      "EXACT_LEMMA_POS_CANDIDATE": 4,
+      "UNMATCHED": 18
+    },
+    "ppron3": {
+      "EXACT_LEMMA_POS_CANDIDATE": 1,
+      "UNMATCHED": 17
+    },
+    "praet": {
+      "AMBIGUOUS": 176,
+      "EXACT_LEMMA_POS_CANDIDATE": 9366,
+      "UNMATCHED": 180
+    },
+    "pred": {
+      "EXACT_LEMMA_POS_CANDIDATE": 25,
+      "UNMATCHED": 38
+    },
+    "prep": {
+      "AMBIGUOUS": 2,
+      "EXACT_LEMMA_POS_CANDIDATE": 92,
+      "UNMATCHED": 153
+    },
+    "romandig": {
+      "UNMATCHED": 66
+    },
+    "siebie": {
+      "UNMATCHED": 9
+    },
+    "subst": {
+      "AMBIGUOUS": 11628,
+      "EXACT_LEMMA_POS_CANDIDATE": 40765,
+      "UNMATCHED": 40210
+    },
+    "sym": {
+      "UNMATCHED": 12
+    },
+    "winien": {
+      "EXACT_LEMMA_POS_CANDIDATE": 2,
+      "UNMATCHED": 1
+    },
+    "xxs": {
+      "UNMATCHED": 9887
+    },
+    "xxx": {
+      "UNMATCHED": 4048
+    }
+  },
+  "method": "NFC, case-preserving exact lemma_base + POS; suffix retained in full lemma_id; no allocation of frequencies",
+  "non_nfc": [
+    [
+      "İpekçi",
+      "subst",
+      11,
+      []
+    ],
+    [
+      "İhsanoğlu",
+      "subst",
+      5,
+      []
+    ]
+  ],
+  "sgjp_classes": {
+    "adj": 1614767,
+    "adja": 35521,
+    "adjc": 12,
+    "adjp": 8606,
+    "adv": 29940,
+    "aglt": 8,
+    "bedzie": 6,
+    "brev": 449,
+    "comp": 70,
+    "cond": 448392,
+    "conj": 55,
+    "depr": 64155,
+    "fin": 182414,
+    "frag": 147,
+    "ger": 534042,
+    "imps": 29678,
+    "impt": 92622,
+    "inf": 29723,
+    "interj": 501,
+    "num": 707,
+    "numcomp": 92,
+    "pact": 444160,
+    "pacta": 13880,
+    "pant": 16483,
+    "part": 206,
+    "pcon": 13892,
+    "ppas": 728606,
+    "ppron12": 34,
+    "ppron3": 46,
+    "praet": 598102,
+    "pred": 31,
+    "prep": 166,
+    "subst": 2570867,
+    "winien": 140
+  }
+}

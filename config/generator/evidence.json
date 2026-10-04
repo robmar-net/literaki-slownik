@@ -1,0 +1,105 @@
+{
+  "access_limitations": [
+    {
+      "evidence": "Two requests including escalated retry timed out at 25 seconds; exporter and model inspected successfully.",
+      "status": "unavailable",
+      "url": "https://git.nlp.ipipan.waw.pl/SGJP/Kuznia/raw/61daf78fb2378b1f33e707a364c7d912f8edd255/export/lexeme_form_query.py"
+    }
+  ],
+  "schema_version": 1,
+  "sources": [
+    {
+      "bytes": 25111,
+      "id": "kuznia_export",
+      "inspected_sections": "206–250,356–375",
+      "path": "cache/sgjp-docs/lexeme_export-61daf78.py",
+      "publication": "reference_and_own_notes_only_cache_ignored",
+      "role": "rule_evidence_only_not_lexical_input",
+      "sha256": "258d7364ccb443ade53cb2a9db9a72a5d6cf33866ba944123f799937da05e79e",
+      "url": "https://git.nlp.ipipan.waw.pl/SGJP/Kuznia/raw/61daf78fb2378b1f33e707a364c7d912f8edd255/export/lexeme_export.py"
+    },
+    {
+      "bytes": 43122,
+      "id": "kuznia_model",
+      "inspected_sections": "97–163",
+      "path": "cache/sgjp-docs/kuznia-models-61daf78.py",
+      "publication": "reference_and_own_notes_only_cache_ignored",
+      "role": "rule_evidence_only_not_lexical_input",
+      "sha256": "75240c2f4d47f1ce6b65690d01de804458b74d5f3dfa338ce7f62d07fe63c09a",
+      "url": "https://git.nlp.ipipan.waw.pl/SGJP/Kuznia/raw/61daf78fb2378b1f33e707a364c7d912f8edd255/dictionary/models.py"
+    },
+    {
+      "bytes": 46673,
+      "id": "sgjp_instruction",
+      "inspected_sections": "Hasła, ogólna informacja, filtrowanie",
+      "path": "cache/sgjp-docs/instrukcja.html",
+      "publication": "reference_and_own_notes_only_cache_ignored",
+      "role": "rule_evidence_only_not_lexical_input",
+      "sha256": "95253956f6422b9f733a8b49103a738475ea516fe15cba11610fd03524ab4472",
+      "url": "https://sgjp.pl/instrukcja/"
+    },
+    {
+      "bytes": 19944,
+      "id": "sgjp_labels",
+      "inspected_sections": "Tabela oznaczeń",
+      "path": "cache/sgjp/oznaczenia.html",
+      "publication": "reference_and_own_notes_only_cache_ignored",
+      "role": "rule_evidence_only_not_lexical_input",
+      "sha256": "03054fe37d2f3016dab96b0a4751409f49867cb7ccf36ccf55533d1ab4cf1505",
+      "url": "https://sgjp.pl/oznaczenia/"
+    },
+    {
+      "bytes": 568070,
+      "id": "sgjp_theory",
+      "inspected_sections": "6.4,6.6,7.3,7.5,7.8,9.1",
+      "path": "cache/constructions/sgjp-theory.pdf",
+      "publication": "reference_and_own_notes_only_cache_ignored",
+      "role": "rule_evidence_only_not_lexical_input",
+      "sha256": "3e3d104b1a210e0097c511b36f1440de539413ec64079fba505c47c3bf7684ca",
+      "url": "https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf"
+    },
+    {
+      "bytes": 842173,
+      "id": "rjp",
+      "inspected_sections": "4.4–4.6,4.9",
+      "path": "cache/constructions/rjp-2026.pdf",
+      "publication": "reference_and_own_notes_only_cache_ignored",
+      "role": "rule_evidence_only_not_lexical_input",
+      "sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+      "url": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf"
+    },
+    {
+      "bytes": 57192,
+      "id": "morfeusz_segments",
+      "inspected_sections": "136–185,334–345,380–383,625–641",
+      "path": "cache/sgjp-docs/Morfeusz/input/segmenty.dat",
+      "publication": "reference_and_own_notes_only_cache_ignored",
+      "role": "rule_evidence_only_not_lexical_input",
+      "sha256": "73fca7c4cd5a1cd0db5cd6367b098ec96a6fb01481a0eb441f3b24aa9ca4521c",
+      "url": "https://download.sgjp.pl/morfeusz/20260823/morfeusz-src-20260823.tar.gz"
+    },
+    {
+      "bytes": 115107,
+      "id": "korpusomat",
+      "inspected_sections": "Segmentacja, POS, interpretacje spoza słownika",
+      "path": "tmp/kwjp-mtas.html",
+      "publication": "reference_and_own_notes_only_cache_ignored",
+      "role": "rule_evidence_only_not_lexical_input",
+      "sha256": "33c225221efc7a1004061db8e7606b7f1a1511ee22ce71274054e399ad0122ed",
+      "url": "https://korpusomat.readthedocs.io/pl/latest/mtas.html"
+    },
+    {
+      "id": "zds",
+      "inspected_sections": "1–5,appendixA,last_changes",
+      "not_used_for": [
+        "lexical_inputs",
+        "benchmark",
+        "automatic_rule_update"
+      ],
+      "role": "explicitly_requested_readonly_game_rule_reference",
+      "url": "https://sjp.pl/sl/dp.phtml"
+    }
+  ],
+  "status": "discovery_in_progress",
+  "version": "g3-evidence-v1"
+}

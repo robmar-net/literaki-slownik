@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-04T13:33:33Z",
+    "updated": "2026-10-04T14:15:33Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,12 +214,17 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "G1/G2 complete; G3 trwa. Użytkownik rozdzielił wpis słownikowy i dopuszczalność gry; reguły gry niezmienione, bramka skrótowców superseded.",
+      "summary": "G1/G2 complete; G3 częściowa: pełne etykiety, defektywność i KWJP odtworzone; niezależny fragment G5 red→green. Pending decyzja rozszerzenia wejść dowodowych.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
-        "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry."
+        "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
+        "Reguły gry niezmienione; częściowych konfiguracji discovery nie aktywowano",
+        "Wykonano niezależny fragment KWJP według wyjątku planu; G3/G4/G8 nie oznaczone complete"
       ],
-      "risks": [],
+      "risks": [
+        "Brak growych poświadczeń części kontrakcji i pełnych metadanych pochodzenia haseł",
+        "Złożone kwalifikatory i pełna macierz klas nadal pending; K4/K5 blokują wydanie"
+      ],
       "artifacts": [
         {
           "path": "analysis/evidence/full-import.json",
@@ -232,21 +237,54 @@
         {
           "path": "analysis/evidence/dictionary-vs-game.md",
           "label": "Wpis słownikowy a dopuszczalność growa"
+        },
+        {
+          "path": "analysis/evidence/g3-review.md",
+          "label": "Zweryfikowane dowody G3 i otwarte luki"
+        },
+        {
+          "path": "analysis/evidence/source-extension-decision.md",
+          "label": "Decyzja dodatkowych wejść"
+        },
+        {
+          "path": "analysis/evidence/label-coverage.json",
+          "label": "Pełne kombinacje i mieszaniny nazw"
+        },
+        {
+          "path": "analysis/evidence/kwjp-mapping.json",
+          "label": "Pełne mapowanie lemma-all"
+        },
+        {
+          "path": "../../../../docs/literaki-prosty-jezyk-minimum-leksykalne-kierunki.md",
+          "label": "Notatka użytkownika: przyszłe słowniki znajomości"
         }
       ],
       "gate": {
-        "id": "common_acronyms_case_policy",
-        "status": "superseded",
-        "question": "Czy dopuszczamy pospolite skrótowce zapisywane w SGJP wielkimi literami w BROAD i STANDARD?",
+        "id": "supplementary_attestation_inputs",
+        "status": "pending",
+        "question": "Czy rozszerzamy wejścia dowodowe o audytowane oficjalne metadane SGJP i niezależne poświadczenia słownikowe konstrukcji, bez dodawania nowych leksemów i zmiany zasad gry?",
         "options": {
-          "A": "Dopuść źródłowo potwierdzone pospolite skrótowce; rekomendowane.",
-          "B": "Dopuść tylko ich źródłowe formy małoliterowe."
+          "A": "Tak: audyt i włączenie wyłącznie dopuszczonych uzupełniających danych; rekomendowane.",
+          "B": "Na razie bez nowych wejść: tylko niezależna mechanika, unresolved nadal blokuje pełne wydanie."
         },
-        "answer": "Użytkownik: wpis w słowniku i dopuszczalność w grze to osobne rzeczy; reguł gry nie zmieniamy.",
-        "answered_at": "2026-10-04T13:33:33Z"
+        "answer": null,
+        "artifact": "analysis/evidence/source-extension-decision.md"
       },
       "started": "2026-10-04T12:47:44Z",
-      "completed": null
+      "completed": null,
+      "gate_history": [
+        {
+          "id": "common_acronyms_case_policy",
+          "status": "superseded",
+          "question": "Czy dopuszczamy pospolite skrótowce zapisywane w SGJP wielkimi literami w BROAD i STANDARD?",
+          "options": {
+            "A": "Dopuść źródłowo potwierdzone pospolite skrótowce; rekomendowane.",
+            "B": "Dopuść tylko ich źródłowe formy małoliterowe."
+          },
+          "answer": "Użytkownik: wpis w słowniku i dopuszczalność w grze to osobne rzeczy; reguł gry nie zmieniamy.",
+          "answered_at": "2026-10-04T13:33:33Z"
+        }
+      ]
     }
   },
   "verification_context": {
@@ -291,7 +329,8 @@
     "source_coverage": {
       "codepaths": "reviewed_by_coordinator",
       "evidence_gaps": "reviewed_by_coordinator",
-      "research_artifacts": "verified"
+      "research_artifacts": "verified",
+      "g3_lanes": "Three read-only lanes reconciled against pinned DB and primary documentation by coordinator; required semantic gaps remain pending"
     },
     "implementation_started": true,
     "conditional_phases": {
@@ -323,15 +362,20 @@
       },
       "G3": {
         "status": "in_progress",
-        "attempts": 1
+        "attempts": 1,
+        "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified"
       },
       "G4": {
         "status": "pending",
         "attempts": 0
       },
       "G5": {
-        "status": "pending",
-        "attempts": 0
+        "status": "in_progress",
+        "attempts": 1,
+        "partial": true,
+        "dependency_exception": "Independent technical KWJP during actual G3 evidence gap as approved plan §2",
+        "tests": "4/4 focused red→green; 25/25 generator; audit 5/5",
+        "remaining": "All-list links runtime, build integration, availability reports and quality review"
       },
       "G6": {
         "status": "pending",
@@ -356,6 +400,14 @@
       "lexical_presence_is_not_game_eligibility": true,
       "sjp_role": "explicitly_requested_readonly_behavior_reference; not_build_or_benchmark",
       "artifact": "analysis/evidence/dictionary-vs-game.md"
+    },
+    "awaiting_decision": "supplementary_attestation_inputs",
+    "future_directions_note": {
+      "path": "docs/literaki-prosty-jezyk-minimum-leksykalne-kierunki.md",
+      "sha256": "6954e783636499e0fe68c2e8804a11fb95e1f13d980d46c9ce5d1d3f318ba297",
+      "role": "user_supplied_methodological_note_not_build_input",
+      "external_data_status": "BLOCKED",
+      "scope_impact": "none_current_generator"
     }
   }
 }

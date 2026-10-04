@@ -1,0 +1,62 @@
+{
+  "allocate_frequency_to_candidates": false,
+  "bigram_method": "SEPARATE_SEGMENTS_NO_JOINED_FREQUENCY",
+  "confirmed_pairs": {
+    "adj": "adj",
+    "adja": "adja",
+    "adjc": "adjc",
+    "adjp": "adjp",
+    "adv": "adv",
+    "aglt": "aglt",
+    "bedzie": "bedzie",
+    "brev": "brev",
+    "comp": "comp",
+    "conj": "conj",
+    "depr": "depr",
+    "fin": "fin",
+    "frag": "frag",
+    "ger": "ger",
+    "imps": "imps",
+    "impt": "impt",
+    "inf": "inf",
+    "interj": "interj",
+    "num": "num",
+    "numcomp": "numcomp",
+    "pact": "pact",
+    "pant": "pant",
+    "part": "part",
+    "pcon": "pcon",
+    "ppas": "ppas",
+    "ppron12": "ppron12",
+    "ppron3": "ppron3",
+    "praet": "praet",
+    "pred": "pred",
+    "prep": "prep",
+    "subst": "subst",
+    "winien": "winien"
+  },
+  "evidence": [
+    "korpusomat",
+    "analysis/evidence/kwjp-mapping.json"
+  ],
+  "kwjp_only": [
+    "dig",
+    "interp",
+    "romandig",
+    "siebie",
+    "sym",
+    "xxs",
+    "xxx"
+  ],
+  "method": "NFC_CASE_PRESERVING_LEMMA_BASE_AND_IDENTICAL_POS",
+  "orth_lc_method": "NFC_LOWER_FORM",
+  "orth_method": "NFC_CASE_PRESERVING_FORM",
+  "preserve_full_lemma_id": true,
+  "schema_version": 1,
+  "sense_identity_confirmed": false,
+  "sgjp_only": [
+    "cond",
+    "pacta"
+  ],
+  "version": "pos-map-v1"
+}

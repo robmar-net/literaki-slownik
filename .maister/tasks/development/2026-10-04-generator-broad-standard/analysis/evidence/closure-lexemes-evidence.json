@@ -1,0 +1,1082 @@
+{
+  "braknąć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "brakłoby",
+        "cond:sg:n:ter:imperf.perf",
+        ""
+      ],
+      [
+        "braknie",
+        "fin:sg:ter:imperf.perf",
+        ""
+      ],
+      [
+        "braknąć",
+        "inf:imperf.perf",
+        ""
+      ],
+      [
+        "brakło",
+        "praet:sg:n:imperf.perf",
+        ""
+      ],
+      [
+        "brakło",
+        "praet:sg:n:ter:imperf.perf",
+        ""
+      ]
+    ]
+  },
+  "cklić": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "ckliłoby",
+        "cond:sg:n:ter:imperf",
+        "gwar."
+      ],
+      [
+        "ckli",
+        "fin:sg:ter:imperf",
+        "gwar."
+      ],
+      [
+        "cklić",
+        "inf:imperf",
+        "gwar."
+      ],
+      [
+        "ckliło",
+        "praet:sg:n:imperf",
+        "gwar."
+      ],
+      [
+        "ckliło",
+        "praet:sg:n:ter:imperf",
+        "gwar."
+      ]
+    ]
+  },
+  "cknić": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "ckniłoby",
+        "cond:sg:n:ter:imperf",
+        "daw."
+      ],
+      [
+        "ckni",
+        "fin:sg:ter:imperf",
+        "daw."
+      ],
+      [
+        "cknić",
+        "inf:imperf",
+        "daw."
+      ],
+      [
+        "ckniło",
+        "praet:sg:n:imperf",
+        "daw."
+      ],
+      [
+        "ckniło",
+        "praet:sg:n:ter:imperf",
+        "daw."
+      ]
+    ]
+  },
+  "cnić": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "cniłoby",
+        "cond:sg:n:ter:imperf",
+        "rzad."
+      ],
+      [
+        "cni",
+        "fin:sg:ter:imperf",
+        "rzad."
+      ],
+      [
+        "cnić",
+        "inf:imperf",
+        "rzad."
+      ],
+      [
+        "cniło",
+        "praet:sg:n:imperf",
+        "rzad."
+      ],
+      [
+        "cniło",
+        "praet:sg:n:ter:imperf",
+        "rzad."
+      ]
+    ]
+  },
+  "deszczyć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "deszczyłoby",
+        "cond:sg:n:ter:imperf",
+        "rzad."
+      ],
+      [
+        "deszczy",
+        "fin:sg:ter:imperf",
+        "rzad."
+      ],
+      [
+        "deszczyć",
+        "inf:imperf",
+        "rzad."
+      ],
+      [
+        "deszczyło",
+        "praet:sg:n:imperf",
+        "rzad."
+      ],
+      [
+        "deszczyło",
+        "praet:sg:n:ter:imperf",
+        "rzad."
+      ]
+    ]
+  },
+  "dnieć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "dniałoby",
+        "cond:sg:n:ter:imperf",
+        ""
+      ],
+      [
+        "dnieje",
+        "fin:sg:ter:imperf",
+        ""
+      ],
+      [
+        "dnieć",
+        "inf:imperf",
+        ""
+      ],
+      [
+        "dniało",
+        "praet:sg:n:imperf",
+        ""
+      ],
+      [
+        "dniało",
+        "praet:sg:n:ter:imperf",
+        ""
+      ]
+    ]
+  },
+  "dżdżyć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "dżdżyłoby",
+        "cond:sg:n:ter:imperf",
+        ""
+      ],
+      [
+        "dżdży",
+        "fin:sg:ter:imperf",
+        ""
+      ],
+      [
+        "dżdżyć",
+        "inf:imperf",
+        ""
+      ],
+      [
+        "dżdżyło",
+        "praet:sg:n:imperf",
+        ""
+      ],
+      [
+        "dżdżyło",
+        "praet:sg:n:ter:imperf",
+        ""
+      ]
+    ]
+  },
+  "odechciewać": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "odechciewałoby",
+        "cond:sg:n:ter:imperf",
+        ""
+      ],
+      [
+        "odechciewa",
+        "fin:sg:ter:imperf",
+        ""
+      ],
+      [
+        "odechciewać",
+        "inf:imperf",
+        ""
+      ],
+      [
+        "odechciewało",
+        "praet:sg:n:imperf",
+        ""
+      ],
+      [
+        "odechciewało",
+        "praet:sg:n:ter:imperf",
+        ""
+      ]
+    ]
+  },
+  "odechcieć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "odechciałoby",
+        "cond:sg:n:ter:perf",
+        ""
+      ],
+      [
+        "odechce",
+        "fin:sg:ter:perf",
+        ""
+      ],
+      [
+        "odechcieć",
+        "inf:perf",
+        ""
+      ],
+      [
+        "odechciało",
+        "praet:sg:n:perf",
+        ""
+      ],
+      [
+        "odechciało",
+        "praet:sg:n:ter:perf",
+        ""
+      ]
+    ]
+  },
+  "odnieć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "odniałoby",
+        "cond:sg:n:ter:perf",
+        "daw."
+      ],
+      [
+        "odnieje",
+        "fin:sg:ter:perf",
+        "daw."
+      ],
+      [
+        "odnieć",
+        "inf:perf",
+        "daw."
+      ],
+      [
+        "odniało",
+        "praet:sg:n:perf",
+        "daw."
+      ],
+      [
+        "odniało",
+        "praet:sg:n:ter:perf",
+        "daw."
+      ]
+    ]
+  },
+  "olśnieć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "olśniałoby",
+        "cond:sg:n:ter:perf",
+        "indyw."
+      ],
+      [
+        "olśnieje",
+        "fin:sg:ter:perf",
+        "indyw."
+      ],
+      [
+        "olśnieć",
+        "inf:perf",
+        "indyw."
+      ],
+      [
+        "olśniało",
+        "praet:sg:n:perf",
+        "indyw."
+      ],
+      [
+        "olśniało",
+        "praet:sg:n:ter:perf",
+        "indyw."
+      ]
+    ]
+  },
+  "omdlić": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "omdliłoby",
+        "cond:sg:n:ter:perf",
+        "przest."
+      ],
+      [
+        "omdli",
+        "fin:sg:ter:perf",
+        "przest."
+      ],
+      [
+        "omdlić",
+        "inf:perf",
+        "przest."
+      ],
+      [
+        "omdliło",
+        "praet:sg:n:perf",
+        "przest."
+      ],
+      [
+        "omdliło",
+        "praet:sg:n:ter:perf",
+        "przest."
+      ]
+    ]
+  },
+  "przybraknąć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "przybrakłoby",
+        "cond:sg:n:ter:perf",
+        "przest."
+      ],
+      [
+        "przybraknie",
+        "fin:sg:ter:perf",
+        "przest."
+      ],
+      [
+        "przybraknąć",
+        "inf:perf",
+        "przest."
+      ],
+      [
+        "przybrakło",
+        "praet:sg:n:perf",
+        "przest."
+      ],
+      [
+        "przybrakło",
+        "praet:sg:n:ter:perf",
+        "przest."
+      ]
+    ]
+  },
+  "przymierzchnąć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "przymierzchłoby",
+        "cond:sg:n:ter:perf",
+        "rzad."
+      ],
+      [
+        "przymierzchnie",
+        "fin:sg:ter:perf",
+        "rzad."
+      ],
+      [
+        "przymierzchnąć",
+        "inf:perf",
+        "rzad."
+      ],
+      [
+        "przymierzchło",
+        "praet:sg:n:perf",
+        "rzad."
+      ],
+      [
+        "przymierzchło",
+        "praet:sg:n:ter:perf",
+        "rzad."
+      ]
+    ]
+  },
+  "rozdniewać": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "rozdniewałoby",
+        "cond:sg:n:ter:imperf",
+        "daw."
+      ],
+      [
+        "rozdniewa",
+        "fin:sg:ter:imperf",
+        "daw."
+      ],
+      [
+        "rozdniewać",
+        "inf:imperf",
+        "daw."
+      ],
+      [
+        "rozdniewało",
+        "praet:sg:n:imperf",
+        "daw."
+      ],
+      [
+        "rozdniewało",
+        "praet:sg:n:ter:imperf",
+        "daw."
+      ]
+    ]
+  },
+  "rozdnieć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "rozdniałoby",
+        "cond:sg:n:ter:perf",
+        "daw."
+      ],
+      [
+        "rozdnieje",
+        "fin:sg:ter:perf",
+        "daw."
+      ],
+      [
+        "rozdnieć",
+        "inf:perf",
+        "daw."
+      ],
+      [
+        "rozdniało",
+        "praet:sg:n:perf",
+        "daw."
+      ],
+      [
+        "rozdniało",
+        "praet:sg:n:ter:perf",
+        "daw."
+      ]
+    ]
+  },
+  "rozedniewać": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "rozedniewałoby",
+        "cond:sg:n:ter:imperf",
+        "rzad."
+      ],
+      [
+        "rozedniewa",
+        "fin:sg:ter:imperf",
+        "rzad."
+      ],
+      [
+        "rozedniewać",
+        "inf:imperf",
+        "rzad."
+      ],
+      [
+        "rozedniewało",
+        "praet:sg:n:imperf",
+        "rzad."
+      ],
+      [
+        "rozedniewało",
+        "praet:sg:n:ter:imperf",
+        "rzad."
+      ]
+    ]
+  },
+  "rozednieć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "rozedniałoby",
+        "cond:sg:n:ter:perf",
+        ""
+      ],
+      [
+        "rozednieje",
+        "fin:sg:ter:perf",
+        ""
+      ],
+      [
+        "rozednieć",
+        "inf:perf",
+        ""
+      ],
+      [
+        "rozedniało",
+        "praet:sg:n:perf",
+        ""
+      ],
+      [
+        "rozedniało",
+        "praet:sg:n:ter:perf",
+        ""
+      ]
+    ]
+  },
+  "rozsłocić": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "rozsłociłoby",
+        "cond:sg:n:ter:perf",
+        ""
+      ],
+      [
+        "rozsłoci",
+        "fin:sg:ter:perf",
+        ""
+      ],
+      [
+        "rozsłocić",
+        "inf:perf",
+        ""
+      ],
+      [
+        "rozsłociło",
+        "praet:sg:n:perf",
+        ""
+      ],
+      [
+        "rozsłociło",
+        "praet:sg:n:ter:perf",
+        ""
+      ]
+    ]
+  },
+  "rozwidnieć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "rozwidniałoby",
+        "cond:sg:n:ter:perf",
+        ""
+      ],
+      [
+        "rozwidnieje",
+        "fin:sg:ter:perf",
+        ""
+      ],
+      [
+        "rozwidnieć",
+        "inf:perf",
+        ""
+      ],
+      [
+        "rozwidniało",
+        "praet:sg:n:perf",
+        ""
+      ],
+      [
+        "rozwidniało",
+        "praet:sg:n:ter:perf",
+        ""
+      ]
+    ]
+  },
+  "słocić": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "słociłoby",
+        "cond:sg:n:ter:imperf",
+        "daw."
+      ],
+      [
+        "słoci",
+        "fin:sg:ter:imperf",
+        "daw."
+      ],
+      [
+        "słocić",
+        "inf:imperf",
+        "daw."
+      ],
+      [
+        "słociło",
+        "praet:sg:n:imperf",
+        "daw."
+      ],
+      [
+        "słociło",
+        "praet:sg:n:ter:imperf",
+        "daw."
+      ]
+    ]
+  },
+  "zabraknąć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "zabrakłoby",
+        "cond:sg:n:ter:perf",
+        ""
+      ],
+      [
+        "zabraknie",
+        "fin:sg:ter:perf",
+        ""
+      ],
+      [
+        "zabraknąć",
+        "inf:perf",
+        ""
+      ],
+      [
+        "zabrakło",
+        "praet:sg:n:perf",
+        ""
+      ],
+      [
+        "zabrakło",
+        "praet:sg:n:ter:perf",
+        ""
+      ]
+    ]
+  },
+  "zadeszczyć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "zadeszczyłoby",
+        "cond:sg:n:ter:perf",
+        ""
+      ],
+      [
+        "zadeszczy",
+        "fin:sg:ter:perf",
+        ""
+      ],
+      [
+        "zadeszczyć",
+        "inf:perf",
+        ""
+      ],
+      [
+        "zadeszczyło",
+        "praet:sg:n:perf",
+        ""
+      ],
+      [
+        "zadeszczyło",
+        "praet:sg:n:ter:perf",
+        ""
+      ]
+    ]
+  },
+  "zadnieć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "zadniałoby",
+        "cond:sg:n:ter:perf",
+        ""
+      ],
+      [
+        "zadnieje",
+        "fin:sg:ter:perf",
+        ""
+      ],
+      [
+        "zadnieć",
+        "inf:perf",
+        ""
+      ],
+      [
+        "zadniało",
+        "praet:sg:n:perf",
+        ""
+      ],
+      [
+        "zadniało",
+        "praet:sg:n:ter:perf",
+        ""
+      ]
+    ]
+  },
+  "zamdlić": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "zamdliłoby",
+        "cond:sg:n:ter:perf",
+        "przest."
+      ],
+      [
+        "zamdli",
+        "fin:sg:ter:perf",
+        "przest."
+      ],
+      [
+        "zamdlić",
+        "inf:perf",
+        "przest."
+      ],
+      [
+        "zamdliło",
+        "praet:sg:n:perf",
+        "przest."
+      ],
+      [
+        "zamdliło",
+        "praet:sg:n:ter:perf",
+        "przest."
+      ]
+    ]
+  },
+  "zamierzchnąć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "zamierzchłoby",
+        "cond:sg:n:ter:perf",
+        "rzad."
+      ],
+      [
+        "zamierzchnie",
+        "fin:sg:ter:perf",
+        "rzad."
+      ],
+      [
+        "zamierzchnąć",
+        "inf:perf",
+        "rzad."
+      ],
+      [
+        "zamierzchło",
+        "praet:sg:n:perf",
+        "rzad."
+      ],
+      [
+        "zamierzchło",
+        "praet:sg:n:ter:perf",
+        "rzad."
+      ]
+    ]
+  },
+  "zasłocić": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "zasłociłoby",
+        "cond:sg:n:ter:perf",
+        ""
+      ],
+      [
+        "zasłoci",
+        "fin:sg:ter:perf",
+        ""
+      ],
+      [
+        "zasłocić",
+        "inf:perf",
+        ""
+      ],
+      [
+        "zasłociło",
+        "praet:sg:n:perf",
+        ""
+      ],
+      [
+        "zasłociło",
+        "praet:sg:n:ter:perf",
+        ""
+      ]
+    ]
+  },
+  "zbraknąć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "zbrakłoby",
+        "cond:sg:n:ter:perf",
+        ""
+      ],
+      [
+        "zbraknie",
+        "fin:sg:ter:perf",
+        ""
+      ],
+      [
+        "zbraknąć",
+        "inf:perf",
+        ""
+      ],
+      [
+        "zbrakło",
+        "praet:sg:n:perf",
+        ""
+      ],
+      [
+        "zbrakło",
+        "praet:sg:n:ter:perf",
+        ""
+      ]
+    ]
+  },
+  "zednieć": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "zedniałoby",
+        "cond:sg:n:ter:perf",
+        "rzad."
+      ],
+      [
+        "zednieje",
+        "fin:sg:ter:perf",
+        "rzad."
+      ],
+      [
+        "zednieć",
+        "inf:perf",
+        "rzad."
+      ],
+      [
+        "zedniało",
+        "praet:sg:n:perf",
+        "rzad."
+      ],
+      [
+        "zedniało",
+        "praet:sg:n:ter:perf",
+        "rzad."
+      ]
+    ]
+  },
+  "zemdlić": {
+    "pos": {
+      "cond": 1,
+      "fin": 1,
+      "inf": 1,
+      "praet": 2
+    },
+    "records": 5,
+    "rows": [
+      [
+        "zemdliłoby",
+        "cond:sg:n:ter:perf",
+        ""
+      ],
+      [
+        "zemdli",
+        "fin:sg:ter:perf",
+        ""
+      ],
+      [
+        "zemdlić",
+        "inf:perf",
+        ""
+      ],
+      [
+        "zemdliło",
+        "praet:sg:n:perf",
+        ""
+      ],
+      [
+        "zemdliło",
+        "praet:sg:n:ter:perf",
+        ""
+      ]
+    ]
+  }
+}

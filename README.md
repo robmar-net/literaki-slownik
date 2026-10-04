@@ -5,6 +5,7 @@ Dopiero rozpoczynamy prace nad tym projektem. Na razie nie wiemy, co uda się os
 Pierwsze prace dotyczą audytu źródeł do słowników języka polskiego: SGJP dla Morfeusza, KWJP100 i unigramów NKJP. Audyt sprawdza pochodzenie, warunki użycia, formaty oraz możliwości zbudowania odtwarzalnego procesu. Nie jest jeszcze gotowym słownikiem.
 
 - [Specyfikacja projektu v3](docs/literaki-niezalezne-slowniki-prompt-v3.md) — materiał wejściowy i zakres pierwszego etapu w rozdziale 15.
+- [Prosty język i minimum leksykalne — dalsze kierunki](docs/literaki-prosty-jezyk-minimum-leksykalne-kierunki.md) — notatka rozpoznawcza o słownikach znajomości; opisane dane pozostają BLOCKED i nie są wejściem obecnego generatora.
 - [Raport audytu — zatwierdzony](.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/research-report.md).
 - [Projekt pierwszego generatora — zatwierdzony](.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/high-level-design.md).
 - [Rejestr decyzji zakresu i architektury](.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/decision-log.md).
