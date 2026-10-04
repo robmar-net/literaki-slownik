@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T14:15:33Z",
+  "generated": "2026-10-04T14:55:00Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Decyzja o dodatkowych dowodach: G3 częściowa, moduł KWJP przetestowany"
+    "current_activity": "G3: udokumentowane luki źródłowe; G5 pełne powiązania techniczne"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,12 +240,13 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "G1/G2 complete; G3 częściowa: pełne etykiety, defektywność i KWJP odtworzone; niezależny fragment G5 red→green. Pending decyzja rozszerzenia wejść dowodowych.",
+      "summary": "Po A audyt dodatkowych źródeł wykonany; brak dopuszczonego snapshotu SGJP i pełnych growych poświadczeń. G3 nadal częściowe. Pełny techniczny fragment G5: 13/13 list, raporty mianowników i FK OK.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
         "Reguły gry niezmienione; częściowych konfiguracji discovery nie aktywowano",
-        "Wykonano niezależny fragment KWJP według wyjątku planu; G3/G4/G8 nie oznaczone complete"
+        "Wykonano niezależny fragment KWJP według wyjątku planu; G3/G4/G8 nie oznaczone complete",
+        "A supplementary_attestation_inputs approved; audit conditions before supplementary data activation"
       ],
       "risks": [
         "Brak growych poświadczeń części kontrakcji i pełnych metadanych pochodzenia haseł",
@@ -283,18 +284,43 @@ window.MAISTER_DATA = {
         {
           "path": "../../../../docs/literaki-prosty-jezyk-minimum-leksykalne-kierunki.md",
           "label": "Notatka użytkownika: przyszłe słowniki znajomości"
+        },
+        {
+          "path": "analysis/evidence/supplementary-source-audit.md",
+          "label": "Audyt dodatkowych źródeł po A"
+        },
+        {
+          "path": "analysis/evidence/sgjp-metadata-audit.json",
+          "label": "Metadane SGJP: istnienie a licencja"
+        },
+        {
+          "path": "analysis/evidence/contraction-attestation-audit.json",
+          "label": "Pokrycie 26 kontrakcji"
+        },
+        {
+          "path": "analysis/evidence/qualifier-semantics-audit.json",
+          "label": "Semantyka i ekspozycja kwalifikatorów"
+        },
+        {
+          "path": "analysis/evidence/full-links-report.json",
+          "label": "Pełny raport 13 list KWJP"
+        },
+        {
+          "path": "analysis/evidence/full-links-performance.json",
+          "label": "Koszt pełnego powiązania"
         }
       ],
       "gate": {
         "id": "supplementary_attestation_inputs",
-        "status": "pending",
+        "status": "approved",
         "question": "Czy rozszerzamy wejścia dowodowe o audytowane oficjalne metadane SGJP i niezależne poświadczenia słownikowe konstrukcji, bez dodawania nowych leksemów i zmiany zasad gry?",
         "options": {
           "A": "Tak: audyt i włączenie wyłącznie dopuszczonych uzupełniających danych; rekomendowane.",
           "B": "Na razie bez nowych wejść: tylko niezależna mechanika, unresolved nadal blokuje pełne wydanie."
         },
-        "answer": null,
-        "artifact": "analysis/evidence/source-extension-decision.md"
+        "answer": "A",
+        "artifact": "analysis/evidence/source-extension-decision.md",
+        "answered_at": "2026-10-04T14:40:29Z"
       }
     },
     {

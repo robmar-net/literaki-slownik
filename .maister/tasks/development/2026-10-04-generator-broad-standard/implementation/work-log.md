@@ -27,3 +27,9 @@
 2026-10-04T14:15:33Z — Przegląd własny links: obserwacja jednostki korpusu musi pozostać OBSERVED także przy niedopasowaniu leksemu. Dodatkowa regresja rzeczywiście red (UNMATCHED zamiast OBSERVED), poprawiono kolejność oceny, cała suita 25/25 green. JSON konfiguracji i odnośniki docs/generator poprawne. Wydanie nadal nieukończone; pending bramka dodatkowych danych.
 
 2026-10-04T14:16:04Z — Kontrola staged: wszystkie własne zmiany bez błędów whitespace; oryginalna notatka użytkownika ma trzy celowe podwójne spacje Markdown (hard break) w metryce, zachowano zgodność bajtów zamiast zmieniać dokument. Cache/tmp/baza nie są w indeksie Git.
+
+2026-10-04T14:40:29Z — Użytkownik zatwierdził A supplementary_attestation_inputs. Wznawiamy fazę8/G3; pełne artefakty ukończonych faz dostępne. Dodatkowe wejścia dopuszczane dopiero po audycie warunków i pochodzenia. Bez nowych leksemów, zmian gry, danych SJP/OSPS/PoliMorf lub użycia BLOCKED zasobów z notatki kierunków.
+
+### 2026-10-04T14:55:00Z — audyt po A i pełny fragment G5
+Zatwierdzony zakres A wykonano jako audyt, bez aktywowania niezweryfikowanego źródła. Raporty metadanych SGJP, 26 kontrakcji i kwalifikatorów zapisane; koordynator sprawdził hashe/sekcje i wszystkie 10 rodzin liczników. Kod Kuźni a licencja bazy rozdzielone. WSJP/PWN/Wikisłownik mają jawne ograniczenia; nie są active build inputs.
+Pełne powiązania na nowej kopii: 5 066 341 rekordów, 2 940 032 krawędzie, 114,10 s, RSS 117 948 416 B, FK OK. link_report: rzeczywisty red importu, następnie 4/4 green, pełne 25/25 i baseline 5/5. F i mianowniki liczone przy źródłowej jednostce, test niepełnego rozliczenia. Nie integrowano przed konstrukcjami, aby nie utrwalić niepełnego pokrycia form. G3/G4/G5/G8 nadal nieukończone, checkboxy bez zmian. Potrzebny przypięty licencjonowany artefakt pochodzenia SGJP i growo właściwe poświadczenia.

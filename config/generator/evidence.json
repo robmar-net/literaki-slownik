@@ -11,7 +11,7 @@
     {
       "bytes": 25111,
       "id": "kuznia_export",
-      "inspected_sections": "206–250,356–375",
+      "inspected_sections": "137–159,206–250,292–300,356–375,556–563",
       "path": "cache/sgjp-docs/lexeme_export-61daf78.py",
       "publication": "reference_and_own_notes_only_cache_ignored",
       "role": "rule_evidence_only_not_lexical_input",
@@ -21,7 +21,7 @@
     {
       "bytes": 43122,
       "id": "kuznia_model",
-      "inspected_sections": "97–163",
+      "inspected_sections": "97–163,306–340,601–612,682–726",
       "path": "cache/sgjp-docs/kuznia-models-61daf78.py",
       "publication": "reference_and_own_notes_only_cache_ignored",
       "role": "rule_evidence_only_not_lexical_input",
@@ -51,7 +51,7 @@
     {
       "bytes": 568070,
       "id": "sgjp_theory",
-      "inspected_sections": "6.4,6.6,7.3,7.5,7.8,9.1",
+      "inspected_sections": "3.4.1,6.4,6.6,7.3,7.5,7.8,9.1",
       "path": "cache/constructions/sgjp-theory.pdf",
       "publication": "reference_and_own_notes_only_cache_ignored",
       "role": "rule_evidence_only_not_lexical_input",
@@ -98,6 +98,16 @@
       ],
       "role": "explicitly_requested_readonly_game_rule_reference",
       "url": "https://sjp.pl/sl/dp.phtml"
+    },
+    {
+      "id": "sgjp_qualifier_ui",
+      "url": "https://sgjp.pl/leksemy/",
+      "path": "tmp/lane-qualifiers/leksemy.html",
+      "sha256": "16bd2a3b3a3c0abcc42890b2011c6b875295f397fbef4567c17f771ee70a027b",
+      "inspected_sections": "form_qualifier_options,lexeme_qualifier_options",
+      "role": "documentation_observation_not_build_metadata",
+      "version": "observed_2026-10-04_not_export_20260823",
+      "publication": "own_notes_only_cache_ignored"
     }
   ],
   "status": "discovery_in_progress",

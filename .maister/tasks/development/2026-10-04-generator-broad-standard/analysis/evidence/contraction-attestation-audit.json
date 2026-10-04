@@ -1,0 +1,359 @@
+{
+  "status": "no_active_game_attestations",
+  "scope": "26 existing SGJP construction candidates; source availability and provenance audit only",
+  "coordinator_verified": "all local artifact hashes/bytes, Polish section and license footer; raw content not published",
+  "coverage": [
+    {
+      "word": "bezeń",
+      "url": "https://pl.wiktionary.org/wiki/beze%C5%84",
+      "curl_code": 0,
+      "sha256": "abd62d39725815ee2bf9d8dfcec765505d00b07b6746b4de7f130d480b728312",
+      "bytes": 75332,
+      "cache_path": "tmp/lane-attestations/bezeń.html",
+      "oldids": [
+        "8805216"
+      ],
+      "excluded_dependency": false,
+      "missing_page": false,
+      "dependencies": [
+        "https://pelcra-nkjp.clarin-pl.eu/ParagraphMetadata?pid=a2f5df8d04f77f27f4d360a6caf9189c&amp;match_start=522&amp;match_end=527&amp;wynik=1",
+        "https://sjp.pwn.pl/poradnia/haslo/;6283"
+      ],
+      "lexical_attestation_observed": true,
+      "content_scope": "metadata of existing contraction entry; no copied definition/example; no corpus extraction",
+      "permission_status": "CC BY-SA 4.0 footer observed; complete origin history review pending",
+      "build_permission": "not activated"
+    },
+    {
+      "word": "dlań",
+      "url": "https://pl.wiktionary.org/wiki/dla%C5%84",
+      "curl_code": 0,
+      "sha256": "a72e2fc8db56e0856d87ab4d67e36e87620d6b38f76331b06fc274271d6e5650",
+      "bytes": 72957,
+      "cache_path": "tmp/lane-attestations/dlań.html",
+      "oldids": [
+        "8530104"
+      ],
+      "excluded_dependency": false,
+      "missing_page": false,
+      "dependencies": [
+        "https://sjp.pwn.pl/poradnia/haslo/;6283"
+      ],
+      "lexical_attestation_observed": true,
+      "content_scope": "metadata of existing contraction entry; no copied definition/example; no corpus extraction",
+      "permission_status": "CC BY-SA 4.0 footer observed; complete origin history review pending",
+      "build_permission": "not activated"
+    },
+    {
+      "word": "doń",
+      "url": "https://pl.wiktionary.org/wiki/do%C5%84",
+      "curl_code": 0,
+      "sha256": "01747575ac3b5faa40962782ed7bb9311a7b0db0dc918e0a8a222ddcee8c72db",
+      "bytes": 74728,
+      "cache_path": "tmp/lane-attestations/doń.html",
+      "oldids": [
+        "8530105"
+      ],
+      "excluded_dependency": false,
+      "missing_page": false,
+      "dependencies": [
+        "https://sjp.pwn.pl/poradnia/haslo/;6283"
+      ],
+      "lexical_attestation_observed": true,
+      "content_scope": "metadata of existing contraction entry; no copied definition/example; no corpus extraction",
+      "permission_status": "CC BY-SA 4.0 footer observed; complete origin history review pending",
+      "build_permission": "not activated"
+    },
+    {
+      "word": "kołoń",
+      "url": "https://pl.wiktionary.org/wiki/ko%C5%82o%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 404",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    },
+    {
+      "word": "nań",
+      "url": "https://pl.wiktionary.org/wiki/na%C5%84",
+      "curl_code": 0,
+      "sha256": "7a43abe725d6f4aa08146b3013b3229ea5ea45e7d5189aca1ff8cf1457c4dc44",
+      "bytes": 78589,
+      "cache_path": "tmp/lane-attestations/nań.html",
+      "oldids": [
+        "8695632"
+      ],
+      "excluded_dependency": false,
+      "missing_page": false,
+      "dependencies": [
+        "https://pl.wikisource.org/wiki/Pompalińscy",
+        "https://pl.wikisource.org/wiki/Popioły/Tom%20I",
+        "https://sjp.pwn.pl/poradnia/haslo/;6283"
+      ],
+      "lexical_attestation_observed": true,
+      "content_scope": "metadata of existing contraction entry; no copied definition/example; no corpus extraction",
+      "permission_status": "CC BY-SA 4.0 footer observed; complete origin history review pending",
+      "build_permission": "not activated"
+    },
+    {
+      "word": "nadeń",
+      "url": "https://pl.wiktionary.org/wiki/nade%C5%84",
+      "curl_code": 0,
+      "sha256": "da1520a75f3cb281784126a9ed31fd98d2b386e349789edc4c0e2a2147247c37",
+      "bytes": 70573,
+      "cache_path": "tmp/lane-attestations/nadeń.html",
+      "oldids": [
+        "8530107"
+      ],
+      "excluded_dependency": false,
+      "missing_page": false,
+      "dependencies": [
+        "https://sjp.pwn.pl/poradnia/haslo/;6283"
+      ],
+      "lexical_attestation_observed": true,
+      "content_scope": "metadata of existing contraction entry; no copied definition/example; no corpus extraction",
+      "permission_status": "CC BY-SA 4.0 footer observed; complete origin history review pending",
+      "build_permission": "not activated"
+    },
+    {
+      "word": "oń",
+      "url": "https://pl.wiktionary.org/wiki/o%C5%84",
+      "curl_code": 0,
+      "sha256": "8d239fddc6df1ea3f27d7a4bc3772389973aca513d1d8c6f428209da66ce1f41",
+      "bytes": 78352,
+      "cache_path": "tmp/lane-attestations/oń.html",
+      "oldids": [
+        "8771803"
+      ],
+      "excluded_dependency": false,
+      "missing_page": false,
+      "dependencies": [
+        "https://pl.wikipedia.org/wiki/Garstka_piasku",
+        "https://sjp.pwn.pl/poradnia/haslo/;6283"
+      ],
+      "lexical_attestation_observed": true,
+      "content_scope": "metadata of existing contraction entry; no copied definition/example; no corpus extraction",
+      "permission_status": "CC BY-SA 4.0 footer observed; complete origin history review pending",
+      "build_permission": "not activated"
+    },
+    {
+      "word": "odeń",
+      "url": "https://pl.wiktionary.org/wiki/ode%C5%84",
+      "curl_code": 0,
+      "sha256": "b02bad4a0714e7e02b7288b649dd54abb12d9405c336f4f88794286ed6b12a0d",
+      "bytes": 71646,
+      "cache_path": "tmp/lane-attestations/odeń.html",
+      "oldids": [
+        "8530109"
+      ],
+      "excluded_dependency": false,
+      "missing_page": false,
+      "dependencies": [
+        "https://sjp.pwn.pl/poradnia/haslo/;6283"
+      ],
+      "lexical_attestation_observed": true,
+      "content_scope": "metadata of existing contraction entry; no copied definition/example; no corpus extraction",
+      "permission_status": "CC BY-SA 4.0 footer observed; complete origin history review pending",
+      "build_permission": "not activated"
+    },
+    {
+      "word": "poń",
+      "url": "https://pl.wiktionary.org/wiki/po%C5%84",
+      "curl_code": 0,
+      "sha256": "37e844818b9ef8b79a0a912fd4e3ed208618042f8b3380e08f9acdccbd6088e6",
+      "bytes": 72571,
+      "cache_path": "tmp/lane-attestations/poń.html",
+      "oldids": [
+        "8530112"
+      ],
+      "excluded_dependency": false,
+      "missing_page": false,
+      "dependencies": [
+        "https://sjp.pwn.pl/poradnia/haslo/;6283"
+      ],
+      "lexical_attestation_observed": true,
+      "content_scope": "metadata of existing contraction entry; no copied definition/example; no corpus extraction",
+      "permission_status": "CC BY-SA 4.0 footer observed; complete origin history review pending",
+      "build_permission": "not activated"
+    },
+    {
+      "word": "podeń",
+      "url": "https://pl.wiktionary.org/wiki/pode%C5%84",
+      "curl_code": 0,
+      "sha256": "c14b4202cdd778a41958c6a6bc38a54e45ab7afbb755575a897c1c1f45d7a9b3",
+      "bytes": 70392,
+      "cache_path": "tmp/lane-attestations/podeń.html",
+      "oldids": [
+        "8530111"
+      ],
+      "excluded_dependency": false,
+      "missing_page": false,
+      "dependencies": [
+        "https://sjp.pwn.pl/poradnia/haslo/;6283"
+      ],
+      "lexical_attestation_observed": true,
+      "content_scope": "metadata of existing contraction entry; no copied definition/example; no corpus extraction",
+      "permission_status": "CC BY-SA 4.0 footer observed; complete origin history review pending",
+      "build_permission": "not activated"
+    },
+    {
+      "word": "ponadeń",
+      "url": "https://pl.wiktionary.org/wiki/ponade%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 429",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    },
+    {
+      "word": "popodeń",
+      "url": "https://pl.wiktionary.org/wiki/popode%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 429",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    },
+    {
+      "word": "poprzezeń",
+      "url": "https://pl.wiktionary.org/wiki/poprzeze%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 404",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    },
+    {
+      "word": "pozań",
+      "url": "https://pl.wiktionary.org/wiki/poza%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 404",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    },
+    {
+      "word": "przedeń",
+      "url": "https://pl.wiktionary.org/wiki/przede%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 429",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    },
+    {
+      "word": "przezeń",
+      "url": "https://pl.wiktionary.org/wiki/przeze%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 429",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    },
+    {
+      "word": "spodeń",
+      "url": "https://pl.wiktionary.org/wiki/spode%C5%84",
+      "curl_code": 0,
+      "sha256": "92462912e84066b2ede27236a66d3f2366f52b7e945e1852f07df77c363f4afe",
+      "bytes": 68350,
+      "cache_path": "tmp/lane-attestations/spodeń.html",
+      "oldids": [
+        "7768158"
+      ],
+      "excluded_dependency": false,
+      "missing_page": false,
+      "dependencies": [
+        "http://books.google.pl/books?id=wXUjAQAAMAAJ&amp;q=spode%C5%84+nosz%C4%85&amp;dq=spode%C5%84+nosz%C4%85&amp;hl=pl&amp;sa=X&amp;ei=RWaQUrTSIOTF7AbopIHwBA&amp;ved=0CDIQ6AEwAA"
+      ],
+      "lexical_attestation_observed": true,
+      "content_scope": "metadata of existing contraction entry; no copied definition/example; no corpus extraction",
+      "permission_status": "CC BY-SA 4.0 footer observed; complete origin history review pending",
+      "build_permission": "not activated"
+    },
+    {
+      "word": "sponadeń",
+      "url": "https://pl.wiktionary.org/wiki/sponade%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 429",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    },
+    {
+      "word": "spopodeń",
+      "url": "https://pl.wiktionary.org/wiki/spopode%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 429",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    },
+    {
+      "word": "spozań",
+      "url": "https://pl.wiktionary.org/wiki/spoza%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 404",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    },
+    {
+      "word": "sprzedeń",
+      "url": "https://pl.wiktionary.org/wiki/sprzede%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 429",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    },
+    {
+      "word": "weń",
+      "url": "https://pl.wiktionary.org/wiki/we%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 429",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    },
+    {
+      "word": "zań",
+      "url": "https://pl.wiktionary.org/wiki/za%C5%84",
+      "curl_code": 0,
+      "sha256": "fc53ad9a6d9e47550f55c679e4b1f11488f3164368acd44d6264df3536cbfda7",
+      "bytes": 72272,
+      "cache_path": "tmp/lane-attestations/zań.html",
+      "oldids": [
+        "8530117"
+      ],
+      "excluded_dependency": false,
+      "missing_page": false,
+      "dependencies": [
+        "https://sjp.pwn.pl/poradnia/haslo/;6283"
+      ],
+      "lexical_attestation_observed": true,
+      "content_scope": "metadata of existing contraction entry; no copied definition/example; no corpus extraction",
+      "permission_status": "CC BY-SA 4.0 footer observed; complete origin history review pending",
+      "build_permission": "not activated"
+    },
+    {
+      "word": "zeń",
+      "url": "https://pl.wiktionary.org/wiki/ze%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 429",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    },
+    {
+      "word": "znadeń",
+      "url": "https://pl.wiktionary.org/wiki/znade%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 404",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    },
+    {
+      "word": "zzań",
+      "url": "https://pl.wiktionary.org/wiki/zza%C5%84",
+      "curl_code": 56,
+      "error": "curl: (56) The requested URL returned error: 429",
+      "lexical_attestation_observed": null,
+      "permission_status": "no local page artifact"
+    }
+  ],
+  "limitations": [
+    "WSJP reuse conditions unconfirmed; partial PDF not pinned evidence",
+    "PWN web robots block",
+    "Wiktionary origin history not fully reviewed and game source eligibility unproved",
+    "404 or 429 not lexical rejection"
+  ],
+  "active_inputs_added": 0,
+  "rules_changed": false
+}

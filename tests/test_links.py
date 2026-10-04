@@ -5,7 +5,8 @@ import unittest
 from pathlib import Path
 
 from literaki_slownik.database import connect
-from literaki_slownik.links import candidates, availability, create_links
+from literaki_slownik.links import candidates, availability, create_links, link_report
+from literaki_slownik.inputs import GeneratorError
 
 
 class LinksTests(unittest.TestCase):
@@ -72,3 +73,15 @@ class LinksTests(unittest.TestCase):
         self.assertEqual(self.db.execute('select sum(freq) from corpus_evidence').fetchone()[0], 12)
         self.assertNotIn('freq', [r[1] for r in self.db.execute('pragma table_info(evidence_candidate)')])
         self.assertEqual(self.db.execute('pragma foreign_key_check').fetchall(), [])
+        report = link_report(self.db, unavailable=[{'source_id': 'NKJP', 'reason': 'BLOCKED'}])
+        row = report['lists']['KWJP']
+        self.assertEqual(row['evidence_units'], 2)
+        self.assertEqual(row['sum_freq'], 12)  # F homonimu liczone raz, nie za każdą krawędź.
+        self.assertEqual(row['candidate_edges'], 2)
+        self.assertEqual(row['genre'], 'all')
+        self.assertEqual(row['observed_units'], 2)  # UNMATCHED nadal ma obserwację korpusową.
+        self.assertEqual(row['link_statuses'], {'AMBIGUOUS': 1, 'UNMATCHED': 1})
+        self.assertEqual(report['unavailable'][0]['status'], 'UNAVAILABLE')
+        self.db.execute('delete from evidence_link where evidence_id=2')
+        with self.assertRaises(GeneratorError):
+            link_report(self.db)

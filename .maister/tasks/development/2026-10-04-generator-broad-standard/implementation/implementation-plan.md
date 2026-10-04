@@ -72,6 +72,8 @@ Zależności: G2. Pliki: `docs/generator/{etykiety,konstrukcje,ortografia,mapowa
 - [ ] 3.3 Udokumentować dziedziczenie kwalifikacji, ograniczenia składników i ortografię BROAD/STANDARD oraz mapowanie POS/KWJP; wersje/hash/dowody i dodatnie/ujemne przypadki każdej klasy.
 - [ ] 3.4 Przejrzeć pełną macierz i nierozstrzygnięcia, zapisać status/dowód/zakres/liczebność; materialny wybór polityki przedstawić z przykładami. Ukończenie wymaga domknięcia, nie etykiety „później”.
 
+Doprecyzowanie zatwierdzone A (2026-10-04T14:40:29Z): audyt oficjalnych metadanych SGJP oraz niezależnych poświadczeń istniejących konstrukcji. Nowe artefakty po pozytywnym audycie warunków wymagają pełnej metryki, mapowania do przypiętego eksportu, hasha i testów odmowy przy BLOCKED/nieznanym pochodzeniu. Bez nowych leksemów i zmiany reguł gry. Dotąd nie aktywowano uzupełniającego artefaktu; brak licencjonowanego snapshotu pozostaje rzeczywistą luką.
+
 G3 to badanie źródłowe, bez z góry obiecanego wyniku. Pobieranie nowych dokumentów tylko w zadeklarowanej roli po sprawdzeniu warunków; bez danych benchmarku lub internetowych list haseł. Dokumentacja językowa nie staje się importerem słów. Ustalenia muszą dać przykłady do niezależnych testów G4/G5; nie dopisujemy intuicyjnych wyjątków.
 
 ### G4 — kwalifikacja, rekonstrukcje i agregacja
@@ -85,7 +87,7 @@ Zależności: G2/G3. Pliki: `literaki_slownik/{policy,constructions,decisions}.p
 
 ### G5 — powiązania KWJP i dostępność dowodów
 
-Fragment wykonany niezależnie podczas blokady dowodowej G3: moduł links, 4 testy red→green i pełny przegląd lemma-all. Integracja etapu build i pełne powiązania wszystkich list pozostają do wykonania; grupa i kroki nieukończone.
+Fragment wykonany niezależnie podczas blokady dowodowej G3: moduł links, 4 testy red→green i pełny przegląd lemma-all. Pełny niezależny przebieg wszystkich 13 list i raport mianowników wykonano: 5 066 341 jednostek, 2 940 032 krawędzie, FK OK. Test raportu potwierdza jednorazowe F i odmowę niepełnego rozliczenia. Integracja etapu build po konstrukcjach oraz późniejszy przegląd jakości pozostają do wykonania; grupa i kroki nieukończone.
 
 Zależności: G2/G3/G4. Pliki: `literaki_slownik/links.py`, `tests/test_links.py`; dopracowanie `config/generator/pos-map.json`. K6; R06.
 

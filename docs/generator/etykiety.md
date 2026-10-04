@@ -11,8 +11,8 @@ Semantyka techniczna eksportu jest potwierdzona; pełna polityka złożonych ety
 - Wersjonowany rejestr jest dokumentacją discovery, a nie aktywnym filtrem.
 
 ## Open Questions / Risks
-- Znaczenie złożonych oznaczeń, zwłaszcza `daw._dziś_gwar.` i `przest._dziś_książk.`, wymaga domknięcia przed STANDARD. Sama obecność fragmentu `daw.` nie rozstrzyga współczesnego użycia.
-- Nie ustalono pełnej zgodności danych o pochodzeniu leksemów z wyłączeniami źródłowymi ZDS. `z_D.` nie może być traktowane jako znacznik Doroszewskiego na podstawie podobieństwa napisu.
+- Pełne nazwy „dawne, dziś gwarowe/rzadkie/frazeologiczne” oraz „przestarzałe, dziś książkowe” wskazują współczesne ograniczenie użycia. Nadal trzeba ustalić ich wpływ na STANDARD oraz historyczne literalne etykiety przecinkowe; nie są one alternatywą sensów.
+- Nie ustalono pełnej zgodności danych o pochodzeniu leksemów z wyłączeniami źródłowymi ZDS. `z_D.` oznacza łączenie zaimka z określeniem przymiotnikowym w dopełniaczu, a nie pochodzenie z Doroszewskiego.
 
 ## Dowód formatu
 [Kod eksportera Kuźni](https://git.nlp.ipipan.waw.pl/SGJP/Kuznia/blob/61daf78fb2378b1f33e707a364c7d912f8edd255/export/lexeme_export.py), wiersze 206–235, pobiera zbiór kwalifikatorów leksemu, odmiany i końcówki; wiersze 244–250 pobierają klasyfikację pospolitości. Model `dictionary/models.py`, wiersze 97–163, przechowuje dosłowną etykietę. Są to dowody sposobu reprezentacji, bez twierdzenia, że bieżący commit był kompilatorem eksportu 20260823. Format zgadza się z parserem przypiętego Morfeusza.
@@ -23,3 +23,8 @@ Semantyka techniczna eksportu jest potwierdzona; pełna polityka złożonych ety
 [`label-coverage.json`](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/label-coverage.json) zawiera wszystkie kombinacje, liczniki i 295 interpretacji z mieszaną nazwą pospolitą/własną. Każdy z tych 295 zapisów zawiera wielką literę: znane growe wyłączenie wystarcza do odrzucenia tej konkretnej analizy. Nie jest to dowód poprawności dowolnej konstrukcji korzystającej z niej ani usunięcie wpisu z bazy.
 
 Odtworzenie: `python3 scripts/probe_generator_evidence.py --database PATH --mode labels`. Wynik porównano z pełną inwentaryzacją G2; wszystkie liczniki zgodne. Skrótowce mają osobny [przesiew](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/acronym-probe.json); nie zastępuje on klasyfikacji normatywnej.
+
+## Uzupełniona kontrola semantyczna
+[Podstawy teoretyczne SGJP](https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf), §3.4.1, s.52, wyjaśniają `z D.` jako właściwość składniową zaimków typu CO. Bieżące metadane formularza [SGJP](https://sgjp.pl/leksemy/) potwierdzają istnienie pełnych nazw kwalifikatorów, ale nie są snapshotem przypiętego eksportu. `arch.…ku` zachowuje znaczenie archaiczności pomimo składnika składniowego. Dokładna treść uwagi `akcent` nadal nie została ustalona.
+
+[Raport semantyki](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/qualifier-semantics-audit.json) obejmuje 10 rodzin i niezależnie sprawdzone rozliczenie pól. Liczby 423 kluczy dla rodziny dawne/dziś gwarowe, 1400 dla przestarzałe/dziś książkowe i 2272 dla archaiczne po ku opisują tylko ekspozycję po alfabecie/długości. Nie są deltą końcowej listy: nadal zawierają wielkie litery i inne przyczyny odrzucenia.

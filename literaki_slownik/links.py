@@ -1,6 +1,8 @@
 """Kandydaci strukturalni KWJP; częstość pozostaje przy jednostce korpusu."""
 from collections import Counter, defaultdict
+import json
 import unicodedata
+from .inputs import GeneratorError
 
 SHARED_POS = frozenset('adj adja adjc adjp adv aglt bedzie brev comp conj depr fin frag ger imps impt inf interj num numcomp pact pant part pcon ppas ppron12 ppron3 praet pred prep subst winien'.split())
 
@@ -99,3 +101,36 @@ def create_links(db, allowed_pos=SHARED_POS):
                        [(evidence_id, c.get('lexeme_id'), c.get('form_id')) for c in result['candidates']])
         summary[source_id][result['status']] += 1
     return {source: dict(sorted(counts.items())) for source, counts in sorted(summary.items())}
+
+
+def link_report(db, unavailable=()):
+    """Mianowniki to jednostki danej listy, nigdy krawędzie kandydatów."""
+    lists = {}
+    for source_id, kind, raw_metadata in db.execute(
+            "select source_id,kind,metadata from source_artifact where kind like 'kwjp_%' order by source_id"):
+        metadata = json.loads(raw_metadata)
+        units, freq = db.execute(
+            'select count(*),coalesce(sum(freq),0) from corpus_evidence where source_id=?',
+            (source_id,)).fetchone()
+        statuses = dict(db.execute('''select l.status,count(*) from evidence_link l
+            join corpus_evidence e on e.id=l.evidence_id where e.source_id=?
+            group by l.status order by l.status''', (source_id,)))
+        if sum(statuses.values()) != units:
+            raise GeneratorError('Niepełne rozliczenie powiązań KWJP', 4, source_id)
+        edges = db.execute('''select count(*) from evidence_candidate c
+            join corpus_evidence e on e.id=c.evidence_id where e.source_id=?''',
+            (source_id,)).fetchone()[0]
+        lists[source_id] = {
+            'kind': kind, 'genre': metadata.get('genre'),
+            'publication_threshold': metadata.get('publication_threshold'),
+            'evidence_units': units, 'observed_units': units,
+            'sum_freq': freq, 'link_statuses': statuses, 'candidate_edges': edges,
+        }
+    return {
+        'scope': 'structural_links_only_not_game_or_sense_decisions',
+        'denominator': 'published_evidence_units_per_source_list',
+        'lists': lists,
+        'unavailable': [{'source_id': item['source_id'],
+                         **availability(unavailable_reason=item['reason'])}
+                        for item in unavailable],
+    }

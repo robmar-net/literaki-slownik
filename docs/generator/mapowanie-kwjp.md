@@ -30,3 +30,8 @@ Przykłady z SGJP/KWJP: zamek i rok mają wiele pełnych ID; polski/A i polski/S
 [Opis list](https://kwjp.pl/lists/doc/about/) podaje globalny próg publikacji F≥5. Gatunkowe F=1–4 są prawidłowe; brak w gatunku nie dowodzi F<5. Miary i mianowniki pozostają odrębne. Parser zachowuje nazwę CSV Dice bez zmiany nazwy ani wartości.
 
 Odtworzenie: `python3 scripts/probe_generator_evidence.py --database PATH --mode kwjp`. Cztery testy `tests.test_links` obejmują homonimię, case/NFC/POS, formy/orth_lc/bigramy, brak versus zero oraz jednorazowe F z relacjami FK. Test-first: brak modułu → 4/4 green; cała suita 25/25.
+
+## Pełny przebieg techniczny powiązań
+Na nowej kopii diagnostycznej powiązano wszystkie 5 066 341 jednostek z 13 list, tworząc 2 940 032 krawędzie kandydatów. Kontrola FK przeszła. Czas powiązań: 114,10 s; szczyt RSS: 117 948 416 B na macOS. To samodzielna kontrola techniczna bez konstrukcji, końcowej polityki ani odbioru G8.
+
+[Raport mianowników](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/full-links-report.json) rozdziela każdą listę/gatunek, liczbę opublikowanych jednostek, sumę F, statusy dopasowań i krawędzie. Wszystkie opublikowane rekordy mają obserwację korpusową również przy UNMATCHED; dopasowanie i dostępność miary to różne własności. `link_report` odmawia raportu kompletności, gdy brakuje choć jednego powiązania. [Koszt przebiegu](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/full-links-performance.json).

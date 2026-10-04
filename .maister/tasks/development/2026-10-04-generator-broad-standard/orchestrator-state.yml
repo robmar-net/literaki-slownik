@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-04T14:15:33Z",
+    "updated": "2026-10-04T14:55:00Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,12 +214,13 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "G1/G2 complete; G3 częściowa: pełne etykiety, defektywność i KWJP odtworzone; niezależny fragment G5 red→green. Pending decyzja rozszerzenia wejść dowodowych.",
+      "summary": "Po A audyt dodatkowych źródeł wykonany; brak dopuszczonego snapshotu SGJP i pełnych growych poświadczeń. G3 nadal częściowe. Pełny techniczny fragment G5: 13/13 list, raporty mianowników i FK OK.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
         "Reguły gry niezmienione; częściowych konfiguracji discovery nie aktywowano",
-        "Wykonano niezależny fragment KWJP według wyjątku planu; G3/G4/G8 nie oznaczone complete"
+        "Wykonano niezależny fragment KWJP według wyjątku planu; G3/G4/G8 nie oznaczone complete",
+        "A supplementary_attestation_inputs approved; audit conditions before supplementary data activation"
       ],
       "risks": [
         "Brak growych poświadczeń części kontrakcji i pełnych metadanych pochodzenia haseł",
@@ -257,18 +258,43 @@
         {
           "path": "../../../../docs/literaki-prosty-jezyk-minimum-leksykalne-kierunki.md",
           "label": "Notatka użytkownika: przyszłe słowniki znajomości"
+        },
+        {
+          "path": "analysis/evidence/supplementary-source-audit.md",
+          "label": "Audyt dodatkowych źródeł po A"
+        },
+        {
+          "path": "analysis/evidence/sgjp-metadata-audit.json",
+          "label": "Metadane SGJP: istnienie a licencja"
+        },
+        {
+          "path": "analysis/evidence/contraction-attestation-audit.json",
+          "label": "Pokrycie 26 kontrakcji"
+        },
+        {
+          "path": "analysis/evidence/qualifier-semantics-audit.json",
+          "label": "Semantyka i ekspozycja kwalifikatorów"
+        },
+        {
+          "path": "analysis/evidence/full-links-report.json",
+          "label": "Pełny raport 13 list KWJP"
+        },
+        {
+          "path": "analysis/evidence/full-links-performance.json",
+          "label": "Koszt pełnego powiązania"
         }
       ],
       "gate": {
         "id": "supplementary_attestation_inputs",
-        "status": "pending",
+        "status": "approved",
         "question": "Czy rozszerzamy wejścia dowodowe o audytowane oficjalne metadane SGJP i niezależne poświadczenia słownikowe konstrukcji, bez dodawania nowych leksemów i zmiany zasad gry?",
         "options": {
           "A": "Tak: audyt i włączenie wyłącznie dopuszczonych uzupełniających danych; rekomendowane.",
           "B": "Na razie bez nowych wejść: tylko niezależna mechanika, unresolved nadal blokuje pełne wydanie."
         },
-        "answer": null,
-        "artifact": "analysis/evidence/source-extension-decision.md"
+        "answer": "A",
+        "artifact": "analysis/evidence/source-extension-decision.md",
+        "answered_at": "2026-10-04T14:40:29Z"
       },
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
@@ -330,7 +356,8 @@
       "codepaths": "reviewed_by_coordinator",
       "evidence_gaps": "reviewed_by_coordinator",
       "research_artifacts": "verified",
-      "g3_lanes": "Three read-only lanes reconciled against pinned DB and primary documentation by coordinator; required semantic gaps remain pending"
+      "g3_lanes": "Three read-only lanes reconciled against pinned DB and primary documentation by coordinator; required semantic gaps remain pending",
+      "supplementary_audit": "Coordinator verified all local hashes, all 26 contraction requests, primary code and z D. definition. SGJP production metadata license/snapshot pending; Wiktionary game eligibility/history unproved; WSJP/PWN access/use limitations recorded. No active source added."
     },
     "implementation_started": true,
     "conditional_phases": {
@@ -374,8 +401,8 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "Independent technical KWJP during actual G3 evidence gap as approved plan §2",
-        "tests": "4/4 focused red→green; 25/25 generator; audit 5/5",
-        "remaining": "All-list links runtime, build integration, availability reports and quality review"
+        "tests": "4/4 focused including report red→green; 25/25 generator + audit 5/5; full diagnostic 13/13 lists, FK OK",
+        "remaining": "Build integration after constructions, final availability/quality and canonical acceptance"
       },
       "G6": {
         "status": "pending",
@@ -401,13 +428,19 @@
       "sjp_role": "explicitly_requested_readonly_behavior_reference; not_build_or_benchmark",
       "artifact": "analysis/evidence/dictionary-vs-game.md"
     },
-    "awaiting_decision": "supplementary_attestation_inputs",
     "future_directions_note": {
       "path": "docs/literaki-prosty-jezyk-minimum-leksykalne-kierunki.md",
       "sha256": "6954e783636499e0fe68c2e8804a11fb95e1f13d980d46c9ce5d1d3f318ba297",
       "role": "user_supplied_methodological_note_not_build_input",
       "external_data_status": "BLOCKED",
       "scope_impact": "none_current_generator"
+    },
+    "supplementary_inputs": {
+      "approved_at": "2026-10-04T14:40:29Z",
+      "scope": "Audited official SGJP metadata and independent lexical attestations for existing SGJP lexemes/constructions; no new lexemes, game rules unchanged.",
+      "excluded": "SJP/OSPS/PoliMorf lexical data and benchmark; future-directions external data remain BLOCKED",
+      "audit_artifact": "analysis/evidence/supplementary-source-audit.md",
+      "active_artifacts_added": 0
     }
   }
 }

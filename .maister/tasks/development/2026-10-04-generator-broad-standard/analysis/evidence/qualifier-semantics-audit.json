@@ -1,0 +1,423 @@
+{
+  "coordinator_check": "all literal-containing field counts independently queried and matched",
+  "exposure": {
+    "akcent": {
+      "compact_interpretations": 2,
+      "examples": [
+        [
+          "dwomakroć",
+          "dwakroć:N",
+          "num:pl:inst:m1.m2.m3.f.n:congr",
+          "daw.,rzad.,akcent"
+        ],
+        [
+          "trzemakroć",
+          "trzykroć:N",
+          "num:pl:inst:m1.m2.m3.f.n:congr",
+          "daw.,rzad.,akcent"
+        ]
+      ],
+      "fields": {
+        "daw.,rzad.,akcent": 2
+      },
+      "forms": 2,
+      "game_keys": 2,
+      "lexemes": 2,
+      "profile_game_keys": 2
+    },
+    "arch._(tylko_po_\"ku\")": {
+      "compact_interpretations": 2272,
+      "examples": [
+        [
+          "Abrahamowu",
+          "Abrahamów",
+          "subst:sg:dat:m3",
+          "arch._(tylko_po_\"ku\")"
+        ],
+        [
+          "Abramowu",
+          "Abramów",
+          "subst:sg:dat:m3",
+          "arch._(tylko_po_\"ku\")"
+        ],
+        [
+          "Adamowu",
+          "Adamów:Sm3",
+          "subst:sg:dat:m3",
+          "arch._(tylko_po_\"ku\")"
+        ],
+        [
+          "Adelinowu",
+          "Adelinów",
+          "subst:sg:dat:m3",
+          "arch._(tylko_po_\"ku\")"
+        ],
+        [
+          "Adolfowu",
+          "Adolfów",
+          "subst:sg:dat:m3",
+          "arch._(tylko_po_\"ku\")"
+        ]
+      ],
+      "fields": {
+        "arch._(tylko_po_\"ku\")": 2272
+      },
+      "forms": 2272,
+      "game_keys": 2272,
+      "lexemes": 2272,
+      "profile_game_keys": 2272
+    },
+    "daw.,gwar.": {
+      "compact_interpretations": 144,
+      "examples": [
+        [
+          "filip",
+          "filip",
+          "subst:sg:nom:m2",
+          "daw.,gwar."
+        ],
+        [
+          "filipa",
+          "filip",
+          "subst:sg:gen.acc:m2",
+          "daw.,gwar."
+        ],
+        [
+          "filipach",
+          "filip",
+          "subst:pl:loc:m2",
+          "daw.,gwar."
+        ],
+        [
+          "filipami",
+          "filip",
+          "subst:pl:inst:m2",
+          "daw.,gwar."
+        ],
+        [
+          "filipem",
+          "filip",
+          "subst:sg:inst:m2",
+          "daw.,gwar."
+        ]
+      ],
+      "fields": {
+        "archit.,techn.|daw.,gwar.": 98,
+        "daw.,gwar.": 46
+      },
+      "forms": 119,
+      "game_keys": 119,
+      "lexemes": 7,
+      "profile_game_keys": 119
+    },
+    "daw._dziś_fraz.": {
+      "compact_interpretations": 2,
+      "examples": [
+        [
+          "siako",
+          "siako",
+          "adv:pos",
+          "daw._dziś_fraz."
+        ],
+        [
+          "wobec",
+          "wobec:D",
+          "adv",
+          "daw._dziś_fraz."
+        ]
+      ],
+      "fields": {
+        "daw._dziś_fraz.": 2
+      },
+      "forms": 2,
+      "game_keys": 2,
+      "lexemes": 2,
+      "profile_game_keys": 2
+    },
+    "daw._dziś_gwar.": {
+      "compact_interpretations": 672,
+      "examples": [
+        [
+          "Niemkini",
+          "Niemkini",
+          "subst:sg:dat.loc:f",
+          "daw._dziś_gwar."
+        ],
+        [
+          "Niemkini",
+          "Niemkini",
+          "subst:sg:gen:f",
+          "daw._dziś_gwar."
+        ],
+        [
+          "Niemkini",
+          "Niemkini",
+          "subst:sg:nom:f",
+          "daw._dziś_gwar."
+        ],
+        [
+          "Niemkini",
+          "Niemkini",
+          "subst:sg:voc:f",
+          "daw._dziś_gwar."
+        ],
+        [
+          "Niemkiniach",
+          "Niemkini",
+          "subst:pl:loc:f",
+          "daw._dziś_gwar."
+        ]
+      ],
+      "fields": {
+        "daw.,daw._dziś_gwar.": 2,
+        "daw.,daw._dziś_gwar.,rzad.": 92,
+        "daw._dziś_gwar.": 572,
+        "daw._dziś_gwar.,rzad.": 2,
+        "daw._dziś_gwar.,z_D.": 4
+      },
+      "forms": 434,
+      "game_keys": 434,
+      "lexemes": 49,
+      "profile_game_keys": 423
+    },
+    "daw._dziś_rzad.": {
+      "compact_interpretations": 173,
+      "examples": [
+        [
+          "nadziejna",
+          "nadziejny",
+          "adj:sg:nom.voc:f:pos",
+          "daw._dziś_rzad."
+        ],
+        [
+          "nadziejne",
+          "nadziejny",
+          "adj:pl:acc:m2.m3.f.n:pos",
+          "daw._dziś_rzad."
+        ],
+        [
+          "nadziejne",
+          "nadziejny",
+          "adj:pl:nom.voc:m2.m3.f.n:pos",
+          "daw._dziś_rzad."
+        ],
+        [
+          "nadziejne",
+          "nadziejny",
+          "adj:sg:acc:n:pos",
+          "daw._dziś_rzad."
+        ],
+        [
+          "nadziejne",
+          "nadziejny",
+          "adj:sg:nom.voc:n:pos",
+          "daw._dziś_rzad."
+        ]
+      ],
+      "fields": {
+        "daw._dziś_rzad.": 173
+      },
+      "forms": 84,
+      "game_keys": 84,
+      "lexemes": 5,
+      "profile_game_keys": 63
+    },
+    "daw.|pot.": {
+      "compact_interpretations": 196,
+      "examples": [
+        [
+          "bycz",
+          "byczyć",
+          "impt:sg:sec:imperf",
+          "daw.|pot."
+        ],
+        [
+          "byczcie",
+          "byczyć",
+          "impt:pl:sec:imperf",
+          "daw.|pot."
+        ],
+        [
+          "byczenia",
+          "byczyć",
+          "ger:pl:nom.acc:n:imperf:aff",
+          "daw.|pot."
+        ],
+        [
+          "byczenia",
+          "byczyć",
+          "ger:sg:gen:n:imperf:aff",
+          "daw.|pot."
+        ],
+        [
+          "byczeniach",
+          "byczyć",
+          "ger:pl:loc:n:imperf:aff",
+          "daw.|pot."
+        ]
+      ],
+      "fields": {
+        "daw.|pot.": 196
+      },
+      "forms": 158,
+      "game_keys": 158,
+      "lexemes": 2,
+      "profile_game_keys": 158
+    },
+    "po_liczebniku": {
+      "compact_interpretations": 15,
+      "examples": [
+        [
+          "gram",
+          "gram",
+          "subst:pl:gen:m3",
+          "pot.,po_liczebniku"
+        ],
+        [
+          "procent",
+          "procent",
+          "subst:pl:gen:m3",
+          "po_liczebniku"
+        ],
+        [
+          "procent",
+          "procent",
+          "subst:pl:nom.acc.voc:m3",
+          "po_liczebniku"
+        ],
+        [
+          "procent",
+          "procent",
+          "subst:sg:gen:m3",
+          "po_liczebniku"
+        ],
+        [
+          "procenta",
+          "procent",
+          "subst:sg:gen:m3",
+          "po_liczebniku"
+        ]
+      ],
+      "fields": {
+        "po_liczebniku": 14,
+        "pot.,po_liczebniku": 1
+      },
+      "forms": 8,
+      "game_keys": 8,
+      "lexemes": 6,
+      "profile_game_keys": 8
+    },
+    "przest._dziś_książk.": {
+      "compact_interpretations": 2107,
+      "examples": [
+        [
+          "absztyfikanci",
+          "absztyfikant",
+          "subst:pl:nom.voc:m1",
+          "przest._dziś_książk.,żart."
+        ],
+        [
+          "absztyfikancie",
+          "absztyfikant",
+          "subst:sg:loc:m1",
+          "przest._dziś_książk.,żart."
+        ],
+        [
+          "absztyfikancie",
+          "absztyfikant",
+          "subst:sg:voc:m1",
+          "przest._dziś_książk.,żart."
+        ],
+        [
+          "absztyfikant",
+          "absztyfikant",
+          "subst:sg:nom:m1",
+          "przest._dziś_książk.,żart."
+        ],
+        [
+          "absztyfikanta",
+          "absztyfikant",
+          "subst:sg:gen.acc:m1",
+          "przest._dziś_książk.,żart."
+        ]
+      ],
+      "fields": {
+        "pogard.,przest._dziś_książk.": 12,
+        "przest.,przest._dziś_książk.": 32,
+        "przest._dziś_książk.": 1900,
+        "przest._dziś_książk.,arch.,char.": 3,
+        "przest._dziś_książk.,hom.": 3,
+        "przest._dziś_książk.,rzad.": 47,
+        "przest._dziś_książk.,żart.": 110
+      },
+      "forms": 1561,
+      "game_keys": 1561,
+      "lexemes": 66,
+      "profile_game_keys": 1400
+    },
+    "z_D.": {
+      "compact_interpretations": 26,
+      "examples": [
+        [
+          "co",
+          "co:S",
+          "subst:sg:acc:n:ncol",
+          "z_D."
+        ],
+        [
+          "co",
+          "co:S",
+          "subst:sg:nom:n:ncol",
+          "z_D."
+        ],
+        [
+          "cociś",
+          "cociś",
+          "subst:sg:acc:n:ncol",
+          "przest.,z_D."
+        ],
+        [
+          "cociś",
+          "cociś",
+          "subst:sg:nom:n:ncol",
+          "przest.,z_D."
+        ],
+        [
+          "cokolwiek",
+          "cokolwiek:S",
+          "subst:sg:acc:n:ncol",
+          "z_D."
+        ]
+      ],
+      "fields": {
+        "daw.,z_D.": 2,
+        "daw._dziś_gwar.,z_D.": 4,
+        "gwar.,z_D.": 2,
+        "książk.,z_D.": 2,
+        "pot.,z_D.": 2,
+        "przest.,z_D.": 2,
+        "z_D.": 12
+      },
+      "forms": 13,
+      "game_keys": 13,
+      "lexemes": 13,
+      "profile_game_keys": 13
+    }
+  },
+  "scope": "source_labels_and_exposure_not_final_list_deltas",
+  "source_sha256": "16bd2a3b3a3c0abcc42890b2011c6b875295f397fbef4567c17f771ee70a027b",
+  "source_url": "https://sgjp.pl/leksemy/",
+  "source_version": "observed_2026-10-04_not_export_20260823",
+  "status": "partial_not_active_policy",
+  "observed_metadata_ids": [
+    3771,
+    3772,
+    3973,
+    3907,
+    3735,
+    3948,
+    3880,
+    3927
+  ],
+  "publication": "own_count_report_and_source_reference_only_not_online_metadata_export"
+}

@@ -24,3 +24,6 @@ Wykonano niezależny fragment G5 zgodnie z wyjątkiem zatwierdzonego planu, bez 
 Dokumentacja: `docs/generator/{etykiety,konstrukcje,ortografia,mapowanie-kwjp}.md`. Pełne własne wyniki: label-coverage, kwjp-mapping, closure-excess-all, closure-lexemes-evidence, winien-evidence, winien-closure i mobile-ending-evidence. Surowe dokumenty i baza pozostają ignorowane.
 
 G5 fragment: `links.py` i `test_links.py`, rzeczywisty red (brak modułu), następnie 4/4 green; cała suita 25/25. Nie włączono etapu do build, nie odnotowano całej grupy jako complete. Normalizacja jest jawna; pełne ID i F zostają przy własnych jednostkach; relacje mają FK. Brak NKJP i przyszłe decyzje wydaniowe pozostają zgodne ze specyfikacją.
+
+## Uzupełnienie po zatwierdzeniu A
+[Audyt dodatkowych źródeł](supplementary-source-audit.md) opisuje rzeczywiste pokrycie i blokady. Potwierdzono znaczenie składniowego z D. oraz literalne nazwy kwalifikatorów współczesnego ograniczenia. Nie dodano aktywnych danych. Wszystkie liczniki pól 10 rodzin i hashe metadanych zweryfikował koordynator. Wykonano pełny techniczny fragment G5: 13/13 list, 5 066 341 jednostek, FK OK; nie jest to ukończenie G3/G4/G5/G8.
