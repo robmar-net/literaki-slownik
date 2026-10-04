@@ -28,3 +28,7 @@ Odtworzenie: `python3 scripts/probe_generator_evidence.py --database PATH --mode
 [Podstawy teoretyczne SGJP](https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf), §3.4.1, s.52, wyjaśniają `z D.` jako właściwość składniową zaimków typu CO. Bieżące metadane formularza [SGJP](https://sgjp.pl/leksemy/) potwierdzają istnienie pełnych nazw kwalifikatorów, ale nie są snapshotem przypiętego eksportu. `arch.…ku` zachowuje znaczenie archaiczności pomimo składnika składniowego. Dokładna treść uwagi `akcent` nadal nie została ustalona.
 
 [Raport semantyki](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/qualifier-semantics-audit.json) obejmuje 10 rodzin i niezależnie sprawdzone rozliczenie pól. Liczby 423 kluczy dla rodziny dawne/dziś gwarowe, 1400 dla przestarzałe/dziś książkowe i 2272 dla archaiczne po ku opisują tylko ekspozycję po alfabecie/długości. Nie są deltą końcowej listy: nadal zawierają wielkie litery i inne przyczyny odrzucenia.
+
+## Zatwierdzone niezalecanie
+
+Użytkownik zatwierdził [A](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/disrecommended-decision.md): samo `niezal.` nie odrzuca w BROAD ani STANDARD. `config/generator/policy.json` rejestruje warunek, a `disrecommended_checks` pokazuje go również w explain. Nie jest to pełna ocena złożonej etykiety; historyczność i inne ograniczenia pozostają osobne. Pełny odczyt wszystkich 2 330 rekordów i pięciu dosłownych pól potwierdził pokrycie tej decyzji.

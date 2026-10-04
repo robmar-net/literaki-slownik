@@ -78,7 +78,7 @@ G3 to badanie źródłowe, bez z góry obiecanego wyniku. Pobieranie nowych doku
 
 ### G4 — kwalifikacja, rekonstrukcje i agregacja
 
-Częściowo wykonano mechanikę policy/decisions: odrębne warstwy, zachowanie przyczyn, reject mimo innych niewiadomych, brak domyślnego accept oraz agregacja jednej spójnej analizy. Nie aktywowano pełnej polityki językowej ani konstrukcji; 4.1–4.4 nadal wymagają pełnego domknięcia.
+Częściowo wykonano mechanikę policy/decisions: odrębne warstwy, zachowanie przyczyn, reject mimo innych niewiadomych, brak domyślnego accept oraz agregacja jednej spójnej analizy. Dodano zatwierdzony warunek niezalecania oraz konstrukcje impt + pojedyncza partykuła i by + nwok aglt. Pełna polityka i integracja konstrukcji z build nadal nieukończone; 4.1–4.4 wymagają domknięcia.
 
 Zależności: G2/G3. Pliki: `literaki_slownik/{policy,constructions,decisions}.py`, `tests/{test_policy,test_constructions,test_decisions}.py`, `config/generator/policy.json`. K3/K4/K5; R03/R04/R05.
 

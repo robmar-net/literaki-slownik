@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T21:49:35Z",
+  "generated": "2026-10-04T22:06:18Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Quality-v1 działa; przed filtrem niezal. oczekujemy decyzji użytkownika"
+    "current_activity": "Warunek niezalecania i dwie konstrukcje wdrożone; decyzja o mieszanych oznaczeniach historii"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Dodano quality-v1 i szablon przeglądu; 45/45 testów generatora i 5/5 audytu. Sprostowano nieuzgodniony warunek SJPDor. Przed filtrem niezal. oczekujemy decyzji użytkownika. G3–G6 nadal częściowe.",
+      "summary": "A dla niezal. wdrożone i widoczne w explain. Konstruktory impt + partykuła oraz by + aglt działają na pełnych źródłowych klasach, bez integracji build. 58/58 testów; przed filtrem mieszanych oznaczeń historii oczekujemy decyzji.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -248,7 +248,8 @@ window.MAISTER_DATA = {
         "Wykonano niezależny fragment KWJP według wyjątku planu; G3/G4/G8 nie oznaczone complete",
         "A supplementary_attestation_inputs approved; audit conditions before supplementary data activation",
         "User authorized code continuation; diagnostic mechanics do not activate incomplete linguistic policy or bypass release",
-        "Użytkownik: decyzje zmieniające kryteria i skład słownika omawiamy przed wdrożeniem; bez automatycznego kopiowania polityki źródeł SJP.pl."
+        "Użytkownik: decyzje zmieniające kryteria i skład słownika omawiamy przed wdrożeniem; bez automatycznego kopiowania polityki źródeł SJP.pl.",
+        "A: samo niezal. nie odrzuca interpretacji w BROAD ani STANDARD; pozostałe kryteria nadal obowiązują."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -330,19 +331,27 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/disrecommended-decision.md",
           "label": "Decyzja przed filtrem form niezalecanych"
+        },
+        {
+          "path": "analysis/evidence/approved-rules-runtime.json",
+          "label": "Pełny runtime zatwierdzonych fragmentów"
+        },
+        {
+          "path": "analysis/evidence/mixed-history-decision.md",
+          "label": "Pierwszeństwo mieszanych oznaczeń historycznych"
         }
       ],
       "gate": {
-        "id": "disrecommended_forms_policy",
+        "id": "mixed_history_priority",
         "status": "pending",
-        "question": "Czy kwalifikator niezal. sam wyklucza interpretację ze STANDARD?",
+        "created_at": "2026-10-04T22:03:35Z",
+        "question": "Czy dodatkowe daw./przest. wyklucza interpretację ze STANDARD mimo oznaczenia dziś gwarowe/książkowe?",
         "options": {
-          "A": "Nie: samo niezal. nie odrzuca w BROAD ani STANDARD; pozostałe warunki obowiązują (rekomendowane).",
-          "B": "Tak: niezal. odrzuca interpretację w STANDARD, lecz samo nie odrzuca w BROAD."
+          "A": "Tak: dodatkowe oznaczenie dawności wyklucza tę interpretację; samo dziś gwarowe/książkowe nie wyklucza (rekomendowane).",
+          "B": "Nie: oznaczenie dziś ma pierwszeństwo przed dodatkowymi daw./przest.; pozostałe warunki obowiązują."
         },
         "answer": null,
-        "artifact": "analysis/evidence/disrecommended-decision.md",
-        "created_at": "2026-10-04T21:49:35Z"
+        "artifact": "analysis/evidence/mixed-history-decision.md"
       }
     },
     {

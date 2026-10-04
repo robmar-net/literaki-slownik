@@ -1,8 +1,26 @@
-"""Potwierdzona pisownia growa i profil; bez aktywacji polityki językowej."""
+"""Potwierdzone warunki i profil; pełna polityka językowa nadal nieukończona."""
 import unicodedata
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-mechanics-v1'
+VERSION = 'diagnostic-approved-conditions-v2'
+DISRECOMMENDED_LABELS = frozenset({
+    'niezal.', 'daw.,niezal.', 'niezal.,przest.', 'niezal.,rzad.', 'niezal.,pot.',
+})
+
+
+def disrecommended_checks(qualifiers):
+    """Tylko warunek niezalecania, nie ocena całego kwalifikatora/analizy.
+
+    Zamknięta lista dosłownych etykiet z audytu. Przecinka nie traktujemy
+    jako separatora sensów; pozostałe składniki etykiety oceniamy osobno.
+    Nieznane etykiety nadal wymagają oceny w pełnej polityce.
+    """
+    return [{'rule_id': 'linguistic-disrecommended-non-excluding-v1',
+             'status': 'accept', 'source_label': label,
+             'message': 'Samo niezalecanie nie wyklucza w BROAD ani STANDARD; pozostałe warunki oceniane osobno.',
+             'evidence': ['config/generator/policy.json',
+                          '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/disrecommended-decision.md']}
+            for label in sorted(set(qualifiers.split('|')) & DISRECOMMENDED_LABELS)]
 
 
 def spelling_checks(original):

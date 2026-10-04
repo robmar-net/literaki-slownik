@@ -25,6 +25,7 @@ class ExplainTests(unittest.TestCase):
                  'dna\tdno\tsubst:pl:nom.acc:n\t\t',
                  'dna\tdna\tsubst:sg:nom:f\t\t',
                  'żaba\tżaba\tsubst:sg:nom:f\t\t']
+        lines.append('kakaa\tkakao\tsubst:sg:gen:n\t\tniezal.')
         lines += [f'kot\tkot:S{i}\tsubst:sg:nom:m2\t\t' for i in range(150)]
         source = root / 'source.gz'
         with gzip.open(source, 'wt', encoding='utf-8') as stream:
@@ -33,6 +34,18 @@ class ExplainTests(unittest.TestCase):
         rewrite(manifest_path, manifest)
         self.run = root / 'run'
         build(manifest_path, self.run)
+
+    def test_approved_disrecommended_condition_visible_without_full_acceptance(self):
+        value = explain(self.run, 'kakaa')
+        analysis = value['analyses'][0]
+        self.assertEqual(analysis['qualifiers'], 'niezal.')
+        for variant in ('broad', 'standard'):
+            language = analysis['assessment']['language'][variant]
+            self.assertEqual(language['status'], 'unresolved')
+            confirmed = [c for c in language['checks'] if c['rule_id'] == 'linguistic-disrecommended-non-excluding-v1']
+            self.assertEqual(len(confirmed), 1)
+            self.assertEqual(confirmed[0]['status'], 'accept')
+        self.assertEqual(value['list_membership']['status'], 'unresolved')
 
     def test_readonly_all_originals_homonyms_and_expanded_tags(self):
         before = [sha256(self.run / f) for f in ('manifest.json', 'build.sqlite')]

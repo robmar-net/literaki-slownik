@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "version": "approved-conditions-v1",
+  "status": "partial_not_release_policy",
+  "rules": [
+    {
+      "rule_id": "linguistic-disrecommended-non-excluding-v1",
+      "status": "confirmed",
+      "operation": "non_excluding_disrecommended",
+      "scope": "disrecommendation_only_other_conditions_evaluated_separately",
+      "literal_labels": ["niezal.", "daw.,niezal.", "niezal.,przest.", "niezal.,rzad.", "niezal.,pot."],
+      "variants": {"broad": "non_excluding", "standard": "non_excluding"},
+      "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/disrecommended-decision.md",
+      "source": "https://sgjp.pl/oznaczenia/",
+      "examples": ["kakaa", "kocy", "kowboi"],
+      "interpretation": "A: samo niezal. nie odrzuca; nie nadaje pełnej kwalifikacji językowej lub growej"
+    }
+  ]
+}

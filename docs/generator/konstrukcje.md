@@ -33,3 +33,9 @@ Warunki techniczne opierają się na przypiętym `segmenty.dat` Morfeusza 202608
 | inne produktywne ścieżki | tworzenie nowych leksemów / permissive | poza zatwierdzonym zakresem |
 
 Przypadki rozdzielające pochodzą z danych SGJP: `jam` ma niezależną analizę od jama i frag; `żeż` jest także rozkaźnikiem od żec; `doń` także formą od donia. Nie odrzucamy całego napisu przez niedopuszczalną analizę konstrukcyjną. Przesiew hostów zwrócił `niby`, choć nie dowodzi on dołączalnego morfemu. Nie generujemy mechanicznie `nibym`.
+
+## Zaimplementowane konstruktory
+
+`literaki_slownik.constructions` tworzy kandydatów dla rozkaźnika z jedną partykułą i źródłowego `by` (comp/part) z czterema końcówkami aglt nwok. Każdy wynik zachowuje pełne składniki, ID homonimów i źródłowe kwalifikatory. Nie tworzymy podwojonej partykuły ani nie zgadujemy hosta po końcowych literach. Nieznana klasa lub niezgodne zakończenie daje błąd pokrycia. Kandydaci nie są jeszcze integrowani z build ani kwalifikowani do list.
+
+Pełny runtime: 92 622 źródłowe rekordy impt → 93 438 rozwiniętych analiz, 91 104 różne napisy; 4 100 napisów odpada już w profilu alfabetu/długości. To nie końcowa delta listy. Dwa źródłowe by × cztery aglt dają osiem analiz czterech napisów. [Raport](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/approved-rules-runtime.json).

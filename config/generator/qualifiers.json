@@ -3043,5 +3043,13 @@
   "schema_version": 1,
   "status": "not_active_policy",
   "technical_separator": "|",
-  "version": "qualifiers-discovery-v1"
+  "version": "qualifiers-discovery-v1",
+  "approved_partial_rules": [
+    {
+      "rule_id": "linguistic-disrecommended-non-excluding-v1",
+      "decision": "A",
+      "registry": "config/generator/policy.json",
+      "scope": "disrecommendation_only_not_full_qualifier_classification"
+    }
+  ]
 }

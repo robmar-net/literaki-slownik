@@ -4,7 +4,7 @@
 SGJP rozróżnia `niepopr.` (niepoprawne) i `niezal.` (niezalecane).
 Eksport 20260823 ma 2 330 rekordów z `niezal.`, 1 970 oryginalnych napisów i 83 pełne identyfikatory leksemów.
 Nie jest to liczba słów, które przybędą lub znikną z listy: obowiązują inne filtry i niezależne analizy.
-Decyzja oczekuje odpowiedzi użytkownika; nie aktywowano żadnego filtra tej kategorii.
+Użytkownik zatwierdził A: samo niezalecanie nie odrzuca w BROAD ani STANDARD. Warunek jest zaimplementowany i widoczny w diagnostycznym explain.
 
 ## Key Decisions
 - Nie utożsamiamy niezalecania z niepoprawnością. Oznaczenia rozstrzyga [oficjalny wykaz SGJP](https://sgjp.pl/oznaczenia/).
@@ -12,7 +12,6 @@ Decyzja oczekuje odpowiedzi użytkownika; nie aktywowano żadnego filtra tej kat
 - Pozostałe zasady gry i profil pozostają niezmienione. Archaiczność, nazwa własna czy skrót są oceniane oddzielnie.
 
 ## Open Questions / Risks
-- Czy `niezal.` samo w sobie ma wykluczać interpretację z STANDARD?
 - Same liczniki ekspozycji nie stanowią końcowej delty list. Np. `ciesz` i `żeż` mają także inne analizy.
 - Aktywacja pełnej tabeli etykiet nadal wymaga domknięcia pozostałych klas.
 
@@ -34,4 +33,8 @@ Rozliczenie pól: `niezal.` 1 513, `daw.,niezal.` 461, `niezal.,przest.` 228, `n
 
 **B:** `niezal.` samo odrzuca daną interpretację w STANDARD, ale nie w BROAD. STANDARD będzie bardziej restrykcyjny normatywnie, nawet dla części współczesnych wariantów. Zbieżny napis może pozostać dzięki innej poprawnej analizie bez tego kwalifikatora.
 
-W obu wariantach niepoprawność jest oddzielną kategorią. Nie przyjmujemy wnioskowania „niezalecane = niepoprawne”. Przed wykonaniem dalszych reguł tej kategorii czekamy na odpowiedź.
+W obu wariantach niepoprawność jest oddzielną kategorią. Nie przyjmujemy wnioskowania „niezalecane = niepoprawne”. Decyzja A została zatwierdzona przez użytkownika; implementacja zachowuje pozostałe warunki jako osobne oceny.
+
+## Zatwierdzenie i implementacja
+
+Użytkownik wybrał A. `disrecommended_checks` obsługuje pięć audytowanych dosłownych etykiet zawierających niezalecanie, bez rozbijania przecinków na sensy. Jest to tylko warunek niezalecania: np. historyczność daw.,niezal. nadal wymaga osobnej oceny. Pełny odczyt wszystkich 2 330 rekordów potwierdził widoczność tego warunku; nie nadaje on akceptacji całej analizie.

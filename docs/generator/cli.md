@@ -52,3 +52,7 @@ python3 -m unittest discover -s scripts -p 'test_audit_sgjp.py'
 ```
 
 [Rzeczywista próba explain](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/diagnostic-explain-runtime.json) obejmuje osiem zapytań do pełnej bazy z technicznymi powiązaniami KWJP. Hashe bazy i manifestu przed/po odczycie są identyczne. To sprawdzenie mechaniki, bez odbioru G8/K7.
+
+## Potwierdzone warunki w diagnostyce
+
+Explain w wersji `diagnostic-approved-conditions-v2` pokazuje zatwierdzone A dla `niezal.`: samo niezalecanie nie odrzuca w obu wariantach. Obok tej pozytywnej oceny pojedynczego warunku nadal pokazuje nierozstrzygnięcie pełnej polityki. Nie jest to werdykt dopuszczalności całego słowa. Odczyt istniejącego importu pokazuje warunki bieżącej wersji kodu, nie ukończony historyczny build decyzji.

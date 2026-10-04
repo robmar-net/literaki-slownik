@@ -770,6 +770,10 @@
     "quality": {
       "path": "../../config/generator/quality.json",
       "sha256": "b70690021c76bba1c296664380fcd3a1d094ccf20cd0a1eac578220b001755b2"
+    },
+    "policy": {
+      "path": "../../config/generator/policy.json",
+      "sha256": "5d82bd7f9a191769918aba175abb237b80715ce818976eaa0ead9a98ad1dbd85"
     }
   },
   "unavailable": [
