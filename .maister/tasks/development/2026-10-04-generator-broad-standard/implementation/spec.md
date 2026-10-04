@@ -6,7 +6,7 @@ Jedno lokalne narzędzie Python/SQLite buduje dwa pełne kandydaty ze wskazanych
 Każdy wynik ma spójne analizy, reguły, powiązania dowodowe i wyjaśnienie.
 Build tworzy wynik INCOMPLETE; verify sprawdza K1–K10; export zamraża wyłącznie zweryfikowany pakiet.
 Uzupełnienie dowodów językowych jest obowiązkową częścią implementacji.
-Status dokumentu: do zatwierdzenia w fazie 5, przed audytem specyfikacji i planem.
+Status dokumentu: zatwierdzony przez użytkownika odpowiedzią A w fazie 5; audyt i plan w kolejnych fazach.
 
 ## Key Decisions
 

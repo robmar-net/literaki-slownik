@@ -14,4 +14,5 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 
 - [Raport końcowy i przekazanie](../tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/research-handoff.md).
 - [Implementacja generatora — zakres i luki](../tasks/development/2026-10-04-generator-broad-standard/analysis/gap-analysis.md) — aktywne zadanie development.
-- [Specyfikacja generatora](../tasks/development/2026-10-04-generator-broad-standard/implementation/spec.md) — do zatwierdzenia przed planem.
+- [Specyfikacja generatora](../tasks/development/2026-10-04-generator-broad-standard/implementation/spec.md) — zatwierdzona przez użytkownika.
+- [Plan implementacji generatora](../tasks/development/2026-10-04-generator-broad-standard/implementation/implementation-plan.md) — do zatwierdzenia przed kodem.

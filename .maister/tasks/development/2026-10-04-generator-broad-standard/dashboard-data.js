@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T11:31:15Z",
+  "generated": "2026-10-04T12:40:22Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Zatwierdzenie specyfikacji przed audytem i planem"
+    "current_activity": "Zatwierdzenie planu przed implementacją"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -131,11 +131,11 @@ window.MAISTER_DATA = {
       "id": "phase_5",
       "name": "Specyfikacja",
       "icon_hint": "analysis",
-      "status": "in_progress",
+      "status": "completed",
       "started": "2026-10-04T11:25:24Z",
-      "completed": null,
+      "completed": "2026-10-04T12:35:13Z",
       "skip_reason": null,
-      "summary": "Gotowe wymagania R01–R12 i specyfikacja: manifesty, SQLite, pięć komend, reguły/konstrukcje, dowody KWJP, przegląd próbek i K1–K10. Oczekuje zatwierdzenie.",
+      "summary": "Wymagania R01–R12 i specyfikacja zatwierdzone odpowiedzią A; kolejny krok audyt i plan.",
       "decisions": [
         "Python 3.11+ i biblioteka standardowa; jawne manifesty i oddzielne build/verify/export",
         "Deterministyczne próbkowanie quality-v1 przed pomiarem, po 30 jednostek na warstwę",
@@ -153,47 +153,82 @@ window.MAISTER_DATA = {
         },
         {
           "path": "implementation/spec.md",
-          "label": "Specyfikacja wykonawcza"
+          "label": "Specyfikacja wykonawcza",
+          "html": "implementation/spec.html"
         }
       ],
       "gate": {
         "id": "spec_approval",
-        "status": "pending",
+        "status": "approved",
         "question": "Czy zatwierdzasz specyfikację wykonawczą generatora BROAD i STANDARD?",
         "options": {
           "A": "Zatwierdź specyfikację; przejdź do audytu i planu (rekomendowane).",
           "B": "Wskaż korektę specyfikacji przed planem."
         },
-        "answer": null
+        "answer": "A",
+        "answered_at": "2026-10-04T12:35:13Z"
       }
     },
     {
       "id": "phase_6",
       "name": "Audyt specyfikacji",
       "icon_hint": "analysis",
-      "status": "pending",
-      "started": null,
-      "completed": null,
+      "status": "completed",
+      "started": "2026-10-04T12:35:13Z",
+      "completed": "2026-10-04T12:40:22Z",
       "skip_reason": null,
-      "summary": null,
-      "decisions": [],
-      "risks": [],
-      "artifacts": [],
-      "gate": null
+      "summary": "passed_with_issues: 0 critical, 0 warning, 3 info. I1–I3 uwzględnione w planie do zatwierdzenia; brak blokad planowania.",
+      "decisions": [
+        "Rozróżnienie przyszłego pakietu verify i zamrożenia export",
+        "Jawny indeks kanoniczny i kodowanie danych próbki"
+      ],
+      "risks": [
+        "Macierz językowa i warunki publikacji wymagają wykonania G3/G7/G8"
+      ],
+      "artifacts": [
+        {
+          "path": "verification/spec-audit.md",
+          "label": "Audyt specyfikacji"
+        }
+      ],
+      "gate": {
+        "question": null,
+        "answer": null
+      }
     },
     {
       "id": "phase_7",
       "name": "Plan implementacji",
       "icon_hint": "analysis",
-      "status": "pending",
-      "started": null,
+      "status": "in_progress",
+      "started": "2026-10-04T12:40:22Z",
       "completed": null,
       "skip_reason": null,
-      "summary": null,
-      "decisions": [],
-      "risks": [],
-      "artifacts": [],
-      "gate": null
+      "summary": "Plan 9 grup i 36 kroków: kod, dowody językowe, dwa pełne odtworzenia i dokumentacja. Oczekuje zatwierdzenie planu i I1–I3.",
+      "decisions": [
+        "Wykonanie sekwencyjne; koordynator właścicielem wszystkich grup",
+        "Test-first grup kodowych; pełny zakres K1–K10 bez pilota zamiast odbioru"
+      ],
+      "risks": [
+        "Nowy wybór językowy lub licencji wymaga konkretnej decyzji w implementacji",
+        "Pełne przebiegi i przegląd jakości są obowiązkowe"
+      ],
+      "artifacts": [
+        {
+          "path": "implementation/implementation-plan.md",
+          "label": "Plan 9 grup i 36 kroków"
+        }
+      ],
+      "gate": {
+        "id": "plan_approval",
+        "status": "pending",
+        "question": "Czy zatwierdzasz plan dziewięciu grup i doprecyzowania I1–I3, aby rozpocząć implementację?",
+        "options": {
+          "A": "Zatwierdź plan i rozpocznij implementację (rekomendowane).",
+          "B": "Wskaż korektę planu przed implementacją."
+        },
+        "answer": null
+      }
     },
     {
       "id": "phase_8",

@@ -1,13 +1,15 @@
 {
   "orchestrator": {
     "workflow": "development",
-    "current_phase": "phase_5",
-    "started_phase": "phase_5",
+    "current_phase": "phase_7",
+    "started_phase": "phase_7",
     "completed_phases": [
       "phase_1",
       "phase_2",
       "phase_3",
-      "phase_4"
+      "phase_4",
+      "phase_5",
+      "phase_6"
     ],
     "failed_phases": [],
     "options": {
@@ -16,7 +18,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-04T11:31:15Z",
+    "updated": "2026-10-04T12:40:22Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -120,7 +122,7 @@
       "skip_reason": "Lokalne CLI, brak UI-heavy."
     },
     "phase_5": {
-      "summary": "Gotowe wymagania R01–R12 i specyfikacja: manifesty, SQLite, pięć komend, reguły/konstrukcje, dowody KWJP, przegląd próbek i K1–K10. Oczekuje zatwierdzenie.",
+      "summary": "Wymagania R01–R12 i specyfikacja zatwierdzone odpowiedzią A; kolejny krok audyt i plan.",
       "decisions": [
         "Python 3.11+ i biblioteka standardowa; jawne manifesty i oddzielne build/verify/export",
         "Deterministyczne próbkowanie quality-v1 przed pomiarem, po 30 jednostek na warstwę",
@@ -138,20 +140,73 @@
         },
         {
           "path": "implementation/spec.md",
-          "label": "Specyfikacja wykonawcza"
+          "label": "Specyfikacja wykonawcza",
+          "html": "implementation/spec.html"
         }
       ],
       "gate": {
         "id": "spec_approval",
-        "status": "pending",
+        "status": "approved",
         "question": "Czy zatwierdzasz specyfikację wykonawczą generatora BROAD i STANDARD?",
         "options": {
           "A": "Zatwierdź specyfikację; przejdź do audytu i planu (rekomendowane).",
           "B": "Wskaż korektę specyfikacji przed planem."
         },
-        "answer": null
+        "answer": "A",
+        "answered_at": "2026-10-04T12:35:13Z"
       },
       "started": "2026-10-04T11:25:24Z",
+      "completed": "2026-10-04T12:35:13Z"
+    },
+    "phase_6": {
+      "summary": "passed_with_issues: 0 critical, 0 warning, 3 info. I1–I3 uwzględnione w planie do zatwierdzenia; brak blokad planowania.",
+      "decisions": [
+        "Rozróżnienie przyszłego pakietu verify i zamrożenia export",
+        "Jawny indeks kanoniczny i kodowanie danych próbki"
+      ],
+      "risks": [
+        "Macierz językowa i warunki publikacji wymagają wykonania G3/G7/G8"
+      ],
+      "artifacts": [
+        {
+          "path": "verification/spec-audit.md",
+          "label": "Audyt specyfikacji"
+        }
+      ],
+      "gate": {
+        "question": null,
+        "answer": null
+      },
+      "started": "2026-10-04T12:35:13Z",
+      "completed": "2026-10-04T12:40:22Z"
+    },
+    "phase_7": {
+      "summary": "Plan 9 grup i 36 kroków: kod, dowody językowe, dwa pełne odtworzenia i dokumentacja. Oczekuje zatwierdzenie planu i I1–I3.",
+      "decisions": [
+        "Wykonanie sekwencyjne; koordynator właścicielem wszystkich grup",
+        "Test-first grup kodowych; pełny zakres K1–K10 bez pilota zamiast odbioru"
+      ],
+      "risks": [
+        "Nowy wybór językowy lub licencji wymaga konkretnej decyzji w implementacji",
+        "Pełne przebiegi i przegląd jakości są obowiązkowe"
+      ],
+      "artifacts": [
+        {
+          "path": "implementation/implementation-plan.md",
+          "label": "Plan 9 grup i 36 kroków"
+        }
+      ],
+      "gate": {
+        "id": "plan_approval",
+        "status": "pending",
+        "question": "Czy zatwierdzasz plan dziewięciu grup i doprecyzowania I1–I3, aby rozpocząć implementację?",
+        "options": {
+          "A": "Zatwierdź plan i rozpocznij implementację (rekomendowane).",
+          "B": "Wskaż korektę planu przed implementacją."
+        },
+        "answer": null
+      },
+      "started": "2026-10-04T12:40:22Z",
       "completed": null
     }
   },
