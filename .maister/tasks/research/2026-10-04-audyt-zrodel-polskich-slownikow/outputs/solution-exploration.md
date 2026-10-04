@@ -1,12 +1,12 @@
 # Warianty pierwszego generatora — materiał do decyzji
 
-Data: 2026-10-04. Faza: porównanie rozwiązań po zatwierdzonym audycie. **Żaden z poniższych wariantów nie został jeszcze wybrany przez użytkownika.** Zgoda „tak i tak” włączyła porównanie i projekt, nie implementację ani politykę filtrów.
+Data: 2026-10-04. Faza: porównanie rozwiązań po zatwierdzonym audycie. **Użytkownik wybrał G1 (odpowiedź A na D1): BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP.** Pozostałe osie nie są jeszcze zatwierdzone. Zgoda „tak i tak” włączyła porównanie i projekt, nie implementację.
 
 ## TL;DR
 
-Rekomendujemy pierwszy generator jako lokalny, odtwarzalny proces przygotowujący dwa kandydaty: BROAD i STANDARD, z dowodami KWJP oraz wyjaśnieniami decyzji. Najpierw trzeba udowodnić reguły istotne dla kompletności i rozstrzygnąć rzeczywiste wybory zakresu. Słowniki znajomości, tematy i benchmark pozostają późniejszymi etapami.
+Wybrany pierwszy wynik to dwa kandydaty: BROAD i STANDARD, z pełną dopuszczalną fleksją, dowodami KWJP oraz wyjaśnieniami decyzji. Lokalny, odtwarzalny proces pozostaje rekomendacją techniczną do projektu. Najpierw trzeba udowodnić reguły istotne dla kompletności i rozstrzygnąć rzeczywiste wybory zakresu. Słowniki znajomości, tematy i benchmark pozostają późniejszymi etapami.
 
-Alternatywą jest wcześniejszy pilot techniczny z jawną niepełnością albo od razu cztery warianty dopuszczalności. Pierwszy daje szybciej działający proces, drugi więcej materiału porównawczego; oba mają inne kryteria zakończenia niż rekomendacja.
+Nie wybrano wcześniejszego pilota jako wyniku końcowego ani czterech wariantów w pierwszym wydaniu. Pilot może być etapem prac; warianty ATTESTED pozostają odroczone.
 
 NKJP pozostaje BLOCKED we wszystkich opcjach. Brak dowodów dotyczących licencji lub znaczenia oznaczeń nie jest kwestią gustu do rozstrzygnięcia głosowaniem. Można wybrać kolejność prac i sposób prezentowania niewiedzy.
 
@@ -14,13 +14,15 @@ NKJP pozostaje BLOCKED we wszystkich opcjach. Brak dowodów dotyczących licencj
 
 **Już obowiązujące wymagania:** §2 i §6 [specyfikacji v3](../../../../../docs/literaki-niezalezne-slowniki-prompt-v3.md): pełna dopuszczalna fleksja, oddzielenie dopuszczalności od znajomości, współczesny i szeroki STANDARD, brak produktywnego tworzenia nowych leksemów, kwalifikacja jednej interpretacji przed agregacją form. Nie pytamy o nie ponownie.
 
-**Rekomendacje do zatwierdzenia:** mały zakres pierwszego wyniku; kompletność sprawdzana przed nazwaniem go pełnym kandydatem; kontrolowana lista udokumentowanych reguł konstrukcji; dane nierozstrzygnięte zachowane osobno; SGJP/KWJP niezależne harmonogramowo od wyjaśnienia NKJP. Niżej każda z tych osi jest rozpatrywana osobno. Wybór jednego wiersza nie zatwierdza pozostałych.
+**D1 zatwierdzona — G1:** dwa pełne kandydaty BROAD i STANDARD, wyjaśnienia i dowody KWJP; kontrola kompletności przed odbiorem. Oznaczenie INCOMPLETE nie spełnia kryterium wyniku końcowego.
+
+**Rekomendacje do zatwierdzenia:** kontrolowana lista udokumentowanych reguł konstrukcji; dane nierozstrzygnięte zachowane osobno; SGJP/KWJP niezależne harmonogramowo od wyjaśnienia NKJP. Niżej każda z tych osi jest rozpatrywana osobno. Wybór jednego wiersza nie zatwierdza pozostałych.
 
 **Rekomendacje techniczne do późniejszego projektu:** lokalne polecenia i jedna relacyjna baza, zachowane rekordy źródłowe i manifesty, brak API i usług. SQLite jest hipotezą startową, nie wynikiem testu wydajności. [Model procesu](../analysis/findings/model-procesu.md).
 
 ## Open Questions / Risks
 
-- Czy pierwszym wynikiem mają być dwa kompletne w przyjętym zakresie kandydaty, wcześniejszy niepełny pilot czy od razu cztery warianty?
+- Czy pierwszy wynik ma czekać na wyjaśnienie warunków NKJP? Oczekuje decyzja D2; rekomendacja N1.
 - Które klasy samodzielnych zapisów z kilku istniejących leksemów należą do planowanych kandydatów, a które tylko do eksperymentu? Pełna fleksja zakwalifikowanych leksemów pozostaje obowiązkowa niezależnie od odpowiedzi.
 - Nie mamy jeszcze podziału wszystkich nietypowych zapisów na zwykłe wyrazy, skrótowce, nazwy i symbole ani dowodu semantyki mieszanych kwalifikatorów. Rozstrzygnięcie wymaga dalszych przykładów i źródeł, nie automatycznego `lower()`.
 - Nie wykazano kompletności wszystkich klas odmiany. Wstrzymanie dowolnej wymaganej klasy daje wynik niepełny; nie może realizować obietnicy końcowej pełnej fleksji.
@@ -140,8 +142,10 @@ Proponowana kolejność rozmowy:
 4. **Akceptacja lub brak akceptacji częściowego wyniku przy nierozstrzygniętych klasach.** Q2 wynika z celu pełnego G1; nie potrzeba ponownego pytania, jeżeli użytkownik już wybrał bramkę kompletności. Semantykę kwalifikatorów i kategorie skrótowców ustalamy z dowodów; pytanie normatywne dopiero wtedy, gdy po audycie rzeczywiście pozostanie wybór.
 5. Zatwierdzenie projektu wysokiego poziomu obejmującego rozstrzygnięte osie, otwarte zależności i kryteria odbioru. Nie przedstawiać nieudowodnionych reguł jako gotowych do implementacji.
 
-**Rekomendowana pierwsza decyzja do użytkownika:**
+**Historia D1 — pytanie rozstrzygnięte odpowiedzią A:**
 
 > Co uznajemy za pierwszy docelowy wynik generatora? **A — dwa wyjaśnialne kandydaty BROAD i STANDARD, z pełną dopuszczalną fleksją zakwalifikowanych leksemów i dowodami KWJP (rekomenduję); B — wcześniejszy pilot techniczny, jawnie niepełny; C — od razu te dwa oraz ATTESTED-LEXEME i ATTESTED-FORM.** NKJP i zakres konstrukcji rozstrzygniemy osobno; ta odpowiedź nie zatwierdza reguł językowych.
 
-Po odpowiedzi zapisujemy wyłącznie tę decyzję. Nie przyjmujemy automatycznie pakietu pozostałych rekomendacji.
+**Rozstrzygnięcie D1: A / G1.** Zaakceptowany koszt: końcowi kandydaci wymagają kontroli pełnej dopuszczalnej fleksji i rozstrzygnięcia istotnych klas. Pilot nie zastępuje odbioru, ATTESTED odroczone. Pozostałe rekomendacje nie są automatycznie zatwierdzone.
+
+**D2 — oczekuje odpowiedzi:** Czy pierwszy wynik ma czekać na wyjaśnienie warunków NKJP? A / N1: SGJP i KWJP najpierw, NKJP później (rekomendacja); B / N2: prace SGJP/KWJP mogą trwać, ale wydanie czeka; C / N3: wyjaśnienie NKJP przed implementacją. Wszystkie opcje zachowują blokadę użycia oraz NKJP jako wymaganie pełnego projektu.

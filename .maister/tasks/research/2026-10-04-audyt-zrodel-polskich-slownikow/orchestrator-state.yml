@@ -17,7 +17,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T01:56:09Z",
-    "updated": "2026-10-04T08:46:48Z",
+    "updated": "2026-10-04T08:50:26Z",
     "task_path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow"
   },
   "task": {
@@ -149,8 +149,10 @@
       "completed": "2026-10-04T08:46:48Z"
     },
     "phase_4": {
-      "summary": "Oczekuje decyzja D1: pierwszy docelowy wynik generatora. Dalsze osie będą rozstrzygane osobno.",
-      "decisions": [],
+      "summary": "Wybrano G1; oczekuje D2 dotycząca harmonogramu NKJP. Pozostałe reguły i projekt wymagają dalszego rozstrzygnięcia.",
+      "decisions": [
+        "D1=G1: BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP; kontrola kompletności przed odbiorem"
+      ],
       "risks": [
         "Pełny wynik wymaga domknięcia dowodów fleksji i istotnych klas",
         "NKJP pozostaje BLOCKED; harmonogram nie jest jeszcze wybrany"
@@ -162,13 +164,13 @@
         }
       ],
       "gate": {
-        "id": "D1",
+        "id": "D2",
         "status": "pending",
-        "question": "Co uznajemy za pierwszy docelowy wynik generatora?",
+        "question": "Czy pierwszy wynik ma czekać na wyjaśnienie warunków użycia NKJP?",
         "options": {
-          "A": "G1: BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP (rekomendowane).",
-          "B": "G2: wcześniejszy pilot techniczny, jawnie niepełny (INCOMPLETE).",
-          "C": "G3: G1 oraz ATTESTED-LEXEME i ATTESTED-FORM; szerszy pierwszy etap."
+          "A": "N1: pierwszy wynik SGJP/KWJP, NKJP dołączone później po wyjaśnieniu warunków (rekomendowane).",
+          "B": "N2: rozwijać SGJP/KWJP, ale wstrzymać wydanie do wyjaśnienia i dołączenia NKJP.",
+          "C": "N3: najpierw wyjaśnić NKJP, potem rozpocząć implementację."
         },
         "answer": null
       },
@@ -287,15 +289,40 @@
       "implementation_authorized": false
     },
     "convergence": {
-      "active_decision": "D1",
-      "selections": {},
+      "active_decision": "D2",
+      "selections": {
+        "D1": {
+          "option": "G1",
+          "answer": "A",
+          "answered_at": "2026-10-04T08:50:26Z",
+          "accepted_tradeoffs": [
+            "Pełna dopuszczalna fleksja i kontrola istotnych klas przed odbiorem",
+            "Pilot nie jest wynikiem końcowym",
+            "ATTESTED odroczone"
+          ]
+        }
+      },
       "remaining_areas": [
-        "pierwszy wynik",
         "harmonogram NKJP",
         "zakres konstrukcji po uzupełnieniu dowodów",
         "pozostałe rzeczywiste wybory polityki, jeśli ujawnią je dowody"
       ],
-      "html_companion_due": "po rozstrzygnięciu konwergencji"
+      "html_companion_due": "po rozstrzygnięciu konwergencji",
+      "gate_history": [
+        {
+          "id": "D1",
+          "status": "resolved",
+          "question": "Co uznajemy za pierwszy docelowy wynik generatora?",
+          "options": {
+            "A": "G1: BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP (rekomendowane).",
+            "B": "G2: wcześniejszy pilot techniczny, jawnie niepełny (INCOMPLETE).",
+            "C": "G3: G1 oraz ATTESTED-LEXEME i ATTESTED-FORM; szerszy pierwszy etap."
+          },
+          "answer": "A",
+          "user_response": "A",
+          "answered_at": "2026-10-04T08:50:26Z"
+        }
+      ]
     }
   }
 }

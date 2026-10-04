@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T08:46:48Z",
+  "generated": "2026-10-04T08:50:26Z",
   "task": {
     "title": "Audyt źródeł polskich słowników — etap 1",
     "description": "Realizacja rozdziału 15 specyfikacji v3: źródła, pomiary, filtry, dopasowania i projekt odtwarzalności.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "research",
     "path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow",
-    "current_activity": "Decyzja D1: zakres pierwszego wyniku generatora"
+    "current_activity": "Decyzja D2: harmonogram dołączenia NKJP"
   },
   "characteristics": {
     "scope": "Zatwierdzony audyt §15 oraz porównanie i projekt; bez implementacji"
@@ -157,8 +157,10 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T08:46:48Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Oczekuje decyzja D1: pierwszy docelowy wynik generatora. Dalsze osie będą rozstrzygane osobno.",
-      "decisions": [],
+      "summary": "Wybrano G1; oczekuje D2 dotycząca harmonogramu NKJP. Pozostałe reguły i projekt wymagają dalszego rozstrzygnięcia.",
+      "decisions": [
+        "D1=G1: BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP; kontrola kompletności przed odbiorem"
+      ],
       "risks": [
         "Pełny wynik wymaga domknięcia dowodów fleksji i istotnych klas",
         "NKJP pozostaje BLOCKED; harmonogram nie jest jeszcze wybrany"
@@ -170,13 +172,13 @@ window.MAISTER_DATA = {
         }
       ],
       "gate": {
-        "id": "D1",
+        "id": "D2",
         "status": "pending",
-        "question": "Co uznajemy za pierwszy docelowy wynik generatora?",
+        "question": "Czy pierwszy wynik ma czekać na wyjaśnienie warunków użycia NKJP?",
         "options": {
-          "A": "G1: BROAD i STANDARD z pełną dopuszczalną fleksją, wyjaśnieniami i dowodami KWJP (rekomendowane).",
-          "B": "G2: wcześniejszy pilot techniczny, jawnie niepełny (INCOMPLETE).",
-          "C": "G3: G1 oraz ATTESTED-LEXEME i ATTESTED-FORM; szerszy pierwszy etap."
+          "A": "N1: pierwszy wynik SGJP/KWJP, NKJP dołączone później po wyjaśnieniu warunków (rekomendowane).",
+          "B": "N2: rozwijać SGJP/KWJP, ale wstrzymać wydanie do wyjaśnienia i dołączenia NKJP.",
+          "C": "N3: najpierw wyjaśnić NKJP, potem rozpocząć implementację."
         },
         "answer": null
       }
