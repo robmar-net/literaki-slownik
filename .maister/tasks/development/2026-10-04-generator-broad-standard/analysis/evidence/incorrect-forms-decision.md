@@ -2,8 +2,8 @@
 
 ## TL;DR
 SGJP odróżnia niepopr. od niezal.; nie przenosimy decyzji o niezalecaniu na niepoprawność.
-Zatwierdzony zakres obejmuje poprawne formy fleksyjne; otwarty wybór dotyczy sposobu wykorzystania jawnej oceny SGJP.
-Filtr niepopr. nie został wdrożony. Wszystkie źródłowe wpisy pozostają w bazie i explain.
+Użytkownik zatwierdził A: jawna ocena niepoprawności SGJP odrzuca konkretną interpretację w obu wariantach.
+Filtr niepopr. wdrożono dla 27 sprawdzonych dosłownych etykiet. Wszystkie źródłowe wpisy pozostają w bazie i explain.
 
 ## Key Decisions
 - Oceniana jest konkretna interpretacja, nie cały leksem ani wszystkie homonimy napisu.
@@ -11,7 +11,7 @@ Filtr niepopr. nie został wdrożony. Wszystkie źródłowe wpisy pozostają w b
 - Nie korzystamy z Wikisłownika ani podobnych źródeł; ich użycie użytkownik odłożył.
 
 ## Open Questions / Risks
-- Czy jawne niepopr. w przypiętym SGJP wystarcza do odrzucenia tej interpretacji, czy wymagamy indywidualnego rozpatrzenia?
+- Rozstrzygnięte A: jawna, sprawdzona etykieta wystarcza do odrzucenia konkretnej interpretacji; pełne listy nadal wymagają pozostałych warunków.
 - Liczby ekspozycji nie są liczbą usuniętych słów; inne analizy napisu mogą pozostać dopuszczalne.
 - Nieznane złożone etykiety nie mogą odziedziczyć odmowy przez luźny substring.
 
@@ -28,3 +28,9 @@ W SGJP 20260823 `abolicjoniźmie` dla leksemu `abolicjonizm` ma niepopr. w miejs
 **B:** samo niepopr. nie uruchamia automatycznej odmowy; każda taka interpretacja wymaga indywidualnego rozpatrzenia. Do czasu rozstrzygnięcia pozostaje unresolved, bez automatycznej akceptacji. Daje dodatkowy przegląd wiarygodności oceny źródła, ale wymaga większej pracy i nadal blokuje pełne wydanie przy istotnych niewiadomych.
 
 Zasady gry i inne warunki nie zmieniają się w obu wariantach. Nie wprowadzamy listy niepoprawnych form dopuszczonych do gry.
+
+## Zatwierdzenie A i wykonanie
+
+`incorrect_checks` korzysta z zamkniętej mapy 27 dosłownych etykiet, bez substring runtime i bez przenoszenia oceny niezal. Niepoprawność jest odrębną przyczyną reject w BROAD i STANDARD; nie usuwa wpisu ani poprawnego homonimu.
+
+[Runtime po wdrożeniu](incorrect-runtime.json): wszystkie 7 458 520 rekordów rozliczone, 3 156 analiz niepoprawnych. Dla 1 714 objętych kluczy wczytano wszystkie 3 303 importowane analizy. Sam filtr odrzuca komplet analiz 1 618 kluczy; 96 kluczy ma inne analizy, bez automatycznej obietnicy accept. Łącznie ze znanymi warunkami gry/profilu odrzucony komplet dotyczy 1 625 kluczy tej populacji. Nie jest to delta końcowego wydania; konstrukcje i pełna polityka nadal nieukończone. Odczyt readonly, 9,223 s, total_changes=0.

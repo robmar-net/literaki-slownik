@@ -59,4 +59,6 @@ Explain w wersji `diagnostic-approved-conditions-v2` pokazuje zatwierdzone A dla
 
 Explain w wersji `diagnostic-approved-conditions-v3` pokazuje również zatwierdzone warunki wieku: dodatkowa dawność/archaiczność może dać językowe reject w STANDARD mimo niewiadomych innych warunków. BROAD pozostawia samą dawność niewykluczającą. List_membership pozostaje unresolved, ponieważ nie zbudowano wszystkich konstrukcji i pełnych decyzji.
 
-Wersja `diagnostic-approved-conditions-v4` dodaje jawny niewykluczający warunek zakresu użycia dla 15 sprawdzonych etykiet potoczności/regionalności/gwarowości/wulgarności/rzadkości. Nieznane mieszanki pozostają do oceny; całe członkostwo nadal unresolved. Niepopr. nie jest jeszcze aktywnym filtrem.
+Wersja `diagnostic-approved-conditions-v4` dodaje jawny niewykluczający warunek zakresu użycia dla 15 sprawdzonych etykiet potoczności/regionalności/gwarowości/wulgarności/rzadkości. Nieznane mieszanki pozostają do oceny; całe członkostwo nadal unresolved. W kolejnej wersji v5 niepopr. wdrożono zgodnie z zatwierdzonym A.
+
+Wersja `diagnostic-approved-conditions-v5` pokazuje reject językowy dla 27 etykiet jawnej niepoprawności w obu wariantach. Source_presence pozostaje present, a pozostałe analizy zachowane. List_membership nadal unresolved ze względu na brak pełnych konstrukcji i decyzji.

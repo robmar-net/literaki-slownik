@@ -3,7 +3,48 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v4'
+VERSION = 'diagnostic-approved-conditions-v5'
+INCORRECT_LABELS = frozenset({
+    'daw.,niepopr.',
+    'indyw.,niepopr.',
+    'książk.,niepopr.',
+    'książk.,niepopr.,pogard.',
+    'niepopr.',
+    'niepopr.,astron.',
+    'niepopr.,biol.',
+    'niepopr.,biol.,zool.',
+    'niepopr.,filoz.',
+    'niepopr.,fiz.',
+    'niepopr.,genet.',
+    'niepopr.,jęz.',
+    'niepopr.,jęz.,lit.',
+    'niepopr.,lit.',
+    'niepopr.,med.',
+    'niepopr.,muz.',
+    'niepopr.,polit.',
+    'niepopr.,pot.',
+    'niepopr.,pot.,żart.',
+    'niepopr.,przest.',
+    'niepopr.,rel.',
+    'niepopr.,rzad.',
+    'niepopr.,rzad.,arch.,char.',
+    'niepopr.,rzad.,hom.',
+    'niepopr.,sport.',
+    'niepopr.,szt.',
+    'niepopr.,wulg.',
+})
+
+
+def incorrect_checks(qualifiers):
+    """Jawna niepoprawność konkretnej analizy, bez usunięcia wpisu/homonimów."""
+    return [{'rule_id': 'linguistic-incorrect-form-v1',
+             'status': 'reject', 'source_label': label,
+             'message': 'SGJP oznacza tę interpretację jako niepoprawną; odrzucenie w BROAD i STANDARD.',
+             'evidence': ['config/generator/policy.json',
+                          '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/incorrect-forms-decision.md']}
+            for label in sorted(set(qualifiers.split('|')) & INCORRECT_LABELS)]
+
+
 USAGE_LABELS = frozenset({
     'gwar.', 'gwar.,pot.', 'gwar.,rzad.', 'pot.', 'pot.,reg.',
     'pot.,reg.,rzad.', 'pot.,rzad.', 'pot.,rzad.,wulg.', 'pot.,wulg.',

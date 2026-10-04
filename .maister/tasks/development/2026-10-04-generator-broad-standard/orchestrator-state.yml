@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-04T22:40:53Z",
+    "updated": "2026-10-04T22:56:37Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "Dodano zatwierdzony niewykluczający zakres użycia: 15 etykiet, 288034 rekordy ekspozycji. Generator 74/74 i audit 5/5. Przed filtrem niepopr. czeka konkretna decyzja; źródła społecznościowe nadal odłożone. G3–G6 częściowe.",
+      "summary": "A niepopr. wdrożone: 27 etykiet, 3156 odrzuconych analiz; pełne pozostałe analizy 1714 kluczy zachowane. Generator79/79, audit5/5, preflight14/14 OK. Brak pending decyzji; G3–G6 nadal częściowe, następne pełna semantyka pozostałych etykiet i macierz konstrukcji.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -225,7 +225,8 @@
         "Użytkownik: decyzje zmieniające kryteria i skład słownika omawiamy przed wdrożeniem; bez automatycznego kopiowania polityki źródeł SJP.pl.",
         "A: samo niezal. nie odrzuca interpretacji w BROAD ani STANDARD; pozostałe kryteria nadal obowiązują.",
         "A mixed_history_priority: dodatkowe daw./przest. wyklucza konkretną interpretację ze STANDARD mimo dziś; samo dziś nie wyklucza, BROAD bez wyłączenia przez dawność.",
-        "Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych."
+        "Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych.",
+        "A incorrect_source_label_policy: jawne niepopr. na sprawdzonej dosłownej etykiecie odrzuca konkretną interpretację w BROAD i STANDARD, bez usunięcia wpisu lub innych analiz."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -335,18 +336,14 @@
         {
           "path": "analysis/evidence/incorrect-forms-decision.md",
           "label": "Decyzja dotycząca jawnego niepopr."
+        },
+        {
+          "path": "analysis/evidence/incorrect-runtime.json",
+          "label": "Pełny runtime niepoprawności i alternatywnych analiz"
         }
       ],
       "gate": {
-        "id": "incorrect_source_label_policy",
-        "status": "pending",
-        "created_at": "2026-10-04T22:40:53Z",
-        "artifact": "analysis/evidence/incorrect-forms-decision.md",
-        "question": "Czy jawna, sprawdzona etykieta niepopr. w SGJP wystarcza do odrzucenia tej interpretacji w BROAD i STANDARD?",
-        "options": {
-          "A": "Tak: odrzuć tę interpretację, zachowując wpis i inne analizy (rekomendowane).",
-          "B": "Nie automatycznie: indywidualny przegląd, do rozstrzygnięcia unresolved."
-        },
+        "question": null,
         "answer": null
       },
       "started": "2026-10-04T12:47:44Z",
@@ -414,6 +411,19 @@
           "artifact": "analysis/evidence/wiktionary-attestation-decision.md",
           "answered_at": "2026-10-04T22:33:39Z",
           "resolution": "No current use of Wiktionary or similar community sources; revisit only after user authorization. Not option B as a permanent professional-only requirement."
+        },
+        {
+          "id": "incorrect_source_label_policy",
+          "status": "approved",
+          "created_at": "2026-10-04T22:40:53Z",
+          "artifact": "analysis/evidence/incorrect-forms-decision.md",
+          "question": "Czy jawna, sprawdzona etykieta niepopr. w SGJP wystarcza do odrzucenia tej interpretacji w BROAD i STANDARD?",
+          "options": {
+            "A": "Tak: odrzuć tę interpretację, zachowując wpis i inne analizy (rekomendowane).",
+            "B": "Nie automatycznie: indywidualny przegląd, do rozstrzygnięcia unresolved."
+          },
+          "answer": "A",
+          "answered_at": "2026-10-04T22:53:33Z"
         }
       ]
     }
@@ -504,7 +514,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "User explicitly authorized continuing code with evidence gaps: policy mechanics only, no active unresolved linguistic rules",
-        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed",
+        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys",
         "remaining": "Full qualifier/category/orthography policy and mobile/preposition constructions; persistence and build integration; G3 closure"
       },
       "G5": {
@@ -564,7 +574,7 @@
         "artifact": "analysis/evidence/wiktionary-attestation-decision.md"
       }
     },
-    "verification_note": "Increment: generator 74/74, baseline 5/5, preflight 14/14 and configuration hashes OK; full readonly qualifier runtime. Canonical full verification still pending.",
+    "verification_note": "Increment: generator79/79, audit5/5, preflight14/14 and hashes OK; readonly full incorrect-label runtime. Canonical verification and full release pending.",
     "source_policy_clarification": {
       "recorded_at": "2026-10-04T21:49:35Z",
       "artifact": "analysis/evidence/source-policy-clarification.md",

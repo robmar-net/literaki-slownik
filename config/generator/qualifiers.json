@@ -3067,6 +3067,12 @@
       "decision": "approved prompt §2.3 and spec §5",
       "registry": "config/generator/policy.json",
       "scope": "closed_15_usage_labels_not_full_qualifier_classification"
+    },
+    {
+      "rule_id": "linguistic-incorrect-form-v1",
+      "decision": "A incorrect_source_label_policy",
+      "registry": "config/generator/policy.json",
+      "scope": "explicit_incorrectness_of_one_analysis_closed_27_labels"
     }
   ]
 }

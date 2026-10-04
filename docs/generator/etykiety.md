@@ -43,4 +43,10 @@ Pełny przegląd 615 pól potwierdził 180 pól z oceną wieku, 601 247 źródł
 
 Zatwierdzony prompt §2.3 i specyfikacja §5 nie wykluczają form tylko przez potoczność, wulgarność, regionalność, gwarowość ani rzadkość. `usage_checks` stosuje ten zakres do zamkniętej mapy 15 zaobserwowanych dosłownych etykiet; runtime nie dzieli przecinków ani nie zgaduje nowych mieszanek. Pozytywna ocena warunku nie nadaje całej analizie accept. Potwierdzono znaczenie pięciu oznaczeń w [dokumentacji SGJP](https://sgjp.pl/oznaczenia/).
 
-[Runtime](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/usage-incorrect-runtime.json): 288 034 rekordy ekspozycji; wszystkie 15 etykiet obecne, brak zapisów do źródłowej bazy. Pełna polityka oraz niepopr. pozostają otwarte; decyzja o niezal. ich nie zastępuje.
+[Runtime](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/usage-incorrect-runtime.json): 288 034 rekordy ekspozycji; wszystkie 15 etykiet obecne, brak zapisów do źródłowej bazy. Pełna polityka pozostaje otwarta; niepopr. rozstrzygnięto osobnym A, którego decyzja o niezal. nie zastępuje.
+
+## Jawna niepoprawność
+
+Zatwierdzone A: jawne niepopr. odrzuca konkretną interpretację w BROAD i STANDARD. Wdrożono 27 sprawdzonych dosłownych etykiet, zachowując wpisy i inne analizy. Niezal. pozostaje odrębne i niewykluczające; nieznane etykiety wymagają oceny. Pełna polityka i członkostwo w listach nadal nieukończone. `incorrect_checks` jest oceną językową, a nie zmianą reguł gry. Pozytywna ocena innego warunku nie znosi odmowy niepoprawności.
+
+[Runtime](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/incorrect-runtime.json) uwzględnia wszystkie importowane analizy objętych napisów. Wynik nie jest członkostwem w pełnym wydaniu.

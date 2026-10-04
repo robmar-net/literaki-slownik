@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T22:40:53Z",
+  "generated": "2026-10-04T22:56:37Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Zakres użycia sprawdzony; decyzja przed filtrem niepopr."
+    "current_activity": "A niepopr. wdrożone; dalsza semantyka etykiet i macierz konstrukcji"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Dodano zatwierdzony niewykluczający zakres użycia: 15 etykiet, 288034 rekordy ekspozycji. Generator 74/74 i audit 5/5. Przed filtrem niepopr. czeka konkretna decyzja; źródła społecznościowe nadal odłożone. G3–G6 częściowe.",
+      "summary": "A niepopr. wdrożone: 27 etykiet, 3156 odrzuconych analiz; pełne pozostałe analizy 1714 kluczy zachowane. Generator79/79, audit5/5, preflight14/14 OK. Brak pending decyzji; G3–G6 nadal częściowe, następne pełna semantyka pozostałych etykiet i macierz konstrukcji.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -251,7 +251,8 @@ window.MAISTER_DATA = {
         "Użytkownik: decyzje zmieniające kryteria i skład słownika omawiamy przed wdrożeniem; bez automatycznego kopiowania polityki źródeł SJP.pl.",
         "A: samo niezal. nie odrzuca interpretacji w BROAD ani STANDARD; pozostałe kryteria nadal obowiązują.",
         "A mixed_history_priority: dodatkowe daw./przest. wyklucza konkretną interpretację ze STANDARD mimo dziś; samo dziś nie wyklucza, BROAD bez wyłączenia przez dawność.",
-        "Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych."
+        "Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych.",
+        "A incorrect_source_label_policy: jawne niepopr. na sprawdzonej dosłownej etykiecie odrzuca konkretną interpretację w BROAD i STANDARD, bez usunięcia wpisu lub innych analiz."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -361,18 +362,14 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/incorrect-forms-decision.md",
           "label": "Decyzja dotycząca jawnego niepopr."
+        },
+        {
+          "path": "analysis/evidence/incorrect-runtime.json",
+          "label": "Pełny runtime niepoprawności i alternatywnych analiz"
         }
       ],
       "gate": {
-        "id": "incorrect_source_label_policy",
-        "status": "pending",
-        "created_at": "2026-10-04T22:40:53Z",
-        "artifact": "analysis/evidence/incorrect-forms-decision.md",
-        "question": "Czy jawna, sprawdzona etykieta niepopr. w SGJP wystarcza do odrzucenia tej interpretacji w BROAD i STANDARD?",
-        "options": {
-          "A": "Tak: odrzuć tę interpretację, zachowując wpis i inne analizy (rekomendowane).",
-          "B": "Nie automatycznie: indywidualny przegląd, do rozstrzygnięcia unresolved."
-        },
+        "question": null,
         "answer": null
       }
     },

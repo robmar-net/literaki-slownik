@@ -7,6 +7,38 @@ from literaki_slownik.inputs import GeneratorError
 
 
 class PolicyTests(unittest.TestCase):
+    def test_incorrect_labels_reject_both_variants(self):
+        from literaki_slownik.policy import incorrect_checks
+        for field in ('niepopr.', 'niepopr.,pot.', 'daw.,niepopr.', 'niepopr.,rzad.,hom.'):
+            checks = incorrect_checks(field)
+            self.assertEqual(len(checks), 1, field)
+            self.assertEqual(checks[0]['status'], 'reject')
+            self.assertEqual(checks[0]['source_label'], field)
+            value = assess_analysis('forma', language={v: checks for v in ('broad','standard')}, game_checks=[])
+            for variant in ('broad','standard'):
+                self.assertEqual(value['membership'][variant]['status'], 'reject')
+
+    def test_incorrect_does_not_reject_disrecommended_or_unknown_labels(self):
+        from literaki_slownik.policy import incorrect_checks
+        for field in ('niezal.', 'pot.', 'niepopr.,nowe', 'niepoprawne', ''):
+            self.assertEqual(incorrect_checks(field), [], field)
+        self.assertEqual(len(incorrect_checks('niepopr.|niepopr.')), 1)
+
+    def test_incorrect_homonym_does_not_remove_correct_analysis(self):
+        from literaki_slownik.policy import incorrect_checks
+        good = {'rule_id': 'fixture', 'status': 'accept', 'message': 'Test', 'evidence': ['fixture']}
+        bad = assess_analysis('forma', language={v: incorrect_checks('niepopr.') for v in ('broad','standard')}, game_checks=[good])
+        correct = assess_analysis('forma', language={v: [good] for v in ('broad','standard')}, game_checks=[good])
+        for variant in ('broad','standard'):
+            self.assertEqual(aggregate([bad,correct], variant)['status'], 'accept')
+
+    def test_incorrect_registry_matches_source_literals(self):
+        from literaki_slownik.policy import INCORRECT_LABELS
+        rule = next(r for r in json.loads(Path('config/generator/policy.json').read_text())['rules']
+                    if r['rule_id'] == 'linguistic-incorrect-form-v1')
+        self.assertEqual(set(rule['literal_labels']), INCORRECT_LABELS)
+        self.assertEqual(rule['variants'], {'broad': 'reject', 'standard': 'reject'})
+
     def test_informal_and_rare_conditions_do_not_reject(self):
         from literaki_slownik.policy import usage_checks
         for field in ('pot.', 'wulg.', 'reg.', 'gwar.', 'rzad.', 'pot.,reg.,rzad.', 'rzad.,wulg.'):

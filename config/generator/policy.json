@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "approved-conditions-v3",
+  "version": "approved-conditions-v4",
   "status": "partial_not_release_policy",
   "rules": [
     {
@@ -272,6 +272,51 @@
       "decision": "docs/literaki-niezalezne-slowniki-prompt-v3.md#23-zakres-standard",
       "source": "https://sgjp.pl/oznaczenia/",
       "interpretation": "Wdrożenie już zatwierdzonego zakresu: same te kwalifikatory nie odrzucają. Zamknięta mapa obejmuje wyłącznie 15 zaobserwowanych etykiet złożonych z tych pięciu oznaczeń."
+    },
+    {
+      "rule_id": "linguistic-incorrect-form-v1",
+      "status": "confirmed",
+      "operation": "incorrect_interpretation",
+      "scope": "explicit_incorrectness_of_one_analysis_not_lexeme_or_all_homonyms",
+      "literal_labels": [
+        "daw.,niepopr.",
+        "indyw.,niepopr.",
+        "książk.,niepopr.",
+        "książk.,niepopr.,pogard.",
+        "niepopr.",
+        "niepopr.,astron.",
+        "niepopr.,biol.",
+        "niepopr.,biol.,zool.",
+        "niepopr.,filoz.",
+        "niepopr.,fiz.",
+        "niepopr.,genet.",
+        "niepopr.,jęz.",
+        "niepopr.,jęz.,lit.",
+        "niepopr.,lit.",
+        "niepopr.,med.",
+        "niepopr.,muz.",
+        "niepopr.,polit.",
+        "niepopr.,pot.",
+        "niepopr.,pot.,żart.",
+        "niepopr.,przest.",
+        "niepopr.,rel.",
+        "niepopr.,rzad.",
+        "niepopr.,rzad.,arch.,char.",
+        "niepopr.,rzad.,hom.",
+        "niepopr.,sport.",
+        "niepopr.,szt.",
+        "niepopr.,wulg."
+      ],
+      "variants": {
+        "broad": "reject",
+        "standard": "reject"
+      },
+      "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/incorrect-forms-decision.md",
+      "source": "https://sgjp.pl/oznaczenia/",
+      "examples": [
+        "abolicjoniźmie"
+      ],
+      "interpretation": "A: jawne niepopr. odrzuca tę analizę w obu wariantach; niezal. jest odrębne. Brak flagi nie stanowi samodzielnego accept."
     }
   ]
 }

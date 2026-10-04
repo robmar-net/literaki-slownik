@@ -7,7 +7,7 @@ from .database import connect
 from .decisions import assess_analysis, aggregate, VARIANTS
 from .inputs import GeneratorError
 from .links import availability
-from .policy import assess_profile, disrecommended_checks, history_checks, usage_checks, VERSION
+from .policy import assess_profile, disrecommended_checks, history_checks, usage_checks, incorrect_checks, VERSION
 from .sgjp import expand_tag
 
 
@@ -74,7 +74,7 @@ def explain(run_dir, word, variant='standard'):
             for iid, sid, row, original, lemma, tag, names, qualifiers in rows:
                 pending = _pending('linguistic-policy-not-active-v1', 'Pełna polityka językowa G3/G4 nie jest jeszcze aktywna.')
                 assessed = assess_analysis(original,
-                                           language={v: pending + disrecommended_checks(qualifiers) + history_checks(qualifiers, v) + usage_checks(qualifiers)
+                                           language={v: pending + disrecommended_checks(qualifiers) + history_checks(qualifiers, v) + usage_checks(qualifiers) + incorrect_checks(qualifiers)
                                                      for v in VARIANTS},
                                            game_checks=_pending('game-metadata-not-complete-v1',
                                                                 'Pozostałe udokumentowane warunki growe wymagają domknięcia.'))

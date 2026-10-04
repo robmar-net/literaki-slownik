@@ -27,6 +27,7 @@ class ExplainTests(unittest.TestCase):
                  'żaba\tżaba\tsubst:sg:nom:f\t\t']
         lines.append('kakaa\tkakao\tsubst:sg:gen:n\t\tniezal.')
         lines.append('regionalna\tregionalny\tadj:sg:nom:f:pos\t\treg.,rzad.')
+        lines.append('abolicjoniźmie\tabolicjonizm\tsubst:sg:loc:m3\tnazwa_pospolita\tniepopr.')
         lines += ['masny\tmasny\tadj:sg:nom:m3:pos\t\tdaw._dziś_gwar.',
                   'masniejszy\tmasny\tadj:sg:nom:m3:com\t\tdaw.,daw._dziś_gwar.,rzad.']
         lines += [f'kot\tkot:S{i}\tsubst:sg:nom:m2\t\t' for i in range(150)]
@@ -45,6 +46,16 @@ class ExplainTests(unittest.TestCase):
             self.assertEqual(language['status'], 'unresolved')
             self.assertTrue(any(c['rule_id'] == 'linguistic-informal-rare-non-excluding-v1'
                                 and c['status'] == 'accept' for c in language['checks']))
+        self.assertEqual(value['list_membership']['status'], 'unresolved')
+
+    def test_incorrect_source_analysis_preserved_and_rejected_both_variants(self):
+        value = explain(self.run, 'abolicjoniźmie')
+        self.assertEqual(value['source_presence'], 'present')
+        self.assertEqual(value['analyses'][0]['qualifiers'], 'niepopr.')
+        for variant in ('broad','standard'):
+            language = value['analyses'][0]['assessment']['language'][variant]
+            self.assertEqual(language['status'], 'reject')
+            self.assertTrue(any(c['rule_id'] == 'linguistic-incorrect-form-v1' for c in language['checks']))
         self.assertEqual(value['list_membership']['status'], 'unresolved')
 
     def test_approved_disrecommended_condition_visible_without_full_acceptance(self):

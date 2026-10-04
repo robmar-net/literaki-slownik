@@ -188,4 +188,8 @@ Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bi
 
 ## Zakres użycia — postęp G3/G4
 
-Wdrożono zatwierdzony niewykluczający zakres potoczności, wulgarności, regionalności, gwarowości i rzadkości dla 15 sprawdzonych dosłownych etykiet. Inne składniki oraz pełna polityka nadal wymagają domknięcia. Oznaczenie niepopr. pozostaje nierozstrzygnięte do decyzji użytkownika; nie jest utożsamione z niezal.
+Wdrożono zatwierdzony niewykluczający zakres potoczności, wulgarności, regionalności, gwarowości i rzadkości dla 15 sprawdzonych dosłownych etykiet. Inne składniki oraz pełna polityka nadal wymagają domknięcia. Oznaczenie niepopr. rozstrzygnięto A: odrzuca konkretną interpretację w obu wariantach; nie jest utożsamione z niezal.
+
+## Niepoprawność — zatwierdzone A
+
+Zatwierdzone A: jawne niepopr. odrzuca konkretną interpretację w BROAD i STANDARD. Wdrożono 27 sprawdzonych dosłownych etykiet, zachowując wpisy i inne analizy. Niezal. pozostaje odrębne i niewykluczające; nieznane etykiety wymagają oceny. Pełna polityka i członkostwo w listach nadal nieukończone.
