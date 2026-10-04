@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-04T22:06:18Z",
+    "updated": "2026-10-04T22:29:14Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "A dla niezal. wdrożone i widoczne w explain. Konstruktory impt + partykuła oraz by + aglt działają na pełnych źródłowych klasach, bez integracji build. 58/58 testów; przed filtrem mieszanych oznaczeń historii oczekujemy decyzji.",
+      "summary": "A dla mieszanej dawności wdrożone; 160/16 etykiet i pełny przegląd 7,46 mln rekordów. Dodano raport wpływu filtrów; 70/70 testów. Przed aktywacją pomocniczych poświadczeń oczekujemy decyzji o Wikisłowniku. G3–G6 nadal partial.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -223,7 +223,8 @@
         "A supplementary_attestation_inputs approved; audit conditions before supplementary data activation",
         "User authorized code continuation; diagnostic mechanics do not activate incomplete linguistic policy or bypass release",
         "Użytkownik: decyzje zmieniające kryteria i skład słownika omawiamy przed wdrożeniem; bez automatycznego kopiowania polityki źródeł SJP.pl.",
-        "A: samo niezal. nie odrzuca interpretacji w BROAD ani STANDARD; pozostałe kryteria nadal obowiązują."
+        "A: samo niezal. nie odrzuca interpretacji w BROAD ani STANDARD; pozostałe kryteria nadal obowiązują.",
+        "A mixed_history_priority: dodatkowe daw./przest. wyklucza konkretną interpretację ze STANDARD mimo dziś; samo dziś nie wyklucza, BROAD bez wyłączenia przez dawność."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -313,19 +314,31 @@
         {
           "path": "analysis/evidence/mixed-history-decision.md",
           "label": "Pierwszeństwo mieszanych oznaczeń historycznych"
+        },
+        {
+          "path": "analysis/evidence/history-runtime.json",
+          "label": "Pełna kontrola warunków wieku"
+        },
+        {
+          "path": "analysis/evidence/filter-report-runtime.json",
+          "label": "Raport efektów filtrów rzeczywistych analiz"
+        },
+        {
+          "path": "analysis/evidence/wiktionary-attestation-decision.md",
+          "label": "Rodzaj źródła pomocniczych poświadczeń"
         }
       ],
       "gate": {
-        "id": "mixed_history_priority",
+        "id": "wiktionary_auxiliary_attestation_policy",
         "status": "pending",
-        "created_at": "2026-10-04T22:03:35Z",
-        "question": "Czy dodatkowe daw./przest. wyklucza interpretację ze STANDARD mimo oznaczenia dziś gwarowe/książkowe?",
+        "created_at": "2026-10-04T22:23:40Z",
+        "question": "Czy Wikisłownik może być pomocniczym źródłem poświadczenia całej istniejącej konstrukcji SGJP, po pozytywnym audycie konkretnego wpisu?",
         "options": {
-          "A": "Tak: dodatkowe oznaczenie dawności wyklucza tę interpretację; samo dziś gwarowe/książkowe nie wyklucza (rekomendowane).",
-          "B": "Nie: oznaczenie dziś ma pierwszeństwo przed dodatkowymi daw./przest.; pozostałe warunki obowiązują."
+          "A": "Tak: pełne polskie hasło może być pomocniczym dowodem; audyt, uwagi o poprawności i pozostałe warunki obowiązują (rekomendowane).",
+          "B": "Nie: wymagamy poświadczeń ze słowników instytucjonalnych/profesjonalnych; Wikisłownik tylko orientacyjnie."
         },
         "answer": null,
-        "artifact": "analysis/evidence/mixed-history-decision.md"
+        "artifact": "analysis/evidence/wiktionary-attestation-decision.md"
       },
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
@@ -365,6 +378,19 @@
           "artifact": "analysis/evidence/disrecommended-decision.md",
           "created_at": "2026-10-04T21:49:35Z",
           "answered_at": "2026-10-04T21:54:45Z"
+        },
+        {
+          "id": "mixed_history_priority",
+          "status": "approved",
+          "created_at": "2026-10-04T22:03:35Z",
+          "question": "Czy dodatkowe daw./przest. wyklucza interpretację ze STANDARD mimo oznaczenia dziś gwarowe/książkowe?",
+          "options": {
+            "A": "Tak: dodatkowe oznaczenie dawności wyklucza tę interpretację; samo dziś gwarowe/książkowe nie wyklucza (rekomendowane).",
+            "B": "Nie: oznaczenie dziś ma pierwszeństwo przed dodatkowymi daw./przest.; pozostałe warunki obowiązują."
+          },
+          "answer": "A",
+          "artifact": "analysis/evidence/mixed-history-decision.md",
+          "answered_at": "2026-10-04T22:09:27Z"
         }
       ]
     }
@@ -454,7 +480,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "User explicitly authorized continuing code with evidence gaps: policy mechanics only, no active unresolved linguistic rules",
-        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone",
+        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain",
         "remaining": "Full qualifier/category/orthography policy and mobile/preposition constructions; persistence and build integration; G3 closure"
       },
       "G5": {
@@ -470,8 +496,8 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "Independent diagnostic explain authorized by plan §2 and user continue code",
-        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass",
-        "remaining": "Full strata membership, review analysis payloads, reporting/build integration, final decisions/derivations explain, canonical index"
+        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants",
+        "remaining": "Full strata and analysis payloads, report/build integration, other canonical reports/index, full final decisions/derivations explain"
       },
       "G7": {
         "status": "pending",
@@ -507,7 +533,7 @@
       "audit_artifact": "analysis/evidence/supplementary-source-audit.md",
       "active_artifacts_added": 0
     },
-    "verification_note": "Increment checks passed: 58/58 generator + 5/5 audit, production inspect-sources 14/14 and policy hash OK, diff check. Phase10/11 and complete release pending.",
+    "verification_note": "Increment: 70/70 generator, baseline audit 5/5, production preflight 14/14 and configuration hashes OK; JSON, completed artifacts, local links, dashboard projection and diff checked. Canonical verification and full release pending.",
     "source_policy_clarification": {
       "recorded_at": "2026-10-04T21:49:35Z",
       "artifact": "analysis/evidence/source-policy-clarification.md",

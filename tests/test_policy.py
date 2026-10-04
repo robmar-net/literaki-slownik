@@ -1,11 +1,50 @@
 import unittest
 import json
 from pathlib import Path
-from literaki_slownik.policy import assess_profile, spelling_checks, disrecommended_checks
-from literaki_slownik.decisions import assess_analysis
+from literaki_slownik.policy import assess_profile, spelling_checks, disrecommended_checks, history_checks
+from literaki_slownik.decisions import assess_analysis, aggregate, assessment
+from literaki_slownik.inputs import GeneratorError
 
 
 class PolicyTests(unittest.TestCase):
+    def test_history_priority_applies_to_same_interpretation_only(self):
+        mixed = ('daw.,daw._dziś_gwar.', 'daw.,daw._dziś_gwar.,rzad.',
+                 'przest.,przest._dziś_książk.')
+        for field in mixed:
+            self.assertEqual(assessment(history_checks(field, 'standard'))['status'], 'reject', field)
+            self.assertEqual(assessment(history_checks(field, 'broad'))['status'], 'accept', field)
+            self.assertTrue(any(c['rule_id'] == 'linguistic-current-usage-non-excluding-v1'
+                                for c in history_checks(field, 'standard')))
+
+    def test_current_usage_labels_do_not_reject_standard(self):
+        for field in ('daw._dziś_gwar.', 'daw._dziś_rzad.', 'daw._dziś_fraz.',
+                      'przest._dziś_książk.,żart.', 'przest._dziś_gwar.'):
+            self.assertEqual(assessment(history_checks(field, 'standard'))['status'], 'accept', field)
+
+    def test_archaic_forms_not_restored_by_current_lexeme(self):
+        for field in ('przest._dziś_książk.,arch.,char.', 'arch._(tylko_po_"ku")',
+                      'daw.,niezal.', 'niezal.,przest.'):
+            self.assertEqual(assessment(history_checks(field, 'standard'))['status'], 'reject', field)
+            self.assertEqual(assessment(history_checks(field, 'broad'))['status'], 'accept', field)
+
+    def test_age_rule_is_closed_and_does_not_guess_from_substring(self):
+        for field in ('archit.', 'archeol.', 'hist.', 'char.,archit.', 'przestawny',
+                      'daw.,nowy_kwalifikator'):
+            self.assertEqual(history_checks(field, 'standard'), [], field)
+        checks = history_checks('daw.|daw._dziś_gwar.', 'standard')
+        self.assertEqual(assessment(checks)['status'], 'reject')
+        with self.assertRaises(GeneratorError):
+            history_checks('daw.', 'unknown')
+
+    def test_positive_other_homonym_survives_historical_rejection(self):
+        game_ok = [{'rule_id': 'game-fixture', 'status': 'accept', 'message': 'Test', 'evidence': ['fixture']}]
+        old = assess_analysis('forma', language={v: history_checks('daw.', v) for v in ('broad','standard')},
+                              game_checks=game_ok)
+        current = assess_analysis('forma', language={v: history_checks('daw._dziś_gwar.', v) for v in ('broad','standard')},
+                                  game_checks=game_ok)
+        self.assertEqual(old['membership']['standard']['status'], 'reject')
+        self.assertEqual(aggregate([old,current], 'standard')['status'], 'accept')
+
     def test_disrecommended_condition_does_not_reject_known_literal_labels(self):
         for field in ('niezal.', 'niezal.,pot.', 'niezal.,rzad.',
                       'daw.,niezal.', 'niezal.,przest.'):
@@ -42,6 +81,13 @@ class PolicyTests(unittest.TestCase):
         self.assertEqual(set(policy['rules'][0]['literal_labels']), DISRECOMMENDED_LABELS)
         self.assertEqual(policy['rules'][0]['variants'], {'broad': 'non_excluding', 'standard': 'non_excluding'})
         self.assertEqual(policy['status'], 'partial_not_release_policy')
+
+    def test_age_registry_matches_versioned_literals(self):
+        from literaki_slownik.policy import HISTORICAL_LABELS, CURRENT_USAGE_LABELS
+        rules = {r['rule_id']: r for r in json.loads(Path('config/generator/policy.json').read_text())['rules']}
+        self.assertEqual(set(rules['linguistic-historical-form-v1']['literal_labels']), HISTORICAL_LABELS)
+        self.assertEqual(set(rules['linguistic-current-usage-non-excluding-v1']['literal_labels']), CURRENT_USAGE_LABELS)
+        self.assertEqual(rules['linguistic-historical-form-v1']['variants'], {'broad': 'non_excluding', 'standard': 'reject'})
 
     def test_profile_matches_versioned_canonical_registry(self):
         from literaki_slownik.policy import ALPHABET

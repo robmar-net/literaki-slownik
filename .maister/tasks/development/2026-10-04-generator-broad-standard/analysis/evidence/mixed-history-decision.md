@@ -4,7 +4,7 @@
 W eksporcie współistnieją kwalifikatory typu „dawne, dziś gwarowe” i dodatkowe oznaczenia dawności.
 Eksporter zbiera etykiety leksemu, odmiany i zakończenia w jednym polu; nie zachowuje ich poziomów.
 Nie powinniśmy ignorować dodatkowego ograniczenia ani rozstrzygać pierwszeństwa etykiet bez uzgodnienia polityki.
-Poniższy wybór dotyczy STANDARD, nie zasad gry ani BROAD. Nie wdrożono filtra.
+Użytkownik zatwierdził A. Reguła wieku jest wdrożona dla STANDARD; BROAD i zasady gry pozostają niezmienione.
 
 ## Key Decisions
 - Samo „dziś gwarowe/książkowe/rzadkie” wskazuje współczesny zakres użycia i nie jest powodem wykluczenia ze STANDARD.
@@ -13,7 +13,6 @@ Poniższy wybór dotyczy STANDARD, nie zasad gry ani BROAD. Nie wdrożono filtra
 - Dowód utraty poziomów: przypięty `export/lexeme_export.py`, linie 206–235, unions kwalifikatorów leksemu/odmiany/zakończenia. Nie zakładamy identyczności bieżącej bazy online i eksportu 20260823.
 
 ## Open Questions / Risks
-- Co zrobić, gdy obok „dziś…” występuje dodatkowe `daw.`/`przest.` w tej samej źródłowej analizie?
 - Nie mamy w eksporcie pochodzenia każdego kwalifikatora z konkretnego poziomu opisu.
 - Liczby poniżej są ekspozycją wybranych pól, nie końcową deltą listy.
 
@@ -37,3 +36,9 @@ Ostatni wiersz dotyczy osobnej, jednoznacznej archaiczności form `rewerencyj`, 
 **B:** wskazanie „dziś…” ma pierwszeństwo przed dodatkowym `daw.`/`przest.`; konflikt ten nie wyklucza interpretacji ze STANDARD. Daje szerszy zasób, ale może zachować niektóre dawne warianty odmiany. Niezależne `arch.` i historyczna pisownia nadal są oceniane osobno.
 
 W obu wariantach BROAD nie odrzuca na podstawie samej dawności; pozostałe kryteria językowe, gry i profilu obowiązują bez zmian. Pełne reguły wymagają zamkniętej mapy dosłownych etykiet, bez ogólnego substring `daw` lub `przest`.
+
+## Zatwierdzenie i wykonanie
+
+Użytkownik wybrał A. `history_checks` ocenia wiek na zamkniętej liście 160 dosłownych etykiet z jednoznaczną dawnością/archaicznością oraz 16 etykiet wskazujących współczesne użycie. Pozostałe składniki etykiet nadal wymagają osobnej oceny. Nie stosujemy ogólnego dopasowania `arch`/`daw`/`przest` do nowych etykiet; archit./archeol. nie stają się archaicznością. Lista została utworzona z pełnej inwentaryzacji, po przeglądzie wszystkich wybranych dosłownych etykiet i definicji SGJP; przecinki nie tworzą alternatywnych sensów.
+
+[Pełny runtime](history-runtime.json) rozlicza wszystkie 7 458 520 rekordów i 615 pól kwalifikatorów. Oceną wieku objęto 601 247 rekordów w 180 polach. Historyczność występuje w 598 244 rekordach, współczesne użycie w 3 132, a oba naraz w 129. Są to nakładające się ekspozycje, nie wielkość utraconej listy słów. Wszystkie 176 odwołań do etykiet są obecne w źródle; cztery etykiety są w obu zestawach.

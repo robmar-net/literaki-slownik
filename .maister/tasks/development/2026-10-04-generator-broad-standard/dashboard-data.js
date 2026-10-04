@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T22:06:18Z",
+  "generated": "2026-10-04T22:29:14Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Warunek niezalecania i dwie konstrukcje wdrożone; decyzja o mieszanych oznaczeniach historii"
+    "current_activity": "Wiek form i raport filtrów działają; decyzja o Wikisłowniku jako poświadczeniu"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "A dla niezal. wdrożone i widoczne w explain. Konstruktory impt + partykuła oraz by + aglt działają na pełnych źródłowych klasach, bez integracji build. 58/58 testów; przed filtrem mieszanych oznaczeń historii oczekujemy decyzji.",
+      "summary": "A dla mieszanej dawności wdrożone; 160/16 etykiet i pełny przegląd 7,46 mln rekordów. Dodano raport wpływu filtrów; 70/70 testów. Przed aktywacją pomocniczych poświadczeń oczekujemy decyzji o Wikisłowniku. G3–G6 nadal partial.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -249,7 +249,8 @@ window.MAISTER_DATA = {
         "A supplementary_attestation_inputs approved; audit conditions before supplementary data activation",
         "User authorized code continuation; diagnostic mechanics do not activate incomplete linguistic policy or bypass release",
         "Użytkownik: decyzje zmieniające kryteria i skład słownika omawiamy przed wdrożeniem; bez automatycznego kopiowania polityki źródeł SJP.pl.",
-        "A: samo niezal. nie odrzuca interpretacji w BROAD ani STANDARD; pozostałe kryteria nadal obowiązują."
+        "A: samo niezal. nie odrzuca interpretacji w BROAD ani STANDARD; pozostałe kryteria nadal obowiązują.",
+        "A mixed_history_priority: dodatkowe daw./przest. wyklucza konkretną interpretację ze STANDARD mimo dziś; samo dziś nie wyklucza, BROAD bez wyłączenia przez dawność."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -339,19 +340,31 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/mixed-history-decision.md",
           "label": "Pierwszeństwo mieszanych oznaczeń historycznych"
+        },
+        {
+          "path": "analysis/evidence/history-runtime.json",
+          "label": "Pełna kontrola warunków wieku"
+        },
+        {
+          "path": "analysis/evidence/filter-report-runtime.json",
+          "label": "Raport efektów filtrów rzeczywistych analiz"
+        },
+        {
+          "path": "analysis/evidence/wiktionary-attestation-decision.md",
+          "label": "Rodzaj źródła pomocniczych poświadczeń"
         }
       ],
       "gate": {
-        "id": "mixed_history_priority",
+        "id": "wiktionary_auxiliary_attestation_policy",
         "status": "pending",
-        "created_at": "2026-10-04T22:03:35Z",
-        "question": "Czy dodatkowe daw./przest. wyklucza interpretację ze STANDARD mimo oznaczenia dziś gwarowe/książkowe?",
+        "created_at": "2026-10-04T22:23:40Z",
+        "question": "Czy Wikisłownik może być pomocniczym źródłem poświadczenia całej istniejącej konstrukcji SGJP, po pozytywnym audycie konkretnego wpisu?",
         "options": {
-          "A": "Tak: dodatkowe oznaczenie dawności wyklucza tę interpretację; samo dziś gwarowe/książkowe nie wyklucza (rekomendowane).",
-          "B": "Nie: oznaczenie dziś ma pierwszeństwo przed dodatkowymi daw./przest.; pozostałe warunki obowiązują."
+          "A": "Tak: pełne polskie hasło może być pomocniczym dowodem; audyt, uwagi o poprawności i pozostałe warunki obowiązują (rekomendowane).",
+          "B": "Nie: wymagamy poświadczeń ze słowników instytucjonalnych/profesjonalnych; Wikisłownik tylko orientacyjnie."
         },
         "answer": null,
-        "artifact": "analysis/evidence/mixed-history-decision.md"
+        "artifact": "analysis/evidence/wiktionary-attestation-decision.md"
       }
     },
     {

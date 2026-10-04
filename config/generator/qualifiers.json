@@ -3050,6 +3050,17 @@
       "decision": "A",
       "registry": "config/generator/policy.json",
       "scope": "disrecommendation_only_not_full_qualifier_classification"
+    },
+    {
+      "rule_id": "linguistic-historical-form-v1",
+      "decision": "A mixed_history_priority",
+      "registry": "config/generator/policy.json",
+      "scope": "age_only_not_full_qualifier_classification"
+    },
+    {
+      "rule_id": "linguistic-current-usage-non-excluding-v1",
+      "registry": "config/generator/policy.json",
+      "scope": "explicit_current_usage_only_other_restrictions_preserved"
     }
   ]
 }

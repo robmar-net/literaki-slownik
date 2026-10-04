@@ -32,3 +32,9 @@ Odtworzenie: `python3 scripts/probe_generator_evidence.py --database PATH --mode
 ## Zatwierdzone niezalecanie
 
 Użytkownik zatwierdził [A](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/disrecommended-decision.md): samo `niezal.` nie odrzuca w BROAD ani STANDARD. `config/generator/policy.json` rejestruje warunek, a `disrecommended_checks` pokazuje go również w explain. Nie jest to pełna ocena złożonej etykiety; historyczność i inne ograniczenia pozostają osobne. Pełny odczyt wszystkich 2 330 rekordów i pięciu dosłownych pól potwierdził pokrycie tej decyzji.
+
+## Zatwierdzony wiek form i pierwszeństwo dawności
+
+Użytkownik zatwierdził [A](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md): dodatkowe daw./przest. wyklucza konkretną interpretację ze STANDARD mimo dziś. Samo dziś gwarowe/książkowe/rzadkie nie wyklucza. `history_checks` używa zamkniętej mapy 160 etykiet historycznych (w tym potwierdzonego arch. po ku) i 16 wskazujących współczesne użycie. Wybrano je po przeglądzie całej listy dosłownych etykiet i definicji SGJP. Każda ocena dotyczy wyłącznie wieku, nie kompletnej poprawności lub dopuszczalności. Nieznane etykiety nie są interpretowane przez substring.
+
+Pełny przegląd 615 pól potwierdził 180 pól z oceną wieku, 601 247 źródłowych rekordów. Historyczność i współczesne wskazanie mogą się nakładać; nie sumujemy tych liczników jako utraconych słów. Pozostałe składniki złożonych etykiet, np. akcent, nadal wymagają domknięcia semantyki.

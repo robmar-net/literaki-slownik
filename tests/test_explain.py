@@ -26,6 +26,8 @@ class ExplainTests(unittest.TestCase):
                  'dna\tdna\tsubst:sg:nom:f\t\t',
                  'żaba\tżaba\tsubst:sg:nom:f\t\t']
         lines.append('kakaa\tkakao\tsubst:sg:gen:n\t\tniezal.')
+        lines += ['masny\tmasny\tadj:sg:nom:m3:pos\t\tdaw._dziś_gwar.',
+                  'masniejszy\tmasny\tadj:sg:nom:m3:com\t\tdaw.,daw._dziś_gwar.,rzad.']
         lines += [f'kot\tkot:S{i}\tsubst:sg:nom:m2\t\t' for i in range(150)]
         source = root / 'source.gz'
         with gzip.open(source, 'wt', encoding='utf-8') as stream:
@@ -46,6 +48,16 @@ class ExplainTests(unittest.TestCase):
             self.assertEqual(len(confirmed), 1)
             self.assertEqual(confirmed[0]['status'], 'accept')
         self.assertEqual(value['list_membership']['status'], 'unresolved')
+
+    def test_current_and_historical_forms_have_separate_age_checks(self):
+        current = explain(self.run, 'masny')['analyses'][0]['assessment']
+        old = explain(self.run, 'masniejszy')['analyses'][0]['assessment']
+        self.assertEqual(current['language']['standard']['status'], 'unresolved')
+        self.assertEqual(old['language']['standard']['status'], 'reject')
+        self.assertEqual(old['language']['broad']['status'], 'unresolved')
+        self.assertTrue(any(c['rule_id'] == 'linguistic-historical-form-v1'
+                            for c in old['language']['standard']['checks']))
+        self.assertEqual(explain(self.run, 'masniejszy')['list_membership']['status'], 'unresolved')
 
     def test_readonly_all_originals_homonyms_and_expanded_tags(self):
         before = [sha256(self.run / f) for f in ('manifest.json', 'build.sqlite')]
