@@ -189,3 +189,7 @@ A: zatwierdzić dziewięć grup i I1–I3, rozpocząć implementację według ex
 ## Źródła społecznościowe — decyzja użytkownika
 
 Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych.
+
+## Zakres użycia — postęp G3/G4
+
+Wdrożono zatwierdzony niewykluczający zakres potoczności, wulgarności, regionalności, gwarowości i rzadkości dla 15 sprawdzonych dosłownych etykiet. Inne składniki oraz pełna polityka nadal wymagają domknięcia. Oznaczenie niepopr. pozostaje nierozstrzygnięte do decyzji użytkownika; nie jest utożsamione z niezal.

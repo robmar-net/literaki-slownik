@@ -7,6 +7,32 @@ from literaki_slownik.inputs import GeneratorError
 
 
 class PolicyTests(unittest.TestCase):
+    def test_informal_and_rare_conditions_do_not_reject(self):
+        from literaki_slownik.policy import usage_checks
+        for field in ('pot.', 'wulg.', 'reg.', 'gwar.', 'rzad.', 'pot.,reg.,rzad.', 'rzad.,wulg.'):
+            checks = usage_checks(field)
+            self.assertEqual(len(checks), 1, field)
+            self.assertEqual(checks[0]['status'], 'accept')
+            self.assertEqual(checks[0]['source_label'], field)
+
+    def test_usage_does_not_guess_unreviewed_compounds_or_complete_policy(self):
+        from literaki_slownik.policy import usage_checks
+        for field in ('niepopr.,pot.', 'pot.,po_liczebniku', 'daw.,reg.', 'reg.,nowe', ''):
+            self.assertEqual(usage_checks(field), [], field)
+        checks = usage_checks('pot.|rzad.|pot.')
+        self.assertEqual(len(checks), 2)
+        checks.append({'rule_id': 'remaining', 'status': 'unresolved', 'message': 'Pending', 'evidence': []})
+        self.assertEqual(assessment(checks)['status'], 'unresolved')
+        checks += history_checks('daw.', 'standard')
+        self.assertEqual(assessment(checks)['status'], 'reject')
+
+    def test_usage_registry_matches_closed_literals(self):
+        from literaki_slownik.policy import USAGE_LABELS
+        rules = json.loads(Path('config/generator/policy.json').read_text())['rules']
+        rule = next(r for r in rules if r['rule_id'] == 'linguistic-informal-rare-non-excluding-v1')
+        self.assertEqual(set(rule['literal_labels']), USAGE_LABELS)
+        self.assertEqual(rule['variants'], {'broad': 'non_excluding', 'standard': 'non_excluding'})
+
     def test_history_priority_applies_to_same_interpretation_only(self):
         mixed = ('daw.,daw._dziś_gwar.', 'daw.,daw._dziś_gwar.,rzad.',
                  'przest.,przest._dziś_książk.')

@@ -30,3 +30,5 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Raport wpływu filtrów](../../docs/generator/raporty.md) — strumieniowe efekty samodzielne/kolejne/łączne; bez deklaracji pełnego wydania.
 
 - [Odroczenie źródeł społecznościowych](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/wiktionary-attestation-decision.md) — decyzja użytkownika: Wikisłownik i podobne źródła dopiero później; obecne dane bez ich użycia.
+
+- [Ocena niepoprawności SGJP](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/incorrect-forms-decision.md) — wybór przed aktywacją filtra, odrębny od niezalecania.

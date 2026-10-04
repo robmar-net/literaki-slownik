@@ -26,6 +26,7 @@ class ExplainTests(unittest.TestCase):
                  'dna\tdna\tsubst:sg:nom:f\t\t',
                  'żaba\tżaba\tsubst:sg:nom:f\t\t']
         lines.append('kakaa\tkakao\tsubst:sg:gen:n\t\tniezal.')
+        lines.append('regionalna\tregionalny\tadj:sg:nom:f:pos\t\treg.,rzad.')
         lines += ['masny\tmasny\tadj:sg:nom:m3:pos\t\tdaw._dziś_gwar.',
                   'masniejszy\tmasny\tadj:sg:nom:m3:com\t\tdaw.,daw._dziś_gwar.,rzad.']
         lines += [f'kot\tkot:S{i}\tsubst:sg:nom:m2\t\t' for i in range(150)]
@@ -36,6 +37,15 @@ class ExplainTests(unittest.TestCase):
         rewrite(manifest_path, manifest)
         self.run = root / 'run'
         build(manifest_path, self.run)
+
+    def test_usage_condition_visible_with_full_membership_unresolved(self):
+        value = explain(self.run, 'regionalna')
+        for variant in ('broad', 'standard'):
+            language = value['analyses'][0]['assessment']['language'][variant]
+            self.assertEqual(language['status'], 'unresolved')
+            self.assertTrue(any(c['rule_id'] == 'linguistic-informal-rare-non-excluding-v1'
+                                and c['status'] == 'accept' for c in language['checks']))
+        self.assertEqual(value['list_membership']['status'], 'unresolved')
 
     def test_approved_disrecommended_condition_visible_without_full_acceptance(self):
         value = explain(self.run, 'kakaa')

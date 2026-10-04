@@ -3,7 +3,27 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v3'
+VERSION = 'diagnostic-approved-conditions-v4'
+USAGE_LABELS = frozenset({
+    'gwar.', 'gwar.,pot.', 'gwar.,rzad.', 'pot.', 'pot.,reg.',
+    'pot.,reg.,rzad.', 'pot.,rzad.', 'pot.,rzad.,wulg.', 'pot.,wulg.',
+    'reg.', 'reg.,rzad.', 'reg.,wulg.', 'rzad.', 'rzad.,wulg.', 'wulg.',
+})
+
+
+def usage_checks(qualifiers):
+    """Zatwierdzony niewykluczający zakres użycia, bez pełnego werdyktu.
+
+    Zamknięte dosłowne etykiety; nie rozbijamy przecinków w runtime.
+    Mieszanki z ograniczeniami spoza tej mapy wymagają osobnej oceny.
+    """
+    return [{'rule_id': 'linguistic-informal-rare-non-excluding-v1',
+             'status': 'accept', 'source_label': label,
+             'message': 'Sama potoczność, wulgarność, regionalność, gwarowość lub rzadkość nie wyklucza; inne warunki oceniane osobno.',
+             'evidence': ['docs/literaki-niezalezne-slowniki-prompt-v3.md',
+                          'config/generator/policy.json', 'https://sgjp.pl/oznaczenia/']}
+            for label in sorted(set(qualifiers.split('|')) & USAGE_LABELS)]
+
 DISRECOMMENDED_LABELS = frozenset({
     'niezal.', 'daw.,niezal.', 'niezal.,przest.', 'niezal.,rzad.', 'niezal.,pot.',
 })

@@ -58,3 +58,5 @@ python3 -m unittest discover -s scripts -p 'test_audit_sgjp.py'
 Explain w wersji `diagnostic-approved-conditions-v2` pokazuje zatwierdzone A dla `niezal.`: samo niezalecanie nie odrzuca w obu wariantach. Obok tej pozytywnej oceny pojedynczego warunku nadal pokazuje nierozstrzygnięcie pełnej polityki. Nie jest to werdykt dopuszczalności całego słowa. Odczyt istniejącego importu pokazuje warunki bieżącej wersji kodu, nie ukończony historyczny build decyzji.
 
 Explain w wersji `diagnostic-approved-conditions-v3` pokazuje również zatwierdzone warunki wieku: dodatkowa dawność/archaiczność może dać językowe reject w STANDARD mimo niewiadomych innych warunków. BROAD pozostawia samą dawność niewykluczającą. List_membership pozostaje unresolved, ponieważ nie zbudowano wszystkich konstrukcji i pełnych decyzji.
+
+Wersja `diagnostic-approved-conditions-v4` dodaje jawny niewykluczający warunek zakresu użycia dla 15 sprawdzonych etykiet potoczności/regionalności/gwarowości/wulgarności/rzadkości. Nieznane mieszanki pozostają do oceny; całe członkostwo nadal unresolved. Niepopr. nie jest jeszcze aktywnym filtrem.

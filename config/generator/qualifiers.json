@@ -3061,6 +3061,12 @@
       "rule_id": "linguistic-current-usage-non-excluding-v1",
       "registry": "config/generator/policy.json",
       "scope": "explicit_current_usage_only_other_restrictions_preserved"
+    },
+    {
+      "rule_id": "linguistic-informal-rare-non-excluding-v1",
+      "decision": "approved prompt §2.3 and spec §5",
+      "registry": "config/generator/policy.json",
+      "scope": "closed_15_usage_labels_not_full_qualifier_classification"
     }
   ]
 }

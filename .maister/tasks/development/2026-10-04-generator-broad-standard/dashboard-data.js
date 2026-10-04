@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T22:33:39Z",
+  "generated": "2026-10-04T22:40:53Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Dane SGJP/KWJP; źródła społecznościowe odłożone, brakujące dowody unresolved"
+    "current_activity": "Zakres użycia sprawdzony; decyzja przed filtrem niepopr."
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Reguły wieku i raport filtrów wdrożone. Użytkownik odłożył Wikisłownik i podobne źródła społecznościowe na później; brak nowych aktywnych źródeł. G3–G6 nadal częściowe, niewiadome zachowane.",
+      "summary": "Dodano zatwierdzony niewykluczający zakres użycia: 15 etykiet, 288034 rekordy ekspozycji. Generator 74/74 i audit 5/5. Przed filtrem niepopr. czeka konkretna decyzja; źródła społecznościowe nadal odłożone. G3–G6 częściowe.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -353,10 +353,26 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/wiktionary-attestation-decision.md",
           "label": "Rodzaj źródła pomocniczych poświadczeń"
+        },
+        {
+          "path": "analysis/evidence/usage-incorrect-runtime.json",
+          "label": "Pełna ekspozycja zakresu użycia i niepoprawności"
+        },
+        {
+          "path": "analysis/evidence/incorrect-forms-decision.md",
+          "label": "Decyzja dotycząca jawnego niepopr."
         }
       ],
       "gate": {
-        "question": null,
+        "id": "incorrect_source_label_policy",
+        "status": "pending",
+        "created_at": "2026-10-04T22:40:53Z",
+        "artifact": "analysis/evidence/incorrect-forms-decision.md",
+        "question": "Czy jawna, sprawdzona etykieta niepopr. w SGJP wystarcza do odrzucenia tej interpretacji w BROAD i STANDARD?",
+        "options": {
+          "A": "Tak: odrzuć tę interpretację, zachowując wpis i inne analizy (rekomendowane).",
+          "B": "Nie automatycznie: indywidualny przegląd, do rozstrzygnięcia unresolved."
+        },
         "answer": null
       }
     },

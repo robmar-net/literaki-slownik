@@ -11,7 +11,7 @@ Semantyka techniczna eksportu jest potwierdzona; pełna polityka złożonych ety
 - Wersjonowany rejestr jest dokumentacją discovery, a nie aktywnym filtrem.
 
 ## Open Questions / Risks
-- Pełne nazwy „dawne, dziś gwarowe/rzadkie/frazeologiczne” oraz „przestarzałe, dziś książkowe” wskazują współczesne ograniczenie użycia. Nadal trzeba ustalić ich wpływ na STANDARD oraz historyczne literalne etykiety przecinkowe; nie są one alternatywą sensów.
+- Pełne nazwy „dawne, dziś gwarowe/rzadkie/frazeologiczne” oraz „przestarzałe, dziś książkowe” wskazują współczesne ograniczenie użycia. Ich wpływ na wiek formy rozstrzygnięto w zatwierdzonej regule 160/16 etykiet; pozostałe składniki nadal wymagają oceny. Nie są one alternatywą sensów.
 - Nie przyjmujemy automatycznie wyłączeń źródłowych SJP.pl; brak metadanych SJPDor nie jest uzgodnionym powodem odrzucenia. Zob. [sprostowanie polityki źródeł](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/source-policy-clarification.md). `z_D.` oznacza łączenie zaimka z określeniem przymiotnikowym w dopełniaczu, a nie pochodzenie z Doroszewskiego.
 
 ## Dowód formatu
@@ -38,3 +38,9 @@ Użytkownik zatwierdził [A](../../.maister/tasks/development/2026-10-04-generat
 Użytkownik zatwierdził [A](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md): dodatkowe daw./przest. wyklucza konkretną interpretację ze STANDARD mimo dziś. Samo dziś gwarowe/książkowe/rzadkie nie wyklucza. `history_checks` używa zamkniętej mapy 160 etykiet historycznych (w tym potwierdzonego arch. po ku) i 16 wskazujących współczesne użycie. Wybrano je po przeglądzie całej listy dosłownych etykiet i definicji SGJP. Każda ocena dotyczy wyłącznie wieku, nie kompletnej poprawności lub dopuszczalności. Nieznane etykiety nie są interpretowane przez substring.
 
 Pełny przegląd 615 pól potwierdził 180 pól z oceną wieku, 601 247 źródłowych rekordów. Historyczność i współczesne wskazanie mogą się nakładać; nie sumujemy tych liczników jako utraconych słów. Pozostałe składniki złożonych etykiet, np. akcent, nadal wymagają domknięcia semantyki.
+
+## Potoczność, regionalność i rzadkość
+
+Zatwierdzony prompt §2.3 i specyfikacja §5 nie wykluczają form tylko przez potoczność, wulgarność, regionalność, gwarowość ani rzadkość. `usage_checks` stosuje ten zakres do zamkniętej mapy 15 zaobserwowanych dosłownych etykiet; runtime nie dzieli przecinków ani nie zgaduje nowych mieszanek. Pozytywna ocena warunku nie nadaje całej analizie accept. Potwierdzono znaczenie pięciu oznaczeń w [dokumentacji SGJP](https://sgjp.pl/oznaczenia/).
+
+[Runtime](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/usage-incorrect-runtime.json): 288 034 rekordy ekspozycji; wszystkie 15 etykiet obecne, brak zapisów do źródłowej bazy. Pełna polityka oraz niepopr. pozostają otwarte; decyzja o niezal. ich nie zastępuje.

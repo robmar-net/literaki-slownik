@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "approved-conditions-v2",
+  "version": "approved-conditions-v3",
   "status": "partial_not_release_policy",
   "rules": [
     {
@@ -242,6 +242,36 @@
         "absztyfikant"
       ],
       "interpretation": "Samo dziś nie wyklucza; nie znosi daw./przest./arch. ani innych ograniczeń"
+    },
+    {
+      "rule_id": "linguistic-informal-rare-non-excluding-v1",
+      "status": "confirmed",
+      "operation": "non_excluding_usage",
+      "scope": "usage_only_other_conditions_evaluated_separately",
+      "literal_labels": [
+        "gwar.",
+        "gwar.,pot.",
+        "gwar.,rzad.",
+        "pot.",
+        "pot.,reg.",
+        "pot.,reg.,rzad.",
+        "pot.,rzad.",
+        "pot.,rzad.,wulg.",
+        "pot.,wulg.",
+        "reg.",
+        "reg.,rzad.",
+        "reg.,wulg.",
+        "rzad.",
+        "rzad.,wulg.",
+        "wulg."
+      ],
+      "variants": {
+        "broad": "non_excluding",
+        "standard": "non_excluding"
+      },
+      "decision": "docs/literaki-niezalezne-slowniki-prompt-v3.md#23-zakres-standard",
+      "source": "https://sgjp.pl/oznaczenia/",
+      "interpretation": "Wdrożenie już zatwierdzonego zakresu: same te kwalifikatory nie odrzucają. Zamknięta mapa obejmuje wyłącznie 15 zaobserwowanych etykiet złożonych z tych pięciu oznaczeń."
     }
   ]
 }
