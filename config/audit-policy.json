@@ -1,0 +1,28 @@
+{
+  "policy_id": "audyt-propozycja-v1",
+  "status": "propozycja-do-przegladu-nie-slownik-produkcyjny",
+  "unicode": "NFC",
+  "alphabet": "aąbcćdeęfghijklłmnńoóprsśtuwyzźż",
+  "min_length": 2,
+  "max_length": 15,
+  "excluded_pos": [
+    "brev"
+  ],
+  "unresolved_segment_pos": [
+    "adja",
+    "pacta",
+    "aglt",
+    "numcomp",
+    "prefs",
+    "prefa"
+  ],
+  "incorrect_labels": [
+    "niepopr."
+  ],
+  "historical_labels": [
+    "daw.",
+    "przest.",
+    "arch."
+  ],
+  "note": "Scenariusz audytu, nie lista końcowa. adjp i frag nie są automatycznie usuwane: zależność składniowa nie oznacza niepełnego słowa ortograficznego. Mieszane oznaczenia i wielkie litery wymagają przeglądu. hist. oraz rzad. nie oznaczają przestarzałości."
+}

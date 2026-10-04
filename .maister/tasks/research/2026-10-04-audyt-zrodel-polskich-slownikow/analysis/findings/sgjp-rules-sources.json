@@ -1,0 +1,87 @@
+[
+  {
+    "path": "cache/sgjp-docs/download.html",
+    "download_url": "https://morfeusz.sgjp.pl/download/",
+    "retrieved_at": "2026-10-04T02:01:18.061001+00:00",
+    "sha256": "eff57a342c6309ebf406e9207fddbfd7f2acd22928000fbcb8733ca71c5cb6b4",
+    "bytes": 12049,
+    "publication": "cache wyłączony z Git; raport odsyła do źródła"
+  },
+  {
+    "path": "cache/sgjp-docs/license.html",
+    "download_url": "https://morfeusz.sgjp.pl/doc/license/en",
+    "retrieved_at": "2026-10-04T02:01:24.785443+00:00",
+    "sha256": "8a32a947958f8198a1a3e9473508a8afa93a1a6f83f3f6acdea902c30682f24b",
+    "bytes": 7394,
+    "publication": "cache wyłączony z Git; raport odsyła do źródła"
+  },
+  {
+    "path": "cache/sgjp-docs/Morfeusz2.pdf",
+    "download_url": "https://download.sgjp.pl/morfeusz/Morfeusz2.pdf",
+    "retrieved_at": "2026-10-04T02:01:31.659909+00:00",
+    "sha256": "5571ddb62c0e19668919151bc89637b9fb0a80ffd6665f2d4d1ff3cde756d3cd",
+    "bytes": 159261,
+    "publication": "cache wyłączony z Git; raport odsyła do źródła"
+  },
+  {
+    "path": "cache/sgjp-docs/release.html",
+    "download_url": "https://download.sgjp.pl/morfeusz/20260823/",
+    "retrieved_at": "2026-10-04T02:05:28.077020+00:00",
+    "sha256": "86d5c0619b213a92d1495f2c0bb0c49e4acc706f22f50810e6980c8c703fe0d4",
+    "bytes": 1088,
+    "publication": "cache wyłączony z Git; raport odsyła do źródła"
+  },
+  {
+    "path": "cache/sgjp-docs/morfeusz-src-20260823.tar.gz",
+    "download_url": "https://download.sgjp.pl/morfeusz/20260823/morfeusz-src-20260823.tar.gz",
+    "retrieved_at": "2026-10-04T02:05:54.768253+00:00",
+    "sha256": "276320473e6daff68ff13a276ba5da190edbabbe9bc0be5ede0cd1bb3bf2f7ea",
+    "bytes": 2912355,
+    "publication": "cache wyłączony z Git; raport odsyła do źródła"
+  },
+  {
+    "path": "cache/sgjp-docs/Morfeusz/input/segmenty.dat",
+    "download_url": "https://download.sgjp.pl/morfeusz/20260823/morfeusz-src-20260823.tar.gz#Morfeusz/input/segmenty.dat",
+    "retrieved_at": "2026-10-04T02:05:54.768253+00:00",
+    "sha256": "73fca7c4cd5a1cd0db5cd6367b098ec96a6fb01481a0eb441f3b24aa9ca4521c",
+    "bytes": 57192,
+    "publication": "cache wyłączony z Git; raport odsyła do źródła",
+    "archive_member_mtime": "2026-04-27T12:56:52+00:00"
+  },
+  {
+    "path": "cache/sgjp-docs/Morfeusz/input/morfeusz-sgjp.tagset",
+    "download_url": "https://download.sgjp.pl/morfeusz/20260823/morfeusz-src-20260823.tar.gz#Morfeusz/input/morfeusz-sgjp.tagset",
+    "retrieved_at": "2026-10-04T02:05:54.768253+00:00",
+    "sha256": "495170ca791217d98bf3eabbf2011057f183bfd88e97063cbd78c2714e1ad1dd",
+    "bytes": 24466,
+    "publication": "cache wyłączony z Git; raport odsyła do źródła",
+    "archive_member_mtime": "2026-04-27T12:56:52+00:00"
+  },
+  {
+    "path": "cache/sgjp-docs/Morfeusz/fsabuilder/morfeuszbuilder/fsa/convertinput.py",
+    "download_url": "https://download.sgjp.pl/morfeusz/20260823/morfeusz-src-20260823.tar.gz#Morfeusz/fsabuilder/morfeuszbuilder/fsa/convertinput.py",
+    "retrieved_at": "2026-10-04T02:05:54.768253+00:00",
+    "sha256": "75195b2a64c528966ad203a59384dc0fe4c3bd09ae9c8f108c4ded5b9af9bed0",
+    "bytes": 9690,
+    "publication": "cache wyłączony z Git; raport odsyła do źródła",
+    "archive_member_mtime": "2026-04-27T12:56:52+00:00"
+  },
+  {
+    "path": "cache/sgjp-docs/Morfeusz/fsabuilder/morfeuszbuilder/tagset/segtypes.py",
+    "download_url": "https://download.sgjp.pl/morfeusz/20260823/morfeusz-src-20260823.tar.gz#Morfeusz/fsabuilder/morfeuszbuilder/tagset/segtypes.py",
+    "retrieved_at": "2026-10-04T02:05:54.768253+00:00",
+    "sha256": "dc83f6b0bd12dae61ddfc36c110b17c0962ac2ce51cf4493a71cd9e1e81f85a3",
+    "bytes": 8975,
+    "publication": "cache wyłączony z Git; raport odsyła do źródła",
+    "archive_member_mtime": "2026-04-27T12:56:52+00:00"
+  },
+  {
+    "path": "cache/sgjp-docs/Morfeusz/morfeusz/const.cpp",
+    "download_url": "https://download.sgjp.pl/morfeusz/20260823/morfeusz-src-20260823.tar.gz#Morfeusz/morfeusz/const.cpp",
+    "retrieved_at": "2026-10-04T02:05:54.768253+00:00",
+    "sha256": "158e7229e3d2c2bb477a62e5852edc17ecd139625ec1d9d43f78f20d9323147c",
+    "bytes": 1762,
+    "publication": "cache wyłączony z Git; raport odsyła do źródła",
+    "archive_member_mtime": "2026-04-27T12:56:52+00:00"
+  }
+]

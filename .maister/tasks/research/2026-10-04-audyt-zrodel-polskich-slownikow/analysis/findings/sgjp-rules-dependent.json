@@ -1,0 +1,89 @@
+{
+  "status": "audit_recommendation_not_production_policy",
+  "source": "Morfeusz/input/segmenty.dat z morfeusz-src-20260823.tar.gz",
+  "source_sha256": "73fca7c4cd5a1cd0db5cd6367b098ec96a6fb01481a0eb441f3b24aa9ca4521c",
+  "dependent_pos": [
+    "adja",
+    "pacta",
+    "numcomp",
+    "aglt",
+    "prefs",
+    "prefa"
+  ],
+  "dependent_tag_conditions": [
+    {
+      "pos": "praet",
+      "tag_suffix": ":agl"
+    }
+  ],
+  "dependent_lexeme_conditions": [
+    {
+      "lemma_base": "ż",
+      "tag_exact_any": [
+        "part:wok",
+        "part:nwok"
+      ],
+      "source_lines": "740–741"
+    },
+    {
+      "lemma_base": "on",
+      "source_lines": "822",
+      "tag_exact_in_rules": "ppron3:sg:gen.acc:m1.m2.m3:ter:nakc:praep",
+      "current_export_tag_exact_any": [
+        "ppron3:sg:gen:m1.m2.m3:ter:nakc:praep",
+        "ppron3:sg:acc:m1.m2.m3:ter:nakc:praep"
+      ],
+      "current_export_qualifier": "pisane_łącznie_z_przyimkiem",
+      "mismatch": "Reguła źródłowa skleja gen.acc; eksport rozdziela gen i acc. Wymaga kontroli zgodności tagsetu/reguł."
+    },
+    {
+      "lemma_base_any": [
+        "latek",
+        "latka",
+        "lecie",
+        "ścian"
+      ],
+      "tag_prefix": "subst:",
+      "source_lines": "1913–1916",
+      "observed_rows": 0
+    },
+    {
+      "lemma_base": "kroć",
+      "tag_exact": "adv",
+      "source_lines": "1917",
+      "observed_rows": 0
+    },
+    {
+      "lemma_base_any": [
+        "+znawca",
+        "+dawca",
+        "+biorca",
+        "+żerca",
+        "+maniak",
+        "+logia",
+        "+log"
+      ],
+      "tag_prefix": "subst:",
+      "source_lines": "1906–1912",
+      "observed_rows": 0
+    },
+    {
+      "lemma_base_any": [
+        "ty",
+        "y"
+      ],
+      "tag_prefix": "adj:",
+      "source_lines": "1918–1919",
+      "observed_rows": 0
+    }
+  ],
+  "excluded_from_dependent_pos": {
+    "adjp": "adjp:dat jest samodzielnym segmentem według reguły w linii199; zależność składniowa nie jest niesamodzielnością ortograficzną",
+    "frag": "brak ogólnej reguły wyłączającej samodzielną postać ortograficzną; wymaga odrębnej polityki"
+  },
+  "notes": [
+    "Warunki dotyczą interpretacji; napis pozostaje, jeśli ma inną dopuszczoną interpretację.",
+    "lemma_base służy wyłącznie dopasowaniu oficjalnej reguły bez identyfikatora homonimu; nie wolno nim zastąpić trwałego identyfikatora leksemu.",
+    "brev, dig, romandig, interp, sym, sp, ign wymagają odrębnych filtrów kategorii technicznych."
+  ]
+}

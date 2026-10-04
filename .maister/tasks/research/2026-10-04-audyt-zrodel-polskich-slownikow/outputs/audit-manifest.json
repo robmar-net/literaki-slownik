@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "stage": "audit",
+  "created_at": "2026-10-04T02:29:41Z",
+  "input_prompt": {
+    "path": "docs/literaki-niezalezne-slowniki-prompt-v3.md",
+    "sha256": "acdd6fd7d040e98e05613809bfa78f6db37439d99a4e5f450d27350b99689a9d",
+    "byte_identical_to_user_source": true
+  },
+  "base_commit_before_audit": "222a036be9fcaf13bc4bab495506914ce2a27bb1",
+  "code_identity": "dokładne sumy plików poniżej; commit publikacji obejmuje je razem z tym manifestem",
+  "environment": {
+    "python": "3.14.0 (main, Oct  7 2025, 09:34:52) [Clang 17.0.0 (clang-1700.3.19.1)]",
+    "unicode": "16.0.0",
+    "sort_locale": "C"
+  },
+  "scripts_sha256": {
+    "scripts/audit_kwjp.py": "9bed7a4ef9fa415dc204b2eba832b27e4be0bbcfbab4cb0bb72960a21e55eed2",
+    "scripts/audit_nkjp.py": "be638a624b6e483aaa48fac1efcc7004f49f92c1bcfd0c65d489a864e1694848",
+    "scripts/audit_sgjp.py": "eddfb8f8806f438b48a1ee360839aba234c9164dbe2e6055b962b99e07c53b4b",
+    "scripts/pilot_links.py": "004c5dc8f550aed89ee8dc0a097d739fe7dfc02a60c1a7461c6bfdfcbbbad2ca",
+    "scripts/render_report.py": "98f7e4cbc439582192e50e2dc92f870581bb795198da4b952ef786e0862afdb0",
+    "scripts/test_audit_sgjp.py": "1a95f5ff792ee9be785bb58c2e4bf477e5979a66dbfb9a6d045a31a968f1f2d1"
+  },
+  "configuration_sha256": "ec55f8a2a1be19f669d4d72f7bb992a3bea2021c332c139d0d8db11ce2c887c4",
+  "source_registers": [
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/nkjp-sources.json",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/polimorf-sources.json",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/sgjp-rules-sources.json",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/supplementary-sources.json",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/sgjp-source.json",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-documentation-evidence.json"
+  ],
+  "outputs_sha256": {
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/audit-review.md": "06b97f4ab62e2dd0bac55f1c20d4e69fb22766c31f72ea39d5490202fb197483",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/game-policy.md": "b7cf3b2e0abf57135e75aa918a078ec397b744b24eef0b092bbb8638f0dabcb0",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-documentation-evidence.json": "aa43b6e4f67bf926889d3a2fe2d7fa79125406f51ee77c39026a247e773708b3",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-findings.md": "cdbd65a0179288d424674a15b2553f84ad06cddf5a7e050249c468e7034be260",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md": "86151fe216ef801a0badd0012d3d22ec536b356feca74093b5e5ead9b14b19d8",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-source-registry.json": "c3495f85fa50cc089db1d60f61e049570679cbde57e9d0b779cad7a79f3d87f8",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-statistics.json": "5325e85497c8b02b01f92af215fffd147f88a1375655e99660261e9817f2f362",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/model-procesu.md": "778414b43d28c1adfe607f1dc1b606de40ce2c6eb4dafc1239bed9d4cdcedee1",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/nkjp-audit.md": "836798d7921daa96885824ad606d2f549208aecc173ac7c2427e7a2bf7436091",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/nkjp-sources.json": "7c1830b960c4671cc1c159e438bce84c9cead0f3d6108b7b79a1c2f23134bfea",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/nkjp-statistics.json": "3756151b3711a84347c865e006af239403e02db2cde2980240381372aa4e74ec",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/pilot-links.json": "2b45bd6938a1f67c52ae8aae4442e52b051405c032c8bdcb59f87722734d299d",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/polimorf-provenance.md": "56b7b639ed422dfe6555da5abb599f1d97b1e99bf44ae03248c02382453eafca",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/polimorf-sources.json": "0bcec35dcd8fb3c1b5c5e2474bc61fdcb845994fa24bfbb64bff4cee819e5d29",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/sgjp-rules-dependent.json": "dfac7589bc1663dfcc0a3f8d145ad549fefb317a20e226a0e3e58e2a630e317b",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/sgjp-rules-probe.json": "a5127dc14553ec29e3bea4365899a9b57bfe9dd6999d60b6b6115d6333915d5f",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/sgjp-rules-sources.json": "7db4ef619b430c7c8b124b266655470e0cdede1c8ec08cc367579e5ce57246d0",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/sgjp-rules.md": "95a1feec37466e857ae262c07171f0bfafbedb061da6b7cc5eb813ee53ecf175",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/sgjp-source.json": "7c689df74ed250419bd4ec337eee6b821467c900aac08970d0290f4f40000020",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/sgjp-stats.json": "92176068be72ee455993df56e46163d76072e685655f5acf802d55e30fdc7bff",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/supplementary-sources.json": "a1c17d4a2c5256793eb62d8c60d32503e17e16c079faa1002636f20eebae4bec",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/synthesis.md": "7ba128b1814c06bd8037638551c2d624e9f485200eb904879475441a62740e56",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/research-report.html": "122a25538345e4f28988e402cffdc34ab918a17aa24ce9d998d8884b5d4534b2",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/research-report.md": "ebb9afc85ab107bdd1c01a900810ccee7e4b0215c4b4dc31ba15aad782b51efd"
+  },
+  "controls": {
+    "unit_tests": 5,
+    "unit_tests_passed": 5,
+    "pilot_case_collapsed_status_corrected": true,
+    "sgjp_stats_bound_to_current_script_and_policy": true,
+    "kwjp_artifacts": 13,
+    "kwjp_git_blob_matches": 13,
+    "html_viewports": [
+      390,
+      1280
+    ],
+    "html_document_overflow": false,
+    "html_h2_count": 15,
+    "html_table_count": 6,
+    "full_source_coverage_reviewed": true
+  },
+  "limits": [
+    "NKJP BLOCKED do konstrukcji/pilotażu",
+    "Filtry to scenariusze, nie słowniki produkcyjne",
+    "Brak pełnego dowodu kompletności wszystkich klas fleksji",
+    "Bramka zatwierdzenia raportu oczekuje odpowiedzi"
+  ],
+  "seed": null,
+  "commands_documented_in": "docs/odtwarzanie-audytu.md",
+  "attribution_files": [
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/sgjp-license.txt",
+    ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/kwjp-license-notice.md"
+  ]
+}

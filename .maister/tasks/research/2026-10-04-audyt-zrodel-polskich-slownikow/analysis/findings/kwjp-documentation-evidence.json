@@ -1,0 +1,83 @@
+[
+  {
+    "artifact": "README.source.md",
+    "source_url": "https://raw.githubusercontent.com/ipipan/kwjp100-varia/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/README.md",
+    "sha256": "29d90d40160017f022047406813b929a1dd8653672199a134973989a2c6a408e",
+    "bytes": 1069,
+    "retrieved_at": "2026-10-04T02:01:50.947345+00:00",
+    "role": "Dokumentacja audytu; nie wejście generatora; pełny plik tylko w ignorowanym cache.",
+    "public_redistribution": "README obejmuje deklaracja CC BY 4.0 repo; metadane API i strony/PDF tutaj jedynie hashe oraz cytowania, bez redystrybucji pełnej treści."
+  },
+  {
+    "artifact": "commit.json",
+    "source_url": "https://api.github.com/repos/ipipan/kwjp100-varia/commits/main",
+    "sha256": "baf7837f834a759c2f56802ae46800cc0f7f0f82d2eb693d590d07a04cb83907",
+    "bytes": 6457,
+    "retrieved_at": "2026-10-04T02:08:30.680494+00:00",
+    "role": "Dokumentacja audytu; nie wejście generatora; pełny plik tylko w ignorowanym cache.",
+    "public_redistribution": "README obejmuje deklaracja CC BY 4.0 repo; metadane API i strony/PDF tutaj jedynie hashe oraz cytowania, bez redystrybucji pełnej treści."
+  },
+  {
+    "artifact": "tree.json",
+    "source_url": "https://api.github.com/repos/ipipan/kwjp100-varia/git/trees/26d82bd8b906dfed1cfcf8f903b1650b56daeabf?recursive=1",
+    "sha256": "474533f455f6cf54c0d96bf7155cfcb6d65e8af0071638e2fd5ce080e11d7064",
+    "bytes": 16858,
+    "retrieved_at": "2026-10-04T02:08:17.382129+00:00",
+    "role": "Dokumentacja audytu; nie wejście generatora; pełny plik tylko w ignorowanym cache.",
+    "public_redistribution": "README obejmuje deklaracja CC BY 4.0 repo; metadane API i strony/PDF tutaj jedynie hashe oraz cytowania, bez redystrybucji pełnej treści."
+  },
+  {
+    "artifact": "lists-doc.html",
+    "source_url": "https://kwjp.pl/lists/doc/about/",
+    "sha256": "6f9ba688bcd18064b3cf6fb9a3522b00e17e85a25b8e20af3bf5c2ce5849d13a",
+    "bytes": 11652,
+    "retrieved_at": "2026-10-04T02:03:24.497636+00:00",
+    "role": "Dokumentacja audytu; nie wejście generatora; pełny plik tylko w ignorowanym cache.",
+    "public_redistribution": "README obejmuje deklaracja CC BY 4.0 repo; metadane API i strony/PDF tutaj jedynie hashe oraz cytowania, bez redystrybucji pełnej treści."
+  },
+  {
+    "artifact": "lists-browser.html",
+    "source_url": "https://kwjp.pl/lists/",
+    "sha256": "9e9d292ff580eff31c33c39c05447b3230c5c1a5ba9b2de27755bb0a730256d8",
+    "bytes": 12441,
+    "retrieved_at": "2026-10-04T02:03:30.857907+00:00",
+    "role": "Dokumentacja audytu; nie wejście generatora; pełny plik tylko w ignorowanym cache.",
+    "public_redistribution": "README obejmuje deklaracja CC BY 4.0 repo; metadane API i strony/PDF tutaj jedynie hashe oraz cytowania, bez redystrybucji pełnej treści."
+  },
+  {
+    "artifact": "lists.js",
+    "source_url": "https://kwjp.pl/lists/static/js/lists.js",
+    "sha256": "796d22707cdd470e4f7368acb757739f532b980288fb6942a0e3d5e30d0e2bf6",
+    "bytes": 10534,
+    "retrieved_at": "2026-10-04T02:04:07.167864+00:00",
+    "role": "Dokumentacja audytu; nie wejście generatora; pełny plik tylko w ignorowanym cache.",
+    "public_redistribution": "README obejmuje deklaracja CC BY 4.0 repo; metadane API i strony/PDF tutaj jedynie hashe oraz cytowania, bez redystrybucji pełnej treści."
+  },
+  {
+    "artifact": "overview.html",
+    "source_url": "https://kwjp.pl/overview",
+    "sha256": "a350fffdc471345940dc61099404dc07959ffed8548cc18d675b95f376a3b59c",
+    "bytes": 20585,
+    "retrieved_at": "2026-10-04T02:08:23.979949+00:00",
+    "role": "Dokumentacja audytu; nie wejście generatora; pełny plik tylko w ignorowanym cache.",
+    "public_redistribution": "README obejmuje deklaracja CC BY 4.0 repo; metadane API i strony/PDF tutaj jedynie hashe oraz cytowania, bez redystrybucji pełnej treści."
+  },
+  {
+    "artifact": "article.pdf",
+    "source_url": "https://jezyk-polski.pl/index.php/jp/article/download/1062/951/3013",
+    "sha256": "01c75ea0fc4249eddfa2d15b3c0532e19a55b0930dc07dd705d70ec36be2c0f6",
+    "bytes": 705872,
+    "retrieved_at": "2026-10-04T02:05:00.336989+00:00",
+    "role": "Dokumentacja audytu; nie wejście generatora; pełny plik tylko w ignorowanym cache.",
+    "public_redistribution": "README obejmuje deklaracja CC BY 4.0 repo; metadane API i strony/PDF tutaj jedynie hashe oraz cytowania, bez redystrybucji pełnej treści."
+  },
+  {
+    "artifact": "cc-by-4.0-legalcode.html",
+    "source_url": "https://creativecommons.org/licenses/by/4.0/legalcode.pl",
+    "sha256": "bd1121d9a0ac5655c661a764cc0e5787176a8e9df718db102bdb4b3d3154e6b7",
+    "bytes": 53437,
+    "retrieved_at": "2026-10-04T02:05:07.301850+00:00",
+    "role": "Dokumentacja audytu; nie wejście generatora; pełny plik tylko w ignorowanym cache.",
+    "public_redistribution": "README obejmuje deklaracja CC BY 4.0 repo; metadane API i strony/PDF tutaj jedynie hashe oraz cytowania, bez redystrybucji pełnej treści."
+  }
+]

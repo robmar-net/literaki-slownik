@@ -1,0 +1,16 @@
+# Dane pobierane i odtwarzalne pliki robocze
+/cache/
+/tmp/
+/data/raw/
+/data/work/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+.maister/**/.visual-companion.pid
+# Istotne raporty, manifesty, skrypty i stan .maister pozostają w Git.

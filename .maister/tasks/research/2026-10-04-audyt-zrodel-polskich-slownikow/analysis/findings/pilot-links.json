@@ -1,0 +1,2224 @@
+{
+  "selection": "13 form i 12 napisów lematów dobranych jawnie dla ilustracji, nie próba losowa jakości",
+  "method": "Dokładny napis, rozróżnianie wielkości; suffix homonimii oddzielony tylko na potrzeby klucza łączenia, nigdy usunięty z ID. POS bez mapowania; niezgodności pozostają UNMATCHED.",
+  "source_sha256": {
+    "sgjp-20260823.tab.gz": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+    "kwjp100-slowa-orth-all.csv.gz": "95e27d103250f23533bf5b87accf846fb489d2b5ea3914950857163a22ae4a5a",
+    "kwjp100-slowa-orth_lc-all.csv.gz": "20f71004b99ba9ebb158e68360aa88c627aa2e0f4ce43e18979187b0a2fa3949",
+    "kwjp100-slowa-lemma-all.csv.gz": "5206e80669a054ad4d3c9d39b7643d13e75435afa3612a15d2847f39f42bb5fc"
+  },
+  "script_sha256": "004c5dc8f550aed89ee8dc0a097d739fe7dfc02a60c1a7461c6bfdfcbbbad2ca",
+  "forms": {
+    "orth": [
+      {
+        "form": "Róża",
+        "sgjp_rows": [
+          [
+            "Róża",
+            "Róż:Sm1",
+            "subst:sg:gen.acc:m1",
+            "nazwisko",
+            ""
+          ],
+          [
+            "Róża",
+            "Róża",
+            "subst:sg:nom:f",
+            "imię|nazwa_geograficzna",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "1200.0",
+            "ipm": "14.81",
+            "ARF": "213.82",
+            "DP": "0.88863",
+            "DP_norm": "0.88875",
+            "1-DP": "0.11137",
+            "total_freq": "1200.0"
+          },
+          "source_row": 7195
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "czytał",
+        "sgjp_rows": [
+          [
+            "czytał",
+            "czytać",
+            "praet:sg:m1.m2.m3:imperf",
+            "",
+            ""
+          ],
+          [
+            "czytał",
+            "czytać",
+            "praet:sg:m1.m2.m3:ter:imperf",
+            "",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "2429.0",
+            "ipm": "29.97",
+            "ARF": "1161.16",
+            "DP": "0.54917",
+            "DP_norm": "0.54924",
+            "1-DP": "0.45083",
+            "total_freq": "2429.0"
+          },
+          "source_row": 3381
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "czytałbym",
+        "sgjp_rows": [
+          [
+            "czytałbym",
+            "czytać",
+            "cond:sg:m1.m2.m3:pri:imperf",
+            "",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "UNMATCHED",
+          "published_metrics": null,
+          "reason": "niepotwierdzona porównywalność jednostki lub zakres listy"
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "czytałem",
+        "sgjp_rows": [
+          [
+            "czytałem",
+            "czytać",
+            "praet:sg:m1.m2.m3:pri:imperf",
+            "",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "UNMATCHED",
+          "published_metrics": null,
+          "reason": "niepotwierdzona porównywalność jednostki lub zakres listy"
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "dwa",
+        "sgjp_rows": [
+          [
+            "dwa",
+            "dwa",
+            "num:pl:nom.acc.voc:m2.m3.n:congr:ncol",
+            "",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "40014.0",
+            "ipm": "493.74",
+            "ARF": "22991.91",
+            "DP": "0.21302",
+            "DP_norm": "0.21305",
+            "1-DP": "0.78698",
+            "total_freq": "40014.0"
+          },
+          "source_row": 154
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "em",
+        "sgjp_rows": [
+          [
+            "em",
+            "być",
+            "aglt:sg:pri:imperf:wok",
+            "",
+            ""
+          ],
+          [
+            "em",
+            "em",
+            "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:n:ncol",
+            "nazwa_pospolita",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "266200.0",
+            "ipm": "3284.68",
+            "ARF": "66470.61",
+            "DP": "0.48869",
+            "DP_norm": "0.48875",
+            "1-DP": "0.51131",
+            "total_freq": "266200.0"
+          },
+          "source_row": 22
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "kot",
+        "sgjp_rows": [
+          [
+            "kot",
+            "kot:Sm2",
+            "subst:sg:nom:m2",
+            "nazwa_pospolita",
+            ""
+          ],
+          [
+            "kot",
+            "kot:Sm1",
+            "subst:sg:nom:m1",
+            "nazwa_pospolita",
+            "pot.,środ."
+          ],
+          [
+            "kot",
+            "kota",
+            "subst:pl:gen:f",
+            "nazwa_pospolita",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "1399.0",
+            "ipm": "17.26",
+            "ARF": "580.16",
+            "DP": "0.69923",
+            "DP_norm": "0.69932",
+            "1-DP": "0.30077",
+            "total_freq": "1399.0"
+          },
+          "source_row": 6127
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "kotem",
+        "sgjp_rows": [
+          [
+            "kotem",
+            "kot:Sm2",
+            "subst:sg:inst:m2",
+            "nazwa_pospolita",
+            ""
+          ],
+          [
+            "kotem",
+            "kot:Sm1",
+            "subst:sg:inst:m1",
+            "nazwa_pospolita",
+            "pot.,środ."
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "364.0",
+            "ipm": "4.49",
+            "ARF": "184.8",
+            "DP": "0.86244",
+            "DP_norm": "0.86255",
+            "1-DP": "0.13756",
+            "total_freq": "364.0"
+          },
+          "source_row": 22023
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "mam",
+        "sgjp_rows": [
+          [
+            "mam",
+            "mama",
+            "subst:pl:gen:f",
+            "nazwa_pospolita",
+            ""
+          ],
+          [
+            "mam",
+            "mamić",
+            "impt:sg:sec:imperf",
+            "",
+            ""
+          ],
+          [
+            "mam",
+            "mieć",
+            "fin:sg:pri:imperf",
+            "",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "34158.0",
+            "ipm": "421.48",
+            "ARF": "15147.37",
+            "DP": "0.39911",
+            "DP_norm": "0.39916",
+            "1-DP": "0.60089",
+            "total_freq": "34158.0"
+          },
+          "source_row": 181
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "polsku",
+        "sgjp_rows": [
+          [
+            "polsku",
+            "polski:A",
+            "adjp:dat",
+            "",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "2477.0",
+            "ipm": "30.56",
+            "ARF": "1029.4",
+            "DP": "0.60602",
+            "DP_norm": "0.6061",
+            "1-DP": "0.39398",
+            "total_freq": "2477.0"
+          },
+          "source_row": 3302
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "róża",
+        "sgjp_rows": [
+          [
+            "róża",
+            "róża",
+            "subst:sg:nom:f",
+            "nazwa_pospolita",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "163.0",
+            "ipm": "2.01",
+            "ARF": "88.75",
+            "DP": "0.91615",
+            "DP_norm": "0.91627",
+            "1-DP": "0.08385",
+            "total_freq": "163.0"
+          },
+          "source_row": 42892
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "sto",
+        "sgjp_rows": [
+          [
+            "sto",
+            "sto",
+            "num:pl:nom.acc.voc:m2.m3.f.n:rec",
+            "",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "4809.0",
+            "ipm": "59.34",
+            "ARF": "2361.93",
+            "DP": "0.47334",
+            "DP_norm": "0.4734",
+            "1-DP": "0.52666",
+            "total_freq": "4809.0"
+          },
+          "source_row": 1552
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "zamek",
+        "sgjp_rows": [
+          [
+            "zamek",
+            "zamek:Sm3~a",
+            "subst:sg:nom.acc:m3",
+            "nazwa_pospolita",
+            ""
+          ],
+          [
+            "zamek",
+            "zamek:Sm3~u",
+            "subst:sg:nom.acc:m3",
+            "nazwa_pospolita",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "1381.0",
+            "ipm": "17.04",
+            "ARF": "630.58",
+            "DP": "0.66543",
+            "DP_norm": "0.66552",
+            "1-DP": "0.33457",
+            "total_freq": "1381.0"
+          },
+          "source_row": 6205
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      }
+    ],
+    "orth_lc": [
+      {
+        "form": "Róża",
+        "sgjp_rows": [
+          [
+            "Róża",
+            "Róż:Sm1",
+            "subst:sg:gen.acc:m1",
+            "nazwisko",
+            ""
+          ],
+          [
+            "Róża",
+            "Róża",
+            "subst:sg:nom:f",
+            "imię|nazwa_geograficzna",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "UNMATCHED",
+          "published_metrics": null,
+          "reason": "Lista orth_lc scala wielkość liter; brak osobnej jednostki Róża nie jest brakiem poświadczenia. Jednostka róża jest pokazana osobno."
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "czytał",
+        "sgjp_rows": [
+          [
+            "czytał",
+            "czytać",
+            "praet:sg:m1.m2.m3:imperf",
+            "",
+            ""
+          ],
+          [
+            "czytał",
+            "czytać",
+            "praet:sg:m1.m2.m3:ter:imperf",
+            "",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "2991.0",
+            "ipm": "36.78",
+            "ARF": "1403.38",
+            "DP": "0.53156",
+            "DP_norm": "0.53163",
+            "1-DP": "0.46844",
+            "total_freq": "2991.0"
+          },
+          "source_row": 2676
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "czytałbym",
+        "sgjp_rows": [
+          [
+            "czytałbym",
+            "czytać",
+            "cond:sg:m1.m2.m3:pri:imperf",
+            "",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "UNMATCHED",
+          "published_metrics": null,
+          "reason": "niepotwierdzona porównywalność jednostki lub zakres listy"
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "czytałem",
+        "sgjp_rows": [
+          [
+            "czytałem",
+            "czytać",
+            "praet:sg:m1.m2.m3:pri:imperf",
+            "",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "UNMATCHED",
+          "published_metrics": null,
+          "reason": "niepotwierdzona porównywalność jednostki lub zakres listy"
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "dwa",
+        "sgjp_rows": [
+          [
+            "dwa",
+            "dwa",
+            "num:pl:nom.acc.voc:m2.m3.n:congr:ncol",
+            "",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "44842.0",
+            "ipm": "551.44",
+            "ARF": "25592.3",
+            "DP": "0.21126",
+            "DP_norm": "0.21129",
+            "1-DP": "0.78874",
+            "total_freq": "44842.0"
+          },
+          "source_row": 143
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "em",
+        "sgjp_rows": [
+          [
+            "em",
+            "być",
+            "aglt:sg:pri:imperf:wok",
+            "",
+            ""
+          ],
+          [
+            "em",
+            "em",
+            "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:n:ncol",
+            "nazwa_pospolita",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "266451.0",
+            "ipm": "3276.63",
+            "ARF": "66576.12",
+            "DP": "0.48857",
+            "DP_norm": "0.48863",
+            "1-DP": "0.51143",
+            "total_freq": "266451.0"
+          },
+          "source_row": 21
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "kot",
+        "sgjp_rows": [
+          [
+            "kot",
+            "kot:Sm2",
+            "subst:sg:nom:m2",
+            "nazwa_pospolita",
+            ""
+          ],
+          [
+            "kot",
+            "kot:Sm1",
+            "subst:sg:nom:m1",
+            "nazwa_pospolita",
+            "pot.,środ."
+          ],
+          [
+            "kot",
+            "kota",
+            "subst:pl:gen:f",
+            "nazwa_pospolita",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "2588.0",
+            "ipm": "31.83",
+            "ARF": "878.48",
+            "DP": "0.69026",
+            "DP_norm": "0.69035",
+            "1-DP": "0.30974",
+            "total_freq": "2588.0"
+          },
+          "source_row": 3176
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "kotem",
+        "sgjp_rows": [
+          [
+            "kotem",
+            "kot:Sm2",
+            "subst:sg:inst:m2",
+            "nazwa_pospolita",
+            ""
+          ],
+          [
+            "kotem",
+            "kot:Sm1",
+            "subst:sg:inst:m1",
+            "nazwa_pospolita",
+            "pot.,środ."
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "407.0",
+            "ipm": "5.01",
+            "ARF": "205.65",
+            "DP": "0.85023",
+            "DP_norm": "0.85034",
+            "1-DP": "0.14977",
+            "total_freq": "407.0"
+          },
+          "source_row": 19442
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "mam",
+        "sgjp_rows": [
+          [
+            "mam",
+            "mama",
+            "subst:pl:gen:f",
+            "nazwa_pospolita",
+            ""
+          ],
+          [
+            "mam",
+            "mamić",
+            "impt:sg:sec:imperf",
+            "",
+            ""
+          ],
+          [
+            "mam",
+            "mieć",
+            "fin:sg:pri:imperf",
+            "",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "47750.0",
+            "ipm": "587.2",
+            "ARF": "21217.33",
+            "DP": "0.38085",
+            "DP_norm": "0.3809",
+            "1-DP": "0.61915",
+            "total_freq": "47750.0"
+          },
+          "source_row": 130
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "polsku",
+        "sgjp_rows": [
+          [
+            "polsku",
+            "polski:A",
+            "adjp:dat",
+            "",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "2485.0",
+            "ipm": "30.56",
+            "ARF": "1034.05",
+            "DP": "0.6042",
+            "DP_norm": "0.60428",
+            "1-DP": "0.3958",
+            "total_freq": "2485.0"
+          },
+          "source_row": 3341
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "róża",
+        "sgjp_rows": [
+          [
+            "róża",
+            "róża",
+            "subst:sg:nom:f",
+            "nazwa_pospolita",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "1373.0",
+            "ipm": "16.88",
+            "ARF": "313.44",
+            "DP": "0.84434",
+            "DP_norm": "0.84445",
+            "1-DP": "0.15566",
+            "total_freq": "1373.0"
+          },
+          "source_row": 6226
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "sto",
+        "sgjp_rows": [
+          [
+            "sto",
+            "sto",
+            "num:pl:nom.acc.voc:m2.m3.f.n:rec",
+            "",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "5374.0",
+            "ipm": "66.09",
+            "ARF": "2641.97",
+            "DP": "0.46028",
+            "DP_norm": "0.46034",
+            "1-DP": "0.53972",
+            "total_freq": "5374.0"
+          },
+          "source_row": 1395
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      },
+      {
+        "form": "zamek",
+        "sgjp_rows": [
+          [
+            "zamek",
+            "zamek:Sm3~a",
+            "subst:sg:nom.acc:m3",
+            "nazwa_pospolita",
+            ""
+          ],
+          [
+            "zamek",
+            "zamek:Sm3~u",
+            "subst:sg:nom.acc:m3",
+            "nazwa_pospolita",
+            ""
+          ]
+        ],
+        "kwjp": {
+          "availability": "OBSERVED",
+          "published_metrics": {
+            "freq": "1857.0",
+            "ipm": "22.84",
+            "ARF": "849.25",
+            "DP": "0.6328",
+            "DP_norm": "0.63288",
+            "1-DP": "0.3672",
+            "total_freq": "1857.0"
+          },
+          "source_row": 4587
+        },
+        "nkjp": {
+          "availability": "UNAVAILABLE",
+          "reason": "BLOCKED_LICENSE_UNRESOLVED"
+        }
+      }
+    ]
+  },
+  "lemmas": [
+    {
+      "corpus_unit": [
+        "być",
+        "fin"
+      ],
+      "published_metrics": {
+        "freq": "797270.0",
+        "ipm": "9762.7",
+        "ARF": "442402.35",
+        "DP": "0.16572",
+        "DP_norm": "0.16574",
+        "1-DP": "0.83428",
+        "total_freq": "797270.0"
+      },
+      "sgjp_lemma_ids": [
+        "być"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 10,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "aglt"
+      ],
+      "published_metrics": {
+        "freq": "746254.0",
+        "ipm": "9138.0",
+        "ARF": "257391.88",
+        "DP": "0.40799",
+        "DP_norm": "0.40804",
+        "1-DP": "0.59201",
+        "total_freq": "746254.0"
+      },
+      "sgjp_lemma_ids": [
+        "być"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 11,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "praet"
+      ],
+      "published_metrics": {
+        "freq": "531918.0",
+        "ipm": "6513.42",
+        "ARF": "286395.79",
+        "DP": "0.18855",
+        "DP_norm": "0.18858",
+        "1-DP": "0.81145",
+        "total_freq": "531918.0"
+      },
+      "sgjp_lemma_ids": [
+        "być"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 17,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "mieć",
+        "fin"
+      ],
+      "published_metrics": {
+        "freq": "326367.0",
+        "ipm": "3996.42",
+        "ARF": "180978.78",
+        "DP": "0.15459",
+        "DP_norm": "0.15461",
+        "1-DP": "0.84541",
+        "total_freq": "326367.0"
+      },
+      "sgjp_lemma_ids": [
+        "mieć"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 22,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "bedzie"
+      ],
+      "published_metrics": {
+        "freq": "203344.0",
+        "ipm": "2489.98",
+        "ARF": "99311.9",
+        "DP": "0.23211",
+        "DP_norm": "0.23214",
+        "1-DP": "0.76789",
+        "total_freq": "203344.0"
+      },
+      "sgjp_lemma_ids": [
+        "być"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 34,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "mieć",
+        "praet"
+      ],
+      "published_metrics": {
+        "freq": "197511.0",
+        "ipm": "2418.55",
+        "ARF": "107994.62",
+        "DP": "0.21425",
+        "DP_norm": "0.21428",
+        "1-DP": "0.78575",
+        "total_freq": "197511.0"
+      },
+      "sgjp_lemma_ids": [
+        "mieć"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 36,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "inf"
+      ],
+      "published_metrics": {
+        "freq": "119853.0",
+        "ipm": "1467.62",
+        "ARF": "68440.09",
+        "DP": "0.15622",
+        "DP_norm": "0.15624",
+        "1-DP": "0.84378",
+        "total_freq": "119853.0"
+      },
+      "sgjp_lemma_ids": [
+        "być"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 54,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "dwa",
+        "num"
+      ],
+      "published_metrics": {
+        "freq": "108438.0",
+        "ipm": "1327.84",
+        "ARF": "61536.84",
+        "DP": "0.16423",
+        "DP_norm": "0.16425",
+        "1-DP": "0.83577",
+        "total_freq": "108438.0"
+      },
+      "sgjp_lemma_ids": [
+        "dwa"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 67,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "polski",
+        "adj"
+      ],
+      "published_metrics": {
+        "freq": "92608.0",
+        "ipm": "1134.0",
+        "ARF": "35545.97",
+        "DP": "0.42053",
+        "DP_norm": "0.42059",
+        "1-DP": "0.57947",
+        "total_freq": "92608.0"
+      },
+      "sgjp_lemma_ids": [
+        "polski:A"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 84,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "mieć",
+        "inf"
+      ],
+      "published_metrics": {
+        "freq": "28145.0",
+        "ipm": "344.64",
+        "ARF": "16139.0",
+        "DP": "0.22237",
+        "DP_norm": "0.2224",
+        "1-DP": "0.77763",
+        "total_freq": "28145.0"
+      },
+      "sgjp_lemma_ids": [
+        "mieć"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 274,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "mama",
+        "subst"
+      ],
+      "published_metrics": {
+        "freq": "21559.0",
+        "ipm": "263.99",
+        "ARF": "6079.39",
+        "DP": "0.57384",
+        "DP_norm": "0.57392",
+        "1-DP": "0.42616",
+        "total_freq": "21559.0"
+      },
+      "sgjp_lemma_ids": [
+        "mama"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 375,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "czytać",
+        "fin"
+      ],
+      "published_metrics": {
+        "freq": "8907.0",
+        "ipm": "109.07",
+        "ARF": "4339.2",
+        "DP": "0.45336",
+        "DP_norm": "0.45342",
+        "1-DP": "0.54664",
+        "total_freq": "8907.0"
+      },
+      "sgjp_lemma_ids": [
+        "czytać"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 1067,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "sto",
+        "num"
+      ],
+      "published_metrics": {
+        "freq": "7552.0",
+        "ipm": "92.48",
+        "ARF": "3790.98",
+        "DP": "0.4224",
+        "DP_norm": "0.42246",
+        "1-DP": "0.5776",
+        "total_freq": "7552.0"
+      },
+      "sgjp_lemma_ids": [
+        "sto"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 1263,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "mieć",
+        "pact"
+      ],
+      "published_metrics": {
+        "freq": "7438.0",
+        "ipm": "91.08",
+        "ARF": "3903.24",
+        "DP": "0.44646",
+        "DP_norm": "0.44652",
+        "1-DP": "0.55354",
+        "total_freq": "7438.0"
+      },
+      "sgjp_lemma_ids": [
+        "mieć"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 1292,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "pact"
+      ],
+      "published_metrics": {
+        "freq": "7414.0",
+        "ipm": "90.79",
+        "ARF": "3736.84",
+        "DP": "0.48725",
+        "DP_norm": "0.48731",
+        "1-DP": "0.51275",
+        "total_freq": "7414.0"
+      },
+      "sgjp_lemma_ids": [
+        "być"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 1299,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "kot",
+        "subst"
+      ],
+      "published_metrics": {
+        "freq": "6756.0",
+        "ipm": "82.73",
+        "ARF": "2110.49",
+        "DP": "0.62964",
+        "DP_norm": "0.62972",
+        "1-DP": "0.37036",
+        "total_freq": "6756.0"
+      },
+      "sgjp_lemma_ids": [
+        "kot:Sm1",
+        "kot:Sm2"
+      ],
+      "link_status": "AMBIGUOUS",
+      "availability": "OBSERVED",
+      "source_row": 1440,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "ger"
+      ],
+      "published_metrics": {
+        "freq": "5772.0",
+        "ipm": "70.68",
+        "ARF": "2658.59",
+        "DP": "0.50694",
+        "DP_norm": "0.50701",
+        "1-DP": "0.49306",
+        "total_freq": "5772.0"
+      },
+      "sgjp_lemma_ids": [
+        "być"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 1705,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "zamek",
+        "subst"
+      ],
+      "published_metrics": {
+        "freq": "5729.0",
+        "ipm": "70.15",
+        "ARF": "2291.77",
+        "DP": "0.55754",
+        "DP_norm": "0.55761",
+        "1-DP": "0.44246",
+        "total_freq": "5729.0"
+      },
+      "sgjp_lemma_ids": [
+        "zamek:Sm3~a",
+        "zamek:Sm3~u"
+      ],
+      "link_status": "AMBIGUOUS",
+      "availability": "OBSERVED",
+      "source_row": 1722,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "czytać",
+        "praet"
+      ],
+      "published_metrics": {
+        "freq": "5435.0",
+        "ipm": "66.55",
+        "ARF": "2591.8",
+        "DP": "0.45874",
+        "DP_norm": "0.4588",
+        "1-DP": "0.54126",
+        "total_freq": "5435.0"
+      },
+      "sgjp_lemma_ids": [
+        "czytać"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 1807,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "mieć",
+        "pcon"
+      ],
+      "published_metrics": {
+        "freq": "4436.0",
+        "ipm": "54.32",
+        "ARF": "2522.67",
+        "DP": "0.4028",
+        "DP_norm": "0.40285",
+        "1-DP": "0.5972",
+        "total_freq": "4436.0"
+      },
+      "sgjp_lemma_ids": [
+        "mieć"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 2166,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "czytać",
+        "inf"
+      ],
+      "published_metrics": {
+        "freq": "3577.0",
+        "ipm": "43.8",
+        "ARF": "1855.68",
+        "DP": "0.47381",
+        "DP_norm": "0.47387",
+        "1-DP": "0.52619",
+        "total_freq": "3577.0"
+      },
+      "sgjp_lemma_ids": [
+        "czytać"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 2632,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "pcon"
+      ],
+      "published_metrics": {
+        "freq": "3199.0",
+        "ipm": "39.17",
+        "ARF": "1809.85",
+        "DP": "0.45679",
+        "DP_norm": "0.45685",
+        "1-DP": "0.54321",
+        "total_freq": "3199.0"
+      },
+      "sgjp_lemma_ids": [
+        "być"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 2894,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "polski",
+        "adja"
+      ],
+      "published_metrics": {
+        "freq": "3051.0",
+        "ipm": "37.36",
+        "ARF": "1197.51",
+        "DP": "0.68272",
+        "DP_norm": "0.68281",
+        "1-DP": "0.31728",
+        "total_freq": "3051.0"
+      },
+      "sgjp_lemma_ids": [
+        "polski:A"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 3023,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "czytać",
+        "ger"
+      ],
+      "published_metrics": {
+        "freq": "2724.0",
+        "ipm": "33.36",
+        "ARF": "1296.13",
+        "DP": "0.56083",
+        "DP_norm": "0.5609",
+        "1-DP": "0.43917",
+        "total_freq": "2724.0"
+      },
+      "sgjp_lemma_ids": [
+        "czytać"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 3391,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "polski",
+        "adjp"
+      ],
+      "published_metrics": {
+        "freq": "2505.0",
+        "ipm": "30.67",
+        "ARF": "1043.87",
+        "DP": "0.6031",
+        "DP_norm": "0.60318",
+        "1-DP": "0.3969",
+        "total_freq": "2505.0"
+      },
+      "sgjp_lemma_ids": [
+        "polski:A"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 3642,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "impt"
+      ],
+      "published_metrics": {
+        "freq": "2469.0",
+        "ipm": "30.23",
+        "ARF": "1269.53",
+        "DP": "0.54318",
+        "DP_norm": "0.54325",
+        "1-DP": "0.45682",
+        "total_freq": "2469.0"
+      },
+      "sgjp_lemma_ids": [
+        "być"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 3702,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "róża",
+        "subst"
+      ],
+      "published_metrics": {
+        "freq": "2218.0",
+        "ipm": "27.16",
+        "ARF": "974.44",
+        "DP": "0.631",
+        "DP_norm": "0.63108",
+        "1-DP": "0.369",
+        "total_freq": "2218.0"
+      },
+      "sgjp_lemma_ids": [
+        "róża"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 4048,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "Róża",
+        "subst"
+      ],
+      "published_metrics": {
+        "freq": "2108.0",
+        "ipm": "25.81",
+        "ARF": "300.13",
+        "DP": "0.87643",
+        "DP_norm": "0.87655",
+        "1-DP": "0.12357",
+        "total_freq": "2108.0"
+      },
+      "sgjp_lemma_ids": [
+        "Róża"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 4222,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "czytać",
+        "pcon"
+      ],
+      "published_metrics": {
+        "freq": "1197.0",
+        "ipm": "14.66",
+        "ARF": "670.57",
+        "DP": "0.61543",
+        "DP_norm": "0.61551",
+        "1-DP": "0.38457",
+        "total_freq": "1197.0"
+      },
+      "sgjp_lemma_ids": [
+        "czytać"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 6678,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "mieć",
+        "impt"
+      ],
+      "published_metrics": {
+        "freq": "894.0",
+        "ipm": "10.95",
+        "ARF": "524.15",
+        "DP": "0.66504",
+        "DP_norm": "0.66513",
+        "1-DP": "0.33496",
+        "total_freq": "894.0"
+      },
+      "sgjp_lemma_ids": [
+        "mieć"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 8318,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "czytać",
+        "impt"
+      ],
+      "published_metrics": {
+        "freq": "840.0",
+        "ipm": "10.29",
+        "ARF": "450.17",
+        "DP": "0.75145",
+        "DP_norm": "0.75155",
+        "1-DP": "0.24855",
+        "total_freq": "840.0"
+      },
+      "sgjp_lemma_ids": [
+        "czytać"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 8750,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "czytać",
+        "ppas"
+      ],
+      "published_metrics": {
+        "freq": "692.0",
+        "ipm": "8.47",
+        "ARF": "353.73",
+        "DP": "0.74092",
+        "DP_norm": "0.74102",
+        "1-DP": "0.25908",
+        "total_freq": "692.0"
+      },
+      "sgjp_lemma_ids": [
+        "czytać"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 10107,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "czytać",
+        "pact"
+      ],
+      "published_metrics": {
+        "freq": "393.0",
+        "ipm": "4.81",
+        "ARF": "208.42",
+        "DP": "0.82182",
+        "DP_norm": "0.82193",
+        "1-DP": "0.17818",
+        "total_freq": "393.0"
+      },
+      "sgjp_lemma_ids": [
+        "czytać"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 15225,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "mieć",
+        "imps"
+      ],
+      "published_metrics": {
+        "freq": "150.0",
+        "ipm": "1.84",
+        "ARF": "82.43",
+        "DP": "0.91873",
+        "DP_norm": "0.91885",
+        "1-DP": "0.08127",
+        "total_freq": "150.0"
+      },
+      "sgjp_lemma_ids": [
+        "mieć"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 28865,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "polski",
+        "subst"
+      ],
+      "published_metrics": {
+        "freq": "122.0",
+        "ipm": "1.49",
+        "ARF": "65.51",
+        "DP": "0.94459",
+        "DP_norm": "0.94472",
+        "1-DP": "0.05541",
+        "total_freq": "122.0"
+      },
+      "sgjp_lemma_ids": [
+        "polski:S"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 32897,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "dwa",
+        "adj"
+      ],
+      "published_metrics": {
+        "freq": "115.0",
+        "ipm": "1.41",
+        "ARF": "43.22",
+        "DP": "0.94952",
+        "DP_norm": "0.94965",
+        "1-DP": "0.05048",
+        "total_freq": "115.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 34065,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "xxx"
+      ],
+      "published_metrics": {
+        "freq": "113.0",
+        "ipm": "1.38",
+        "ARF": "57.59",
+        "DP": "0.9342",
+        "DP_norm": "0.93432",
+        "1-DP": "0.0658",
+        "total_freq": "113.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 34353,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "prep"
+      ],
+      "published_metrics": {
+        "freq": "106.0",
+        "ipm": "1.3",
+        "ARF": "38.95",
+        "DP": "0.98064",
+        "DP_norm": "0.98077",
+        "1-DP": "0.01936",
+        "total_freq": "106.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 35716,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "czytać",
+        "imps"
+      ],
+      "published_metrics": {
+        "freq": "98.0",
+        "ipm": "1.2",
+        "ARF": "53.03",
+        "DP": "0.93816",
+        "DP_norm": "0.93828",
+        "1-DP": "0.06184",
+        "total_freq": "98.0"
+      },
+      "sgjp_lemma_ids": [
+        "czytać"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 37413,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "dwa",
+        "dig"
+      ],
+      "published_metrics": {
+        "freq": "93.0",
+        "ipm": "1.14",
+        "ARF": "42.51",
+        "DP": "0.95705",
+        "DP_norm": "0.95718",
+        "1-DP": "0.04295",
+        "total_freq": "93.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 38559,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "subst"
+      ],
+      "published_metrics": {
+        "freq": "84.0",
+        "ipm": "1.03",
+        "ARF": "51.72",
+        "DP": "0.95157",
+        "DP_norm": "0.9517",
+        "1-DP": "0.04843",
+        "total_freq": "84.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 41043,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "interj"
+      ],
+      "published_metrics": {
+        "freq": "61.0",
+        "ipm": "0.75",
+        "ARF": "34.16",
+        "DP": "0.96053",
+        "DP_norm": "0.96066",
+        "1-DP": "0.03947",
+        "total_freq": "61.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 49071,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "em",
+        "subst"
+      ],
+      "published_metrics": {
+        "freq": "60.0",
+        "ipm": "0.73",
+        "ARF": "35.13",
+        "DP": "0.97195",
+        "DP_norm": "0.97208",
+        "1-DP": "0.02805",
+        "total_freq": "60.0"
+      },
+      "sgjp_lemma_ids": [
+        "em"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 49509,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "dwa",
+        "adv"
+      ],
+      "published_metrics": {
+        "freq": "60.0",
+        "ipm": "0.73",
+        "ARF": "32.08",
+        "DP": "0.96663",
+        "DP_norm": "0.96676",
+        "1-DP": "0.03337",
+        "total_freq": "60.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 49668,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "sto",
+        "dig"
+      ],
+      "published_metrics": {
+        "freq": "59.0",
+        "ipm": "0.72",
+        "ARF": "36.87",
+        "DP": "0.95535",
+        "DP_norm": "0.95548",
+        "1-DP": "0.04465",
+        "total_freq": "59.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 49933,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "polski",
+        "brev"
+      ],
+      "published_metrics": {
+        "freq": "51.0",
+        "ipm": "0.62",
+        "ARF": "29.25",
+        "DP": "0.97819",
+        "DP_norm": "0.97832",
+        "1-DP": "0.02181",
+        "total_freq": "51.0"
+      },
+      "sgjp_lemma_ids": [
+        "polski"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 54301,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "sto",
+        "adj"
+      ],
+      "published_metrics": {
+        "freq": "43.0",
+        "ipm": "0.53",
+        "ARF": "26.88",
+        "DP": "0.9677",
+        "DP_norm": "0.96783",
+        "1-DP": "0.0323",
+        "total_freq": "43.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 59473,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "sto",
+        "subst"
+      ],
+      "published_metrics": {
+        "freq": "39.0",
+        "ipm": "0.48",
+        "ARF": "21.1",
+        "DP": "0.97556",
+        "DP_norm": "0.97569",
+        "1-DP": "0.02444",
+        "total_freq": "39.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 62106,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "interp"
+      ],
+      "published_metrics": {
+        "freq": "35.0",
+        "ipm": "0.43",
+        "ARF": "21.81",
+        "DP": "0.98801",
+        "DP_norm": "0.98814",
+        "1-DP": "0.01199",
+        "total_freq": "35.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 65537,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "part"
+      ],
+      "published_metrics": {
+        "freq": "33.0",
+        "ipm": "0.4",
+        "ARF": "21.54",
+        "DP": "0.97757",
+        "DP_norm": "0.9777",
+        "1-DP": "0.02243",
+        "total_freq": "33.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 67481,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "adj"
+      ],
+      "published_metrics": {
+        "freq": "30.0",
+        "ipm": "0.37",
+        "ARF": "19.84",
+        "DP": "0.98296",
+        "DP_norm": "0.98309",
+        "1-DP": "0.01704",
+        "total_freq": "30.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 71371,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "dwa",
+        "numcomp"
+      ],
+      "published_metrics": {
+        "freq": "26.0",
+        "ipm": "0.32",
+        "ARF": "15.8",
+        "DP": "0.99001",
+        "DP_norm": "0.99014",
+        "1-DP": "0.00999",
+        "total_freq": "26.0"
+      },
+      "sgjp_lemma_ids": [
+        "dwa"
+      ],
+      "link_status": "EXACT_LEMMA_POS_CANDIDATE",
+      "availability": "OBSERVED",
+      "source_row": 76709,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "czytać",
+        "adj"
+      ],
+      "published_metrics": {
+        "freq": "23.0",
+        "ipm": "0.28",
+        "ARF": "14.11",
+        "DP": "0.9804",
+        "DP_norm": "0.98053",
+        "1-DP": "0.0196",
+        "total_freq": "23.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 82356,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "em",
+        "xxx"
+      ],
+      "published_metrics": {
+        "freq": "22.0",
+        "ipm": "0.27",
+        "ARF": "4.87",
+        "DP": "0.99686",
+        "DP_norm": "0.99699",
+        "1-DP": "0.00314",
+        "total_freq": "22.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 84321,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "dwa",
+        "subst"
+      ],
+      "published_metrics": {
+        "freq": "15.0",
+        "ipm": "0.18",
+        "ARF": "9.42",
+        "DP": "0.98834",
+        "DP_norm": "0.98847",
+        "1-DP": "0.01166",
+        "total_freq": "15.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 100164,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "em",
+        "interj"
+      ],
+      "published_metrics": {
+        "freq": "12.0",
+        "ipm": "0.15",
+        "ARF": "4.38",
+        "DP": "0.99163",
+        "DP_norm": "0.99176",
+        "1-DP": "0.00837",
+        "total_freq": "12.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 111949,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "mieć",
+        "adj"
+      ],
+      "published_metrics": {
+        "freq": "9.0",
+        "ipm": "0.11",
+        "ARF": "6.3",
+        "DP": "0.99359",
+        "DP_norm": "0.99372",
+        "1-DP": "0.00641",
+        "total_freq": "9.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 134376,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "mieć",
+        "subst"
+      ],
+      "published_metrics": {
+        "freq": "8.0",
+        "ipm": "0.1",
+        "ARF": "4.84",
+        "DP": "0.99523",
+        "DP_norm": "0.99536",
+        "1-DP": "0.00477",
+        "total_freq": "8.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 138467,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "sto",
+        "adv"
+      ],
+      "published_metrics": {
+        "freq": "8.0",
+        "ipm": "0.1",
+        "ARF": "4.94",
+        "DP": "0.9964",
+        "DP_norm": "0.99653",
+        "1-DP": "0.0036",
+        "total_freq": "8.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 142037,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "mieć",
+        "xxx"
+      ],
+      "published_metrics": {
+        "freq": "8.0",
+        "ipm": "0.1",
+        "ARF": "3.69",
+        "DP": "0.99586",
+        "DP_norm": "0.99599",
+        "1-DP": "0.00414",
+        "total_freq": "8.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 142826,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "conj"
+      ],
+      "published_metrics": {
+        "freq": "7.0",
+        "ipm": "0.09",
+        "ARF": "3.88",
+        "DP": "0.99754",
+        "DP_norm": "0.99767",
+        "1-DP": "0.00246",
+        "total_freq": "7.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 148879,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "mieć",
+        "interj"
+      ],
+      "published_metrics": {
+        "freq": "6.0",
+        "ipm": "0.07",
+        "ARF": "3.76",
+        "DP": "0.99471",
+        "DP_norm": "0.99484",
+        "1-DP": "0.00529",
+        "total_freq": "6.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 153801,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "brev"
+      ],
+      "published_metrics": {
+        "freq": "5.0",
+        "ipm": "0.06",
+        "ARF": "3.37",
+        "DP": "0.99582",
+        "DP_norm": "0.99595",
+        "1-DP": "0.00418",
+        "total_freq": "5.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 178686,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    },
+    {
+      "corpus_unit": [
+        "być",
+        "ppron3"
+      ],
+      "published_metrics": {
+        "freq": "5.0",
+        "ipm": "0.06",
+        "ARF": "2.65",
+        "DP": "0.99306",
+        "DP_norm": "0.99319",
+        "1-DP": "0.00694",
+        "total_freq": "5.0"
+      },
+      "sgjp_lemma_ids": [],
+      "link_status": "UNMATCHED",
+      "availability": "OBSERVED",
+      "source_row": 182429,
+      "note": "Częstość pozostaje przy jednostce korpusowej; zgodność napisu i POS nie dowodzi tożsamości znaczenia."
+    }
+  ],
+  "checks": {
+    "no_frequency_allocation_to_lexemes": true,
+    "no_missing_as_zero": true,
+    "no_nkjp_usage": true
+  }
+}

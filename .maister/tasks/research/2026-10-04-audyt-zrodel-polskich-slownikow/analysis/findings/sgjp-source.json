@@ -1,0 +1,28 @@
+{
+  "SOURCE_ID": "sgjp-20260823",
+  "SOURCE_NAME": "SGJP dla Morfeusza 2",
+  "ARTIFACT_NAME": "sgjp-20260823.tab.gz",
+  "VERSION": "pl.sgjp.sgjp-2026.08.24",
+  "RELEASE_DATE": "2026-08-23 (ścieżka dystrybucji), 2026-08-24 (DICT-ID)",
+  "DOWNLOAD_URL": "https://download.sgjp.pl/morfeusz/20260823/sgjp-20260823.tab.gz",
+  "RETRIEVED_AT": "2026-10-04T02:04:27Z",
+  "SHA256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+  "OWNER_AUTHORS": "Copyright © 2007–2026 Marcin Woliński, Zbigniew Bronk, Włodzimierz Gruszczyński, Witold Kieraś, Zygmunt Saloni, Danuta Skowrońska, Robert Wołosz",
+  "LICENSE_NAME": "BSD-2-Clause",
+  "LICENSE_VERSION": "2-Clause",
+  "LICENSE_URL": "https://morfeusz.sgjp.pl/doc/license/en",
+  "LICENSE_EVIDENCE": "Nagłówek #<COPYRIGHT> w tym artefakcie; zachowany w sgjp-license.txt.",
+  "LICENSE_SCOPE": "Ten tekstowy eksport SGJP, nie pełna baza internetowa.",
+  "USED_FOR": [
+    "audyt statystyk",
+    "pilotaż filtrów",
+    "pilotaż dopasowań"
+  ],
+  "ATTRIBUTION_REQUIRED": true,
+  "ATTRIBUTION_TEXT": "Copyright © 2007–2026 Marcin Woliński, Zbigniew Bronk, Włodzimierz Gruszczyński, Witold Kieraś, Zygmunt Saloni, Danuta Skowrońska, Robert Wołosz\n\nAll rights reserved.\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are\nmet:\n\nRedistributions of source code must retain the above copyright notice,\nthis list of conditions and the following disclaimer.\nRedistributions in binary form must reproduce the above copyright\nnotice, this list of conditions and the following disclaimer in the\ndocumentation and/or other materials provided with the distribution.\n\nTHIS SOFTWARE IS PROVIDED BY COPYRIGHT HOLDERS “AS IS” AND ANY EXPRESS\nOR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\nWARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS OR CONTRIBUTORS BE\nLIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\nCONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF\nSUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS\nINTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN\nCONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)\nARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF\nTHE POSSIBILITY OF SUCH DAMAGE.\n",
+  "KNOWN_DERIVATION_ANNOTATION_DEPENDENCIES": "Eksport SGJP; dokumentacja oddziela SGJP od PoliMorfa. Cała historia redakcyjna SGJP nie została ustalona. Nie uruchomiono analizatora z domyślnym słownikiem.",
+  "STATUS": "ALLOWED",
+  "BLOCK_REASON": null,
+  "NOTES": "Wybrano jawnie SGJP. Rozbieżność dnia nazwy i identyfikatora zachowana, nie poprawiana.",
+  "BYTES": 42691113
+}

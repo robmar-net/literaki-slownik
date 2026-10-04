@@ -1,0 +1,26 @@
+[
+  {
+    "SOURCE_ID": "sgjp-oznaczenia",
+    "DOWNLOAD_URL": "https://sgjp.pl/oznaczenia/",
+    "RETRIEVED_AT": "2026-10-04T02:17:54Z",
+    "SHA256": "03054fe37d2f3016dab96b0a4751409f49867cb7ccf36ccf55533d1ab4cf1505",
+    "ARTIFACT_NAME": "oznaczenia.html",
+    "VERSION": "migawka w chwili odczytu",
+    "STATUS": "ALLOWED",
+    "USED_FOR": "bibliografia znaczeń kwalifikatorów, bez redystrybucji strony",
+    "LICENSE_SCOPE": "Odczyt i opis ustaleń; brak redystrybucji całego artefaktu. Nie przypisujemy licencji danych SGJP tym stronom.",
+    "NOTES": "Dokumentacja/konfiguracja; nie wejście leksykalne."
+  },
+  {
+    "SOURCE_ID": "literaki-pl-pack",
+    "DOWNLOAD_URL": "https://literaki.fly.dev/packs/pl.json",
+    "RETRIEVED_AT": "2026-10-04T02:17:54Z",
+    "SHA256": "fcd336b0482357f5453619b747cf5237bc53a346836fc7033766c3c1277641c1",
+    "ARTIFACT_NAME": "literaki-pl.json",
+    "VERSION": "migawka w chwili odczytu",
+    "STATUS": "ALLOWED",
+    "USED_FOR": "parametry gry, nie dane słownikowe",
+    "LICENSE_SCOPE": "Odczyt i opis ustaleń; brak redystrybucji całego artefaktu. Nie przypisujemy licencji danych SGJP tym stronom.",
+    "NOTES": "Dokumentacja/konfiguracja; nie wejście leksykalne."
+  }
+]

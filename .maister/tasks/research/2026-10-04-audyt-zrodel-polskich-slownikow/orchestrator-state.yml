@@ -1,0 +1,177 @@
+{
+  "orchestrator": {
+    "workflow": "research",
+    "current_phase": "phase_1",
+    "started_phase": "phase_1",
+    "completed_phases": [],
+    "failed_phases": [],
+    "options": {
+      "html_output": true,
+      "mockup_format": "html",
+      "brainstorming_enabled": null,
+      "design_enabled": null
+    },
+    "auto_fix_attempts": {},
+    "created": "2026-10-04T01:56:09Z",
+    "updated": "2026-10-04T02:30:41Z",
+    "task_path": ".maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow"
+  },
+  "task": {
+    "title": "Audyt źródeł polskich słowników — etap 1",
+    "description": "Realizacja rozdziału 15 specyfikacji v3: źródła, pomiary, filtry, dopasowania i projekt odtwarzalności.",
+    "status": "in_progress",
+    "tags": [
+      "slowniki",
+      "SGJP",
+      "KWJP",
+      "NKJP"
+    ],
+    "priority": null
+  },
+  "phase_summaries": {
+    "phase_1": {
+      "summary": "Audyt10 punktów wykonany z jawnymi ograniczeniami. SGJP7 458 520 rekordów,13 list KWJP; NKJP technicznie zbadany, BLOCKED do konstrukcji. Raport gotowy do przeglądu.",
+      "decisions": [
+        "SGJP i KWJP jako udokumentowane wejścia audytu",
+        "Preferencja pełnych form eksportu; brak automatycznej nadgeneracji",
+        "Publiczne tylko raporty/skrypty/manifesty; cache ignorowany"
+      ],
+      "risks": [
+        "Warunki NKJP nieustalone",
+        "Mieszane kwalifikatory i konstrukcje wieloleksemowe do rozstrzygnięcia",
+        "Scenariusze filtrów nie są finalną polityką słowników"
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/research-report.md",
+          "label": "Raport audytu",
+          "html": "outputs/research-report.html"
+        },
+        {
+          "path": "analysis/synthesis.md",
+          "label": "Synteza"
+        },
+        {
+          "path": "analysis/findings/model-procesu.md",
+          "label": "Model i proces"
+        },
+        {
+          "path": "outputs/audit-manifest.json",
+          "label": "Manifest"
+        },
+        {
+          "path": "analysis/findings/audit-review.md",
+          "label": "Przegląd i testy"
+        }
+      ],
+      "gate": {
+        "question": "Czy zatwierdzasz raport audytu etapu1 jako podstawę dalszych decyzji?",
+        "options": {
+          "A": "Zatwierdź raport i przejdź do wyboru dalszych kroków (rekomendowane). Nie zatwierdza finalnej polityki filtrów.",
+          "B": "Pogłęb wskazane punkty audytu przed przejściem dalej."
+        },
+        "answer": null,
+        "status": "pending"
+      },
+      "started": "2026-10-04T01:57:27Z",
+      "completed": null
+    }
+  },
+  "verification_context": {
+    "last_status": "passed_with_documented_research_gaps",
+    "issues_found": [
+      {
+        "severity": "warning",
+        "description": "orth_lc/Róża błędnie oznaczone jako brak listy",
+        "fixed": true
+      },
+      {
+        "severity": "warning",
+        "description": "Niepełna lista miar CorpusEvidence w projekcie",
+        "fixed": true
+      }
+    ],
+    "fixes_applied": [
+      "UNMATCHED z powodem case-collapsed list; ponowny pilotaż",
+      "DP_norm/total_freq/Dice/raw_record/derived_rank w modelu"
+    ],
+    "decisions_made": [],
+    "reverify_count": 1
+  },
+  "research_context": {
+    "research_type": "mixed",
+    "research_question": "Czy i jak z udokumentowanych źródeł SGJP, KWJP100 i NKJP przygotować odtwarzalny generator zgodny ze specyfikacją v3?",
+    "scope": {
+      "included": [
+        "rozdział15: wszystkie10 punktów, audyt wraz ze skryptami i projektem modelu"
+      ],
+      "excluded": [
+        "SJP.pl: pobieranie i benchmark",
+        "OSPS",
+        "produkcyjne słowniki",
+        "integracja aplikacji"
+      ],
+      "constraints": [
+        "audyt warunków przed użyciem artefaktów",
+        "brak nieudokumentowanego słowotwórstwa"
+      ]
+    },
+    "methodology": [
+      "audyt źródeł pierwotnych",
+      "pomiary całego eksportu SGJP",
+      "pilotaż powiązań korpusowych"
+    ],
+    "sources": [
+      {
+        "category": "SGJP",
+        "coverage": "inspected",
+        "status": "ALLOWED",
+        "evidence": "analysis/findings/sgjp-source.json"
+      },
+      {
+        "category": "KWJP100",
+        "coverage": "inspected",
+        "status": "ALLOWED",
+        "evidence": "analysis/findings/kwjp-source-registry.json"
+      },
+      {
+        "category": "NKJP",
+        "coverage": "inspected",
+        "status": "BLOCKED",
+        "reason": "license version and terms unresolved",
+        "evidence": "analysis/findings/nkjp-sources.json"
+      },
+      {
+        "category": "PoliMorf",
+        "coverage": "documentation_inspected",
+        "status": "PROJECT_EXCLUDED",
+        "evidence": "analysis/findings/polimorf-provenance.md"
+      },
+      {
+        "category": "game_rules",
+        "coverage": "inspected",
+        "evidence": "analysis/findings/game-policy.md"
+      }
+    ],
+    "confidence_level": "wysoka dla formatów/pomiarów, umiarkowana dla finalnej polityki; otwarte warunki NKJP",
+    "gathering_strategy": {
+      "categories": [
+        "SGJP",
+        "KWJP100",
+        "NKJP",
+        "reguły gry"
+      ],
+      "count": 4,
+      "source": "specyfikacja v3"
+    },
+    "steps": {
+      "brief": "completed",
+      "plan": "completed",
+      "gather": "completed",
+      "synthesize": "completed"
+    },
+    "input_sha256": "acdd6fd7d040e98e05613809bfa78f6db37439d99a4e5f450d27350b99689a9d",
+    "source_coverage_verified_by_coordinator": true,
+    "implementation_started": false
+  }
+}
