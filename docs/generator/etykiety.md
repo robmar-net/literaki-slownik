@@ -64,3 +64,9 @@ Dodano niewykluczające oznaczenia dziedzin, stylu i wariantów formy: 357 spraw
 Zatwierdzono A: samo wymaganie kontekstu składniowego lub frazeologicznego nie wyklucza poprawnej formy w BROAD ani STANDARD. Wdrożono zamkniętą mapę 11 dosłownych etykiet; explain zachowuje source_label i required_context. Dawność, niepoprawność, niesamodzielne składniki i pozostałe kryteria oceniane są osobno. Pełny odczyt 7 458 520 rekordów potwierdził 169 rekordów kontekstu; pięć rzeczywistych zapytań bez zapisów do bazy. Pełna kwalifikacja i integracja build nadal nieukończone.
 
 [Decyzja i dowody](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/context-restrictions-decision.md). `context_checks` porównuje całe etykiety, bez dzielenia przecinków. Z D. zachowuje wymaganie określenia przymiotnikowego w dopełniaczu, fraz. użycie frazeologiczne, po_liczebniku użycie po liczebniku. Daw.,z_D. nadal odrzuca tę analizę ze STANDARD. 26 etykiet nadal nie ma żadnej oceny warunku; pozostałe nie są przez to w pełni zakwalifikowane.
+
+## Zatwierdzony wyjątek pierwszego wydania
+
+Wdrożono A dla25dosłownych oznaczeń bez pełnego objaśnienia: source_label zachowany, gloss_status=unestablished, inne kryteria osobno. Pełny runtime:1908kompaktowych analiz, dwa identyczne raporty, sześć readonly explain; wielka litera Abchaz nadal odrzuca growo. Dodano logical-content bieżącego schematu do build:10zamkniętych relacji, klucze źródłowe zamiast ID, wykrywanie nowych tabel/kolumn i niespójnych FK. Testy potwierdzają identyczność po zmianie ID i zmianę hasha po modyfikacji powiązań/kwalifikatorów. To nie pełny indeks kanoniczny ani odbiór G8.
+
+Pełny raport warunków wskazuje jedną etykietę bez oceny kwalifikatora: pisane_łącznie_z_przyimkiem (2rekordy). To nie oznacza pełnej semantyki pozostałych604etykiet: mapa ocenia warunki, nie kompletne objaśnienia. Daw.,rzad.,akcent ma już warunek dawności, lecz treść akcent nadal otwarta.

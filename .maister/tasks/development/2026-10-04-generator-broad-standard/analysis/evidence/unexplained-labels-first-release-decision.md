@@ -2,9 +2,18 @@
 
 ## TL;DR
 
-Pending: nie wdrożono zmiany kryterium. Pełny raport źródła obejmuje 605 dosłownych etykiet. Dla poniższych 25 oznaczeń nie ustalono dotąd pełnego, źródłowego objaśnienia. Dotyczą 1908 kompaktowych analiz źródłowych; to ekspozycja, nie liczba słów dopuszczonych do gry ani delta list.
+Zatwierdzone A: wdrożono zamknięte odstępstwo od wymogu pełnego objaśnienia. Pełny raport źródła obejmuje 605 dosłownych etykiet. Dla poniższych 25 oznaczeń nie ustalono dotąd pełnego, źródłowego objaśnienia. Dotyczą 1908 kompaktowych analiz źródłowych; to ekspozycja, nie liczba słów dopuszczonych do gry ani delta list.
 
-## Wariant A — rekomendacja
+## Key Decisions
+
+- Użytkownik zatwierdził A; dotyczy wyłącznie poniższych 25 dosłownych oznaczeń.
+- Objaśnienie pozostaje nieustalone; nie przedstawiamy odstępstwa jako poznanej semantyki.
+
+## Open Questions / Risks
+
+- Inne oznaczenia i pełna kwalifikacja nadal wymagają domknięcia.
+
+## Wariant A — zatwierdzony
 
 Jawnie zmienić wymaganie pierwszego wydania dla zamkniętej listy poniżej: zachować oryginalne oznaczenie i informację „objaśnienie nieustalone”; sam brak jego objaśnienia nie wyklucza ani nie blokuje tej analizy. To odstępstwo od wymogu pełnego objaśnienia, nie dowód ustalenia semantyki.
 
@@ -57,4 +66,8 @@ Aktualna [tabela oznaczeń SGJP](https://sgjp.pl/oznaczenia/) zawiera m.in. inne
 
 ## Status
 
-Decyzja oczekuje na odpowiedź użytkownika. Nie aktywowano nowej reguły ani wyłączenia wymogu. G3–G6 pozostają częściowe, a G7–G9 niewykonane. Wybór A nie domyka pozostałych wymagań K1–K10.
+Użytkownik zatwierdził A. Reguła linguistic-unexplained-label-first-release-v1 zachowuje source_label i gloss_status=unestablished; explain i raport build pokazują odstępstwo. G3–G6 pozostają częściowe, a G7–G9 niewykonane. Wybór A nie domyka pozostałych wymagań K1–K10.
+
+## Weryfikacja wdrożenia
+
+Cztery testy rzeczywiste red→green: brak funkcji/rejestru, brak raportowania wyjątku i brak informacji w explain. Pełny [runtime](unexplained-labels-runtime.json) odczytuje wszystkie 7 458 520 kompaktowych analiz; 25 oznaczeń w 1908 analizach, dwa odtworzenia identyczne, zero zapisów. Sześć rzeczywistych explain zachowuje ocenę niekompletną; Abchaz nadal ma growe odrzucenie wielkiej litery.

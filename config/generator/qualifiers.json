@@ -187,20 +187,28 @@
       "compact_interpretations": 130
     },
     "astrol.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 11
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 11,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "astrol.,ekon.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 11
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 11,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "astron.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 192
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 192,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "astron.,handl.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 130
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 130,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "bank.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -211,8 +219,10 @@
       "compact_interpretations": 274
     },
     "biblt.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 11
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 11,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "biochem.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -331,12 +341,16 @@
       "compact_interpretations": 3
     },
     "char.,fot.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 1
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 1,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "char.,gry": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 1
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 1,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "char.,hist.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -731,8 +745,10 @@
       "compact_interpretations": 52
     },
     "etn.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 929
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 929,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "etnolog.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -779,8 +795,10 @@
       "compact_interpretations": 1237
     },
     "fot.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 162
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 162,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "fraz.": {
       "classification_status": "pending_full_semantic_review",
@@ -819,12 +837,16 @@
       "compact_interpretations": 11
     },
     "gry": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 122
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 122,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "gry,zool.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 11
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 11,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "gwar.": {
       "classification_status": "pending_full_semantic_review",
@@ -839,8 +861,10 @@
       "compact_interpretations": 17
     },
     "gwar.,etn.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 12
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 12,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "gwar.,hom.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -1005,16 +1029,20 @@
       "compact_interpretations": 3
     },
     "hom.,fot.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 1
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 1,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "hom.,geol.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,gry": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 1
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 1,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "hom.,hist.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -1225,8 +1253,10 @@
       "compact_interpretations": 551
     },
     "kolej.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 11
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 11,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "komp.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -1569,8 +1599,10 @@
       "required_context": "after_numeral"
     },
     "podniosłe": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 15
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 15,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "poet.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -1661,12 +1693,16 @@
       "compact_interpretations": 16
     },
     "pot.,etn.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 13
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 13,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "pot.,gry": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 11
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 11,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "pot.,hist.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -1751,8 +1787,10 @@
       "compact_interpretations": 1
     },
     "pot.,slang": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 11
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 11,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "pot.,sport.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -2143,16 +2181,20 @@
       "compact_interpretations": 2
     },
     "rzad.,etn.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 1
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 1,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "rzad.,etnolog.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "rzad.,fot.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 1
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 1,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "rzad.,geogr.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -2235,8 +2277,10 @@
       "compact_interpretations": 2
     },
     "rzad.,slang": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 13
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 13,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "rzad.,sport.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -2299,12 +2343,16 @@
       "compact_interpretations": 294
     },
     "slang": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 79
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 79,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "slang,wulg.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 26
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 26,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "sport.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -2319,8 +2367,10 @@
       "compact_interpretations": 11
     },
     "spoż.": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 132
+      "classification_status": "user_approved_non_excluding_unestablished_gloss",
+      "compact_interpretations": 132,
+      "gloss_status": "unestablished",
+      "first_release_gloss_requirement_waived": true
     },
     "szach.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -3107,6 +3157,12 @@
       "decision": "approved A context_restrictions_policy",
       "registry": "config/generator/policy.json",
       "scope": "closed_11_context_labels_not_full_qualification"
+    },
+    {
+      "rule_id": "linguistic-unexplained-label-first-release-v1",
+      "decision": "A unexplained_labels_first_release_requirement",
+      "registry": "config/generator/policy.json",
+      "scope": "closed_25_literal_labels_unestablished_gloss_other_conditions_separate"
     }
   ]
 }

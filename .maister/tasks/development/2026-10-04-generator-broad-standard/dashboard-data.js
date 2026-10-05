@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T07:46:18.242497+00:00",
+  "generated": "2026-10-05T08:40:16Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Zakres 18 kontrakcji wdrożony; pending wymóg objaśnień 25 oznaczeń SGJP"
+    "current_activity": "A25wdrożone; hash logiczny bieżącej bazy; pending adnotacja akcent"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "A zatwierdzone i wdrożone: zakres kontrakcji pierwszego wydania obejmuje 18 poświadczonych form (57 analiz), osiem innych (24 analizy) pozostaje diagnostycznie poza zakresem. Ocena językowa niewiadoma nie została zmieniona na błędność. Nowa warstwa release_scope jest oddzielna od języka, gry i profilu; członkostwo jest oceniane dla pojedynczej analizy, więc homonimy nie są tracone. Nie zmieniono kluczy ani treści utrwalonych kandydatów. Dodano zamknięte źródłowe sekwencje host+partykułowe by+(opcjonalna końcówka nwok), z pełnymi 2/3 składnikami i odrębną oceną pisowni normy2026. Kontrola wszystkich bieżących klas poza impt: 536 interpretacji wejściowych, 770 kandydatów i 1784 składniki; w tym 305 sekwencji host+by+(opcjonalna końcówka). Powtórzenie: zero nowych kandydatów, identyczny digest; FK/integrity OK. Zakres kontrakcji pozostaje 57/24. To projekcja wymaganych wejść konstruktorów z pełnego G2, nie pełny build G8. Pending: konieczny wybór wymagania objaśnień 25 oznaczeń, bez aktywacji przed odpowiedzią.",
+      "summary": "Wdrożono A dla25dosłownych oznaczeń bez pełnego objaśnienia: source_label zachowany, gloss_status=unestablished, inne kryteria osobno. Pełny runtime:1908kompaktowych analiz, dwa identyczne raporty, sześć readonly explain; wielka litera Abchaz nadal odrzuca growo. Dodano logical-content bieżącego schematu do build:10zamkniętych relacji, klucze źródłowe zamiast ID, wykrywanie nowych tabel/kolumn i niespójnych FK. Testy potwierdzają identyczność po zmianie ID i zmianę hasha po modyfikacji powiązań/kwalifikatorów. To nie pełny indeks kanoniczny ani odbiór G8. Pending decyzja wymogu objaśnienia akcent dla dwóch dawnych rekordów.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -257,7 +257,8 @@ window.MAISTER_DATA = {
         "A contraction_documentation_proof: dosłowne wskazanie całej kontrakcji przez autorów SGJP wystarcza jako dowód językowy dla18 form; pozostałe kryteria osobno,8pozostałych bez automatycznej analogii.",
         "A: własny kod/konfiguracje BSD-2-Clause; własna dokumentacja i raporty CC BY 4.0. Źródła zachowują odrębne warunki.",
         "A: STANDARD stosuje normę 2026 także dla nieoznaczonych dawnych zapisów; BROAD może je zachować z dowodem, reguły gry niezmienione.",
-        "A: zakres kontrakcji pierwszego wydania ograniczony do18poświadczonych form;8innych kandydatów zachowane diagnostycznie poza zakresem, nieuznane za błędne. Niezależne homonimy oceniane osobno; rozszerzenie wymaga dowodu i nowego wydania."
+        "A: zakres kontrakcji pierwszego wydania ograniczony do18poświadczonych form;8innych kandydatów zachowane diagnostycznie poza zakresem, nieuznane za błędne. Niezależne homonimy oceniane osobno; rozszerzenie wymaga dowodu i nowego wydania.",
+        "A: zamknięte25oznaczeń zachowane z nieustalonym objaśnieniem; brak objaśnienia sam nie wyklucza ani nie blokuje wydania. Pozostałe kryteria i inne unknown nadal obowiązują."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -491,20 +492,40 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/unexplained-labels-first-release-decision.md",
           "label": "Wybór wymogu objaśnień 25 oznaczeń SGJP"
+        },
+        {
+          "path": "analysis/evidence/unexplained-and-logical-content-review.md",
+          "label": "Przegląd A i logicznej treści"
+        },
+        {
+          "path": "analysis/evidence/unexplained-labels-condition-coverage.json",
+          "label": "Pełne pokrycie zatwierdzonego wyjątku25"
+        },
+        {
+          "path": "analysis/evidence/unexplained-labels-runtime.json",
+          "label": "Pełny runtime25i sześć explain"
+        },
+        {
+          "path": "analysis/evidence/logical-content-projection-runtime.json",
+          "label": "Powtarzalny hash rzeczywistej projekcji"
+        },
+        {
+          "path": "analysis/evidence/accent-gloss-first-release-decision.md",
+          "label": "Wymóg objaśnienia akcent: dwa rekordy"
         }
       ],
       "gate": {
-        "id": "unexplained_labels_first_release_requirement",
+        "id": "accent_gloss_first_release_requirement",
         "status": "pending",
-        "created_at": "2026-10-05T07:46:18.242497+00:00",
-        "question": "Czy dla zamkniętej listy 25 oznaczeń SGJP brak pełnego objaśnienia ma sam nie wykluczać ani blokować pierwszego wydania, przy zachowaniu oznaczeń i wszystkich innych kryteriów?",
+        "created_at": "2026-10-05T08:35:53Z",
+        "question": "Czy brak objaśnienia akcent sam ma nie blokować BROAD dla dwomakroć i trzemakroć, przy zachowaniu adnotacji i wszystkich innych kryteriów?",
         "options": {
-          "A": "Tak: zachowaj oznaczenie z informacją objaśnienie nieustalone; pozostałe warunki obowiązują (rekomendowane).",
-          "B": "Nie: wymagamy pełnego objaśnienia tych 25 oznaczeń przed wydaniem."
+          "A": "Tak: zachowaj adnotację z nieustalonym objaśnieniem; STANDARD nadal odrzuca za dawność (rekomendowane).",
+          "B": "Nie: wymagamy objaśnienia przed pełnym wydaniem BROAD."
         },
         "answer": null,
-        "artifact": "analysis/evidence/unexplained-labels-first-release-decision.md",
-        "authority": "AGENTS.md; plan G3/3.4; executor: Ask the user before changing scope"
+        "artifact": "analysis/evidence/accent-gloss-first-release-decision.md",
+        "authority": "AGENTS.md; spec§6 i planG3/3.4; executor Ask the user before changing scope"
       }
     },
     {

@@ -249,3 +249,9 @@ A zatwierdzone i wdrożone: zakres kontrakcji pierwszego wydania obejmuje 18 po�
 Kontrola wszystkich bieżących klas poza impt: 536 interpretacji wejściowych, 770 kandydatów i 1784 składniki; w tym 305 sekwencji host+by+(opcjonalna końcówka). Powtórzenie: zero nowych kandydatów, identyczny digest; FK/integrity OK. Zakres kontrakcji pozostaje 57/24. To projekcja wymaganych wejść konstruktorów z pełnego G2, nie pełny build G8.
 
 [Wymóg objaśnień 25 oznaczeń](../analysis/evidence/unexplained-labels-first-release-decision.md) pozostaje pending. Nie aktywowano odstępstwa; inne wymagania pozostają wiążące.
+
+## Zatwierdzone A: oznaczenia bez objaśnień
+
+Wdrożono A dla25dosłownych oznaczeń bez pełnego objaśnienia: source_label zachowany, gloss_status=unestablished, inne kryteria osobno. Pełny runtime:1908kompaktowych analiz, dwa identyczne raporty, sześć readonly explain; wielka litera Abchaz nadal odrzuca growo. Dodano logical-content bieżącego schematu do build:10zamkniętych relacji, klucze źródłowe zamiast ID, wykrywanie nowych tabel/kolumn i niespójnych FK. Testy potwierdzają identyczność po zmianie ID i zmianę hasha po modyfikacji powiązań/kwalifikatorów. To nie pełny indeks kanoniczny ani odbiór G8.
+
+[Adnotacja akcent](../analysis/evidence/accent-gloss-first-release-decision.md) pozostaje pending, bez rozszerzenia wyjątku przed odpowiedzią.

@@ -7,6 +7,29 @@ from literaki_slownik.inputs import GeneratorError
 
 
 class PolicyTests(unittest.TestCase):
+    def test_unexplained_closed_labels_keep_gloss_unknown_without_whole_acceptance(self):
+        from literaki_slownik.policy import unexplained_label_checks, approved_qualifier_checks
+        for label in ('fot.', 'etn.', 'biblt.', 'pot.,slang'):
+            check, = unexplained_label_checks(label)
+            self.assertEqual(check['source_label'], label)
+            self.assertEqual(check['gloss_status'], 'unestablished')
+            self.assertEqual(check['status'], 'accept')
+            self.assertIn('objaśnienie nieustalone', check['message'])
+            self.assertEqual(assessment(approved_qualifier_checks(label+'|niepopr.','broad'))['status'], 'reject')
+            self.assertEqual(assessment(approved_qualifier_checks(label+'|daw.','standard'))['status'], 'reject')
+            value = assess_analysis('Abchaz', language={v: [check] for v in ('broad','standard')}, game_checks=[])
+            self.assertEqual(value['game']['status'], 'reject')
+        self.assertEqual(unexplained_label_checks('fot.,nowe|pisane_łącznie_z_przyimkiem'), [])
+        self.assertEqual(len(unexplained_label_checks('fot.|fot.')), 1)
+
+    def test_unexplained_registry_is_exact_approved_25_not_permissive(self):
+        from literaki_slownik.policy import UNEXPLAINED_FIRST_RELEASE_LABELS
+        rule = next(r for r in json.loads(Path('config/generator/policy.json').read_text())['rules']
+                    if r['rule_id'] == 'linguistic-unexplained-label-first-release-v1')
+        self.assertEqual(len(UNEXPLAINED_FIRST_RELEASE_LABELS), 25)
+        self.assertEqual(set(rule['literal_labels']), UNEXPLAINED_FIRST_RELEASE_LABELS)
+        self.assertEqual(rule['gloss_status'], 'unestablished')
+
     def test_closed_first_release_contraction_scope_unknown_not_silently_excluded(self):
         from literaki_slownik.policy import release_scope_checks
         for form,status in [('doń','accept'),('nań','accept'),('kołoń','reject'),('zzań','reject'),('nibyń','unresolved')]:

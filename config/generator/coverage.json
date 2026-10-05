@@ -16,7 +16,8 @@
     "closed_16_mobile_by_hosts",
     "derived_whole_form_kwjp_links",
     "seven_winien_hash_bound_explain_errata",
-    "first_release_preposition_n_scope_18_user_approved"
+    "first_release_preposition_n_scope_18_user_approved",
+    "closed_25_unexplained_label_requirement_concession_user_approved"
   ],
   "full_source_compact_interpretations": 7458520,
   "observed_combinations": {
@@ -36,32 +37,7 @@
   "version": "coverage-discovery-v1",
   "policy_clarification": "No agreed SJPDor exclusion or later independent editing requirement; see source-policy-clarification.md",
   "unmapped_by_current_qualifier_conditions": [
-    "astrol.",
-    "astrol.,ekon.",
-    "astron.",
-    "astron.,handl.",
-    "biblt.",
-    "char.,fot.",
-    "char.,gry",
-    "etn.",
-    "fot.",
-    "gry",
-    "gry,zool.",
-    "gwar.,etn.",
-    "hom.,fot.",
-    "hom.,gry",
-    "kolej.",
-    "pisane_łącznie_z_przyimkiem",
-    "podniosłe",
-    "pot.,etn.",
-    "pot.,gry",
-    "pot.,slang",
-    "rzad.,etn.",
-    "rzad.,fot.",
-    "rzad.,slang",
-    "slang",
-    "slang,wulg.",
-    "spoż."
+    "pisane_łącznie_z_przyimkiem"
   ],
   "user_excluded_from_first_release": [
     {
@@ -80,5 +56,38 @@
       "status": "diagnostic_retained_not_lexically_rejected",
       "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-contractions-scope-decision.md"
     }
-  ]
+  ],
+  "user_waived_gloss_requirement": {
+    "literal_labels": [
+      "astrol.",
+      "astrol.,ekon.",
+      "astron.",
+      "astron.,handl.",
+      "biblt.",
+      "char.,fot.",
+      "char.,gry",
+      "etn.",
+      "fot.",
+      "gry",
+      "gry,zool.",
+      "gwar.,etn.",
+      "hom.,fot.",
+      "hom.,gry",
+      "kolej.",
+      "podniosłe",
+      "pot.,etn.",
+      "pot.,gry",
+      "pot.,slang",
+      "rzad.,etn.",
+      "rzad.,fot.",
+      "rzad.,slang",
+      "slang",
+      "slang,wulg.",
+      "spoż."
+    ],
+    "compact_interpretations": 1908,
+    "gloss_status": "unestablished",
+    "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unexplained-labels-first-release-decision.md",
+    "not_full_qualification": true
+  }
 }

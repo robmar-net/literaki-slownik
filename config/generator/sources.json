@@ -773,7 +773,7 @@
     },
     "policy": {
       "path": "../../config/generator/policy.json",
-      "sha256": "83604a95bc2b0d3440f949bfad31cbeb1871bcafa74ca175be5afb3e69281d8d"
+      "sha256": "eda0b781615837ba8979c28559c1a7e6687ffb49d8a36e6650540fc9142efe5b"
     },
     "constructions": {
       "path": "../../config/generator/constructions.json",
@@ -785,11 +785,11 @@
     },
     "coverage": {
       "path": "../../config/generator/coverage.json",
-      "sha256": "823093127efcbd6caa1fc0410d78e26ae67ed3013a7529c2caa55203af701913"
+      "sha256": "074e205d50b5e9215c113f4bba0b195f8ceb49e0b044787b6eb1d9325f172f37"
     },
     "qualifiers": {
       "path": "../../config/generator/qualifiers.json",
-      "sha256": "e2b9b745d9b98ae4f5988dd82e4e972fb133d193f4ce61669148075954f4e77d"
+      "sha256": "463165cd9776e568245ff3cc89769f8168359575eb51228c7e9a2ecebd164696"
     },
     "categories": {
       "path": "../../config/generator/categories.json",

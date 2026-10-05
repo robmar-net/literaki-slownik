@@ -14,6 +14,20 @@ from literaki_slownik.explain import explain
 
 
 class ExplainTests(unittest.TestCase):
+    def test_unexplained_label_visible_without_automatic_language_acceptance(self):
+        from tests.test_build import BuildTests
+        from literaki_slownik.explain import format_explanation
+        root=Path(self.temp.name)/'unexplained';root.mkdir()
+        p=BuildTests().manifest(root,'#</COPYRIGHT>\nciemni\tciemnia\tsubst:sg:dat:f\tnazwa_pospolita\tfot.\n')
+        run=root/'run';build(p,run)
+        value=explain(run,'ciemni')
+        a,=value['analyses']
+        self.assertEqual(a['qualifiers'],'fot.')
+        self.assertEqual(a['assessment']['language']['standard']['status'],'unresolved')
+        self.assertIn('objaśnienie nieustalone',format_explanation(value))
+        report=load_json(run/'reports/qualifier-conditions.json')
+        self.assertEqual(report['unexplained_first_release_labels'],['fot.'])
+
     def test_historical_conditional_host_sequence_is_reachable_with_2026_assessment(self):
         from tests.test_build import BuildTests
         root=Path(self.temp.name)/'conditional';root.mkdir()

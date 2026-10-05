@@ -40,3 +40,9 @@ python3 scripts/probe_generator_evidence.py --mode qualifier-conditions --databa
 ```
 
 [Pełny przegląd i wyniki](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/qualifier-coverage-review.md): 26 etykiet bez warunku, 1 910 interpretacji, dwa identyczne raporty. Nie jest to delta list ani pełny odbiór.
+
+## Logiczna treść bieżącej bazy
+
+Wdrożono A dla25dosłownych oznaczeń bez pełnego objaśnienia: source_label zachowany, gloss_status=unestablished, inne kryteria osobno. Pełny runtime:1908kompaktowych analiz, dwa identyczne raporty, sześć readonly explain; wielka litera Abchaz nadal odrzuca growo. Dodano logical-content bieżącego schematu do build:10zamkniętych relacji, klucze źródłowe zamiast ID, wykrywanie nowych tabel/kolumn i niespójnych FK. Testy potwierdzają identyczność po zmianie ID i zmianę hasha po modyfikacji powiązań/kwalifikatorów. To nie pełny indeks kanoniczny ani odbiór G8.
+
+reports/logical-content.json jest diagnostyczną kontrolą bieżącego schematu; po utrwaleniu decyzji kwalifikacji kontrakt musi zostać rozszerzony. Zmiana kodu lub schematu wymaga nowego build, wcześniejszych baz nie migrujemy.

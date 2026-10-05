@@ -3,7 +3,24 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v9'
+VERSION = 'diagnostic-approved-conditions-v10'
+UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
+    'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
+    'char.,fot.', 'char.,gry', 'etn.', 'fot.', 'gry', 'gry,zool.',
+    'gwar.,etn.', 'hom.,fot.', 'hom.,gry', 'kolej.', 'podniosłe',
+    'pot.,etn.', 'pot.,gry', 'pot.,slang', 'rzad.,etn.', 'rzad.,fot.',
+    'rzad.,slang', 'slang', 'slang,wulg.', 'spoż.',
+})
+
+
+def unexplained_label_checks(qualifiers):
+    """Zatwierdzone odstępstwo od wymogu objaśnienia, bez zgadywania semantyki."""
+    return [{'rule_id': 'linguistic-unexplained-label-first-release-v1',
+             'status': 'accept', 'source_label': label, 'gloss_status': 'unestablished',
+             'message': 'Oznaczenie zachowane: objaśnienie nieustalone. Sam brak objaśnienia nie wyklucza w pierwszym wydaniu; inne kryteria osobno.',
+             'evidence': ['config/generator/policy.json',
+                          '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unexplained-labels-first-release-decision.md']}
+            for label in sorted(set(qualifiers.split('|')) & UNEXPLAINED_FIRST_RELEASE_LABELS)]
 FIRST_RELEASE_CONTRACTIONS = frozenset('bezeń dlań doń nadeń nań odeń oń podeń poń przedeń przezeń spodeń spozań sprzedeń weń zań zeń znadeń'.split())
 DEFERRED_CONTRACTIONS = frozenset('kołoń pozań zzań ponadeń popodeń poprzezeń sponadeń spopodeń'.split())
 
@@ -81,7 +98,8 @@ def approved_qualifier_checks(qualifiers, variant):
     """Zatwierdzone warunki kwalifikatorów; inne warstwy nadal osobno."""
     return (history_checks(qualifiers, variant) + disrecommended_checks(qualifiers)
             + usage_checks(qualifiers) + incorrect_checks(qualifiers)
-            + descriptive_checks(qualifiers) + context_checks(qualifiers))
+            + descriptive_checks(qualifiers) + context_checks(qualifiers)
+            + unexplained_label_checks(qualifiers))
 
 
 DESCRIPTIVE_LABELS = frozenset({

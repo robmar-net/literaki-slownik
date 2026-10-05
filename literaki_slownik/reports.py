@@ -1,8 +1,91 @@
 """Raporty podanych analiz; bez domniemania kompletności całego wydania."""
 from collections import Counter
+import hashlib
+import json
+import sqlite3
 
 from .decisions import assessment, aggregate, VARIANTS
 from .inputs import GeneratorError
+from .canonical import dumps
+
+
+def logical_content_report(db):
+    """Hash bieżących relacji z trwałymi kluczami zamiast technicznych ID.
+
+    Zamknięty schemat nie pozwala pominąć nowej tabeli lub kolumny.
+    Przyszłe utrwalone decyzje wymagają rozszerzenia tego kontraktu.
+    """
+    columns = {
+        'source_artifact': 'source_id kind metadata',
+        'sgjp_record': 'source_id row_number form lemma tag names qualifiers',
+        'lexeme': 'id source_id lemma_id lemma_base',
+        'surface_form': 'id original nfc game_key length',
+        'interpretation': 'id source_id first_row form_id lexeme_id tag names qualifiers',
+        'corpus_evidence': 'id source_id row_number unit_1 unit_2 pos raw_metrics typed_metrics freq',
+        'derivation_candidate': 'candidate_key rule_id original game_key lemma_id expanded_tag names qualifiers payload',
+        'derivation_component': 'candidate_key position kind source_id source_row',
+        'evidence_link': 'evidence_id method status sense_identity_confirmed reason',
+        'evidence_candidate': 'id evidence_id lexeme_id form_id candidate_key',
+    }
+    queries = {
+        'source_artifact': ('select source_id,kind,metadata from source_artifact order by source_id', (2,)),
+        'sgjp_record': ('select source_id,row_number,form,lemma,tag,names,qualifiers from sgjp_record order by source_id,row_number', ()),
+        'lexeme': ('select source_id,lemma_id,lemma_base from lexeme order by source_id,lemma_id', ()),
+        'surface_form': ('select original,nfc,game_key,length from surface_form order by original', ()),
+        'interpretation': ('''select i.source_id,i.first_row,f.original,l.source_id,l.lemma_id,i.tag,i.names,i.qualifiers
+            from interpretation i join surface_form f on f.id=i.form_id join lexeme l on l.id=i.lexeme_id
+            order by i.source_id,i.first_row,f.original,l.source_id,l.lemma_id,i.tag,i.names,i.qualifiers''', ()),
+        'corpus_evidence': ('''select source_id,row_number,unit_1,unit_2,pos,raw_metrics,typed_metrics,freq
+            from corpus_evidence order by source_id,row_number''', (5,6)),
+        'derivation_candidate': ('''select candidate_key,rule_id,original,game_key,lemma_id,expanded_tag,names,qualifiers,payload
+            from derivation_candidate order by candidate_key''', (8,)),
+        'derivation_component': ('''select candidate_key,position,kind,source_id,source_row
+            from derivation_component order by candidate_key,position''', ()),
+        'evidence_link': ('''select e.source_id,e.row_number,l.method,l.status,l.sense_identity_confirmed,l.reason
+            from evidence_link l join corpus_evidence e on e.id=l.evidence_id order by e.source_id,e.row_number''', ()),
+        'evidence_candidate': ('''select e.source_id,e.row_number,l.source_id,l.lemma_id,f.original,c.candidate_key
+            from evidence_candidate c join corpus_evidence e on e.id=c.evidence_id
+            left join lexeme l on l.id=c.lexeme_id left join surface_form f on f.id=c.form_id
+            order by e.source_id,e.row_number,l.source_id,l.lemma_id,f.original,c.candidate_key''', ()),
+    }
+    try:
+        tables = {row[0] for row in db.execute("select name from sqlite_master where type='table' and name not like 'sqlite_%'")}
+        required = set(columns) - {'evidence_link', 'evidence_candidate'}
+        if not required <= tables or tables - set(columns):
+            raise GeneratorError('Nieznany lub niepełny schemat logical-content', 4)
+        if ('evidence_link' in tables) != ('evidence_candidate' in tables):
+            raise GeneratorError('Niepełny schemat powiązań logical-content', 4)
+        for table in sorted(tables):
+            actual = {row[1] for row in db.execute(f'pragma table_info({table})')}
+            if actual != set(columns[table].split()):
+                raise GeneratorError('Nieznane kolumny logical-content', 4, table)
+        if db.execute('pragma foreign_key_check').fetchone() is not None:
+            raise GeneratorError('Niespójne relacje logical-content', 4)
+        results = {}
+        for table in sorted(tables):
+            query, json_columns = queries[table]
+            digest, count = hashlib.sha256(), 0
+            for source_row in db.execute(query):
+                row = list(source_row)
+                for index in json_columns:
+                    row[index] = json.loads(row[index])
+                if table == 'source_artifact':
+                    # Wyłącznie lokalizatory i czas pozyskania: identyfikują operację,
+                    # a nie treść źródła. SHA, URL, wersja, licencja i dowody zostają.
+                    row[2] = {k:v for k,v in row[2].items() if k not in ('path','resolved_path','retrieved_at')}
+                    row[2]['evidence'] = [{k:v for k,v in evidence.items() if k not in ('path','resolved_path')}
+                                         for evidence in row[2].get('evidence', [])]
+                digest.update((dumps(row)+'\n').encode('utf-8'))
+                count += 1
+            results[table] = {'rows':count, 'sha256':digest.hexdigest()}
+        return {'schema_version':1, 'encoding':'logical-relations-v1/json-array-utf8-lf',
+                'scope':'current_schema_imports_constructions_links_not_full_release',
+                'excluded_source_metadata_fields':['path','resolved_path','retrieved_at','evidence[].path','evidence[].resolved_path'],
+                'tables':results, 'sha256':hashlib.sha256(dumps(results).encode('utf-8')).hexdigest()}
+    except GeneratorError:
+        raise
+    except (sqlite3.Error, ValueError, TypeError, AttributeError) as error:
+        raise GeneratorError(f'Nie można policzyć logical-content: {error}', 4) from error
 
 
 def filter_impact(groups, variant, rule_order):
@@ -81,7 +164,7 @@ def qualifier_coverage(fields):
     Wejście: unikalne pary (surowe pole kwalifikatorów, liczba interpretacji).
     Liczniki etykiet mogą się nakładać; mianownik rekordów liczymy raz po polu.
     """
-    from .policy import approved_qualifier_checks, VERSION
+    from .policy import approved_qualifier_checks, VERSION, UNEXPLAINED_FIRST_RELEASE_LABELS
 
     inventory, counts = {}, Counter()
     try:
@@ -104,20 +187,27 @@ def qualifier_coverage(fields):
         has_condition = any(checks.values())
         if has_condition:
             mapped.add(label)
+        waived = label in UNEXPLAINED_FIRST_RELEASE_LABELS
         label_rows.append({'label': label, 'compact_interpretations': count,
+                           'gloss_status': 'unestablished' if waived else 'not_assessed_by_this_report',
+                           'first_release_gloss_requirement_waived': waived,
                            'has_known_condition': has_condition, 'condition_assessment': conditions})
     field_rows = []
     totals = {'compact_interpretations': sum(inventory.values()), 'fields': len(inventory),
               'literal_labels': len(counts), 'records_with_any_condition': 0,
-              'records_with_unmapped_label': 0, 'records_without_qualifiers': 0}
+              'records_with_unmapped_label': 0, 'records_without_qualifiers': 0,
+              'records_with_unexplained_first_release_label': 0}
     for field, count in sorted(inventory.items()):
         labels = sorted(set(field.split('|')) - {''})
         unknown = sorted(set(labels) - mapped)
+        unexplained = sorted(set(labels) & UNEXPLAINED_FIRST_RELEASE_LABELS)
+        totals['records_with_unexplained_first_release_label'] += count if unexplained else 0
         totals['records_with_any_condition'] += count if set(labels) & mapped else 0
         totals['records_with_unmapped_label'] += count if unknown else 0
         totals['records_without_qualifiers'] += count if not labels else 0
         field_rows.append({'qualifiers': field, 'compact_interpretations': count, 'labels': labels,
                            'unmapped_labels': unknown,
+                           'unexplained_first_release_labels': unexplained,
                            'condition_assessment': {v: assessment(approved_qualifier_checks(field, v))
                                                     for v in VARIANTS}})
     return {'schema_version': 1, 'policy_version': VERSION,
@@ -128,6 +218,7 @@ def qualifier_coverage(fields):
             'notice': 'Znany warunek nie oznacza pełnej semantyki etykiety ani dopuszczenia analizy. '
                       'Brak etykiety nie dowodzi poprawności; nie sumujemy nakładających się liczników.',
             'labels': label_rows, 'fields': field_rows,
+            'unexplained_first_release_labels': sorted(set(counts) & UNEXPLAINED_FIRST_RELEASE_LABELS),
             'unmapped_labels': sorted(set(counts) - mapped)}
 
 

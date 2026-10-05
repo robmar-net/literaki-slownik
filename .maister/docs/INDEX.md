@@ -52,4 +52,7 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Zakres niepoświadczonych kontrakcji](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-contractions-scope-decision.md) — zatwierdzone A: 18 form w pierwszym wydaniu, osiem zachowanych poza zakresem, odwracalna osobna warstwa oceny.
 
 - [Kontrola zakresu i sekwencji by](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/first-release-scope-review.md) — 127/127 testów generatora, powtarzalny runtime 770 kandydatów poza impt; pełny etap nadal otwarty.
-- [Oznaczenia bez pełnego objaśnienia](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unexplained-labels-first-release-decision.md) — pending wybór wymagania dla zamkniętej listy 25 etykiet, 1908 analiz źródłowych.
+- [Oznaczenia bez pełnego objaśnienia](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unexplained-labels-first-release-decision.md) — zatwierdzone A i wdrożone; objaśnienia nadal nieustalone, 1908 analiz źródłowych, inne kryteria obowiązują.
+
+- [A25 i logiczna treść](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unexplained-and-logical-content-review.md) — 134/134 testów, pełne pokrycie i diagnostyczny hash bieżących relacji.
+- [Adnotacja akcent](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/accent-gloss-first-release-decision.md) — pending wybór wymogu dla dwóch dawnych rekordów; nieobjęte poprzednim wyjątkiem25.

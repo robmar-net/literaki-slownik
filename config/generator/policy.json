@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "approved-conditions-v6",
+  "version": "approved-conditions-v7",
   "status": "partial_not_release_policy",
   "rules": [
     {
@@ -731,6 +731,46 @@
       },
       "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/context-restrictions-decision.md",
       "interpretation": "A: kontekst zachowany i sam niewykluczający. Dawność/niepoprawność/kategoria/gra/profil osobno; ń jako składnik łączony z przyimkiem nie jest objęte regułą."
+    },
+    {
+      "rule_id": "linguistic-unexplained-label-first-release-v1",
+      "status": "confirmed_user_requirement_concession",
+      "operation": "non_excluding_unestablished_gloss",
+      "scope": "closed_25_labels_first_release_other_conditions_separate",
+      "literal_labels": [
+        "astrol.",
+        "astrol.,ekon.",
+        "astron.",
+        "astron.,handl.",
+        "biblt.",
+        "char.,fot.",
+        "char.,gry",
+        "etn.",
+        "fot.",
+        "gry",
+        "gry,zool.",
+        "gwar.,etn.",
+        "hom.,fot.",
+        "hom.,gry",
+        "kolej.",
+        "podniosłe",
+        "pot.,etn.",
+        "pot.,gry",
+        "pot.,slang",
+        "rzad.,etn.",
+        "rzad.,fot.",
+        "rzad.,slang",
+        "slang",
+        "slang,wulg.",
+        "spoż."
+      ],
+      "gloss_status": "unestablished",
+      "variants": {
+        "broad": "non_excluding",
+        "standard": "non_excluding"
+      },
+      "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unexplained-labels-first-release-decision.md",
+      "new_unknown_labels": "not_covered"
     }
   ]
 }

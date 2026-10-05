@@ -14,6 +14,80 @@ def analysis(word, rejected=(), pending=False):
                           game_checks=[{'rule_id':'game-ok','status':'accept','message':'Fixture','evidence':['fixture']}])
 
 
+class LogicalContentTests(unittest.TestCase):
+    def build_pair(self, root):
+        from tests.test_build import BuildTests
+        from literaki_slownik.build import build
+        manifest = BuildTests().manifest(root, '#</COPYRIGHT>\nkot\tkot\tsubst:sg:nom:m2\tnazwa_pospolita\t\n')
+        first, second = root/'one', root/'two'
+        build(manifest, first)
+        build(manifest, second)
+        return first, second
+
+    def test_stable_across_row_ids_and_sensitive_to_annotations_and_links(self):
+        import tempfile
+        from pathlib import Path
+        from literaki_slownik.database import connect
+        from literaki_slownik.reports import logical_content_report
+        with tempfile.TemporaryDirectory() as directory:
+            first, second = self.build_pair(Path(directory))
+            for run in (first, second):
+                with connect(run/'build.sqlite') as db:
+                    db.execute("insert into source_artifact values ('fixture-kwjp','kwjp_lemma','{}')")
+                    db.execute("insert into corpus_evidence values (1,'fixture-kwjp',1,'kot',null,'subst','{\"freq\":7}','{\"freq\":7}',7)")
+                    db.execute("insert into evidence_link values (1,'NFC_LEMMA_POS','EXACT_CANDIDATE',0,'Dopasowanie strukturalne')")
+                    db.execute("insert into evidence_candidate(evidence_id,lexeme_id) select 1,id from lexeme")
+                    db.commit()
+            with connect(first/'build.sqlite', readonly=True) as db:
+                baseline = logical_content_report(db)
+                self.assertEqual(db.total_changes, 0)
+            with connect(second/'build.sqlite') as db:
+                db.execute('pragma foreign_keys=off')
+                db.execute('update lexeme set id=id+1000')
+                db.execute('update interpretation set lexeme_id=lexeme_id+1000,id=id+1000')
+                db.execute('update evidence_candidate set lexeme_id=lexeme_id+1000 where lexeme_id is not null')
+                db.execute('update surface_form set id=id+1000')
+                db.execute('update interpretation set form_id=form_id+1000')
+                db.execute('update corpus_evidence set id=id+1000')
+                db.execute('update evidence_link set evidence_id=evidence_id+1000')
+                db.execute('update evidence_candidate set id=id+1000,evidence_id=evidence_id+1000')
+                db.commit()
+                self.assertEqual(logical_content_report(db), baseline)
+                db.execute("update evidence_link set reason='Zmieniona informacja o powiązaniu'")
+                linked = logical_content_report(db)
+                self.assertNotEqual(linked['sha256'], baseline['sha256'])
+                db.execute("update interpretation set qualifiers='niepopr.'")
+                changed = logical_content_report(db)
+                self.assertNotEqual(changed['tables']['interpretation']['sha256'], baseline['tables']['interpretation']['sha256'])
+
+    def test_build_report_does_not_promote_readiness(self):
+        import tempfile
+        from pathlib import Path
+        from literaki_slownik.canonical import load_json
+        with tempfile.TemporaryDirectory() as directory:
+            first, second = self.build_pair(Path(directory))
+            report=load_json(first/'reports/logical-content.json')
+            self.assertEqual(report, load_json(second/'reports/logical-content.json'))
+            self.assertEqual(report['scope'],'current_schema_imports_constructions_links_not_full_release')
+            self.assertEqual(load_json(first/'manifest.json')['readiness'],'INCOMPLETE')
+
+    def test_unknown_table_or_column_cannot_be_silently_omitted(self):
+        import tempfile
+        from pathlib import Path
+        from literaki_slownik.database import connect
+        from literaki_slownik.reports import logical_content_report
+        with tempfile.TemporaryDirectory() as directory:
+            first, second = self.build_pair(Path(directory))
+            with connect(first/'build.sqlite') as db:
+                db.execute('create table new_decision (decision TEXT)')
+                with self.assertRaises(GeneratorError):
+                    logical_content_report(db)
+            with connect(second/'build.sqlite') as db:
+                db.execute('alter table interpretation add column new_criterion TEXT')
+                with self.assertRaises(GeneratorError):
+                    logical_content_report(db)
+
+
 class FilterReportTests(unittest.TestCase):
     def test_independent_sequential_combined_homonyms_and_overlap(self):
         groups=[{'key':'aa','analyses':[analysis('aa',['A','B'])]},
@@ -69,6 +143,18 @@ class FilterReportTests(unittest.TestCase):
 
 
 class QualifierCoverageTests(unittest.TestCase):
+    def test_unexplained_labels_are_reported_as_concession_not_established_semantics(self):
+        report = self.report([('fot.|slang', 3), ('etn.', 2), ('nowe', 1)])
+        self.assertEqual(report['unmapped_labels'], ['nowe'])
+        self.assertEqual(report['unexplained_first_release_labels'], ['etn.', 'fot.', 'slang'])
+        self.assertEqual(report['totals']['records_with_unexplained_first_release_label'], 5)
+        self.assertEqual(report['totals']['records_with_unmapped_label'], 1)
+        fields = {row['qualifiers']: row for row in report['fields']}
+        self.assertEqual(fields['fot.|slang']['unexplained_first_release_labels'], ['fot.', 'slang'])
+        row = next(x for x in report['labels'] if x['label']=='fot.')
+        self.assertEqual(row['gloss_status'], 'unestablished')
+        self.assertTrue(row['first_release_gloss_requirement_waived'])
+
     def report(self, fields):
         from literaki_slownik.reports import qualifier_coverage
         return qualifier_coverage(iter(fields))
@@ -78,7 +164,8 @@ class QualifierCoverageTests(unittest.TestCase):
         self.assertEqual(report['totals'], {'compact_interpretations': 11, 'fields': 4, 'literal_labels': 3,
                                           'records_with_any_condition': 3,
                                           'records_with_unmapped_label': 6,
-                                          'records_without_qualifiers': 5})
+                                      'records_without_qualifiers': 5,
+                                      'records_with_unexplained_first_release_label': 0})
         self.assertEqual(report['unmapped_labels'], ['nieznane', 'pot.,nieznane'])
         labels = {row['label']: row for row in report['labels']}
         self.assertEqual(labels['rzad.']['compact_interpretations'], 3)
