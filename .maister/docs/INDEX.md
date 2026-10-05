@@ -43,3 +43,7 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Dowody kontrakcji](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/contraction-proof-decision.md) — konieczna decyzja użytkownika przed nowym warunkiem.
 
 - [Kontrakcje, mobilne by i korpus](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/constructions-links-review.md) — wdrożoneA,57/24analizy przyimkowe,64mobilne by,7errat winien; pełny zakres nadal otwarty.
+
+- [Warunki publikacji](../../docs/generator/publikacja.md) — zatwierdzony wariant A, zakres własnych materiałów i atrybucje źródeł.
+
+- [Norma 2026 a nieoznaczone dawne zapisy](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md) — konieczny wybór przed aktywacją kwalifikacji.

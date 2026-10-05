@@ -16,3 +16,5 @@ Pierwsze prace dotyczą audytu źródeł do słowników języka polskiego: SGJP 
 Rozpoczęta implementacja udostępnia import danych oraz diagnostyczne `explain`; pełne listy BROAD/STANDARD pozostają nieukończone. [Instrukcja CLI i ograniczenia](docs/generator/cli.md).
 
 Istotne artefakty procesu Maister znajdują się w `.maister/` i są wersjonowane. Duże dane źródłowe oraz pliki tymczasowe pozostają poza Git. Warunki źródeł zewnętrznych opisują rejestry audytu; publiczność repozytorium sama nie ustala licencji przyszłych wyników.
+
+Własny kod i konfiguracje: [BSD-2-Clause](LICENSE). Własna dokumentacja i raporty: [CC BY 4.0](LICENSE-DOCS.md). [Pochodzenie i warunki danych zewnętrznych](ATTRIBUTIONS.md) oraz [zasady publikacji](docs/generator/publikacja.md).

@@ -11,7 +11,11 @@
     "explicit_incorrectness_27_literal_labels_approved_A",
     "closed_357_descriptive_label_registry",
     "readonly_explain_confirmed_derivation_candidates",
-    "closed_11_context_labels_non_excluding_approved_A"
+    "closed_11_context_labels_non_excluding_approved_A",
+    "preposition_n_18_whole_forms_documented_approved_A",
+    "closed_16_mobile_by_hosts",
+    "derived_whole_form_kwjp_links",
+    "seven_winien_hash_bound_explain_errata"
   ],
   "full_source_compact_interpretations": 7458520,
   "observed_combinations": {
@@ -23,7 +27,7 @@
     "all_compound_qualifier_semantics_and_variant_policy",
     "full_category_and_orthography_matrix",
     "mobile_host_matrix",
-    "game_attestation_for_preposition_n_contractions",
+    "whole_form_evidence_for_eight_remaining_preposition_n_contractions",
     "documented_game_conditions_without_sjp_editorial_source_policy"
   ],
   "release_blocked": true,

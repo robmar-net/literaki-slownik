@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T01:54:36.047597+00:00",
+  "generated": "2026-10-05T02:07:45.899598+00:00",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "KontrakcjeA i mobilneby wdrożone; dalsze domykanie macierzyG3"
+    "current_activity": "Licencje A wdrożone; wymagany wybór normy pisowni 2026"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Zatwierdzone A dla dowodu kontrakcji wdrożono:57 rozwiniętych analiz18dosłownychformSGJP z dowodem accept;24analizy8pozostałychform nadal unresolved. Build/explain zapisują pełne składniki i zachowują homonimy. Zamknięta grupa16hostów z_aglt_by daje64kandydatów z poprawnymPOS; brak reguły sufiksowej. KWJP orth/orth_lc wiąże całe konstrukcje przez FK do candidate_key, bez dziedziczeniaFkorzenia. Explainczyta starsze bazy. Siedem errat winien jest adnotacją zależną od hasha źródła; import i napisy bez zmian. Pełna polityka, pozostałe klasy i wydanie nadal pending.",
+      "summary": "Połączona kontrola wszystkich wdrożonych konstruktorów: 93 071 źródłowych interpretacji, 93 591 kandydatów i 187 182 składniki. Powtórzenie daje identyczny digest i zero nowych kandydatów, FK/integrity OK. To projekcja klas z pełnego źródła, nie pełny build G8. Warunki własnych materiałów zatwierdzono A i zapisano z oddzielnymi atrybucjami źródeł. Pełna macierz i listy pozostają nieukończone. Sprawdzono 70 definicji mobilnych hostów; nowa bramka normy2026 dotyczy m.in. nieoznaczonych jeśliby/jeżeliby. Brak aktywacji zmiany przed odpowiedzią.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -254,7 +254,8 @@ window.MAISTER_DATA = {
         "Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych.",
         "A incorrect_source_label_policy: jawne niepopr. na sprawdzonej dosłownej etykiecie odrzuca konkretną interpretację w BROAD i STANDARD, bez usunięcia wpisu lub innych analiz.",
         "A context_restrictions_policy: samo wymaganie kontekstu niewykluczające; explain zachowuje je, niesamodzielne morfemy osobno.",
-        "A contraction_documentation_proof: dosłowne wskazanie całej kontrakcji przez autorów SGJP wystarcza jako dowód językowy dla18 form; pozostałe kryteria osobno,8pozostałych bez automatycznej analogii."
+        "A contraction_documentation_proof: dosłowne wskazanie całej kontrakcji przez autorów SGJP wystarcza jako dowód językowy dla18 form; pozostałe kryteria osobno,8pozostałych bez automatycznej analogii.",
+        "A: własny kod/konfiguracje BSD-2-Clause; własna dokumentacja i raporty CC BY 4.0. Źródła zachowują odrębne warunki."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -432,11 +433,35 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/winien-explain-runtime.json",
           "label": "Siedem rzeczywistych errat w explain"
+        },
+        {
+          "path": "analysis/evidence/combined-constructions-runtime.json",
+          "label": "Powtarzalność wszystkich wdrożonych klas konstrukcji"
+        },
+        {
+          "path": "../../../../docs/generator/publikacja.md",
+          "label": "Zatwierdzone warunki publikacji"
+        },
+        {
+          "path": "analysis/evidence/orthography-2026-decision.md",
+          "label": "Wybór normy przy nieoznaczonych dawnych zapisach"
+        },
+        {
+          "path": "analysis/evidence/mobile-host-inventory.json",
+          "label": "Pełna inwentaryzacja czterech zamkniętych klas hostów"
         }
       ],
       "gate": {
-        "question": null,
-        "answer": null
+        "id": "orthography_2026_unlabelled_source_forms",
+        "status": "pending",
+        "created_at": "2026-10-05T02:07:45.899598+00:00",
+        "question": "Czy STANDARD stosuje normę 2026 także wobec dawnych zapisów bez etykiety dawności w SGJP, a BROAD może zachować udokumentowane dawne zapisy?",
+        "options": {
+          "A": "STANDARD norma2026; BROAD udokumentowane dawne zapisy, reguły gry osobno (rekomendowane).",
+          "B": "Oba warianty na tym etapie oceniają pisownię według przypiętego SGJP; jawna korekta specyfikacji."
+        },
+        "answer": null,
+        "artifact": "analysis/evidence/orthography-2026-decision.md"
       }
     },
     {

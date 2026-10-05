@@ -1,0 +1,1884 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-05T02:06:10.672664+00:00",
+  "scope": "source_host_inventory_not_normative_acceptance",
+  "source_mode": "readonly",
+  "segment_sha256": "73fca7c4cd5a1cd0db5cd6367b098ec96a6fb01481a0eb441f3b24aa9ca4521c",
+  "definitions": [
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "bowiem",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        743
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1283073,
+          "original": "bowiem",
+          "lemma_id": "bowiem",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "iż",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        744
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2008594,
+          "original": "iż",
+          "lemma_id": "iż",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "cóż",
+      "tag_pattern": "subst:%",
+      "definition_lines": [
+        745
+      ],
+      "interpretations": 8,
+      "written_forms": 5,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1455393,
+          "original": "czegoż",
+          "lemma_id": "cóż",
+          "raw_tag": "subst:sg:gen:n:ncol",
+          "names": "",
+          "qualifiers": ""
+        },
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1455394,
+          "original": "czegóż",
+          "lemma_id": "cóż",
+          "raw_tag": "subst:sg:gen:n:ncol",
+          "names": "",
+          "qualifiers": ""
+        },
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1455395,
+          "original": "czemuż",
+          "lemma_id": "cóż",
+          "raw_tag": "subst:sg:dat:n:ncol",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "subst:sg:acc:n:ncol": 1,
+        "subst:sg:dat:n:ncol": 1,
+        "subst:sg:gen:n:ncol": 3,
+        "subst:sg:inst:n:ncol": 1,
+        "subst:sg:loc:n:ncol": 1,
+        "subst:sg:nom:n:ncol": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "gdzież",
+      "tag_pattern": "adv",
+      "definition_lines": [
+        746
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1828462,
+          "original": "gdzież",
+          "lemma_id": "gdzież",
+          "raw_tag": "adv",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "adv": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "któż",
+      "tag_pattern": "subst:%",
+      "definition_lines": [
+        747
+      ],
+      "interpretations": 8,
+      "written_forms": 5,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2268966,
+          "original": "kimże",
+          "lemma_id": "któż",
+          "raw_tag": "subst:sg:inst:m1",
+          "names": "",
+          "qualifiers": ""
+        },
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2268967,
+          "original": "kimże",
+          "lemma_id": "któż",
+          "raw_tag": "subst:sg:loc:m1",
+          "names": "",
+          "qualifiers": ""
+        },
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2268968,
+          "original": "kogoż",
+          "lemma_id": "któż",
+          "raw_tag": "subst:sg:acc:m1",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "subst:sg:acc:m1": 2,
+        "subst:sg:dat:m1": 1,
+        "subst:sg:gen:m1": 2,
+        "subst:sg:inst:m1": 1,
+        "subst:sg:loc:m1": 1,
+        "subst:sg:nom:m1": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "czyż",
+      "tag_pattern": "part",
+      "definition_lines": [
+        748,
+        753
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1453011,
+          "original": "czyż",
+          "lemma_id": "czyż:T",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "alboż",
+      "tag_pattern": "part",
+      "definition_lines": [
+        749
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1105709,
+          "original": "alboż",
+          "lemma_id": "alboż",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "ależ",
+      "tag_pattern": "part",
+      "definition_lines": [
+        750
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1107620,
+          "original": "ależ",
+          "lemma_id": "ależ:T",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "azaliż",
+      "tag_pattern": "part",
+      "definition_lines": [
+        751
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1178607,
+          "original": "azaliż",
+          "lemma_id": "azaliż",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": "daw."
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "czyliż",
+      "tag_pattern": "part",
+      "definition_lines": [
+        752
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1450481,
+          "original": "czyliż",
+          "lemma_id": "czyliż",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "jakżeż",
+      "tag_pattern": "part",
+      "definition_lines": [
+        754
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2012823,
+          "original": "jakżeż",
+          "lemma_id": "jakżeż",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "zaliż",
+      "tag_pattern": "part",
+      "definition_lines": [
+        755
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 6917139,
+          "original": "zaliż",
+          "lemma_id": "zaliż",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": "przest."
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "już",
+      "tag_pattern": "part",
+      "definition_lines": [
+        756
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2046451,
+          "original": "już",
+          "lemma_id": "już",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "skąd",
+      "tag_pattern": "adv",
+      "definition_lines": [
+        757
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 5696230,
+          "original": "skąd",
+          "lemma_id": "skąd:D",
+          "raw_tag": "adv",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "adv": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "tak",
+      "tag_pattern": "adv:%",
+      "definition_lines": [
+        758
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 5962428,
+          "original": "tak",
+          "lemma_id": "tak:D",
+          "raw_tag": "adv:pos",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "adv:pos": 1
+      }
+    },
+    {
+      "source_class": "z_aglt",
+      "lemma_base": "niż",
+      "tag_pattern": "conj",
+      "definition_lines": [
+        759
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 3882550,
+          "original": "niż",
+          "lemma_id": "niż:C",
+          "raw_tag": "conj",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "conj": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "aby",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        760
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1082364,
+          "original": "aby",
+          "lemma_id": "aby:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "by",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        761
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1321904,
+          "original": "by",
+          "lemma_id": "by:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "choćby",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        762
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1370315,
+          "original": "choćby",
+          "lemma_id": "choćby:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "chociażby",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        763
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1365256,
+          "original": "chociażby",
+          "lemma_id": "chociażby:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "iżby",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        764
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2008595,
+          "original": "iżby",
+          "lemma_id": "iżby",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "gdyby",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        765
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1828236,
+          "original": "gdyby",
+          "lemma_id": "gdyby:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "jakby",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        766
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2011938,
+          "original": "jakby",
+          "lemma_id": "jakby:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "jakoby",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        767
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2012309,
+          "original": "jakoby",
+          "lemma_id": "jakoby:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": "książk."
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "żeby",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        768
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 7437570,
+          "original": "żeby",
+          "lemma_id": "żeby:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "ażeby",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        769
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1180537,
+          "original": "ażeby",
+          "lemma_id": "ażeby",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "jeżeliby",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        770
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2037791,
+          "original": "jeżeliby",
+          "lemma_id": "jeżeliby",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "jeśliby",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        771
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2037336,
+          "original": "jeśliby",
+          "lemma_id": "jeśliby",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "byleby",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        772
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1322993,
+          "original": "byleby",
+          "lemma_id": "byleby:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "kieby",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        773
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2109581,
+          "original": "kieby",
+          "lemma_id": "kieby",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": "gwar."
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "oby",
+      "tag_pattern": "part",
+      "definition_lines": [
+        774
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 3979738,
+          "original": "oby",
+          "lemma_id": "oby",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": "form."
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "bodajby",
+      "tag_pattern": "part",
+      "definition_lines": [
+        775
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1271504,
+          "original": "bodajby",
+          "lemma_id": "bodajby",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_by",
+      "lemma_base": "czyżby",
+      "tag_pattern": "part",
+      "definition_lines": [
+        776
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1453047,
+          "original": "czyżby",
+          "lemma_id": "czyżby:T",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": "książk."
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "jeśli",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        777
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2037335,
+          "original": "jeśli",
+          "lemma_id": "jeśli",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "jeżeli",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        778
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2037790,
+          "original": "jeżeli",
+          "lemma_id": "jeżeli",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "czemu",
+      "tag_pattern": "adv",
+      "definition_lines": [
+        779
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1435568,
+          "original": "czemu",
+          "lemma_id": "czemu",
+          "raw_tag": "adv",
+          "names": "",
+          "qualifiers": "pot."
+        }
+      ],
+      "tag_counts": {
+        "adv": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "jeszcze",
+      "tag_pattern": "part",
+      "definition_lines": [
+        780
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2036383,
+          "original": "jeszcze",
+          "lemma_id": "jeszcze",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "gdzie",
+      "tag_pattern": "adv",
+      "definition_lines": [
+        781
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1828456,
+          "original": "gdzie",
+          "lemma_id": "gdzie:D",
+          "raw_tag": "adv",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "adv": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "gdzie",
+      "tag_pattern": "part",
+      "definition_lines": [
+        782
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1828457,
+          "original": "gdzie",
+          "lemma_id": "gdzie:T",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "dopóty",
+      "tag_pattern": "conj",
+      "definition_lines": [
+        783
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1569397,
+          "original": "dopóty",
+          "lemma_id": "dopóty",
+          "raw_tag": "conj",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "conj": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "dopóki",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        784
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1569394,
+          "original": "dopóki",
+          "lemma_id": "dopóki",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "skoro",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        785
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 5669953,
+          "original": "skoro",
+          "lemma_id": "skoro:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": "książk."
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "dlaczego",
+      "tag_pattern": "adv",
+      "definition_lines": [
+        786
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1509801,
+          "original": "dlaczego",
+          "lemma_id": "dlaczego",
+          "raw_tag": "adv",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "adv": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "zali",
+      "tag_pattern": "part",
+      "definition_lines": [
+        787
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 6916038,
+          "original": "zali",
+          "lemma_id": "zali",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": "przest."
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "azali",
+      "tag_pattern": "part",
+      "definition_lines": [
+        788
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1178548,
+          "original": "azali",
+          "lemma_id": "azali",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": "daw."
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "albo",
+      "tag_pattern": "part",
+      "definition_lines": [
+        789
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1105695,
+          "original": "albo",
+          "lemma_id": "albo:T",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": "przest."
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "czyli",
+      "tag_pattern": "part",
+      "definition_lines": [
+        790
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1450479,
+          "original": "czyli",
+          "lemma_id": "czyli:T",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": "daw."
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "ale",
+      "tag_pattern": "part",
+      "definition_lines": [
+        791
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1106179,
+          "original": "ale",
+          "lemma_id": "ale:T",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "ale",
+      "tag_pattern": "conj",
+      "definition_lines": [
+        792
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1106180,
+          "original": "ale",
+          "lemma_id": "ale:C",
+          "raw_tag": "conj",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "conj": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "kiedy",
+      "tag_pattern": "adv",
+      "definition_lines": [
+        793
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2109637,
+          "original": "kiedy",
+          "lemma_id": "kiedy:D",
+          "raw_tag": "adv",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "adv": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "kiedy",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        794
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2109638,
+          "original": "kiedy",
+          "lemma_id": "kiedy:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "tylko",
+      "tag_pattern": "part",
+      "definition_lines": [
+        795
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 6061931,
+          "original": "tylko",
+          "lemma_id": "tylko:T",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "to",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        796
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 5996627,
+          "original": "to",
+          "lemma_id": "to:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "chyba",
+      "tag_pattern": "part",
+      "definition_lines": [
+        797
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1383178,
+          "original": "chyba",
+          "lemma_id": "chyba",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "czy",
+      "tag_pattern": "part",
+      "definition_lines": [
+        798
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1450189,
+          "original": "czy",
+          "lemma_id": "czy:T",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "co",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        799
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1409106,
+          "original": "co",
+          "lemma_id": "co:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "bo",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        800
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1269229,
+          "original": "bo",
+          "lemma_id": "bo:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "byle",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        801
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1322991,
+          "original": "byle",
+          "lemma_id": "byle:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "niźli",
+      "tag_pattern": "conj",
+      "definition_lines": [
+        802
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 3882548,
+          "original": "niźli",
+          "lemma_id": "niźli:C",
+          "raw_tag": "conj",
+          "names": "",
+          "qualifiers": "przest."
+        }
+      ],
+      "tag_counts": {
+        "conj": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "niżeli",
+      "tag_pattern": "conj",
+      "definition_lines": [
+        803
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 3882634,
+          "original": "niżeli",
+          "lemma_id": "niżeli:C",
+          "raw_tag": "conj",
+          "names": "",
+          "qualifiers": "książk."
+        }
+      ],
+      "tag_counts": {
+        "conj": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "aniżeli",
+      "tag_pattern": "conj",
+      "definition_lines": [
+        804
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1130562,
+          "original": "aniżeli",
+          "lemma_id": "aniżeli:C",
+          "raw_tag": "conj",
+          "names": "",
+          "qualifiers": "książk."
+        }
+      ],
+      "tag_counts": {
+        "conj": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "ledwie",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        805
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2322641,
+          "original": "ledwie",
+          "lemma_id": "ledwie:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "zaledwie",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        806
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 6913945,
+          "original": "zaledwie",
+          "lemma_id": "zaledwie:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok",
+      "lemma_base": "póki",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        807
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 5237520,
+          "original": "póki",
+          "lemma_id": "póki",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok2",
+      "lemma_base": "że",
+      "tag_pattern": "part",
+      "definition_lines": [
+        810
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 7436612,
+          "original": "że",
+          "lemma_id": "że:T",
+          "raw_tag": "part",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "part": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok2",
+      "lemma_base": "że",
+      "tag_pattern": "comp",
+      "definition_lines": [
+        811
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 7436613,
+          "original": "że",
+          "lemma_id": "że:M",
+          "raw_tag": "comp",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "comp": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok2",
+      "lemma_base": "co",
+      "tag_pattern": "subst:%",
+      "definition_lines": [
+        812
+      ],
+      "interpretations": 7,
+      "written_forms": 4,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1409107,
+          "original": "co",
+          "lemma_id": "co:S",
+          "raw_tag": "subst:sg:acc:n:ncol",
+          "names": "",
+          "qualifiers": "z_D."
+        },
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1409108,
+          "original": "co",
+          "lemma_id": "co:S",
+          "raw_tag": "subst:sg:gen:n:ncol",
+          "names": "",
+          "qualifiers": "rzad."
+        },
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1409109,
+          "original": "co",
+          "lemma_id": "co:S",
+          "raw_tag": "subst:sg:nom:n:ncol",
+          "names": "",
+          "qualifiers": "z_D."
+        }
+      ],
+      "tag_counts": {
+        "subst:sg:acc:n:ncol": 1,
+        "subst:sg:dat:n:ncol": 1,
+        "subst:sg:gen:n:ncol": 2,
+        "subst:sg:inst:n:ncol": 1,
+        "subst:sg:loc:n:ncol": 1,
+        "subst:sg:nom:n:ncol": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok2",
+      "lemma_base": "kto",
+      "tag_pattern": "subst:%",
+      "definition_lines": [
+        813
+      ],
+      "interpretations": 6,
+      "written_forms": 4,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2268808,
+          "original": "kim",
+          "lemma_id": "kto",
+          "raw_tag": "subst:sg:inst:m1",
+          "names": "",
+          "qualifiers": ""
+        },
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2268809,
+          "original": "kim",
+          "lemma_id": "kto",
+          "raw_tag": "subst:sg:loc:m1",
+          "names": "",
+          "qualifiers": ""
+        },
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 2268810,
+          "original": "kogo",
+          "lemma_id": "kto",
+          "raw_tag": "subst:sg:acc:m1",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "subst:sg:acc:m1": 1,
+        "subst:sg:dat:m1": 1,
+        "subst:sg:gen:m1": 1,
+        "subst:sg:inst:m1": 1,
+        "subst:sg:loc:m1": 1,
+        "subst:sg:nom:m1": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok2",
+      "lemma_base": "gdy",
+      "tag_pattern": "adv",
+      "definition_lines": [
+        814
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 1828124,
+          "original": "gdy",
+          "lemma_id": "gdy:D",
+          "raw_tag": "adv",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "adv": 1
+      }
+    },
+    {
+      "source_class": "z_aglt_nwok2",
+      "lemma_base": "wcale",
+      "tag_pattern": "adv",
+      "definition_lines": [
+        815
+      ],
+      "interpretations": 1,
+      "written_forms": 1,
+      "examples": [
+        {
+          "source_id": "sgjp-20260823",
+          "first_source_row": 6317787,
+          "original": "wcale",
+          "lemma_id": "wcale",
+          "raw_tag": "adv",
+          "names": "",
+          "qualifiers": ""
+        }
+      ],
+      "tag_counts": {
+        "adv": 1
+      }
+    }
+  ],
+  "summary": {
+    "z_aglt": {
+      "definitions": 16,
+      "interpretations": 30,
+      "missing_definitions": []
+    },
+    "z_aglt_by": {
+      "definitions": 17,
+      "interpretations": 17,
+      "missing_definitions": []
+    },
+    "z_aglt_nwok": {
+      "definitions": 31,
+      "interpretations": 31,
+      "missing_definitions": []
+    },
+    "z_aglt_nwok2": {
+      "definitions": 6,
+      "interpretations": 17,
+      "missing_definitions": []
+    }
+  },
+  "aglt_source_interpretations": [
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 1324517,
+      "original": "em",
+      "lemma_id": "być",
+      "raw_tag": "aglt:sg:pri:imperf:wok",
+      "names": "",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 1324518,
+      "original": "eś",
+      "lemma_id": "być",
+      "raw_tag": "aglt:sg:sec:imperf:wok",
+      "names": "",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 1324519,
+      "original": "eście",
+      "lemma_id": "być",
+      "raw_tag": "aglt:pl:sec:imperf:wok",
+      "names": "",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 1324520,
+      "original": "eśmy",
+      "lemma_id": "być",
+      "raw_tag": "aglt:pl:pri:imperf:wok",
+      "names": "",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 1324526,
+      "original": "m",
+      "lemma_id": "być",
+      "raw_tag": "aglt:sg:pri:imperf:nwok",
+      "names": "",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 1324553,
+      "original": "ś",
+      "lemma_id": "być",
+      "raw_tag": "aglt:sg:sec:imperf:nwok",
+      "names": "",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 1324554,
+      "original": "ście",
+      "lemma_id": "być",
+      "raw_tag": "aglt:pl:sec:imperf:nwok",
+      "names": "",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 1324555,
+      "original": "śmy",
+      "lemma_id": "być",
+      "raw_tag": "aglt:pl:pri:imperf:nwok",
+      "names": "",
+      "qualifiers": ""
+    }
+  ],
+  "remaining": [
+    "norm_2026_vs_snapshot_orthography_decision",
+    "whole_host_matrix_and_game_eligibility",
+    "no_suffix_or_permissive_generation"
+  ],
+  "total_changes": 0
+}

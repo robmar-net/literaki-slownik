@@ -64,6 +64,6 @@ Explain nadal odtwarza potwierdzone konstrukcje z rzeczywistych składników, a 
 
 ## Zatwierdzony dowód kontrakcji i zamknięta grupa hostów by
 
-Zatwierdzone A dla dowodu kontrakcji wdrożono:57 rozwiniętych analiz18dosłownychformSGJP z dowodem accept;24analizy8pozostałychform nadal unresolved. Build/explain zapisują pełne składniki i zachowują homonimy. Zamknięta grupa16hostów z_aglt_by daje64kandydatów z poprawnymPOS; brak reguły sufiksowej. KWJP orth/orth_lc wiąże całe konstrukcje przez FK do candidate_key, bez dziedziczeniaFkorzenia. Explainczyta starsze bazy. Siedem errat winien jest adnotacją zależną od hasha źródła; import i napisy bez zmian. Pełna polityka, pozostałe klasy i wydanie nadal pending.
+Wdrożono zatwierdzone A: 57 rozwiniętych analiz 18 dosłownie wskazanych form SGJP ma dowód językowy; 24 analizy ośmiu pozostałych form pozostają nierozstrzygnięte. Build i explain zapisują pełne składniki i zachowują homonimy. Zamknięta grupa 16 hostów z_aglt_by daje 64 kandydatów zgodnych z klasą źródłową. KWJP orth/orth_lc wiąże całe konstrukcje przez candidate_key, bez dziedziczenia częstości rdzenia. Explain czyta starsze bazy. Siedem errat winien jest adnotacją zależną od hasha źródła. Pełna polityka, pozostałe klasy i wydanie nadal wymagają ukończenia.
 
 [Przegląd i rzeczywiste liczebności](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/constructions-links-review.md). Pełny zakres pozostałych mobilnych hostów i dowodów pozostaje obowiązkowy.

@@ -214,8 +214,16 @@ Nowe build zapisują potwierdzony podzbiór konstrukcji do derivation_candidate 
 
 Komenda build tworzy bezpośrednie powiązania wszystkich zaimportowanych jednostek KWJP i reports/links.json; F pozostaje przy jednostce korpusu. Raport wskazuje osobno listy/gatunki i źródła niedostępne. Pełne powiązania konstrukcji nadal otwarte: links pozostaje pending, a wynik INCOMPLETE. Błąd zapisu powiązań oznacza links failed, zachowując zakończone importy. Testy generatora 106/106 i audytu 5/5 przeszły.
 
-Decyzja o sile dowodu dla kontrakcji pozostaje [przed wdrożeniem](../analysis/evidence/contraction-proof-decision.md).
+Decyzja o sile dowodu dla kontrakcji została [zatwierdzona A](../analysis/evidence/contraction-proof-decision.md).
 
 ## Kontrakcje i powiązania konstrukcji — postęp
 
-Zatwierdzone A dla dowodu kontrakcji wdrożono:57 rozwiniętych analiz18dosłownychformSGJP z dowodem accept;24analizy8pozostałychform nadal unresolved. Build/explain zapisują pełne składniki i zachowują homonimy. Zamknięta grupa16hostów z_aglt_by daje64kandydatów z poprawnymPOS; brak reguły sufiksowej. KWJP orth/orth_lc wiąże całe konstrukcje przez FK do candidate_key, bez dziedziczeniaFkorzenia. Explainczyta starsze bazy. Siedem errat winien jest adnotacją zależną od hasha źródła; import i napisy bez zmian. Pełna polityka, pozostałe klasy i wydanie nadal pending.
+Wdrożono zatwierdzone A: 57 rozwiniętych analiz 18 dosłownie wskazanych form SGJP ma dowód językowy; 24 analizy ośmiu pozostałych form pozostają nierozstrzygnięte. Build i explain zapisują pełne składniki i zachowują homonimy. Zamknięta grupa 16 hostów z_aglt_by daje 64 kandydatów zgodnych z klasą źródłową. KWJP orth/orth_lc wiąże całe konstrukcje przez candidate_key, bez dziedziczenia częstości rdzenia. Explain czyta starsze bazy. Siedem errat winien jest adnotacją zależną od hasha źródła. Pełna polityka, pozostałe klasy i wydanie nadal wymagają ukończenia.
+
+## Połączony runtime i warunki publikacji
+
+Połączona kontrola wszystkich wdrożonych konstruktorów: 93 071 źródłowych interpretacji, 93 591 kandydatów i 187 182 składniki. Powtórzenie daje identyczny digest i zero nowych kandydatów, FK/integrity OK. To projekcja klas z pełnego źródła, nie pełny build G8. Warunki własnych materiałów zatwierdzono A i zapisano z oddzielnymi atrybucjami źródeł. Pełna macierz i listy pozostają nieukończone.
+
+## Norma 2026 — wymagany wybór
+
+Sprawdzono wszystkie 70 definicji zamkniętych klas mobilnych hostów. Rozbieżność SGJP z normą 2026 przy nieoznaczonych jeśliby/jeżeliby wymaga [decyzji przed zmianą kwalifikacji](../analysis/evidence/orthography-2026-decision.md). Reguły gry pozostają bez zmian.
