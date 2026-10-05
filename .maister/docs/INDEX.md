@@ -100,4 +100,8 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Pokrycie klas — raport](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/coverage-implementation-review.md) — źródło oddzielnie od analiz użyć, brakujące oceny jawne.
 
 - [Dalsze użycia SGJP](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/additional-phrase-use-review.md) — ten sam zatwierdzony próg BROAD, pięć dokładnych użyć i pozostałość.
-- [Próg wieku STANDARD](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/standard-age-baseline-decision.md) — pełny pomiar i konieczna decyzja przed kwalifikacją wieku nieoznaczonych interpretacji.
+- [Próg wieku STANDARD](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/standard-age-baseline-decision.md) — zatwierdzone A i wdrożone v20 z jawną niepewnością.
+
+- [Wdrożenie progu wieku STANDARD](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/age-baseline-implementation-review.md)
+- [Niewiadome według wyniku słowa](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unknown-relevance-implementation-review.md)
+- [Wspólny próg leksykalny — decyzja pending](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/shared-lexical-proof-decision.md)

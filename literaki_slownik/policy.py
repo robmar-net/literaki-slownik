@@ -3,7 +3,7 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v19'
+VERSION = 'diagnostic-approved-conditions-v20'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -938,6 +938,20 @@ def history_checks(qualifiers, variant):
                            'evidence': ['config/generator/policy.json',
                                         '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md']})
     return result
+
+
+def standard_age_baseline_checks(qualifiers, variant):
+    """Zatwierdzony próg wieku; nie ustala pełnej poprawności ani współczesności."""
+    if variant not in {'broad','standard'}:
+        raise GeneratorError('Nieznany wariant słownika',2)
+    if variant=='broad' or any(c['status']=='reject' for c in history_checks(qualifiers,variant)):
+        return []
+    return [{'rule_id':'linguistic-standard-age-baseline-v1','status':'accept',
+        'age_basis':'source_classification','age_certainty':'not_independently_established',
+        'scope':'age_condition_only','source_qualifiers':qualifiers,
+        'message':'Brak wykluczającego oznaczenia wieku nie blokuje tego warunku STANDARD. Współczesność nie została niezależnie ustalona; inne warunki i konkretne dowody osobno.',
+        'evidence':['config/generator/policy.json',
+                    '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/standard-age-baseline-decision.md']}]
 
 
 def disrecommended_checks(qualifiers):

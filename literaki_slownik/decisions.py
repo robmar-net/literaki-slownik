@@ -2,7 +2,7 @@
 from .inputs import GeneratorError
 from .policy import (assess_profile, spelling_checks, release_scope_checks,
                      approved_qualifier_checks, orthography_checks, construction_orthography_checks,
-                     source_game_checks, resident_use_checks, RESIDENT_RELATION_CONDITIONS, VERSION as POLICY_VERSION)
+                     source_game_checks, standard_age_baseline_checks, resident_use_checks, RESIDENT_RELATION_CONDITIONS, VERSION as POLICY_VERSION)
 
 STATUSES = frozenset({'accept', 'reject', 'unresolved'})
 VARIANTS = ('broad', 'standard')
@@ -32,7 +32,7 @@ def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyse
     game=[check for check in game if in_scope(check)]
     game+=resident_use_checks(lexical_use_review)
     return assess_analysis(original,
-        language={v:pending+approved_qualifier_checks(qualifiers,v)+list(additional_checks)
+        language={v:pending+approved_qualifier_checks(qualifiers,v)+standard_age_baseline_checks(qualifiers,v)+list(additional_checks)
                   +[check for source in source_analyses for check in orthography_checks(source,v) if in_scope(check)]
                   +construction_orthography_checks(candidate,v)
                   +lexical_use_checks(lexical_use_review,v)+resident_use_checks(lexical_use_review,v) for v in VARIANTS},

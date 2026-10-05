@@ -157,6 +157,7 @@ def unresolved_report(db):
         variants[variant]['word_membership'][word_status] += 1
         for rule in group_rules:
             rules[rule]['word_keys'] += 1
+            rules[rule]['word_keys_by_membership'][word_status] += 1
 
     try:
         expected = db.execute('select count(*) from analysis').fetchone()[0]
@@ -196,7 +197,8 @@ def unresolved_report(db):
             total['rejected_analyses_with_unresolved_checks'] += bool(unknowns) and membership == 'reject'
             for rule in unknowns:
                 counts = rules.setdefault(rule, {'analyses': 0, 'word_keys': 0,
-                                                'analyses_with_rejected_membership': 0})
+                                                'analyses_with_rejected_membership': 0,
+                                                'word_keys_by_membership':dict.fromkeys(statuses,0)})
                 counts['analyses'] += 1
                 counts['analyses_with_rejected_membership'] += membership == 'reject'
             group_rules.update(unknowns)

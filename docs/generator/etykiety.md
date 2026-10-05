@@ -84,3 +84,7 @@ Ogólny opis całej klasy jako dawnej lub przestarzałej nie nadaje automatyczni
 ## Dalsze dowody użyć i próg wieku
 
 Zatwierdzony dowód leksykalny BROAD stosuje się do pięciu kolejnych dokładnych użyć: dwójnasób, trójnasób, kroćset, roścież, ziem. Inne warunki i pozostałość osobno; istniejące daw. nadal odrzuca kroćset STANDARD. Pełny pomiar obejmuje7 458 520 interpretacji;6 860 276 nie ma wykluczającego warunku wieku. Nie uznano ich automatycznie za współczesne. [Próg wieku STANDARD](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/standard-age-baseline-decision.md) wymaga decyzji; nowego warunku nie aktywowano.
+
+## Aktualizacja v20
+
+STANDARD: brak wykluczającej etykiety przechodzi tylko warunek wieku; age_basis=source_classification, age_certainty=not_independently_established. Nie objaśnia nieznanych kwalifikatorów ani nie daje pełnej akceptacji. Jawne wyłączenia wieku zachowane.

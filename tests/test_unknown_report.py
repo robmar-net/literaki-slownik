@@ -62,6 +62,18 @@ class UnknownReportTest(unittest.TestCase):
         self.assertEqual(db.total_changes, before)
         self.assertTrue(result['full_qualification_pending'])
 
+    def test_rule_relevance_separates_accepted_rejected_and_unresolved_words(self):
+        db=self.database()
+        db.execute("insert into analysis values ('c1','cc')")
+        db.execute("insert into variant_decision select 'c1',variant,language_status,game_status,profile_status,scope_status,membership_status,assessment_key from variant_decision where analysis_key='a1'")
+        before=db.total_changes
+        report=unresolved_report(db)
+        for rule in report['rules']:
+            self.assertEqual(rule['word_keys_by_membership'],{'accept':1,'reject':1,'unresolved':1})
+            self.assertEqual(rule['word_keys'],sum(rule['word_keys_by_membership'].values()))
+        self.assertEqual(db.total_changes,before)
+        self.assertEqual(report,unresolved_report(db))
+
     def test_missing_variant_or_payload_cannot_be_reported_as_complete(self):
         for table in ('variant_decision', 'decision_payload'):
             db = self.database()

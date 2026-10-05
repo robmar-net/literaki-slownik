@@ -66,3 +66,7 @@ Build zapisuje reports/canonical-index.json: hashe/rozmiary ustalonego zestawu r
 ## Raport pokrycia klas
 
 Build zapisuje reports/coverage.json: kompaktowe interpretacje i rozwinięcia według POS, obserwowane/nieobserwowane klasy konstruktorów, zapisane analizy oraz brakujące oceny źródła. Udokumentowane użycie nie powiększa liczby źródłowych form. COMPLETE_TECHNICAL_NOT_QUALIFICATION opisuje tylko pokrycie zapisanych ocen; INCOMPLETE i pełna macierz semantyczna nadal otwarte. Starszy import bez ocen pozostaje readonly i ma wszystkie rozwinięcia nieocenione; częściowy schemat odmawia raportu. [Kontrole](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/coverage-implementation-review.md).
+
+## Aktualizacja v20
+
+unresolved_report dodaje word_keys_by_membership (accept/reject/unresolved) każdej reguły: wynik całego słowa po wszystkich homonimach. To współwystępowanie, nie przyczynowa delta po usunięciu reguły. Historyczne bazy zachowują własne wcześniejsze oceny.

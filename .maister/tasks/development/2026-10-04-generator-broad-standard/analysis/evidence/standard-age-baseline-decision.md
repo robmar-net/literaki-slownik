@@ -7,10 +7,10 @@ Pełny przegląd wieku obejmuje7 458 520 interpretacji SGJP. 598 244 mają zatwi
 - Reguły gry, wyłączenia niepopr., znane historyczne zapisy i jawne daw./przest./arch. pozostają odrębne i wiążące.
 - Wcześniejsze A dotyczą mieszanych kwalifikatorów, opisów całych klas i dowodu konkretnego użycia BROAD. Nie ustalają ogólnego progu dodatniego dowodu współczesności przy nieoznaczonej interpretacji.
 - §2.3 promptu: brak kwalifikatora nie stanowi dowodu współczesności; zachowujemy informację o ograniczeniach. A nie zamienia tego braku w fakt o wieku. Wybiera operacyjną politykę listy opartą na dostępnej klasyfikacji źródłowej.
-- Nie dodano nowego warunku w kodzie. Ta bramka dotyczy wieku; nie zamyka innych luk, macierzy, kwalifikacji nazw mieszkańców lub pozostałości semantycznej i nie pozwala omijać verify.
+- Po zatwierdzeniu A dodano osobny warunek wieku w v20. Ta bramka dotyczy wieku; nie zamyka innych luk, macierzy, kwalifikacji nazw mieszkańców lub pozostałości semantycznej i nie pozwala omijać verify.
 
 ## Open Questions / Risks
-Decyzja A/B pending. A może zachować nieoznaczone archaizmy; B wymaga dodatnich dowodów dotyczących konkretnych interpretacji nawet dla zwykłych słów. KWJP nie dowodzi samo wieku ani poprawności, więc B nie da się zamknąć licznikiem częstości. Nośnik wieku i status pewności trzeba zachować niezależnie od decyzji członkostwa. Nie wymagamy od użytkownika dostarczenia tych danych i nie kontaktujemy się z innymi grupami.
+Użytkownik zatwierdził A; wdrożenie v20 ukończone diagnostycznie. A może zachować nieoznaczone archaizmy; B wymaga dodatnich dowodów dotyczących konkretnych interpretacji nawet dla zwykłych słów. KWJP nie dowodzi samo wieku ani poprawności, więc B nie da się zamknąć licznikiem częstości. Nośnik wieku i status pewności trzeba zachować niezależnie od decyzji członkostwa. Nie wymagamy od użytkownika dostarczenia tych danych i nie kontaktujemy się z innymi grupami.
 
 ## Konkretny zakres i przykłady
 
@@ -33,3 +33,7 @@ Skrypt age-baseline-inventory-probe.py czyta G2 readonly i grupuje wszystkie kom
 ## Przyczyna bramki
 
 [AGENTS.md](../../../../../../AGENTS.md): „Decyzje zmieniające skład słownika lub kryteria dopuszczalności omawiamy z użytkownikiem przed ich wdrożeniem”. [maister-implementation-plan-executor](/Users/robmar/.codex/plugins/cache/maister-plugins/maister-codex/2.2.3/skills/maister-implementation-plan-executor/SKILL.md) wymaga: „At a material deviation or recovery decision […] ask […] and pause”. Bramka dotyczy konkretnego progu akceptacji wieku, nie ponownej zgody na źródło SGJP ani porzucenia obowiązkowego discovery.
+
+## Zatwierdzenie i wdrożenie
+
+A zatwierdzone 2026-10-05T19:23:33Z. [Wdrożenie i kontrole](age-baseline-implementation-review.md). Brak potwierdzonej współczesności nadal jawny.

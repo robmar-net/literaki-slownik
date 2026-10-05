@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T18:52:33Z",
+  "generated": "2026-10-05T19:41:13Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Konieczna decyzja progu wieku STANDARD; dalsze użycia SGJP wdrożone"
+    "current_activity": "Wiek wdrożony; decyzja wspólnego progu leksykalnego STANDARD"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Dodatni dowód BROAD wdrożony v19 dla5kolejnych dokładnych użyć SGJP; zachowane inne warunki i pozostałość. Dwie projekcje9rekordów/14analiz/28ocen, logiczna treść/próbki zgodne,20readonly explain;204/204+5/5,preflight14+12OK. Pełny przegląd wieku:7458520interpretacji,598244z wykluczającym warunkiem/6860276bez; puste kwalifikatory6423658. Konieczna decyzja progu wieku STANDARD przy braku wykluczającej etykiety; bez nowego filtra, pełna macierz i8/36 nadal otwarte.",
+      "summary": "Wdrożone A wieku STANDARD v20 z jawną niepewnością; 208/208+5/5, preflight14+12OK. Dwie projekcje10rekordów/16analiz/32ocen, 24readonly explain, powtarzalność i źródło bez zmian. Raport niewiadomych rozlicza wynik całego słowa; historyczne oceny nie są nowym pełnym build v20. Konieczna decyzja zakresu leksykalnego dowodu STANDARD; pełna macierz i8/36 nadal otwarte.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -769,20 +769,43 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/standard-age-baseline-decision.md",
           "label": "Próg wieku STANDARD"
+        },
+        {
+          "path": "analysis/evidence/age-baseline-implementation-review.md",
+          "label": "Wdrożenie wieku STANDARD"
+        },
+        {
+          "path": "analysis/evidence/age-baseline-runtime.json",
+          "label": "Runtime wieku STANDARD"
+        },
+        {
+          "path": "analysis/evidence/unknown-relevance-implementation-review.md",
+          "label": "Niewiadome według wyniku słowa"
+        },
+        {
+          "path": "analysis/evidence/unknown-relevance-runtime.json",
+          "label": "Historyczny runtime niewiadomych"
+        },
+        {
+          "path": "analysis/evidence/shared-lexical-proof-decision.md",
+          "label": "Zakres leksykalnego dowodu STANDARD"
+        },
+        {
+          "path": "analysis/evidence/shared-lexical-proof-simulation.json",
+          "label": "Symulacja readonly sześciu użyć"
         }
       ],
       "gate": {
-        "id": "standard_age_baseline",
+        "id": "documented_lexical_proof_shared_variants",
         "status": "pending",
-        "created_at": "2026-10-05T18:52:33Z",
-        "question": "Jak STANDARD ma oceniać wiek interpretacji SGJP bez wykluczającej etykiety: według klasyfikacji źródłowej z jawną niepewnością, czy dopiero po dodatnim dowodzie współczesności?",
+        "created_at": "2026-10-05T19:41:13Z",
+        "question": "Czy sprawdzony dowód konkretnego polskiego użycia SGJP stosujemy do warunku leksykalnego również w STANDARD, z osobnymi pozostałymi warunkami?",
         "options": {
-          "A": "Klasyfikacja źródłowa i konkretne wyłączenia; brak etykiety nie blokuje wieku, niepewność jawna, inne warunki osobno (rekomendowane).",
-          "B": "Dodatni dowód współczesności każdej nieoznaczonej interpretacji; do tego czasu unresolved."
+          "A": "Ten sam dowód leksykalny dla obu wariantów, wiek/pisownia/gra osobno (rekomendowane).",
+          "B": "Dowód tylko BROAD; STANDARD wymaga osobnego dowodu leksykalnego."
         },
         "answer": null,
-        "artifact": "analysis/evidence/standard-age-baseline-decision.md",
-        "scope": "age_condition_only_not_blanket_release_or_game_change"
+        "artifact": "analysis/evidence/shared-lexical-proof-decision.md"
       }
     },
     {

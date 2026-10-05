@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "approved-conditions-v16",
+  "version": "approved-conditions-v17",
   "status": "partial_not_release_policy",
   "rules": [
     {
@@ -858,5 +858,14 @@
     "rule_id": "documented-spelling-variant-v1",
     "scope": "closed_two_attested_base_forms_not_lower_rule",
     "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-spelling-variants-decision.md"
+  },
+  "standard_age_baseline": {
+    "answer": "A",
+    "rule_id": "linguistic-standard-age-baseline-v1",
+    "age_basis": "source_classification",
+    "age_certainty": "not_independently_established",
+    "no_excluding_label_is_nonblocking_age_condition": true,
+    "specific_excluding_evidence_separate": true,
+    "does_not_close_other_conditions": true
   }
 }

@@ -13,7 +13,9 @@ class PersistedDecisionTests(unittest.TestCase):
             root=Path(directory);p=BuildTests().manifest(root,'#</COPYRIGHT>\nkot\tkot\tsubst:sg:nom:m2\t\t\npies\tpies\tsubst:sg:nom:m2\t\t\n')
             run=root/'run';build(p,run)
             with connect(run/'build.sqlite',readonly=True) as db:
-                self.assertEqual(db.execute('select count(*) from decision_payload').fetchone()[0],1)
+                self.assertEqual(db.execute('select count(*) from decision_payload').fetchone()[0],2)
+                for variant in ('broad','standard'):
+                    self.assertEqual(db.execute('select count(distinct assessment_key) from variant_decision where variant=?',(variant,)).fetchone()[0],1)
                 for word in ('kot','pies'):
                     row,=persisted_assessments(db,word,'standard')
                     live=assess_diagnostic(word,'',source_analyses=[dict(original=word,lemma_id=word,raw_tag='subst:sg:nom:m2',names='',qualifiers='')])

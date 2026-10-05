@@ -333,3 +333,9 @@ A relacji mieszkańca wdrożone v18:11rekordów/14użyć, pozostałość i homon
 Dodatni dowód BROAD wdrożony v19 dla5kolejnych dokładnych użyć SGJP; zachowane inne warunki i pozostałość. Dwie projekcje9rekordów/14analiz/28ocen, logiczna treść/próbki zgodne,20readonly explain;204/204+5/5,preflight14+12OK. Pełny przegląd wieku:7458520interpretacji,598244z wykluczającym warunkiem/6860276bez; puste kwalifikatory6423658. Konieczna decyzja progu wieku STANDARD przy braku wykluczającej etykiety; bez nowego filtra, pełna macierz i8/36 nadal otwarte.
 
 [Wdrożenie](../analysis/evidence/additional-phrase-use-review.md), [konieczna decyzja](../analysis/evidence/standard-age-baseline-decision.md).
+
+## Wiek STANDARD i znaczenie niewiadomych — wdrożenie
+
+Wdrożone A wieku STANDARD v20 z jawną niepewnością; 208/208+5/5, preflight14+12OK. Dwie projekcje10rekordów/16analiz/32ocen, 24readonly explain, powtarzalność i źródło bez zmian. Raport niewiadomych rozlicza wynik całego słowa; historyczne oceny nie są nowym pełnym build v20. Konieczna decyzja zakresu leksykalnego dowodu STANDARD; pełna macierz i8/36 nadal otwarte.
+
+[Wdrożenie wieku](../analysis/evidence/age-baseline-implementation-review.md), [raport niewiadomych](../analysis/evidence/unknown-relevance-implementation-review.md), [decyzja wspólnego dowodu](../analysis/evidence/shared-lexical-proof-decision.md).

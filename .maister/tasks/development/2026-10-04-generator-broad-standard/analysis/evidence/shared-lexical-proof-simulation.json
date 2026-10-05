@@ -1,0 +1,153 @@
+{
+  "scope": "readonly_counterfactual_single_check_not_policy_activation",
+  "run": "data/work/age-baseline-use-20261005-193421-a",
+  "db_sha256": "2b639f72f6c1a46606f48d740eccce5a40d0241f22d8af87995547bf1596e9ec",
+  "source_unchanged": true,
+  "cases": [
+    {
+      "word_key": "wznak",
+      "source": {
+        "first_source_row": 6770165,
+        "lemma_id": "wznak",
+        "names": "",
+        "original": "wznak",
+        "qualifiers": "",
+        "raw_tag": "frag",
+        "source_id": "sgjp-20260823",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "lexical_before": "unresolved",
+      "lexical_option_A": "accept",
+      "language_before": "unresolved",
+      "language_option_A": "unresolved",
+      "membership_before": "unresolved",
+      "membership_option_A": "unresolved",
+      "remaining_rules": [
+        "linguistic-policy-not-active-v1",
+        "semantic-use-qualification-pending-v1",
+        "game-metadata-not-complete-v1"
+      ]
+    },
+    {
+      "word_key": "dwójnasób",
+      "source": {
+        "first_source_row": 1647764,
+        "lemma_id": "dwójnasób",
+        "names": "",
+        "original": "dwójnasób",
+        "qualifiers": "",
+        "raw_tag": "frag",
+        "source_id": "sgjp-20260823",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "lexical_before": "unresolved",
+      "lexical_option_A": "accept",
+      "language_before": "unresolved",
+      "language_option_A": "unresolved",
+      "membership_before": "unresolved",
+      "membership_option_A": "unresolved",
+      "remaining_rules": [
+        "linguistic-policy-not-active-v1",
+        "semantic-use-qualification-pending-v1",
+        "game-metadata-not-complete-v1"
+      ]
+    },
+    {
+      "word_key": "trójnasób",
+      "source": {
+        "first_source_row": 6044918,
+        "lemma_id": "trójnasób",
+        "names": "",
+        "original": "trójnasób",
+        "qualifiers": "",
+        "raw_tag": "frag",
+        "source_id": "sgjp-20260823",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "lexical_before": "unresolved",
+      "lexical_option_A": "accept",
+      "language_before": "unresolved",
+      "language_option_A": "unresolved",
+      "membership_before": "unresolved",
+      "membership_option_A": "unresolved",
+      "remaining_rules": [
+        "linguistic-policy-not-active-v1",
+        "semantic-use-qualification-pending-v1",
+        "game-metadata-not-complete-v1"
+      ]
+    },
+    {
+      "word_key": "kroćset",
+      "source": {
+        "first_source_row": 2244647,
+        "lemma_id": "kroćset",
+        "names": "",
+        "original": "kroćset",
+        "qualifiers": "daw.",
+        "raw_tag": "frag",
+        "source_id": "sgjp-20260823",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "lexical_before": "unresolved",
+      "lexical_option_A": "accept",
+      "language_before": "reject",
+      "language_option_A": "reject",
+      "membership_before": "reject",
+      "membership_option_A": "reject",
+      "remaining_rules": [
+        "linguistic-policy-not-active-v1",
+        "linguistic-historical-form-v1",
+        "semantic-use-qualification-pending-v1",
+        "game-metadata-not-complete-v1"
+      ]
+    },
+    {
+      "word_key": "roścież",
+      "source": {
+        "first_source_row": 5520636,
+        "lemma_id": "roścież:F",
+        "names": "",
+        "original": "roścież",
+        "qualifiers": "",
+        "raw_tag": "frag",
+        "source_id": "sgjp-20260823",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "lexical_before": "unresolved",
+      "lexical_option_A": "accept",
+      "language_before": "unresolved",
+      "language_option_A": "unresolved",
+      "membership_before": "unresolved",
+      "membership_option_A": "unresolved",
+      "remaining_rules": [
+        "linguistic-policy-not-active-v1",
+        "semantic-use-qualification-pending-v1",
+        "game-metadata-not-complete-v1"
+      ]
+    },
+    {
+      "word_key": "ziem",
+      "source": {
+        "first_source_row": 7186612,
+        "lemma_id": "ziem",
+        "names": "",
+        "original": "ziem",
+        "qualifiers": "gwar.",
+        "raw_tag": "frag",
+        "source_id": "sgjp-20260823",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "lexical_before": "unresolved",
+      "lexical_option_A": "accept",
+      "language_before": "unresolved",
+      "language_option_A": "unresolved",
+      "membership_before": "unresolved",
+      "membership_option_A": "unresolved",
+      "remaining_rules": [
+        "linguistic-policy-not-active-v1",
+        "semantic-use-qualification-pending-v1",
+        "game-metadata-not-complete-v1"
+      ]
+    }
+  ]
+}
