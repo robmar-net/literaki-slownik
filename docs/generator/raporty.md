@@ -62,3 +62,7 @@ Nowe build v15 czytają przypięte `semantic-uses` i rozliczają source_rows / s
 ## Diagnostyczny indeks kanoniczny
 
 Build zapisuje reports/canonical-index.json: hashe/rozmiary ustalonego zestawu raportów, przyszłych list oraz hashe źródeł/dowodów/konfiguracji. Czasy, ścieżki i fizyczna baza wyłączone; jej treść logiczna wiązana przez logical-content. Indeks ma INCOMPLETE i jawne missing, nie jest verify. [Kontrola](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/canonical-index-implementation-review.md).
+
+## Raport pokrycia klas
+
+Build zapisuje reports/coverage.json: kompaktowe interpretacje i rozwinięcia według POS, obserwowane/nieobserwowane klasy konstruktorów, zapisane analizy oraz brakujące oceny źródła. Udokumentowane użycie nie powiększa liczby źródłowych form. COMPLETE_TECHNICAL_NOT_QUALIFICATION opisuje tylko pokrycie zapisanych ocen; INCOMPLETE i pełna macierz semantyczna nadal otwarte. Starszy import bez ocen pozostaje readonly i ma wszystkie rozwinięcia nieocenione; częściowy schemat odmawia raportu. [Kontrole](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/coverage-implementation-review.md).

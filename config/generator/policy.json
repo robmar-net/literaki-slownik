@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "approved-conditions-v14",
+  "version": "approved-conditions-v15",
   "status": "partial_not_release_policy",
   "rules": [
     {
@@ -787,6 +787,19 @@
         "broad": "non_excluding",
         "standard": "non_excluding"
       }
+    },
+    {
+      "rule_id": "game-documented-resident-capital-v1",
+      "status": "confirmed",
+      "scope": "exact_documented_use_only",
+      "source_lemma_id": "warszawianka",
+      "source_compact_records": 11,
+      "source_tag_expansions": 14,
+      "own_review_sha256": "ad37b2f97b253b8fc6de11ae8e043868b12fe1e653ea1cd196ee06db4a221789",
+      "norm_sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+      "game_rules_changed": false,
+      "semantic_remainder_preserved": true,
+      "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/resident-relations-proof-decision.md"
     }
   ],
   "age_evidence_scope": {

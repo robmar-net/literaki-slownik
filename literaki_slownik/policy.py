@@ -3,7 +3,7 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v17'
+VERSION = 'diagnostic-approved-conditions-v18'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -55,6 +55,58 @@ CONFIRMED_CONSTRUCTOR_RULES = frozenset({
 # Pełne identyfikatory rozdzielają mieszkańca od tanecznego homonimu m2.
 # Podzbiór dowodowy; nie rozpoznajemy mieszkańców po sufiksie ani samym m1.
 MANDATORY_CAPITAL_2026_LEMMAS = frozenset({'warszawianin','warszawiak','krakowiak:Sm1'})
+
+
+RESIDENT_RELATION_SOURCES = {6309663: ('warszawiance', 'subst:sg:dat.loc:f'),
+ 6309664: ('warszawianek', 'subst:pl:gen:f'),
+ 6309665: ('warszawianka', 'subst:sg:nom:f'),
+ 6309666: ('warszawiankach', 'subst:pl:loc:f'),
+ 6309667: ('warszawiankami', 'subst:pl:inst:f'),
+ 6309668: ('warszawianki', 'subst:pl:nom.acc.voc:f'),
+ 6309669: ('warszawianki', 'subst:sg:gen:f'),
+ 6309670: ('warszawianko', 'subst:sg:voc:f'),
+ 6309671: ('warszawiankom', 'subst:pl:dat:f'),
+ 6309672: ('warszawianką', 'subst:sg:inst:f'),
+ 6309673: ('warszawiankę', 'subst:sg:acc:f')}
+RESIDENT_RELATION_EVIDENCE = [{'artifact_id': 'resident-relations-own-review',
+  'sha256': 'ad37b2f97b253b8fc6de11ae8e043868b12fe1e653ea1cd196ee06db4a221789',
+  'locator': 'resident-relations-observation.json; Warszawa#7791 → warszawianka#61637, odwrotna '
+             'relacja do miejscowości; dokładne source_records',
+  'status': 'ALLOWED',
+  'role': 'own_documentary_review'},
+ {'artifact_id': 'rjp-2026-resident-norm-own-review',
+  'sha256': '87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e',
+  'locator': 'https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43; '
+             '§8.1.2 pkt3',
+  'status': 'ALLOWED',
+  'role': 'own_documentary_review'}]
+RESIDENT_RELATION_CONDITIONS = frozenset({'game-documented-resident-capital-v1','orthography-documented-resident-capital-2026-v1'})
+
+
+def resident_use_checks(review, variant=None):
+    """Dowód tylko zamkniętego użycia, nigdy całego źródłowego ID/pozostałości."""
+    if not review:return []
+    s=review.get('source',{})
+    if (s.get('source_id')!='sgjp-20260823'
+            or s.get('source_sha256')!='3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810'
+            or s.get('lemma_id')!='warszawianka' or s.get('names')!='nazwa_pospolita'
+            or s.get('qualifiers')!=''
+            or RESIDENT_RELATION_SOURCES.get(s.get('first_source_row'))!=(s.get('original'),s.get('raw_tag'))
+            or review.get('use_id')!=f"sgjp-relation-warszawianka-{s.get('first_source_row')}-v1"
+            or review.get('coverage')!='documented_use_only'
+            or review.get('evidence')!=RESIDENT_RELATION_EVIDENCE
+            or frozenset(review.get('documented_conditions',[]))!=RESIDENT_RELATION_CONDITIONS):
+        return []
+    common={'scope':'documented_use_only','source_lemma_id':s['lemma_id'],
+            'semantic_class':'resident_of_locality','norm_effective_from':2026,
+            'evidence':review['evidence']}
+    if variant is None:
+        return [dict(common,rule_id='game-documented-resident-capital-v1',status='reject',
+            message='To udokumentowane użycie nazwy mieszkanki wymaga wielkiej litery według normy2026; obowiązujące wyłączenie growe, inne użycia osobno.')]
+    return [dict(common,rule_id='orthography-documented-resident-capital-2026-v1',
+        status='reject' if variant=='standard' else 'accept',
+        message=('Małoliterowy zapis tego użycia nie odpowiada normie2026 STANDARD.' if variant=='standard' else
+                 'BROAD nie wyklucza językowo udokumentowanego dawnego zapisu; gra i inne warunki osobno.'))]
 
 
 def documented_name_checks(source):

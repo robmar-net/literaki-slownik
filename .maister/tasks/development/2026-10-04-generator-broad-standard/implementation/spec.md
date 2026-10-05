@@ -321,3 +321,9 @@ A pisowni wdrożone v17:2 kandydatów angol/jugol,5analiz/10ocen, dwie projekcje
 ## Jawne relacje mieszkańców — dalsze G3
 
 Czytnik SGJP ma odsyłacz Warszawa → warszawianka typu nazwa mieszkańca i odwrotną relację do miejscowości. Pełna klasa nie jest kompletna. [Próg nowego dowodu](../analysis/evidence/resident-relations-proof-decision.md) wymaga decyzji przed aktywacją; dane online nie są importerem. Końcowe kontrole przyrostu195/195+5/5 bez ostrzeżeń;8/36 bez zmian.
+
+## Relacje mieszkańców i pokrycie — wdrożenie A
+
+A relacji mieszkańca wdrożone v18:11rekordów/14użyć, pozostałość i homonimy zachowane. Dwie projekcje22kompaktowe/28rozwinięć/42analizy/84oceny, logiczna treść/próbki identyczne,40readonly explain, źródła niezmienione. Raport coverage w build/indeksie: pełny G2 34klasy/7458520kompaktowych/17234910nieocenionych rozwinięć; projekcje28/28 źródła mimo42analiz. 201/201+5/5 bez ostrzeżeń, preflight14+12OK. G3/G4/G6 częściowe,8/36; pełna macierz i wydanie nadal otwarte.
+
+[Dowód użycia](../analysis/evidence/resident-use-implementation-review.md), [pokrycie](../analysis/evidence/coverage-implementation-review.md).

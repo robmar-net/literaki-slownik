@@ -94,4 +94,7 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 
 - [Diagnostyczny indeks I2](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/canonical-index-implementation-review.md) — fragment implementacji, pełne wydanie otwarte.
 
-- [Dowód jawnych relacji mieszkańców](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/resident-relations-proof-decision.md) — publiczny czytnik potwierdzony; bramka progu dowodu przed aktywacją.
+- [Dowód jawnych relacji mieszkańców](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/resident-relations-proof-decision.md) — zatwierdzone A, sprawdzone użycie wdrożone z pozostałością.
+
+- [Użycie mieszkańca — wdrożenie](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/resident-use-implementation-review.md) — v18, pełny paradygmat pierwszego przypadku; klasa nadal otwarta.
+- [Pokrycie klas — raport](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/coverage-implementation-review.md) — źródło oddzielnie od analiz użyć, brakujące oceny jawne.

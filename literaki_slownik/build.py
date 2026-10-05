@@ -9,7 +9,7 @@ from .database import connect
 from .inputs import GeneratorError, inspect_sources
 from . import sgjp, kwjp
 from .run import create_run, set_stage
-from .reports import qualifier_coverage, logical_content_report, unresolved_report, persisted_filter_impact, canonical_index
+from .reports import qualifier_coverage, logical_content_report, unresolved_report, persisted_filter_impact, canonical_index, coverage_report
 from .constructions import materialize_confirmed_candidates
 from .links import create_links, link_report
 from .decisions import materialize_assessments
@@ -163,6 +163,9 @@ def build(manifest_path, run_dir, batch_size=10000):
             start = time.monotonic()
             write_json(run / 'reports/logical-content.json', logical_content_report(db))
             performance['diagnostic_logical_content'] = {'seconds': time.monotonic() - start}
+            start = time.monotonic()
+            write_json(run / 'reports/coverage.json', coverage_report(db))
+            performance['diagnostic_coverage'] = {'seconds': time.monotonic() - start}
             # Potwierdzenie niezmienności całego kompletu wejść po odczycie.
             checked = inspect_sources(manifest_path)
             if checked['manifest_sha256'] != inputs['manifest_sha256']:

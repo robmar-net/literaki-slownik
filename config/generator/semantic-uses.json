@@ -80,6 +80,391 @@
       ],
       "documented_conditions": [],
       "lexical_proof": "linguistic-documented-use-lexical-proof-v1"
+    },
+    {
+      "use_id": "sgjp-relation-warszawianka-6309663-v1",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 6309663,
+        "original": "warszawiance",
+        "lemma_id": "warszawianka",
+        "raw_tag": "subst:sg:dat.loc:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": "",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
+      "coverage": "documented_use_only",
+      "evidence": [
+        {
+          "artifact_id": "resident-relations-own-review",
+          "sha256": "ad37b2f97b253b8fc6de11ae8e043868b12fe1e653ea1cd196ee06db4a221789",
+          "locator": "resident-relations-observation.json; Warszawa#7791 → warszawianka#61637, odwrotna relacja do miejscowości; dokładne source_records",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        },
+        {
+          "artifact_id": "rjp-2026-resident-norm-own-review",
+          "sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+          "locator": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43; §8.1.2 pkt3",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        }
+      ],
+      "documented_conditions": [
+        "game-documented-resident-capital-v1",
+        "orthography-documented-resident-capital-2026-v1"
+      ]
+    },
+    {
+      "use_id": "sgjp-relation-warszawianka-6309664-v1",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 6309664,
+        "original": "warszawianek",
+        "lemma_id": "warszawianka",
+        "raw_tag": "subst:pl:gen:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": "",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
+      "coverage": "documented_use_only",
+      "evidence": [
+        {
+          "artifact_id": "resident-relations-own-review",
+          "sha256": "ad37b2f97b253b8fc6de11ae8e043868b12fe1e653ea1cd196ee06db4a221789",
+          "locator": "resident-relations-observation.json; Warszawa#7791 → warszawianka#61637, odwrotna relacja do miejscowości; dokładne source_records",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        },
+        {
+          "artifact_id": "rjp-2026-resident-norm-own-review",
+          "sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+          "locator": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43; §8.1.2 pkt3",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        }
+      ],
+      "documented_conditions": [
+        "game-documented-resident-capital-v1",
+        "orthography-documented-resident-capital-2026-v1"
+      ]
+    },
+    {
+      "use_id": "sgjp-relation-warszawianka-6309665-v1",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 6309665,
+        "original": "warszawianka",
+        "lemma_id": "warszawianka",
+        "raw_tag": "subst:sg:nom:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": "",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
+      "coverage": "documented_use_only",
+      "evidence": [
+        {
+          "artifact_id": "resident-relations-own-review",
+          "sha256": "ad37b2f97b253b8fc6de11ae8e043868b12fe1e653ea1cd196ee06db4a221789",
+          "locator": "resident-relations-observation.json; Warszawa#7791 → warszawianka#61637, odwrotna relacja do miejscowości; dokładne source_records",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        },
+        {
+          "artifact_id": "rjp-2026-resident-norm-own-review",
+          "sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+          "locator": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43; §8.1.2 pkt3",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        }
+      ],
+      "documented_conditions": [
+        "game-documented-resident-capital-v1",
+        "orthography-documented-resident-capital-2026-v1"
+      ]
+    },
+    {
+      "use_id": "sgjp-relation-warszawianka-6309666-v1",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 6309666,
+        "original": "warszawiankach",
+        "lemma_id": "warszawianka",
+        "raw_tag": "subst:pl:loc:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": "",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
+      "coverage": "documented_use_only",
+      "evidence": [
+        {
+          "artifact_id": "resident-relations-own-review",
+          "sha256": "ad37b2f97b253b8fc6de11ae8e043868b12fe1e653ea1cd196ee06db4a221789",
+          "locator": "resident-relations-observation.json; Warszawa#7791 → warszawianka#61637, odwrotna relacja do miejscowości; dokładne source_records",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        },
+        {
+          "artifact_id": "rjp-2026-resident-norm-own-review",
+          "sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+          "locator": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43; §8.1.2 pkt3",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        }
+      ],
+      "documented_conditions": [
+        "game-documented-resident-capital-v1",
+        "orthography-documented-resident-capital-2026-v1"
+      ]
+    },
+    {
+      "use_id": "sgjp-relation-warszawianka-6309667-v1",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 6309667,
+        "original": "warszawiankami",
+        "lemma_id": "warszawianka",
+        "raw_tag": "subst:pl:inst:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": "",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
+      "coverage": "documented_use_only",
+      "evidence": [
+        {
+          "artifact_id": "resident-relations-own-review",
+          "sha256": "ad37b2f97b253b8fc6de11ae8e043868b12fe1e653ea1cd196ee06db4a221789",
+          "locator": "resident-relations-observation.json; Warszawa#7791 → warszawianka#61637, odwrotna relacja do miejscowości; dokładne source_records",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        },
+        {
+          "artifact_id": "rjp-2026-resident-norm-own-review",
+          "sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+          "locator": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43; §8.1.2 pkt3",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        }
+      ],
+      "documented_conditions": [
+        "game-documented-resident-capital-v1",
+        "orthography-documented-resident-capital-2026-v1"
+      ]
+    },
+    {
+      "use_id": "sgjp-relation-warszawianka-6309668-v1",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 6309668,
+        "original": "warszawianki",
+        "lemma_id": "warszawianka",
+        "raw_tag": "subst:pl:nom.acc.voc:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": "",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
+      "coverage": "documented_use_only",
+      "evidence": [
+        {
+          "artifact_id": "resident-relations-own-review",
+          "sha256": "ad37b2f97b253b8fc6de11ae8e043868b12fe1e653ea1cd196ee06db4a221789",
+          "locator": "resident-relations-observation.json; Warszawa#7791 → warszawianka#61637, odwrotna relacja do miejscowości; dokładne source_records",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        },
+        {
+          "artifact_id": "rjp-2026-resident-norm-own-review",
+          "sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+          "locator": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43; §8.1.2 pkt3",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        }
+      ],
+      "documented_conditions": [
+        "game-documented-resident-capital-v1",
+        "orthography-documented-resident-capital-2026-v1"
+      ]
+    },
+    {
+      "use_id": "sgjp-relation-warszawianka-6309669-v1",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 6309669,
+        "original": "warszawianki",
+        "lemma_id": "warszawianka",
+        "raw_tag": "subst:sg:gen:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": "",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
+      "coverage": "documented_use_only",
+      "evidence": [
+        {
+          "artifact_id": "resident-relations-own-review",
+          "sha256": "ad37b2f97b253b8fc6de11ae8e043868b12fe1e653ea1cd196ee06db4a221789",
+          "locator": "resident-relations-observation.json; Warszawa#7791 → warszawianka#61637, odwrotna relacja do miejscowości; dokładne source_records",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        },
+        {
+          "artifact_id": "rjp-2026-resident-norm-own-review",
+          "sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+          "locator": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43; §8.1.2 pkt3",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        }
+      ],
+      "documented_conditions": [
+        "game-documented-resident-capital-v1",
+        "orthography-documented-resident-capital-2026-v1"
+      ]
+    },
+    {
+      "use_id": "sgjp-relation-warszawianka-6309670-v1",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 6309670,
+        "original": "warszawianko",
+        "lemma_id": "warszawianka",
+        "raw_tag": "subst:sg:voc:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": "",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
+      "coverage": "documented_use_only",
+      "evidence": [
+        {
+          "artifact_id": "resident-relations-own-review",
+          "sha256": "ad37b2f97b253b8fc6de11ae8e043868b12fe1e653ea1cd196ee06db4a221789",
+          "locator": "resident-relations-observation.json; Warszawa#7791 → warszawianka#61637, odwrotna relacja do miejscowości; dokładne source_records",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        },
+        {
+          "artifact_id": "rjp-2026-resident-norm-own-review",
+          "sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+          "locator": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43; §8.1.2 pkt3",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        }
+      ],
+      "documented_conditions": [
+        "game-documented-resident-capital-v1",
+        "orthography-documented-resident-capital-2026-v1"
+      ]
+    },
+    {
+      "use_id": "sgjp-relation-warszawianka-6309671-v1",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 6309671,
+        "original": "warszawiankom",
+        "lemma_id": "warszawianka",
+        "raw_tag": "subst:pl:dat:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": "",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
+      "coverage": "documented_use_only",
+      "evidence": [
+        {
+          "artifact_id": "resident-relations-own-review",
+          "sha256": "ad37b2f97b253b8fc6de11ae8e043868b12fe1e653ea1cd196ee06db4a221789",
+          "locator": "resident-relations-observation.json; Warszawa#7791 → warszawianka#61637, odwrotna relacja do miejscowości; dokładne source_records",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        },
+        {
+          "artifact_id": "rjp-2026-resident-norm-own-review",
+          "sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+          "locator": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43; §8.1.2 pkt3",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        }
+      ],
+      "documented_conditions": [
+        "game-documented-resident-capital-v1",
+        "orthography-documented-resident-capital-2026-v1"
+      ]
+    },
+    {
+      "use_id": "sgjp-relation-warszawianka-6309672-v1",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 6309672,
+        "original": "warszawianką",
+        "lemma_id": "warszawianka",
+        "raw_tag": "subst:sg:inst:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": "",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
+      "coverage": "documented_use_only",
+      "evidence": [
+        {
+          "artifact_id": "resident-relations-own-review",
+          "sha256": "ad37b2f97b253b8fc6de11ae8e043868b12fe1e653ea1cd196ee06db4a221789",
+          "locator": "resident-relations-observation.json; Warszawa#7791 → warszawianka#61637, odwrotna relacja do miejscowości; dokładne source_records",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        },
+        {
+          "artifact_id": "rjp-2026-resident-norm-own-review",
+          "sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+          "locator": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43; §8.1.2 pkt3",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        }
+      ],
+      "documented_conditions": [
+        "game-documented-resident-capital-v1",
+        "orthography-documented-resident-capital-2026-v1"
+      ]
+    },
+    {
+      "use_id": "sgjp-relation-warszawianka-6309673-v1",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 6309673,
+        "original": "warszawiankę",
+        "lemma_id": "warszawianka",
+        "raw_tag": "subst:sg:acc:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": "",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+      },
+      "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
+      "coverage": "documented_use_only",
+      "evidence": [
+        {
+          "artifact_id": "resident-relations-own-review",
+          "sha256": "ad37b2f97b253b8fc6de11ae8e043868b12fe1e653ea1cd196ee06db4a221789",
+          "locator": "resident-relations-observation.json; Warszawa#7791 → warszawianka#61637, odwrotna relacja do miejscowości; dokładne source_records",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        },
+        {
+          "artifact_id": "rjp-2026-resident-norm-own-review",
+          "sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+          "locator": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43; §8.1.2 pkt3",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        }
+      ],
+      "documented_conditions": [
+        "game-documented-resident-capital-v1",
+        "orthography-documented-resident-capital-2026-v1"
+      ]
     }
   ]
 }

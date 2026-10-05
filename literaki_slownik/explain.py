@@ -230,6 +230,9 @@ def format_explanation(value):
                 lines.append(f"    Użycie {trace['use_id']}: {trace['description']}; pokrycie {trace['coverage']}")
                 for evidence in trace['evidence']:
                     lines.append(f"    Dowód {evidence['artifact_id']} · {evidence['sha256']} · {evidence['locator']}")
+                for layer in ('language','game','profile','release_scope'):
+                    for check in item['assessment'][layer]['checks']:
+                        lines.append(f"    {layer} · {check['rule_id']}: {labels[check['status']]} — {check['message']}")
             else:
                 lines.append('    Nierozpoznane możliwości; pokrycie niepełne, pozostałe oceny nadal obowiązują.')
     lines.append(f"\nKandydaci konstrukcji: {len(value['derivations'])}; pełne dopuszczenie nieustalone.")

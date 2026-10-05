@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-05T17:30:54Z",
+    "updated": "2026-10-05T17:59:04Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "A pisowni wdrożone v17:2 kandydatów angol/jugol,5analiz/10ocen, dwie projekcje stabilne bez zmian źródła. Quality:pełne13list/5066341jednostek/270próbek; projekcja219713analiz/641słów/1124analizy, dwa identyczne dobory readonly. Pełne payloady review i diagnostyczny indeks I2. G3/G4/G6 częściowe,8/36; odbiór i pełna macierz nadal otwarte. Końcowo195/195+5/5 bez ostrzeżeń; naprawiono zamykanie SQLite w probe PAN. Czytnik SGJP jawnie wiąże warszawianka z Warszawą; wymagany próg dowodu relacyjnego przed aktywacją.",
+      "summary": "A relacji mieszkańca wdrożone v18:11rekordów/14użyć, pozostałość i homonimy zachowane. Dwie projekcje22kompaktowe/28rozwinięć/42analizy/84oceny, logiczna treść/próbki identyczne,40readonly explain, źródła niezmienione. Raport coverage w build/indeksie: pełny G2 34klasy/7458520kompaktowych/17234910nieocenionych rozwinięć; projekcje28/28 źródła mimo42analiz. 201/201+5/5 bez ostrzeżeń, preflight14+12OK. G3/G4/G6 częściowe,8/36; pełna macierz i wydanie nadal otwarte.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -711,19 +711,27 @@
         {
           "path": "analysis/evidence/resident-relations-proof-decision.md",
           "label": "Próg dowodu relacyjnego mieszkańca"
+        },
+        {
+          "path": "analysis/evidence/resident-use-implementation-review.md",
+          "label": "Użycie mieszkańca — wdrożenie"
+        },
+        {
+          "path": "analysis/evidence/resident-use-runtime.json",
+          "label": "Runtime użycia mieszkańca"
+        },
+        {
+          "path": "analysis/evidence/coverage-implementation-review.md",
+          "label": "Pokrycie klas"
+        },
+        {
+          "path": "analysis/evidence/coverage-runtime.json",
+          "label": "Runtime pokrycia"
         }
       ],
       "gate": {
-        "id": "resident_relation_documentary_proof",
-        "status": "pending",
-        "created_at": "2026-10-05T17:30:54Z",
-        "question": "Czy jawny, ręcznie sprawdzony odsyłacz nazwy mieszkańca SGJP wystarcza jako dowód klasy konkretnego użycia, z dokładnym źródłem i zachowaną pozostałością?",
-        "options": {
-          "A": "Tak: własny przypięty przegląd, pierwszy przypadek warszawianka; bez importu metadanych i zmiany reguł gry (rekomendowane).",
-          "B": "Tylko wskazówka: wymagamy dodatkowego dosłownego opisu; obecny przypadek unresolved."
-        },
-        "answer": null,
-        "artifact": "analysis/evidence/resident-relations-proof-decision.md"
+        "question": null,
+        "answer": null
       },
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
@@ -997,6 +1005,19 @@
           "authority": "AGENTS.md eligibility discussion; executor material model deviation",
           "scope": "closed_documented_spelling_variant_candidates_not_new_lexemes_or_game_rules",
           "answered_at": "2026-10-05T16:49:33Z"
+        },
+        {
+          "id": "resident_relation_documentary_proof",
+          "status": "approved",
+          "created_at": "2026-10-05T17:30:54Z",
+          "question": "Czy jawny, ręcznie sprawdzony odsyłacz nazwy mieszkańca SGJP wystarcza jako dowód klasy konkretnego użycia, z dokładnym źródłem i zachowaną pozostałością?",
+          "options": {
+            "A": "Tak: własny przypięty przegląd, pierwszy przypadek warszawianka; bez importu metadanych i zmiany reguł gry (rekomendowane).",
+            "B": "Tylko wskazówka: wymagamy dodatkowego dosłownego opisu; obecny przypadek unresolved."
+          },
+          "answer": "A",
+          "artifact": "analysis/evidence/resident-relations-proof-decision.md",
+          "answered_at": "2026-10-05T17:39:22Z"
         }
       ]
     }
@@ -1143,7 +1164,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "User explicitly authorized continuing code with evidence gaps: policy mechanics only, no active unresolved linguistic rules",
-        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed; context3 red→green,11/11 labels,169 records; persistence3 red→green,build2 red→green; fullconfirmedclass projection93446 candidates186892 components,repeat idempotent,FK/integrityOK; preposition3redgreen+buildintegration1green,81expandedcandidates(57proof/24unresolved),repeatFKintegrity;mobileby1redgreen64candidates16hosts;winien2redgreen7realJSONtext; norma1 policy +1 explain red→green, mobile1 constructor+1 explain red→green; accent1redgreen,sourcegame4redgreen,personal2redgreen,mobilegame1redgreen;fullprojection776/1796 repeatFKintegrity; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable; documented name4 tests red→green, exact three real records16expanded/32decisions, repeat idempotent, FK/integrityOK, live/persisted explain4 queries agree; semantic uses7 red→green,179/179+5/5; own source pin/remainder/condition scope/read tamper guard/quality payload; real295compact540expanded542analyses1084decisions two independent logical+quality equal, repeat0new, FK/integrity, source SHA unchanged; lexical-use2 red→green,181/181+5/5; actual295/540/543/1086 repeat/FK/logical/quality identical;12readonly explain; spelling5redgreen, real3sources/2candidates/5analyses/10decisions, independentlogicalequal/FK/idempotency/sourceunchanged",
+        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed; context3 red→green,11/11 labels,169 records; persistence3 red→green,build2 red→green; fullconfirmedclass projection93446 candidates186892 components,repeat idempotent,FK/integrityOK; preposition3redgreen+buildintegration1green,81expandedcandidates(57proof/24unresolved),repeatFKintegrity;mobileby1redgreen64candidates16hosts;winien2redgreen7realJSONtext; norma1 policy +1 explain red→green, mobile1 constructor+1 explain red→green; accent1redgreen,sourcegame4redgreen,personal2redgreen,mobilegame1redgreen;fullprojection776/1796 repeatFKintegrity; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable; documented name4 tests red→green, exact three real records16expanded/32decisions, repeat idempotent, FK/integrityOK, live/persisted explain4 queries agree; semantic uses7 red→green,179/179+5/5; own source pin/remainder/condition scope/read tamper guard/quality payload; real295compact540expanded542analyses1084decisions two independent logical+quality equal, repeat0new, FK/integrity, source SHA unchanged; lexical-use2 red→green,181/181+5/5; actual295/540/543/1086 repeat/FK/logical/quality identical;12readonly explain; spelling5redgreen, real3sources/2candidates/5analyses/10decisions, independentlogicalequal/FK/idempotency/sourceunchanged; resident4redgreen,42analyses84decisions two independent/idempotent/readonly40; coverage2redgreen,34classes17234910unassessedsource readonly,full201/201+5/5",
         "remaining": "Full qualifier/category/orthography policy, mobile/preposition constructions and final decisions persistence/integration; G3 closure"
       },
       "G5": {
@@ -1159,7 +1180,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "Independent diagnostic explain authorized by plan §2 and user continue code",
-        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks; context explain JSON/text regression green,5 real readonly queries; qualifier coverage6 red→green,build integration1 red→green; full7458520/615/605 repeat canonical identical readonly; persisted explain2 red→green; alternative source trace regression fixed,legacycompatible,6realqueries rechecked readonly; contraction/mobile/corpus3redgreen,legacyreadonly20observations; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable; unknownreport3redImportError→green,buildreport1redFileNotFound→green; full160/160+5/5; readonly219713analyses213636keys repeat identical hashDBstable; persisted filter3 tests red→green, complete population validated through unresolved_report; lexical diagnostic rule order, no policy precedence; filter4 tests incl valid-hash wrong-rule rejection; full168/168+audit5/5; two readonly reports each of16/219713analyses identical, DB hashes unchanged; semantic uses7 red→green,179/179+5/5; own source pin/remainder/condition scope/read tamper guard/quality payload; real295compact540expanded542analyses1084decisions two independent logical+quality equal, repeat0new, FK/integrity, source SHA unchanged; lexical-use2 red→green,181/181+5/5; actual295/540/543/1086 repeat/FK/logical/quality identical;12readonly explain; qualitylinks3redgreen+SQLiteVMregression, full5066341units/270samples repeatreadonly; words2redgreen,641words1124analyses repeatreadonly; fullreviewpayload1redgreen; canonicalindex2redgreen/integration; full195/195+audit5/5 final, no warnings",
+        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks; context explain JSON/text regression green,5 real readonly queries; qualifier coverage6 red→green,build integration1 red→green; full7458520/615/605 repeat canonical identical readonly; persisted explain2 red→green; alternative source trace regression fixed,legacycompatible,6realqueries rechecked readonly; contraction/mobile/corpus3redgreen,legacyreadonly20observations; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable; unknownreport3redImportError→green,buildreport1redFileNotFound→green; full160/160+5/5; readonly219713analyses213636keys repeat identical hashDBstable; persisted filter3 tests red→green, complete population validated through unresolved_report; lexical diagnostic rule order, no policy precedence; filter4 tests incl valid-hash wrong-rule rejection; full168/168+audit5/5; two readonly reports each of16/219713analyses identical, DB hashes unchanged; semantic uses7 red→green,179/179+5/5; own source pin/remainder/condition scope/read tamper guard/quality payload; real295compact540expanded542analyses1084decisions two independent logical+quality equal, repeat0new, FK/integrity, source SHA unchanged; lexical-use2 red→green,181/181+5/5; actual295/540/543/1086 repeat/FK/logical/quality identical;12readonly explain; qualitylinks3redgreen+SQLiteVMregression, full5066341units/270samples repeatreadonly; words2redgreen,641words1124analyses repeatreadonly; fullreviewpayload1redgreen; canonicalindex2redgreen/integration; full195/195+audit5/5 final, no warnings; resident4redgreen,42analyses84decisions two independent/idempotent/readonly40; coverage2redgreen,34classes17234910unassessedsource readonly,full201/201+5/5",
         "remaining": "Full matrix/source quality review, final decisions/derivations explain, complete canonical coverage and lists; G7 verification binding"
       },
       "G7": {
@@ -1213,7 +1234,7 @@
         "contact_route_allowed": false
       }
     },
-    "verification_note": "A pisowni wdrożone v17:2 kandydatów angol/jugol,5analiz/10ocen, dwie projekcje stabilne bez zmian źródła. Quality:pełne13list/5066341jednostek/270próbek; projekcja219713analiz/641słów/1124analizy, dwa identyczne dobory readonly. Pełne payloady review i diagnostyczny indeks I2. G3/G4/G6 częściowe,8/36; odbiór i pełna macierz nadal otwarte. Końcowo195/195+5/5 bez ostrzeżeń; naprawiono zamykanie SQLite w probe PAN. Czytnik SGJP jawnie wiąże warszawianka z Warszawą; wymagany próg dowodu relacyjnego przed aktywacją.",
+    "verification_note": "A relacji mieszkańca wdrożone v18:11rekordów/14użyć, pozostałość i homonimy zachowane. Dwie projekcje22kompaktowe/28rozwinięć/42analizy/84oceny, logiczna treść/próbki identyczne,40readonly explain, źródła niezmienione. Raport coverage w build/indeksie: pełny G2 34klasy/7458520kompaktowych/17234910nieocenionych rozwinięć; projekcje28/28 źródła mimo42analiz. 201/201+5/5 bez ostrzeżeń, preflight14+12OK. G3/G4/G6 częściowe,8/36; pełna macierz i wydanie nadal otwarte.",
     "source_policy_clarification": {
       "recorded_at": "2026-10-04T21:49:35Z",
       "artifact": "analysis/evidence/source-policy-clarification.md",
@@ -1315,6 +1336,15 @@
       "source_rewrite": false,
       "implemented": "partial_diagnostic_v17",
       "runtime": "analysis/evidence/spelling-variants-runtime.json"
+    },
+    "resident_relation_documentary_proof": {
+      "answer": "A",
+      "approved_at": "2026-10-05T17:39:22Z",
+      "first_scope": "warszawianka documented use",
+      "metadata_input_activated": false,
+      "artifact": "analysis/evidence/resident-relations-proof-decision.md",
+      "implemented": "partial_diagnostic_v18",
+      "runtime": "analysis/evidence/resident-use-runtime.json"
     }
   }
 }

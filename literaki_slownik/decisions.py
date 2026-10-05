@@ -2,11 +2,13 @@
 from .inputs import GeneratorError
 from .policy import (assess_profile, spelling_checks, release_scope_checks,
                      approved_qualifier_checks, orthography_checks, construction_orthography_checks,
-                     source_game_checks, VERSION as POLICY_VERSION)
+                     source_game_checks, resident_use_checks, RESIDENT_RELATION_CONDITIONS, VERSION as POLICY_VERSION)
 
 STATUSES = frozenset({'accept', 'reject', 'unresolved'})
 VARIANTS = ('broad', 'standard')
 DOCUMENTARY_RULE_EVIDENCE = {
+    'game-documented-resident-capital-v1':'87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e',
+    'orthography-documented-resident-capital-2026-v1':'87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e',
     'game-documented-surname-component-v1':'3e3d104b1a210e0097c511b36f1440de539413ec64079fba505c47c3bf7684ca',
     'game-mandatory-capital-2026-v1':'87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e',
     'orthography-2026-resident-capital-v1':'87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e',
@@ -28,11 +30,12 @@ def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyse
         return (documented_condition_ids is None or check['rule_id'] not in DOCUMENTARY_RULE_EVIDENCE
                 or check['rule_id'] in documented_condition_ids)
     game=[check for check in game if in_scope(check)]
+    game+=resident_use_checks(lexical_use_review)
     return assess_analysis(original,
         language={v:pending+approved_qualifier_checks(qualifiers,v)+list(additional_checks)
                   +[check for source in source_analyses for check in orthography_checks(source,v) if in_scope(check)]
                   +construction_orthography_checks(candidate,v)
-                  +lexical_use_checks(lexical_use_review,v) for v in VARIANTS},
+                  +lexical_use_checks(lexical_use_review,v)+resident_use_checks(lexical_use_review,v) for v in VARIANTS},
         scope_checks=release_scope_checks(candidate),game_checks=game)
 
 
@@ -99,7 +102,12 @@ def checked_use_reviews(db, reviews):
                     or len(set(conditions))!=len(conditions)
                     or set(conditions)-set(DOCUMENTARY_RULE_EVIDENCE)):
                 raise GeneratorError('Nieznany lub powtórzony warunek dokumentacyjny użycia',4)
+            resident=resident_use_checks(review)
+            resident+=resident_use_checks(review,'standard')
+            if (set(conditions)&RESIDENT_RELATION_CONDITIONS or review['use_id'].startswith('sgjp-relation-warszawianka-')) and not resident:
+                raise GeneratorError('Nieprzypięty dowód relacji nazwy mieszkańca',4)
             available={c['rule_id'] for c in source_game_checks(source)}
+            available.update(c['rule_id'] for c in resident)
             available.update(c['rule_id'] for v in VARIANTS for c in orthography_checks(source,v))
             if (set(conditions)-available or any(not any(p['sha256']==DOCUMENTARY_RULE_EVIDENCE[rule] for p in evidence)
                                                    for rule in conditions)):
@@ -166,6 +174,15 @@ def checked_persisted_use_coverage(db):
                 if (hashlib.sha256(encoded.encode()).hexdigest()!=payload_key
                         or value.get('semantic_trace')!=expected[key][1]):
                     raise GeneratorError('Zapisany ślad użycia różni się od przypiętego przeglądu',4)
+                trace=expected[key][1]
+                relation=trace if trace['kind']=='documented_use' else None
+                game=resident_use_checks(relation)
+                language=resident_use_checks(relation,variant)
+                for layer,checks in (('game',game),('language',language),('membership',game+language)):
+                    actual=sorted(dumps(c) for c in value[layer]['checks']
+                                  if c['rule_id'] in RESIDENT_RELATION_CONDITIONS)
+                    if actual!=sorted(dumps(c) for c in checks):
+                        raise GeneratorError('Zmieniony zakres lub wynik warunku relacji mieszkańca',4)
                 if (key,variant) in checked or variant not in VARIANTS:
                     raise GeneratorError('Nieprawidłowe pokrycie wariantów użycia',4)
                 checked.add((key,variant))

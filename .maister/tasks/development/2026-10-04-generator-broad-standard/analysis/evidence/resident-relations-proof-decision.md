@@ -3,8 +3,8 @@
 ## TL;DR
 Publiczny czytnik zawiera dokładniejsze dowody niż etn.: jawne odsyłacze nazwy mieszkańca.
 Warszawa wskazuje warszawianka; artykuł docelowy wskazuje odwrotnie miejscowość i męski odpowiednik.
-Przed użyciem nowego rodzaju dowodu w kwalifikacji wymagane rozstrzygnięcie A/B.
-Dane maszynowe i filtr pozostają nieaktywne; klasa nie jest kompletna.
+A zatwierdzone i wdrożone dla dokładnego użycia warszawianka.
+Metadane maszynowe pozostają nieaktywne; klasa nie jest kompletna.
 
 ## Key Decisions
 - Norma2026 i reguły gry już zatwierdzone: nie pytamy ponownie o obowiązek wielkiej litery ani o zmianę zasad.
@@ -13,7 +13,7 @@ Dane maszynowe i filtr pozostają nieaktywne; klasa nie jest kompletna.
 - Nie zakładamy, że pełne ID SGJP oznacza jedno znaczenie. Ocenę przypinamy do potwierdzonego użycia, zachowujemy nierozpoznaną pozostałość i homonimy.
 
 ## Open Questions / Risks
-- Bramka pending: nowy rodzaj dodatniego dowodu semantycznego może zmienić ocenę analizy, więc nie został aktywowany.
+- Bramka zatwierdzona A; wdrożenie ograniczone do sprawdzonego użycia, z zachowaną pozostałością.
 - Metadane internetowe nadal nie są wejściem: brak ustalonej licencji maszynowego snapshotu i pełnej zgodności wersji.
 - Publiczne filtry/odsyłacze nie zapewniają zamkniętej populacji wszystkich mieszkańców; G3 nadal otwarte.
 
@@ -35,4 +35,10 @@ Sprawdzono komplet17 definicji atrybutów w publicznej stronie oraz dostępne2 w
 
 ## Przyczyna bramki
 
-[AGENTS.md](../../../../../../AGENTS.md) wymaga: „Decyzje zmieniające skład słownika lub kryteria dopuszczalności omawiamy z użytkownikiem przed ich wdrożeniem”. A rozszerza dopuszczony dowód semantyczny o jawne relacje czytnika. Skill maister-implementation-plan-executor wymaga: „At a material deviation or recovery decision […] ask […] and pause”. Dlatego wynik odczytu i projekt są gotowe, a filtr czeka na odpowiedź.
+[AGENTS.md](../../../../../../AGENTS.md) wymaga: „Decyzje zmieniające skład słownika lub kryteria dopuszczalności omawiamy z użytkownikiem przed ich wdrożeniem”. A rozszerza dopuszczony dowód semantyczny o jawne relacje czytnika. Skill maister-implementation-plan-executor wymaga: „At a material deviation or recovery decision […] ask […] and pause”. Dlatego wynik odczytu i projekt są gotowe, a wdrożenie nastąpiło po zatwierdzeniu A.
+
+## Zatwierdzenie
+
+A zatwierdzone przez użytkownika; zapis 2026-10-05T17:39:22Z. Pierwsze dokładne użycie warszawianka, z zachowaniem pozostałości i innych warunków.
+
+[Wdrożenie i kontrole](resident-use-implementation-review.md).

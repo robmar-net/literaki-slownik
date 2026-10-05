@@ -1,5 +1,6 @@
 """Efekty filtrów liczone po analizach, bez utraty alternatywnych homonimów."""
 import unittest
+from contextlib import closing
 
 from literaki_slownik.decisions import assess_analysis
 from literaki_slownik.inputs import GeneratorError
@@ -15,6 +16,53 @@ def analysis(word, rejected=(), pending=False):
 
 
 class LogicalContentTests(unittest.TestCase):
+    def test_build_coverage_separates_source_forms_from_documented_use_analyses(self):
+        import tempfile
+        from pathlib import Path
+        from literaki_slownik.canonical import load_json
+        from literaki_slownik.reports import coverage_report
+        from tests.test_resident_uses import ResidentUsesTests
+        from literaki_slownik.decisions import materialize_assessments
+        with tempfile.TemporaryDirectory() as directory:
+            owner=ResidentUsesTests();db,reviews=owner.fixture(Path(directory))
+            try:
+                materialize_assessments(db,use_reviews=reviews)
+                report=coverage_report(db)
+                self.assertEqual(report['source_classes']['subst']['compact_interpretations'],12)
+                self.assertEqual(report['source_classes']['subst']['expanded_interpretations'],15)
+                self.assertEqual(report['assessments']['broad']['semantic_analysis_kinds']['documented_use'],14)
+                self.assertEqual(report['assessments']['broad']['semantic_analysis_kinds']['unresolved_remainder'],14)
+                self.assertEqual(report['source_rows'],12)
+                self.assertEqual(report['source_assessment_coverage']['broad']['assessed_source_expansions'],15)
+                self.assertEqual(report['source_assessment_coverage']['broad']['unassessed_source_expansions'],0)
+                self.assertTrue(report['full_qualification_pending'])
+                self.assertEqual(report['constructor_classes']['preposition-n-source-v1']['coverage'],'EMPTY_NOT_COVERAGE')
+                self.assertEqual(report,coverage_report(db))
+            finally:owner.doCleanups()
+        with tempfile.TemporaryDirectory() as directory:
+            first,second=self.build_pair(Path(directory))
+            a=load_json(first/'reports/coverage.json');b=load_json(second/'reports/coverage.json')
+            self.assertEqual(a,b)
+            self.assertEqual(a['status'],'INCOMPLETE')
+            index=load_json(first/'reports/canonical-index.json')
+            self.assertIn('reports/coverage.json',index['files'])
+            self.assertNotIn('reports/coverage.json',index['missing'])
+
+    def test_coverage_legacy_import_has_no_assessments_and_partial_schema_refuses(self):
+        import sqlite3
+        from literaki_slownik.reports import coverage_report
+        with closing(sqlite3.connect(':memory:')) as db:
+            db.execute('create table interpretation(tag TEXT)')
+            db.execute('create table sgjp_record(id INTEGER)')
+            db.execute("insert into interpretation values ('subst:sg:dat.loc:f')")
+            db.execute('insert into sgjp_record values (1)')
+            report=coverage_report(db)
+            self.assertEqual(report['source_assessment_coverage']['broad']['assessed_source_expansions'],0)
+            self.assertEqual(report['source_assessment_coverage']['broad']['unassessed_source_expansions'],2)
+            self.assertEqual(report['assessment_storage'],'LEGACY_IMPORT_NO_ASSESSMENTS')
+            db.execute('create table analysis(id INTEGER)')
+            with self.assertRaises(GeneratorError):coverage_report(db)
+
     def test_canonical_index_compares_content_and_excludes_runtime_files(self):
         import tempfile
         from pathlib import Path
@@ -251,7 +299,7 @@ class QualifierCoverageTests(unittest.TestCase):
         script = Path('scripts/probe_generator_evidence.py').resolve()
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'db.sqlite'
-            with sqlite3.connect(path) as db:
+            with closing(sqlite3.connect(path)) as db, db:
                 db.execute('create table interpretation (qualifiers TEXT)')
                 db.executemany('insert into interpretation values (?)', [('rzad.',), ('z_D.',), ('nieznane',)])
             before = sha256(path)

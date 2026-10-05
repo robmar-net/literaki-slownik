@@ -41,3 +41,7 @@ RJP §8.1.2 pkt3 obejmuje także wsie, osiedla i dzielnice. Odrębna uwaga pkt4 
 ## Osobny wariant pisowni — zatwierdzone A
 
 Angol/Jugol mają osobnych kandydatów angol/jugol, z dokładnym rekordem, SHA eksportu i RJP, ID użycia oraz jednym składnikiem źródłowym. Wpisy i inne homonimy zachowane. Nie tworzymy pozostałej fleksji przez automatyczne lower. Inne warunki nadal unresolved. [Wdrożenie i runtime](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/spelling-variants-implementation-review.md).
+
+## Zatwierdzone relacje mieszkańców
+
+Jawny sprawdzony odsyłacz Warszawa → warszawianka dokumentuje konkretne użycie całego źródłowego paradygmatu. Normę2026 przypinamy do użycia: obowiązkowa wielka litera wyklucza growo, STANDARD odrzuca dawny małoliterowy zapis; BROAD nie wyklucza przez ten warunek językowy. Pozostałość i homonimy zachowane, bez klasyfikacji po sufiksie. Brak odsyłacza nie dowodzi braku klasy. [Wdrożenie](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/resident-use-implementation-review.md).

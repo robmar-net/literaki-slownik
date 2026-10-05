@@ -10,6 +10,59 @@ from .inputs import GeneratorError
 from .canonical import dumps
 
 
+def coverage_report(db):
+    """Rozliczenie obserwowanych klas i ocen; inwentaryzacja nie jest odbiorem."""
+    from .sgjp import tag_size
+    from .policy import CONFIRMED_CONSTRUCTOR_RULES
+    source={}
+    for tag,n in db.execute('select tag,count(*) from interpretation group by tag order by tag'):
+        item=source.setdefault(tag.split(':',1)[0],{'compact_interpretations':0,
+            'expanded_interpretations':0,'raw_tags':0,'semantic_qualification':'PENDING_FULL_MATRIX'})
+        item['compact_interpretations']+=n
+        item['expanded_interpretations']+=n*tag_size(tag)
+        item['raw_tags']+=1
+    tables={r[0] for r in db.execute("select name from sqlite_master where type='table'")}
+    constructor_tables={'derivation_candidate','derivation_component'}
+    assessment_tables={'analysis','variant_decision','decision_payload'}
+    if tables&constructor_tables and not constructor_tables<=tables:
+        raise GeneratorError('Niepełny schemat konstrukcji w raporcie pokrycia',4)
+    if tables&assessment_tables and not assessment_tables<=tables:
+        raise GeneratorError('Niepełny schemat ocen w raporcie pokrycia',4)
+    actual=(dict(db.execute('select rule_id,count(*) from derivation_candidate group by rule_id'))
+            if constructor_tables<=tables else {})
+    constructors={rule:{'candidate_analyses':actual.get(rule,0),
+        'coverage':'OBSERVED_NOT_VERIFIED' if actual.get(rule,0) else 'EMPTY_NOT_COVERAGE',
+        'registered':rule in CONFIRMED_CONSTRUCTOR_RULES}
+        for rule in sorted(set(actual)|CONFIRMED_CONSTRUCTOR_RULES)}
+    stored=assessment_tables<=tables
+    assessed=(unresolved_report(db) if stored else
+              {'variants':{v:{'analyses':0,'semantic_analysis_kinds':{}} for v in VARIANTS}})
+    expanded_total=sum(x['expanded_interpretations'] for x in source.values())
+    source_assessment_coverage={}
+    for variant,counts in assessed['variants'].items():
+        kinds=counts['semantic_analysis_kinds']
+        covered=kinds.get('source_expansion',0)+kinds.get('unresolved_remainder',0)
+        if covered>expanded_total:
+            raise GeneratorError('Więcej ocen źródła niż rozwinięć interpretacji',4,variant)
+        source_assessment_coverage[variant]={
+            'assessed_source_expansions':covered,
+            'unassessed_source_expansions':expanded_total-covered,
+            'coverage':'COMPLETE_TECHNICAL_NOT_QUALIFICATION' if covered==expanded_total
+                       else 'PARTIAL_MISSING_ASSESSMENTS'}
+    return {'schema_version':1,'status':'INCOMPLETE','scope':'observed_class_inventory_not_semantic_closure',
+        'full_qualification_pending':True,
+        'assessment_storage':'PERSISTED_DIAGNOSTIC' if stored else 'LEGACY_IMPORT_NO_ASSESSMENTS',
+        'source_rows':db.execute('select count(*) from sgjp_record').fetchone()[0],
+        'source_compact_interpretations':sum(x['compact_interpretations'] for x in source.values()),
+        'source_expanded_interpretations':sum(x['expanded_interpretations'] for x in source.values()),
+        'source_classes':source,'constructor_classes':constructors,
+        'unregistered_constructor_classes':sorted(set(actual)-CONFIRMED_CONSTRUCTOR_RULES),
+        'assessments':assessed['variants'],
+        'source_assessment_coverage':source_assessment_coverage,
+        'source_semantic_population_complete':False,
+        'notice':'Dokumentowane użycia/pozostałość nie mnożą źródłowych rekordów. Liczebność klasy i dobór próby nie dowodzą jej pełnej kwalifikacji.'}
+
+
 def canonical_index(run_dir):
     """Indeks I2 dla diagnostycznego przebiegu; nie zastępuje verify.
 

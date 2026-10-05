@@ -212,3 +212,12 @@ Wykonanie sekwencyjne inline zgodnie z executor, AGENTS/INDEX i zatwierdzonym za
 
 ### 2026-10-05T17:30:54Z — końcowe kontrole i odkrycie relacji mieszkańców
 195/195 generator,5/5 audit, bez ostrzeżeń. Tracemalloc wcześniejszego biegu wskazał dwa niedomknięte SQLite w probe PAN/fiksturze; regresja ProgrammingError not raised red→closing green. Odczyty SGJP:25s sandbox timeout→escalated200, pierwsze parametry incomplete→exponent/query_params200, parent7791→target61637, reverse link miejscowości potwierdzony. Odkrycie nie aktywuje metadanych ani nowego filtra. Pierwsza źródłowa populacja warszawianka11kompaktowych/14rozwinięć; pełna klasa nieustalona. Przygotowano materialną bramkę progu dowodu relacyjnego z AGENTS/G3.4; pending. Zapisy istotne tylko w repo dziecka, źródła/duże próbki poza Git.
+
+### 2026-10-05T17:39:22Z — A dowodu relacyjnego zatwierdzone
+Wznowiono maister-work/development phase8/executor; stan i artefakty ukończonych faz sprawdzone. Standardy AGENTS/INDEX i zatwierdzony plan. Sekwencyjny właściciel koordynator, brak zainstalowanego specjalisty; inline. Własny przypięty przegląd dokładnej klasy warszawianka bez aktywacji metadanych internetowych. Nowe testy test_resident_uses.py w grupie G4; reguły/oceny/explain w dotychczasowych modułach. Pełna macierz i phase10 nadal wymagane.
+
+## 2026-10-05T17:58:32Z — użycie mieszkańca i pokrycie
+
+A relacji mieszkańca wdrożone v18:11rekordów/14użyć, pozostałość i homonimy zachowane. Dwie projekcje22kompaktowe/28rozwinięć/42analizy/84oceny, logiczna treść/próbki identyczne,40readonly explain, źródła niezmienione. Raport coverage w build/indeksie: pełny G2 34klasy/7458520kompaktowych/17234910nieocenionych rozwinięć; projekcje28/28 źródła mimo42analiz. 201/201+5/5 bez ostrzeżeń, preflight14+12OK. G3/G4/G6 częściowe,8/36; pełna macierz i wydanie nadal otwarte.
+
+Standardy AGENTS/INDEX, sekwencyjny executor inline. A zapisane przed wdrożeniem, nowego kryterium bez zgody nie dodano. Test-first4resident+2coverage red→green; spójna podmiana warunku z ponownie policzonym hashem odmawia odczytu. Wyjątek diagnostycznych G4/G6 podczas luki G3 utrzymany; bez zmiany głównych checkboxów. Starszy G2 ujawnił brak nowych tabel; dodana zgodność readonly i test niepełnego schematu. ResourceWarning poprzedniego biegu naprawiony przez closing SQLite w teście raportu. Kontrola kodu/zakresu: bez migracji/aktywacji metadanych, dokładne warunki tylko użycia; G7–G9 i phase10 nie pominięte.

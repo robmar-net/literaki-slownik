@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T17:30:54Z",
+  "generated": "2026-10-05T17:59:04Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Wdrożone A pisowni i próbki; wymagany wybór progu dowodu relacji mieszkańca"
+    "current_activity": "Użycie mieszkańca i coverage wdrożone; pełna macierz G3 nadal otwarta"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "A pisowni wdrożone v17:2 kandydatów angol/jugol,5analiz/10ocen, dwie projekcje stabilne bez zmian źródła. Quality:pełne13list/5066341jednostek/270próbek; projekcja219713analiz/641słów/1124analizy, dwa identyczne dobory readonly. Pełne payloady review i diagnostyczny indeks I2. G3/G4/G6 częściowe,8/36; odbiór i pełna macierz nadal otwarte. Końcowo195/195+5/5 bez ostrzeżeń; naprawiono zamykanie SQLite w probe PAN. Czytnik SGJP jawnie wiąże warszawianka z Warszawą; wymagany próg dowodu relacyjnego przed aktywacją.",
+      "summary": "A relacji mieszkańca wdrożone v18:11rekordów/14użyć, pozostałość i homonimy zachowane. Dwie projekcje22kompaktowe/28rozwinięć/42analizy/84oceny, logiczna treść/próbki identyczne,40readonly explain, źródła niezmienione. Raport coverage w build/indeksie: pełny G2 34klasy/7458520kompaktowych/17234910nieocenionych rozwinięć; projekcje28/28 źródła mimo42analiz. 201/201+5/5 bez ostrzeżeń, preflight14+12OK. G3/G4/G6 częściowe,8/36; pełna macierz i wydanie nadal otwarte.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -737,20 +737,25 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/resident-relations-proof-decision.md",
           "label": "Próg dowodu relacyjnego mieszkańca"
+        },
+        {
+          "path": "analysis/evidence/resident-use-implementation-review.md",
+          "label": "Użycie mieszkańca — wdrożenie"
+        },
+        {
+          "path": "analysis/evidence/resident-use-runtime.json",
+          "label": "Runtime użycia mieszkańca"
+        },
+        {
+          "path": "analysis/evidence/coverage-implementation-review.md",
+          "label": "Pokrycie klas"
+        },
+        {
+          "path": "analysis/evidence/coverage-runtime.json",
+          "label": "Runtime pokrycia"
         }
       ],
-      "gate": {
-        "id": "resident_relation_documentary_proof",
-        "status": "pending",
-        "created_at": "2026-10-05T17:30:54Z",
-        "question": "Czy jawny, ręcznie sprawdzony odsyłacz nazwy mieszkańca SGJP wystarcza jako dowód klasy konkretnego użycia, z dokładnym źródłem i zachowaną pozostałością?",
-        "options": {
-          "A": "Tak: własny przypięty przegląd, pierwszy przypadek warszawianka; bez importu metadanych i zmiany reguł gry (rekomendowane).",
-          "B": "Tylko wskazówka: wymagamy dodatkowego dosłownego opisu; obecny przypadek unresolved."
-        },
-        "answer": null,
-        "artifact": "analysis/evidence/resident-relations-proof-decision.md"
-      }
+      "gate": null
     },
     {
       "id": "phase_9",
