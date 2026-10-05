@@ -170,3 +170,13 @@ AGENTS, zatwierdzony plan/spec i INDEX wczytane. Sekwencyjnie inline, zachowane 
 ### 2026-10-05T15:00:25Z — końcowe sprawdzenie przyrostu
 
 168/168 generator,5/5 audit,14+10 preflight. Dwa raporty wpływu każdej bazy readonly identyczne; hashe baz niezmienione. Duża historyczna projekcja219713analiz/213636kluczy, obydwa warianty spójne z raportem niewiadomych. Dodany test odmawia podmiany reguły membership z poprawnym hashem; ostatnie runtime odtworzono po tej zmianie. Dowody JSON/MD zapisane, phase8 nadal in_progress, gate A w historii, dalszych obowiązkowych bramek nie pominięto.
+
+### 2026-10-05T15:23:04Z — wznowienie phase8, pełny odczyt publicznych frag
+
+G3: odczyt wszystkich147 źródłowych frag i148 artykułów SGJP;144 jednoartykułowe kandydaty,1 wieloartykułowy don,2 użycia w artykułach nadrzędnych koń/mąż. Pełne pokrycie odczytu potwierdzono dwoma identycznymi audytami,171/171+5/5. Internetowe metadane nieaktywne; mapowanie snapshotu i pełna semantyka nadal otwarte. Przed zmianą jednostki kwalifikacji potrzebna decyzja o własnych alternatywnych użyciach; reguły gry i listy bez zmian,8/36.
+
+Stan i artefakty faz1–7 sprawdzone: wszystkie obecne i niepuste. Skills work/development/framework/patterns/html/executor, plan/spec i INDEX wczytane. Sekwencyjnie inline; nowe odczyty niezależne w parach, bez delegacji.134wyszukiwania+135artykułów poprawne,13wcześniejszych odczytów włączone do przeglądu. Surowe pliki wyłącznie tmp. G3 rozszerzone deklaracje plików walidatora/testu w MD/HTML; test-first3red→green,171/171+5/5. Dwa audyty kompletnego rejestru identyczne. Częściowe pokrycie semantyki i źródeł nie zostało uznane za ukończenie grupy. Pending semantic_use_alternatives_model zgodnie z wymaganym omówieniem zmiany jednostki oceniania; dalszych obowiązkowych faz nie pominięto.
+
+### 2026-10-05T15:24:57Z — końcowe kontrole przed bramką
+
+172/172 generator i5/5 audit. Dodatkowy test dokładnego internetowego ID w odsyłaczu i SHA green; strażnik odsyłacza doprecyzowany mechanicznie z prefix na pełne dopasowanie. Dwa końcowe odtworzenia audytu mają identyczne bajty i ten sam raport pokrycia. Bramka modelu pending, listy i reguły bez zmian.

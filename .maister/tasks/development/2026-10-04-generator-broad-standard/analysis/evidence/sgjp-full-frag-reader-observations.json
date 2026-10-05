@@ -1,0 +1,3997 @@
+{
+  "schema_version": 1,
+  "scope": "public_reader_reference_observations",
+  "observed_at": "2026-10-05T15:18:41Z",
+  "cases_sha256": "aeff137a0210decd00e473b7f903990380b7ef701f8dac3aba19aa90579cd03c",
+  "source_url": "https://sgjp.pl/leksemy/",
+  "automatic_eligibility_decisions": false,
+  "raw_articles_committed": false,
+  "active_build_inputs_added": 0,
+  "metadata_reuse_status": "BLOCKED_as_machine_input_no_license_or_snapshot_alignment_established",
+  "raw_glosses_or_definitions_copied": false,
+  "records": [
+    {
+      "case_id": "2f6b03cdaac7c948bd702a2c757c94ed05a1c52f6040991bf6a23e42441bbe1f",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Addis",
+        "lemma_id": "Addis",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          2080
+        ]
+      },
+      "lookup_response_sha256": "8dc7df71c26d8afb140d2d71df7253c3b71d8cdb7aaedadb58279de7de139623",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91287,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91287/Addis",
+          "response_sha256": "ff4a0af300355b86d48ed54c91f4bb05a042d9f32248119e989ae913dfada35a",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "ab4f2627eab2a0f7c81ca5fbfff994024b9637eca54add09eed9466f3c789246",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Ata",
+        "lemma_id": "Ata:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          14743
+        ]
+      },
+      "lookup_response_sha256": "6fbc18c50bd3a80abcff519907f95920fd3fde53a72115d664927618dfdc3bc7",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91288,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91288/Ata",
+          "response_sha256": "0b8eb29312eb68fc43f56079ea49a754e8a0d84f9636adcacad4f25919e79be3",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "0f583782a1b609cd941207080268873eba8bf5a9a16cf8af36f461fb1fc4f993",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Banja",
+        "lemma_id": "Banja",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          24334
+        ]
+      },
+      "lookup_response_sha256": "f48c52f37fb56998a087e10786863c055bd4fb045eaebf2ba4761c75dd98ccfc",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91283,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91283/Banja",
+          "response_sha256": "eedc18dd8eca90cd56292c3f442afc13e9b999e933b213e0f4f785483e129a82",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "3d1c63a6576765cf176efa08897c73edd492db8f1c82e713ae32f7a2464a1f08",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Ben",
+        "lemma_id": "Ben:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          37268
+        ]
+      },
+      "lookup_response_sha256": "0f6c562e99389f71a644f2724c70bc510d661f4fd547d480fcd4a3a5ac6729bf",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91289,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91289/Ben",
+          "response_sha256": "ef6e6b5790b7b2f49d1dda5147c63ebdd8ec4001ee0c9c1d73e2f87fc06cba74",
+          "own_class_observation": "surname_component"
+        }
+      ]
+    },
+    {
+      "case_id": "b301700688e159490dbc963399dffdf2c05741c4cba29d8de517b9d3503a652b",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Buenos",
+        "lemma_id": "Buenos",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          85590
+        ]
+      },
+      "lookup_response_sha256": "a0e76d3b9fe14ac54be731a4d070106c8eb053fbeb55e98cf49da02ad41ecd6c",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91247,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91247/Buenos",
+          "response_sha256": "823f086935a85cd281b58f5b34655356da5a2d69314c4a9c391345b0952144c7",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "32a9a5414d9691bf5967bd60317e15601b821fd8bd29ff7aaf402df47d8288fb",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Burkina",
+        "lemma_id": "Burkina",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          90240
+        ]
+      },
+      "lookup_response_sha256": "a8f250088d79ffd5e0269aa66d149a425535f9b03cd1e08391c7d817b977b4a2",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91470,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91470/Burkina",
+          "response_sha256": "31999e3d807069e0802860eb57086ee6979d39d37955dfbf01de0e6222899fa8",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "ce3d095fc43827d27b039dcbfdca5feb3c23f28750f520cb690641eefc2dd90a",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Cruz",
+        "lemma_id": "Cruz",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          135901
+        ]
+      },
+      "lookup_response_sha256": "8ffe8bdd8f1ff11946a36b4b56c40ccb4b305e08433ac91f52f800828488cd2f",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91271,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91271/Cruz",
+          "response_sha256": "b71138fa5e55134503941a169e7c2c779887d87607ed56f95a666ae1a1f36cc9",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "c0904688753308f399e8621f01d7016c8e52210f0775fcedcbeb042cdd1effc4",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Faso",
+        "lemma_id": "Faso",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          212025
+        ]
+      },
+      "lookup_response_sha256": "c877c46828f3e826d224af285da097766427c098fd5f26488b1271a38a9a1328",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91471,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91471/Faso",
+          "response_sha256": "eb161b789cf32c2af2b82260835e927586aa1dbbf49c8ea839c10f4138ec23f6",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "f011a3f9e72ae4f5b8b12df906afe9d0d2d74bb68ea51478a3030e8c9b202931",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Francisco",
+        "lemma_id": "Francisco:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          224445
+        ]
+      },
+      "lookup_response_sha256": "666e74e4525acdd38545d01ec3c3f09e46d087f4920c841c9e12683b1c43bd9f",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91270,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91270/Francisco",
+          "response_sha256": "c90a4a4716cfa3901bf89852b79d0e724d6505b1252182ac365fcd127ae7f46b",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "3f2b39be40e8a3adc390fad70244a90232ca93b713d9f651235893200d7d4ca6",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Janeiro",
+        "lemma_id": "Janeiro",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          340140
+        ]
+      },
+      "lookup_response_sha256": "9c0431649f25156b48cade5564b49b556427e6f4e59e8d9f2cee452bbf22a712",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91264,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91264/Janeiro",
+          "response_sha256": "4a1c2123006dd8affc576c3a13706d03501f13f778ffb3ba9ef693a03a14ee9f",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "a162e37a98aa89910f06e723b9c434d8c5865a8aca6ffd182f239733a03ca1c0",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "La",
+        "lemma_id": "La",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          494439
+        ]
+      },
+      "lookup_response_sha256": "8ba0fc2fab74e249346fb6819aae381e2ca2e07429837e86608a3ab2f6d5388f",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91248,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91248/La",
+          "response_sha256": "27fd303a612fdeccb1101467459ebd96d481d4b602b81f2a00f3140f084c5edd",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "80b038265fdde14c0dc7497eee22ebec0d4d33512afedc6f9a25c7d3b034b1c5",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Las",
+        "lemma_id": "Las:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          497464
+        ]
+      },
+      "lookup_response_sha256": "e7e8cf23f478dd25a29afea3dec65792e4c21196b167d0802f1e410f2cb6a071",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91249,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91249/Las",
+          "response_sha256": "260827ebfe97ad4c04d7dcba1b70fb31e6046e05f8f3902877ee1e1bc993920d",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "12d6b22100db0dd85c6f592ff6c34e7797e7d01a26d971ae9e9c13727616ac0f",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Le",
+        "lemma_id": "Le:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          499906
+        ]
+      },
+      "lookup_response_sha256": "6d21d29fd53db192533e6a90d2d109aeb06c7687914b5f9350b5fbf567f24b80",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91250,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91250/Le",
+          "response_sha256": "fd4a97ce8dc0cf61e6192e491ba4344c22efa6e3b23486ee9ad22ef7d742d962",
+          "own_class_observation": "surname_component"
+        }
+      ]
+    },
+    {
+      "case_id": "9cb7d3d2155afb6e44b7a98c3d46b17e0e970917a943e8bd12cfa76866e752a2",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Leone",
+        "lemma_id": "Leone",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          504720
+        ]
+      },
+      "lookup_response_sha256": "2111ec253435156f2f53ca209f162097a9ae085e421ffd01dce1b6a0dc7a08ee",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91274,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91274/Leone",
+          "response_sha256": "8cbe053dd6d4105d91a3a0703800e8f6d07597b324b3a52c8d3cc0a0348fa7dd",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "0da80291cd7841eb03fb97294cdb7a9118f50f3ded0b39a75c417b843c77507d",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Los",
+        "lemma_id": "Los:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          518165
+        ]
+      },
+      "lookup_response_sha256": "5edb2741509cfd3a8be8cb34ecc45a17674b42cbb0737cf30bfdb7662e36c133",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91290,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91290/Los",
+          "response_sha256": "20bde9bbc2e41b11e37ecb9e7cf520c080a9130d49b6690a639ee9e69fbace09",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "e118957200743e8871ed42cf4b038cf17de3ad21b4fe097ab65d82f7381d9c06",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Manche",
+        "lemma_id": "Manche",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          539512
+        ]
+      },
+      "lookup_response_sha256": "cf333c68b9a6fad9bd5cc60ce9814bf368e35f3e4aecc16af2fd81f70d4033b5",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91284,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91284/Manche",
+          "response_sha256": "dea3c54ff0c4ca5cb9e2aaf3eaf69327a6c96cf4d3295f15f9a9264c24c59d15",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "9079077db5472bd3df19d4afa183933de4c8622cf6bb2f6f5894dc00723f5d8f",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Marino",
+        "lemma_id": "Marino:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          543977
+        ]
+      },
+      "lookup_response_sha256": "b8fa98856810de68a1f34010992494302090d688b587fa7377bc919a04e24398",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91281,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91281/Marino",
+          "response_sha256": "c9a412f32c3b6b5ca4b07b33f5f051ec7efba893b37289a55fa62d180ee71c64",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "eddeb5de71dbce98f7010ea7a25b7e950e8ebed09a98682c69ab552cdd289a89",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Mont",
+        "lemma_id": "Mont",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          585651
+        ]
+      },
+      "lookup_response_sha256": "53dc785ccb5d4b262ea4ba74121fb92a0fa465e70dfc345136228da932c1c01d",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91276,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91276/Mont",
+          "response_sha256": "45462d4b47a73850da5a9bc74838e73232b8e4d1a884a111a6beb4b7f4c8e37d",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "175c9dab8b50e8049c2c3cf5d8d99dec7150a51b9bd8183421b974d10b50724c",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Monte",
+        "lemma_id": "Monte",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          585687
+        ]
+      },
+      "lookup_response_sha256": "84089c61f04b5e164a449728a56d112c63c45a65d4721c5d893e3d0a30e7731d",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91277,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91277/Monte",
+          "response_sha256": "913ac693ca8af8ee1923e9e25b9339ac14fc3f8708c35ebe546cae51b85bf382",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "b1b9ca790adf912703c2ee43243a676fac0a89bd98345e427e72347de508862f",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Mount",
+        "lemma_id": "Mount",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          590166
+        ]
+      },
+      "lookup_response_sha256": "f184ce34dcb472406fe8998ca4f4311398adafa22c8d9a2f5fe18e991ced6951",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91278,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91278/Mount",
+          "response_sha256": "d487af1ed9c00be0a7c0ef8bfbfbb5105ffa3969557bea59f5a5156c11af973a",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "d404c8ded28c39822814b995b4bf02906412569a07955cdbe2ca909713480562",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "New",
+        "lemma_id": "New",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          612982
+        ]
+      },
+      "lookup_response_sha256": "715d15928f183ffb90279e1f82dd18f86abed33f6383fa20f472906af1924914",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91291,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91291/New",
+          "response_sha256": "afc3fd788deeaa70282d1b03557c32f4ce1b44c565e0e46912a8e6df6fedd1f0",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "c3a5d618f398d8854addbaa62810871b70c6ede983c94f86fb857ff1496b30e9",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Paulo",
+        "lemma_id": "Paulo",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          674223
+        ]
+      },
+      "lookup_response_sha256": "0d41192ba07fe358d6c94444bfa82abe920283bf7b41fb28050c70b07c377c17",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91267,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91267/Paulo",
+          "response_sha256": "2055b19ad37948b63c927edde0e43cb3a259517ba910f6d629b6cf512315e518",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "a78a367452fd0e2437af9248ddac88199813c2d533b6b363d5a5edb9be03dbcd",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Penh",
+        "lemma_id": "Penh",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          679884
+        ]
+      },
+      "lookup_response_sha256": "03a664e03cd07c954ce2d64fcd3425dc3dec09379f9e24ed2bea5e6e5b65202a",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91269,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91269/Penh",
+          "response_sha256": "3bc9155d4580e74e584e0f7fb948f02954afb81251dc8bb3a4d3c32753ef9c70",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "d1792eb3b997a56350672ce218bc43dff627afea2de56e8b20b28f1d47f48815",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Phnom",
+        "lemma_id": "Phnom",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          683900
+        ]
+      },
+      "lookup_response_sha256": "61631d2cf245a1cbbc97d9e5112338b4d4fcba53c0ad3db0ff638d94bfd94dbe",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91268,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91268/Phnom",
+          "response_sha256": "76ee461f8999391483027369f2d00939bf9e769450b70b9d4f29831d823cdeec",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "ba5c7a023c557285c805af66027ccaed1a0e54600d175de253f44636fd9f5887",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Plata",
+        "lemma_id": "Plata:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          700850
+        ]
+      },
+      "lookup_response_sha256": "2a59e07bed4047bc2517bc46ff24faaa5ccbf428edfe8a61a420759fabde02d8",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91282,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91282/Plata",
+          "response_sha256": "716bc4d1687008c98ed608a5b284fabfcb73b2c7a07d23dd61591ad403c5b424",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "5dc8eb02c4334a064ae20d7aad944fb6f38ddb325cb4b3545e8b1a809758c23c",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Rico",
+        "lemma_id": "Rico",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          772534
+        ]
+      },
+      "lookup_response_sha256": "640ba784a453ea539ddf182343c96c191c2872034eb34ffb5e8718c405b0616f",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91311,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91311/Rico",
+          "response_sha256": "0e21d665eb5074cb29056d3433abfdfacbfa78555d357c30832f4e487af4c60a",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "2b7bdf11207acef1e050d156a0c83a02617435811c2e4b31b5e094e8469e96a9",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Rio",
+        "lemma_id": "Rio",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          772923
+        ]
+      },
+      "lookup_response_sha256": "eed7aba5a53d5cf81c7b22e78c819882bdb202197199e3f6459c718f79e7887d",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91474,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91474/Rio",
+          "response_sha256": "51833c4f9a769f527331a834ac9e9280d31489b22fac4cbadfaecb8e301179ac",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "c8af9b5e507f5bdc060dab3ea1ab6f37c94ffff4d1787314d81d0435dfa6c2dc",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Saint",
+        "lemma_id": "Saint:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          805037
+        ]
+      },
+      "lookup_response_sha256": "f1821a6e925c2a58962093caa87f6ef3fc8b273607ad67bea1ccbd57079c1e65",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91285,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91285/Saint",
+          "response_sha256": "6c1833dd10226d6dcafdaf60a9da03e322ec6d201d5ec9993b80f03028d70f9b",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "a1a4aa2745f15f6d1b7bafe5b12b4105584f9efd4c6ae2a177c53b849e1f15a5",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "San",
+        "lemma_id": "San:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          808895
+        ]
+      },
+      "lookup_response_sha256": "8be3a95ff9ae7ca0c39795ed6590adb7f4db51fb0ab028452a636287670fcb4d",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91252,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91252/San",
+          "response_sha256": "4eef7bf216a243aa91d639039962f75be2be60a63b74ee38ed58dc9d277f702e",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "924744d5e6c964fb8125e1471a29879dc052784a1e196a0f55fccf358970b1c8",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Sankt",
+        "lemma_id": "Sankt",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          809450
+        ]
+      },
+      "lookup_response_sha256": "1b57b931002a5559a75cd40a8c028624ca5c0ac038376a6040572bbb43add194",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91251,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91251/Sankt",
+          "response_sha256": "3f0c3823d56d4b51a94f966b2cef5de6a951cf7f733059a544c4f778a6c32055",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "509f2d560f4ef80dc1d1478c87ea32db3909c98d39c12fc185090d2ffe36fda2",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Santa",
+        "lemma_id": "Santa",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          809597
+        ]
+      },
+      "lookup_response_sha256": "067397d55176d8dea2fa5904a16472f31dfc6d2e4ef385f0debbbe4dd961b9dd",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91272,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91272/Santa",
+          "response_sha256": "30211c20a64ed83f69f5e66a4c255e01566d5efd9af39190be22a4223f98d313",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "d38b5ba0ea9445846e576515b6d070bc6d648b61f9836766a35b875f96b4768c",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Sao",
+        "lemma_id": "Sao",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          809684
+        ]
+      },
+      "lookup_response_sha256": "6e7fcadacb779b51491d97a257a571e66420632e8537468c794bba8d95e3d595",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91286,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91286/Sao",
+          "response_sha256": "f85d6d74544bcbe22753ed732f15f5e5d974849c5fe129835c4a1c8d3e79ee49",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "0b6657f408d336c831aebd656fbb552493061eed6e039996ad9f3a30b0843340",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Sierra",
+        "lemma_id": "Sierra",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          826024
+        ]
+      },
+      "lookup_response_sha256": "d022fc3b16e8beef7ab3f802ad4c002e0c0fa47414455d5f0729744a17c1c9c0",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91275,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91275/Sierra",
+          "response_sha256": "2970dc2a2bc8d71e204f256a16e296da6b83ee4c53e5883e13276610e2b40470",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "e48d1651f8108158c2c1e6ee944446fed2826f71b5b85fc64fb06d6cb85bd1aa",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Sri",
+        "lemma_id": "Sri",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          858743
+        ]
+      },
+      "lookup_response_sha256": "e870a874df1b1c3e6c994c8d7ffc81438d31f676efb4c5ff255f1e961bb0ace4",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91273,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91273/Sri",
+          "response_sha256": "b928982da96ab4cb705955cd79391f8d46ff2a4cda8caaf9bbb50e919e2b6749",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "91617bb5f01396329faf1197cfc172f9218a49c3dfc43493e71e11e010839d47",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Street",
+        "lemma_id": "Street",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          874188
+        ]
+      },
+      "lookup_response_sha256": "d1e2056f9ae1d0e7c96007645bba71f363531d7af490405f501adf88082d048b",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91258,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91258/Street",
+          "response_sha256": "bb1dc5915a7efacb4f564a9bfb43e81e28485f7aa6e16526cb5d4fc308e50ca4",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "883e3f04c01c015beb24b992490a243148b77de2247aeb7fd39ae6741d6eb576",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Tel",
+        "lemma_id": "Tel",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          941945
+        ]
+      },
+      "lookup_response_sha256": "cfce94111a526339f728fbecc66e1319d5339ac1c87279339faea3631d56f042",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91344,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91344/Tel",
+          "response_sha256": "f12c4826eed47e54931aef25c2cc317f6ed005ff7c4891f99280ef9d63bc9605",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "07e0e1f955a1a3d4aeea748e8c1b8d6dbe5b3c944ce302792c6792ab4a8bd494",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Vegas",
+        "lemma_id": "Vegas",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          978089
+        ]
+      },
+      "lookup_response_sha256": "03f6771dd08077814e595b0223e2a3767e579393e4aff597347215e3eb7236a5",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91253,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91253/Vegas",
+          "response_sha256": "331d3be467b744dae0fef563cb2ada3e78cf9ecf62397dcb652f0e912f1eced5",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "43b3931027c6f7468a67100a4390a63c47802a0d01dabd78d8ba4b4aa12987eb",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "Wall",
+        "lemma_id": "Wall:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          983442
+        ]
+      },
+      "lookup_response_sha256": "b7e6f04ac61841d949cdafb55df56a154a8b1583f16ff5aa9e916605d6455681",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91256,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91256/Wall",
+          "response_sha256": "c52d792baa4224462ba612127a514e9ec726618b3c0b7950631590cc282b3ee9",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "2d125cb2d11028512d1e259ac09d48b1fdb288b1a655c360a329e6c9cfbda187",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "bajduś",
+        "lemma_id": "bajduś",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1186786
+        ]
+      },
+      "lookup_response_sha256": "ad0d4debd345d81ac05ea0ee304a39d1708cde8e00d84ec196356bfa3ac7da5a",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 23952,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#23952/bajduś",
+          "response_sha256": "50e3cda175f3e4bc86d4f3fc451261dd7921daa2917dc5cc8cde7c597b0b71a2",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "49d1340658b19febb76a74b2f19769a23364ea50d27f16c3d460f058d382959e",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "bałyku",
+        "lemma_id": "bałyku",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "reg.",
+        "row_numbers": [
+          1210279
+        ]
+      },
+      "lookup_response_sha256": "a4f9b4f605c3c7c5fff9a276db560714abac37b2df781e70d245a36d4d7dd8fd",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91239,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91239/bałyku",
+          "response_sha256": "e843a6f6da181ca86779a274a476b14653fede0e0ab48e07a7e365f6f77e79f1",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "d802d4467f716a40dac4344de22bdc729577b4063c60a38a88b18b020d31c87f",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "bezcen",
+        "lemma_id": "bezcen",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1221841
+        ]
+      },
+      "lookup_response_sha256": "096646be5d04b36d3efde0cfe85d024778e546e16f53c79442ec6eb488c7d02e",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91238,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91238/bezcen",
+          "response_sha256": "71bd8e980ba30fab9f89b26e42e7b4f1d47cc0b617a58b2fc79935da772ee2b8",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "8fca5455d436bbdf400b74d7dc1b7ecc0d0d262db098aa78ff35e126e5c8bc3c",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "bezdurno",
+        "lemma_id": "bezdurno",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "pot.",
+        "row_numbers": [
+          1223363
+        ]
+      },
+      "lookup_response_sha256": "ff969ba333b2ae1d5641da707b6c31220c3f6ff722ac0549b2f7eebf3b18b005",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91870,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91870/bezdurno",
+          "response_sha256": "333f8d3d14ab93a51192aa3e5e9661dfeb1f84db3b11403e6823b7c202794b55",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "76cae8b248e86afb721b453b9ba1fbfa2a34dea079ce5df92d44773b0f39be42",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "bin",
+        "lemma_id": "bin",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1252933
+        ]
+      },
+      "lookup_response_sha256": "c3f37af69ba0dfaad554472ae6b134c0d5a43e06048adac352a2543829f6c9ff",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91246,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91246/bin",
+          "response_sha256": "c754d604e589e7f646e71dd3d8c17bcb52c5fffeb6166cd7d3b0e5bdeb2050e1",
+          "own_class_observation": "surname_component"
+        }
+      ]
+    },
+    {
+      "case_id": "3132fc2f8b21d8afe23480308280f9d7773cb0d45a1e9530c774a821762c6455",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "bździu",
+        "lemma_id": "bździu",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1333057
+        ]
+      },
+      "lookup_response_sha256": "cc1fc29ae169b5393e028f745065f305b7a61e41a1f5b88e58e62d1ca78380cf",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90819,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90819/bździu",
+          "response_sha256": "02c76e5b17d71354918d9fbd52160e943b6b26f1635c95391d5ca20dd5c92b1d",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "e43f54beb81cd5c30272141cabdb98866025684ed74729f3072a0bc3974046fe",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "chrapickiego",
+        "lemma_id": "chrapickiego",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "przest.,żart.",
+        "row_numbers": [
+          1370551
+        ]
+      },
+      "lookup_response_sha256": "31bf915749c7013f6d166e0c0b8570b9714a0c5a67148dd05f2b58292b28c294",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 1007345,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#1007345/chrapickiego",
+          "response_sha256": "2b7a4a27334cbbd0985e0884f984e5283e6de53b4004db68ced9947d6bc4a8cb",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "08faf32d94cfc83716156b68e44933a607a806a7837c224d654f4e837570d32e",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "ciup",
+        "lemma_id": "ciup:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1404047
+        ]
+      },
+      "lookup_response_sha256": "90dc3c1a18fca7483c2c2d81ca1cd6dfdce38a35d7c7018f4f5c9a8569a94c9c",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90688,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90688/ciup",
+          "response_sha256": "b8e7cce6353617e71e461867ad2e9abb8e77226a97bfff691cc456196b354646",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "33f57be87d205087da5b5315980a06ae92b00df4d76a1eaa2aec97eed52b0ebd",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "cna",
+        "lemma_id": "cna",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "książk.",
+        "row_numbers": [
+          1408950
+        ]
+      },
+      "lookup_response_sha256": "2b9deb419e48e6c840702ad3f2c35b68a32b60735d358261c760af52e6c31329",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91938,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91938/cna",
+          "response_sha256": "a411c680d7e75cb4ce25383965e4e299918e370f64292f430f63109f0f5796ec",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "66181acb2eba0351c367bebdcee7c12cd1bf1dd26ea17f4269dcf4e931bfa8a9",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "cyku",
+        "lemma_id": "cyku",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "pot.",
+        "row_numbers": [
+          1420966
+        ]
+      },
+      "lookup_response_sha256": "9524f604509258f61c09b200b4aaa245583bbd8ad6bdc79e157190db7f9e6b06",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 1000010,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#1000010/cyku",
+          "response_sha256": "8c6f9c495386590fe7da894cf6da0886bda440a002ef4e36f1b3f199cf3256b3",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "e4ff3684ca23d51ba961c6e99853265a29cc405a0d1ef8f74dc25a9323396d2e",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "czwórnasób",
+        "lemma_id": "czwórnasób",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1450122
+        ]
+      },
+      "lookup_response_sha256": "67766e28687663e854714785da0de309ab82d7b75fe33b964bcbaa6eae878f6e",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90742,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90742/czwórnasób",
+          "response_sha256": "f070a289ac63e51adf7adb384024009a4dc146517ee4a3fd093d986d608bba07",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "e424ba4f35cf318e705ea1311145a65680327e8dec0a8040fcd28e7a0d6bd6b9",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "dala",
+        "lemma_id": "dala",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1457406
+        ]
+      },
+      "lookup_response_sha256": "3550c0e3d73cb1b8c3f335b72fea59c7244c0ca304e01480698ba244cda778e4",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91237,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91237/dala",
+          "response_sha256": "4dd36671b1ab5d1d8742ca55fdee9fc5b701e66ea9fd7d0747b18a2a9bac1608",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "28075e6fbb166daafde0ccc77b10fa05aadae6e1996fcbd38cea2c1b3fb7a6fe",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "dawien",
+        "lemma_id": "dawien",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1462318
+        ]
+      },
+      "lookup_response_sha256": "6914d384b60453e90d8b39ebf0af08df52d932ea1b531acd2b070cb34a27d002",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90908,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90908/dawien",
+          "response_sha256": "43a241ae19aa67c02a38de1e340f4de3951286cd2a5ee5a2eb1e059b59bae601",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "3039159294a26f1ddd1e095bebd033d7516e6cdf449b356aa4182c6c8a00f443",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "de",
+        "lemma_id": "de:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1463128
+        ]
+      },
+      "lookup_response_sha256": "20c57351b97f24a225436afe8c0fae54527ac0de35a141572a3e21f8a484f752",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91236,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91236/de",
+          "response_sha256": "b4c29df4e2db1ba76756c5175b5a53b56033ac0996df6b1b52359e152cdbc388",
+          "own_class_observation": "surname_component"
+        }
+      ]
+    },
+    {
+      "case_id": "1681ad0cf92e363bda0241d2107c1f54ad54a515ebe7878784bb859ae4383b7f",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "del",
+        "lemma_id": "del",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1477820
+        ]
+      },
+      "lookup_response_sha256": "ac230fe3d1a0d71e5bf163fb5d025e3a88d94cb44eeb7d25ab53d2b6730fcb8a",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91310,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91310/del",
+          "response_sha256": "e70a83ccfe790aae984de4276fb5364c3fe81f4ae1d0f84065f3fcad7db1b58c",
+          "own_class_observation": "proper_name_component"
+        }
+      ]
+    },
+    {
+      "case_id": "ff8291b59187a06af13e16b0eab4e3869f5ce7c4bfe37599e2f42285030d36d1",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "derdy",
+        "lemma_id": "derdy",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "pot.",
+        "row_numbers": [
+          1491972
+        ]
+      },
+      "lookup_response_sha256": "5cd026f6e46314937b4403308d789d9cbf7d58272de3bc7a917b6bd81b71fe2f",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91899,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91899/derdy",
+          "response_sha256": "e93f3ef764c820ef7674c5fa6d53eb08c7d35761d8dca18d02759f7952db4e93",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "5fd3fc1739d46ab76dd25e9aa7e6fe536090d54eedcd73fc1ab7fcdd11fa198d",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "don",
+        "lemma_id": "don",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1554730
+        ]
+      },
+      "lookup_response_sha256": "c8436a2aecb489f0216ec5deeeca461bd88773fe42b3e1ad45860030789d3464",
+      "mapping_status": "multiple_articles_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91612,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91612/don",
+          "response_sha256": "0ed34271c02209d9b71608ae341fc317c6b3b8e64f7d3a1ce05d3195bb565d16",
+          "own_class_observation": "phrase_component"
+        },
+        {
+          "web_lexeme_id": 1003284,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#1003284/don",
+          "response_sha256": "f13815983f9130d86053fc8637c0a0e493b374f16ac81bbadc0e54565251a3ac",
+          "own_class_observation": "article"
+        }
+      ]
+    },
+    {
+      "case_id": "cc51c8572b61e348d98cd710153ecac12783949be85b14856b2747b600f3cf2e",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "dubelt",
+        "lemma_id": "dubelt:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          1628900
+        ]
+      },
+      "lookup_response_sha256": "787734c7b413947085b4a93d11339e49e354da811bed8a877177b078ba55cc1d",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91812,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91812/dubelt",
+          "response_sha256": "3ca3f60d182df66fee9aa293c141cdd57abb98274f6f0454d8e4e55fa59e144f",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "a6a0ee530ad2541d06b9192e2ef50ca08594980ca09295101843b5cf82cc44f6",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "dwóchnasób",
+        "lemma_id": "dwóchnasób",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          1647546
+        ]
+      },
+      "lookup_response_sha256": "e587185b08661d1ed4161dcdfab2aaa40ce2836ea78481d8ed26ff2d21264570",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91950,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91950/dwóchnasób",
+          "response_sha256": "def7708b965b3274db8ab26ce6b1163a05c3e332a4310e09676610334848261e",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "ef1dedc40d3537816962c474ce8d58eb45f7c2d4134833bae9a2318ca782ce40",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "dwójnasób",
+        "lemma_id": "dwójnasób",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1647764
+        ]
+      },
+      "lookup_response_sha256": "9750cb255a6c020250e963cdb70ef8b3b10450e2529df9629e4d66a9abf615ec",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90741,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90741/dwójnasób",
+          "response_sha256": "6393cf8fcdb3502a6ac049e0f870c2e7d4e4eb4b4435c453d208ef39778183c8",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "0ba823b09e4f735b668f96b3709973978ae54b10cb7abe2cb30310e79fd7283c",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "dyrdum",
+        "lemma_id": "dyrdum",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1655382
+        ]
+      },
+      "lookup_response_sha256": "6b53c01f7c3bcae4cc03ee7ac318351db19d54b1fc832b0230626eb70d5b5242",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91260,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91260/dyrdum",
+          "response_sha256": "b7015d13831c4cf3c5647a1920e5352ca7d2011e797bcbca53ffe970a9968af2",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "a156458f4c227c87df6aaa1e5acf8511efd64ad76d362811dabcfd4ab821853b",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "dyrdy",
+        "lemma_id": "dyrdy:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "pot.",
+        "row_numbers": [
+          1655383
+        ]
+      },
+      "lookup_response_sha256": "f98d4ceedd3603219fb17a9a878cb9accbac98c3337f5079e65aa2069deb068f",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91898,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91898/dyrdy",
+          "response_sha256": "f87f6e92856aa5df389352501271dac7155d88390ec22650191cae6446bd8a82",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "c484a69443f5bcf25d4e2961e2fe526b3aab8f433c0e3da6f5db946233c076f5",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "dziejski",
+        "lemma_id": "dziejski",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1670018
+        ]
+      },
+      "lookup_response_sha256": "ecf559b3f9ca71f803cf4a37d6b9fc159e01c3cde6c59a5d3182aa7837c7e42c",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 1007211,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#1007211/dziejski",
+          "response_sha256": "57551eb39ac337f8359c81a21086c772fa6a2d52ee6649f96886952f0aaa7970",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "7e17d2a15da76ed89a919fba221e21a9052758008ee01e2d57cb605f7af3a96d",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "dzieju",
+        "lemma_id": "dzieju",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1670019
+        ]
+      },
+      "lookup_response_sha256": "0e04c4f702cba94955742d2b0a9094c0dfc75305ba4cf70679a451e41fdfa3bd",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91240,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91240/dzieju",
+          "response_sha256": "b1b69037a07a68c3e75c0984bfcd8ebed3073f5378d661b113a87f1f96a6af26",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "82e5392129eee08df22a03a55326920e797002845cb7f3f00d3d52896121c801",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "dziesięćnasób",
+        "lemma_id": "dziesięćnasób",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1673521
+        ]
+      },
+      "lookup_response_sha256": "23f579d70b17e6d03f47ff42069c87ce6c07398eb2e875d21328a3b837bc9a4e",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90739,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90739/dziesięćnasób",
+          "response_sha256": "50d9d461b1752a3db54ce3ad475ebc0b06d8c27b2a77cb1c329a1b38a379d6f1",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "076696c5d80534696e0fe1f5196b6be08231f9a529eadb562f184add6e16b766",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "eleison",
+        "lemma_id": "eleison",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1709262
+        ]
+      },
+      "lookup_response_sha256": "645263ff0845a9c8aa8d7ea5545c913eb9dc7394754a55432d03a10e960036ed",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91346,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91346/eleison",
+          "response_sha256": "3eaa88d5bf935737ff320d5f606235dcf7e8d6bfa736553c105ad6293c8d9c91",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "d81ab9d8a0de54af4579a184db46dfa9ae702cf2546b0607838f648b2debcccf",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "elemele",
+        "lemma_id": "elemele",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1712800
+        ]
+      },
+      "lookup_response_sha256": "011912c13e2ec00b602e046f67205b75b40fd1e5e49c09f39accb1b2541ba3c0",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91887,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91887/elemele",
+          "response_sha256": "7a591a9adac2a27bbf9528b4f8defcccd6f19003416c7e750a2f6e8098114cea",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "e51aa1ebd241cd7129f043dafad1e790f9e09e23991624480b0e1ebebcd6441f",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "fiksum",
+        "lemma_id": "fiksum",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1765659
+        ]
+      },
+      "lookup_response_sha256": "887e5ffbf6f2537c1efe97225d051e10cc6160d0e062ae8410b7dcc825c73ef6",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91235,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91235/fiksum",
+          "response_sha256": "91d363ef61e10003f9c915fb7d3d02b08aa75b05983a99a570705c8cf63f66be",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "5627ea710fef5cb33fcfe95c9f3e7e6d008f35518749af0072dbaf2db4989920",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "friko",
+        "lemma_id": "friko",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "pot.",
+        "row_numbers": [
+          1798582
+        ]
+      },
+      "lookup_response_sha256": "2cb649b8b1a31cfde959c300682e900c5b937f924bd25cc6d237371fee9c34a6",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91869,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91869/friko",
+          "response_sha256": "645fc156d0e5ded4611b99d05e460abe53a8931473b2d1fe57ad1bd8cbebb08e",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "acd3dc81e5da98764506f947879d92739bcb8f7bcef8ef048919d8bb0c56319e",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "hopla",
+        "lemma_id": "hopla:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1947010
+        ]
+      },
+      "lookup_response_sha256": "c88f457fbc509fd9fa47e5757f9adaa60a011b58000d9a02cb148c68e1cb4d3c",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 1004206,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#1004206/hopla",
+          "response_sha256": "000509b83f1163a2668eac95255b43224439ee438fe9716ca579491846d29ad0",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "df25c1b6af12ed07471f3d19e5c81efa7a6b44f1512e1e9a5837b262833c1656",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "ibn",
+        "lemma_id": "ibn",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1960055
+        ]
+      },
+      "lookup_response_sha256": "18386ac2f23971886bcdd72665e2dee036f22f53ac77baa13b478af35d1556a1",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91259,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91259/ibn",
+          "response_sha256": "dcf2070d843ff2bed4678357e4d83ed46b79278989258e27ed99270cc79a3997",
+          "own_class_observation": "surname_component"
+        }
+      ]
+    },
+    {
+      "case_id": "80f6d3cb9eb462d33672c24906f1df3b1300577eef1f21b9bf0121a50524a507",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "ichmość",
+        "lemma_id": "ichmość:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1960128
+        ]
+      },
+      "lookup_response_sha256": "991bda9d6737d92e80803e421b4b58b39b37e64296e216af5524e9c7531d55cc",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 1003285,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#1003285/ichmość",
+          "response_sha256": "ec60cfb6d41fb1fdc8da960e701b56a5611b3db532682565c5ed91fa47858381",
+          "own_class_observation": "article"
+        }
+      ]
+    },
+    {
+      "case_id": "b3408b4812583ec231915f65743d96efe964057f67fb1021aa8b960dabfe613d",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "jako",
+        "lemma_id": "jako:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          2012182
+        ]
+      },
+      "lookup_response_sha256": "4cc25bf4868295d67bc226b6ca1b1328c13011780e2d56e1f775823695c781f5",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 1007549,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#1007549/jako",
+          "response_sha256": "467e13a69d4f4858f330716da5dbc4f9c4563e3b988cd42b07768b5664dd61e9",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "a84dcf2ac146565a030b4c89004398b15068949239d37d278d1395c2474d9c98",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "jam",
+        "lemma_id": "jam",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          2012835
+        ]
+      },
+      "lookup_response_sha256": "294df8837fcfb50972c4a4fd812f62ad7629eee2fe9eeff069c14034b6cedcd0",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91241,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91241/jam",
+          "response_sha256": "00124ad1c08ba66629331fdeb51e123efcf49c221945cebf169e6999a7a7fbf2",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "89b30f3f0ef68944c9bea93d4535d644accf0ac915ca27c84283c781f45f8d3c",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "kilkanasób",
+        "lemma_id": "kilkanasób",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          2114182
+        ]
+      },
+      "lookup_response_sha256": "5b724e0537120a768459d4b32ffd1c4247e59bfc855a3bec6ab326ab27c516ef",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90738,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90738/kilkanasób",
+          "response_sha256": "b2474ac761b04b2563a043b8f2605afc4faac67abc1fa410bd7e902788f0198d",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "cd086be8402c73f9ecfc549587b7f6d23faac43382a28f59135b17322b96c084",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "kole",
+        "lemma_id": "kole",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          2153040
+        ]
+      },
+      "lookup_response_sha256": "49f8953fd8254cfcb3e1daa4b6120f4a5bceeebdeca0baf9b2dfef34c8549385",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91351,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91351/kole",
+          "response_sha256": "4adda8da0628ad9a9193a654e3635ed160472daf16f1d0c461e3a6bce97ffd35",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "6435d6cb2cf5d6de07b198a92d0a5b6f1d796b845a4c50796dbf06f0b8eaa933",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "koń",
+        "lemma_id": "koń:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          2224529
+        ]
+      },
+      "lookup_response_sha256": "7af1cddec0ccf9e011fabfef023d8996e2991b3eaf3623eb80bb6def1b743f04",
+      "mapping_status": "embedded_use_in_parent_article_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 5711,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#5711/koń",
+          "response_sha256": "948583f94bbdda78b44fdc5ba9a574e761d3586911cd9622a94779dadf14230f",
+          "own_class_observation": "noun_parent_with_phrase_note"
+        }
+      ]
+    },
+    {
+      "case_id": "8aa013989ffa9b523dc44b78da5f60598fb3a0c74ef2887a3e777aeb087ec3c9",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "kroćset",
+        "lemma_id": "kroćset",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          2244647
+        ]
+      },
+      "lookup_response_sha256": "0fdf017e7fce429200c8e7421e4a5712e293d062db5628510f53c159fc97de2c",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91805,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91805/kroćset",
+          "response_sha256": "4fe1bd12a18d3ca422e562a6ee56de0b67f3ed8a602415e0476bc9b52f1fd306",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "16f67f6c2f68827f8b2ffde81150ec7d508058460d738088788507569dfeba3b",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "ledwością",
+        "lemma_id": "ledwością",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "pot.",
+        "row_numbers": [
+          2322645
+        ]
+      },
+      "lookup_response_sha256": "5fa4542b4b18e2e18da29934e816c642e3ec16323d2b1bce927117328fcee8a3",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91939,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91939/ledwością",
+          "response_sha256": "f4e4b39dd39f6aeb25698a99c38c4d2c1d59a4f5fa0218c1688f18b61f42b76e",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "3c4614db3e269effa104ed4a598da4be0fad30852d70b6611932b827165069e5",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "lelum",
+        "lemma_id": "lelum",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          2328065
+        ]
+      },
+      "lookup_response_sha256": "6d3535c95e637a87f5481b35b45a4228ab9c2775928eca1ec8f4613e22061b66",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91243,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91243/lelum",
+          "response_sha256": "b3d57d07d354c295d609d037a40d7b751e9fb342c5cc9a2237c2c493b4e9b151",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "beb48eb13168f1d48b9cf64f5264df182f6931b0700900aaee697fc1663427f4",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "mać",
+        "lemma_id": "mać:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          2416265
+        ]
+      },
+      "lookup_response_sha256": "5ea2289db544a5055c157f7960bb16c35aadd35c2dd1e0dbc09f63c6e7e0c693",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91850,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91850/mać",
+          "response_sha256": "2f0e21ff0101f18f1b8307d96d1971b492dc9009983480e98a825f4377504a69",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "47750b47993cc43025b66cd2a18d767ebf8d2130693da9732979e28fe9c74fcd",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "mimo",
+        "lemma_id": "mimo:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          2458872
+        ]
+      },
+      "lookup_response_sha256": "bc559dddda74d290bdd14caf4ccf1a1e826523627d50c1a2ae69fb7a8864baea",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91818,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91818/mimo",
+          "response_sha256": "c82bc14acd578b1278aaccd920bc85400f91c7c773328bc40d80671bb132279a",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "1d156330dce1ccea9dfa45753bdb752469f90ab29e890bde8c682558d8021c27",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "mniejsza",
+        "lemma_id": "mniejsza",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "pot.",
+        "row_numbers": [
+          2478596
+        ]
+      },
+      "lookup_response_sha256": "3726c6f6a1f79ea0457df42cd6f581ac97bc504e73c5749f6adfbb506a13d3dc",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 1004210,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#1004210/mniejsza",
+          "response_sha256": "253bd24a2df41aa8298a706a562d63d97aeac3d7889699f851a9697a0817b76d",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "2e555e4d03fbf78a0892b4b3a2f20f83119a01f445ff969c9170179d7eaa0493",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "mocia",
+        "lemma_id": "mocia",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          2480794
+        ]
+      },
+      "lookup_response_sha256": "9733d3b85001dbb23b1137a13e631f2019a6af71831b5f48ba5e52e4f7b22384",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91353,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91353/mocia",
+          "response_sha256": "78ef8b2ab439d548a2f86b1b6f56062ecf97074571bccfbd3d31daa85b3b01de",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "2f456b81a3d2bf76708fcbe564e7c7209e2565fdf9049ce3bf4ce4c686534198",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "mociu",
+        "lemma_id": "mociu",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          2480795
+        ]
+      },
+      "lookup_response_sha256": "e405f8ae33d93e916e612cb5d5000bb82bb7bbf1f400d03e7ce8b1fdca3e7bbe",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91352,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91352/mociu",
+          "response_sha256": "1bc3295efe05b446b0e8a34c72920c0de514a301961ab065ad1e26bd3f78bb1e",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "c8684b10cc7ede3e8174aca65d6bbdefb91d5cc0df1382dffc332248a250ea4e",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "mocium",
+        "lemma_id": "mocium",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          2480796
+        ]
+      },
+      "lookup_response_sha256": "aa52b5c3f0af18005f404052ba82c4d83176c89822d3d17ac10af90b8496d6dd",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91354,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91354/mocium",
+          "response_sha256": "d7a8af30394cd7c935b3bec48c7ca92fe1f684c3189ff300d83ebb64cd3c0159",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "1791cbab1c95194bf55ca8642abbacd43281aaddc0cf8aecc4cdd8f7a359fbf2",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "mości",
+        "lemma_id": "mości",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          2504228
+        ]
+      },
+      "lookup_response_sha256": "64bc1b352b3dee2c9264dc9547417fb738bcd98d838b811f965f130e323ec2fc",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91862,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91862/mości",
+          "response_sha256": "e2ee73108cf743f7f1fd2aba5c9ec067f7ae77ca3ec342317ba489d9576f0c59",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "61919fafc2c641ee1795e0a5c01cd0f4d421ede2ab8beebe49353e83286511a6",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "mościa",
+        "lemma_id": "mościa",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          2504229
+        ]
+      },
+      "lookup_response_sha256": "6ddc5945faa4586f27ebe35969427d438c546f82d870c47d6ad40bb4e3a33bda",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91861,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91861/mościa",
+          "response_sha256": "ab7f0e1a3d38022811047e0e0fbc954b0099d92335b58dc451383dd2ea8bc8d2",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "93942e563b14e92f098a285f28aa64d1f12a7df88f3b7c2b41ffd4eb744ff26a",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "mąż",
+        "lemma_id": "mąż:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          2523798
+        ]
+      },
+      "lookup_response_sha256": "3bd0d2df56c5e12eb4e2ad57895407b214997770c2a6a11bbf6edd0e371b76ea",
+      "mapping_status": "embedded_use_in_parent_article_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 5153,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#5153/mąż",
+          "response_sha256": "aef7a3c2c3c31cf2c196611419d3468eae62c36a9e9cb11298d140b3d63300c9",
+          "own_class_observation": "noun_parent_with_phrase_note"
+        }
+      ]
+    },
+    {
+      "case_id": "7df55013f6999fbccb34ea009d05e3c3edb523a6884abbece07328c348ad75b0",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "młodu",
+        "lemma_id": "młodu",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "poet.",
+        "row_numbers": [
+          2527413
+        ]
+      },
+      "lookup_response_sha256": "fdd5ababce15a14b4e55423f7a181e1dd3090fe40746e8f506af694787045561",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91871,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91871/młodu",
+          "response_sha256": "404c7b856545edb8321591e442ce2100a22644174c308f24719b92eec0425bbc",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "7601f3666b8cdacaf124df2016d5a61d6cef5581a41dd665bd5738258e94dc60",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "naprzeciwka",
+        "lemma_id": "naprzeciwka",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          2636841
+        ]
+      },
+      "lookup_response_sha256": "05b18526127c62d54dd58a0e0754c89821bc90420f23870ec94bf23d8a519d64",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91543,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91543/naprzeciwka",
+          "response_sha256": "20c15bd709d28b6213ddc64b2b104c6baf78629aae599461ff071893e769ac21",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "15407f4cca49de970698e916de7d01f09d1e8b9b98c21c8d037ae9d1014e3ca6",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "niemiara",
+        "lemma_id": "niemiara",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          3196357
+        ]
+      },
+      "lookup_response_sha256": "3536f772bfd968fd12f4be119c81dadf7df0baa836130e8e500ac7eed649b221",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91179,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91179/niemiara",
+          "response_sha256": "1160cc317ba754e4ba6bbea16d9cc2bd9b89bbcab9e6cdf4f580f21bfd62b9a6",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "a75816594345d9880d3c1e96169d762a466c4aba62c884c26a1d3727b225c232",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "niwecz",
+        "lemma_id": "niwecz",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          3881642
+        ]
+      },
+      "lookup_response_sha256": "de623df68da7c948eedeaf31380341dc74c4f1800d97dfa21cfa70aed3ecf5c5",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91652,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91652/niwecz",
+          "response_sha256": "c3c3ed1b92e229f4c5ad26ea26f8cc4db879fad292244b23b5eb3434cd3e1a6a",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "7d4a3aef681420ed8f3fa44fefb60a1c8437cb1394ab7192fa56558b2c30dc90",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "oddala",
+        "lemma_id": "oddala",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          4024907
+        ]
+      },
+      "lookup_response_sha256": "738ae05b15d7f49d3e51771fb595df03c822baa77da860315016aab2efd388c4",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 1202506,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#1202506/oddala",
+          "response_sha256": "67fa3d9590489ea135762f58b63b56ecad5d379141352e87fd8b0819d9e3c3c4",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "d9b6525d69c9a6159bda08b88813ae41c5ec4adab8230e488c9cd9f67a99b81b",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "odlew",
+        "lemma_id": "odlew:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          4061259
+        ]
+      },
+      "lookup_response_sha256": "f9211a147b0489bf28b51f5163b0d11c19818e01d520583af3282ab6127a6be2",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91011,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91011/odlew",
+          "response_sha256": "0f2b4c9c86b7b5616642d6624ca325c6010f859529c56e89a61e992806eeccad",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "7145d228826b8c9021428606b74cc962a4f03592b69030207154f199d1ba3724",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "odpierdol",
+        "lemma_id": "odpierdol",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "wulg.",
+        "row_numbers": [
+          4081193
+        ]
+      },
+      "lookup_response_sha256": "b7ecc725bab5fcd260dbb21426dcbd7237ada21adbec554c49a12d541c624b5e",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90616,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90616/odpierdol",
+          "response_sha256": "4ebd86cf9201f1aa6d68425f3505b79fe32c2f1d870aa3ffae8e4f2636701dad",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "96917a3c9d6a9768cbbbfecd5543b6990432067d6ee6317b5d84b75eb5b8c328",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "odtrąbiono",
+        "lemma_id": "odtrąbiono",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          4130129
+        ]
+      },
+      "lookup_response_sha256": "c8d7a0646c8aa5eed7d01d9a5a25b83fae619a40acac828497319eb690683454",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91245,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91245/odtrąbiono",
+          "response_sha256": "e13fb0ff53d6014c05c1a6ddb63a0912cd1b4e08da5e958b448f2a852bd8ccfe",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "f613dc69ce9febcf17e5583097353ee2003a7a2cf0fdfdd3cb1f260e501ee33c",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "owąd",
+        "lemma_id": "owąd",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          4312782
+        ]
+      },
+      "lookup_response_sha256": "0f4bcd0f1c58fb25228119fceb5caede3e30287dc44f899f3695367ca130ded7",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91752,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91752/owąd",
+          "response_sha256": "1905998f8f4b43b39de4e427cd4fd56da7c9edc631204e253e4da77820f02404",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "7647618cd71b618490c715fcb98b582153019233790ed1374a81daeca9c380a2",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "oścież",
+        "lemma_id": "oścież:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          4320577
+        ]
+      },
+      "lookup_response_sha256": "ad375ee355c559c7e819829d25a377ebe0be263c9701bd280d55c9a0c56ce26e",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91689,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91689/oścież",
+          "response_sha256": "cfc699b37c4b3c9945e1c460d11026ef1251803e4acdc9319980ffa85d94cf26",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "4fc7cbe2037511f4f3e53e615deac8c1e97ac53a431f3388a92ec9e1e9b6d43e",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "oślep",
+        "lemma_id": "oślep",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          4320772
+        ]
+      },
+      "lookup_response_sha256": "dcb015432fa984de73456cd1ce7a38b33e8ff769b235e456e691ea9f68d51f4e",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91774,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91774/oślep",
+          "response_sha256": "c4df200ca9a1055084042babaa4ea3cfbcb29f254bb44d657fd8fd7a488d2e14",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "3d8189587e026772ce1f299c7e7d5b7722ad1f6c178a37a7451986372afc329a",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "polelum",
+        "lemma_id": "polelum",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          4610445
+        ]
+      },
+      "lookup_response_sha256": "3c317781ea00684e751275470ba9cc8aabf69614cadf308e35cf0fed77626cab",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91244,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91244/polelum",
+          "response_sha256": "e4063c2152f2d9bb409f96359837b9b6fcc5864c11a6600ff8ce610aed5fb8d2",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "0839f1566830d4871f440e1857658741a6c9d240a741f5715c73381ab9bad859",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "pomimo",
+        "lemma_id": "pomimo:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          4626879
+        ]
+      },
+      "lookup_response_sha256": "464693060686b40250c43791d9944249ca1014dd004c748f2d09f74b6f27878b",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91402,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91402/pomimo",
+          "response_sha256": "1b2c0e885ceb8239b714fbe017b910c72546388ac6f437744529e28d90b4d321",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "43e19a8cc572a029d5af23da5d4cf8ddfff7c50b1f6213835d8d6a26ac0fa60b",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "porząsiu",
+        "lemma_id": "porząsiu",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          4714885
+        ]
+      },
+      "lookup_response_sha256": "2890cdf0ac17002b573f0a28401585147e929113f9ad0c15b6ea9e8045c99e6d",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90814,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90814/porząsiu",
+          "response_sha256": "e71821fbc8fce8fb177771274641b9b35315d659869b89d7488487acc8cf436b",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "d53de90842bc3f9833c98811f8b544edfbbe12c6a7955b64f45bf64dc7e132d7",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "porącz",
+        "lemma_id": "porącz",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          4715891
+        ]
+      },
+      "lookup_response_sha256": "91f0e87301171422c9125fbe902691c58cab3fa30bea1686c55cd14cb5232097",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91645,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91645/porącz",
+          "response_sha256": "b7f160946ec9ec8f7b56ca36284da147692389755d596c74e37c622e6b7f3ff5",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "5d6785f0e59b3345a657e0a0c485bcd84c3d677c1ba72e59a6e0e5df0929e44e",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "pro",
+        "lemma_id": "pro",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "książk.",
+        "row_numbers": [
+          4883713
+        ]
+      },
+      "lookup_response_sha256": "e55701c29a86656aceb2396b005cc05dded8bf7facd72688e46b45b3af97d513",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91875,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91875/pro",
+          "response_sha256": "6e1b1682b5658b06142e7eff58b757f182ae80c9304d6bb5809126acad2c1e0c",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "320b38d50e57310b03b86ba0aa54db75378c49bb0a1d1715d610f1a34b2b616c",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "propos",
+        "lemma_id": "propos",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          4895740
+        ]
+      },
+      "lookup_response_sha256": "795545d815a7b46c7c8229d3139fe55ebf531118dd4cfaf5eb5d1d8b5fc4652d",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91876,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91876/propos",
+          "response_sha256": "c2f4d49da13dc77cbaadd471954f70bd878a976bf5f23fc04caf8344926a91af",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "989cb245e893ee27831812d8e07dcee7054c73344529996976bb0bff26d030a6",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "przemian",
+        "lemma_id": "przemian",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          5001327
+        ]
+      },
+      "lookup_response_sha256": "88b57f82c287dbf2a66c5009223701f0484b0322b6b4afc2806fc5462ed923f0",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 1200335,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#1200335/przemian",
+          "response_sha256": "5a931b426f1d7088784c9f268aff1f6781d5e4c25a9abd74b13e3e4874199150",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "bdf0fc3bd7456f5b082ea83ae96f9ba0dd95ed1f63dca486917bc7bd89bf37dd",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "razą",
+        "lemma_id": "razą",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "pot.,reg.",
+        "row_numbers": [
+          5286412
+        ]
+      },
+      "lookup_response_sha256": "cdc562722e34e5c65799db03be3f94ecdc6fdb4c5a03e432dd8e24b0ef30a72b",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 1005242,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#1005242/razą",
+          "response_sha256": "5933604567ea5c8aa2a88f2b8d50c7032615e5476cd0187218e25131db5d4f0c",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "de62407ee5ec2606647915eec80fd00c65654411dcb6ff53422c124fbff810fa",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "rozcież",
+        "lemma_id": "rozcież:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "gwar.",
+        "row_numbers": [
+          5356131
+        ]
+      },
+      "lookup_response_sha256": "0e3f5d245e402a5dc53e905b290e137f334921c5e69f686f9018524e777e0330",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91692,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91692/rozcież",
+          "response_sha256": "421b84d13ddc2eaec36ed6c9bc1872f4148aa908d3a5d93496e550a7a8e472b1",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "674dd598e02b474bcf45392c8b108626a54acd905904bcf0c4a4aad5f0d326d5",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "roścież",
+        "lemma_id": "roścież:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          5520636
+        ]
+      },
+      "lookup_response_sha256": "8ac0d5cdceda3adba72d0eb38411305044e00d83126d2e77e02061f24ba75695",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91690,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91690/roścież",
+          "response_sha256": "1654f316bd41230867231a0b9a2db1019835d5f0429f44391f3d75f6a76e7f76",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "0c97ba38dab0370bf0c7a2f93c33acde21e110d591e913b6d435e35f76e5d92c",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "rydy",
+        "lemma_id": "rydy",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "gwar.",
+        "row_numbers": [
+          5536261
+        ]
+      },
+      "lookup_response_sha256": "5d0abc8caedca96d391b400681b0d716f9f9a5c982a8050b66a7dc67f40946b2",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91455,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91455/rydy",
+          "response_sha256": "e6df1ccadd1ad5de7828bc3ed9ec81242b98b394c15d06d4cc74ebd97642247d",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "bcd55c7831f951e2d2e71337201e49a392af417215b234082a5ac109c453ffe8",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "schwał",
+        "lemma_id": "schwał",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          5595504
+        ]
+      },
+      "lookup_response_sha256": "9e55d2d654d38c0e69a2e570bb86be3cd398e9a284298d064d57f121b5b6f8a0",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90963,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90963/schwał",
+          "response_sha256": "e8cc0844fb684e2fbed8762f48478635db952d8a2363e9ebd95953951e7df1e5",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "4c6ad1e6c678feb5808019ff869529f4aad0034babc6c7628b9224903e540dae",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "session",
+        "lemma_id": "session",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          5614552
+        ]
+      },
+      "lookup_response_sha256": "ea6df989720ea1239f7765ae2d40777cced596e19a5155f12a65af305372b655",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91242,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91242/session",
+          "response_sha256": "0c5113bf2d9e6cc580631276058cd39e8cbc2233651fb3d09bf98edb780c112d",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "f486948477382178c0c866c326513aee302c349146100a0d9f963b08f88853e9",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "siam",
+        "lemma_id": "siam",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          5623435
+        ]
+      },
+      "lookup_response_sha256": "f15ce2de6e5099432271b3c52c94be3a47103190cfc846e40023094703a3dced",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90973,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90973/siam",
+          "response_sha256": "93fe2e68a0a03d4cc35b95088b6d73b387822bfc68cb556b275439adf586f4c1",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "7749607e24b3a1c1cf7b385a89bb9320a3049ca1954e1c3b3d7d8abe8580a06e",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "sir",
+        "lemma_id": "sir:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          5637016
+        ]
+      },
+      "lookup_response_sha256": "fba61a4d75238c68c1a464c4a4ecf18f9d59516d00116690f09523191cea0fc9",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 1003283,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#1003283/sir",
+          "response_sha256": "12cf4c89a539fb514618fb47504a97e268cbb1ded758dc6adb7d371da959dbb5",
+          "own_class_observation": "article"
+        }
+      ]
+    },
+    {
+      "case_id": "242f5e234d6d95c14727aa033455545864ded4a8845cdc4d370b45f5ca9d6fc8",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "siu",
+        "lemma_id": "siu",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          5637681
+        ]
+      },
+      "lookup_response_sha256": "21f971881c4c230058a4a3c04af6f3bf8f6d6d744e1ecb9bf9ee335cb4cb9849",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90812,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90812/siu",
+          "response_sha256": "a14be226c420f301a9713251ed0a80008927855248b1c7d38096d8c2a87b40c3",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "daa27c6e169f63434b57f45d163d469f4b97026097ba3127a3f91575d793e3b6",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "skroś",
+        "lemma_id": "skroś:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "książk.",
+        "row_numbers": [
+          5679162
+        ]
+      },
+      "lookup_response_sha256": "08276cfe6c343b900602a6a503f3ae1b6293ca9b3bfa9313275e57a2022bf13c",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91150,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91150/skroś",
+          "response_sha256": "9c2a2f1bbe8d83a4c9364d3094e4b4d663e0c8769d1619cd5e7d404d338c23c0",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "8a08996a056925c4df19b8cd1f92b9ff11e7e58a5ee81dbd4a2b570a5166df82",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "spół",
+        "lemma_id": "spół",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          5779467
+        ]
+      },
+      "lookup_response_sha256": "8cd7eca671c36b9d67ca8d1b5d9ea4cdb1998c03750f8b9a29bda3c6ad5d8f09",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90967,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90967/spół",
+          "response_sha256": "b4c0ea851c4371578a731e92a86fa5eec5c58959076eaad56ff8f98d62b3adaf",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "561a9d466e39e416f22422c6c84bcbda61cc6cb30da2432b9bfe3371da32ae0d",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "szwady",
+        "lemma_id": "szwady",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "gwar.",
+        "row_numbers": [
+          5937035
+        ]
+      },
+      "lookup_response_sha256": "4f533425f447a37df61eda18f63d3413e8c67c1dc4d45f57721cc3c1ca8e4170",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90833,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90833/szwady",
+          "response_sha256": "f249415416a1832780b79c2623b0d646649a1a06b6d085013d3529469ea036f9",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "63226a534715eddce6f66601cf7efce7682702b1e67b8ed08eb041e6d72d1110",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "trochu",
+        "lemma_id": "trochu",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6022778
+        ]
+      },
+      "lookup_response_sha256": "9bab147d45a5725d3e5d2c5ee3a74462c2f633ec7386896400b5f676c11af9b6",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90328,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90328/trochu",
+          "response_sha256": "6d60869975aa000d60a2e8e43ba3433f0b8e9ec76a2600890bd4c9a1247af206",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "14f86cfaeb9f53310cdc3ac098001e57f8b2dfd915bf026a00f614d64a631d89",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "troszeczku",
+        "lemma_id": "troszeczku",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6025600
+        ]
+      },
+      "lookup_response_sha256": "542d92ef246b3ba8b408c58184d07f9bd9523160ecdc399baeebe387a4e36feb",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90476,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90476/troszeczku",
+          "response_sha256": "025cd0b9c2d868410afeebc2a02ca0a5d1f0b7cd0d4c6f65207551b4f4d4c618",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "3d7a68637436b38b36f3ca8a765a8555d5145edcf1d0641cf51453c3f637a41e",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "troszku",
+        "lemma_id": "troszku",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6025615
+        ]
+      },
+      "lookup_response_sha256": "445587eea5448f435cf1d75750f8be3e4ae305fb78ef7ab833925af1ecd605f2",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91265,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91265/troszku",
+          "response_sha256": "d11f0b7f843af86c870a8dad804143fbb4367872ddf2eac08277cd2ed8a00efd",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "5aca690355853492d094f889bb6d72550be41176ef3131e6d21bbdebe43b9c2b",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "trymiga",
+        "lemma_id": "trymiga",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6031136
+        ]
+      },
+      "lookup_response_sha256": "99dad028dcfb8baea1d462b504c2b530889db6b15d11f4f95f25cb9538394cbb",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91517,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91517/trymiga",
+          "response_sha256": "99231dbac4bf9b8b24366ddc1f18acd5117992dfcc9157d17219591b6818e48f",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "eff8a74076daf13fd14d05232fb894789728c582986fc7486a76106c5be6e9ba",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "trójnasób",
+        "lemma_id": "trójnasób",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6044918
+        ]
+      },
+      "lookup_response_sha256": "68f28aed9b416e8e159cd5d4e414ff6993a135402654fa3eeb482086360f06da",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90740,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90740/trójnasób",
+          "response_sha256": "9e275b8d64756cec74a98e722944464bf3207321b2692f35a595a0ad88792ea6",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "e705d77b988fd440d7d22566ddf85a5800704339bd01f10426fb62c04bc8600e",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "van",
+        "lemma_id": "van:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6297658
+        ]
+      },
+      "lookup_response_sha256": "d072811ec2014ce878bc64556a18f92b06eb4e34aefa06cc3bc769f868ff4c06",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91254,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91254/van",
+          "response_sha256": "a15aa940c5f56479b342551c66e0040f03574e2676a2bf33028e81015db0b9c8",
+          "own_class_observation": "surname_component"
+        }
+      ]
+    },
+    {
+      "case_id": "49be36a54c26ffd5a1b9b595350a48de70bc6fd53ddb9838263bb5890109b64f",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "vice",
+        "lemma_id": "vice",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6297900
+        ]
+      },
+      "lookup_response_sha256": "1d23448a12dfc46adea09e7c91d57c5eb267eb0a708f6743f505a665c2536dfc",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90390,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90390/vice",
+          "response_sha256": "dcd64f8f1412a7b31d0eed6f9fafb502e3f91e08c1afe44b1a9e7ebeeeff03fa",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "5b503588532640346b29064b51dad6bab834c72ec3519900eee0d6eb221382f0",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "von",
+        "lemma_id": "von",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6298222
+        ]
+      },
+      "lookup_response_sha256": "4131b60785a398adbcc79cb6e60fc3893cb4cd54c9ba8c84758a332da53e7592",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91255,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91255/von",
+          "response_sha256": "84dcf13bb07bca170ad6b9ea66cb58e1ab4a58ab94185d8174cfa95a65db1fa7",
+          "own_class_observation": "surname_component"
+        }
+      ]
+    },
+    {
+      "case_id": "70978c57320fc5aa27404bf19de2c1e5a4530267d8c87a8742584c45f237c238",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "waj",
+        "lemma_id": "waj",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6301262
+        ]
+      },
+      "lookup_response_sha256": "1e9502a6c01612f920dbbe773a92b2c6f030b7075983b943317fad247ba93e91",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91034,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91034/waj",
+          "response_sha256": "60ec5af5e18424935b734eead6ef83de23bca5f7f3a165202aa0900e0d3fc51e",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "c3aa4e5a3591eaeac7af59aa31ec3ffa87d9470ec35198b697049f70b9041098",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "wespół",
+        "lemma_id": "wespół",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "książk.",
+        "row_numbers": [
+          6336331
+        ]
+      },
+      "lookup_response_sha256": "c5346385c0117e9d0e2580adccfec5823aa9db12a1e655ff5d6fdaeddee55eaf",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 90968,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#90968/wespół",
+          "response_sha256": "466ccf2ddf0e4c9edcf3d9ec6141fb045b782d696dd8cf6b7f3f350fd4c4a1bc",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "9b015843fda97b575769f7fdcbce0db7378b9124907e4e12ed0da30de26d4360",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "wewte",
+        "lemma_id": "wewte",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "pot.",
+        "row_numbers": [
+          6339103
+        ]
+      },
+      "lookup_response_sha256": "0ebc7fc1db65b304aaaec46211e5eeb4ca97368e937b2245bb504157b576bf91",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91921,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91921/wewte",
+          "response_sha256": "e96c6c0cfd523f1cd785d3166f7cf5b4618e745c6b5f1136bd6039f23ad9e8db",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "d62af63b3a1b8505eb30674f2e06ab684f3dacb02198632eaece8142dce38e10",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "wskroś",
+        "lemma_id": "wskroś:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6440691
+        ]
+      },
+      "lookup_response_sha256": "641df5d813b8a12e400e3087914eb19329d472fbbded29c78ee44f007f14ea6a",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91152,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91152/wskroś",
+          "response_sha256": "679f6fbb2cf677ffa056a68c924ee9deca5ea866742e61806f3a0a41676ce9c6",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "f9af0cb5f09d24996c36955ceb2553ec51ed8cded6b82be90585bde87fa8ffc2",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "wskróś",
+        "lemma_id": "wskróś:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "przest.",
+        "row_numbers": [
+          6441150
+        ]
+      },
+      "lookup_response_sha256": "ad1a4ea3dc7e6f8583de72601a7e4d4395407e34a5493248c850d82082a1f498",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91154,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91154/wskróś",
+          "response_sha256": "8ca1ebf92a3d476c0c86c557e7283ee1fe43366be5535f4a960d5b822454f3d9",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "955f36466bfd36b89cff8e043b93211395c2c484e553ee83d88537d78b5c5e47",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "wte",
+        "lemma_id": "wte",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "pot.",
+        "row_numbers": [
+          6465979
+        ]
+      },
+      "lookup_response_sha256": "0ac23c402efc69ca532622177b5cf6a88869e69ac348c83098545f479309cff5",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91920,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91920/wte",
+          "response_sha256": "d47da9f04d8881cba1fd44ac99022840688f1020a7028ef43be2795543eae1b9",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "2c65eddc72141149a79394ee871617ee46f56f69e53573f398f5bc9553a85126",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "wykol",
+        "lemma_id": "wykol",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6565949
+        ]
+      },
+      "lookup_response_sha256": "e58c86f51b75324a394138aa5edcf25137fadaffd74139ac2769629f343def75",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91349,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91349/wykol",
+          "response_sha256": "8b2b788fe2a15b701ee1c31bdbbb8d10ee6bb4a26340bd25fa618db9ba304da2",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "67c5e2d88535e25d56a0e7b332140070c9ff1023027be0f67c983d7d65f1f547",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "wykole",
+        "lemma_id": "wykole",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6565950
+        ]
+      },
+      "lookup_response_sha256": "0f09f6a64257884e6f108c02d855d73fb8186f5288978c0c777dbc731b112af7",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91350,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91350/wykole",
+          "response_sha256": "916326fb899f3108bd68fcdd9adbefd04700b32c689522aa614df42139105d1c",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "82f98c63babdcf4c11c93973f67ac835b6befe49b7b10c4e1244f0156f4cab7b",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "wyprzodki",
+        "lemma_id": "wyprzodki",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          6646834
+        ]
+      },
+      "lookup_response_sha256": "72b5d9f1b493eeba1b1a1d9a66f9d1e418d365531928d7dff728af7a7603b2b5",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91901,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91901/wyprzodki",
+          "response_sha256": "b1151d9b39024cbe1e7c22997f75dc63139598d93ec0b11e3abf61abac951b70",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "460823d17e72da33eceee46c692e240433dfa5c199f064d416f8477dba8188a4",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "wyprzody",
+        "lemma_id": "wyprzody",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          6646835
+        ]
+      },
+      "lookup_response_sha256": "1f255ff017450515a5f6834f01a82f765a735bd7a323474021b692867e0201f2",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91900,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91900/wyprzody",
+          "response_sha256": "aedc8fcff0575046c3a729fa50d3e9f2d0838835a06ac55508efdacdede1d343",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "93a6373b81b90365ffba19e2096b8c23785fd18e11a609a865a21a7fc5a469e3",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "wyprzód",
+        "lemma_id": "wyprzód",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          6647605
+        ]
+      },
+      "lookup_response_sha256": "415f761a3a342f4739673573bba9080ae06427ebd336fefa6222d1542974125b",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91902,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91902/wyprzód",
+          "response_sha256": "11662b3228dda42d6414f88e25bce52b34f1a72b75bf6d10dcb21501bdaba85e",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "4e9345a9e873c3ef2868033f5911e2e9672e076abc5272fc0551a30728e11f05",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "wyprzódki",
+        "lemma_id": "wyprzódki",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "gwar.",
+        "row_numbers": [
+          6647606
+        ]
+      },
+      "lookup_response_sha256": "cdb0427b2aba2176328096c50c5d796c0827db37ac2aa74aae97237e8cdb53e3",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91903,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91903/wyprzódki",
+          "response_sha256": "6a954493934d1a05c5c17edb1f1af27af102f9c8d040a59919683c0f1a1e1b22",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "d2cb887c6097d0c29d27d9b2c34083bbd084e281ed29396b6d62723423574a5c",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "wznak",
+        "lemma_id": "wznak",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6770165
+        ]
+      },
+      "lookup_response_sha256": "91fa4662befefe7ff0a7d2b57162ec8665c69c4545dcc3dc0ef64368c5f940b5",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91077,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91077/wznak",
+          "response_sha256": "20d602b3bbf73eafeef21fd1ecce8db86d75b2b88d295423b8465794c5292dfd",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "ab3fd91687224e1bf1c7f74374b668ca9321f814744c928f783d5d55579b17db",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "wścieżaj",
+        "lemma_id": "wścieżaj",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          6788716
+        ]
+      },
+      "lookup_response_sha256": "90c289bde90c4b617fa89f26237b2fbe20f51195996220999a606cc914d7090b",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91039,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91039/wścieżaj",
+          "response_sha256": "f26f71a5c7b5e675712b6a22cc8640b13bd3bd118f0400b92d4b1ef15c3d7559",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "fe31a918586f2e44e9d28d6527c545eb1c6386ceae149cbfcd8ec3c5ff08c437",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "wściąż",
+        "lemma_id": "wściąż",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          6789220
+        ]
+      },
+      "lookup_response_sha256": "dc7ff61d1a3c0264b00ba86b7ff958e1a23c095d914ab3f32cad395151523803",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91685,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91685/wściąż",
+          "response_sha256": "395e822c97e2e17f90a464dd9906861587d95740c73db2ac5d10d086bb75a553",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "882fd4653e8605c07e7224374aa5c127d02e66c943f26f65849547fcec9138f3",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "zacz",
+        "lemma_id": "zacz:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6828558
+        ]
+      },
+      "lookup_response_sha256": "cefbab823b7b707643eca2e503a5a36ae0b5db09ae192f40909079fa2026b3e9",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91643,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91643/zacz",
+          "response_sha256": "3f8c6b347eb7742dfebd1e14c6c2e01ce0c3cc01c638e16886f2c6e8f108494b",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "d6ee910532b46c4bd9afd420b3db7c41b62704a4cfa9d30123422781e25da385",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "zamian",
+        "lemma_id": "zamian",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6925073
+        ]
+      },
+      "lookup_response_sha256": "c892c213a57d3e5600cff3a1221e14af61edf771d12684568c59ecd8d318f319",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 1200338,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#1200338/zamian",
+          "response_sha256": "3aab97253c1c95d29284e74730bfca7a7aab5becc5968504f00cd7433a0272e2",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "1968822bb51d99649f38582be0129b0ab796ac9fab7abbbe76756b7b12d29805",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "ziem",
+        "lemma_id": "ziem",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "gwar.",
+        "row_numbers": [
+          7186612
+        ]
+      },
+      "lookup_response_sha256": "6e56e4196954d73e556f5b64a2aaec9949e558cbc714fa4d2df69d9ce7cdf3c5",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91266,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91266/ziem",
+          "response_sha256": "e6fe73df2d37b34c06a614f967a4232b2b494f281a2f6ba5f51e443252e5bf00",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "59b6c624fb1e74ce196d9739d9995bafe7b0006764b2a15a005aab45ec36c8fc",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "łupnia",
+        "lemma_id": "łupnia:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          7366602
+        ]
+      },
+      "lookup_response_sha256": "a225dde0093dd09d92fb1c18b1824a95a4d940870c46218b3658e46deeb260af",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 1003280,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#1003280/łupnia",
+          "response_sha256": "d27de466b267e1ff3eccfb9f6b0427498ac6f92c897b87110c4ecf2324eeeabe",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "9a2d20c957dd62851216dd66cb022b00af31b597f70ff59742ebbcf8c4e3d653",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "ścież",
+        "lemma_id": "ścież",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          7389220
+        ]
+      },
+      "lookup_response_sha256": "702bc5c5db33b157d3795a17189abd01bd6340a3ebf86cb5b695b5b5c2c77fd1",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91688,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91688/ścież",
+          "response_sha256": "68a75ba42beee868a5cecd1aedb4b6a4cfa24a2f23d8ff6068573b60cd302476",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "7fd43cb2926f508d433cd1ab3f0d47a16f5b44c5231fd1745813c5b9aea783af",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "ścieżaj",
+        "lemma_id": "ścieżaj",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          7389232
+        ]
+      },
+      "lookup_response_sha256": "be7cf491d57557bb002af231d797d3f803493f75bc7220eda05df03d2ec1d91d",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91038,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91038/ścieżaj",
+          "response_sha256": "96d95edae96fe9d21f736b659e15a68cbd7d3cfb1c4141b99a5e46de7e9240af",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    },
+    {
+      "case_id": "643109a3bb6c9b610a3865aa577bfbe677c06a1aa3ba3b8c2394d0efb79bd608",
+      "pinned_source": {
+        "source_id": "sgjp-20260823",
+        "original": "ściężaj",
+        "lemma_id": "ściężaj",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          7391940
+        ]
+      },
+      "lookup_response_sha256": "3d382fb7e49525f32893802c5727ed2900edb5ab0519881f6d9bc520865052f8",
+      "mapping_status": "unique_spelling_class_candidate_not_snapshot_identity",
+      "semantic_scope": "documented_observation_not_all_meanings",
+      "eligibility_status": "unresolved",
+      "articles": [
+        {
+          "web_lexeme_id": 91040,
+          "web_id_namespace": "SGJP_online_not_Morfeusz_full_lemma_id",
+          "url": "https://sgjp.pl/leksemy/#91040/ściężaj",
+          "response_sha256": "e50847c039bcf337997495e54e755582e4406e4cb1ff384e6e0daf28366de23a",
+          "own_class_observation": "phrase_component"
+        }
+      ]
+    }
+  ],
+  "special_own_observations": {
+    "don": "Dwa artykuły: funkcja wykrzyknikowa w din don oraz przedimek przed imieniem. Nie przypisujemy jednego internetowego ID całemu źródłowemu rekordowi.",
+    "koń": "Artykuł rzeczownika wspomina na koń; źródłowe koń:F/frag to odrębny zapis, nie zwykły biernik koń:S.",
+    "mąż": "Artykuł rzeczownika wspomina wyjść za mąż; źródłowe mąż:F/frag zachowujemy odrębnie od odmienianego rzeczownika.",
+    "New": "Etykieta artykułu jest frazeologiczna, przykłady obejmują nazwy; sama etykieta nie wyczerpuje semantyki.",
+    "niemiara_owąd_młodu": "Obserwacja kwalifikatorów przy artykule nie jest zgodna jeden do jednego z pustym polem tych rekordów eksportu. Nie przenosimy oznaczenia wieku lub stylu bez dokładnego mapowania zakresu."
+  }
+}

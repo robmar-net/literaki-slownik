@@ -66,7 +66,7 @@ Zależności: G1. Pliki: `literaki_slownik/{database,sgjp,kwjp,build}.py`, `lite
 
 Status częściowy: pełna inwentaryzacja, defektywność próby i mapowanie lemma-all sprawdzone. [Przegląd](../analysis/evidence/g3-review.md) oraz [bramka dodatkowych wejść](../analysis/evidence/source-extension-decision.md); żaden krok nie jest oznaczony complete przez częściowy wynik.
 
-Zależności: G2. Pliki: `docs/generator/{etykiety,konstrukcje,ortografia,mapowanie-kwjp}.md`, `config/generator/{evidence,coverage,qualifiers,categories,pos-map,constructions,orthography}.json`, ewentualnie `scripts/probe_generator_evidence.py`; nowe wyniki w `analysis/evidence/` tego zadania. K4/K5/K6; R04/R05/R06.
+Zależności: G2. Pliki: `docs/generator/{etykiety,konstrukcje,ortografia,mapowanie-kwjp}.md`, `config/generator/{evidence,coverage,qualifiers,categories,pos-map,constructions,orthography}.json`, `scripts/{probe_generator_evidence,audit_sgjp_reader_review}.py`, `tests/test_sgjp_reader_review.py`; nowe wyniki w `analysis/evidence/` tego zadania. K4/K5/K6; R04/R05/R06.
 
 - [ ] 3.1 Przeanalizować wszystkie rzeczywiście występujące pola/kombinacje nazw i kwalifikatorów oraz klasy skrótowców; ustalić semantykę na źródłach pierwotnych, policzyć wpływ i zachować przykłady, m.in. PCR/PCV.
 - [ ] 3.2 Domknąć pełne paradygmaty/defektywność i osobowe praet/cond/winien; wyjaśnić nadmiarowe trójki kontroli audytu; macierz bym/byśmy, przyimek+-ń, rozkaźnik+-ż/-że/podwojenia i mobilne końcówki.
@@ -316,3 +316,7 @@ A wieku klasy zapisane w policyv10; jawne etykiety dawności zachowane. G3:13 pu
 ## Zatwierdzone A: dokumentacyjny dowód klasy nazwiska
 
 Zatwierdzone A: jednoznaczny opis konkretnej formy przez autorów SGJP i ręcznie zweryfikowana tożsamość wystarczają do uzupełnienia klasy członu nazwiska. Wdrożono tylko de:F/frag i ibn/frag, ze strażnikami hasha, źródła, wiersza i pięciu pól. Wpisy i de:S zachowane; reguły gry niezmienione, metadane online nieaktywne.
+
+## Pełny odczyt frag i bramka modelu użyć
+
+Pełny odczyt147frag/148artykułów ukończony jako podzadanie PAN-2; pełne mapowanie nadal otwarte. Don ma dwa kandydackie opisy, koń/mąż opis przy artykule nadrzędnym. Decyzja modelu alternatywnych użyć pending; nie zmieniono reguł ani ocen. G3 i główne checkboxy pozostają otwarte.

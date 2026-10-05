@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-05T15:00:25Z",
+    "updated": "2026-10-05T15:24:57Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "Zatwierdzone A: jednoznaczny opis konkretnej formy przez autorów SGJP i ręcznie zweryfikowana tożsamość wystarczają do uzupełnienia klasy członu nazwiska. Wdrożono tylko de:F/frag i ibn/frag, ze strażnikami hasha, źródła, wiersza i pięciu pól. Wpisy i de:S zachowane; reguły gry niezmienione, metadane online nieaktywne. G6: pełny raport wpływu zapisanych filtrów, unknown i niezależne homonimy zachowane. Pełne wydanie i G3/G4 nadal otwarte, 8/36. 168/168+5/5,preflight14+10; readonly raport219713analiz powtórzony identycznie i bez zmian baz.",
+      "summary": "G3: odczyt wszystkich147 źródłowych frag i148 artykułów SGJP;144 jednoartykułowe kandydaty,1 wieloartykułowy don,2 użycia w artykułach nadrzędnych koń/mąż. Pełne pokrycie odczytu potwierdzono dwoma identycznymi audytami,172/172+5/5. Internetowe metadane nieaktywne; mapowanie snapshotu i pełna semantyka nadal otwarte. Przed zmianą jednostki kwalifikacji potrzebna decyzja o własnych alternatywnych użyciach; reguły gry i listy bez zmian,8/36.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -245,7 +245,8 @@
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
         "Mechanika próbek nie zastępuje integracji raportów, pełnych analiz w przeglądzie ani odbioru G8.",
         "Brak kompletnej klasy nazw mieszkańców oraz rozdzielenia frag/obcych zwrotów w eksporcie. Nie zakładamy istnienia brakujących metadanych. Kontakt z innymi grupami wykluczony przez użytkownika; brakujące dowody nadal otwarte.",
-        "Dokumentacja klasy może różnić się zakresem od opisu konkretnego znaczenia; pełny ID SGJP może łączyć znaczenia. Brak automatycznej propagacji i nowego filtra przed decyzją."
+        "Dokumentacja klasy może różnić się zakresem od opisu konkretnego znaczenia; pełny ID SGJP może łączyć znaczenia. Brak automatycznej propagacji i nowego filtra przed decyzją.",
+        "Jedno źródłowe rozpoznanie może odpowiadać kilku publicznym artykułom lub opisowi przy artykule nadrzędnym. Potrzebna decyzja modelu użyć; nie ustalono pełnej zgodności snapshotu."
       ],
       "artifacts": [
         {
@@ -623,11 +624,37 @@
         {
           "path": "analysis/evidence/documented-names-filter-review.md",
           "label": "documented-names-filter-review.md"
+        },
+        {
+          "path": "analysis/evidence/sgjp-full-frag-reader-review.md",
+          "label": "sgjp-full-frag-reader-review.md"
+        },
+        {
+          "path": "analysis/evidence/sgjp-full-frag-reader-observations.json",
+          "label": "sgjp-full-frag-reader-observations.json"
+        },
+        {
+          "path": "analysis/evidence/sgjp-full-frag-reader-coverage.json",
+          "label": "sgjp-full-frag-reader-coverage.json"
+        },
+        {
+          "path": "analysis/evidence/semantic-use-alternatives-decision.md",
+          "label": "semantic-use-alternatives-decision.md"
         }
       ],
       "gate": {
-        "question": null,
-        "answer": null
+        "id": "semantic_use_alternatives_model",
+        "status": "pending",
+        "created_at": "2026-10-05T15:23:04Z",
+        "question": "Czy jeden źródłowy rekord może mieć kilka osobno udokumentowanych i spójnie ocenianych użyć, z zachowaniem nierozstrzygniętej pozostałości przy niepełnym pokryciu?",
+        "options": {
+          "A": "Tak: własna dowodowa warstwa użyć, raw źródło bez zmian, pozostałość unknown zachowana (rekomendowane).",
+          "B": "Nie teraz: jeden wynik dla rekordu; niejednoznaczne przypadki pozostają unresolved do uzyskania zgodnych bogatszych danych."
+        },
+        "answer": null,
+        "artifact": "analysis/evidence/semantic-use-alternatives-decision.md",
+        "authority": "AGENTS.md eligibility criteria; executor architecture/scope deviation gate",
+        "scope": "qualification_unit_model_not_game_rule_change_or_online_database_activation"
       },
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
@@ -926,6 +953,15 @@
         "values_accessible": true,
         "new_active_build_inputs": 0,
         "classification_complete": false
+      },
+      "full_frag_reader": {
+        "observed_at": "2026-10-05T15:23:04Z",
+        "forms": 147,
+        "articles": 148,
+        "raw_articles_committed": false,
+        "new_active_build_inputs": 0,
+        "mapping_complete": false,
+        "artifact": "analysis/evidence/sgjp-full-frag-reader-review.md"
       }
     },
     "implementation_started": true,
@@ -959,8 +995,8 @@
       "G3": {
         "status": "in_progress",
         "attempts": 1,
-        "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified; userAcurrentnormgame, threeexactresidentlemma51expandedcases, fullfrag147/109lower/38upper; currentdownload=20260823 and primarySGJP about semantic limits inspected; PAN-1: zamknięta populacja147frag zinwentaryzowana; PAN-2: wszystkie13list i5500próbek powiązane, glosy niedostępne w odczycie; PAN-3: wstępny odczyt62pierwszychkontekstów, pełne mapowanie nierozstrzygnięte; PAN-4: pokrycie frag147/64alternatywy/108listy/62próbki/39beztrafień, bez wpływu na listy. Nazwy mieszkańców i pozostałe wyjątki nadal do inwentaryzacji.; PAN-3:12 użyć udokumentowanych SGJP+2 obserwacje WSJP, dokładne tożsamości i homonimy zachowane. Pełny ID nie jest gwarancją jednego znaczenia. PAN-4:14/147 z dowodem użycia,133 bez takiego przeglądu,147 kwalifikacji unresolved. Audyt snapshotu/mapowania i dwa identyczne odtworzenia;156/156 testów. Wymagany wybór roli ogólnego opisu wieku przed filtrem STANDARD. Bez aktywacji źródeł i zmian list,8/36 bez zmian.; public reader complete params13articles accessible; no metadata input activated; classificationproof gate pending; A documentary name proof approved, exact2 implemented with source/hash/row/fields guards; online values accessible but not active input",
-        "next_action": "Kontynuować pełny przegląd pozostałych145frag i nazw mieszkańców obu rodzajów; odróżniać udokumentowane użycie od pełnej kwalifikacji, bez kontaktu."
+        "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified; userAcurrentnormgame, threeexactresidentlemma51expandedcases, fullfrag147/109lower/38upper; currentdownload=20260823 and primarySGJP about semantic limits inspected; PAN-1: zamknięta populacja147frag zinwentaryzowana; PAN-2: wszystkie13list i5500próbek powiązane, glosy niedostępne w odczycie; PAN-3: wstępny odczyt62pierwszychkontekstów, pełne mapowanie nierozstrzygnięte; PAN-4: pokrycie frag147/64alternatywy/108listy/62próbki/39beztrafień, bez wpływu na listy. Nazwy mieszkańców i pozostałe wyjątki nadal do inwentaryzacji.; PAN-3:12 użyć udokumentowanych SGJP+2 obserwacje WSJP, dokładne tożsamości i homonimy zachowane. Pełny ID nie jest gwarancją jednego znaczenia. PAN-4:14/147 z dowodem użycia,133 bez takiego przeglądu,147 kwalifikacji unresolved. Audyt snapshotu/mapowania i dwa identyczne odtworzenia;156/156 testów. Wymagany wybór roli ogólnego opisu wieku przed filtrem STANDARD. Bez aktywacji źródeł i zmian list,8/36 bez zmian.; public reader complete params13articles accessible; no metadata input activated; classificationproof gate pending; A documentary name proof approved, exact2 implemented with source/hash/row/fields guards; online values accessible but not active input; full reader147forms148articles,144unique/1multiple/2embedded, own notes audited twice byte-identical,172/172+5/5, no input/filter activated",
+        "next_action": "Rozstrzygnąć model alternatywnych udokumentowanych użyć przed zmianą kwalifikacji; potem dokładne mapowanie i pełny przegląd pozostałych wyjątków/mieszkańców."
       },
       "G4": {
         "status": "in_progress",
@@ -1037,7 +1073,7 @@
         "contact_route_allowed": false
       }
     },
-    "verification_note": "Zatwierdzone A: jednoznaczny opis konkretnej formy przez autorów SGJP i ręcznie zweryfikowana tożsamość wystarczają do uzupełnienia klasy członu nazwiska. Wdrożono tylko de:F/frag i ibn/frag, ze strażnikami hasha, źródła, wiersza i pięciu pól. Wpisy i de:S zachowane; reguły gry niezmienione, metadane online nieaktywne. G6: pełny raport wpływu zapisanych filtrów, unknown i niezależne homonimy zachowane. Pełne wydanie i G3/G4 nadal otwarte, 8/36. 168/168+5/5,preflight14+10; readonly raport219713analiz powtórzony identycznie i bez zmian baz.",
+    "verification_note": "G3: odczyt wszystkich147 źródłowych frag i148 artykułów SGJP;144 jednoartykułowe kandydaty,1 wieloartykułowy don,2 użycia w artykułach nadrzędnych koń/mąż. Pełne pokrycie odczytu potwierdzono dwoma identycznymi audytami,172/172+5/5. Internetowe metadane nieaktywne; mapowanie snapshotu i pełna semantyka nadal otwarte. Przed zmianą jednostki kwalifikacji potrzebna decyzja o własnych alternatywnych użyciach; reguły gry i listy bez zmian,8/36.",
     "source_policy_clarification": {
       "recorded_at": "2026-10-04T21:49:35Z",
       "artifact": "analysis/evidence/source-policy-clarification.md",
@@ -1085,9 +1121,11 @@
       "external_contact": false,
       "frag_inventory_complete": true,
       "frag_mapping_complete": false,
-      "last_artifact": "analysis/evidence/pan-document-review.md",
+      "last_artifact": "analysis/evidence/sgjp-full-frag-reader-review.md",
       "documented_use_cases": 14,
-      "full_lemma_id_is_not_single_sense": true
+      "full_lemma_id_is_not_single_sense": true,
+      "reader_observation_coverage_complete": true,
+      "full_semantic_mapping_complete": false
     },
     "general_class_age_policy": {
       "answer": "A",

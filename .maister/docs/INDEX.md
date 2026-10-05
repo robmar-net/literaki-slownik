@@ -77,3 +77,6 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Próg dowodu klasy nazwiska](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-name-class-proof-decision.md) — zatwierdzone A, dokładny filtr de:F/ibn wdrożony.
 
 - [Dokładne człony nazwiska i wpływ filtrów](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-names-filter-review.md) — runtime v14, zapis/live zgodne; pełne wydanie nadal otwarte.
+
+- [Pełny odczyt147frag](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/sgjp-full-frag-reader-review.md) —148 artykułów, pełny audyt pokrycia, brak aktywacji wejść.
+- [Alternatywne użycia jednego rekordu](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/semantic-use-alternatives-decision.md) — konieczna decyzja modelu kwalifikacji przed implementacją.

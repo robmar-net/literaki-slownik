@@ -1,0 +1,22 @@
+{
+  "active_build_inputs_added": 0,
+  "article_observations": 148,
+  "automatic_eligibility_decisions": false,
+  "full_semantics_complete": false,
+  "mapping_statuses": {
+    "embedded_use_in_parent_article_not_snapshot_identity": 2,
+    "multiple_articles_not_snapshot_identity": 1,
+    "unique_spelling_class_candidate_not_snapshot_identity": 144
+  },
+  "own_class_observations": {
+    "article": 3,
+    "noun_parent_with_phrase_note": 2,
+    "phrase_component": 100,
+    "proper_name_component": 36,
+    "surname_component": 7
+  },
+  "schema_version": 1,
+  "scope": "reader_observation_coverage_not_qualification",
+  "source_cases": 147,
+  "source_snapshot_alignment_confirmed": false
+}

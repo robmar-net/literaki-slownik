@@ -289,3 +289,7 @@ A wieku klasy zapisane w policyv10; jawne etykiety dawności zachowane. G3:13 pu
 ## Zatwierdzone A: dokumentacyjny dowód klasy nazwiska
 
 Zatwierdzone A: jednoznaczny opis konkretnej formy przez autorów SGJP i ręcznie zweryfikowana tożsamość wystarczają do uzupełnienia klasy członu nazwiska. Wdrożono tylko de:F/frag i ibn/frag, ze strażnikami hasha, źródła, wiersza i pięciu pól. Wpisy i de:S zachowane; reguły gry niezmienione, metadane online nieaktywne.
+
+## Pełny odczyt frag i bramka modelu użyć
+
+Pełny odczyt147frag/148artykułów ukończony jako podzadanie PAN-2; pełne mapowanie nadal otwarte. Don ma dwa kandydackie opisy, koń/mąż opis przy artykule nadrzędnym. Decyzja modelu alternatywnych użyć pending; nie zmieniono reguł ani ocen. G3 i główne checkboxy pozostają otwarte.

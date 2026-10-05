@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T15:00:25Z",
+  "generated": "2026-10-05T15:24:57Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "A wdrożone: dokładne człony nazwiska i wpływ filtrów; dalsze dowody G3"
+    "current_activity": "Pełny odczyt147frag: decyzja o alternatywnych użyciach jednego rekordu"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Zatwierdzone A: jednoznaczny opis konkretnej formy przez autorów SGJP i ręcznie zweryfikowana tożsamość wystarczają do uzupełnienia klasy członu nazwiska. Wdrożono tylko de:F/frag i ibn/frag, ze strażnikami hasha, źródła, wiersza i pięciu pól. Wpisy i de:S zachowane; reguły gry niezmienione, metadane online nieaktywne. G6: pełny raport wpływu zapisanych filtrów, unknown i niezależne homonimy zachowane. Pełne wydanie i G3/G4 nadal otwarte, 8/36. 168/168+5/5,preflight14+10; readonly raport219713analiz powtórzony identycznie i bez zmian baz.",
+      "summary": "G3: odczyt wszystkich147 źródłowych frag i148 artykułów SGJP;144 jednoartykułowe kandydaty,1 wieloartykułowy don,2 użycia w artykułach nadrzędnych koń/mąż. Pełne pokrycie odczytu potwierdzono dwoma identycznymi audytami,172/172+5/5. Internetowe metadane nieaktywne; mapowanie snapshotu i pełna semantyka nadal otwarte. Przed zmianą jednostki kwalifikacji potrzebna decyzja o własnych alternatywnych użyciach; reguły gry i listy bez zmian,8/36.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -271,7 +271,8 @@ window.MAISTER_DATA = {
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
         "Mechanika próbek nie zastępuje integracji raportów, pełnych analiz w przeglądzie ani odbioru G8.",
         "Brak kompletnej klasy nazw mieszkańców oraz rozdzielenia frag/obcych zwrotów w eksporcie. Nie zakładamy istnienia brakujących metadanych. Kontakt z innymi grupami wykluczony przez użytkownika; brakujące dowody nadal otwarte.",
-        "Dokumentacja klasy może różnić się zakresem od opisu konkretnego znaczenia; pełny ID SGJP może łączyć znaczenia. Brak automatycznej propagacji i nowego filtra przed decyzją."
+        "Dokumentacja klasy może różnić się zakresem od opisu konkretnego znaczenia; pełny ID SGJP może łączyć znaczenia. Brak automatycznej propagacji i nowego filtra przed decyzją.",
+        "Jedno źródłowe rozpoznanie może odpowiadać kilku publicznym artykułom lub opisowi przy artykule nadrzędnym. Potrzebna decyzja modelu użyć; nie ustalono pełnej zgodności snapshotu."
       ],
       "artifacts": [
         {
@@ -649,11 +650,37 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/documented-names-filter-review.md",
           "label": "documented-names-filter-review.md"
+        },
+        {
+          "path": "analysis/evidence/sgjp-full-frag-reader-review.md",
+          "label": "sgjp-full-frag-reader-review.md"
+        },
+        {
+          "path": "analysis/evidence/sgjp-full-frag-reader-observations.json",
+          "label": "sgjp-full-frag-reader-observations.json"
+        },
+        {
+          "path": "analysis/evidence/sgjp-full-frag-reader-coverage.json",
+          "label": "sgjp-full-frag-reader-coverage.json"
+        },
+        {
+          "path": "analysis/evidence/semantic-use-alternatives-decision.md",
+          "label": "semantic-use-alternatives-decision.md"
         }
       ],
       "gate": {
-        "question": null,
-        "answer": null
+        "id": "semantic_use_alternatives_model",
+        "status": "pending",
+        "created_at": "2026-10-05T15:23:04Z",
+        "question": "Czy jeden źródłowy rekord może mieć kilka osobno udokumentowanych i spójnie ocenianych użyć, z zachowaniem nierozstrzygniętej pozostałości przy niepełnym pokryciu?",
+        "options": {
+          "A": "Tak: własna dowodowa warstwa użyć, raw źródło bez zmian, pozostałość unknown zachowana (rekomendowane).",
+          "B": "Nie teraz: jeden wynik dla rekordu; niejednoznaczne przypadki pozostają unresolved do uzyskania zgodnych bogatszych danych."
+        },
+        "answer": null,
+        "artifact": "analysis/evidence/semantic-use-alternatives-decision.md",
+        "authority": "AGENTS.md eligibility criteria; executor architecture/scope deviation gate",
+        "scope": "qualification_unit_model_not_game_rule_change_or_online_database_activation"
       }
     },
     {
