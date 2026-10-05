@@ -81,3 +81,65 @@ def by_aglt_candidates(operator, aglt):
             'evidence': ['docs/generator/konstrukcje.md', 'config/generator/constructions.json'],
         })
     return results
+
+
+def materialize_confirmed_candidates(db, batch_size=10000):
+    """Zapisz potwierdzony podzbiór bez dopuszczenia lub pełnego statusu etapu.
+
+    Kandydat i jego składniki zapisują się razem; porcje mogą pozostać po awarii.
+    Klucz treści zachowuje alternatywne ślady, także dla istniejącego napisu.
+    """
+    import hashlib
+    from .canonical import dumps
+
+    if type(batch_size) is not int or not 1 <= batch_size <= 10000:
+        raise GeneratorError('Porcja konstrukcji musi mieć od 1 do 10 000 kandydatów', 2)
+    select = '''select i.source_id,i.first_row,f.original,l.lemma_id,i.tag,i.names,i.qualifiers
+        from interpretation i join surface_form f on f.id=i.form_id join lexeme l on l.id=i.lexeme_id'''
+    new_count, pending, source_count = 0, 0, 0
+
+    def save(candidate):
+        nonlocal new_count, pending
+        payload = dumps(candidate)
+        key = hashlib.sha256(payload.encode('utf-8')).hexdigest()
+        nfc = unicodedata.normalize('NFC', candidate['original'])
+        game_key = unicodedata.normalize('NFC', nfc.lower())
+        inserted = db.execute('''insert or ignore into derivation_candidate
+            (candidate_key,rule_id,original,game_key,lemma_id,expanded_tag,names,qualifiers,payload)
+            values (?,?,?,?,?,?,?,?,?)''',
+            (key, candidate['rule_id'], candidate['original'], game_key, candidate['lemma_id'],
+             candidate['expanded_tag'], candidate['names'], candidate['qualifiers'], payload)).rowcount
+        new_count += inserted
+        for position, component in enumerate(candidate['components']):
+            source = component.get('interpretation')
+            db.execute('''insert or ignore into derivation_component
+                (candidate_key,position,kind,source_id,source_row) values (?,?,?,?,?)''',
+                (key, position, component['kind'], source['source_id'] if source else None,
+                 source['first_source_row'] if source else None))
+        pending += 1
+        if pending >= batch_size:
+            db.commit()
+            pending = 0
+
+    for row in db.execute(select + " where i.tag like 'impt:%' order by i.source_id,i.first_row"):
+        source_count += 1
+        for candidate in impt_particle_candidates(dict(zip(SOURCE_FIELDS,row))):
+            save(candidate)
+    operators = [dict(zip(SOURCE_FIELDS,row)) for row in db.execute(
+        select + " where f.original='by' and i.tag in ('part','comp') order by i.source_id,i.first_row")]
+    endings = [dict(zip(SOURCE_FIELDS,row)) for row in db.execute(
+        select + " where i.tag like 'aglt:%:nwok' order by i.source_id,i.first_row")]
+    for operator in operators:
+        for ending in endings:
+            if operator['source_id'] == ending['source_id']:
+                for candidate in by_aglt_candidates(operator, ending):
+                    save(candidate)
+    db.commit()
+    by_rule = dict(db.execute('select rule_id,count(*) from derivation_candidate group by rule_id order by rule_id'))
+    return {'schema_version': 1, 'scope': 'confirmed_subset_candidates_not_full_constructions',
+            'full_constructions_pending': True, 'impt_source_interpretations': source_count,
+            'operator_source_interpretations': len(operators), 'aglt_source_interpretations': len(endings),
+            'new_candidates': new_count, 'candidates': sum(by_rule.values()), 'by_rule': by_rule,
+            'components': db.execute('select count(*) from derivation_component').fetchone()[0],
+            'notice': 'Kandydaci zachowują ślady; nie są decyzjami językowymi ani dopuszczeniem do gry. '
+                      'Brak pełnej macierzy nadal blokuje ukończenie etapu konstrukcji.'}

@@ -48,6 +48,16 @@ Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bi
 
 Explain odtwarza tylko potwierdzone klasy na podstawie pełnych interpretacji w istniejącym imporcie. Sufiks zapytania służy odnalezieniu możliwego źródłowego rozkaźnika; konstruktor musi potwierdzić klasę, zakończenie i dokładny wynik. By + aglt wymaga dokładnego by oraz właściwej nwok końcówki. Nie tworzy nibym ani mechanicznego czytajżeż.
 
-Pole derivations zawiera regułę, rozwinięty tag, pełne składniki i etykiety oraz diagnostyczną ocenę obu wariantów. Source_presence i source_aggregation nadal dotyczą tylko bezpośredniego importu SGJP; brak bezpośredniego wpisu nie zaprzecza istnieniu kandydata. Kandydat pozostaje candidate_not_qualified, list_membership unresolved. Brak persistence/build integration i pełnej macierzy nie jest ukrywany.
+Pole derivations zawiera regułę, rozwinięty tag, pełne składniki i etykiety oraz diagnostyczną ocenę obu wariantów. Source_presence i source_aggregation nadal dotyczą tylko bezpośredniego importu SGJP; brak bezpośredniego wpisu nie zaprzecza istnieniu kandydata. Kandydat pozostaje candidate_not_qualified, list_membership unresolved. Pełna macierz i końcowe decyzje pozostają otwarte; zapis dwóch klas w build dodano w kolejnym kroku.
 
 Warunek kontekstu A nie obejmuje `pisane_łącznie_z_przyimkiem`: źródłowe ń pozostaje niesamodzielnym składnikiem. Nie zezwala na automatyczne tworzenie niepoświadczonych kontrakcji.
+
+## Zapis potwierdzonych kandydatów w bazie
+
+Nowe build utrwalają impt + jedną partykułę oraz źródłowe by + nwok aglt. Tabela `derivation_candidate` przechowuje oryginał, klucz wyszukiwania, pełny lemat, rozwinięty tag, etykiety i kanoniczny JSON śladu. `candidate_key` jest SHA256 tego JSON; nie zależy od technicznego ID wiersza SQLite. Inne analizy, tagi lub składniki zachowują odrębne ślady nawet wtedy, gdy wynikowy napis jest taki sam.
+
+Tabela `derivation_component` wiąże każdy składnik źródłowy kluczem obcym z surowym rekordem SGJP. Partykuła gramatyczna ma jawny kind i nie udaje wpisu słownikowego. Kandydat i jego składniki zapisują się w jednej porcji; po błędzie mogą pozostać wcześniejsze porcje, lecz etap jest failed, a gotowość INCOMPLETE. Ponowne wyliczenie tego samego zestawu nie dubluje śladów. Nie dubluje też ani nie usuwa bezpośrednich wpisów w interpretation.
+
+Kandydaci mają wyłącznie `candidate_not_qualified`. W `reports/construction-candidates.json` znajduje się rozliczenie potwierdzonego podzbioru. Pełny etap constructions pozostaje pending, ponieważ inne klasy i kwalifikacja nadal wymagają wykonania.
+
+Explain nadal odtwarza potwierdzone konstrukcje z rzeczywistych składników, a `persisted_candidate_key` wskazuje odpowiadający im zapis, jeśli istnieje. Dla starych baz bez tych tabel pole jest null; odczyt nie wymaga migracji ani modyfikacji wcześniejszego przebiegu. To odnośnik do śladu, nie finalna ocena dopuszczalności.

@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T00:48:09Z",
+  "generated": "2026-10-05T01:09:49Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Zatwierdzony kontekst wdrożony; pełna macierz i integracja w toku"
+    "current_activity": "Raport i kandydaci konstrukcji w build; pełna macierz oraz decyzje nadal w toku"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Zatwierdzone A kontekstu wdrożone: 11 etykiet, 169 rekordów, 5 zapytań readonly. Generator 90/90, baseline 5/5, preflight 14/14; G3–G6 częściowe.",
+      "summary": "Raport warunków w build oraz persistence dwóch potwierdzonych klas zintegrowane; 93446 kandydatów/186892 składniki, powtórzenie bezduplikatów, FK/integrityOK. Explain wskazuje ślady, legacyzgodne. Generator104/104,audit5/5; G3–G6 częściowe.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -252,7 +252,8 @@ window.MAISTER_DATA = {
         "A: samo niezal. nie odrzuca interpretacji w BROAD ani STANDARD; pozostałe kryteria nadal obowiązują.",
         "A mixed_history_priority: dodatkowe daw./przest. wyklucza konkretną interpretację ze STANDARD mimo dziś; samo dziś nie wyklucza, BROAD bez wyłączenia przez dawność.",
         "Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych.",
-        "A incorrect_source_label_policy: jawne niepopr. na sprawdzonej dosłownej etykiecie odrzuca konkretną interpretację w BROAD i STANDARD, bez usunięcia wpisu lub innych analiz."
+        "A incorrect_source_label_policy: jawne niepopr. na sprawdzonej dosłownej etykiecie odrzuca konkretną interpretację w BROAD i STANDARD, bez usunięcia wpisu lub innych analiz.",
+        "A context_restrictions_policy: samo wymaganie kontekstu niewykluczające; explain zachowuje je, niesamodzielne morfemy osobno."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -382,6 +383,26 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/context-runtime.json",
           "label": "Pełny runtime zatwierdzonego kontekstu"
+        },
+        {
+          "path": "analysis/evidence/qualifier-coverage-review.md",
+          "label": "Pokrycie warunków: pełny przegląd"
+        },
+        {
+          "path": "analysis/evidence/qualifier-condition-coverage.json",
+          "label": "Pełny raport615 pól i605 etykiet"
+        },
+        {
+          "path": "analysis/evidence/qualifier-coverage-runtime.json",
+          "label": "Powtarzalność raportu i przykłady luk"
+        },
+        {
+          "path": "analysis/evidence/persisted-constructions-review.md",
+          "label": "Utrwalanie konstrukcji: przegląd"
+        },
+        {
+          "path": "analysis/evidence/persisted-constructions-runtime.json",
+          "label": "Pełny runtime dwóch potwierdzonych klas"
         }
       ],
       "gate": {

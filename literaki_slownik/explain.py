@@ -1,8 +1,9 @@
 """Diagnostyczne explain pełnego importu; nie nadaje końcowej kwalifikacji."""
 from pathlib import Path
 import json
+import hashlib
 import sqlite3
-from .canonical import load_json
+from .canonical import load_json, dumps
 from .database import connect
 from .decisions import assess_analysis, aggregate, VARIANTS
 from .inputs import GeneratorError
@@ -50,10 +51,15 @@ def _derivations(db, key):
             for aglt in endings:
                 candidates.extend(by_aglt_candidates(operator, aglt))
     result = []
+    stored = bool(db.execute("select 1 from sqlite_master where name='derivation_candidate'").fetchone())
     for candidate in candidates:
         assessed = _assess(candidate['original'], candidate['qualifiers'])
         if assessed['game_key'] == key:
-            result.append({**candidate, 'assessment': assessed})
+            candidate_key = hashlib.sha256(dumps(candidate).encode('utf-8')).hexdigest()
+            present = stored and db.execute(
+                'select 1 from derivation_candidate where candidate_key=?', (candidate_key,)).fetchone()
+            result.append({**candidate, 'persisted_candidate_key': candidate_key if present else None,
+                           'assessment': assessed})
     return result
 
 
@@ -174,6 +180,8 @@ def format_explanation(value):
     lines.append(f"\nKandydaci konstrukcji: {len(value['derivations'])}; pełne dopuszczenie nieustalone.")
     for candidate in value['derivations']:
         lines.append(f"  {candidate['original']} · {candidate['rule_id']} · {candidate['expanded_tag']}")
+        if candidate['persisted_candidate_key']:
+            lines.append(f"    Zapisany ślad: {candidate['persisted_candidate_key']}")
         for component in candidate['components']:
             if component['kind'] == 'source_interpretation':
                 source = component['interpretation']

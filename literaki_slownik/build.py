@@ -9,6 +9,8 @@ from .database import connect
 from .inputs import GeneratorError, inspect_sources
 from . import sgjp, kwjp
 from .run import create_run, set_stage
+from .reports import qualifier_coverage
+from .constructions import materialize_confirmed_candidates
 
 
 def flush(db, sql, batch):
@@ -100,6 +102,14 @@ def build(manifest_path, run_dir, batch_size=10000):
                          for name in ('tag', 'names', 'qualifiers')}
             write_json(run / 'reports/import-counts.json', counts)
             write_json(run / 'reports/inventory.json', inventory)
+            write_json(run / 'reports/qualifier-conditions.json',
+                       qualifier_coverage(inventory['qualifiers'].items()))
+            # Potwierdzony podzbiór pozostaje diagnostyczny; status etapu nadal pending.
+            stage = 'constructions'
+            start = time.monotonic()
+            construction_counts = materialize_confirmed_candidates(db, batch_size)
+            performance['diagnostic_constructions'] = {'seconds': time.monotonic() - start}
+            write_json(run / 'reports/construction-candidates.json', construction_counts)
             # Potwierdzenie niezmienności całego kompletu wejść po odczycie.
             checked = inspect_sources(manifest_path)
             if checked['manifest_sha256'] != inputs['manifest_sha256']:

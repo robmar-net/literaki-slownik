@@ -26,3 +26,17 @@ Raport podaje: mianowniki kluczy i analiz, samodzielne odrzucenia, nowe i skumul
 Testy: `python3 -m unittest tests.test_reports`. Pokrywają nakładanie filtrów, usuwanie różnych homonimów przez różne reguły, zmianę kolejności, niewiadome, puste grupy, błędne statusy i niepełną listę filtrów.
 
 [Diagnostyczny runtime](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/filter-report-runtime.json) obejmuje osiem rzeczywistych kluczy i 15 interpretacji. Znane warunki wielkiej litery i profilu są w jawnej kolejności obok filtra wieku; nie pomijamy ich w raporcie.
+
+## Pokrycie warunków kwalifikatorów
+
+`qualifier_coverage(fields)` przyjmuje unikalne pary (pełne pole kwalifikatorów, dodatnia liczba kompaktowych interpretacji). Używamy inwentaryzacji po deduplikacji, nie surowych wierszy i nie rozwiniętych tagów. Duplikaty pól i błędne liczniki są odrzucane. Raport jest deterministyczny niezależnie od kolejności wejścia.
+
+`labels` zachowuje dokładne etykiety, liczniki i warunki obu wariantów. `fields` wiąże je z pełnymi polami; `unmapped_labels` pokazuje etykiety bez żadnego znanego warunku. `full_qualification_pending` zawsze true: dodatnia ocena jednego warunku nie oznacza akceptacji całej analizy. Brak warunku i brak kwalifikatora nie są automatycznym accept. Przecinek pozostaje częścią etykiety; powtórzona etykieta w polu nie podwaja licznika. Liczniki etykiet i kategorii mogą się nakładać.
+
+Nowe build zapisują reports/qualifier-conditions.json, zachowując INCOMPLETE i reports pending. Istniejący przebieg można zbadać bez modyfikacji:
+
+```sh
+python3 scripts/probe_generator_evidence.py --mode qualifier-conditions --database PATH/build.sqlite
+```
+
+[Pełny przegląd i wyniki](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/qualifier-coverage-review.md): 26 etykiet bez warunku, 1 910 interpretacji, dwa identyczne raporty. Nie jest to delta list ani pełny odbiór.

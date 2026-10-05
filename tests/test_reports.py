@@ -66,3 +66,78 @@ class FilterReportTests(unittest.TestCase):
         for variant,order in [('unknown',['A']),('standard',[]),('standard',['A','A'])]:
             with self.subTest(variant=variant,order=order),self.assertRaises(GeneratorError):
                 filter_impact([] ,variant,order)
+
+
+class QualifierCoverageTests(unittest.TestCase):
+    def report(self, fields):
+        from literaki_slownik.reports import qualifier_coverage
+        return qualifier_coverage(iter(fields))
+
+    def test_literal_labels_and_mixed_fields_without_double_counting(self):
+        report = self.report([('rzad.|nieznane|rzad.', 3), ('nieznane', 2), ('', 5), ('pot.,nieznane', 1)])
+        self.assertEqual(report['totals'], {'compact_interpretations': 11, 'fields': 4, 'literal_labels': 3,
+                                          'records_with_any_condition': 3,
+                                          'records_with_unmapped_label': 6,
+                                          'records_without_qualifiers': 5})
+        self.assertEqual(report['unmapped_labels'], ['nieznane', 'pot.,nieznane'])
+        labels = {row['label']: row for row in report['labels']}
+        self.assertEqual(labels['rzad.']['compact_interpretations'], 3)
+        self.assertEqual(labels['nieznane']['compact_interpretations'], 5)
+        fields = {row['qualifiers']: row for row in report['fields']}
+        self.assertEqual(fields['rzad.|nieznane|rzad.']['unmapped_labels'], ['nieznane'])
+        self.assertEqual(fields['']['labels'], [])
+        self.assertTrue(report['full_qualification_pending'])
+
+    def test_known_conditions_are_partial_and_variant_specific(self):
+        report = self.report([('daw.,z_D.', 2), ('niepopr.', 1), ('techn.', 4)])
+        fields = {row['qualifiers']: row for row in report['fields']}
+        self.assertEqual(fields['daw.,z_D.']['condition_assessment']['standard']['status'], 'reject')
+        self.assertEqual(fields['daw.,z_D.']['condition_assessment']['broad']['status'], 'accept')
+        rules = fields['daw.,z_D.']['condition_assessment']['standard']['checks']
+        self.assertTrue(any(c.get('required_context') == 'adjective_genitive' for c in rules))
+        self.assertEqual(fields['niepopr.']['condition_assessment']['broad']['status'], 'reject')
+        self.assertEqual(report['scope'], 'qualifier_conditions_only_not_full_qualification')
+        self.assertNotIn('list_membership', report)
+
+    def test_unknown_or_empty_is_not_condition_acceptance(self):
+        report = self.report([('', 2), ('nieznane', 1)])
+        for row in report['fields']:
+            for variant in ('broad', 'standard'):
+                self.assertEqual(row['condition_assessment'][variant]['status'], 'unresolved')
+        empty = self.report([])
+        self.assertEqual(empty['coverage'], 'EMPTY_NOT_COVERAGE')
+        self.assertEqual(empty['totals']['compact_interpretations'], 0)
+
+    def test_deterministic_regardless_of_inventory_order(self):
+        fields = [('z_D.|rzad.', 2), ('med.', 1), ('', 3)]
+        self.assertEqual(self.report(fields), self.report(reversed(fields)))
+
+    def test_invalid_inventory_refused(self):
+        for fields in [[('med.', 1), ('med.', 2)], [('med.', True)], [('med.', 0)],
+                       [('med.', -1)], [(None, 1)], [('med.', '1')], [('med.', 1, 2)]]:
+            with self.subTest(fields=fields), self.assertRaises(GeneratorError):
+                self.report(fields)
+
+    def test_probe_command_reads_database_and_is_repeatable(self):
+        import json
+        import sqlite3
+        import subprocess
+        import sys
+        import tempfile
+        from pathlib import Path
+        from literaki_slownik.canonical import sha256
+        script = Path('scripts/probe_generator_evidence.py').resolve()
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'db.sqlite'
+            with sqlite3.connect(path) as db:
+                db.execute('create table interpretation (qualifiers TEXT)')
+                db.executemany('insert into interpretation values (?)', [('rzad.',), ('z_D.',), ('nieznane',)])
+            before = sha256(path)
+            args = [sys.executable, str(script), '--mode', 'qualifier-conditions', '--database', str(path)]
+            first = subprocess.run(args, cwd=directory, capture_output=True, text=True)
+            self.assertEqual(first.returncode, 0, first.stderr)
+            second = subprocess.run(args, cwd=directory, capture_output=True, text=True)
+            self.assertEqual(second.returncode, 0, second.stderr)
+            self.assertEqual(first.stdout, second.stdout)
+            self.assertEqual(json.loads(first.stdout)['unmapped_labels'], ['nieznane'])
+            self.assertEqual(sha256(path), before)

@@ -36,3 +36,19 @@ CREATE TABLE corpus_evidence (
  freq INTEGER NOT NULL, UNIQUE(source_id,row_number)
 );
 CREATE INDEX evidence_unit ON corpus_evidence(unit_1,unit_2,pos);
+CREATE TABLE derivation_candidate (
+ candidate_key TEXT PRIMARY KEY, rule_id TEXT NOT NULL,
+ original TEXT NOT NULL, game_key TEXT NOT NULL, lemma_id TEXT NOT NULL,
+ expanded_tag TEXT NOT NULL, names TEXT NOT NULL, qualifiers TEXT NOT NULL,
+ payload TEXT NOT NULL
+);
+CREATE INDEX derivation_game_key ON derivation_candidate(game_key);
+CREATE TABLE derivation_component (
+ candidate_key TEXT NOT NULL REFERENCES derivation_candidate,
+ position INTEGER NOT NULL, kind TEXT NOT NULL,
+ source_id TEXT, source_row INTEGER,
+ PRIMARY KEY(candidate_key,position),
+ FOREIGN KEY(source_id,source_row) REFERENCES sgjp_record(source_id,row_number),
+ CHECK ((kind='source_interpretation' AND source_id IS NOT NULL AND source_row IS NOT NULL)
+     OR (kind='grammatical_particle' AND source_id IS NULL AND source_row IS NULL))
+);

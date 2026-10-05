@@ -34,3 +34,7 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Ocena niepoprawności SGJP](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/incorrect-forms-decision.md) — zatwierdzone A i wdrożony filtr konkretnych interpretacji, odrębny od niezalecania.
 
 - [Wymagania kontekstu](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/context-restrictions-decision.md) — zatwierdzone A, 11 etykiet i pełny runtime warunku kontekstu.
+
+- [Pełne pokrycie warunków kwalifikatorów](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/qualifier-coverage-review.md) — raport nowych build, ekspozycja luk i granice częściowej oceny.
+
+- [Utrwalanie konstrukcji](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/persisted-constructions-review.md) — dwa potwierdzone rodzaje, rozliczenie klas i zgodność wcześniejszych baz.

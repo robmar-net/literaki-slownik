@@ -202,3 +202,24 @@ class ExplainTests(unittest.TestCase):
         self.assertEqual(result.returncode, 4)
         self.assertEqual(json.loads(result.stdout)['status'], 'error')
         self.assertNotIn('Traceback', result.stderr)
+
+    def test_explain_connects_reconstructed_candidate_to_persisted_trace(self):
+        from literaki_slownik.explain import format_explanation
+        value = explain(self.run, 'czytajże')
+        candidate, = value['derivations']
+        self.assertEqual(len(candidate['persisted_candidate_key']), 64)
+        with connect(self.run / 'build.sqlite', readonly=True) as db:
+            row = db.execute('select payload from derivation_candidate where candidate_key=?',
+                             (candidate['persisted_candidate_key'],)).fetchone()
+            self.assertEqual(json.loads(row[0])['components'], candidate['components'])
+        self.assertIn(candidate['persisted_candidate_key'], format_explanation(value))
+        self.assertEqual(value['list_membership']['status'], 'unresolved')
+
+    def test_legacy_database_without_candidate_tables_still_explains_on_demand(self):
+        with connect(self.run / 'build.sqlite') as db:
+            db.execute('drop table derivation_component')
+            db.execute('drop table derivation_candidate')
+        value = explain(self.run, 'czytajże')
+        candidate, = value['derivations']
+        self.assertIsNone(candidate['persisted_candidate_key'])
+        self.assertEqual(candidate['original'], 'czytajże')

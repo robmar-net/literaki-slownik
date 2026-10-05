@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-05T00:48:09Z",
+    "updated": "2026-10-05T01:09:49Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "Zatwierdzone A kontekstu wdrożone: 11 etykiet, 169 rekordów, 5 zapytań readonly. Generator 90/90, baseline 5/5, preflight 14/14; G3–G6 częściowe.",
+      "summary": "Raport warunków w build oraz persistence dwóch potwierdzonych klas zintegrowane; 93446 kandydatów/186892 składniki, powtórzenie bezduplikatów, FK/integrityOK. Explain wskazuje ślady, legacyzgodne. Generator104/104,audit5/5; G3–G6 częściowe.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -357,6 +357,26 @@
         {
           "path": "analysis/evidence/context-runtime.json",
           "label": "Pełny runtime zatwierdzonego kontekstu"
+        },
+        {
+          "path": "analysis/evidence/qualifier-coverage-review.md",
+          "label": "Pokrycie warunków: pełny przegląd"
+        },
+        {
+          "path": "analysis/evidence/qualifier-condition-coverage.json",
+          "label": "Pełny raport615 pól i605 etykiet"
+        },
+        {
+          "path": "analysis/evidence/qualifier-coverage-runtime.json",
+          "label": "Powtarzalność raportu i przykłady luk"
+        },
+        {
+          "path": "analysis/evidence/persisted-constructions-review.md",
+          "label": "Utrwalanie konstrukcji: przegląd"
+        },
+        {
+          "path": "analysis/evidence/persisted-constructions-runtime.json",
+          "label": "Pełny runtime dwóch potwierdzonych klas"
         }
       ],
       "gate": {
@@ -544,8 +564,8 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "User explicitly authorized continuing code with evidence gaps: policy mechanics only, no active unresolved linguistic rules",
-        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed; context3 red→green,11/11 labels,169 records",
-        "remaining": "Full qualifier/category/orthography policy and mobile/preposition constructions; persistence and build integration; G3 closure"
+        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed; context3 red→green,11/11 labels,169 records; persistence3 red→green,build2 red→green; fullconfirmedclass projection93446 candidates186892 components,repeat idempotent,FK/integrityOK",
+        "remaining": "Full qualifier/category/orthography policy, mobile/preposition constructions and final decisions persistence/integration; G3 closure"
       },
       "G5": {
         "status": "in_progress",
@@ -560,7 +580,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "Independent diagnostic explain authorized by plan §2 and user continue code",
-        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks; context explain JSON/text regression green,5 real readonly queries",
+        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks; context explain JSON/text regression green,5 real readonly queries; qualifier coverage6 red→green,build integration1 red→green; full7458520/615/605 repeat canonical identical readonly; persisted explain2 red→green; alternative source trace regression fixed,legacycompatible,6realqueries rechecked readonly",
         "remaining": "Full strata and analysis payloads, report/build integration, other canonical reports/index, full final decisions/derivations explain"
       },
       "G7": {
@@ -604,7 +624,7 @@
         "artifact": "analysis/evidence/wiktionary-attestation-decision.md"
       }
     },
-    "verification_note": "Increment:90/90 generator,5/5 baseline,14/14 preflight and config hashes; full readonly context runtime2.937s,total_changes0. Full verification/release pending.",
+    "verification_note": "Increment generator104/104,audit5/5; qualifier reports twice canonical equal; fullconfirmedclass projection93446 candidates repeat idempotent,FK/integrityOK,queries refreshed readonly. Fullverification/release pending. Final increment checks:104/104 generator,5/5 baseline,14/14 production preflight; artifacts/hashes/links/MDHTML/plan8of36 OK.",
     "source_policy_clarification": {
       "recorded_at": "2026-10-04T21:49:35Z",
       "artifact": "analysis/evidence/source-policy-clarification.md",

@@ -77,3 +77,69 @@ class ConstructionTests(unittest.TestCase):
                        {'original': 'daj', 'raw_tag': 'impt:sg:sec:perf'}]:
             with self.subTest(record=record), self.assertRaises(GeneratorError):
                 impt_particle_candidates(record)
+
+
+class PersistedConstructionTests(unittest.TestCase):
+    def database(self, directory):
+        from pathlib import Path
+        from literaki_slownik.database import connect
+        return connect(Path(directory) / 'db.sqlite', create=True)
+
+    def insert_sources(self, db):
+        from literaki_slownik.canonical import dumps
+        db.execute('insert into source_artifact values (?,?,?)', ('fixture', 'sgjp_tab', dumps({'origin':'synthetic'})))
+        rows = [('daj', 'dać:S1', 'impt:sg:sec:perf', '', 'niepopr.'),
+                ('daj', 'dać:S2', 'impt:sg:sec:perf', '', ''),
+                ('dajże', 'dajże:S3', 'subst:sg:nom:m3', '', ''),
+                ('by', 'by:T', 'part', '', ''),
+                ('m', 'być:A', 'aglt:sg:pri:imperf:nwok', '', ''),
+                ('em', 'być:A', 'aglt:sg:pri:imperf:wok', '', '')]
+        for number, (form, lemma, tag, names, qualifiers) in enumerate(rows, 1):
+            db.execute('insert into sgjp_record values (?,?,?,?,?,?,?)', ('fixture', number, form, lemma, tag, names, qualifiers))
+            db.execute('insert or ignore into lexeme(source_id,lemma_id,lemma_base) values (?,?,?)', ('fixture', lemma, lemma.split(':')[0]))
+            db.execute('insert or ignore into surface_form(original,nfc,game_key,length) values (?,?,?,?)', (form, form, form.lower(), len(form)))
+            fid = db.execute('select id from surface_form where original=?', (form,)).fetchone()[0]
+            lid = db.execute('select id from lexeme where lemma_id=?', (lemma,)).fetchone()[0]
+            db.execute('insert into interpretation(source_id,first_row,form_id,lexeme_id,tag,names,qualifiers) values (?,?,?,?,?,?,?)',
+                       ('fixture', number, fid, lid, tag, names, qualifiers))
+        db.commit()
+
+    def test_persistence_keeps_alternative_sources_components_and_direct_form(self):
+        import json
+        import tempfile
+        from literaki_slownik.constructions import materialize_confirmed_candidates
+        with tempfile.TemporaryDirectory() as directory, self.database(directory) as db:
+            self.insert_sources(db)
+            report = materialize_confirmed_candidates(db, batch_size=1)
+            self.assertEqual(report['candidates'], 3)  # dwa homonimy daj i by+m; wpis dajże zachowany
+            self.assertEqual(report['scope'], 'confirmed_subset_candidates_not_full_constructions')
+            self.assertTrue(report['full_constructions_pending'])
+            candidates = [json.loads(row[0]) for row in db.execute('select payload from derivation_candidate where original=?', ('dajże',))]
+            self.assertEqual({c['lemma_id'] for c in candidates}, {'dać:S1','dać:S2'})
+            self.assertEqual({c['qualifiers'] for c in candidates}, {'','niepopr.'})
+            self.assertTrue(all(c['status']=='candidate_not_qualified' for c in candidates))
+            self.assertEqual(db.execute('select count(*) from derivation_component').fetchone()[0], 6)
+            self.assertEqual(db.execute('select count(*) from interpretation').fetchone()[0], 6)
+            self.assertEqual(db.execute('pragma foreign_key_check').fetchall(), [])
+            self.assertEqual(db.execute('select count(*) from derivation_candidate where original=?', ('byem',)).fetchone()[0], 0)
+
+    def test_repeat_materialization_preserves_stable_ids_and_no_duplicates(self):
+        import tempfile
+        from literaki_slownik.constructions import materialize_confirmed_candidates
+        with tempfile.TemporaryDirectory() as directory, self.database(directory) as db:
+            self.insert_sources(db)
+            materialize_confirmed_candidates(db)
+            first = db.execute('select candidate_key,payload from derivation_candidate order by candidate_key').fetchall()
+            second_report = materialize_confirmed_candidates(db)
+            self.assertEqual(second_report['new_candidates'], 0)
+            self.assertEqual(first, db.execute('select candidate_key,payload from derivation_candidate order by candidate_key').fetchall())
+
+    def test_failure_in_uncovered_class_keeps_partial_output_not_full_completion(self):
+        import tempfile
+        from literaki_slownik.constructions import materialize_confirmed_candidates
+        with tempfile.TemporaryDirectory() as directory, self.database(directory) as db:
+            self.insert_sources(db)
+            db.execute("update interpretation set tag='impt:sg:sec:new' where first_row=2")
+            with self.assertRaises(GeneratorError):
+                materialize_confirmed_candidates(db, batch_size=1)
+            self.assertEqual(db.execute('select count(*) from derivation_candidate').fetchone()[0], 1)

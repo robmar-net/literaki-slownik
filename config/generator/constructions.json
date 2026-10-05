@@ -3,13 +3,121 @@
   "version": "constructions-discovery-v1",
   "status": "not_active_policy",
   "classes": {
-    "full_personal_praet_cond": {"status": "confirmed_with_defectivity_control", "source_preferred": true, "audit_excess_triples": 120, "defective_lexemes": 30, "evidence": ["sgjp_theory:6.6.2", "closure-lexemes-evidence.json"]},
-    "winien": {"status": "confirmed_source_tag_erratum", "compact_interpretations": 140, "personal_triples": 105, "tag_errors": 7, "missing_word_strings": 0, "preserve_raw_tags": true, "evidence": ["sgjp_theory:6.6.1", "winien-closure.json"]},
-    "by_aglt": {"status": "confirmed_implemented_not_integrated", "aglt_variant": "nwok", "examples_positive": ["bym", "byś", "byśmy", "byście"], "examples_negative": ["byem", "byeśmy"], "evidence": ["morfeusz_segments:136-140", "sgjp_theory:6.4.2"], "rule_id": "by-aglt-nwok-v1", "result": "candidate_not_qualified"},
-    "impt_particle": {"status": "confirmed_implemented_not_integrated", "compact_interpretations": 92622, "distinct_source_forms": 91104, "consonant_sg": 30874, "vowel_pl": 61748, "ending_exceptions": 0, "examples_positive": ["czytajże", "dajże", "dajcież", "dajmyż"], "examples_negative": ["czytajż", "dajcieże"], "evidence": ["morfeusz_segments:334-345", "rjp:4.6", "zds:5"], "rule_id": "impt-single-particle-v1", "result": "candidate_not_qualified"},
-    "preposition_n": {"status": "unresolved_game_attestation", "source_candidate_analyses": 27, "source_candidate_strings": 26, "required_cases": ["gen", "acc"], "evidence": ["sgjp_theory:9.1", "morfeusz_segments:380-383", "rjp:4.4.4", "zds:5"], "corpus_frequency_is_not_game_attestation": true},
-    "double_particle": {"status": "language_confirmed_game_excluded", "evidence": ["rjp:4.6", "zds:5"], "reject_interpretation_not_homonymous_string": true},
-    "mobile_aglt": {"status": "pending_full_host_matrix", "literal_by_suffix_is_not_sufficient": true, "independent_homonyms_retained": true, "examples_rejected_game_analysis": ["ja+m", "ty+ś", "my+śmy", "wy+ście"], "evidence": ["morfeusz_segments:142-185", "sgjp_theory:6.4.1,7.5,7.8", "zds:5"]},
-    "productive_derivation": {"status": "excluded_by_approved_scope", "new_lexemes": false, "permissive": false}
+    "full_personal_praet_cond": {
+      "status": "confirmed_with_defectivity_control",
+      "source_preferred": true,
+      "audit_excess_triples": 120,
+      "defective_lexemes": 30,
+      "evidence": [
+        "sgjp_theory:6.6.2",
+        "closure-lexemes-evidence.json"
+      ]
+    },
+    "winien": {
+      "status": "confirmed_source_tag_erratum",
+      "compact_interpretations": 140,
+      "personal_triples": 105,
+      "tag_errors": 7,
+      "missing_word_strings": 0,
+      "preserve_raw_tags": true,
+      "evidence": [
+        "sgjp_theory:6.6.1",
+        "winien-closure.json"
+      ]
+    },
+    "by_aglt": {
+      "status": "confirmed_materialized_candidates_full_qualification_pending",
+      "aglt_variant": "nwok",
+      "examples_positive": [
+        "bym",
+        "byś",
+        "byśmy",
+        "byście"
+      ],
+      "examples_negative": [
+        "byem",
+        "byeśmy"
+      ],
+      "evidence": [
+        "morfeusz_segments:136-140",
+        "sgjp_theory:6.4.2"
+      ],
+      "rule_id": "by-aglt-nwok-v1",
+      "result": "candidate_not_qualified",
+      "storage": "derivation_candidate_with_source_component_foreign_keys",
+      "build_integration": "diagnostic_subset_stage_remains_pending"
+    },
+    "impt_particle": {
+      "status": "confirmed_materialized_candidates_full_qualification_pending",
+      "compact_interpretations": 92622,
+      "distinct_source_forms": 91104,
+      "consonant_sg": 30874,
+      "vowel_pl": 61748,
+      "ending_exceptions": 0,
+      "examples_positive": [
+        "czytajże",
+        "dajże",
+        "dajcież",
+        "dajmyż"
+      ],
+      "examples_negative": [
+        "czytajż",
+        "dajcieże"
+      ],
+      "evidence": [
+        "morfeusz_segments:334-345",
+        "rjp:4.6",
+        "zds:5"
+      ],
+      "rule_id": "impt-single-particle-v1",
+      "result": "candidate_not_qualified",
+      "storage": "derivation_candidate_with_source_component_foreign_keys",
+      "build_integration": "diagnostic_subset_stage_remains_pending"
+    },
+    "preposition_n": {
+      "status": "unresolved_game_attestation",
+      "source_candidate_analyses": 27,
+      "source_candidate_strings": 26,
+      "required_cases": [
+        "gen",
+        "acc"
+      ],
+      "evidence": [
+        "sgjp_theory:9.1",
+        "morfeusz_segments:380-383",
+        "rjp:4.4.4",
+        "zds:5"
+      ],
+      "corpus_frequency_is_not_game_attestation": true
+    },
+    "double_particle": {
+      "status": "language_confirmed_game_excluded",
+      "evidence": [
+        "rjp:4.6",
+        "zds:5"
+      ],
+      "reject_interpretation_not_homonymous_string": true
+    },
+    "mobile_aglt": {
+      "status": "pending_full_host_matrix",
+      "literal_by_suffix_is_not_sufficient": true,
+      "independent_homonyms_retained": true,
+      "examples_rejected_game_analysis": [
+        "ja+m",
+        "ty+ś",
+        "my+śmy",
+        "wy+ście"
+      ],
+      "evidence": [
+        "morfeusz_segments:142-185",
+        "sgjp_theory:6.4.1,7.5,7.8",
+        "zds:5"
+      ]
+    },
+    "productive_derivation": {
+      "status": "excluded_by_approved_scope",
+      "new_lexemes": false,
+      "permissive": false
+    }
   }
 }

@@ -3,6 +3,7 @@
 import argparse
 import json
 import sqlite3
+import sys
 import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -82,13 +83,24 @@ def kwjp_mapping(database):
                 'non_nfc': non_nfc}
 
 
+def qualifier_conditions(database):
+    # Skrypt działa również spoza katalogu repozytorium.
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from literaki_slownik.database import connect
+    from literaki_slownik.reports import qualifier_coverage
+    with connect(database, readonly=True) as db:
+        fields = db.execute('select qualifiers,count(*) from interpretation group by qualifiers')
+        return qualifier_coverage(fields)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--database', required=True)
     parser.add_argument('--profile', default='config/generator/profile.json')
-    parser.add_argument('--mode', choices=['acronyms', 'labels', 'kwjp'], default='acronyms')
+    parser.add_argument('--mode', choices=['acronyms', 'labels', 'kwjp', 'qualifier-conditions'], default='acronyms')
     args = parser.parse_args()
-    result = (label_coverage(args.database) if args.mode == 'labels' else
+    result = (qualifier_conditions(args.database) if args.mode == 'qualifier-conditions' else
+              label_coverage(args.database) if args.mode == 'labels' else
               kwjp_mapping(args.database) if args.mode == 'kwjp' else
               probe(args.database, json.loads(Path(args.profile).read_text())))
     print(json.dumps(result, ensure_ascii=False, indent=2))

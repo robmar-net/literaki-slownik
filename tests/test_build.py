@@ -54,3 +54,44 @@ class BuildTests(unittest.TestCase):
             rewrite(p, manifest)
             with self.assertRaises(GeneratorError):
                 build(p, Path(directory) / 'run')
+
+    def test_qualifier_report_uses_deduplicated_interpretations_without_completing_reports(self):
+        with tempfile.TemporaryDirectory() as directory:
+            line = 'kot\tkot\tsubst:sg:nom:m2\t\trzad.|nieznane\n'
+            p = self.manifest(directory, '#</COPYRIGHT>\n' + line + line)
+            run = Path(directory) / 'run'
+            build(p, run)
+            report = load_json(run / 'reports/qualifier-conditions.json')
+            self.assertEqual(report['totals']['compact_interpretations'], 1)
+            self.assertEqual(report['unmapped_labels'], ['nieznane'])
+            self.assertTrue(report['full_qualification_pending'])
+            manifest = load_json(run / 'manifest.json')
+            self.assertEqual(manifest['readiness'], 'INCOMPLETE')
+            self.assertEqual(manifest['stages']['reports']['status'], 'pending')
+
+    def test_confirmed_candidates_materialized_without_completing_constructions(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p = self.manifest(directory, '#</COPYRIGHT>\ndaj\tdać\timpt:sg:sec:perf\t\trzad.\nby\tby:T\tpart\t\t\nm\tbyć\taglt:sg:pri:imperf:nwok\t\t\n')
+            run = Path(directory) / 'run'
+            build(p, run)
+            with connect(run / 'build.sqlite', readonly=True) as db:
+                forms = {row[0] for row in db.execute('select original from derivation_candidate')}
+                self.assertEqual(forms, {'dajże','bym'})
+                self.assertEqual(db.execute('pragma foreign_key_check').fetchall(), [])
+            report = load_json(run / 'reports/construction-candidates.json')
+            self.assertEqual(report['candidates'], 2)
+            self.assertTrue(report['full_constructions_pending'])
+            manifest = load_json(run / 'manifest.json')
+            self.assertEqual(manifest['stages']['constructions']['status'], 'pending')
+            self.assertEqual(manifest['readiness'], 'INCOMPLETE')
+
+    def test_construction_failure_marks_failed_and_preserves_import(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p = self.manifest(directory, '#</COPYRIGHT>\ndajmy\tdać\timpt:sg:sec:perf\t\t\n')
+            run = Path(directory) / 'run'
+            with self.assertRaises(GeneratorError):
+                build(p, run)
+            manifest = load_json(run / 'manifest.json')
+            self.assertEqual(manifest['stages']['constructions']['status'], 'failed')
+            self.assertEqual(manifest['stages']['import_sgjp']['status'], 'complete')
+            self.assertEqual(manifest['readiness'], 'INCOMPLETE')
