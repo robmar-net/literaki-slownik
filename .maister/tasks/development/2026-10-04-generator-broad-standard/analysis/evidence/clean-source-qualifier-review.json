@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "scope": "full_pinned_export_qualifier_conditions_not_semantic_or_release_closure",
+  "policy_version": "diagnostic-approved-conditions-v21",
+  "report_sha256": "03284ccc9d90092fba655f8dc364013659750b6bb5a2da05ed5d734aefa55212",
+  "source_export_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+  "totals": {
+    "compact_interpretations": 7458520,
+    "fields": 615,
+    "literal_labels": 605,
+    "records_with_any_condition": 1034860,
+    "records_with_unmapped_label": 2,
+    "records_without_qualifiers": 6423658,
+    "records_with_unexplained_first_release_label": 1910
+  },
+  "known_literal_labels": 604,
+  "unmapped_labels": [
+    "pisane_łącznie_z_przyimkiem"
+  ],
+  "source_mode": "readonly",
+  "new_lexical_or_online_metadata_inputs": 0,
+  "full_qualification_pending": true,
+  "reproduce_command": "python3 scripts/probe_generator_evidence.py --mode qualifier-conditions --database data/work/import-20261004-1302/build.sqlite",
+  "variant_rejection_consistency": true,
+  "known_nonimpact_evidence": "remaining-matrix-runtime.json: source rows4212679/4212680; existing bound/length rejections"
+}

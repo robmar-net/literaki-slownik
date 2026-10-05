@@ -1,7 +1,7 @@
 # Własny przegląd opisów i przykładów oficjalnego czytnika SGJP
 
 ## TL;DR
-Wspólny dowód leksykalny z autorskiej dokumentacji jest już zatwierdzony. Oficjalny czytnik zawiera dodatkowe opisy konkretnych użyć, których nie ma w dotychczasowym zakresie dowodu. Potrzebny jest jeden próg dla własnego ręcznego przeglądu tych opisów, analogiczny do zatwierdzonych relacji mieszkańców; metadane maszynowe nadal nie są aktywnym wejściem.
+Wspólny dowód leksykalny z autorskiej dokumentacji jest już zatwierdzony. Oficjalny czytnik zawiera dodatkowe opisy konkretnych użyć, których nie ma w dotychczasowym zakresie dowodu. Użytkownik odłożył ten ruch, aby zachować kontrolę nad danymi bazy. Nowy próg nie został aktywowany; obserwacje pozostają historyczne.
 
 ## Key Decisions
 **A — rekomendowane:** dopuścić własny ręczny przegląd jednoznacznych opisów i przykładów w oficjalnym czytniku jako dowód konkretnego użycia istniejącego rekordu SGJP. Weryfikować źródłowy hash, pełny ID, wszystkie pięć pól i wiersz, publiczny artykuł oraz hash odpowiedzi. Powiązanie dotyczy sprawdzonego użycia, nie tożsamości wszystkich znaczeń internetowego i eksportowego ID. Nie importować glos/metadanych ani nie tworzyć nowych leksemów.
@@ -11,7 +11,7 @@ Próg leksykalny obu wariantów: wyłącznie jednoznacznie rozpoznane polskie u�
 **B:** czytnik pozostaje pomocą wyszukiwania i źródłem wcześniej zatwierdzonych jawnych relacji mieszkańców; dodatniego dowodu leksykalnego oraz innych nowych opisowych dowodów klasy szukamy w dotychczas dopuszczonej dokumentacji. Niejasne przypadki nadal unresolved.
 
 ## Open Questions / Risks
-Decyzja pending; żadnego nowego dowodu nie aktywowano. Publiczny słownik i snapshot eksportu mogą dzielić znaczenia inaczej. Użycia i nierozpoznana pozostałość zachowane. Dane maszynowe czytnika nadal BLOCKED_as_machine_input; ta decyzja nie znosi audytu licencji snapshotu ani nie pozwala wykorzystać ich jako importera. Nie wykorzystujemy źródeł społecznościowych, SJP/OSPS/PoliMorf ani kontaktu z autorami.
+DEFERRED_BY_USER: nowych opisowych dowodów czytnika nie aktywujemy. Publiczny słownik i snapshot eksportu mogą dzielić znaczenia inaczej. Użycia i nierozpoznana pozostałość zachowane. Dane maszynowe czytnika nadal BLOCKED_as_machine_input; ta decyzja nie znosi audytu licencji snapshotu ani nie pozwala wykorzystać ich jako importera. Nie wykorzystujemy źródeł społecznościowych, SJP/OSPS/PoliMorf ani kontaktu z autorami.
 
 ## Konkretny przegląd do oceny
 [Własne przypadki i hashe](reader-use-proof-review-cases.json) sprawdzono ponownie względem wszystkich sześciu zachowanych odpowiedzi. Surowy HTML i pełne glosy pozostają poza Git.
@@ -28,3 +28,7 @@ Oścież i bezcen po A mogą uzyskać dodatni wynik jednego warunku po właściw
 
 ## Przyczyna bramki
 [AGENTS.md](../../../../../../AGENTS.md): „Decyzje zmieniające skład słownika lub kryteria dopuszczalności omawiamy z użytkownikiem przed ich wdrożeniem”. Wcześniejsze zgody obejmują autorską dokumentację i jawne relacje mieszkańców, a nie ten ogólny próg opisów artykułu. [maister-implementation-plan-executor](/Users/robmar/.codex/plugins/cache/maister-plugins/maister-codex/2.2.3/skills/maister-implementation-plan-executor/SKILL.md): „ask the equivalent concise question in the final response and pause”. Bramka dotyczy konkretnego rozszerzenia dowodu, nie zgody na dalszą pracę lub kontakt.
+
+## Odroczenie przez użytkownika
+
+2026-10-05T20:26:52Z — „odlozmy ten ruch, zeby nie zanieczyscic losowymi danymi naszej bazy”. To odroczenie propozycji, nie zatwierdzenie A/B. Dotychczasowe dopuszczone dane i reguły pozostają; nowego rozszerzenia nie wdrożono. Obserwacje są wyłącznie historią research, nie wejściem kwalifikacji. Nie wracamy do tej bramki bez ponownego podjęcia tematu przez użytkownika.

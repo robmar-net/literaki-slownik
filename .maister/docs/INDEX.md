@@ -108,4 +108,6 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 
 - [Wdrożenie wspólnego dowodu](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/shared-lexical-proof-implementation-review.md)
 - [Domknięcia hostów i niezależne odmowy](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-matrix-review.md)
-- [Dowody opisów oficjalnego czytnika — decyzja pending](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/reader-use-proof-decision.md)
+- [Dowody opisów oficjalnego czytnika — odłożone przez użytkownika](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/reader-use-proof-decision.md)
+
+- [Kontynuacja na zatwierdzonych danych](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/clean-inputs-continuation.md) — nowe dowody opisowe czytnika odłożone; przegląd warunków pełnego eksportu v21, brak nowego wejścia leksykalnego.

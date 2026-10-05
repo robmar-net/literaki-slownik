@@ -246,3 +246,12 @@ Test-first3redfail→green6, historyczny test redGeneratorError→green,14focuse
 
 ### 2026-10-05T20:21:27Z — końcowe kontrole przyrostu
 35/35 testów wejść/konstrukcji/użyć po zmianach konfiguracji, preflight14źródeł/12konfiguracji OK; dwa raporty macierzy identyczne. JSON stanu/dashboard zgodny, wszystkie zarejestrowane artefakty istnieją. Diff check OK. Tylko mechanika hostów domknięta; pełna kwalifikacja i wszystkie wymagane fazy pozostają otwarte. Następna bramka zapisana przed przedstawieniem.
+
+## 2026-10-05T20:25:02Z — odroczenie nowego progu opisów czytnika przez użytkownika
+
+Użytkownik: „odlozmy ten ruch, zeby nie zanieczyscic losowymi danymi naszej bazy”. To odroczenie konkretnego rozszerzenia dowodu, nie wybór A lub B i nie pauza całego projektu. Nowe opisy/przykłady nie stają się dowodami aktywnej kwalifikacji; obserwacje pozostają historyczne. Dotychczas zatwierdzonych reguł/użyć nie cofamy. Kontynuacja tylko zatwierdzonych wejść i dokumentacji; pełna macierz i odbiór pozostają wymagane.
+
+### 2026-10-05T20:26:52Z — pełny przegląd istniejących warunków kwalifikatorów
+
+Nowe opisowe dowody czytnika odłożone przez użytkownika; obserwacje historyczne, brak nowych wejść. Pełny przegląd zatwierdzonego SGJP v21:7458520interpretacji/615pól/605etykiet,604ze znanym warunkiem; jedna bez mapowania dotyczy2rekordów ń z niezależną odmową. Pełna macierz semantyczna/ortograficzna i8/36 nadal otwarte; brak automatycznej akceptacji lub pominięcia odbioru.
+Wykonano istniejący skrypt qualifier-conditions na pełnym G2 readonly, bez nowych wejść. Zweryfikowano605/615/7458520, unmapped2 i zachowanie każdej odmowy BROAD w STANDARD. Istotne wyniki i hash raportu zapisane; pełny odtwarzalny raport w tmp. Zmiany dokumentacyjne/stanu; nie zmieniono kodu, konfiguracji kwalifikacji ani bazy. Poprzednie210+5 pozostają wynikami ostatniej zmiany kodu; nie powtarzano suity po dokumentach.

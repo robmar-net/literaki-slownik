@@ -345,3 +345,9 @@ Wdrożone A wieku STANDARD v20 z jawną niepewnością; 208/208+5/5, preflight14
 A wspólnego dowodu leksykalnego wdrożone v21; wiek/gra/pisownia/pozostałość osobno. 210/210 generator+5/5audit; dwie nowe projekcje10rekordów/16analiz/32ocen,24readonly explain, źródło i starsze oceny bez zmian. Domknięta mechanika70hostów,295mieszanych nazw i2rekordy ń mają niezależną odmowę. Pełna kwalifikacja/34klasy i8/36 nadal otwarte; konieczny próg własnego przeglądu opisów oficjalnego czytnika SGJP.
 
 [Wspólny dowód](../analysis/evidence/shared-lexical-proof-implementation-review.md), [domknięcia macierzy](../analysis/evidence/remaining-matrix-review.md), [próg opisów czytnika](../analysis/evidence/reader-use-proof-decision.md).
+
+## Odroczenie nowych dowodów czytnika — decyzja użytkownika
+
+Nowe opisowe dowody czytnika odłożone przez użytkownika; obserwacje historyczne, brak nowych wejść. Pełny przegląd zatwierdzonego SGJP v21:7458520interpretacji/615pól/605etykiet,604ze znanym warunkiem; jedna bez mapowania dotyczy2rekordów ń z niezależną odmową. Pełna macierz semantyczna/ortograficzna i8/36 nadal otwarte; brak automatycznej akceptacji lub pominięcia odbioru.
+
+[Kontynuacja na zatwierdzonych danych](../analysis/evidence/clean-inputs-continuation.md).

@@ -112,5 +112,8 @@
     }
   ],
   "raw_html_committed": false,
-  "new_active_inputs": 0
+  "new_active_inputs": 0,
+  "status": "DEFERRED_BY_USER",
+  "future_eligibility_evidence_use": "not_activated",
+  "deferred_at": "2026-10-05T20:26:52Z"
 }

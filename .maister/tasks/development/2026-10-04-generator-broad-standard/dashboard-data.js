@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T20:21:27Z",
+  "generated": "2026-10-05T20:26:52Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Wspólny dowód wdrożony; próg własnego przeglądu opisów czytnika do decyzji"
+    "current_activity": "Nowe opisowe dowody odłożone; pełny przegląd kwalifikatorów v21 ukończony"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "A wspólnego dowodu leksykalnego wdrożone v21; wiek/gra/pisownia/pozostałość osobno. 210/210 generator+5/5audit; dwie nowe projekcje10rekordów/16analiz/32ocen,24readonly explain, źródło i starsze oceny bez zmian. Domknięta mechanika70hostów,295mieszanych nazw i2rekordy ń mają niezależną odmowę. Pełna kwalifikacja/34klasy i8/36 nadal otwarte; konieczny próg własnego przeglądu opisów oficjalnego czytnika SGJP.",
+      "summary": "Nowe opisowe dowody czytnika odłożone przez użytkownika; obserwacje historyczne, brak nowych wejść. Pełny przegląd zatwierdzonego SGJP v21:7458520interpretacji/615pól/605etykiet,604ze znanym warunkiem; jedna bez mapowania dotyczy2rekordów ń z niezależną odmową. Pełna macierz semantyczna/ortograficzna i8/36 nadal otwarte; brak automatycznej akceptacji lub pominięcia odbioru.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -273,7 +273,8 @@ window.MAISTER_DATA = {
         "A: osobni kandydaci jawnie udokumentowanej pisowni istniejących analiz, tylko angol/jugol; źródłowe rekordy, inne warunki i niewiadome zachowane.",
         "Zatwierdzone A pisowni wdrożone w zamkniętym zakresie; walidacja utrwalonych źródeł/składników przed ocenami i odczytem.",
         "Diagnostyczne próbki i indeks nie aktywują polityki ani odbioru; brakujące pełne części jawne.",
-        "A shared lexical proof approved and implemented v21 for both variants; all other conditions separate, historical v16-v20 evaluations retained."
+        "A shared lexical proof approved and implemented v21 for both variants; all other conditions separate, historical v16-v20 evaluations retained.",
+        "Użytkownik odłożył nowy próg opisów/przykładów czytnika; nowych opisowych dowodów nie aktywujemy, historyczne obserwacje zachowane."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -818,19 +819,28 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/reader-use-proof-review-cases.json",
           "label": "Własne przypadki do decyzji"
+        },
+        {
+          "path": "analysis/evidence/clean-inputs-continuation.md",
+          "label": "Kontynuacja na zatwierdzonych danych"
+        },
+        {
+          "path": "analysis/evidence/clean-source-qualifier-review.json",
+          "label": "Pełny przegląd kwalifikatorów v21"
         }
       ],
       "gate": {
         "id": "official_reader_own_use_description_proof",
-        "status": "pending",
+        "status": "deferred_by_user",
         "created_at": "2026-10-05T20:20:06Z",
         "question": "Czy własny ręczny przegląd jednoznacznych opisów/przykładów oficjalnego czytnika SGJP może być dowodem konkretnego użycia istniejącego rekordu, bez importu metadanych i z zachowaniem nierozpoznanej pozostałości?",
         "options": {
           "A": "Tak, po dokładnym przeglądzie i związaniu źródłowymi hashami; inne warunki osobno (rekomendowane).",
           "B": "Czytnik tylko pomocniczy; nowe dowody opisowe wyłącznie z dotychczasowej dokumentacji."
         },
-        "answer": null,
-        "artifact": "analysis/evidence/reader-use-proof-decision.md"
+        "answer": "Odłóżmy ten ruch, żeby nie zanieczyścić losowymi danymi naszej bazy.",
+        "artifact": "analysis/evidence/reader-use-proof-decision.md",
+        "answered_at": "2026-10-05T20:25:02Z"
       }
     },
     {
