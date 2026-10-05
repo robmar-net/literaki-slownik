@@ -11,14 +11,14 @@ Macierz rozdziela poprawność językową, dopuszczalność gry i kompletność 
 - Nie uruchamiamy trybu permissive ani produktywnego tworzenia nowych leksemów.
 
 ## Open Questions / Risks
-- Całe kontrakcje przyimkowe potrzebują niezależnego poświadczenia wymaganego dla gry; sama reguła składania go nie daje.
+- Zatwierdzone A: dosłowna enumeracja18kontrakcji w SGJP wystarcza jako dowód językowy;8pozostałych wymaga dalszego dowodu. Sama reguła składania ich nie potwierdza.
 - Warunki konstrukcji odnosimy do udokumentowanych zasad gry, bez automatycznego przejmowania redakcyjnej polityki źródeł SJP.pl. Zob. [sprostowanie](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/source-policy-clarification.md). Nie aktualizujemy reguł gry przez odczyt bieżącej witryny.
 - Lista hostów mobilnych zakończeń wymaga dowodu morfemu, nie tylko końcowych liter.
 
 ## Fleksja
 [Teoria SGJP](https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf), §6.6.2, opisuje ograniczone paradygmaty czasowników niewłaściwych. Pełny odczyt 30 leksemów wykazał po pięć analiz, bez osobowych form 1./2. osoby. Mechaniczna próba dopisała po cztery nieuprawnione trójki: razem 120. Dane i pełne paradygmaty są w `analysis/evidence/closure-*.json` aktywnego zadania; koordynator porównał wszystkie 150 rekordów z bazą.
 
-W siedmiu leksemach winien źródłowe formy z zakończeniem `-śmy` mają tag `sec`. Tabele SGJP §6.6.1 i §6.4.1 potwierdzają osobę pierwszą. Kontrola daje 105 oczekiwanych i 105 źródłowych osobowych trójek, z siedmioma różnicami tagów po obu stronach. Wpływ na obecność napisów: zero. Przyszły explain ma pokazać surowy tag i osobne, jawne erratum; nie ukrywać poprawki w imporcie.
+W siedmiu leksemach winien źródłowe formy z zakończeniem `-śmy` mają tag `sec`. Tabele SGJP §6.6.1 i §6.4.1 potwierdzają osobę pierwszą. Kontrola daje 105 oczekiwanych i 105 źródłowych osobowych trójek, z siedmioma różnicami tagów po obu stronach. Wpływ na obecność napisów: zero. Explain pokazuje surowy tag i osobną jawną erratę, przypiętą do SHA256 źródła; nie ukrywa poprawki w imporcie.
 
 ## Macierz konstrukcji
 Warunki techniczne opierają się na przypiętym `segmenty.dat` Morfeusza 20260823; rejestr dowodów zawiera hash.
@@ -36,7 +36,7 @@ Przypadki rozdzielające pochodzą z danych SGJP: `jam` ma niezależną analizę
 
 ## Zaimplementowane konstruktory
 
-`literaki_slownik.constructions` tworzy kandydatów dla rozkaźnika z jedną partykułą i źródłowego `by` (comp/part) z czterema końcówkami aglt nwok. Każdy wynik zachowuje pełne składniki, ID homonimów i źródłowe kwalifikatory. Nie tworzymy podwojonej partykuły ani nie zgadujemy hosta po końcowych literach. Nieznana klasa lub niezgodne zakończenie daje błąd pokrycia. Kandydaci nie są jeszcze integrowani z build ani kwalifikowani do list.
+`literaki_slownik.constructions` tworzy kandydatów dla rozkaźnika z jedną partykułą i źródłowego `by` (comp/part) z czterema końcówkami aglt nwok. Każdy wynik zachowuje pełne składniki, ID homonimów i źródłowe kwalifikatory. Nie tworzymy podwojonej partykuły ani nie zgadujemy hosta po końcowych literach. Nieznana klasa lub niezgodne zakończenie daje błąd pokrycia. Kandydaci są utrwalani przez build; pełna kwalifikacja do list nadal wymaga domknięcia.
 
 Pełny runtime: 92 622 źródłowe rekordy impt → 93 438 rozwiniętych analiz, 91 104 różne napisy; 4 100 napisów odpada już w profilu alfabetu/długości. To nie końcowa delta listy. Dwa źródłowe by × cztery aglt dają osiem analiz czterech napisów. [Raport](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/approved-rules-runtime.json).
 
@@ -61,3 +61,9 @@ Tabela `derivation_component` wiąże każdy składnik źródłowy kluczem obcym
 Kandydaci mają wyłącznie `candidate_not_qualified`. W `reports/construction-candidates.json` znajduje się rozliczenie potwierdzonego podzbioru. Pełny etap constructions pozostaje pending, ponieważ inne klasy i kwalifikacja nadal wymagają wykonania.
 
 Explain nadal odtwarza potwierdzone konstrukcje z rzeczywistych składników, a `persisted_candidate_key` wskazuje odpowiadający im zapis, jeśli istnieje. Dla starych baz bez tych tabel pole jest null; odczyt nie wymaga migracji ani modyfikacji wcześniejszego przebiegu. To odnośnik do śladu, nie finalna ocena dopuszczalności.
+
+## Zatwierdzony dowód kontrakcji i zamknięta grupa hostów by
+
+Zatwierdzone A dla dowodu kontrakcji wdrożono:57 rozwiniętych analiz18dosłownychformSGJP z dowodem accept;24analizy8pozostałychform nadal unresolved. Build/explain zapisują pełne składniki i zachowują homonimy. Zamknięta grupa16hostów z_aglt_by daje64kandydatów z poprawnymPOS; brak reguły sufiksowej. KWJP orth/orth_lc wiąże całe konstrukcje przez FK do candidate_key, bez dziedziczeniaFkorzenia. Explainczyta starsze bazy. Siedem errat winien jest adnotacją zależną od hasha źródła; import i napisy bez zmian. Pełna polityka, pozostałe klasy i wydanie nadal pending.
+
+[Przegląd i rzeczywiste liczebności](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/constructions-links-review.md). Pełny zakres pozostałych mobilnych hostów i dowodów pozostaje obowiązkowy.

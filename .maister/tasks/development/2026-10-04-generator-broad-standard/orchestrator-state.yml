@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-05T01:32:21.447466+00:00",
+    "updated": "2026-10-05T01:55:19.028190+00:00",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "Komenda build tworzy bezpośrednie powiązania wszystkich zaimportowanych jednostek KWJP i reports/links.json; F pozostaje przy jednostce korpusu. Raport wskazuje osobno listy/gatunki i źródła niedostępne. Pełne powiązania konstrukcji nadal otwarte: links pozostaje pending, a wynik INCOMPLETE. Błąd zapisu powiązań oznacza links failed, zachowując zakończone importy. Testy generatora 106/106 i audytu 5/5 przeszły.",
+      "summary": "Zatwierdzone A dla dowodu kontrakcji wdrożono:57 rozwiniętych analiz18dosłownychformSGJP z dowodem accept;24analizy8pozostałychform nadal unresolved. Build/explain zapisują pełne składniki i zachowują homonimy. Zamknięta grupa16hostów z_aglt_by daje64kandydatów z poprawnymPOS; brak reguły sufiksowej. KWJP orth/orth_lc wiąże całe konstrukcje przez FK do candidate_key, bez dziedziczeniaFkorzenia. Explainczyta starsze bazy. Siedem errat winien jest adnotacją zależną od hasha źródła; import i napisy bez zmian. Pełna polityka, pozostałe klasy i wydanie nadal pending.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -227,7 +227,8 @@
         "A mixed_history_priority: dodatkowe daw./przest. wyklucza konkretną interpretację ze STANDARD mimo dziś; samo dziś nie wyklucza, BROAD bez wyłączenia przez dawność.",
         "Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych.",
         "A incorrect_source_label_policy: jawne niepopr. na sprawdzonej dosłownej etykiecie odrzuca konkretną interpretację w BROAD i STANDARD, bez usunięcia wpisu lub innych analiz.",
-        "A context_restrictions_policy: samo wymaganie kontekstu niewykluczające; explain zachowuje je, niesamodzielne morfemy osobno."
+        "A context_restrictions_policy: samo wymaganie kontekstu niewykluczające; explain zachowuje je, niesamodzielne morfemy osobno.",
+        "A contraction_documentation_proof: dosłowne wskazanie całej kontrakcji przez autorów SGJP wystarcza jako dowód językowy dla18 form; pozostałe kryteria osobno,8pozostałych bez automatycznej analogii."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -389,19 +390,27 @@
         {
           "path": "analysis/evidence/contraction-proof-decision.md",
           "label": "Decyzja dowodu kontrakcji"
+        },
+        {
+          "path": "analysis/evidence/constructions-links-review.md",
+          "label": "Przegląd kontrakcji, hostów i powiązań"
+        },
+        {
+          "path": "analysis/evidence/preposition-runtime.json",
+          "label": "Pełny runtime klasy przyimkowej"
+        },
+        {
+          "path": "analysis/evidence/mobile-by-runtime.json",
+          "label": "Pełny runtime hostów by"
+        },
+        {
+          "path": "analysis/evidence/winien-explain-runtime.json",
+          "label": "Siedem rzeczywistych errat w explain"
         }
       ],
       "gate": {
-        "id": "contraction_documentation_proof",
-        "status": "pending",
-        "created_at": "2026-10-05T01:32:21.447466+00:00",
-        "question": "Czy dosłowne wskazanie kontrakcji przez autorów dokumentacji SGJP wystarcza jako dowód językowy, również dla form opisanych jako utworzone przez analogię?",
-        "options": {
-          "A": "Tak, bez dodatkowego niezależnego poświadczenia każdej z 18 wskazanych form; inne kryteria obowiązują (rekomendowane).",
-          "B": "Nie, wymagamy dodatkowego odrębnego poświadczenia słownikowego całej kontrakcji."
-        },
-        "answer": null,
-        "artifact": "analysis/evidence/contraction-proof-decision.md"
+        "question": null,
+        "answer": null
       },
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
@@ -494,6 +503,19 @@
           },
           "answer": "A",
           "answered_at": "2026-10-05T00:48:09Z"
+        },
+        {
+          "id": "contraction_documentation_proof",
+          "status": "approved",
+          "created_at": "2026-10-05T01:32:21.447466+00:00",
+          "question": "Czy dosłowne wskazanie kontrakcji przez autorów dokumentacji SGJP wystarcza jako dowód językowy, również dla form opisanych jako utworzone przez analogię?",
+          "options": {
+            "A": "Tak, bez dodatkowego niezależnego poświadczenia każdej z 18 wskazanych form; inne kryteria obowiązują (rekomendowane).",
+            "B": "Nie, wymagamy dodatkowego odrębnego poświadczenia słownikowego całej kontrakcji."
+          },
+          "answer": "A",
+          "artifact": "analysis/evidence/contraction-proof-decision.md",
+          "answered_at": "2026-10-05T01:38:21.458294+00:00"
         }
       ]
     }
@@ -584,7 +606,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "User explicitly authorized continuing code with evidence gaps: policy mechanics only, no active unresolved linguistic rules",
-        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed; context3 red→green,11/11 labels,169 records; persistence3 red→green,build2 red→green; fullconfirmedclass projection93446 candidates186892 components,repeat idempotent,FK/integrityOK",
+        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed; context3 red→green,11/11 labels,169 records; persistence3 red→green,build2 red→green; fullconfirmedclass projection93446 candidates186892 components,repeat idempotent,FK/integrityOK; preposition3redgreen+buildintegration1green,81expandedcandidates(57proof/24unresolved),repeatFKintegrity;mobileby1redgreen64candidates16hosts;winien2redgreen7realJSONtext",
         "remaining": "Full qualifier/category/orthography policy, mobile/preposition constructions and final decisions persistence/integration; G3 closure"
       },
       "G5": {
@@ -592,7 +614,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "Independent technical KWJP during actual G3 evidence gap as approved plan §2",
-        "tests": "4/4 focused including report red→green; 25/25 generator + audit 5/5; full diagnostic 13/13 lists, FK OK; build integration2 red→green, explain runtime from actual synthetic build readonly; full suite106/106,audit5/5",
+        "tests": "4/4 focused including report red→green; 25/25 generator + audit 5/5; full diagnostic 13/13 lists, FK OK; build integration2 red→green, explain runtime from actual synthetic build readonly; full suite106/106,audit5/5; wholederivationlinks1redgreen, FKcandidate_key,Fnotinherited",
         "remaining": "All derived candidate relations, final availability/quality and canonical acceptance; direct links integrated in build, full stage pending"
       },
       "G6": {
@@ -600,7 +622,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "Independent diagnostic explain authorized by plan §2 and user continue code",
-        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks; context explain JSON/text regression green,5 real readonly queries; qualifier coverage6 red→green,build integration1 red→green; full7458520/615/605 repeat canonical identical readonly; persisted explain2 red→green; alternative source trace regression fixed,legacycompatible,6realqueries rechecked readonly",
+        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks; context explain JSON/text regression green,5 real readonly queries; qualifier coverage6 red→green,build integration1 red→green; full7458520/615/605 repeat canonical identical readonly; persisted explain2 red→green; alternative source trace regression fixed,legacycompatible,6realqueries rechecked readonly; contraction/mobile/corpus3redgreen,legacyreadonly20observations",
         "remaining": "Full strata and analysis payloads, report/build integration, other canonical reports/index, full final decisions/derivations explain"
       },
       "G7": {
@@ -644,7 +666,7 @@
         "artifact": "analysis/evidence/wiktionary-attestation-decision.md"
       }
     },
-    "verification_note": "Increment106/106 generator,5/5audit,28focused; no full new build or final verification; G3–G6partial. Necessary language evidence gate pending; no policy activated.",
+    "verification_note": "117/117 generator,5/5baseline; productionpreflight14/14sources and10configs passed; focused52/52. Realclassprojections81preposition,64mobileby,7winienerrata,legacyreadonly. Fullverification/G8pending.",
     "source_policy_clarification": {
       "recorded_at": "2026-10-04T21:49:35Z",
       "artifact": "analysis/evidence/source-policy-clarification.md",

@@ -33,4 +33,4 @@ A — wystarczy dosłowne wskazanie całej formy w dokumentacji SGJP; dalsze kry
 
 B — wymagamy dodatkowego odrębnego poświadczenia słownikowego całej formy.
 
-Pytanie jest wymagane przez AGENTS.md: „Decyzje zmieniające skład słownika lub kryteria dopuszczalności omawiamy z użytkownikiem przed ich wdrożeniem”. Jest to bramka G3/3.4 zatwierdzonego planu i fazy 8 Maister; wcześniejsza zgoda na audyt dodatkowych wejść nie rozstrzyga tej polityki. Stan: pending, bez zmiany reguł.
+Pytanie jest wymagane przez AGENTS.md: „Decyzje zmieniające skład słownika lub kryteria dopuszczalności omawiamy z użytkownikiem przed ich wdrożeniem”. Jest to bramka G3/3.4 zatwierdzonego planu i fazy 8 Maister; wcześniejsza zgoda na audyt dodatkowych wejść nie rozstrzyga tej polityki. Stan: zatwierdzone A przez użytkownika (2026-10-05T01:38:21.458294+00:00); wdrożenie w toku, reguły gry bez zmian.

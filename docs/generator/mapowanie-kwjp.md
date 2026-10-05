@@ -39,3 +39,7 @@ Na nowej kopii diagnostycznej powiązano wszystkie 5 066 341 jednostek z 13 list
 ## Integracja diagnostyczna z build
 
 Komenda build tworzy bezpośrednie powiązania wszystkich zaimportowanych jednostek KWJP i reports/links.json; F pozostaje przy jednostce korpusu. Raport wskazuje osobno listy/gatunki i źródła niedostępne. Pełne powiązania konstrukcji nadal otwarte: links pozostaje pending, a wynik INCOMPLETE. Błąd zapisu powiązań oznacza links failed, zachowując zakończone importy. Testy generatora 106/106 i audytu 5/5 przeszły.
+
+## Całe formy konstrukcji
+
+Nowe relacje wskazują candidate_key przez FK tylko dla dopasowania całego napisu orth/orth_lc. Częstość korzenia nie przechodzi na konstrukcję; F nie jest powielane za homonimami lub śladami. Explain zachowuje zgodność wcześniejszych baz. Pełny etap links nadal wymaga pozostałych klas i odbioru.

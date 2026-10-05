@@ -4,6 +4,26 @@ from itertools import product
 from math import prod
 from .inputs import GeneratorError
 
+WINIEN_ERRATA_FORMS = {'gotów':'gotoweśmy', 'kontent:V':'kontenteśmy',
+                      'niekontent:V':'niekontenteśmy', 'nierad:V':'nieradeśmy',
+                      'powinien':'powinnyśmy', 'rad:V':'radeśmy', 'winien':'winnyśmy'}
+
+
+def tag_errata(source_sha256, lemma_id, original, raw_tag):
+    """Jawna adnotacja siedmiu sprawdzonych rekordów; nie modyfikuje importu."""
+    if (source_sha256 != '3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810'
+            or WINIEN_ERRATA_FORMS.get(lemma_id) != original
+            or raw_tag != 'winien:pl:m2.m3.f.n:sec:imperf'):
+        return []
+    corrected = 'winien:pl:m2.m3.f.n:pri:imperf'
+    return [{'rule_id':'sgjp-20260823-winien-person-erratum-v1',
+             'raw_tag':raw_tag, 'corrected_tag':corrected,
+             'corrected_expanded_tags':list(expand_tag(corrected)),
+             'effect_on_word_strings':'none',
+             'message':'Sprawdzona forma pierwszej osoby mnogiej; surowy tag źródłowy zachowany.',
+             'evidence':['docs/generator/konstrukcje.md',
+                         'https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf']}]
+
 
 def tag_size(tag):
     parts = [part.split('.') for part in tag.split(':')]

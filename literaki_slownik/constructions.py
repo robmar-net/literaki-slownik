@@ -8,6 +8,12 @@ VOWELS = frozenset('aąeęioóuy')
 IMPT_PARTICLE_RULE = 'impt-single-particle-v1'
 SOURCE_FIELDS = ('source_id', 'first_source_row', 'original', 'lemma_id', 'raw_tag', 'names', 'qualifiers')
 BY_AGLT_ENDINGS = {('sg', 'pri'): 'm', ('sg', 'sec'): 'ś', ('pl', 'pri'): 'śmy', ('pl', 'sec'): 'ście'}
+PREPOSITION_N_UNVARIED = frozenset('na do dla koło o po poza spoza za zza'.split())
+PREPOSITION_N_WOK = frozenset('beze nade ode pode ponade popode poprzeze przede przeze spode sponade spopode sprzede we ze znade'.split())
+# Dosłowna enumeracja §9.1 SGJP, zatwierdzona jako dowód językowy (A).
+PREPOSITION_N_DOCUMENTED = frozenset('bezeń dlań doń nadeń nań odeń oń podeń poń przedeń przezeń spodeń spozań sprzedeń weń zań zeń znadeń'.split())
+MOBILE_BY_HOSTS = {**dict.fromkeys('aby choćby chociażby iżby gdyby jakby jakoby żeby ażeby jeżeliby jeśliby byleby kieby'.split(), 'comp'),
+                   **dict.fromkeys('oby bodajby czyżby'.split(), 'part')}
 
 
 def _validate_source(source):
@@ -60,6 +66,21 @@ def by_aglt_candidates(operator, aglt):
     _validate_source(aglt)
     if operator['original'] != 'by' or operator['raw_tag'] not in {'comp', 'part'}:
         return []
+    return _attach_aglt(operator, aglt, 'by-aglt-nwok-v1')
+
+
+def mobile_by_aglt_candidates(host, aglt):
+    """Źródłowa klasa z_aglt_by; bez odczytywania końcowych liter hosta."""
+    _validate_source(host)
+    _validate_source(aglt)
+    lemma = host['lemma_id'].split(':', 1)[0]
+    if (host['source_id'] != aglt['source_id'] or lemma not in MOBILE_BY_HOSTS
+            or host['original'] != lemma or host['raw_tag'] != MOBILE_BY_HOSTS[lemma]):
+        return []
+    return _attach_aglt(host, aglt, 'mobile-by-host-aglt-v1')
+
+
+def _attach_aglt(operator, aglt, rule_id):
     if aglt['raw_tag'].split(':', 1)[0] != 'aglt':
         return []
     results = []
@@ -73,13 +94,62 @@ def by_aglt_candidates(operator, aglt):
                                             for label in item[field].split('|') if label}))
                      for field in ('names', 'qualifiers')}
         results.append({
-            'rule_id': 'by-aglt-nwok-v1', 'status': 'candidate_not_qualified',
+            'rule_id': rule_id, 'status': 'candidate_not_qualified',
             'original': operator['original'] + aglt['original'], 'lemma_id': operator['lemma_id'],
             'expanded_tag': tag, **inherited,
             'components': [{'kind': 'source_interpretation', 'interpretation': dict(item)}
                            for item in (operator, aglt)],
             'evidence': ['docs/generator/konstrukcje.md', 'config/generator/constructions.json'],
         })
+    return results
+
+
+def preposition_n_candidates(preposition, pronoun):
+    """Kontrolowana kontrakcja; dowód całego napisu oceniany oddzielnie.
+
+    Nie ma ogólnej reguły doklejania ń ani zgadywania wariantu wokalicznego.
+    Osiem niewymienionych napisów zachowuje nierozstrzygnięty dowód językowy.
+    """
+    _validate_source(preposition)
+    _validate_source(pronoun)
+    if (preposition['source_id'] != pronoun['source_id'] or pronoun['original'] != 'ń'
+            or pronoun['lemma_id'].split(':', 1)[0] != 'on'):
+        return []
+    form = preposition['original']
+    results = []
+    for prep_tag in expand_tag(preposition['raw_tag']):
+        prep = prep_tag.split(':')
+        if (len(prep) not in {2, 3} or prep[0] != 'prep' or prep[1] not in {'gen', 'acc'}
+                or not ((len(prep) == 2 and form in PREPOSITION_N_UNVARIED)
+                        or (len(prep) == 3 and prep[2] == 'wok' and form in PREPOSITION_N_WOK))):
+            continue
+        for tag in expand_tag(pronoun['raw_tag']):
+            fields = tag.split(':')
+            if (len(fields) != 7 or fields[:3] != ['ppron3', 'sg', prep[1]]
+                    or fields[3] not in {'m1', 'm2', 'm3'} or fields[4:] != ['ter', 'nakc', 'praep']):
+                continue
+            original = form + 'ń'
+            proved = original in PREPOSITION_N_DOCUMENTED
+            inherited = {field: '|'.join(sorted({label for item in (preposition, pronoun)
+                                                for label in item[field].split('|') if label}))
+                         for field in ('names', 'qualifiers')}
+            results.append({
+                'rule_id': 'preposition-n-source-v1', 'status': 'candidate_not_qualified',
+                'original': original, 'lemma_id': pronoun['lemma_id'], 'expanded_tag': tag,
+                'preposition_expanded_tag': prep_tag, **inherited,
+                'components': [{'kind': 'source_interpretation', 'interpretation': dict(item)}
+                               for item in (preposition, pronoun)],
+                'linguistic_evidence': {
+                    'rule_id': 'preposition-n-whole-form-proof-v1',
+                    'status': 'accept' if proved else 'unresolved',
+                    'message': 'Cała forma dosłownie wskazana w §9.1 SGJP; inne warunki oceniane osobno.'
+                               if proved else 'Cała forma poza enumeracją §9.1 SGJP; dowód nadal wymagany.',
+                    'evidence': ['config/generator/constructions.json',
+                                 'https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf'],
+                },
+                'fulfilled_component_requirements': ['pisane_łącznie_z_przyimkiem'],
+                'evidence': ['docs/generator/konstrukcje.md', 'config/generator/constructions.json'],
+            })
     return results
 
 
@@ -134,6 +204,20 @@ def materialize_confirmed_candidates(db, batch_size=10000):
             if operator['source_id'] == ending['source_id']:
                 for candidate in by_aglt_candidates(operator, ending):
                     save(candidate)
+    mobile_hosts = [dict(zip(SOURCE_FIELDS,row)) for row in db.execute(
+        select + " where i.tag in ('comp','part') order by i.source_id,i.first_row")]
+    for host in mobile_hosts:
+        for ending in endings:
+            for candidate in mobile_by_aglt_candidates(host, ending):
+                save(candidate)
+    prepositions = [dict(zip(SOURCE_FIELDS,row)) for row in db.execute(
+        select + " where i.tag like 'prep:%' order by i.source_id,i.first_row")]
+    pronouns = [dict(zip(SOURCE_FIELDS,row)) for row in db.execute(
+        select + " where f.original='ń' and i.tag like 'ppron3:%' order by i.source_id,i.first_row")]
+    for preposition in prepositions:
+        for pronoun in pronouns:
+            for candidate in preposition_n_candidates(preposition, pronoun):
+                save(candidate)
     db.commit()
     by_rule = dict(db.execute('select rule_id,count(*) from derivation_candidate group by rule_id order by rule_id'))
     return {'schema_version': 1, 'scope': 'confirmed_subset_candidates_not_full_constructions',

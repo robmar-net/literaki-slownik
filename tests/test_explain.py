@@ -14,6 +14,64 @@ from literaki_slownik.explain import explain
 
 
 class ExplainTests(unittest.TestCase):
+    def test_mobile_by_host_trace_distinguishes_same_spelling_wrong_pos(self):
+        from tests.test_build import BuildTests
+        root = Path(self.temp.name) / 'mobile'
+        root.mkdir()
+        p = BuildTests().manifest(root,'#</COPYRIGHT>\naby\taby:M\tcomp\t\t\naby\taby:T\tpart\t\t\nśmy\tbyć:A\taglt:pl:pri:imperf:nwok\t\t\n')
+        run = root / 'run'
+        build(p,run)
+        c, = explain(run,'abyśmy')['derivations']
+        self.assertEqual(c['lemma_id'],'aby:M')
+        self.assertEqual(c['rule_id'],'mobile-by-host-aglt-v1')
+        self.assertIsNotNone(c['persisted_candidate_key'])
+        self.assertEqual(explain(run,'nibyśmy')['derivations'],[])
+
+    def test_derived_corpus_only_matches_whole_form_and_never_copies_root_frequency(self):
+        root = Path(self.temp.name)
+        p = root / 'sources.json'
+        manifest = load_json(p)
+        for sid, kind, filename, contents in [
+            ('LEMMA','kwjp_lemma','root.csv.gz',',,freq,ipm,ARF,DP,DP_norm,1-DP,total_freq\nczytać,impt,99,1,1,0,0,1,99\n'),
+            ('ORTH','kwjp_orth','whole.csv.gz',',freq,ipm,ARF,DP,DP_norm,1-DP,total_freq\nczytajże,5,1,1,0,0,1,5\n')]:
+            corpus = root / filename
+            with gzip.open(corpus,'wt',encoding='utf-8') as stream:
+                stream.write(contents)
+            artifact = dict(manifest['artifacts'][0])
+            artifact.update(source_id=sid,kind=kind,role='corpus_evidence',path=filename,sha256=sha256(corpus),genre='all')
+            manifest['artifacts'].append(artifact)
+        rewrite(p,manifest)
+        run = root / 'whole-form-corpus'
+        build(p,run)
+        value = explain(run,'czytajże')
+        observations = value['corpus']['observations']
+        self.assertEqual([o['source_id'] for o in observations],['ORTH'])
+        self.assertEqual(observations[0]['typed_metrics']['freq'],5)
+        self.assertEqual(observations[0]['candidates'][0]['candidate_key'],value['derivations'][0]['persisted_candidate_key'])
+        self.assertFalse(observations[0]['sense_identity_confirmed'])
+        self.assertEqual(explain(run,'czytaj')['corpus']['observations'][0]['typed_metrics']['freq'],99)
+
+    def test_preposition_proof_separate_from_source_homonym_and_full_membership(self):
+        from tests.test_build import BuildTests
+        root = Path(self.temp.name) / 'contraction'
+        root.mkdir()
+        p = BuildTests().manifest(root, '#</COPYRIGHT>\ndo\tdo:P\tprep:gen\t\t\nkoło\tkoło:P\tprep:gen\t\t\nń\ton:S\tppron3:sg:gen:m1:ter:nakc:praep\t\tpisane_łącznie_z_przyimkiem\ndoń\tdonia\tsubst:pl:gen:f\t\t\n')
+        run = root / 'run'
+        build(p, run)
+        before = [sha256(run / f) for f in ('manifest.json','build.sqlite')]
+        value = explain(run, 'doń')
+        self.assertEqual([a['lemma_id'] for a in value['analyses']], ['donia'])
+        candidate, = value['derivations']
+        self.assertEqual(candidate['lemma_id'], 'on:S')
+        self.assertIsNotNone(candidate['persisted_candidate_key'])
+        for variant in ('broad','standard'):
+            checks = candidate['assessment']['language'][variant]['checks']
+            self.assertTrue(any(c['rule_id']=='preposition-n-whole-form-proof-v1' and c['status']=='accept' for c in checks))
+        self.assertEqual(value['list_membership']['status'], 'unresolved')
+        unproved, = explain(run,'kołoń')['derivations']
+        self.assertEqual(unproved['linguistic_evidence']['status'], 'unresolved')
+        self.assertEqual(before, [sha256(run / f) for f in ('manifest.json','build.sqlite')])
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

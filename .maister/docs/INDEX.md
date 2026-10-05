@@ -41,3 +41,5 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 
 - [KWJP w build](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/build-links-integration-review.md) — relacje bezpośrednie; pełny etap pending.
 - [Dowody kontrakcji](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/contraction-proof-decision.md) — konieczna decyzja użytkownika przed nowym warunkiem.
+
+- [Kontrakcje, mobilne by i korpus](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/constructions-links-review.md) — wdrożoneA,57/24analizy przyimkowe,64mobilne by,7errat winien; pełny zakres nadal otwarty.

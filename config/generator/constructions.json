@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "constructions-discovery-v1",
+  "version": "constructions-discovery-v2",
   "status": "not_active_policy",
   "classes": {
     "full_personal_praet_cond": {
@@ -75,7 +75,7 @@
       "build_integration": "diagnostic_subset_stage_remains_pending"
     },
     "preposition_n": {
-      "status": "unresolved_game_attestation",
+      "status": "materialized_with_approved_documentation_proof_and_unresolved_remainder",
       "source_candidate_analyses": 27,
       "source_candidate_strings": 26,
       "required_cases": [
@@ -88,7 +88,47 @@
         "rjp:4.4.4",
         "zds:5"
       ],
-      "corpus_frequency_is_not_game_attestation": true
+      "corpus_frequency_is_not_game_attestation": true,
+      "rule_id": "preposition-n-source-v1",
+      "proof_rule_id": "preposition-n-whole-form-proof-v1",
+      "documented_whole_forms": [
+        "bezeń",
+        "dlań",
+        "doń",
+        "nadeń",
+        "nań",
+        "odeń",
+        "oń",
+        "podeń",
+        "poń",
+        "przedeń",
+        "przezeń",
+        "spodeń",
+        "spozań",
+        "sprzedeń",
+        "weń",
+        "zań",
+        "zeń",
+        "znadeń"
+      ],
+      "documented_strings": 18,
+      "unresolved_strings": 8,
+      "documented_expanded_analyses": 57,
+      "unresolved_expanded_analyses": 24,
+      "decision": "analysis/evidence/contraction-proof-decision.md",
+      "case_agreement_required": true,
+      "pronoun_number": "sg",
+      "pronoun_person": "ter",
+      "pronoun_gender": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "pronoun_variants": [
+        "nakc",
+        "praep"
+      ],
+      "full_qualification_pending": true
     },
     "double_particle": {
       "status": "language_confirmed_game_excluded",
@@ -112,7 +152,39 @@
         "morfeusz_segments:142-185",
         "sgjp_theory:6.4.1,7.5,7.8",
         "zds:5"
-      ]
+      ],
+      "by_host_subset": {
+        "status": "confirmed_materialized_candidates_full_qualification_pending",
+        "rule_id": "mobile-by-host-aglt-v1",
+        "source_class": "z_aglt_by",
+        "evidence": [
+          "morfeusz_segments:143-147,760-777",
+          "sgjp_theory:7.5,7.8"
+        ],
+        "source_hosts_comp": [
+          "aby",
+          "choćby",
+          "chociażby",
+          "iżby",
+          "gdyby",
+          "jakby",
+          "jakoby",
+          "żeby",
+          "ażeby",
+          "jeżeliby",
+          "jeśliby",
+          "byleby",
+          "kieby"
+        ],
+        "source_hosts_part": [
+          "oby",
+          "bodajby",
+          "czyżby"
+        ],
+        "variant": "nwok",
+        "lemma_pos_and_source_match_required": true,
+        "by_itself": "existing_by_aglt_rule_not_duplicated"
+      }
     },
     "productive_derivation": {
       "status": "excluded_by_approved_scope",

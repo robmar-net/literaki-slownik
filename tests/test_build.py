@@ -12,6 +12,21 @@ from literaki_slownik.inputs import GeneratorError
 
 
 class BuildTests(unittest.TestCase):
+    def test_preposition_candidates_store_proof_and_unresolved_without_losing_homonym(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p = self.manifest(directory, '#</COPYRIGHT>\ndo\tdo:P\tprep:gen\t\t\nkoło\tkoło:P\tprep:gen\t\t\nń\ton:S\tppron3:sg:gen:m1.m2.m3:ter:nakc:praep\t\tpisane_łącznie_z_przyimkiem\ndoń\tdonia\tsubst:pl:gen:f\t\t\n')
+            run = Path(directory) / 'run'
+            build(p, run)
+            import json
+            with connect(run / 'build.sqlite', readonly=True) as db:
+                candidates = [json.loads(r[0]) for r in db.execute('select payload from derivation_candidate')]
+                self.assertEqual(len(candidates), 6)
+                self.assertEqual({c['linguistic_evidence']['status'] for c in candidates if c['original']=='doń'}, {'accept'})
+                self.assertEqual({c['linguistic_evidence']['status'] for c in candidates if c['original']=='kołoń'}, {'unresolved'})
+                self.assertEqual(db.execute('select count(*) from derivation_component').fetchone()[0], 12)
+                self.assertEqual(db.execute('select count(*) from interpretation').fetchone()[0], 4)
+                self.assertEqual(db.execute('pragma foreign_key_check').fetchall(), [])
+
     def corpus_manifest(self, directory):
         p = self.manifest(directory, '#</COPYRIGHT>\nzamek\tzamek:a\tsubst:sg:nom:m3\t\t\nzamek\tzamek:b\tsubst:sg:nom:m3\t\t\n')
         manifest = load_json(p)

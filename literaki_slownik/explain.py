@@ -9,18 +9,18 @@ from .decisions import assess_analysis, aggregate, VARIANTS
 from .inputs import GeneratorError
 from .links import availability
 from .policy import assess_profile, approved_qualifier_checks, VERSION
-from .sgjp import expand_tag
-from .constructions import impt_particle_candidates, by_aglt_candidates, BY_AGLT_ENDINGS
+from .sgjp import expand_tag, tag_errata
+from .constructions import impt_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, BY_AGLT_ENDINGS
 
 
 def _pending(rule_id, message):
     return [{'rule_id': rule_id, 'status': 'unresolved', 'message': message, 'evidence': []}]
 
 
-def _assess(original, qualifiers):
+def _assess(original, qualifiers, additional_checks=()):
     pending = _pending('linguistic-policy-not-active-v1', 'Pełna polityka językowa G3/G4 nie jest jeszcze aktywna.')
     return assess_analysis(original,
-                           language={v: pending + approved_qualifier_checks(qualifiers, v) for v in VARIANTS},
+                           language={v: pending + approved_qualifier_checks(qualifiers, v) + list(additional_checks) for v in VARIANTS},
                            game_checks=_pending('game-metadata-not-complete-v1',
                                                 'Pozostałe udokumentowane warunki growe wymagają domknięcia.'))
 
@@ -42,18 +42,24 @@ def _derivations(db, key):
         for source in _construction_sources(db, key[:-len(suffix)]):
             candidates.extend(impt_particle_candidates(source))
     for ending in BY_AGLT_ENDINGS.values():
-        if key != 'by' + ending:
+        if not key.endswith(ending) or len(key) <= len(ending):
             continue
-        operators = _construction_sources(db, 'by')
+        operators = _construction_sources(db, key[:-len(ending)])
         endings = [s for s in _construction_sources(db, ending)
                    if s['raw_tag'].split(':',1)[0] == 'aglt' and s['raw_tag'].endswith(':nwok')]
         for operator in operators:
             for aglt in endings:
                 candidates.extend(by_aglt_candidates(operator, aglt))
+                candidates.extend(mobile_by_aglt_candidates(operator, aglt))
+    if key.endswith('ń') and len(key) > 1:
+        for preposition in _construction_sources(db, key[:-1]):
+            for pronoun in _construction_sources(db, 'ń'):
+                candidates.extend(preposition_n_candidates(preposition, pronoun))
     result = []
     stored = bool(db.execute("select 1 from sqlite_master where name='derivation_candidate'").fetchone())
     for candidate in candidates:
-        assessed = _assess(candidate['original'], candidate['qualifiers'])
+        proof = candidate.get('linguistic_evidence')
+        assessed = _assess(candidate['original'], candidate['qualifiers'], [proof] if proof else [])
         if assessed['game_key'] == key:
             candidate_key = hashlib.sha256(dumps(candidate).encode('utf-8')).hexdigest()
             present = stored and db.execute(
@@ -67,6 +73,10 @@ def _corpus(db, key, unavailable):
     built = bool(db.execute("select 1 from sqlite_master where name='evidence_link'").fetchone())
     observations = []
     if built:
+        derived_links = ('candidate_key' in {r[1] for r in db.execute('pragma table_info(evidence_candidate)')}
+                         and bool(db.execute("select 1 from sqlite_master where name='derivation_candidate'").fetchone()))
+        derived_union = '''union select c.evidence_id from evidence_candidate c
+            join derivation_candidate d on d.candidate_key=c.candidate_key where d.game_key=?''' if derived_links else ''
         # UNION usuwa powtórzenia dowodu wskazywanego przez kilka homonimów.
         rows = db.execute('''with matched(evidence_id) as (
             select c.evidence_id from evidence_candidate c
@@ -75,17 +85,21 @@ def _corpus(db, key, unavailable):
             select c.evidence_id from evidence_candidate c
             where c.lexeme_id in (select i.lexeme_id from interpretation i
                 join surface_form f on f.id=i.form_id where f.game_key=?)
-        ) select e.id,e.source_id,e.row_number,e.unit_1,e.unit_2,e.pos,
+        ''' + derived_union + ''') select e.id,e.source_id,e.row_number,e.unit_1,e.unit_2,e.pos,
             e.raw_metrics,e.typed_metrics,l.method,l.status,l.sense_identity_confirmed,l.reason
             from matched m join corpus_evidence e on e.id=m.evidence_id
-            join evidence_link l on l.evidence_id=e.id order by e.source_id,e.row_number''', (key, key))
+            join evidence_link l on l.evidence_id=e.id order by e.source_id,e.row_number''',
+            (key,key,key) if derived_links else (key,key))
         for eid, sid, row, first, second, pos, raw, typed, method, status, sense, reason in rows:
             candidates = []
-            for lid, fid, lemma, original in db.execute('''select c.lexeme_id,c.form_id,l.lemma_id,f.original
+            candidate_columns = 'coalesce(f.original,d.original),c.candidate_key' if derived_links else 'f.original,null'
+            candidate_join = 'left join derivation_candidate d on d.candidate_key=c.candidate_key' if derived_links else ''
+            for lid, fid, lemma, original, candidate_key in db.execute('''select c.lexeme_id,c.form_id,l.lemma_id,''' + candidate_columns + '''
                 from evidence_candidate c left join lexeme l on l.id=c.lexeme_id
-                left join surface_form f on f.id=c.form_id where c.evidence_id=?
-                order by l.lemma_id,f.original''', (eid,)):
-                candidates.append({'lexeme_id': lid, 'form_id': fid, 'lemma_id': lemma, 'original': original})
+                left join surface_form f on f.id=c.form_id ''' + candidate_join + ''' where c.evidence_id=?
+                order by l.lemma_id,4,5''', (eid,)):
+                candidates.append({'lexeme_id': lid, 'form_id': fid, 'lemma_id': lemma,
+                                   'original': original, 'candidate_key': candidate_key})
             metrics = json.loads(typed)
             observations.append({'evidence_id': eid, 'source_id': sid, 'row_number': row,
                                  'unit_1': first, 'unit_2': second, 'pos': pos,
@@ -120,14 +134,15 @@ def explain(run_dir, word, variant='standard'):
                 where f.game_key=? order by f.original,i.source_id,l.lemma_id,i.tag,i.names,i.qualifiers''',
                 (query['game_key'],))
             for iid, sid, row, original, lemma, tag, names, qualifiers in rows:
+                if sid not in sources:
+                    metadata = db.execute('select metadata from source_artifact where source_id=?', (sid,)).fetchone()[0]
+                    sources[sid] = json.loads(metadata)
                 assessed = _assess(original, qualifiers)
                 analyses.append({'interpretation_id': iid, 'source_id': sid, 'first_source_row': row,
                                  'original': original, 'lemma_id': lemma, 'raw_tag': tag,
                                  'expanded_tags': list(expand_tag(tag)), 'names': names,
-                                 'qualifiers': qualifiers, 'assessment': assessed})
-                if sid not in sources:
-                    metadata = db.execute('select metadata from source_artifact where source_id=?', (sid,)).fetchone()[0]
-                    sources[sid] = json.loads(metadata)
+                                 'qualifiers': qualifiers, 'assessment': assessed,
+                                 'tag_errata': tag_errata(sources[sid].get('sha256'),lemma,original,tag)})
             derivations = _derivations(db, query['game_key'])
             for candidate in derivations:
                 for component in candidate['components']:
@@ -170,6 +185,8 @@ def format_explanation(value):
     for analysis in value['analyses']:
         assessed = analysis['assessment']
         lines.append(f"\n{analysis['original']} · {analysis['lemma_id']} · {analysis['raw_tag']}")
+        for erratum in analysis.get('tag_errata', []):
+            lines.append(f"  Errata tagu: {erratum['corrected_tag']} — {erratum['message']}")
         lines.append(f"  Źródło: {analysis['source_id']}, pierwszy wiersz: {analysis['first_source_row']}; "
                      f"nazwy: {analysis['names'] or 'brak oznaczenia'}; kwalifikatory: {analysis['qualifiers'] or 'brak oznaczenia'}")
         for layer, result in [('język', assessed['language'][value['variant']]),

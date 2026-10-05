@@ -774,6 +774,34 @@
     "policy": {
       "path": "../../config/generator/policy.json",
       "sha256": "83604a95bc2b0d3440f949bfad31cbeb1871bcafa74ca175be5afb3e69281d8d"
+    },
+    "constructions": {
+      "path": "../../config/generator/constructions.json",
+      "sha256": "273511de17291cddba57b54074722617d4b02019f20ecf9d627b83909fe40e34"
+    },
+    "evidence": {
+      "path": "../../config/generator/evidence.json",
+      "sha256": "c011586e9f11b55dd0f06c607ef6ee8c3b250b4019eedfc352fecb7f4badd0f8"
+    },
+    "coverage": {
+      "path": "../../config/generator/coverage.json",
+      "sha256": "0adebbcfe5a83f6e20717656f42bbde9023e0594ce24ec6508461ec66093a003"
+    },
+    "qualifiers": {
+      "path": "../../config/generator/qualifiers.json",
+      "sha256": "e2b9b745d9b98ae4f5988dd82e4e972fb133d193f4ce61669148075954f4e77d"
+    },
+    "categories": {
+      "path": "../../config/generator/categories.json",
+      "sha256": "84f9ea5be48cf3bb78944a5422b7f9b0dfe8194cda568877fba815bcae213bfc"
+    },
+    "pos-map": {
+      "path": "../../config/generator/pos-map.json",
+      "sha256": "abacb29355ed0ebd57bb5cc3ed7b61c80c82dba74fb7dc12b7fa1e915028c279"
+    },
+    "orthography": {
+      "path": "../../config/generator/orthography.json",
+      "sha256": "51af4d535de450a2c2ff53c5ea2609b48c02d6adf60a4546c7e00e9f16a5e7a7"
     }
   },
   "unavailable": [

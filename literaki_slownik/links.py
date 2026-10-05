@@ -38,6 +38,12 @@ def candidates(db, kind, unit_1, pos=None, unit_2=None, allowed_pos=SHARED_POS):
             unit = unicodedata.normalize('NFC', unit.lower())
         found = [{'form_id': row[0], 'original': row[1]}
                  for row in db.execute(f'select id,original from surface_form where {column}=? order by original', (unit,))]
+        if db.execute("select 1 from sqlite_master where name='derivation_candidate'").fetchone():
+            lookup = unicodedata.normalize('NFC', unit.lower())
+            for candidate_key, original in db.execute('''select candidate_key,original
+                    from derivation_candidate where game_key=? order by original,candidate_key''', (lookup,)):
+                if kind == 'kwjp_orth_lc' or unicodedata.normalize('NFC', original) == unit:
+                    found.append({'candidate_key': candidate_key, 'original': original})
     elif kind == 'kwjp_bigram':
         if unit_2 is None:
             raise ValueError('Bigram wymaga dwóch segmentów')
@@ -82,11 +88,14 @@ def create_links(db, allowed_pos=SHARED_POS):
             evidence_id integer not null references evidence_link,
             lexeme_id integer references lexeme,
             form_id integer references surface_form,
-            check ((lexeme_id is null) != (form_id is null)));
+            candidate_key text references derivation_candidate,
+            check ((lexeme_id is not null) + (form_id is not null) + (candidate_key is not null) = 1));
         create unique index candidate_lexeme on evidence_candidate(evidence_id,lexeme_id) where lexeme_id is not null;
         create unique index candidate_form on evidence_candidate(evidence_id,form_id) where form_id is not null;
         create index candidate_by_lexeme on evidence_candidate(lexeme_id);
         create index candidate_by_form on evidence_candidate(form_id);
+        create unique index candidate_derivation on evidence_candidate(evidence_id,candidate_key) where candidate_key is not null;
+        create index candidate_by_derivation on evidence_candidate(candidate_key);
     ''')
     _lemma_index(db)
     summary = defaultdict(Counter)
@@ -97,8 +106,8 @@ def create_links(db, allowed_pos=SHARED_POS):
         result = candidates(db, kind, unit, pos, second, allowed_pos)
         db.execute('insert into evidence_link values (?,?,?,?,?)',
                    (evidence_id, result['method'], result['status'], 0, result['reason']))
-        db.executemany('insert into evidence_candidate(evidence_id,lexeme_id,form_id) values (?,?,?)',
-                       [(evidence_id, c.get('lexeme_id'), c.get('form_id')) for c in result['candidates']])
+        db.executemany('insert into evidence_candidate(evidence_id,lexeme_id,form_id,candidate_key) values (?,?,?,?)',
+                       [(evidence_id, c.get('lexeme_id'), c.get('form_id'), c.get('candidate_key')) for c in result['candidates']])
         summary[source_id][result['status']] += 1
     return {source: dict(sorted(counts.items())) for source, counts in sorted(summary.items())}
 

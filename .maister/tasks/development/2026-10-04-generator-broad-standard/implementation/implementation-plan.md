@@ -219,3 +219,7 @@ Nowe build zapisują potwierdzony podzbiór konstrukcji do derivation_candidate 
 Komenda build tworzy bezpośrednie powiązania wszystkich zaimportowanych jednostek KWJP i reports/links.json; F pozostaje przy jednostce korpusu. Raport wskazuje osobno listy/gatunki i źródła niedostępne. Pełne powiązania konstrukcji nadal otwarte: links pozostaje pending, a wynik INCOMPLETE. Błąd zapisu powiązań oznacza links failed, zachowując zakończone importy. Testy generatora 106/106 i audytu 5/5 przeszły.
 
 Decyzja o sile dowodu dla kontrakcji pozostaje [przed wdrożeniem](../analysis/evidence/contraction-proof-decision.md).
+
+## Kontrakcje i powiązania konstrukcji — postęp
+
+Zatwierdzone A dla dowodu kontrakcji wdrożono:57 rozwiniętych analiz18dosłownychformSGJP z dowodem accept;24analizy8pozostałychform nadal unresolved. Build/explain zapisują pełne składniki i zachowują homonimy. Zamknięta grupa16hostów z_aglt_by daje64kandydatów z poprawnymPOS; brak reguły sufiksowej. KWJP orth/orth_lc wiąże całe konstrukcje przez FK do candidate_key, bez dziedziczeniaFkorzenia. Explainczyta starsze bazy. Siedem errat winien jest adnotacją zależną od hasha źródła; import i napisy bez zmian. Pełna polityka, pozostałe klasy i wydanie nadal pending.

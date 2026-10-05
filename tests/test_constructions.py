@@ -11,6 +11,66 @@ def source(form='daj', tag='impt:sg:sec:perf', qualifiers=''):
 
 
 class ConstructionTests(unittest.TestCase):
+    def test_mobile_by_hosts_closed_by_lemma_and_pos_not_suffix(self):
+        from literaki_slownik.constructions import mobile_by_aglt_candidates
+        ending = source('śmy','aglt:pl:pri:imperf:nwok')
+        for form, pos in [('gdyby','comp'),('aby','comp'),('oby','part'),('czyżby','part')]:
+            host = source(form,pos,'rzad.')
+            host['lemma_id'] = form + ':M'
+            c, = mobile_by_aglt_candidates(host,ending)
+            self.assertEqual(c['original'],form+'śmy')
+            self.assertEqual(c['qualifiers'],'rzad.')
+            self.assertEqual(c['rule_id'],'mobile-by-host-aglt-v1')
+            self.assertEqual(c['components'][0]['interpretation'],host)
+        for form, lemma, pos in [('niby','niby','part'),('aby','aby:T','part'),
+                                 ('gdyby','inna','comp'),('by','by:M','comp'),
+                                 ('aby','aby:M','subst:sg:nom:m3')]:
+            self.assertEqual(mobile_by_aglt_candidates(dict(source(form,pos),lemma_id=lemma),ending),[])
+        self.assertEqual(mobile_by_aglt_candidates(dict(source('aby','comp'),lemma_id='aby:M'),dict(ending,source_id='other')),[])
+
+    def test_preposition_n_preserves_case_gender_and_whole_form_proof(self):
+        from literaki_slownik.constructions import preposition_n_candidates
+        prep = source('do', 'prep:gen', 'rzad.')
+        prep['lemma_id'] = 'do:P'
+        pronoun = source('ń', 'ppron3:sg:gen:m1.m2.m3:ter:nakc:praep', 'pisane_łącznie_z_przyimkiem')
+        pronoun['lemma_id'] = 'on:S'
+        results = preposition_n_candidates(prep, pronoun)
+        self.assertEqual(len(results), 3)
+        self.assertEqual({c['expanded_tag'] for c in results},
+                         {f'ppron3:sg:gen:{g}:ter:nakc:praep' for g in ('m1','m2','m3')})
+        for c in results:
+            self.assertEqual(c['original'], 'doń')
+            self.assertEqual(c['lemma_id'], 'on:S')
+            self.assertEqual(c['linguistic_evidence']['status'], 'accept')
+            self.assertEqual(c['status'], 'candidate_not_qualified')
+            self.assertEqual([i['interpretation'] for i in c['components']], [prep, pronoun])
+            self.assertEqual(c['qualifiers'], 'pisane_łącznie_z_przyimkiem|rzad.')
+
+    def test_preposition_n_unlisted_whole_form_remains_unresolved(self):
+        from literaki_slownik.constructions import preposition_n_candidates
+        pronoun = source('ń', 'ppron3:sg:gen:m1:ter:nakc:praep')
+        pronoun['lemma_id'] = 'on:S'
+        results = preposition_n_candidates(source('koło', 'prep:gen'), pronoun)
+        self.assertEqual(results[0]['original'], 'kołoń')
+        self.assertEqual(results[0]['linguistic_evidence']['status'], 'unresolved')
+        self.assertEqual(results[0]['status'], 'candidate_not_qualified')
+
+    def test_preposition_n_refuses_wrong_variant_case_person_number_or_source(self):
+        from literaki_slownik.constructions import preposition_n_candidates
+        pronoun = source('ń', 'ppron3:sg:acc:m1:ter:nakc:praep')
+        pronoun['lemma_id'] = 'on:S'
+        for prep in [source('na', 'prep:loc'), source('nad', 'prep:acc:nwok'),
+                     source('nad', 'prep:acc'), source('we', 'prep:loc:wok'),
+                     source('niby', 'part'), source('nade', 'prep:inst:wok')]:
+            self.assertEqual(preposition_n_candidates(prep, pronoun), [])
+        for tag in ['ppron3:pl:acc:m1:ter:nakc:praep', 'ppron3:sg:acc:f:ter:nakc:praep',
+                    'ppron3:sg:acc:m1:ter:akc:praep', 'ppron3:sg:acc:m1:ter:nakc:npraep']:
+            bad = dict(pronoun, raw_tag=tag)
+            self.assertEqual(preposition_n_candidates(source('na','prep:acc'), bad), [])
+        self.assertEqual(preposition_n_candidates(source('na','prep:acc'), dict(pronoun, source_id='other')), [])
+        self.assertEqual(preposition_n_candidates(source('na','prep:acc'), dict(pronoun, lemma_id='inna')), [])
+        self.assertEqual(preposition_n_candidates(source('na','prep:acc'), dict(pronoun, original='niego')), [])
+
     def test_by_aglt_only_four_nonvocalic_personal_endings(self):
         operator = source('by', 'part')
         operator['lemma_id'] = 'by:T'

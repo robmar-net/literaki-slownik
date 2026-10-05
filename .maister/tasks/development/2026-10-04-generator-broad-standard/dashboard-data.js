@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T01:32:21.447466+00:00",
+  "generated": "2026-10-05T01:54:36.047597+00:00",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Konieczna decyzja o dowodach kontrakcji; bezpośrednie KWJP zintegrowane z build"
+    "current_activity": "KontrakcjeA i mobilneby wdrożone; dalsze domykanie macierzyG3"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Komenda build tworzy bezpośrednie powiązania wszystkich zaimportowanych jednostek KWJP i reports/links.json; F pozostaje przy jednostce korpusu. Raport wskazuje osobno listy/gatunki i źródła niedostępne. Pełne powiązania konstrukcji nadal otwarte: links pozostaje pending, a wynik INCOMPLETE. Błąd zapisu powiązań oznacza links failed, zachowując zakończone importy. Testy generatora 106/106 i audytu 5/5 przeszły.",
+      "summary": "Zatwierdzone A dla dowodu kontrakcji wdrożono:57 rozwiniętych analiz18dosłownychformSGJP z dowodem accept;24analizy8pozostałychform nadal unresolved. Build/explain zapisują pełne składniki i zachowują homonimy. Zamknięta grupa16hostów z_aglt_by daje64kandydatów z poprawnymPOS; brak reguły sufiksowej. KWJP orth/orth_lc wiąże całe konstrukcje przez FK do candidate_key, bez dziedziczeniaFkorzenia. Explainczyta starsze bazy. Siedem errat winien jest adnotacją zależną od hasha źródła; import i napisy bez zmian. Pełna polityka, pozostałe klasy i wydanie nadal pending.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -253,7 +253,8 @@ window.MAISTER_DATA = {
         "A mixed_history_priority: dodatkowe daw./przest. wyklucza konkretną interpretację ze STANDARD mimo dziś; samo dziś nie wyklucza, BROAD bez wyłączenia przez dawność.",
         "Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych.",
         "A incorrect_source_label_policy: jawne niepopr. na sprawdzonej dosłownej etykiecie odrzuca konkretną interpretację w BROAD i STANDARD, bez usunięcia wpisu lub innych analiz.",
-        "A context_restrictions_policy: samo wymaganie kontekstu niewykluczające; explain zachowuje je, niesamodzielne morfemy osobno."
+        "A context_restrictions_policy: samo wymaganie kontekstu niewykluczające; explain zachowuje je, niesamodzielne morfemy osobno.",
+        "A contraction_documentation_proof: dosłowne wskazanie całej kontrakcji przez autorów SGJP wystarcza jako dowód językowy dla18 form; pozostałe kryteria osobno,8pozostałych bez automatycznej analogii."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -415,19 +416,27 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/contraction-proof-decision.md",
           "label": "Decyzja dowodu kontrakcji"
+        },
+        {
+          "path": "analysis/evidence/constructions-links-review.md",
+          "label": "Przegląd kontrakcji, hostów i powiązań"
+        },
+        {
+          "path": "analysis/evidence/preposition-runtime.json",
+          "label": "Pełny runtime klasy przyimkowej"
+        },
+        {
+          "path": "analysis/evidence/mobile-by-runtime.json",
+          "label": "Pełny runtime hostów by"
+        },
+        {
+          "path": "analysis/evidence/winien-explain-runtime.json",
+          "label": "Siedem rzeczywistych errat w explain"
         }
       ],
       "gate": {
-        "id": "contraction_documentation_proof",
-        "status": "pending",
-        "created_at": "2026-10-05T01:32:21.447466+00:00",
-        "question": "Czy dosłowne wskazanie kontrakcji przez autorów dokumentacji SGJP wystarcza jako dowód językowy, również dla form opisanych jako utworzone przez analogię?",
-        "options": {
-          "A": "Tak, bez dodatkowego niezależnego poświadczenia każdej z 18 wskazanych form; inne kryteria obowiązują (rekomendowane).",
-          "B": "Nie, wymagamy dodatkowego odrębnego poświadczenia słownikowego całej kontrakcji."
-        },
-        "answer": null,
-        "artifact": "analysis/evidence/contraction-proof-decision.md"
+        "question": null,
+        "answer": null
       }
     },
     {

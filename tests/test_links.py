@@ -10,6 +10,30 @@ from literaki_slownik.inputs import GeneratorError
 
 
 class LinksTests(unittest.TestCase):
+    def test_derived_forms_match_whole_orth_only_without_inheriting_root_frequency(self):
+        from literaki_slownik.constructions import materialize_confirmed_candidates
+        # Dwa źródłowe rozkaźniki dają dwa ślady tej samej pełnej formy.
+        for number, lemma in [(101,'czytać:a'),(102,'czytać:b')]:
+            self.db.execute('insert into sgjp_record values (?,?,?,?,?,?,?)', ('SGJP',number,'czytaj',lemma,'impt:sg:sec:imperf','',''))
+            self.db.execute('insert into lexeme(source_id,lemma_id,lemma_base) values (?,?,?)', ('SGJP',lemma,'czytać'))
+            lid = self.db.execute('select id from lexeme where lemma_id=?',(lemma,)).fetchone()[0]
+            self.db.execute('insert or ignore into surface_form(original,nfc,game_key,length) values (?,?,?,?)', ('czytaj','czytaj','czytaj',6))
+            fid = self.db.execute("select id from surface_form where original='czytaj'").fetchone()[0]
+            self.db.execute('insert into interpretation(source_id,first_row,form_id,lexeme_id,tag,names,qualifiers) values (?,?,?,?,?,?,?)', ('SGJP',number,fid,lid,'impt:sg:sec:imperf','',''))
+        materialize_confirmed_candidates(self.db)
+        whole = candidates(self.db,'kwjp_orth','czytajże')
+        self.assertEqual(whole['status'],'AMBIGUOUS')
+        self.assertEqual(len(whole['candidates']),2)
+        self.assertTrue(all(c['candidate_key'] for c in whole['candidates']))
+        self.assertEqual(candidates(self.db,'kwjp_lemma','czytajże',pos='impt')['candidates'],[])
+        self.db.execute('insert into source_artifact values (?,?,?)', ('ORTH','kwjp_orth','{}'))
+        self.db.execute('insert into corpus_evidence values (?,?,?,?,?,?,?,?,?)', (1,'ORTH',1,'czytajże',None,None,'{"freq":"5"}','{"freq":5}',5))
+        summary = create_links(self.db)
+        self.assertEqual(summary['ORTH'],{'AMBIGUOUS':1})
+        self.assertEqual(self.db.execute('select count(*) from evidence_candidate where candidate_key is not null').fetchone()[0],2)
+        self.assertEqual(self.db.execute('select sum(freq) from corpus_evidence').fetchone()[0],5)
+        self.assertEqual(self.db.execute('pragma foreign_key_check').fetchall(),[])
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
