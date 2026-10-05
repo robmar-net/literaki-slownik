@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T15:24:57Z",
+  "generated": "2026-10-05T16:02:35Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Pełny odczyt147frag: decyzja o alternatywnych użyciach jednego rekordu"
+    "current_activity": "Model użyć wdrożony; próg dodatniego dowodu językowego wznak do decyzji"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "G3: odczyt wszystkich147 źródłowych frag i148 artykułów SGJP;144 jednoartykułowe kandydaty,1 wieloartykułowy don,2 użycia w artykułach nadrzędnych koń/mąż. Pełne pokrycie odczytu potwierdzono dwoma identycznymi audytami,172/172+5/5. Internetowe metadane nieaktywne; mapowanie snapshotu i pełna semantyka nadal otwarte. Przed zmianą jednostki kwalifikacji potrzebna decyzja o własnych alternatywnych użyciach; reguły gry i listy bez zmian,8/36.",
+      "summary": "A modelu użyć wdrożone: dokładny własny przegląd, przypięte warunki dokumentacyjne, niewiadoma pozostałość, explain/unknown/filter/próbka.179/179+5/5;147kluczy frag z homonimami,295rekordów/540rozwinięć/542analiz/1084ocen; dwa logicznie identyczne nowe zapisy i próbki, źródło bez zmian. Ibn diagnostycznie reject→unresolved po wyłączeniu przenoszenia dowodu użycia na pozostałość; reguły gry i listy bez zmian. Następny wybór progu dodatniego dowodu językowego dla wznak;G3/G4/G6 partial,8/36.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -265,14 +265,17 @@ window.MAISTER_DATA = {
         "Dane PAN częściowo uzupełniają wiedzę o znaczeniach: KWJP bigramy i publiczne próbki kontekstowe, SGJP glosy/relacje poza eksportem. Własny przegląd możliwy bez kontaktu; nie aktywowano danych ani filtrów, kompletność nadal otwarta.",
         "Użytkownik zlecił dopisanie do planu samodzielnego przeglądu PAN: PAN-1–PAN-5 w G3. Najbliżej pełny rejestr147frag, dalej dowody/mapowanie/pokrycie i omówienie wpływu przed G4. Zakres9grup/36kroków i bramka phase10 zachowane.",
         "Zatwierdzone A: ogólny opis wieku całej klasy nie nadaje jej członkom automatycznego odrzucenia STANDARD. Potrzebne oznaczenie lub jednoznaczny dowód konkretnej interpretacji; jawne daw./przest. pozostają wiążące. Bez przeniesienia WSJP do wejść, bez zmiany reguł gry; pełna kwalifikacja nadal otwarta.",
-        "Zatwierdzone A: jednoznaczny opis konkretnej formy przez autorów SGJP i ręcznie zweryfikowana tożsamość wystarczają do uzupełnienia klasy członu nazwiska. Wdrożono tylko de:F/frag i ibn/frag, ze strażnikami hasha, źródła, wiersza i pięciu pól. Wpisy i de:S zachowane; reguły gry niezmienione, metadane online nieaktywne."
+        "Zatwierdzone A: jednoznaczny opis konkretnej formy przez autorów SGJP i ręcznie zweryfikowana tożsamość wystarczają do uzupełnienia klasy członu nazwiska. Wdrożono tylko de:F/frag i ibn/frag, ze strażnikami hasha, źródła, wiersza i pięciu pól. Wpisy i de:S zachowane; reguły gry niezmienione, metadane online nieaktywne.",
+        "A: osobne udokumentowane użycia dokładnego rekordu źródłowego; spójne warstwy ocen, niewiadoma pozostałość, bez aktywacji metadanych czytnika.",
+        "Model A wdrożony v15: warunki dokumentacyjne przypięte tylko do potwierdzonego użycia; brak propagacji na pozostałość, bez zmiany reguł gry."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
         "Mechanika próbek nie zastępuje integracji raportów, pełnych analiz w przeglądzie ani odbioru G8.",
         "Brak kompletnej klasy nazw mieszkańców oraz rozdzielenia frag/obcych zwrotów w eksporcie. Nie zakładamy istnienia brakujących metadanych. Kontakt z innymi grupami wykluczony przez użytkownika; brakujące dowody nadal otwarte.",
         "Dokumentacja klasy może różnić się zakresem od opisu konkretnego znaczenia; pełny ID SGJP może łączyć znaczenia. Brak automatycznej propagacji i nowego filtra przed decyzją.",
-        "Jedno źródłowe rozpoznanie może odpowiadać kilku publicznym artykułom lub opisowi przy artykule nadrzędnym. Potrzebna decyzja modelu użyć; nie ustalono pełnej zgodności snapshotu."
+        "Jedno źródłowe rozpoznanie może odpowiadać kilku publicznym artykułom lub opisowi przy artykule nadrzędnym. Potrzebna decyzja modelu użyć; nie ustalono pełnej zgodności snapshotu.",
+        "Próg dodatniego dowodu językowego przykładu wznak wymaga decyzji; pełna macierz nadal otwarta."
       ],
       "artifacts": [
         {
@@ -666,21 +669,33 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/semantic-use-alternatives-decision.md",
           "label": "semantic-use-alternatives-decision.md"
+        },
+        {
+          "path": "analysis/evidence/semantic-use-implementation-review.md",
+          "label": "semantic-use-implementation-review.md"
+        },
+        {
+          "path": "analysis/evidence/semantic-use-runtime.json",
+          "label": "semantic-use-runtime.json"
+        },
+        {
+          "path": "analysis/evidence/documented-use-positive-proof-decision.md",
+          "label": "documented-use-positive-proof-decision.md"
         }
       ],
       "gate": {
-        "id": "semantic_use_alternatives_model",
+        "id": "documented_use_positive_lexical_proof",
         "status": "pending",
-        "created_at": "2026-10-05T15:23:04Z",
-        "question": "Czy jeden źródłowy rekord może mieć kilka osobno udokumentowanych i spójnie ocenianych użyć, z zachowaniem nierozstrzygniętej pozostałości przy niepełnym pokryciu?",
+        "created_at": "2026-10-05T16:02:35Z",
+        "question": "Czy jawny przykład poprawnego użycia w autorskiej dokumentacji SGJP, powiązany z dokładnym rekordem, wystarcza jako dodatni leksykalny dowód BROAD tego użycia?",
         "options": {
-          "A": "Tak: własna dowodowa warstwa użyć, raw źródło bez zmian, pozostałość unknown zachowana (rekomendowane).",
-          "B": "Nie teraz: jeden wynik dla rekordu; niejednoznaczne przypadki pozostają unresolved do uzyskania zgodnych bogatszych danych."
+          "A": "Tak: dla tego warunku i użycia; pozostałe warstwy i niewiadome osobno (rekomendowane).",
+          "B": "Wymagamy dodatkowo niezależnego dopuszczonego źródła normatywnego; do tego czasu unresolved."
         },
         "answer": null,
-        "artifact": "analysis/evidence/semantic-use-alternatives-decision.md",
-        "authority": "AGENTS.md eligibility criteria; executor architecture/scope deviation gate",
-        "scope": "qualification_unit_model_not_game_rule_change_or_online_database_activation"
+        "artifact": "analysis/evidence/documented-use-positive-proof-decision.md",
+        "authority": "AGENTS.md prior discussion of eligibility criteria; phase8 material criteria decision",
+        "scope": "positive_lexical_proof_threshold_not_game_change_or_reader_database_activation"
       }
     },
     {

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "approved-conditions-v11",
+  "version": "approved-conditions-v12",
   "status": "partial_not_release_policy",
   "rules": [
     {
@@ -824,5 +824,13 @@
     "document_url": "https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf#page=138",
     "document_sha256": "3e3d104b1a210e0097c511b36f1440de539413ec64079fba505c47c3bf7684ca",
     "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-name-class-proof-decision.md"
+  },
+  "semantic_use_model": {
+    "unit": "documented_use_bound_to_exact_source_record",
+    "scope": "documented_use_only",
+    "remainder": "retained_while_full_conditions_coverage_unproven",
+    "qualified_layers": "language_game_profile_release_scope_coherent_per_use",
+    "online_metadata_activated": false,
+    "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/semantic-use-alternatives-decision.md"
   }
 }

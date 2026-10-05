@@ -80,3 +80,9 @@ Nowy build zapisuje każde rozwinięcie tagu i każdą konstrukcję do analysis,
 ## Diagnostyka policyv13
 
 Nowa wersja pokazuje udokumentowany podzbiór obowiązkowej wielkiej litery według normy2026, osobno od historycznej oceny językowej, oraz źródłowy konstruktor impt_sg+że+ż z growym reject. Explain dla krakowiak zachowuje oba pełne ID; idźżeż pokazuje źródłowy rozkaźnik i dwie oddzielne partykuły. Bieżąca ocena policyv13 i wcześniejszy zapis ocen mają własne wersje, bez nadpisywania starych build. List_membership i pełna gotowość nadal nieukończone.
+
+## Udokumentowane użycia — diagnostyka v15
+
+Build opcjonalnie odczytuje konfigurację semantic-uses przypiętą path/sha256 w configurations manifestu wejść. Jej schema_version1 zawiera reviews: dokładny source, stabilny use_id, własny opis, evidence oraz coverage documented_use_only. documented_conditions wiąże istniejące warunki dokumentacyjne z tym użyciem i wymaga właściwego hasha dowodu. Brak przypięcia lub inna tożsamość odmawia zapisu, a zmiana przeglądu wymaga nowego katalogu. Domyślny manifest ma2 wcześniej zatwierdzone użycia de:F/ibn; czytnik internetowy nie stał się wejściem.
+
+Explain tekst/JSON pokazuje semantic_analyses z pełnymi śladami i niewiadomą pozostałością. Source_aggregation ma jawny basis; nie jest akceptacją do listy. Starsze zapisane oceny pozostają czytelne bez migracji. [Wdrożenie i granice](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/semantic-use-implementation-review.md).

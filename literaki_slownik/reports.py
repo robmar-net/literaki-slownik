@@ -17,6 +17,8 @@ def unresolved_report(db):
     jako pojedynczej analizy ani nie powielamy powodów z membership.
     Pamięć: ograniczony cache powodów i zbiór reguł jednego słowa.
     """
+    from .decisions import checked_persisted_use_coverage
+    checked_persisted_use_coverage(db)
     layers = ('language', 'game', 'profile', 'release_scope')
     statuses = ('accept', 'reject', 'unresolved')
 
@@ -40,7 +42,8 @@ def unresolved_report(db):
     variants = {v: {'analyses': 0, 'analysis_membership': dict.fromkeys(statuses, 0),
                     'word_keys': 0, 'word_membership': dict.fromkeys(statuses, 0),
                     'analyses_with_unresolved_checks': 0,
-                    'rejected_analyses_with_unresolved_checks': 0} for v in VARIANTS}
+                    'rejected_analyses_with_unresolved_checks': 0,
+                    'semantic_analysis_kinds':{}} for v in VARIANTS}
     rules = {}
     group = None
     group_states, group_rules = set(), set()
@@ -61,13 +64,15 @@ def unresolved_report(db):
         decisions = db.execute('select count(*) from variant_decision').fetchone()[0]
         if decisions != expected * len(VARIANTS):
             raise GeneratorError('Niepełne pokrycie wariantów w raporcie niewiadomych', 4)
+        has_candidate='candidate_key' in {r[1] for r in db.execute('pragma table_info(analysis)')}
         query = '''select a.game_key,d.variant,d.language_status,d.game_status,
             d.profile_status,d.scope_status,d.membership_status,p.assessment_key,p.assessment
+            ,'''+('a.candidate_key' if has_candidate else 'null')+'''
             from analysis a join variant_decision d on d.analysis_key=a.analysis_key
             join decision_payload p on p.assessment_key=d.assessment_key
             order by a.game_key,d.variant,a.analysis_key'''
         processed = 0
-        for key, variant, language, game, profile, scope, membership, payload_key, text in db.execute(query):
+        for key, variant, language, game, profile, scope, membership, payload_key, text, candidate_key in db.execute(query):
             if variant not in variants or membership not in statuses:
                 raise GeneratorError('Nieznany wariant lub status zapisanej oceny', 4)
             value = checked_payload(payload_key, text)
@@ -81,6 +86,10 @@ def unresolved_report(db):
             group_states.add(membership)
             total = variants[variant]
             total['analyses'] += 1
+            kind=value.get('semantic_trace',{}).get('kind','construction' if candidate_key else 'source_expansion')
+            if kind not in {'source_expansion','construction','documented_use','unresolved_remainder'}:
+                raise GeneratorError('Nieznany rodzaj analizy semantycznej',4)
+            total['semantic_analysis_kinds'][kind]=total['semantic_analysis_kinds'].get(kind,0)+1
             total['analysis_membership'][membership] += 1
             unknowns = {(variant, layer, check['rule_id']) for layer in layers
                         for check in value[layer]['checks'] if check['status'] == 'unresolved'}
@@ -315,6 +324,7 @@ def persisted_filter_impact(db):
                 or report['combined']['rejected_keys'] != expected['word_membership']['reject']):
             raise GeneratorError('Niezgodne pokrycie raportów zapisanych ocen',4)
         report['scope'] = 'all_persisted_assessments_not_full_release'
+        report['semantic_analysis_kinds']=expected['semantic_analysis_kinds']
         variants[variant] = report
     return {'schema_version':1,'scope':'all_persisted_assessments_not_full_release',
             'full_qualification_pending':True,'order_basis':'lexicographic_rule_id_diagnostic_not_linguistic_priority',

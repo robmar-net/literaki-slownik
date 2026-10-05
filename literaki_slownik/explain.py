@@ -151,6 +151,14 @@ def explain(run_dir, word, variant='standard'):
                                  'tag_errata': tag_errata(sources[sid].get('sha256'),lemma,original,tag)})
             derivations = _derivations(db, query['game_key'])
             persisted = persisted_assessments(db,query['game_key'],variant)
+            reviewed_iids={a['interpretation_id'] for a in persisted if 'semantic_trace' in a}
+            for analysis in analyses:
+                if analysis['interpretation_id'] in reviewed_iids:
+                    source={k:analysis[k] for k in ('source_id','first_source_row','original','lemma_id','raw_tag','names','qualifiers')}
+                    source['source_sha256']=sources[source['source_id']].get('sha256')
+                    analysis['assessment']=_assess(source['original'],source['qualifiers'],
+                        source_analyses=[source],documented_condition_ids=[])
+                    analysis['assessment_scope']='source_fields_without_use_specific_conditions'
             for candidate in derivations:
                 for component in candidate['components']:
                     if component['kind'] != 'source_interpretation':
@@ -165,6 +173,11 @@ def explain(run_dir, word, variant='standard'):
         diagnostics = [] if imported else [{'code': 'INCOMPLETE_SGJP_IMPORT',
                                             'message': 'Import SGJP nieukończony; odczytana część nie rozstrzyga braku w źródle.'}]
         source_aggregation = aggregate([a['assessment'] for a in analyses], variant)
+        if reviewed_iids:
+            source_aggregation=aggregate([{'game_key':query['game_key'],
+                'membership':{variant:item['assessment']['membership']}}
+                for item in persisted if item['interpretation_id'] is not None],variant)
+            source_aggregation['basis']='persisted_source_expansions_and_use_alternatives'
         if not analyses and not imported:
             source_aggregation['status'] = 'unresolved'
         return {'query': {'word': word, 'nfc': query['nfc'], 'game_key': query['game_key']},
@@ -173,6 +186,7 @@ def explain(run_dir, word, variant='standard'):
                 'import_complete': imported, 'stages': stages, 'sources': sources,
                 'analyses': analyses, 'source_aggregation': source_aggregation, 'derivations': derivations,
                 'persisted_analyses':persisted,
+                'semantic_analyses':[a for a in persisted if 'semantic_trace' in a],
                 'list_membership': {'status': 'unresolved',
                                     'reason': 'Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane.'},
                 'corpus': corpus, 'diagnostics': diagnostics}
@@ -206,6 +220,14 @@ def format_explanation(value):
     for item in value.get('persisted_analyses',[]):
         lines.append(f"  {item['analysis_key']} · {item['expanded_tag']} · {item['variant']} · "
                      f"{labels[item['assessment']['membership']['status']]} · wersja {item['policy_version']}")
+        trace=item.get('semantic_trace')
+        if trace:
+            if trace['kind']=='documented_use':
+                lines.append(f"    Użycie {trace['use_id']}: {trace['description']}; pokrycie {trace['coverage']}")
+                for evidence in trace['evidence']:
+                    lines.append(f"    Dowód {evidence['artifact_id']} · {evidence['sha256']} · {evidence['locator']}")
+            else:
+                lines.append('    Nierozpoznane możliwości; pokrycie niepełne, pozostałe oceny nadal obowiązują.')
     lines.append(f"\nKandydaci konstrukcji: {len(value['derivations'])}; pełne dopuszczenie nieustalone.")
     for candidate in value['derivations']:
         lines.append(f"  {candidate['original']} · {candidate['rule_id']} · {candidate['expanded_tag']}")

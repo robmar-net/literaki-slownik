@@ -293,3 +293,9 @@ Zatwierdzone A: jednoznaczny opis konkretnej formy przez autorów SGJP i ręczni
 ## Pełny odczyt frag i bramka modelu użyć
 
 Pełny odczyt147frag/148artykułów ukończony jako podzadanie PAN-2; pełne mapowanie nadal otwarte. Don ma dwa kandydackie opisy, koń/mąż opis przy artykule nadrzędnym. Decyzja modelu alternatywnych użyć pending; nie zmieniono reguł ani ocen. G3 i główne checkboxy pozostają otwarte.
+
+## Zatwierdzony model użyć — postęp G4/G6
+
+A modelu użyć zatwierdzone i wdrożone diagnostycznie: rekordy i schema2 zachowane; własny przegląd ze SHA, warunki przypięte do użycia, nierozpoznane możliwości bez propagacji odmowy. Explain/raporty/próbka rozliczają pełne warstwy i jednostki.179/179+5/5; rzeczywiste295interpretacji/540rozwinięć/542analiz, dwa zapisy i próbki identyczne. Ibn reject→unresolved diagnostycznie; bez dopuszczenia do listy. Pełna macierz i8/36 pozostają otwarte; próg dodatniego dowodu językowego wznak pending.
+
+[Przegląd](../analysis/evidence/semantic-use-implementation-review.md); [próg dodatniego dowodu](../analysis/evidence/documented-use-positive-proof-decision.md).

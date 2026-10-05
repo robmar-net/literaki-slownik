@@ -3,7 +3,7 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v14'
+VERSION = 'diagnostic-approved-conditions-v15'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',

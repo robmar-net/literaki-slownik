@@ -6,9 +6,15 @@ from .policy import (assess_profile, spelling_checks, release_scope_checks,
 
 STATUSES = frozenset({'accept', 'reject', 'unresolved'})
 VARIANTS = ('broad', 'standard')
+DOCUMENTARY_RULE_EVIDENCE = {
+    'game-documented-surname-component-v1':'3e3d104b1a210e0097c511b36f1440de539413ec64079fba505c47c3bf7684ca',
+    'game-mandatory-capital-2026-v1':'87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e',
+    'orthography-2026-resident-capital-v1':'87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e',
+}
 
 
-def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyses=(), candidate=None):
+def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyses=(), candidate=None,
+                      *, documented_condition_ids=None):
     """Wspólna ocena explain i zapisu; nie aktywuje nierozstrzygniętej polityki."""
     pending=[{'rule_id':'linguistic-policy-not-active-v1','status':'unresolved',
               'message':'Pełna polityka językowa G3/G4 nie jest jeszcze aktywna.','evidence':[]}]
@@ -18,14 +24,137 @@ def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyse
         game+=source_game_checks(dict(raw_tag=candidate['expanded_tag'],names=candidate['names'],qualifiers=qualifiers),candidate=candidate)
     else:
         game+=[check for source in source_analyses for check in source_game_checks(source)]
+    def in_scope(check):
+        return (documented_condition_ids is None or check['rule_id'] not in DOCUMENTARY_RULE_EVIDENCE
+                or check['rule_id'] in documented_condition_ids)
+    game=[check for check in game if in_scope(check)]
     return assess_analysis(original,
         language={v:pending+approved_qualifier_checks(qualifiers,v)+list(additional_checks)
-                  +[check for source in source_analyses for check in orthography_checks(source,v)]
+                  +[check for source in source_analyses for check in orthography_checks(source,v) if in_scope(check)]
                   +construction_orthography_checks(candidate,v) for v in VARIANTS},
         scope_checks=release_scope_checks(candidate),game_checks=game)
 
 
-def materialize_assessments(db, batch_size=10000):
+USE_REVIEW_ID = 'own-semantic-use-review-v1'
+
+
+def checked_use_reviews(db, reviews):
+    """Własne obserwacje przypięte do pięciu pól; nie import glos czytnika.
+
+    Pierwszy format dokumentuje pojedyncze użycia. Nie daje prawa do zamknięcia
+    całej macierzy warunków ani do wstrzyknięcia wyników accept/reject.
+    """
+    import json
+    import re
+    from .canonical import dumps
+    if not isinstance(reviews, (list, tuple)):
+        raise GeneratorError('Przegląd użyć wymaga listy własnych adnotacji',4)
+    result, seen = {}, set()
+    try:
+        for review in reviews:
+            if (set(review) - {'documented_conditions'} != {'use_id','source','description','coverage','evidence'}
+                    or not isinstance(review['use_id'],str)
+                    or not re.fullmatch('[a-z0-9][a-z0-9_-]{0,127}',review['use_id'])
+                    or review['use_id'] in seen
+                    or not isinstance(review['description'],str) or not review['description'].strip()
+                    or review['coverage'] != 'documented_use_only'):
+                raise GeneratorError('Nieprawidłowe, powtórzone lub nadmiernie kompletne użycie',4)
+            seen.add(review['use_id'])
+            source=review['source']
+            fields=('source_id','source_sha256','first_source_row','original','lemma_id','raw_tag','names','qualifiers')
+            if (set(source) != set(fields) or type(source['first_source_row']) is not int
+                    or source['first_source_row']<1
+                    or any(not isinstance(source[k],str) for k in fields if k!='first_source_row')):
+                raise GeneratorError('Niepełna tożsamość źródłowa użycia',4)
+            row=db.execute('''select i.id,f.original,l.lemma_id,i.tag,i.names,i.qualifiers,s.metadata
+                from interpretation i join surface_form f on f.id=i.form_id
+                join lexeme l on l.id=i.lexeme_id join source_artifact s on s.source_id=i.source_id
+                where i.source_id=? and i.first_row=?''',
+                (source['source_id'],source['first_source_row'])).fetchone()
+            if (row is None or tuple(source[k] for k in fields[3:]) != row[1:6]
+                    or json.loads(row[6]).get('sha256') != source['source_sha256']
+                    or not re.fullmatch('[a-f0-9]{64}',source['source_sha256'])):
+                raise GeneratorError('Użycie nie odpowiada dokładnemu rekordowi i snapshotowi',4)
+            evidence=review['evidence']
+            if not isinstance(evidence,list) or not evidence:
+                raise GeneratorError('Użycie wymaga dopuszczonego dowodu',4)
+            for proof in evidence:
+                if (set(proof)!={'artifact_id','sha256','locator','status','role'}
+                        or proof['status']!='ALLOWED' or proof['role']!='own_documentary_review'
+                        or any(not isinstance(proof[k],str) or not proof[k] for k in proof)
+                        or not re.fullmatch('[a-f0-9]{64}',proof['sha256'])):
+                    raise GeneratorError('Niedopuszczony lub nieprzypięty dowód użycia',4)
+            conditions=review.get('documented_conditions',[])
+            if (not isinstance(conditions,list) or any(not isinstance(rule,str) for rule in conditions)
+                    or len(set(conditions))!=len(conditions)
+                    or set(conditions)-set(DOCUMENTARY_RULE_EVIDENCE)):
+                raise GeneratorError('Nieznany lub powtórzony warunek dokumentacyjny użycia',4)
+            available={c['rule_id'] for c in source_game_checks(source)}
+            available.update(c['rule_id'] for v in VARIANTS for c in orthography_checks(source,v))
+            if (set(conditions)-available or any(not any(p['sha256']==DOCUMENTARY_RULE_EVIDENCE[rule] for p in evidence)
+                                                   for rule in conditions)):
+                raise GeneratorError('Warunek nie ma dokładnego mapowania i zgodnego dowodu użycia',4)
+            # Kopia kanoniczna odcina późniejsze mutacje obiektu caller.
+            result.setdefault(row[0],[]).append(json.loads(dumps(review)))
+        for items in result.values():items.sort(key=lambda item:item['use_id'])
+        return result
+    except GeneratorError:raise
+    except (KeyError,TypeError,ValueError,AttributeError) as error:
+        raise GeneratorError('Nieprawidłowa adnotacja użycia',4) from error
+
+
+def checked_persisted_use_coverage(db):
+    """Nie pozwól zgubić pozostałości ani sfałszować użycia poprawnym hashem JSON."""
+    import hashlib
+    import json
+    from .canonical import dumps
+    from .sgjp import expand_tag
+    if not db.execute("select 1 from sqlite_master where name='source_artifact'").fetchone():return
+    marker=db.execute('select kind,metadata from source_artifact where source_id=?',(USE_REVIEW_ID,)).fetchone()
+    if marker is None:return
+    try:
+        kind,encoded=marker;metadata=json.loads(encoded)
+        if (kind!='own_documentary_review' or set(metadata)!={'sha256','reviews','scope'}
+                or metadata['scope']!='documented_use_only_not_complete_semantics'):
+            raise GeneratorError('Niezgodna metryka przeglądu użyć',4)
+        reviewed=checked_use_reviews(db,metadata['reviews'])
+        ordered=sorted((r for values in reviewed.values() for r in values),key=lambda item:item['use_id'])
+        if not reviewed or hashlib.sha256(dumps(ordered).encode()).hexdigest()!=metadata['sha256']:
+            raise GeneratorError('Niezgodny hash lub pusty zapis przeglądu użyć',4)
+        for iid,reviews in reviewed.items():
+            source={k:v for k,v in reviews[0]['source'].items() if k!='source_sha256'}
+            remainder={'kind':'unresolved_remainder','coverage':'incomplete','source':reviews[0]['source'],
+                'documented_use_ids':[r['use_id'] for r in reviews],
+                'message':'Nierozpoznane możliwości; dowody użyć nie zamykają pełnej kwalifikacji.'}
+            expected={}
+            for tag in expand_tag(source['raw_tag']):
+                key=hashlib.sha256(dumps(['source',source,tag]).encode()).hexdigest()
+                expected[key]=(tag,remainder)
+                for review in reviews:
+                    key=hashlib.sha256(dumps(['documented_use',source,tag,review]).encode()).hexdigest()
+                    expected[key]=(tag,{'kind':'documented_use',**review})
+            actual=dict(db.execute('select analysis_key,expanded_tag from analysis where interpretation_id=?',(iid,)))
+            if actual!={k:v[0] for k,v in expected.items()}:
+                raise GeneratorError('Niepełne lub zmienione pokrycie użyć i nierozpoznanych możliwości',4)
+            checked=set()
+            for key,variant,payload_key,encoded in db.execute('''select a.analysis_key,d.variant,p.assessment_key,p.assessment
+                from analysis a join variant_decision d on d.analysis_key=a.analysis_key
+                join decision_payload p on p.assessment_key=d.assessment_key where a.interpretation_id=?''',(iid,)):
+                value=json.loads(encoded)
+                if (hashlib.sha256(encoded.encode()).hexdigest()!=payload_key
+                        or value.get('semantic_trace')!=expected[key][1]):
+                    raise GeneratorError('Zapisany ślad użycia różni się od przypiętego przeglądu',4)
+                if (key,variant) in checked or variant not in VARIANTS:
+                    raise GeneratorError('Nieprawidłowe pokrycie wariantów użycia',4)
+                checked.add((key,variant))
+            if checked!={(key,v) for key in expected for v in VARIANTS}:
+                raise GeneratorError('Brak zapisanej oceny użycia lub pozostałości',4)
+    except GeneratorError:raise
+    except (KeyError,ValueError,TypeError,AttributeError) as error:
+        raise GeneratorError('Nieprawidłowy utrwalony przegląd użyć',4) from error
+
+
+def materialize_assessments(db, batch_size=10000, *, use_reviews=()):
     """Utrwal wszystkie rozwinięcia i warianty, zachowując unknown i wcześniejsze dane.
 
     To zapis diagnostyczny. Dopiero domknięcie macierzy pozwoli na pełną
@@ -39,10 +168,18 @@ def materialize_assessments(db, batch_size=10000):
         raise GeneratorError('Porcja ocen musi mieć od 1 do 10 000 analiz',2)
     if db.execute('select 1 from analysis where policy_version!=? limit 1',(POLICY_VERSION,)).fetchone():
         raise GeneratorError('Inna wersja ocen; wymagany nowy build bez nadpisania poprzednich danych',4)
+    reviewed=checked_use_reviews(db,use_reviews)
+    review_payload=dumps(sorted((item for items in reviewed.values() for item in items),key=lambda item:item['use_id']))
+    marker=db.execute('select kind,metadata from source_artifact where source_id=?',(USE_REVIEW_ID,)).fetchone()
+    expected_marker=('own_documentary_review',dumps({'sha256':hashlib.sha256(review_payload.encode()).hexdigest(),
+        'reviews':json.loads(review_payload),'scope':'documented_use_only_not_complete_semantics'})) if reviewed else None
+    if marker!=expected_marker and (marker is not None or db.execute('select 1 from analysis limit 1').fetchone()):
+        raise GeneratorError('Inny przegląd użyć; wymagany nowy build bez zmiany wcześniejszych ocen',4)
     for key,payload in db.execute('select assessment_key,assessment from decision_payload'):
         if hashlib.sha256(payload.encode()).hexdigest()!=key:
             raise GeneratorError('Zmieniona treść powodów oceny; wymagany nowy build',4)
     new_analyses=new_decisions=source_count=candidate_count=0
+    tag_count=use_count=remainder_count=compact_count=0
     analysis_batch=[];decision_batch=[];payload_batch={}
     existing=bool(db.execute('select 1 from analysis limit 1').fetchone())
     def flush():
@@ -64,6 +201,7 @@ def materialize_assessments(db, batch_size=10000):
                      **{k:assessed[k] for k in ('game','release_scope')},
                      'profile':{k:v for k,v in profile.items() if k not in ('original','nfc','game_key','length')},
                      'membership':assessed['membership'][variant]}
+            if 'semantic_trace' in assessed:payload['semantic_trace']=assessed['semantic_trace']
             encoded=dumps(payload);assessment_key=hashlib.sha256(encoded.encode()).hexdigest()
             payload_batch[assessment_key]=encoded
             values=(key,variant,*[payload[k]['status'] for k in ('language','game','profile','release_scope','membership')],assessment_key)
@@ -75,15 +213,37 @@ def materialize_assessments(db, batch_size=10000):
     fields=('source_id','first_source_row','original','lemma_id','raw_tag','names','qualifiers')
     source_hashes={sid:json.loads(metadata).get('sha256')
                    for sid,metadata in db.execute('select source_id,metadata from source_artifact')}
+    if expected_marker and marker is None:
+        db.execute('insert into source_artifact values (?,?,?)',(USE_REVIEW_ID,*expected_marker))
     query='''select i.id,i.source_id,i.first_row,f.original,l.lemma_id,i.tag,i.names,i.qualifiers
         from interpretation i join surface_form f on f.id=i.form_id join lexeme l on l.id=i.lexeme_id
         order by i.source_id,i.first_row'''
     for row in db.execute(query):
+        compact_count+=1
         source=dict(zip(fields,row[1:]))
         # Każde źródłowe rozwinięcie pozostaje osobną spójną analizą.
         for tag in expand_tag(source['raw_tag']):
+            tag_count+=1
             key=hashlib.sha256(dumps(['source',source,tag]).encode()).hexdigest()
             assessed=assess_diagnostic(source['original'],source['qualifiers'],source_analyses=[dict(source,raw_tag=tag,source_sha256=source_hashes[source['source_id']])])
+            if row[0] in reviewed:
+                assessed=assess_diagnostic(source['original'],source['qualifiers'],
+                    source_analyses=[dict(source,raw_tag=tag,source_sha256=source_hashes[source['source_id']])],
+                    documented_condition_ids=[])
+                assessed['semantic_trace']={'kind':'unresolved_remainder','coverage':'incomplete',
+                    'source':reviewed[row[0]][0]['source'],'documented_use_ids':[r['use_id'] for r in reviewed[row[0]]],
+                    'message':'Nierozpoznane możliwości; dowody użyć nie zamykają pełnej kwalifikacji.'}
+                remainder_count+=1
+                for review in reviewed[row[0]]:
+                    use_key=hashlib.sha256(dumps(['documented_use',source,tag,review]).encode()).hexdigest()
+                    use=assess_diagnostic(source['original'],source['qualifiers'],
+                        additional_checks=[{'rule_id':'semantic-use-qualification-pending-v1','status':'unresolved',
+                        'message':'Udokumentowane użycie wymaga osobnego domknięcia warunków.',
+                        'evidence':review['evidence']}],
+                        source_analyses=[dict(source,raw_tag=tag,source_sha256=source_hashes[source['source_id']])],
+                        documented_condition_ids=review.get('documented_conditions',[]))
+                    use['semantic_trace']={'kind':'documented_use',**review}
+                    save(use_key,row[0],None,tag,use);use_count+=1;source_count+=1
             save(key,row[0],None,tag,assessed);source_count+=1
     for ckey,payload in db.execute('select candidate_key,payload from derivation_candidate order by candidate_key'):
         candidate=json.loads(payload);proof=candidate.get('linguistic_evidence')
@@ -98,6 +258,9 @@ def materialize_assessments(db, batch_size=10000):
         raise GeneratorError('Niezgodne pokrycie zapisanych analiz i wariantów; wymagany nowy build',4)
     return {'schema_version':1,'scope':'persisted_diagnostic_analyses_not_full_qualification',
             'policy_version':POLICY_VERSION,'source_analyses':source_count,'construction_analyses':candidate_count,
+            'source_tag_expansions':tag_count,'documented_use_analyses':use_count,'remainder_analyses':remainder_count,
+            'source_compact_interpretations':compact_count,
+            'source_rows':db.execute('select count(*) from sgjp_record').fetchone()[0],
             'analyses':actual_analyses,'variant_decisions':actual_decisions,
             'new_analyses':new_analyses,'new_decisions':new_decisions,'full_qualification_pending':True}
 
@@ -108,6 +271,7 @@ def persisted_assessments(db, key, variant):
     import hashlib
     if variant not in VARIANTS:raise GeneratorError('Nieznany wariant słownika',2)
     if not db.execute("select 1 from sqlite_master where name='analysis'").fetchone():return []
+    checked_persisted_use_coverage(db)
     rows=db.execute('''select a.analysis_key,a.interpretation_id,a.candidate_key,a.expanded_tag,
         a.original,a.nfc,a.game_key,a.length,a.policy_version,p.assessment_key,p.assessment
         from analysis a join variant_decision d on d.analysis_key=a.analysis_key
@@ -121,7 +285,8 @@ def persisted_assessments(db, key, variant):
         assessed['profile'].update(original=original,nfc=nfc,game_key=game_key,length=length)
         result.append({'analysis_key':akey,'interpretation_id':iid,'candidate_key':ckey,
                        'expanded_tag':tag,'original':original,'policy_version':version,
-                       'variant':variant,'assessment':assessed})
+                       'variant':variant,'assessment':assessed,
+                       **({'semantic_trace':assessed['semantic_trace']} if 'semantic_trace' in assessed else {})})
     return result
 
 

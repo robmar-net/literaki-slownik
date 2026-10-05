@@ -4,7 +4,7 @@ from pathlib import Path
 import resource
 import sqlite3
 import time
-from .canonical import dumps, write_json
+from .canonical import dumps, write_json, load_json
 from .database import connect
 from .inputs import GeneratorError, inspect_sources
 from . import sgjp, kwjp
@@ -114,7 +114,16 @@ def build(manifest_path, run_dir, batch_size=10000):
             write_json(run / 'reports/construction-candidates.json', construction_counts)
             stage='decisions'
             start=time.monotonic()
-            decision_counts=materialize_assessments(db,batch_size)
+            use_reviews=[]
+            use_reference=inputs['manifest']['configurations'].get('semantic-uses')
+            if use_reference:
+                from .inputs import checked_file
+                use_data=load_json(checked_file(Path(manifest_path).resolve().parent,use_reference))
+                if (not isinstance(use_data,dict) or set(use_data)!={'schema_version','reviews'}
+                        or type(use_data['schema_version']) is not int or use_data['schema_version']!=1):
+                    raise GeneratorError('Nieobsługiwany format przeglądu użyć',4)
+                use_reviews=use_data['reviews']
+            decision_counts=materialize_assessments(db,batch_size,use_reviews=use_reviews)
             performance['diagnostic_decisions']={'seconds':time.monotonic()-start}
             write_json(run/'reports/decisions.json',decision_counts)
             # Powiązania bezpośrednie są niezależne od kwalifikacji językowej.
@@ -133,6 +142,14 @@ def build(manifest_path, run_dir, batch_size=10000):
             start = time.monotonic()
             write_json(run / 'reports/filter-impact.json', persisted_filter_impact(db))
             performance['diagnostic_filter_impact'] = {'seconds': time.monotonic() - start}
+            quality_reference=inputs['manifest']['configurations'].get('quality')
+            if quality_reference:
+                from .inputs import checked_file
+                from .quality import sample_persisted_analyses
+                start=time.monotonic()
+                config=load_json(checked_file(Path(manifest_path).resolve().parent,quality_reference))
+                write_json(run/'reports/quality-analyses.json',sample_persisted_analyses(db,config))
+                performance['diagnostic_quality_analyses']={'seconds':time.monotonic()-start}
             start = time.monotonic()
             write_json(run / 'reports/logical-content.json', logical_content_report(db))
             performance['diagnostic_logical_content'] = {'seconds': time.monotonic() - start}

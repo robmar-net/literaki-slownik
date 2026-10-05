@@ -2,6 +2,7 @@
 import hashlib
 import heapq
 import re
+import json
 
 from .canonical import dumps
 from .inputs import GeneratorError
@@ -97,3 +98,49 @@ def review_template(sample, *, canonical_index_sha256, evidence_sha256):
                    'reviewer': None, 'source_justification': None}
                   for key, names in sorted(memberships.items())],
     }
+
+
+def sample_persisted_analyses(db, config):
+    """Diagnostyczne warstwy ocen; pełne źródło i obie oceny wybranej analizy.
+
+    Przegląd pozostaje UNREVIEWED. Te warstwy uzupełniają, a nie zastępują
+    wymagane warstwy słowne i linków pełnego quality-v1.
+    """
+    from .reports import unresolved_report
+    coverage=unresolved_report(db)
+    join='''from analysis a join variant_decision d on d.analysis_key=a.analysis_key
+        join decision_payload p on p.assessment_key=d.assessment_key'''
+    kind="coalesce(json_extract(p.assessment,'$.semantic_trace.kind'),case when a.candidate_key is null then 'source_expansion' else 'construction' end)"
+    strata={}
+    for name in ('source_expansion','construction','documented_use','unresolved_remainder'):
+        strata['analysis:'+name]=(row[0] for row in db.execute(
+            'select distinct a.analysis_key '+join+' where '+kind+'=? order by a.analysis_key',(name,)))
+    for variant in ('broad','standard'):
+        for status in ('accept','reject','unresolved'):
+            strata[variant+':'+status]=(row[0] for row in db.execute(
+                'select a.analysis_key '+join+' where d.variant=? and d.membership_status=? order by a.analysis_key',
+                (variant,status)))
+    sample=sample_strata(strata,config)
+    selected=sorted({value['key'] for stratum in sample['strata'].values() for value in stratum['selected']})
+    items=[]
+    for key in selected:
+        row=db.execute('''select a.interpretation_id,a.candidate_key,a.expanded_tag,a.original,a.nfc,a.game_key,a.length,a.policy_version
+            from analysis a where a.analysis_key=?''',(key,)).fetchone()
+        iid,ckey,tag,original,nfc,game_key,length,version=row
+        source=None
+        if iid is not None:
+            fields=('source_id','first_source_row','original','lemma_id','raw_tag','names','qualifiers')
+            raw=db.execute('''select i.source_id,i.first_row,f.original,l.lemma_id,i.tag,i.names,i.qualifiers,s.metadata
+                from interpretation i join surface_form f on f.id=i.form_id join lexeme l on l.id=i.lexeme_id
+                join source_artifact s on s.source_id=i.source_id where i.id=?''',(iid,)).fetchone()
+            source=dict(zip(fields,raw[:7]),source_sha256=json.loads(raw[7]).get('sha256'))
+        assessments={}
+        for variant,encoded in db.execute('''select d.variant,p.assessment from variant_decision d
+            join decision_payload p on p.assessment_key=d.assessment_key where d.analysis_key=? order by d.variant''',(key,)):
+            value=json.loads(encoded)
+            value['profile'].update(original=original,nfc=nfc,game_key=game_key,length=length)
+            assessments[variant]=value
+        items.append({'key':key,'source_record':source,'candidate_key':ckey,'expanded_tag':tag,
+            'original':original,'game_key':game_key,'policy_version':version,'assessments':assessments})
+    return {**sample,'scope':'persisted_analysis_strata_not_full_quality_matrix',
+            'full_quality_matrix_pending':True,'coverage':coverage['variants'],'items':items}

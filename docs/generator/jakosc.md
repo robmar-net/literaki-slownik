@@ -28,3 +28,7 @@ Konfiguracja `config/generator/quality.json` jest zamknięta dla zatwierdzonej q
 Testy: `python3 -m unittest tests.test_quality`. Obejmują znany hash UTF-8, wybór najmniejszych hashy, limit, powtórzenia, remisy, puste grupy, przecięcia, błędne wejścia i powiązanie przeglądu z hashami.
 
 Diagnostyczne użycie na rzeczywistych powiązaniach lemma-all zapisano w [quality-runtime.json](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/quality-runtime.json). Nie jest to pełny odbiór G8.
+
+## Diagnostyczne próbki utrwalonych analiz
+
+sample_persisted_analyses dobiera do30 stabilnych kluczy na rodzaj analizy (źródłowe rozwinięcie/konstrukcja/użycie/pozostałość) oraz status każdego wariantu. Dołącza rekord źródłowy i wszystkie warstwy obu wariantów. Build z przypiętym quality zapisuje reports/quality-analyses.json. Wynik UNREVIEWED, full_quality_matrix_pending: nie zastępuje wymaganych warstw słownych/konstrukcyjnych i metod linków pełnego odbioru. Próbka podaje także puste warstwy jako EMPTY_NOT_COVERAGE.

@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-05T15:24:57Z",
+    "updated": "2026-10-05T16:02:35Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "G3: odczyt wszystkich147 źródłowych frag i148 artykułów SGJP;144 jednoartykułowe kandydaty,1 wieloartykułowy don,2 użycia w artykułach nadrzędnych koń/mąż. Pełne pokrycie odczytu potwierdzono dwoma identycznymi audytami,172/172+5/5. Internetowe metadane nieaktywne; mapowanie snapshotu i pełna semantyka nadal otwarte. Przed zmianą jednostki kwalifikacji potrzebna decyzja o własnych alternatywnych użyciach; reguły gry i listy bez zmian,8/36.",
+      "summary": "A modelu użyć wdrożone: dokładny własny przegląd, przypięte warunki dokumentacyjne, niewiadoma pozostałość, explain/unknown/filter/próbka.179/179+5/5;147kluczy frag z homonimami,295rekordów/540rozwinięć/542analiz/1084ocen; dwa logicznie identyczne nowe zapisy i próbki, źródło bez zmian. Ibn diagnostycznie reject→unresolved po wyłączeniu przenoszenia dowodu użycia na pozostałość; reguły gry i listy bez zmian. Następny wybór progu dodatniego dowodu językowego dla wznak;G3/G4/G6 partial,8/36.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -239,14 +239,17 @@
         "Dane PAN częściowo uzupełniają wiedzę o znaczeniach: KWJP bigramy i publiczne próbki kontekstowe, SGJP glosy/relacje poza eksportem. Własny przegląd możliwy bez kontaktu; nie aktywowano danych ani filtrów, kompletność nadal otwarta.",
         "Użytkownik zlecił dopisanie do planu samodzielnego przeglądu PAN: PAN-1–PAN-5 w G3. Najbliżej pełny rejestr147frag, dalej dowody/mapowanie/pokrycie i omówienie wpływu przed G4. Zakres9grup/36kroków i bramka phase10 zachowane.",
         "Zatwierdzone A: ogólny opis wieku całej klasy nie nadaje jej członkom automatycznego odrzucenia STANDARD. Potrzebne oznaczenie lub jednoznaczny dowód konkretnej interpretacji; jawne daw./przest. pozostają wiążące. Bez przeniesienia WSJP do wejść, bez zmiany reguł gry; pełna kwalifikacja nadal otwarta.",
-        "Zatwierdzone A: jednoznaczny opis konkretnej formy przez autorów SGJP i ręcznie zweryfikowana tożsamość wystarczają do uzupełnienia klasy członu nazwiska. Wdrożono tylko de:F/frag i ibn/frag, ze strażnikami hasha, źródła, wiersza i pięciu pól. Wpisy i de:S zachowane; reguły gry niezmienione, metadane online nieaktywne."
+        "Zatwierdzone A: jednoznaczny opis konkretnej formy przez autorów SGJP i ręcznie zweryfikowana tożsamość wystarczają do uzupełnienia klasy członu nazwiska. Wdrożono tylko de:F/frag i ibn/frag, ze strażnikami hasha, źródła, wiersza i pięciu pól. Wpisy i de:S zachowane; reguły gry niezmienione, metadane online nieaktywne.",
+        "A: osobne udokumentowane użycia dokładnego rekordu źródłowego; spójne warstwy ocen, niewiadoma pozostałość, bez aktywacji metadanych czytnika.",
+        "Model A wdrożony v15: warunki dokumentacyjne przypięte tylko do potwierdzonego użycia; brak propagacji na pozostałość, bez zmiany reguł gry."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
         "Mechanika próbek nie zastępuje integracji raportów, pełnych analiz w przeglądzie ani odbioru G8.",
         "Brak kompletnej klasy nazw mieszkańców oraz rozdzielenia frag/obcych zwrotów w eksporcie. Nie zakładamy istnienia brakujących metadanych. Kontakt z innymi grupami wykluczony przez użytkownika; brakujące dowody nadal otwarte.",
         "Dokumentacja klasy może różnić się zakresem od opisu konkretnego znaczenia; pełny ID SGJP może łączyć znaczenia. Brak automatycznej propagacji i nowego filtra przed decyzją.",
-        "Jedno źródłowe rozpoznanie może odpowiadać kilku publicznym artykułom lub opisowi przy artykule nadrzędnym. Potrzebna decyzja modelu użyć; nie ustalono pełnej zgodności snapshotu."
+        "Jedno źródłowe rozpoznanie może odpowiadać kilku publicznym artykułom lub opisowi przy artykule nadrzędnym. Potrzebna decyzja modelu użyć; nie ustalono pełnej zgodności snapshotu.",
+        "Próg dodatniego dowodu językowego przykładu wznak wymaga decyzji; pełna macierz nadal otwarta."
       ],
       "artifacts": [
         {
@@ -640,21 +643,33 @@
         {
           "path": "analysis/evidence/semantic-use-alternatives-decision.md",
           "label": "semantic-use-alternatives-decision.md"
+        },
+        {
+          "path": "analysis/evidence/semantic-use-implementation-review.md",
+          "label": "semantic-use-implementation-review.md"
+        },
+        {
+          "path": "analysis/evidence/semantic-use-runtime.json",
+          "label": "semantic-use-runtime.json"
+        },
+        {
+          "path": "analysis/evidence/documented-use-positive-proof-decision.md",
+          "label": "documented-use-positive-proof-decision.md"
         }
       ],
       "gate": {
-        "id": "semantic_use_alternatives_model",
+        "id": "documented_use_positive_lexical_proof",
         "status": "pending",
-        "created_at": "2026-10-05T15:23:04Z",
-        "question": "Czy jeden źródłowy rekord może mieć kilka osobno udokumentowanych i spójnie ocenianych użyć, z zachowaniem nierozstrzygniętej pozostałości przy niepełnym pokryciu?",
+        "created_at": "2026-10-05T16:02:35Z",
+        "question": "Czy jawny przykład poprawnego użycia w autorskiej dokumentacji SGJP, powiązany z dokładnym rekordem, wystarcza jako dodatni leksykalny dowód BROAD tego użycia?",
         "options": {
-          "A": "Tak: własna dowodowa warstwa użyć, raw źródło bez zmian, pozostałość unknown zachowana (rekomendowane).",
-          "B": "Nie teraz: jeden wynik dla rekordu; niejednoznaczne przypadki pozostają unresolved do uzyskania zgodnych bogatszych danych."
+          "A": "Tak: dla tego warunku i użycia; pozostałe warstwy i niewiadome osobno (rekomendowane).",
+          "B": "Wymagamy dodatkowo niezależnego dopuszczonego źródła normatywnego; do tego czasu unresolved."
         },
         "answer": null,
-        "artifact": "analysis/evidence/semantic-use-alternatives-decision.md",
-        "authority": "AGENTS.md eligibility criteria; executor architecture/scope deviation gate",
-        "scope": "qualification_unit_model_not_game_rule_change_or_online_database_activation"
+        "artifact": "analysis/evidence/documented-use-positive-proof-decision.md",
+        "authority": "AGENTS.md prior discussion of eligibility criteria; phase8 material criteria decision",
+        "scope": "positive_lexical_proof_threshold_not_game_change_or_reader_database_activation"
       },
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
@@ -883,6 +898,21 @@
           "authority": "AGENTS.md: discuss membership/criteria decisions before implementation",
           "scope": "documentary_proof_threshold_first_exact_de_F_and_ibn_not_game_rule_change_or_metadata_database_activation",
           "answered_at": "2026-10-05T14:57:35Z"
+        },
+        {
+          "id": "semantic_use_alternatives_model",
+          "status": "approved",
+          "created_at": "2026-10-05T15:23:04Z",
+          "question": "Czy jeden źródłowy rekord może mieć kilka osobno udokumentowanych i spójnie ocenianych użyć, z zachowaniem nierozstrzygniętej pozostałości przy niepełnym pokryciu?",
+          "options": {
+            "A": "Tak: własna dowodowa warstwa użyć, raw źródło bez zmian, pozostałość unknown zachowana (rekomendowane).",
+            "B": "Nie teraz: jeden wynik dla rekordu; niejednoznaczne przypadki pozostają unresolved do uzyskania zgodnych bogatszych danych."
+          },
+          "answer": "A",
+          "artifact": "analysis/evidence/semantic-use-alternatives-decision.md",
+          "authority": "AGENTS.md eligibility criteria; executor architecture/scope deviation gate",
+          "scope": "qualification_unit_model_not_game_rule_change_or_online_database_activation",
+          "answered_at": "2026-10-05T15:31:34Z"
         }
       ]
     }
@@ -962,6 +992,23 @@
         "new_active_build_inputs": 0,
         "mapping_complete": false,
         "artifact": "analysis/evidence/sgjp-full-frag-reader-review.md"
+      },
+      "semantic_use_projection": {
+        "observed_at": "2026-10-05T16:02:35Z",
+        "frag_lookup_population": 147,
+        "source_projection_records": 295,
+        "tag_expansions": 540,
+        "use_analyses": 2,
+        "remainder_analyses": 2,
+        "analyses": 542,
+        "variants": 1084,
+        "quality_sample_units": 140,
+        "word_diagnostic_delta": {
+          "ibn": "reject_to_unresolved",
+          "de": "unresolved_unchanged"
+        },
+        "full_build": false,
+        "artifact": "analysis/evidence/semantic-use-runtime.json"
       }
     },
     "implementation_started": true,
@@ -996,14 +1043,14 @@
         "status": "in_progress",
         "attempts": 1,
         "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified; userAcurrentnormgame, threeexactresidentlemma51expandedcases, fullfrag147/109lower/38upper; currentdownload=20260823 and primarySGJP about semantic limits inspected; PAN-1: zamknięta populacja147frag zinwentaryzowana; PAN-2: wszystkie13list i5500próbek powiązane, glosy niedostępne w odczycie; PAN-3: wstępny odczyt62pierwszychkontekstów, pełne mapowanie nierozstrzygnięte; PAN-4: pokrycie frag147/64alternatywy/108listy/62próbki/39beztrafień, bez wpływu na listy. Nazwy mieszkańców i pozostałe wyjątki nadal do inwentaryzacji.; PAN-3:12 użyć udokumentowanych SGJP+2 obserwacje WSJP, dokładne tożsamości i homonimy zachowane. Pełny ID nie jest gwarancją jednego znaczenia. PAN-4:14/147 z dowodem użycia,133 bez takiego przeglądu,147 kwalifikacji unresolved. Audyt snapshotu/mapowania i dwa identyczne odtworzenia;156/156 testów. Wymagany wybór roli ogólnego opisu wieku przed filtrem STANDARD. Bez aktywacji źródeł i zmian list,8/36 bez zmian.; public reader complete params13articles accessible; no metadata input activated; classificationproof gate pending; A documentary name proof approved, exact2 implemented with source/hash/row/fields guards; online values accessible but not active input; full reader147forms148articles,144unique/1multiple/2embedded, own notes audited twice byte-identical,172/172+5/5, no input/filter activated",
-        "next_action": "Rozstrzygnąć model alternatywnych udokumentowanych użyć przed zmianą kwalifikacji; potem dokładne mapowanie i pełny przegląd pozostałych wyjątków/mieszkańców."
+        "next_action": "Rozstrzygnąć próg dodatniego leksykalnego dowodu konkretnego użycia wznak, następnie dokładna kwalifikacja i pełna macierz pozostałych przypadków/mieszkańców."
       },
       "G4": {
         "status": "in_progress",
         "attempts": 1,
         "partial": true,
         "dependency_exception": "User explicitly authorized continuing code with evidence gaps: policy mechanics only, no active unresolved linguistic rules",
-        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed; context3 red→green,11/11 labels,169 records; persistence3 red→green,build2 red→green; fullconfirmedclass projection93446 candidates186892 components,repeat idempotent,FK/integrityOK; preposition3redgreen+buildintegration1green,81expandedcandidates(57proof/24unresolved),repeatFKintegrity;mobileby1redgreen64candidates16hosts;winien2redgreen7realJSONtext; norma1 policy +1 explain red→green, mobile1 constructor+1 explain red→green; accent1redgreen,sourcegame4redgreen,personal2redgreen,mobilegame1redgreen;fullprojection776/1796 repeatFKintegrity; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable; documented name4 tests red→green, exact three real records16expanded/32decisions, repeat idempotent, FK/integrityOK, live/persisted explain4 queries agree",
+        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed; context3 red→green,11/11 labels,169 records; persistence3 red→green,build2 red→green; fullconfirmedclass projection93446 candidates186892 components,repeat idempotent,FK/integrityOK; preposition3redgreen+buildintegration1green,81expandedcandidates(57proof/24unresolved),repeatFKintegrity;mobileby1redgreen64candidates16hosts;winien2redgreen7realJSONtext; norma1 policy +1 explain red→green, mobile1 constructor+1 explain red→green; accent1redgreen,sourcegame4redgreen,personal2redgreen,mobilegame1redgreen;fullprojection776/1796 repeatFKintegrity; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable; documented name4 tests red→green, exact three real records16expanded/32decisions, repeat idempotent, FK/integrityOK, live/persisted explain4 queries agree; semantic uses7 red→green,179/179+5/5; own source pin/remainder/condition scope/read tamper guard/quality payload; real295compact540expanded542analyses1084decisions two independent logical+quality equal, repeat0new, FK/integrity, source SHA unchanged",
         "remaining": "Full qualifier/category/orthography policy, mobile/preposition constructions and final decisions persistence/integration; G3 closure"
       },
       "G5": {
@@ -1019,7 +1066,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "Independent diagnostic explain authorized by plan §2 and user continue code",
-        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks; context explain JSON/text regression green,5 real readonly queries; qualifier coverage6 red→green,build integration1 red→green; full7458520/615/605 repeat canonical identical readonly; persisted explain2 red→green; alternative source trace regression fixed,legacycompatible,6realqueries rechecked readonly; contraction/mobile/corpus3redgreen,legacyreadonly20observations; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable; unknownreport3redImportError→green,buildreport1redFileNotFound→green; full160/160+5/5; readonly219713analyses213636keys repeat identical hashDBstable; persisted filter3 tests red→green, complete population validated through unresolved_report; lexical diagnostic rule order, no policy precedence; filter4 tests incl valid-hash wrong-rule rejection; full168/168+audit5/5; two readonly reports each of16/219713analyses identical, DB hashes unchanged",
+        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks; context explain JSON/text regression green,5 real readonly queries; qualifier coverage6 red→green,build integration1 red→green; full7458520/615/605 repeat canonical identical readonly; persisted explain2 red→green; alternative source trace regression fixed,legacycompatible,6realqueries rechecked readonly; contraction/mobile/corpus3redgreen,legacyreadonly20observations; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable; unknownreport3redImportError→green,buildreport1redFileNotFound→green; full160/160+5/5; readonly219713analyses213636keys repeat identical hashDBstable; persisted filter3 tests red→green, complete population validated through unresolved_report; lexical diagnostic rule order, no policy precedence; filter4 tests incl valid-hash wrong-rule rejection; full168/168+audit5/5; two readonly reports each of16/219713analyses identical, DB hashes unchanged; semantic uses7 red→green,179/179+5/5; own source pin/remainder/condition scope/read tamper guard/quality payload; real295compact540expanded542analyses1084decisions two independent logical+quality equal, repeat0new, FK/integrity, source SHA unchanged",
         "remaining": "Full strata and analysis payloads, report/build integration, other canonical reports/index, full final decisions/derivations explain"
       },
       "G7": {
@@ -1073,7 +1120,7 @@
         "contact_route_allowed": false
       }
     },
-    "verification_note": "G3: odczyt wszystkich147 źródłowych frag i148 artykułów SGJP;144 jednoartykułowe kandydaty,1 wieloartykułowy don,2 użycia w artykułach nadrzędnych koń/mąż. Pełne pokrycie odczytu potwierdzono dwoma identycznymi audytami,172/172+5/5. Internetowe metadane nieaktywne; mapowanie snapshotu i pełna semantyka nadal otwarte. Przed zmianą jednostki kwalifikacji potrzebna decyzja o własnych alternatywnych użyciach; reguły gry i listy bez zmian,8/36.",
+    "verification_note": "A modelu użyć wdrożone: dokładny własny przegląd, przypięte warunki dokumentacyjne, niewiadoma pozostałość, explain/unknown/filter/próbka.179/179+5/5;147kluczy frag z homonimami,295rekordów/540rozwinięć/542analiz/1084ocen; dwa logicznie identyczne nowe zapisy i próbki, źródło bez zmian. Ibn diagnostycznie reject→unresolved po wyłączeniu przenoszenia dowodu użycia na pozostałość; reguły gry i listy bez zmian. Następny wybór progu dodatniego dowodu językowego dla wznak;G3/G4/G6 partial,8/36.",
     "source_policy_clarification": {
       "recorded_at": "2026-10-04T21:49:35Z",
       "artifact": "analysis/evidence/source-policy-clarification.md",
@@ -1144,6 +1191,16 @@
       ],
       "metadata_input_activated": false,
       "artifact": "analysis/evidence/documented-name-class-proof-decision.md"
+    },
+    "semantic_use_alternatives": {
+      "answer": "A",
+      "approved_at": "2026-10-05T15:31:34Z",
+      "online_metadata_activated": false,
+      "artifact": "analysis/evidence/semantic-use-alternatives-decision.md",
+      "implementation": "partial_diagnostic_v15",
+      "active_own_reviews": 2,
+      "coverage": "documented_use_only_with_remainder",
+      "runtime": "analysis/evidence/semantic-use-runtime.json"
     }
   }
 }

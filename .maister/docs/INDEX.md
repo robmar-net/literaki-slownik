@@ -79,4 +79,7 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Dokładne człony nazwiska i wpływ filtrów](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-names-filter-review.md) — runtime v14, zapis/live zgodne; pełne wydanie nadal otwarte.
 
 - [Pełny odczyt147frag](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/sgjp-full-frag-reader-review.md) —148 artykułów, pełny audyt pokrycia, brak aktywacji wejść.
-- [Alternatywne użycia jednego rekordu](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/semantic-use-alternatives-decision.md) — konieczna decyzja modelu kwalifikacji przed implementacją.
+- [Alternatywne użycia jednego rekordu](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/semantic-use-alternatives-decision.md) — zatwierdzone A, model diagnostyczny i pozostałość wdrożone.
+
+- [Model użyć — wdrożenie i runtime](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/semantic-use-implementation-review.md) —179/179+5/5, własne2adnotacje, pełne ślady i próbka, dalsza kwalifikacja otwarta.
+- [Dodatni dowód językowy użycia](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-use-positive-proof-decision.md) — konieczne ustalenie progu przed oceną wznak.

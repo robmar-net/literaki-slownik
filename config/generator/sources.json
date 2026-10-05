@@ -773,7 +773,7 @@
     },
     "policy": {
       "path": "../../config/generator/policy.json",
-      "sha256": "9ee33719195ec09f74495b58b27c5e7970e32a6482abd5f177973320cf7f0a39"
+      "sha256": "ed5d9e3b2cb65c61274d1801ec65fd87b1cfaa90c964ee7ab1c0113d34bc219b"
     },
     "constructions": {
       "path": "../../config/generator/constructions.json",
@@ -802,6 +802,10 @@
     "orthography": {
       "path": "../../config/generator/orthography.json",
       "sha256": "3a0af8b621123bf749e44ac39fdb79d7658db60edc44abf82d9840812804fcd4"
+    },
+    "semantic-uses": {
+      "path": "../../config/generator/semantic-uses.json",
+      "sha256": "97ff90e0f5ac75b09413b66603697ef2ebff54f0a9afe3bf5162272757e008b5"
     }
   },
   "unavailable": [

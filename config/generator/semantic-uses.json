@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "reviews": [
+    {
+      "use_id": "sgjp-authors-surname-de-v1",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+        "first_source_row": 1463128,
+        "original": "de",
+        "lemma_id": "de:F",
+        "raw_tag": "frag",
+        "names": "",
+        "qualifiers": ""
+      },
+      "description": "Użycie jako składnik nazwiska wskazane przez autorów; klasyfikacja dokładnego rekordu została wcześniej zatwierdzona.",
+      "coverage": "documented_use_only",
+      "evidence": [
+        {
+          "artifact_id": "sgjp-theory-own-review",
+          "sha256": "3e3d104b1a210e0097c511b36f1440de539413ec64079fba505c47c3bf7684ca",
+          "locator": "https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf#page=138; §7.12; ręczne mapowanie: documented-name-class-proof-decision.md",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        }
+      ],
+      "documented_conditions": [
+        "game-documented-surname-component-v1"
+      ]
+    },
+    {
+      "use_id": "sgjp-authors-surname-ibn-v1",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+        "first_source_row": 1960055,
+        "original": "ibn",
+        "lemma_id": "ibn",
+        "raw_tag": "frag",
+        "names": "",
+        "qualifiers": ""
+      },
+      "description": "Użycie jako składnik nazwiska wskazane przez autorów; klasyfikacja dokładnego rekordu została wcześniej zatwierdzona.",
+      "coverage": "documented_use_only",
+      "evidence": [
+        {
+          "artifact_id": "sgjp-theory-own-review",
+          "sha256": "3e3d104b1a210e0097c511b36f1440de539413ec64079fba505c47c3bf7684ca",
+          "locator": "https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf#page=138; §7.12; ręczne mapowanie: documented-name-class-proof-decision.md",
+          "status": "ALLOWED",
+          "role": "own_documentary_review"
+        }
+      ],
+      "documented_conditions": [
+        "game-documented-surname-component-v1"
+      ]
+    }
+  ]
+}
