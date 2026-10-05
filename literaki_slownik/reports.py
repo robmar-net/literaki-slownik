@@ -266,6 +266,61 @@ def filter_impact(groups, variant, rule_order):
     }
 
 
+def persisted_filter_impact(db):
+    """Wszystkie utrwalone oceny, jawna diagnostyczna kolejność ID reguł.
+
+    Przed liczeniem wymagamy spójnego pokrycia obu wariantów i powodów.
+    Kolejność nie jest pierwszeństwem reguł językowych; unknown nie odrzuca.
+    Pamięć ograniczona do jednej grupy słowa i cache 256 powodów.
+    """
+    coverage = unresolved_report(db)
+    @lru_cache(maxsize=256)
+    def payload(encoded):
+        value = json.loads(encoded)
+        expected = Counter(dumps(c) for layer in ('language','game','profile','release_scope')
+                           for c in value[layer]['checks'])
+        if Counter(dumps(c) for c in value['membership']['checks']) != expected:
+            raise GeneratorError('Powody członkostwa nie odpowiadają warstwom zapisanej analizy',4)
+        return value
+    variants = {}
+    for variant in VARIANTS:
+        rules = set()
+        for encoded, in db.execute('''select distinct p.assessment from decision_payload p
+                join variant_decision d on d.assessment_key=p.assessment_key where d.variant=?''', (variant,)):
+            rules.update(c['rule_id'] for c in payload(encoded)['membership']['checks'])
+        def groups():
+            current, items = None, []
+            for key, encoded in db.execute('''select a.game_key,p.assessment
+                    from analysis a join variant_decision d on d.analysis_key=a.analysis_key
+                    join decision_payload p on p.assessment_key=d.assessment_key
+                    where d.variant=? order by a.game_key,a.analysis_key''', (variant,)):
+                if current is not None and key != current:
+                    yield {'key':current,'analyses':items}
+                    items = []
+                current = key
+                items.append({'game_key':key,'membership':{variant:payload(encoded)['membership']}})
+            if current is not None:
+                yield {'key':current,'analyses':items}
+        if rules:
+            report = filter_impact(groups(), variant, sorted(rules))
+        else:
+            # Pusta populacja to brak pokrycia, bez wymyślonej reguły.
+            report = {'schema_version':1,'variant':variant,'rule_order':[],
+                      'coverage':'EMPTY_NOT_COVERAGE','total':{'keys':0,'analyses':0},
+                      'standalone':{},'sequential':{},'combined':{'rejected_analyses':0,'rejected_keys':0},
+                      'assessed_key_statuses':{}}
+        expected = coverage['variants'][variant]
+        if (report['total'] != {'keys':expected['word_keys'],'analyses':expected['analyses']}
+                or report['combined']['rejected_analyses'] != expected['analysis_membership']['reject']
+                or report['combined']['rejected_keys'] != expected['word_membership']['reject']):
+            raise GeneratorError('Niezgodne pokrycie raportów zapisanych ocen',4)
+        report['scope'] = 'all_persisted_assessments_not_full_release'
+        variants[variant] = report
+    return {'schema_version':1,'scope':'all_persisted_assessments_not_full_release',
+            'full_qualification_pending':True,'order_basis':'lexicographic_rule_id_diagnostic_not_linguistic_priority',
+            'variants':variants}
+
+
 def qualifier_coverage(fields):
     """Inwentaryzacja warunków, nie kompletna semantyka etykiet lub analiz.
 

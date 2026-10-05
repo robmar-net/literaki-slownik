@@ -3,7 +3,7 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v13'
+VERSION = 'diagnostic-approved-conditions-v14'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -55,6 +55,25 @@ CONFIRMED_CONSTRUCTOR_RULES = frozenset({
 # Pełne identyfikatory rozdzielają mieszkańca od tanecznego homonimu m2.
 # Podzbiór dowodowy; nie rozpoznajemy mieszkańców po sufiksie ani samym m1.
 MANDATORY_CAPITAL_2026_LEMMAS = frozenset({'warszawianin','warszawiak','krakowiak:Sm1'})
+
+
+def documented_name_checks(source):
+    """Zamknięte mapowanie dokumentacji do dokładnego przypiętego rekordu."""
+    if (source.get('source_id') != 'sgjp-20260823'
+            or source.get('source_sha256') != '3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810'
+            or source.get('raw_tag') != 'frag' or source.get('names') != ''
+            or source.get('qualifiers') != ''
+            or (source.get('original'), source.get('lemma_id'), source.get('first_source_row'))
+               not in {('de','de:F',1463128), ('ibn','ibn',1960055)}):
+        return []
+    return [{'rule_id':'game-documented-surname-component-v1','status':'reject',
+             'source_lemma_id':source['lemma_id'],
+             'documented_name_class':'człon_nazwiska',
+             'source_identity':{k:source[k] for k in ('source_id','source_sha256','first_source_row',
+                                                    'original','lemma_id','raw_tag','names','qualifiers')},
+             'message':'Dokumentacja autorów SGJP wskazuje tę dokładnie przypisaną analizę jako człon nazwiska; istniejące wyłączenie growe, wpis i inne homonimy zachowane.',
+             'evidence':['https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf#page=138',
+                         '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-name-class-proof-decision.md']}]
 
 
 def mandatory_capital_checks(source):
@@ -132,6 +151,7 @@ def source_game_checks(source, candidate=None):
                        'evidence':['config/generator/categories.json', 'docs/generator/konstrukcje.md']})
     if candidate is None:
         result+=mandatory_capital_checks(source)
+        result+=documented_name_checks(source)
     return result
 
 

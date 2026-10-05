@@ -73,6 +73,8 @@ def materialize_assessments(db, batch_size=10000):
             decision_batch.append(values)
         if len(analysis_batch)>=batch_size:flush()
     fields=('source_id','first_source_row','original','lemma_id','raw_tag','names','qualifiers')
+    source_hashes={sid:json.loads(metadata).get('sha256')
+                   for sid,metadata in db.execute('select source_id,metadata from source_artifact')}
     query='''select i.id,i.source_id,i.first_row,f.original,l.lemma_id,i.tag,i.names,i.qualifiers
         from interpretation i join surface_form f on f.id=i.form_id join lexeme l on l.id=i.lexeme_id
         order by i.source_id,i.first_row'''
@@ -81,7 +83,7 @@ def materialize_assessments(db, batch_size=10000):
         # Każde źródłowe rozwinięcie pozostaje osobną spójną analizą.
         for tag in expand_tag(source['raw_tag']):
             key=hashlib.sha256(dumps(['source',source,tag]).encode()).hexdigest()
-            assessed=assess_diagnostic(source['original'],source['qualifiers'],source_analyses=[dict(source,raw_tag=tag)])
+            assessed=assess_diagnostic(source['original'],source['qualifiers'],source_analyses=[dict(source,raw_tag=tag,source_sha256=source_hashes[source['source_id']])])
             save(key,row[0],None,tag,assessed);source_count+=1
     for ckey,payload in db.execute('select candidate_key,payload from derivation_candidate order by candidate_key'):
         candidate=json.loads(payload);proof=candidate.get('linguistic_evidence')

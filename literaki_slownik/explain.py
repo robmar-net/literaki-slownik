@@ -143,7 +143,7 @@ def explain(run_dir, word, variant='standard'):
                 if sid not in sources:
                     metadata = db.execute('select metadata from source_artifact where source_id=?', (sid,)).fetchone()[0]
                     sources[sid] = json.loads(metadata)
-                assessed = _assess(original, qualifiers, source_analyses=[dict(original=original,lemma_id=lemma,raw_tag=tag,names=names,qualifiers=qualifiers)])
+                assessed = _assess(original, qualifiers, source_analyses=[dict(source_id=sid,first_source_row=row,source_sha256=sources[sid].get('sha256'),original=original,lemma_id=lemma,raw_tag=tag,names=names,qualifiers=qualifiers)])
                 analyses.append({'interpretation_id': iid, 'source_id': sid, 'first_source_row': row,
                                  'original': original, 'lemma_id': lemma, 'raw_tag': tag,
                                  'expanded_tags': list(expand_tag(tag)), 'names': names,

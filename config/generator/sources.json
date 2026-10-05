@@ -773,7 +773,7 @@
     },
     "policy": {
       "path": "../../config/generator/policy.json",
-      "sha256": "68b58891da44857cc8cd64724e236c00967abc7b481c578cb61eb3e681c4fdd8"
+      "sha256": "9ee33719195ec09f74495b58b27c5e7970e32a6482abd5f177973320cf7f0a39"
     },
     "constructions": {
       "path": "../../config/generator/constructions.json",
@@ -785,7 +785,7 @@
     },
     "coverage": {
       "path": "../../config/generator/coverage.json",
-      "sha256": "64cae847135efbd7372721b3b4ca2c025aadea655f08c0a78e62ce75c569f3ec"
+      "sha256": "8ca335c86e68a34067c8ca2d35904fc830f13a7e701477224dfd159b09c1a329"
     },
     "qualifiers": {
       "path": "../../config/generator/qualifiers.json",

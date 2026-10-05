@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "scope": "three_exact_pinned_records_not_full_build",
+  "run": "data/work/documented-names-20261005-145214",
+  "materialization": {
+    "schema_version": 1,
+    "scope": "persisted_diagnostic_analyses_not_full_qualification",
+    "policy_version": "diagnostic-approved-conditions-v14",
+    "source_analyses": 16,
+    "construction_analyses": 0,
+    "analyses": 16,
+    "variant_decisions": 32,
+    "new_analyses": 16,
+    "new_decisions": 32,
+    "full_qualification_pending": true
+  },
+  "repeat": {
+    "schema_version": 1,
+    "scope": "persisted_diagnostic_analyses_not_full_qualification",
+    "policy_version": "diagnostic-approved-conditions-v14",
+    "source_analyses": 16,
+    "construction_analyses": 0,
+    "analyses": 16,
+    "variant_decisions": 32,
+    "new_analyses": 0,
+    "new_decisions": 0,
+    "full_qualification_pending": true
+  },
+  "unresolved": {
+    "schema_version": 1,
+    "scope": "all_persisted_assessments_not_full_release",
+    "full_qualification_pending": true,
+    "variants": {
+      "broad": {
+        "analyses": 16,
+        "analysis_membership": {
+          "accept": 0,
+          "reject": 2,
+          "unresolved": 14
+        },
+        "word_keys": 2,
+        "word_membership": {
+          "accept": 0,
+          "reject": 1,
+          "unresolved": 1
+        },
+        "analyses_with_unresolved_checks": 16,
+        "rejected_analyses_with_unresolved_checks": 2
+      },
+      "standard": {
+        "analyses": 16,
+        "analysis_membership": {
+          "accept": 0,
+          "reject": 2,
+          "unresolved": 14
+        },
+        "word_keys": 2,
+        "word_membership": {
+          "accept": 0,
+          "reject": 1,
+          "unresolved": 1
+        },
+        "analyses_with_unresolved_checks": 16,
+        "rejected_analyses_with_unresolved_checks": 2
+      }
+    },
+    "rules": [
+      {
+        "variant": "broad",
+        "layer": "game",
+        "rule_id": "game-metadata-not-complete-v1",
+        "analyses": 16,
+        "word_keys": 2,
+        "analyses_with_rejected_membership": 2
+      },
+      {
+        "variant": "broad",
+        "layer": "language",
+        "rule_id": "linguistic-policy-not-active-v1",
+        "analyses": 16,
+        "word_keys": 2,
+        "analyses_with_rejected_membership": 2
+      },
+      {
+        "variant": "standard",
+        "layer": "game",
+        "rule_id": "game-metadata-not-complete-v1",
+        "analyses": 16,
+        "word_keys": 2,
+        "analyses_with_rejected_membership": 2
+      },
+      {
+        "variant": "standard",
+        "layer": "language",
+        "rule_id": "linguistic-policy-not-active-v1",
+        "analyses": 16,
+        "word_keys": 2,
+        "analyses_with_rejected_membership": 2
+      }
+    ]
+  },
+  "logical_content_report": {
+    "schema_version": 1,
+    "encoding": "logical-relations-v1/json-array-utf8-lf",
+    "scope": "current_schema_imports_constructions_links_not_full_release",
+    "excluded_source_metadata_fields": [
+      "path",
+      "resolved_path",
+      "retrieved_at",
+      "evidence[].path",
+      "evidence[].resolved_path"
+    ],
+    "tables": {
+      "analysis": {
+        "rows": 16,
+        "sha256": "67bc76d336d080eb2db18e24bf62fb90bd910cc19c70496e513fba9574ea5232"
+      },
+      "corpus_evidence": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "decision_payload": {
+        "rows": 3,
+        "sha256": "f92d2086fd8f3e80a3e782c80fa7a569abb47dfd416db73ab9fa0a7cf19c61e1"
+      },
+      "derivation_candidate": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "derivation_component": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "interpretation": {
+        "rows": 3,
+        "sha256": "0891062fe3758f3beba500ebaeb28709ee731abbe2f40139fd14760466cd4086"
+      },
+      "lexeme": {
+        "rows": 3,
+        "sha256": "81f8fb07f9bd4609b788644a498e25199c8944e1380dbbac6b130ec546df46a6"
+      },
+      "sgjp_record": {
+        "rows": 3,
+        "sha256": "aa72bc8f3332c2e15256a96687e3e4c728936a8bf1a22b33f9d83eeb0ef579d9"
+      },
+      "source_artifact": {
+        "rows": 1,
+        "sha256": "2c6539c80df2d1a0cd2b0c0009fb6bb5d513d68e87f3e39c312231d1d33a7d7b"
+      },
+      "surface_form": {
+        "rows": 2,
+        "sha256": "112b262017d013b91c3586156cac0d393dc64d266029d04c086a1fed731235b2"
+      },
+      "variant_decision": {
+        "rows": 32,
+        "sha256": "6fb3e4bf9f3320f7bb2886b99139f0d1e7c3c370bbe4e6201105d25962019037"
+      }
+    },
+    "sha256": "5189404f9674e8c1cf3835cb7839c583d8e28ed6d5935e13ef2d8047f38cfdbe"
+  },
+  "explain_queries": 4,
+  "raw_records_retained": 3,
+  "foreign_key_check": "ok",
+  "integrity_check": "ok",
+  "recorded_at": "2026-10-05T15:00:25Z"
+}

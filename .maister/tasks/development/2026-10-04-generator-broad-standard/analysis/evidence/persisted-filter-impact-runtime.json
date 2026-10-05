@@ -1,0 +1,946 @@
+{
+  "schema_version": 1,
+  "runs": [
+    {
+      "run": "data/work/documented-names-20261005-145214",
+      "database_sha256": "ee4908091eb0fcc07ae9238e8c4a7abf8952a2de80fe845e334a7c1e2fa0284d",
+      "repeat_equal": true,
+      "readonly": true,
+      "seconds_two_reports": 0.015,
+      "report": {
+        "schema_version": 1,
+        "scope": "all_persisted_assessments_not_full_release",
+        "full_qualification_pending": true,
+        "order_basis": "lexicographic_rule_id_diagnostic_not_linguistic_priority",
+        "variants": {
+          "broad": {
+            "schema_version": 1,
+            "scope": "all_persisted_assessments_not_full_release",
+            "variant": "broad",
+            "rule_order": [
+              "first-release-contraction-scope-v1",
+              "game-documented-surname-component-v1",
+              "game-metadata-not-complete-v1",
+              "game-proper-name-class-v1",
+              "game-required-uppercase-v1",
+              "game-source-name-labels-v1",
+              "linguistic-policy-not-active-v1",
+              "profile-pl-alphabet-v1",
+              "profile-pl-length-v1"
+            ],
+            "coverage": "ASSESSED_PROVIDED_ANALYSES_ONLY",
+            "total": {
+              "keys": 2,
+              "analyses": 16
+            },
+            "standalone": {
+              "first-release-contraction-scope-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-documented-surname-component-v1": {
+                "rejected_analyses": 2,
+                "rejected_keys": 1
+              },
+              "game-metadata-not-complete-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-proper-name-class-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-required-uppercase-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-source-name-labels-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-policy-not-active-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "profile-pl-alphabet-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "profile-pl-length-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              }
+            },
+            "sequential": {
+              "first-release-contraction-scope-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 0,
+                "cumulative_rejected_keys": 0
+              },
+              "game-documented-surname-component-v1": {
+                "new_rejected_analyses": 2,
+                "new_rejected_keys": 1,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              },
+              "game-metadata-not-complete-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              },
+              "game-proper-name-class-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              },
+              "game-required-uppercase-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              },
+              "game-source-name-labels-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              },
+              "linguistic-policy-not-active-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              },
+              "profile-pl-alphabet-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              },
+              "profile-pl-length-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              }
+            },
+            "combined": {
+              "rejected_analyses": 2,
+              "rejected_keys": 1
+            },
+            "assessed_key_statuses": {
+              "reject": 1,
+              "unresolved": 1
+            }
+          },
+          "standard": {
+            "schema_version": 1,
+            "scope": "all_persisted_assessments_not_full_release",
+            "variant": "standard",
+            "rule_order": [
+              "first-release-contraction-scope-v1",
+              "game-documented-surname-component-v1",
+              "game-metadata-not-complete-v1",
+              "game-proper-name-class-v1",
+              "game-required-uppercase-v1",
+              "game-source-name-labels-v1",
+              "linguistic-policy-not-active-v1",
+              "profile-pl-alphabet-v1",
+              "profile-pl-length-v1"
+            ],
+            "coverage": "ASSESSED_PROVIDED_ANALYSES_ONLY",
+            "total": {
+              "keys": 2,
+              "analyses": 16
+            },
+            "standalone": {
+              "first-release-contraction-scope-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-documented-surname-component-v1": {
+                "rejected_analyses": 2,
+                "rejected_keys": 1
+              },
+              "game-metadata-not-complete-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-proper-name-class-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-required-uppercase-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-source-name-labels-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-policy-not-active-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "profile-pl-alphabet-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "profile-pl-length-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              }
+            },
+            "sequential": {
+              "first-release-contraction-scope-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 0,
+                "cumulative_rejected_keys": 0
+              },
+              "game-documented-surname-component-v1": {
+                "new_rejected_analyses": 2,
+                "new_rejected_keys": 1,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              },
+              "game-metadata-not-complete-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              },
+              "game-proper-name-class-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              },
+              "game-required-uppercase-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              },
+              "game-source-name-labels-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              },
+              "linguistic-policy-not-active-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              },
+              "profile-pl-alphabet-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              },
+              "profile-pl-length-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 2,
+                "cumulative_rejected_keys": 1
+              }
+            },
+            "combined": {
+              "rejected_analyses": 2,
+              "rejected_keys": 1
+            },
+            "assessed_key_statuses": {
+              "reject": 1,
+              "unresolved": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "run": "data/work/capital-double-scope-20261005-102220",
+      "database_sha256": "1f36135a9b391eced167f6f37e48c2cce15f298a4c6e515b3b516fa213530265",
+      "repeat_equal": true,
+      "readonly": true,
+      "seconds_two_reports": 63.783,
+      "report": {
+        "schema_version": 1,
+        "scope": "all_persisted_assessments_not_full_release",
+        "full_qualification_pending": true,
+        "order_basis": "lexicographic_rule_id_diagnostic_not_linguistic_priority",
+        "variants": {
+          "broad": {
+            "schema_version": 1,
+            "scope": "all_persisted_assessments_not_full_release",
+            "variant": "broad",
+            "rule_order": [
+              "first-release-contraction-scope-v1",
+              "game-abbreviation-v1",
+              "game-construction-whole-unit-v1",
+              "game-dependent-segment-v1",
+              "game-double-particle-v1",
+              "game-mandatory-capital-2026-v1",
+              "game-metadata-not-complete-v1",
+              "game-mobile-host-composition-v1",
+              "game-personal-host-aglt-v1",
+              "game-proper-name-class-v1",
+              "game-required-uppercase-v1",
+              "game-source-name-labels-v1",
+              "impt-double-particle-source-proof-v1",
+              "linguistic-context-non-excluding-v1",
+              "linguistic-current-usage-non-excluding-v1",
+              "linguistic-descriptive-non-excluding-v1",
+              "linguistic-disrecommended-non-excluding-v1",
+              "linguistic-historical-form-v1",
+              "linguistic-incorrect-form-v1",
+              "linguistic-informal-rare-non-excluding-v1",
+              "linguistic-policy-not-active-v1",
+              "linguistic-unexplained-label-first-release-v1",
+              "orthography-2026-conjunction-by-v1",
+              "orthography-2026-host-by-sequence-v1",
+              "orthography-2026-resident-capital-v1",
+              "preposition-n-whole-form-proof-v1",
+              "profile-pl-alphabet-v1",
+              "profile-pl-length-v1"
+            ],
+            "coverage": "ASSESSED_PROVIDED_ANALYSES_ONLY",
+            "total": {
+              "keys": 213636,
+              "analyses": 219713
+            },
+            "standalone": {
+              "first-release-contraction-scope-v1": {
+                "rejected_analyses": 24,
+                "rejected_keys": 8
+              },
+              "game-abbreviation-v1": {
+                "rejected_analyses": 1,
+                "rejected_keys": 0
+              },
+              "game-construction-whole-unit-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-dependent-segment-v1": {
+                "rejected_analyses": 14,
+                "rejected_keys": 9
+              },
+              "game-double-particle-v1": {
+                "rejected_analyses": 31146,
+                "rejected_keys": 30368
+              },
+              "game-mandatory-capital-2026-v1": {
+                "rejected_analyses": 51,
+                "rejected_keys": 23
+              },
+              "game-metadata-not-complete-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-mobile-host-composition-v1": {
+                "rejected_analyses": 613,
+                "rejected_keys": 470
+              },
+              "game-personal-host-aglt-v1": {
+                "rejected_analyses": 6,
+                "rejected_keys": 6
+              },
+              "game-proper-name-class-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-required-uppercase-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-source-name-labels-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "impt-double-particle-source-proof-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-context-non-excluding-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-current-usage-non-excluding-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-descriptive-non-excluding-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-disrecommended-non-excluding-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-historical-form-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-incorrect-form-v1": {
+                "rejected_analyses": 34,
+                "rejected_keys": 22
+              },
+              "linguistic-informal-rare-non-excluding-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-policy-not-active-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-unexplained-label-first-release-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "orthography-2026-conjunction-by-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "orthography-2026-host-by-sequence-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "orthography-2026-resident-capital-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "preposition-n-whole-form-proof-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "profile-pl-alphabet-v1": {
+                "rejected_analyses": 17,
+                "rejected_keys": 17
+              },
+              "profile-pl-length-v1": {
+                "rejected_analyses": 7069,
+                "rejected_keys": 7005
+              }
+            },
+            "sequential": {
+              "first-release-contraction-scope-v1": {
+                "new_rejected_analyses": 24,
+                "new_rejected_keys": 8,
+                "cumulative_rejected_analyses": 24,
+                "cumulative_rejected_keys": 8
+              },
+              "game-abbreviation-v1": {
+                "new_rejected_analyses": 1,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 25,
+                "cumulative_rejected_keys": 8
+              },
+              "game-construction-whole-unit-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 25,
+                "cumulative_rejected_keys": 8
+              },
+              "game-dependent-segment-v1": {
+                "new_rejected_analyses": 14,
+                "new_rejected_keys": 9,
+                "cumulative_rejected_analyses": 39,
+                "cumulative_rejected_keys": 17
+              },
+              "game-double-particle-v1": {
+                "new_rejected_analyses": 31146,
+                "new_rejected_keys": 30368,
+                "cumulative_rejected_analyses": 31185,
+                "cumulative_rejected_keys": 30385
+              },
+              "game-mandatory-capital-2026-v1": {
+                "new_rejected_analyses": 51,
+                "new_rejected_keys": 23,
+                "cumulative_rejected_analyses": 31236,
+                "cumulative_rejected_keys": 30408
+              },
+              "game-metadata-not-complete-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31236,
+                "cumulative_rejected_keys": 30408
+              },
+              "game-mobile-host-composition-v1": {
+                "new_rejected_analyses": 613,
+                "new_rejected_keys": 470,
+                "cumulative_rejected_analyses": 31849,
+                "cumulative_rejected_keys": 30878
+              },
+              "game-personal-host-aglt-v1": {
+                "new_rejected_analyses": 6,
+                "new_rejected_keys": 6,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "game-proper-name-class-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "game-required-uppercase-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "game-source-name-labels-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "impt-double-particle-source-proof-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "linguistic-context-non-excluding-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "linguistic-current-usage-non-excluding-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "linguistic-descriptive-non-excluding-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "linguistic-disrecommended-non-excluding-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "linguistic-historical-form-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "linguistic-incorrect-form-v1": {
+                "new_rejected_analyses": 30,
+                "new_rejected_keys": 19,
+                "cumulative_rejected_analyses": 31885,
+                "cumulative_rejected_keys": 30903
+              },
+              "linguistic-informal-rare-non-excluding-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31885,
+                "cumulative_rejected_keys": 30903
+              },
+              "linguistic-policy-not-active-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31885,
+                "cumulative_rejected_keys": 30903
+              },
+              "linguistic-unexplained-label-first-release-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31885,
+                "cumulative_rejected_keys": 30903
+              },
+              "orthography-2026-conjunction-by-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31885,
+                "cumulative_rejected_keys": 30903
+              },
+              "orthography-2026-host-by-sequence-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31885,
+                "cumulative_rejected_keys": 30903
+              },
+              "orthography-2026-resident-capital-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31885,
+                "cumulative_rejected_keys": 30903
+              },
+              "preposition-n-whole-form-proof-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31885,
+                "cumulative_rejected_keys": 30903
+              },
+              "profile-pl-alphabet-v1": {
+                "new_rejected_analyses": 15,
+                "new_rejected_keys": 15,
+                "cumulative_rejected_analyses": 31900,
+                "cumulative_rejected_keys": 30918
+              },
+              "profile-pl-length-v1": {
+                "new_rejected_analyses": 5909,
+                "new_rejected_keys": 5860,
+                "cumulative_rejected_analyses": 37809,
+                "cumulative_rejected_keys": 36778
+              }
+            },
+            "combined": {
+              "rejected_analyses": 37809,
+              "rejected_keys": 36778
+            },
+            "assessed_key_statuses": {
+              "reject": 36778,
+              "unresolved": 176858
+            }
+          },
+          "standard": {
+            "schema_version": 1,
+            "scope": "all_persisted_assessments_not_full_release",
+            "variant": "standard",
+            "rule_order": [
+              "first-release-contraction-scope-v1",
+              "game-abbreviation-v1",
+              "game-construction-whole-unit-v1",
+              "game-dependent-segment-v1",
+              "game-double-particle-v1",
+              "game-mandatory-capital-2026-v1",
+              "game-metadata-not-complete-v1",
+              "game-mobile-host-composition-v1",
+              "game-personal-host-aglt-v1",
+              "game-proper-name-class-v1",
+              "game-required-uppercase-v1",
+              "game-source-name-labels-v1",
+              "impt-double-particle-source-proof-v1",
+              "linguistic-context-non-excluding-v1",
+              "linguistic-current-usage-non-excluding-v1",
+              "linguistic-descriptive-non-excluding-v1",
+              "linguistic-disrecommended-non-excluding-v1",
+              "linguistic-historical-form-v1",
+              "linguistic-incorrect-form-v1",
+              "linguistic-informal-rare-non-excluding-v1",
+              "linguistic-policy-not-active-v1",
+              "linguistic-unexplained-label-first-release-v1",
+              "orthography-2026-conjunction-by-v1",
+              "orthography-2026-host-by-sequence-v1",
+              "orthography-2026-resident-capital-v1",
+              "preposition-n-whole-form-proof-v1",
+              "profile-pl-alphabet-v1",
+              "profile-pl-length-v1"
+            ],
+            "coverage": "ASSESSED_PROVIDED_ANALYSES_ONLY",
+            "total": {
+              "keys": 213636,
+              "analyses": 219713
+            },
+            "standalone": {
+              "first-release-contraction-scope-v1": {
+                "rejected_analyses": 24,
+                "rejected_keys": 8
+              },
+              "game-abbreviation-v1": {
+                "rejected_analyses": 1,
+                "rejected_keys": 0
+              },
+              "game-construction-whole-unit-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-dependent-segment-v1": {
+                "rejected_analyses": 14,
+                "rejected_keys": 9
+              },
+              "game-double-particle-v1": {
+                "rejected_analyses": 31146,
+                "rejected_keys": 30368
+              },
+              "game-mandatory-capital-2026-v1": {
+                "rejected_analyses": 51,
+                "rejected_keys": 23
+              },
+              "game-metadata-not-complete-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-mobile-host-composition-v1": {
+                "rejected_analyses": 613,
+                "rejected_keys": 470
+              },
+              "game-personal-host-aglt-v1": {
+                "rejected_analyses": 6,
+                "rejected_keys": 6
+              },
+              "game-proper-name-class-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-required-uppercase-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "game-source-name-labels-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "impt-double-particle-source-proof-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-context-non-excluding-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-current-usage-non-excluding-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-descriptive-non-excluding-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-disrecommended-non-excluding-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-historical-form-v1": {
+                "rejected_analyses": 28521,
+                "rejected_keys": 26922
+              },
+              "linguistic-incorrect-form-v1": {
+                "rejected_analyses": 34,
+                "rejected_keys": 22
+              },
+              "linguistic-informal-rare-non-excluding-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-policy-not-active-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "linguistic-unexplained-label-first-release-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "orthography-2026-conjunction-by-v1": {
+                "rejected_analyses": 10,
+                "rejected_keys": 0
+              },
+              "orthography-2026-host-by-sequence-v1": {
+                "rejected_analyses": 305,
+                "rejected_keys": 235
+              },
+              "orthography-2026-resident-capital-v1": {
+                "rejected_analyses": 51,
+                "rejected_keys": 23
+              },
+              "preposition-n-whole-form-proof-v1": {
+                "rejected_analyses": 0,
+                "rejected_keys": 0
+              },
+              "profile-pl-alphabet-v1": {
+                "rejected_analyses": 17,
+                "rejected_keys": 17
+              },
+              "profile-pl-length-v1": {
+                "rejected_analyses": 7069,
+                "rejected_keys": 7005
+              }
+            },
+            "sequential": {
+              "first-release-contraction-scope-v1": {
+                "new_rejected_analyses": 24,
+                "new_rejected_keys": 8,
+                "cumulative_rejected_analyses": 24,
+                "cumulative_rejected_keys": 8
+              },
+              "game-abbreviation-v1": {
+                "new_rejected_analyses": 1,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 25,
+                "cumulative_rejected_keys": 8
+              },
+              "game-construction-whole-unit-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 25,
+                "cumulative_rejected_keys": 8
+              },
+              "game-dependent-segment-v1": {
+                "new_rejected_analyses": 14,
+                "new_rejected_keys": 9,
+                "cumulative_rejected_analyses": 39,
+                "cumulative_rejected_keys": 17
+              },
+              "game-double-particle-v1": {
+                "new_rejected_analyses": 31146,
+                "new_rejected_keys": 30368,
+                "cumulative_rejected_analyses": 31185,
+                "cumulative_rejected_keys": 30385
+              },
+              "game-mandatory-capital-2026-v1": {
+                "new_rejected_analyses": 51,
+                "new_rejected_keys": 23,
+                "cumulative_rejected_analyses": 31236,
+                "cumulative_rejected_keys": 30408
+              },
+              "game-metadata-not-complete-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31236,
+                "cumulative_rejected_keys": 30408
+              },
+              "game-mobile-host-composition-v1": {
+                "new_rejected_analyses": 613,
+                "new_rejected_keys": 470,
+                "cumulative_rejected_analyses": 31849,
+                "cumulative_rejected_keys": 30878
+              },
+              "game-personal-host-aglt-v1": {
+                "new_rejected_analyses": 6,
+                "new_rejected_keys": 6,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "game-proper-name-class-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "game-required-uppercase-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "game-source-name-labels-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "impt-double-particle-source-proof-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "linguistic-context-non-excluding-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "linguistic-current-usage-non-excluding-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "linguistic-descriptive-non-excluding-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "linguistic-disrecommended-non-excluding-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 31855,
+                "cumulative_rejected_keys": 30884
+              },
+              "linguistic-historical-form-v1": {
+                "new_rejected_analyses": 24403,
+                "new_rejected_keys": 23030,
+                "cumulative_rejected_analyses": 56258,
+                "cumulative_rejected_keys": 53914
+              },
+              "linguistic-incorrect-form-v1": {
+                "new_rejected_analyses": 30,
+                "new_rejected_keys": 19,
+                "cumulative_rejected_analyses": 56288,
+                "cumulative_rejected_keys": 53933
+              },
+              "linguistic-informal-rare-non-excluding-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 56288,
+                "cumulative_rejected_keys": 53933
+              },
+              "linguistic-policy-not-active-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 56288,
+                "cumulative_rejected_keys": 53933
+              },
+              "linguistic-unexplained-label-first-release-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 56288,
+                "cumulative_rejected_keys": 53933
+              },
+              "orthography-2026-conjunction-by-v1": {
+                "new_rejected_analyses": 10,
+                "new_rejected_keys": 10,
+                "cumulative_rejected_analyses": 56298,
+                "cumulative_rejected_keys": 53943
+              },
+              "orthography-2026-host-by-sequence-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 56298,
+                "cumulative_rejected_keys": 53943
+              },
+              "orthography-2026-resident-capital-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 56298,
+                "cumulative_rejected_keys": 53943
+              },
+              "preposition-n-whole-form-proof-v1": {
+                "new_rejected_analyses": 0,
+                "new_rejected_keys": 0,
+                "cumulative_rejected_analyses": 56298,
+                "cumulative_rejected_keys": 53943
+              },
+              "profile-pl-alphabet-v1": {
+                "new_rejected_analyses": 14,
+                "new_rejected_keys": 14,
+                "cumulative_rejected_analyses": 56312,
+                "cumulative_rejected_keys": 53957
+              },
+              "profile-pl-length-v1": {
+                "new_rejected_analyses": 5503,
+                "new_rejected_keys": 5460,
+                "cumulative_rejected_analyses": 61815,
+                "cumulative_rejected_keys": 59417
+              }
+            },
+            "combined": {
+              "rejected_analyses": 61815,
+              "rejected_keys": 59417
+            },
+            "assessed_key_statuses": {
+              "reject": 59417,
+              "unresolved": 154219
+            }
+          }
+        }
+      }
+    }
+  ],
+  "recorded_at": "2026-10-05T15:00:25Z"
+}

@@ -50,3 +50,7 @@ reports/logical-content.json jest diagnostyczną kontrolą bieżącego schematu;
 ## Niewiadome zapisanych ocen
 
 Nowe build tworzą reports/unresolved.json: osobno liczby analiz i kluczy słów w BROAD/STANDARD, status członkostwa i niewiadome w każdej warstwie. Znana odmowa nie usuwa niewiadomych; wspólne payloady nie zaniżają liczby analiz, a powtórzony check nie zawyża liczby dotkniętych analiz. Wynik słowa zachowuje dopuszczony homonim. Raport odmawia niepełnego zapisu lub niezgodnych hashy/statusów. To diagnostyka, INCOMPLETE i pełne reports pending; nie nadaje VERIFIED. [Przegląd i runtime](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unresolved-report-review.md).
+
+## Wpływ filtrów z zapisanych ocen
+
+Nowe build zapisuje `reports/filter-impact.json`: samodzielne, kolejne i łączne odmowy, dla wszystkich utrwalonych analiz każdego wariantu. Kolejność ID reguł jest leksykograficzna i jawnie diagnostyczna, nie ustala pierwszeństwa reguł językowych. Odmowa analizy nie usuwa słowa z dodatnim lub nierozstrzygniętym homonimem. Unknown nie jest odmową. Przed raportem wymagane jest pełne pokrycie zapisanych ocen obu wariantów, zgodność statusów i hashy powodów; uszkodzenie odmawia raportu. Oznaczenie zakresu pozostaje `all_persisted_assessments_not_full_release`, bez promocji do VERIFIED.

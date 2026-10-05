@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T14:25:32Z",
+  "generated": "2026-10-05T15:00:25Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "A wieku wdrożone; raport niewiadomych gotowy, próg dowodu nazwiska czeka na decyzję"
+    "current_activity": "A wdrożone: dokładne człony nazwiska i wpływ filtrów; dalsze dowody G3"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "A wieku klasy zapisane w policyv10; jawne etykiety dawności zachowane. G3:13 publicznych artykułów SGJP odczytano po poprawieniu parametrów; dostępne glosy, metadane nadal bez aktywacji. G6:reports/unresolved.json rozlicza wszystkie zapisane analizy, niewiadome pod odmową i spójne homonimy.160/160+5/5,preflight14+10OK; dwa readonly raporty219713 analiz identyczne/hash bazy bez zmian. Wybór progu dowodu dla dokładnych członów nazwiska wymaga decyzji przed filtrem; pełne wydanie nadal nieukończone,8/36.",
+      "summary": "Zatwierdzone A: jednoznaczny opis konkretnej formy przez autorów SGJP i ręcznie zweryfikowana tożsamość wystarczają do uzupełnienia klasy członu nazwiska. Wdrożono tylko de:F/frag i ibn/frag, ze strażnikami hasha, źródła, wiersza i pięciu pól. Wpisy i de:S zachowane; reguły gry niezmienione, metadane online nieaktywne. G6: pełny raport wpływu zapisanych filtrów, unknown i niezależne homonimy zachowane. Pełne wydanie i G3/G4 nadal otwarte, 8/36. 168/168+5/5,preflight14+10; readonly raport219713analiz powtórzony identycznie i bez zmian baz.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -264,7 +264,8 @@ window.MAISTER_DATA = {
         "Nie kontaktujemy się z innymi grupami w tym projekcie; przygotowane zapytanie do SGJP pozostaje niewysłanym materiałem historycznym. Braki klasyfikacji rozpoznajemy samodzielnie na podstawie dopuszczonych danych i dokumentacji.",
         "Dane PAN częściowo uzupełniają wiedzę o znaczeniach: KWJP bigramy i publiczne próbki kontekstowe, SGJP glosy/relacje poza eksportem. Własny przegląd możliwy bez kontaktu; nie aktywowano danych ani filtrów, kompletność nadal otwarta.",
         "Użytkownik zlecił dopisanie do planu samodzielnego przeglądu PAN: PAN-1–PAN-5 w G3. Najbliżej pełny rejestr147frag, dalej dowody/mapowanie/pokrycie i omówienie wpływu przed G4. Zakres9grup/36kroków i bramka phase10 zachowane.",
-        "Zatwierdzone A: ogólny opis wieku całej klasy nie nadaje jej członkom automatycznego odrzucenia STANDARD. Potrzebne oznaczenie lub jednoznaczny dowód konkretnej interpretacji; jawne daw./przest. pozostają wiążące. Bez przeniesienia WSJP do wejść, bez zmiany reguł gry; pełna kwalifikacja nadal otwarta."
+        "Zatwierdzone A: ogólny opis wieku całej klasy nie nadaje jej członkom automatycznego odrzucenia STANDARD. Potrzebne oznaczenie lub jednoznaczny dowód konkretnej interpretacji; jawne daw./przest. pozostają wiążące. Bez przeniesienia WSJP do wejść, bez zmiany reguł gry; pełna kwalifikacja nadal otwarta.",
+        "Zatwierdzone A: jednoznaczny opis konkretnej formy przez autorów SGJP i ręcznie zweryfikowana tożsamość wystarczają do uzupełnienia klasy członu nazwiska. Wdrożono tylko de:F/frag i ibn/frag, ze strażnikami hasha, źródła, wiersza i pięciu pól. Wpisy i de:S zachowane; reguły gry niezmienione, metadane online nieaktywne."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -636,21 +637,23 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/documented-name-class-proof-decision.md",
           "label": "Próg dowodu klasy członu nazwiska — pending"
+        },
+        {
+          "path": "analysis/evidence/documented-names-runtime.json",
+          "label": "documented-names-runtime.json"
+        },
+        {
+          "path": "analysis/evidence/persisted-filter-impact-runtime.json",
+          "label": "persisted-filter-impact-runtime.json"
+        },
+        {
+          "path": "analysis/evidence/documented-names-filter-review.md",
+          "label": "documented-names-filter-review.md"
         }
       ],
       "gate": {
-        "id": "documented_name_class_proof",
-        "status": "pending",
-        "created_at": "2026-10-05T14:25:32Z",
-        "question": "Czy jednoznaczny opis konkretnej formy przez autorów SGJP wystarcza do uzupełnienia brakującej klasy członu nazwiska w jej dokładnej źródłowej analizie?",
-        "options": {
-          "A": "Tak: ręcznie zweryfikowane ID i opis autorów wystarczą; istniejące wyłączenie growe, homonimy osobno (rekomendowane).",
-          "B": "Wymagaj dodatkowego niezależnego dowodu; do tego czasu unresolved."
-        },
-        "answer": null,
-        "artifact": "analysis/evidence/documented-name-class-proof-decision.md",
-        "authority": "AGENTS.md: discuss membership/criteria decisions before implementation",
-        "scope": "documentary_proof_threshold_first_exact_de_F_and_ibn_not_game_rule_change_or_metadata_database_activation"
+        "question": null,
+        "answer": null
       }
     },
     {

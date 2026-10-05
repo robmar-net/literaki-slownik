@@ -285,3 +285,7 @@ Zatwierdzone A: ogólny opis wieku całej klasy nie nadaje jej członkom automat
 A wieku klasy zapisane w policyv10; jawne etykiety dawności zachowane. G3:13 publicznych artykułów SGJP odczytano po poprawieniu parametrów; dostępne glosy, metadane nadal bez aktywacji. G6:reports/unresolved.json rozlicza wszystkie zapisane analizy, niewiadome pod odmową i spójne homonimy.160/160+5/5,preflight14+10OK; dwa readonly raporty219713 analiz identyczne/hash bazy bez zmian. Wybór progu dowodu dla dokładnych członów nazwiska wymaga decyzji przed filtrem; pełne wydanie nadal nieukończone,8/36.
 
 [Odczyt](../analysis/evidence/sgjp-public-reader-review.md); [raport](../analysis/evidence/unresolved-report-review.md); [próg dowodu](../analysis/evidence/documented-name-class-proof-decision.md).
+
+## Zatwierdzone A: dokumentacyjny dowód klasy nazwiska
+
+Zatwierdzone A: jednoznaczny opis konkretnej formy przez autorów SGJP i ręcznie zweryfikowana tożsamość wystarczają do uzupełnienia klasy członu nazwiska. Wdrożono tylko de:F/frag i ibn/frag, ze strażnikami hasha, źródła, wiersza i pięciu pól. Wpisy i de:S zachowane; reguły gry niezmienione, metadane online nieaktywne.
