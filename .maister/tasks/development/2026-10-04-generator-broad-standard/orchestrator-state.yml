@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-05T10:43:48Z",
+    "updated": "2026-10-05T11:08:05Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -235,7 +235,8 @@
         "A: zamknięte25oznaczeń zachowane z nieustalonym objaśnieniem; brak objaśnienia sam nie wyklucza ani nie blokuje wydania. Pozostałe kryteria i inne unknown nadal obowiązują.",
         "A: brak objaśnienia adnotacji akcent w daw.,rzad.,akcent sam nie wyklucza; zachowujemy adnotację, STANDARD nadal odrzuca za dawność.",
         "A: wspólny growy warunek obowiązkowej wielkiej litery odnosi się do normy2026 także dla dawnych interpretacji BROAD; dawne wpisy zachowane językowo, niezależne homonimy osobno.",
-        "Nie kontaktujemy się z innymi grupami w tym projekcie; przygotowane zapytanie do SGJP pozostaje niewysłanym materiałem historycznym. Braki klasyfikacji rozpoznajemy samodzielnie na podstawie dopuszczonych danych i dokumentacji."
+        "Nie kontaktujemy się z innymi grupami w tym projekcie; przygotowane zapytanie do SGJP pozostaje niewysłanym materiałem historycznym. Braki klasyfikacji rozpoznajemy samodzielnie na podstawie dopuszczonych danych i dokumentacji.",
+        "Dane PAN częściowo uzupełniają wiedzę o znaczeniach: KWJP bigramy i publiczne próbki kontekstowe, SGJP glosy/relacje poza eksportem. Własny przegląd możliwy bez kontaktu; nie aktywowano danych ani filtrów, kompletność nadal otwarta."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -550,6 +551,14 @@
         {
           "path": "analysis/evidence/sgjp-semantic-metadata-request.md",
           "label": "Przygotowane zapytanie do autorów, niewysłane"
+        },
+        {
+          "path": "analysis/evidence/pan-data-recheck.md",
+          "label": "Ponowny przegląd PAN: konteksty i granice dowodów"
+        },
+        {
+          "path": "analysis/evidence/pan-data-recheck.json",
+          "label": "Przykłady list, identyfikatory próbek i hashe"
         }
       ],
       "gate": {
@@ -808,7 +817,14 @@
       "g3_lanes": "Three read-only lanes reconciled against pinned DB and primary documentation by coordinator; required semantic gaps remain pending",
       "supplementary_audit": "Coordinator verified all local hashes, all 26 contraction requests, primary code and z D. definition. SGJP production metadata license/snapshot pending; Wiktionary game eligibility/history unproved; WSJP/PWN access/use limitations recorded. No active source added.",
       "original_package": "All 7,458,520 original gzip rows and five fields compared to raw SQLite, identical; 406-file source archive inventoried; pinned binary format compiler inspected. Upstream SJPDor membership exists but is not published in five-field export.",
-      "community_attestations": "Explicitly user-deferred for current phase. Historical audit retained; required construction evidence remains unresolved, not complete or rejected."
+      "community_attestations": "Explicitly user-deferred for current phase. Historical audit retained; required construction evidence remains unresolved, not complete or rejected.",
+      "pan_semantic_recheck": {
+        "observed_at": "2026-10-05T11:08:05Z",
+        "artifact": "analysis/evidence/pan-data-recheck.md",
+        "samples_inspected": 5500,
+        "new_active_build_inputs": 0,
+        "classification_complete": false
+      }
     },
     "implementation_started": true,
     "conditional_phases": {

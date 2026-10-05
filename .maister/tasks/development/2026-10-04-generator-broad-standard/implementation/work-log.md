@@ -130,3 +130,7 @@ G3/G4/G6, standardAGENTS/INDEX i sekwencyjna własność planu. Warunek wielkiej
 ### 2026-10-05T10:43:48Z — kontakt z innymi grupami wykluczony
 
 Zapisano dokładną decyzję użytkownika, odrzucono bramkę wysyłki i zachowano niewysłany projekt jako materiał historyczny. AGENTS, stan i dashboard zgodne. Nie wysłano żadnej wiadomości; nie aktywowano danych ani nowych filtrów. Otwarte klasy semantyczne nadal wymagają własnego udokumentowanego mapowania do pełnych ID i przeglądu pokrycia. Phase8/G3–G9 pozostają nieukończone, bramka phase10 zachowana. Zmiany wyłącznie dokumentacyjne; wcześniejszych wyników151/151+5/5 nie przedstawiono jako nowego przebiegu.
+
+### 2026-10-05T11:08:05Z — samodzielny przegląd danych PAN
+
+Na prośbę użytkownika sprawdzono cztery listy KWJP, klasy SGJP i model glos/relacji, publiczną dokumentację oraz wszystkie 5500 JSON publicznych próbek KWJP½M z przypiętego repo. Skorygowano zbyt szerokie wcześniejsze przedstawienie braku wiedzy: konteksty pomagają w konkretnych przypadkach, nie stanowią kompletnej tabeli wyjątków. Hashe/listy/ID próbek i bibliografia utrwalone, surowe teksty tylko ignorowany tmp. Brak kontaktu, nowych aktywnych wejść i decyzji o dopuszczalności. Kod i etapy bez zmian; testów kodu nie powtarzano przy zmianach dowodowych/dokumentacyjnych.

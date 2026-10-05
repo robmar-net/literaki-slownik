@@ -63,4 +63,6 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Norma odniesienia wielkiej litery w grze](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/game-capitalization-norm-decision.md) — wymagana decyzja przed filtrem dawnych zapisów BROAD.
 
 - [Norma growa i podwojona partykuła](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/capital-double-review.md) — wdrożoneA,151/151+5/5, pełne wejścia obecnych konstruktorów, bez pełnego wydania.
-- [Projekt zapytania do zespołu SGJP](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/sgjp-semantic-metadata-request.md) — brakujące klasy semantyczne; niewysłane, wymaga wyraźnej zgody na kontakt.
+- [Projekt zapytania do zespołu SGJP](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/sgjp-semantic-metadata-request.md) — materiał historyczny, niewysłany; kontakt wykluczony przez użytkownika.
+
+- [Ponowny przegląd danych PAN](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/pan-data-recheck.md) — konteksty KWJP, publiczne próbki i glosy SGJP; częściowe dowody, bez zmiany filtrów.
