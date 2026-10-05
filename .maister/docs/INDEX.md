@@ -49,4 +49,7 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Norma 2026 a nieoznaczone dawne zapisy](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md) — konieczny wybór przed aktywacją kwalifikacji.
 
 - [Norma i mobilne klasy](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/norm-mobile-review.md) — wdrożenie A, rzeczywiste kontrolne przebiegi i ograniczenia.
-- [Zakres niepoświadczonych kontrakcji](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-contractions-scope-decision.md) — pending decyzja przed zmianą zakresu pierwszego wydania.
+- [Zakres niepoświadczonych kontrakcji](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-contractions-scope-decision.md) — zatwierdzone A: 18 form w pierwszym wydaniu, osiem zachowanych poza zakresem, odwracalna osobna warstwa oceny.
+
+- [Kontrola zakresu i sekwencji by](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/first-release-scope-review.md) — 127/127 testów generatora, powtarzalny runtime 770 kandydatów poza impt; pełny etap nadal otwarty.
+- [Oznaczenia bez pełnego objaśnienia](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unexplained-labels-first-release-decision.md) — pending wybór wymagania dla zamkniętej listy 25 etykiet, 1908 analiz źródłowych.

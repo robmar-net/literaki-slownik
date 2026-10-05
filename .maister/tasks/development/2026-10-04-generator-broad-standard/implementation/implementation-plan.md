@@ -243,3 +243,9 @@ Rzeczywista kontrola nowych mobilnych klas: 312 kandydatów i 624 składniki, id
 ## Zatwierdzona korekta zakresu pierwszego wydania
 
 A zatwierdzone i wdrożone: zakres kontrakcji pierwszego wydania obejmuje 18 poświadczonych form (57 analiz), osiem innych (24 analizy) pozostaje diagnostycznie poza zakresem. Ocena językowa niewiadoma nie została zmieniona na błędność. Nowa warstwa release_scope jest oddzielna od języka, gry i profilu; członkostwo jest oceniane dla pojedynczej analizy, więc homonimy nie są tracone. Nie zmieniono kluczy ani treści utrwalonych kandydatów. Dodano zamknięte źródłowe sekwencje host+partykułowe by+(opcjonalna końcówka nwok), z pełnymi 2/3 składnikami i odrębną oceną pisowni normy2026.
+
+## Kontrola zakresu i następna decyzja
+
+Kontrola wszystkich bieżących klas poza impt: 536 interpretacji wejściowych, 770 kandydatów i 1784 składniki; w tym 305 sekwencji host+by+(opcjonalna końcówka). Powtórzenie: zero nowych kandydatów, identyczny digest; FK/integrity OK. Zakres kontrakcji pozostaje 57/24. To projekcja wymaganych wejść konstruktorów z pełnego G2, nie pełny build G8.
+
+[Wymóg objaśnień 25 oznaczeń](../analysis/evidence/unexplained-labels-first-release-decision.md) pozostaje pending. Nie aktywowano odstępstwa; inne wymagania pozostają wiążące.

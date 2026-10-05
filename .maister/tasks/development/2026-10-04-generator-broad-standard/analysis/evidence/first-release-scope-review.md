@@ -21,3 +21,9 @@ A zatwierdzone i wdrożone: zakres kontrakcji pierwszego wydania obejmuje 18 po�
 Trzy testy zakresu miały rzeczywisty red: brak argumentu scope_checks, brak reguły release_scope_checks i brak warstwy w explain. Test integracji sprawdza także raport build (kandydat wewnątrz i poza zakresem) oraz homonim. Dwa testy sekwencji by miały red: brak konstruktora i brak osiągalnej rekonstrukcji w explain; po implementacji green.
 
 [Runtime zakresu](first-release-scope-runtime.json) odczytuje pełną projekcję klasy przyimkowej readonly: 57 analiz w zakresie, 24 poza zakresem, osiem napisów, zero nieznanego zakresu; dwa raporty identyczne, total_changes=0. Czternaście rzeczywistych zapytań pełnego G2 zachowuje dowody i wpisy, rozdziela język od zakresu oraz pokazuje nowe sekwencje by. To nie pełny wynik G8 ani wydanie.
+
+## Utrwalony runtime sekwencji
+
+Kontrola wszystkich bieżących klas poza impt: 536 interpretacji wejściowych, 770 kandydatów i 1784 składniki; w tym 305 sekwencji host+by+(opcjonalna końcówka). Powtórzenie: zero nowych kandydatów, identyczny digest; FK/integrity OK. Zakres kontrakcji pozostaje 57/24. To projekcja wymaganych wejść konstruktorów z pełnego G2, nie pełny build G8.
+
+[Wynik](conditional-scope-runtime.json), kod utrwalony w `8df65ac`. Suity generatora 127/127 i audytu 5/5 przeszły przed uruchomieniem; preflight 14/14 artefaktów i 10 konfiguracji poprawny.
