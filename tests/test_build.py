@@ -2,6 +2,7 @@ import gzip
 import hashlib
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 from tests.helpers import fixture_manifest, rewrite
 from literaki_slownik.build import build
@@ -11,6 +12,52 @@ from literaki_slownik.inputs import GeneratorError
 
 
 class BuildTests(unittest.TestCase):
+    def corpus_manifest(self, directory):
+        p = self.manifest(directory, '#</COPYRIGHT>\nzamek\tzamek:a\tsubst:sg:nom:m3\t\t\nzamek\tzamek:b\tsubst:sg:nom:m3\t\t\n')
+        manifest = load_json(p)
+        corpus = Path(directory) / 'lemma.csv.gz'
+        with gzip.open(corpus, 'wt', encoding='utf-8') as stream:
+            stream.write(',,freq,ipm,ARF,DP,DP_norm,1-DP,total_freq\nzamek,subst,7,1,1,0,0,1,7\nbrak,subst,5,1,1,0,0,1,5\n')
+        artifact = dict(manifest['artifacts'][0])
+        artifact.update(source_id='corpus', kind='kwjp_lemma', role='corpus_evidence',
+                        path=corpus.name, sha256=hashlib.sha256(corpus.read_bytes()).hexdigest(),
+                        genre='all', publication_threshold=5)
+        manifest['artifacts'].append(artifact)
+        rewrite(p, manifest)
+        return p
+
+    def test_build_links_all_corpus_units_without_assigning_frequency_to_homonyms(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p = self.corpus_manifest(directory)
+            run = Path(directory) / 'run'
+            result = build(p, run)
+            with connect(run / 'build.sqlite', readonly=True) as db:
+                self.assertEqual(db.execute('select count(*) from evidence_link').fetchone()[0], 2)
+                self.assertEqual(db.execute('select count(*) from evidence_candidate').fetchone()[0], 2)
+                self.assertEqual(db.execute('select sum(freq) from corpus_evidence').fetchone()[0], 12)
+                self.assertEqual(db.execute('pragma foreign_key_check').fetchall(), [])
+            report = load_json(run / 'reports/links.json')
+            self.assertEqual(report['lists']['corpus']['link_statuses'], {'AMBIGUOUS': 1, 'UNMATCHED': 1})
+            self.assertEqual(report['unavailable'][0]['source_id'], 'NKJP')
+            manifest = load_json(run / 'manifest.json')
+            # Dopóki konstrukcje nie są powiązane, pełny etap pozostaje pending.
+            self.assertEqual(manifest['stages']['links']['status'], 'pending')
+            self.assertIn('links', result['pending'])
+            self.assertEqual(manifest['readiness'], 'INCOMPLETE')
+            self.assertIn('diagnostic_links', load_json(run / 'reports/performance.json'))
+
+    def test_links_failure_preserves_imports_and_candidate_traces(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p = self.corpus_manifest(directory)
+            run = Path(directory) / 'run'
+            with patch('literaki_slownik.build.create_links', side_effect=ValueError('uszkodzone powiązanie')):
+                with self.assertRaises(GeneratorError):
+                    build(p, run)
+            manifest = load_json(run / 'manifest.json')
+            self.assertEqual(manifest['stages']['links']['status'], 'failed')
+            self.assertEqual(manifest['stages']['import_kwjp']['status'], 'complete')
+            self.assertEqual(manifest['readiness'], 'INCOMPLETE')
+
     def manifest(self, directory, contents):
         p, manifest = fixture_manifest(directory)
         source = Path(directory) / 'source.gz'

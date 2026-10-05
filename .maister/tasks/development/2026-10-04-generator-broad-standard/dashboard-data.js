@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T01:09:49Z",
+  "generated": "2026-10-05T01:32:21.447466+00:00",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Raport i kandydaci konstrukcji w build; pełna macierz oraz decyzje nadal w toku"
+    "current_activity": "Konieczna decyzja o dowodach kontrakcji; bezpośrednie KWJP zintegrowane z build"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Raport warunków w build oraz persistence dwóch potwierdzonych klas zintegrowane; 93446 kandydatów/186892 składniki, powtórzenie bezduplikatów, FK/integrityOK. Explain wskazuje ślady, legacyzgodne. Generator104/104,audit5/5; G3–G6 częściowe.",
+      "summary": "Komenda build tworzy bezpośrednie powiązania wszystkich zaimportowanych jednostek KWJP i reports/links.json; F pozostaje przy jednostce korpusu. Raport wskazuje osobno listy/gatunki i źródła niedostępne. Pełne powiązania konstrukcji nadal otwarte: links pozostaje pending, a wynik INCOMPLETE. Błąd zapisu powiązań oznacza links failed, zachowując zakończone importy. Testy generatora 106/106 i audytu 5/5 przeszły.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -403,11 +403,31 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/persisted-constructions-runtime.json",
           "label": "Pełny runtime dwóch potwierdzonych klas"
+        },
+        {
+          "path": "analysis/evidence/build-links-integration-review.md",
+          "label": "KWJP w build: przegląd"
+        },
+        {
+          "path": "analysis/evidence/build-links-integration-checks.json",
+          "label": "Testy i hashe przyrostu"
+        },
+        {
+          "path": "analysis/evidence/contraction-proof-decision.md",
+          "label": "Decyzja dowodu kontrakcji"
         }
       ],
       "gate": {
-        "question": null,
-        "answer": null
+        "id": "contraction_documentation_proof",
+        "status": "pending",
+        "created_at": "2026-10-05T01:32:21.447466+00:00",
+        "question": "Czy dosłowne wskazanie kontrakcji przez autorów dokumentacji SGJP wystarcza jako dowód językowy, również dla form opisanych jako utworzone przez analogię?",
+        "options": {
+          "A": "Tak, bez dodatkowego niezależnego poświadczenia każdej z 18 wskazanych form; inne kryteria obowiązują (rekomendowane).",
+          "B": "Nie, wymagamy dodatkowego odrębnego poświadczenia słownikowego całej kontrakcji."
+        },
+        "answer": null,
+        "artifact": "analysis/evidence/contraction-proof-decision.md"
       }
     },
     {

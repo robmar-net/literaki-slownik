@@ -209,3 +209,9 @@ Dodano deterministyczny raport qualifier-conditions.json do nowych build oraz tr
 ## Utrwalanie potwierdzonych konstrukcji — postęp
 
 Nowe build zapisują potwierdzony podzbiór konstrukcji do derivation_candidate i derivation_component, z kluczem treści SHA256 oraz FK do surowych składników. Nie tracimy homonimów i bezpośrednich wpisów. Explain pokazuje persisted_candidate_key; stare bazy pozostają czytelne bez migracji. Pełna kwalifikacja i inne klasy nadal otwarte, constructions pending, INCOMPLETE. Pełny przegląd potwierdzonych klas: 92 622 źródłowe interpretacje impt, 2 by i 4 nwok aglt, 93 446 kandydatów i 186 892 składniki; powtórzenie bez nowych kandydatów, FK/integrity OK.
+
+## Powiązania KWJP w build — postęp
+
+Komenda build tworzy bezpośrednie powiązania wszystkich zaimportowanych jednostek KWJP i reports/links.json; F pozostaje przy jednostce korpusu. Raport wskazuje osobno listy/gatunki i źródła niedostępne. Pełne powiązania konstrukcji nadal otwarte: links pozostaje pending, a wynik INCOMPLETE. Błąd zapisu powiązań oznacza links failed, zachowując zakończone importy. Testy generatora 106/106 i audytu 5/5 przeszły.
+
+Decyzja o sile dowodu dla kontrakcji pozostaje [przed wdrożeniem](../analysis/evidence/contraction-proof-decision.md).

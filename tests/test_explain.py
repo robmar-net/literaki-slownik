@@ -11,7 +11,6 @@ from literaki_slownik.build import build
 from literaki_slownik.canonical import load_json, sha256, write_json
 from literaki_slownik.database import connect
 from literaki_slownik.explain import explain
-from literaki_slownik.links import create_links
 
 
 class ExplainTests(unittest.TestCase):
@@ -172,18 +171,29 @@ class ExplainTests(unittest.TestCase):
         self.assertEqual(value['list_membership']['status'], 'unresolved')
 
     def test_corpus_observation_once_with_all_candidates_and_no_sense_claim(self):
-        with connect(self.run / 'build.sqlite') as db:
-            db.execute('insert into source_artifact values (?,?,?)', ('KWJP', 'kwjp_lemma', json.dumps({'genre': 'all'})))
-            db.execute('insert into corpus_evidence values (?,?,?,?,?,?,?,?,?)',
-                       (1, 'KWJP', 1, 'kot', None, 'subst', '{"freq":"7"}', '{"freq":7}', 7))
-            create_links(db)
-        value = explain(self.run, 'kot')
+        # Rzeczywisty build importuje korpus i tworzy relacje; explain tylko odczytuje.
+        root = Path(self.temp.name)
+        manifest_path = root / 'sources.json'
+        manifest = load_json(manifest_path)
+        corpus = root / 'lemma.csv.gz'
+        with gzip.open(corpus, 'wt', encoding='utf-8') as stream:
+            stream.write(',,freq,ipm,ARF,DP,DP_norm,1-DP,total_freq\nkot,subst,7,1,1,0,0,1,7\n')
+        artifact = dict(manifest['artifacts'][0])
+        artifact.update(source_id='KWJP', kind='kwjp_lemma', role='corpus_evidence',
+                        path=corpus.name, sha256=sha256(corpus), genre='all')
+        manifest['artifacts'].append(artifact)
+        rewrite(manifest_path, manifest)
+        run = root / 'with-corpus'
+        build(manifest_path, run)
+        before = [sha256(run / f) for f in ('manifest.json', 'build.sqlite')]
+        value = explain(run, 'kot')
         observations = value['corpus']['observations']
         self.assertEqual(len(observations), 1)
         self.assertEqual(observations[0]['typed_metrics']['freq'], 7)
         self.assertEqual(len(observations[0]['candidates']), 150)
         self.assertFalse(observations[0]['sense_identity_confirmed'])
         self.assertEqual(value['corpus']['unavailable'][0]['source_id'], 'NKJP')
+        self.assertEqual(before, [sha256(run / f) for f in ('manifest.json', 'build.sqlite')])
 
     def test_cli_json_text_and_operational_error(self):
         cmd = [sys.executable, '-m', 'literaki_slownik', 'explain', '--run-dir', str(self.run), '--word', 'pcv']

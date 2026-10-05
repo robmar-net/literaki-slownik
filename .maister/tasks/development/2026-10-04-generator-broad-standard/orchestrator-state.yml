@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-05T01:09:49Z",
+    "updated": "2026-10-05T01:32:21.447466+00:00",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "Raport warunków w build oraz persistence dwóch potwierdzonych klas zintegrowane; 93446 kandydatów/186892 składniki, powtórzenie bezduplikatów, FK/integrityOK. Explain wskazuje ślady, legacyzgodne. Generator104/104,audit5/5; G3–G6 częściowe.",
+      "summary": "Komenda build tworzy bezpośrednie powiązania wszystkich zaimportowanych jednostek KWJP i reports/links.json; F pozostaje przy jednostce korpusu. Raport wskazuje osobno listy/gatunki i źródła niedostępne. Pełne powiązania konstrukcji nadal otwarte: links pozostaje pending, a wynik INCOMPLETE. Błąd zapisu powiązań oznacza links failed, zachowując zakończone importy. Testy generatora 106/106 i audytu 5/5 przeszły.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -377,11 +377,31 @@
         {
           "path": "analysis/evidence/persisted-constructions-runtime.json",
           "label": "Pełny runtime dwóch potwierdzonych klas"
+        },
+        {
+          "path": "analysis/evidence/build-links-integration-review.md",
+          "label": "KWJP w build: przegląd"
+        },
+        {
+          "path": "analysis/evidence/build-links-integration-checks.json",
+          "label": "Testy i hashe przyrostu"
+        },
+        {
+          "path": "analysis/evidence/contraction-proof-decision.md",
+          "label": "Decyzja dowodu kontrakcji"
         }
       ],
       "gate": {
-        "question": null,
-        "answer": null
+        "id": "contraction_documentation_proof",
+        "status": "pending",
+        "created_at": "2026-10-05T01:32:21.447466+00:00",
+        "question": "Czy dosłowne wskazanie kontrakcji przez autorów dokumentacji SGJP wystarcza jako dowód językowy, również dla form opisanych jako utworzone przez analogię?",
+        "options": {
+          "A": "Tak, bez dodatkowego niezależnego poświadczenia każdej z 18 wskazanych form; inne kryteria obowiązują (rekomendowane).",
+          "B": "Nie, wymagamy dodatkowego odrębnego poświadczenia słownikowego całej kontrakcji."
+        },
+        "answer": null,
+        "artifact": "analysis/evidence/contraction-proof-decision.md"
       },
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
@@ -572,8 +592,8 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "Independent technical KWJP during actual G3 evidence gap as approved plan §2",
-        "tests": "4/4 focused including report red→green; 25/25 generator + audit 5/5; full diagnostic 13/13 lists, FK OK",
-        "remaining": "Build integration after constructions, final availability/quality and canonical acceptance"
+        "tests": "4/4 focused including report red→green; 25/25 generator + audit 5/5; full diagnostic 13/13 lists, FK OK; build integration2 red→green, explain runtime from actual synthetic build readonly; full suite106/106,audit5/5",
+        "remaining": "All derived candidate relations, final availability/quality and canonical acceptance; direct links integrated in build, full stage pending"
       },
       "G6": {
         "status": "in_progress",
@@ -624,7 +644,7 @@
         "artifact": "analysis/evidence/wiktionary-attestation-decision.md"
       }
     },
-    "verification_note": "Increment generator104/104,audit5/5; qualifier reports twice canonical equal; fullconfirmedclass projection93446 candidates repeat idempotent,FK/integrityOK,queries refreshed readonly. Fullverification/release pending. Final increment checks:104/104 generator,5/5 baseline,14/14 production preflight; artifacts/hashes/links/MDHTML/plan8of36 OK.",
+    "verification_note": "Increment106/106 generator,5/5audit,28focused; no full new build or final verification; G3–G6partial. Necessary language evidence gate pending; no policy activated.",
     "source_policy_clarification": {
       "recorded_at": "2026-10-04T21:49:35Z",
       "artifact": "analysis/evidence/source-policy-clarification.md",

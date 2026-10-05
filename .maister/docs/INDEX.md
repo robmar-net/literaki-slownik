@@ -38,3 +38,6 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Pełne pokrycie warunków kwalifikatorów](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/qualifier-coverage-review.md) — raport nowych build, ekspozycja luk i granice częściowej oceny.
 
 - [Utrwalanie konstrukcji](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/persisted-constructions-review.md) — dwa potwierdzone rodzaje, rozliczenie klas i zgodność wcześniejszych baz.
+
+- [KWJP w build](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/build-links-integration-review.md) — relacje bezpośrednie; pełny etap pending.
+- [Dowody kontrakcji](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/contraction-proof-decision.md) — konieczna decyzja użytkownika przed nowym warunkiem.

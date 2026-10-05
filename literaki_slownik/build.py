@@ -11,6 +11,7 @@ from . import sgjp, kwjp
 from .run import create_run, set_stage
 from .reports import qualifier_coverage
 from .constructions import materialize_confirmed_candidates
+from .links import create_links, link_report
 
 
 def flush(db, sql, batch):
@@ -110,6 +111,15 @@ def build(manifest_path, run_dir, batch_size=10000):
             construction_counts = materialize_confirmed_candidates(db, batch_size)
             performance['diagnostic_constructions'] = {'seconds': time.monotonic() - start}
             write_json(run / 'reports/construction-candidates.json', construction_counts)
+            # Powiązania bezpośrednie są niezależne od kwalifikacji językowej.
+            # Pełny etap czeka także na powiązania wszystkich klas konstrukcji.
+            stage = 'links'
+            start = time.monotonic()
+            create_links(db)
+            db.commit()
+            write_json(run / 'reports/links.json',
+                       link_report(db, inputs['manifest'].get('unavailable', [])))
+            performance['diagnostic_links'] = {'seconds': time.monotonic() - start}
             # Potwierdzenie niezmienności całego kompletu wejść po odczycie.
             checked = inspect_sources(manifest_path)
             if checked['manifest_sha256'] != inputs['manifest_sha256']:

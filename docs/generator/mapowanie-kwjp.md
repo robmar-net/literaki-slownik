@@ -3,7 +3,7 @@
 ## TL;DR
 Pełne mapowanie lemma-all sprawdzono i niezależnie odtworzono.
 Dopasowanie strukturalne nie potwierdza sensu ani dopuszczalności w grze.
-Moduł links ma testy; nie jest jeszcze włączony do pełnego przebiegu build.
+Moduł links działa w build dla bezpośrednich form/leksemów; pełne powiązania konstrukcji nadal wymagają wykonania.
 
 ## Key Decisions
 - NFC, zachowanie wielkości liter, lemma_base + identyczny POS; pełny lemma_id zostaje.
@@ -13,7 +13,7 @@ Moduł links ma testy; nie jest jeszcze włączony do pełnego przebiegu build.
 ## Open Questions / Risks
 - Zgodność napisu i POS nie dowodzi zgodności znaczenia. Listy nie zawierają flagi zgadywania taggera.
 - Nie ustalono szczegółowej semantyki części klas spoza SGJP; ich status pozostaje UNMATCHED, bez aliasu.
-- G5 pozostaje częściowa: pełne powiązania wszystkich list i integracja build są przed nami.
+- G5 pozostaje częściowa: bezpośrednie powiązania są zintegrowane, pełne relacje konstrukcji i odbiór pozostają przed nami.
 
 SGJP ma 34 klasy, KWJP lemma 39; 32 wspólne nazwy mają jawne mapowanie w `config/generator/pos-map.json`. Pozostałe KWJP `dig,interp,romandig,siebie,sym,xxs,xxx` pozostają niedopasowane. SGJP `cond,pacta` nie otrzymują wymyślonych aliasów.
 
@@ -35,3 +35,7 @@ Odtworzenie: `python3 scripts/probe_generator_evidence.py --database PATH --mode
 Na nowej kopii diagnostycznej powiązano wszystkie 5 066 341 jednostek z 13 list, tworząc 2 940 032 krawędzie kandydatów. Kontrola FK przeszła. Czas powiązań: 114,10 s; szczyt RSS: 117 948 416 B na macOS. To samodzielna kontrola techniczna bez konstrukcji, końcowej polityki ani odbioru G8.
 
 [Raport mianowników](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/full-links-report.json) rozdziela każdą listę/gatunek, liczbę opublikowanych jednostek, sumę F, statusy dopasowań i krawędzie. Wszystkie opublikowane rekordy mają obserwację korpusową również przy UNMATCHED; dopasowanie i dostępność miary to różne własności. `link_report` odmawia raportu kompletności, gdy brakuje choć jednego powiązania. [Koszt przebiegu](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/full-links-performance.json).
+
+## Integracja diagnostyczna z build
+
+Komenda build tworzy bezpośrednie powiązania wszystkich zaimportowanych jednostek KWJP i reports/links.json; F pozostaje przy jednostce korpusu. Raport wskazuje osobno listy/gatunki i źródła niedostępne. Pełne powiązania konstrukcji nadal otwarte: links pozostaje pending, a wynik INCOMPLETE. Błąd zapisu powiązań oznacza links failed, zachowując zakończone importy. Testy generatora 106/106 i audytu 5/5 przeszły.
