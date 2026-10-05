@@ -24,7 +24,10 @@
     "game_mandatory_capital_2026_norm_reference_user_approved",
     "three_full_lemma_resident_capital_subset",
     "source_singular_double_particle_game_rejection",
-    "two_exact_documented_surname_components_hash_bound"
+    "two_exact_documented_surname_components_hash_bound",
+    "closed_70_mobile_source_host_definitions_exactly_registered_and_exercised",
+    "295_mixed_name_records_independent_capital_rejection",
+    "two_unmapped_preposition_n_records_independent_bound_and_length_rejection"
   ],
   "full_source_compact_interpretations": 7458520,
   "observed_combinations": {
@@ -35,7 +38,6 @@
   "pending": [
     "all_compound_qualifier_semantics_and_variant_policy",
     "full_category_and_orthography_matrix",
-    "mobile_host_matrix",
     "documented_game_conditions_without_sjp_editorial_source_policy"
   ],
   "release_blocked": true,
@@ -106,5 +108,6 @@
     ],
     "not_full_qualification": true,
     "standard_history_rejection_preserved": true
-  }
+  },
+  "latest_matrix_review": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-matrix-review.md"
 }

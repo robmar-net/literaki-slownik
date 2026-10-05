@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T19:41:13Z",
+  "generated": "2026-10-05T20:21:27Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Wiek wdrożony; decyzja wspólnego progu leksykalnego STANDARD"
+    "current_activity": "Wspólny dowód wdrożony; próg własnego przeglądu opisów czytnika do decyzji"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Wdrożone A wieku STANDARD v20 z jawną niepewnością; 208/208+5/5, preflight14+12OK. Dwie projekcje10rekordów/16analiz/32ocen, 24readonly explain, powtarzalność i źródło bez zmian. Raport niewiadomych rozlicza wynik całego słowa; historyczne oceny nie są nowym pełnym build v20. Konieczna decyzja zakresu leksykalnego dowodu STANDARD; pełna macierz i8/36 nadal otwarte.",
+      "summary": "A wspólnego dowodu leksykalnego wdrożone v21; wiek/gra/pisownia/pozostałość osobno. 210/210 generator+5/5audit; dwie nowe projekcje10rekordów/16analiz/32ocen,24readonly explain, źródło i starsze oceny bez zmian. Domknięta mechanika70hostów,295mieszanych nazw i2rekordy ń mają niezależną odmowę. Pełna kwalifikacja/34klasy i8/36 nadal otwarte; konieczny próg własnego przeglądu opisów oficjalnego czytnika SGJP.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -272,7 +272,8 @@ window.MAISTER_DATA = {
         "Dodatni dowód A wdrożony v16: zamknięte mapowanie wznak, tylko leksykalny warunek BROAD; pełna kwalifikacja nadal otwarta.",
         "A: osobni kandydaci jawnie udokumentowanej pisowni istniejących analiz, tylko angol/jugol; źródłowe rekordy, inne warunki i niewiadome zachowane.",
         "Zatwierdzone A pisowni wdrożone w zamkniętym zakresie; walidacja utrwalonych źródeł/składników przed ocenami i odczytem.",
-        "Diagnostyczne próbki i indeks nie aktywują polityki ani odbioru; brakujące pełne części jawne."
+        "Diagnostyczne próbki i indeks nie aktywują polityki ani odbioru; brakujące pełne części jawne.",
+        "A shared lexical proof approved and implemented v21 for both variants; all other conditions separate, historical v16-v20 evaluations retained."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -793,19 +794,43 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/shared-lexical-proof-simulation.json",
           "label": "Symulacja readonly sześciu użyć"
+        },
+        {
+          "path": "analysis/evidence/shared-lexical-proof-implementation-review.md",
+          "label": "Wdrożenie wspólnego dowodu"
+        },
+        {
+          "path": "analysis/evidence/shared-lexical-proof-runtime.json",
+          "label": "Runtime v21"
+        },
+        {
+          "path": "analysis/evidence/remaining-matrix-review.md",
+          "label": "Domknięcia macierzy hostów i niezależne odmowy"
+        },
+        {
+          "path": "analysis/evidence/remaining-matrix-runtime.json",
+          "label": "Pełna macierz hostów i zakres frag"
+        },
+        {
+          "path": "analysis/evidence/reader-use-proof-decision.md",
+          "label": "Próg opisów/przykładów oficjalnego czytnika"
+        },
+        {
+          "path": "analysis/evidence/reader-use-proof-review-cases.json",
+          "label": "Własne przypadki do decyzji"
         }
       ],
       "gate": {
-        "id": "documented_lexical_proof_shared_variants",
+        "id": "official_reader_own_use_description_proof",
         "status": "pending",
-        "created_at": "2026-10-05T19:41:13Z",
-        "question": "Czy sprawdzony dowód konkretnego polskiego użycia SGJP stosujemy do warunku leksykalnego również w STANDARD, z osobnymi pozostałymi warunkami?",
+        "created_at": "2026-10-05T20:20:06Z",
+        "question": "Czy własny ręczny przegląd jednoznacznych opisów/przykładów oficjalnego czytnika SGJP może być dowodem konkretnego użycia istniejącego rekordu, bez importu metadanych i z zachowaniem nierozpoznanej pozostałości?",
         "options": {
-          "A": "Ten sam dowód leksykalny dla obu wariantów, wiek/pisownia/gra osobno (rekomendowane).",
-          "B": "Dowód tylko BROAD; STANDARD wymaga osobnego dowodu leksykalnego."
+          "A": "Tak, po dokładnym przeglądzie i związaniu źródłowymi hashami; inne warunki osobno (rekomendowane).",
+          "B": "Czytnik tylko pomocniczy; nowe dowody opisowe wyłącznie z dotychczasowej dokumentacji."
         },
         "answer": null,
-        "artifact": "analysis/evidence/shared-lexical-proof-decision.md"
+        "artifact": "analysis/evidence/reader-use-proof-decision.md"
       }
     },
     {

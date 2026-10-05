@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "approved-conditions-v17",
+  "version": "approved-conditions-v18",
   "status": "partial_not_release_policy",
   "rules": [
     {
@@ -849,10 +849,11 @@
   "documented_use_positive_lexical_proof": {
     "rule_id": "linguistic-documented-use-lexical-proof-v1",
     "first_use": "sgjp-authors-phrase-wznak-v1",
-    "effect": "positive_broad_lexical_condition_only",
-    "standard": "unresolved",
+    "effect": "positive_lexical_condition_both_variants",
+    "standard": "accept_lexical_condition_only",
     "remaining_conditions": "separate",
-    "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-use-positive-proof-decision.md"
+    "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-use-positive-proof-decision.md",
+    "scope_extension_decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/shared-lexical-proof-decision.md"
   },
   "documented_spelling_variants": {
     "rule_id": "documented-spelling-variant-v1",

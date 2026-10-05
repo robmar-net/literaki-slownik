@@ -50,12 +50,19 @@ DOCUMENTED_LEXICAL_USE_SOURCES = {
 DOCUMENTED_LEXICAL_RULE = 'linguistic-documented-use-lexical-proof-v1'
 
 
-def lexical_use_checks(review, variant):
+def lexical_use_checks(review, variant, *, policy_version=POLICY_VERSION):
     """Wyłącznie sprawdzony przegląd własny; nie domyka innych warunków."""
+    if variant not in VARIANTS:
+        raise GeneratorError('Nieznany wariant słownika',2)
     if not review or 'lexical_proof' not in review:return []
-    return [{'rule_id':review['lexical_proof'],'status':'accept' if variant=='broad' else 'unresolved',
-        'message':('Dodatni dowód leksykalny BROAD dokładnie udokumentowanego użycia; inne warunki osobno.'
-                   if variant=='broad' else 'Dowód BROAD nie rozstrzyga aktualnej kwalifikacji STANDARD.'),
+    legacy = policy_version in {f'diagnostic-approved-conditions-v{v}' for v in range(16,21)}
+    if policy_version != POLICY_VERSION and not legacy:
+        raise GeneratorError('Nieznana wersja dowodu leksykalnego użycia',4)
+    message = ('Dodatni dowód leksykalny BROAD dokładnie udokumentowanego użycia; inne warunki osobno.'
+               if variant=='broad' else 'Dowód BROAD nie rozstrzyga aktualnej kwalifikacji STANDARD.') if legacy else (
+               'Dodatni dowód leksykalny dokładnie udokumentowanego użycia dla BROAD i STANDARD; wiek, pisownia, gra i inne warunki osobno.')
+    return [{'rule_id':review['lexical_proof'],'status':'unresolved' if legacy and variant=='standard' else 'accept',
+        'message':message,
         'scope':'documented_use_lexical_condition_only','evidence':review['evidence']}]
 
 
@@ -179,7 +186,7 @@ def checked_persisted_use_coverage(db):
             if actual!={k:v[0] for k,v in expected.items()}:
                 raise GeneratorError('Niepełne lub zmienione pokrycie użyć i nierozpoznanych możliwości',4)
             checked=set()
-            for key,variant,payload_key,encoded in db.execute('''select a.analysis_key,d.variant,p.assessment_key,p.assessment
+            for key,variant,version,payload_key,encoded in db.execute('''select a.analysis_key,d.variant,a.policy_version,p.assessment_key,p.assessment
                 from analysis a join variant_decision d on d.analysis_key=a.analysis_key
                 join decision_payload p on p.assessment_key=d.assessment_key where a.interpretation_id=?''',(iid,)):
                 value=json.loads(encoded)
@@ -189,7 +196,7 @@ def checked_persisted_use_coverage(db):
                 trace=expected[key][1]
                 relation=trace if trace['kind']=='documented_use' else None
                 game=resident_use_checks(relation)
-                language=resident_use_checks(relation,variant)+lexical_use_checks(relation,variant)
+                language=resident_use_checks(relation,variant)+lexical_use_checks(relation,variant,policy_version=version)
                 for layer,checks in (('game',game),('language',language),('membership',game+language)):
                     actual=sorted(dumps(c) for c in value[layer]['checks']
                                   if c['rule_id'] in RESIDENT_RELATION_CONDITIONS|{DOCUMENTED_LEXICAL_RULE})

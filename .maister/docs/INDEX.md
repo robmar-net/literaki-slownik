@@ -104,4 +104,8 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 
 - [Wdrożenie progu wieku STANDARD](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/age-baseline-implementation-review.md)
 - [Niewiadome według wyniku słowa](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unknown-relevance-implementation-review.md)
-- [Wspólny próg leksykalny — decyzja pending](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/shared-lexical-proof-decision.md)
+- [Wspólny próg leksykalny — zatwierdzone A i wdrożone v21](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/shared-lexical-proof-decision.md)
+
+- [Wdrożenie wspólnego dowodu](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/shared-lexical-proof-implementation-review.md)
+- [Domknięcia hostów i niezależne odmowy](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-matrix-review.md)
+- [Dowody opisów oficjalnego czytnika — decyzja pending](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/reader-use-proof-decision.md)

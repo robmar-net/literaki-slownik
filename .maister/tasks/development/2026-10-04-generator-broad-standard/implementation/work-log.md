@@ -233,3 +233,16 @@ Wznowiono maister-work/development/framework/executor, stan i artefakty ukończo
 Wdrożone A wieku STANDARD v20 z jawną niepewnością; 208/208+5/5, preflight14+12OK. Dwie projekcje10rekordów/16analiz/32ocen, 24readonly explain, powtarzalność i źródło bez zmian. Raport niewiadomych rozlicza wynik całego słowa; historyczne oceny nie są nowym pełnym build v20. Konieczna decyzja zakresu leksykalnego dowodu STANDARD; pełna macierz i8/36 nadal otwarte.
 
 Stan i niepuste artefakty ukończonych faz sprawdzone; executor, AGENTS/INDEX, sekwencyjnie inline. Wiek3testy red ImportError→green; niewiadome1redKeyError→green. Dawny test pojedynczego payloadu poprawiony: warianty rzeczywiście różne, współdzielenie między słowami nadal sprawdzone. Końcowe208+5 zapisane przed restartem, nie powtarzano kosztownych przebiegów. Symulacja dodatkowego progu tylko readonly/w pamięci, sześć użyć bez zmiany członkostwa; skrypt uruchamiany z PYTHONPATH=. po początkowym błędzie importu. Nie zmieniono niezatwierdzonego progu, głównych checkboxów, zależności ani phase10. Wszystkie brakujące wymagane części nadal jawne.
+
+## 2026-10-05T20:07:16Z — zatwierdzenie A wspólnego progu leksykalnego
+
+Wznowiono maister-work/development/framework/executor phase8. A rozszerza tylko warunek leksykalny dokładnie udokumentowanego użycia na oba warianty. Wiek/ortografia/gra/pozostałość osobno. Stan i artefakty ukończonych faz sprawdzone; AGENTS/INDEX, sekwencyjnie inline zgodnie z planem. Użytkownik zlecił kontynuowanie wszystkich kroków z wyłącznie niezbędnymi pytaniami.
+
+## 2026-10-05T20:20:06Z — wspólny dowód, zgodność historyczna i dalsza macierz
+
+A wspólnego dowodu leksykalnego wdrożone v21; wiek/gra/pisownia/pozostałość osobno. 210/210 generator+5/5audit; dwie nowe projekcje10rekordów/16analiz/32ocen,24readonly explain, źródło i starsze oceny bez zmian. Domknięta mechanika70hostów,295mieszanych nazw i2rekordy ń mają niezależną odmowę. Pełna kwalifikacja/34klasy i8/36 nadal otwarte; konieczny próg własnego przeglądu opisów oficjalnego czytnika SGJP.
+
+Test-first3redfail→green6, historyczny test redGeneratorError→green,14focused; pełne210/210 i5/5. Mechaniczna korekta zgodności odczytu według zapisanej policy_version, bez nadpisywania starego payloadu i bez uznania starego wyniku za v21. Dwa rzeczywiste historyczne odczyty z niezmienionymi hashami. Probe pierwszy błędny skrót ścieżki G2 nie zmodyfikował źródeł; poprawiono do zarejestrowanego importu. Pierwszy host-probe próbował niewłaściwego wariantu wok w klasie nwok i prawidłowo odmówił; probe ograniczono do formalnych wariantów, bez zmiany konstruktora. Dwa odtworzenia macierzy identyczne. Audyt uruchomiono właściwym scripts/test_audit_sgjp.py po błędnym discover nieistniejącego scripts/tests. Każdy wymagany zakres nadal jawny; główne checkboxy i phase10 bez zmian. Nowy próg opisów czytnika nieaktywny przed decyzją. AGENTS/INDEX, sekwencyjnie inline, brak zainstalowanego specjalisty.
+
+### 2026-10-05T20:21:27Z — końcowe kontrole przyrostu
+35/35 testów wejść/konstrukcji/użyć po zmianach konfiguracji, preflight14źródeł/12konfiguracji OK; dwa raporty macierzy identyczne. JSON stanu/dashboard zgodny, wszystkie zarejestrowane artefakty istnieją. Diff check OK. Tylko mechanika hostów domknięta; pełna kwalifikacja i wszystkie wymagane fazy pozostają otwarte. Następna bramka zapisana przed przedstawieniem.

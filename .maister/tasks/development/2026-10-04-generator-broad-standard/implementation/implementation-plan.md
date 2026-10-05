@@ -366,3 +366,9 @@ Dodatni dowód BROAD wdrożony v19 dla5kolejnych dokładnych użyć SGJP; zachow
 Wdrożone A wieku STANDARD v20 z jawną niepewnością; 208/208+5/5, preflight14+12OK. Dwie projekcje10rekordów/16analiz/32ocen, 24readonly explain, powtarzalność i źródło bez zmian. Raport niewiadomych rozlicza wynik całego słowa; historyczne oceny nie są nowym pełnym build v20. Konieczna decyzja zakresu leksykalnego dowodu STANDARD; pełna macierz i8/36 nadal otwarte.
 
 [Wdrożenie wieku](../analysis/evidence/age-baseline-implementation-review.md), [raport niewiadomych](../analysis/evidence/unknown-relevance-implementation-review.md), [decyzja wspólnego dowodu](../analysis/evidence/shared-lexical-proof-decision.md).
+
+## Wspólny dowód i dalsza macierz — wdrożenie A
+
+A wspólnego dowodu leksykalnego wdrożone v21; wiek/gra/pisownia/pozostałość osobno. 210/210 generator+5/5audit; dwie nowe projekcje10rekordów/16analiz/32ocen,24readonly explain, źródło i starsze oceny bez zmian. Domknięta mechanika70hostów,295mieszanych nazw i2rekordy ń mają niezależną odmowę. Pełna kwalifikacja/34klasy i8/36 nadal otwarte; konieczny próg własnego przeglądu opisów oficjalnego czytnika SGJP.
+
+[Wspólny dowód](../analysis/evidence/shared-lexical-proof-implementation-review.md), [domknięcia macierzy](../analysis/evidence/remaining-matrix-review.md), [próg opisów czytnika](../analysis/evidence/reader-use-proof-decision.md).

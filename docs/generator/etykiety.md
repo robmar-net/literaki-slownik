@@ -88,3 +88,7 @@ Zatwierdzony dowód leksykalny BROAD stosuje się do pięciu kolejnych dokładny
 ## Aktualizacja v20
 
 STANDARD: brak wykluczającej etykiety przechodzi tylko warunek wieku; age_basis=source_classification, age_certainty=not_independently_established. Nie objaśnia nieznanych kwalifikatorów ani nie daje pełnej akceptacji. Jawne wyłączenia wieku zachowane.
+
+## Aktualizacja v21
+
+Dokładnie udokumentowany próg leksykalny sześciu użyć wspólny dla BROAD i STANDARD; inne warunki osobno. Historyczne v16–v20 zachowują własne wcześniejsze oceny, v21 wymaga wspólnego dowodu.

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "constructions-discovery-v6",
+  "version": "constructions-discovery-v7",
   "status": "not_active_policy",
   "classes": {
     "full_personal_praet_cond": {
@@ -190,7 +190,7 @@
       "storage": "three_ordered_components_source_fk_and_two_grammatical_particles"
     },
     "mobile_aglt": {
-      "status": "pending_full_host_matrix",
+      "status": "complete_closed_source_host_matrix_full_qualification_pending",
       "literal_by_suffix_is_not_sufficient": true,
       "independent_homonyms_retained": true,
       "examples_rejected_game_analysis": [
@@ -238,7 +238,7 @@
       },
       "other_host_subset": {
         "rule_id": "mobile-source-host-aglt-v1",
-        "status": "materialized_consistent_subset_full_matrix_pending",
+        "status": "materialized_complete_closed_source_host_matrix_full_qualification_pending",
         "source_classes": [
           "z_aglt",
           "z_aglt_nwok",
@@ -310,6 +310,17 @@
           "original": "wszyscy",
           "tag_pattern": "adj:%"
         }
+      },
+      "source_host_matrix": {
+        "definitions": 70,
+        "by_host_definitions_including_by": 17,
+        "other_host_definitions": 53,
+        "by_sequence_host_definitions": 47,
+        "missing_definitions": [],
+        "source_scope_complete": true,
+        "full_qualification_complete": false,
+        "review": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-matrix-review.md",
+        "runtime": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-matrix-runtime.json"
       }
     },
     "productive_derivation": {

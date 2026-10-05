@@ -773,11 +773,11 @@
     },
     "policy": {
       "path": "../../config/generator/policy.json",
-      "sha256": "d1f241b5203134df017de0ae2548ca9455e84776656872823bad09cdd621636e"
+      "sha256": "ec3421b532411c07c693c8e85716c926e43842bc38e473317c69d5a43f66203c"
     },
     "constructions": {
       "path": "../../config/generator/constructions.json",
-      "sha256": "58c9d6878ca1b969fac8630e66604fb361f29f986ae7cde603462733d8a2a413"
+      "sha256": "a48dd4856fda77a1e806299f4947abb189df6613b8823c697d779096ed35176a"
     },
     "evidence": {
       "path": "../../config/generator/evidence.json",
@@ -785,7 +785,7 @@
     },
     "coverage": {
       "path": "../../config/generator/coverage.json",
-      "sha256": "8ca335c86e68a34067c8ca2d35904fc830f13a7e701477224dfd159b09c1a329"
+      "sha256": "228f8fcf43a98258d7d0b19626597e80e2cb052b22c8097a028ae46f84f38143"
     },
     "qualifiers": {
       "path": "../../config/generator/qualifiers.json",

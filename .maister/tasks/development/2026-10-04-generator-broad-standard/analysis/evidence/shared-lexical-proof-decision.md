@@ -14,7 +14,11 @@ Pierwszy zakres: wznak, dwójnasób, trójnasób, kroćset, roścież, ziem — 
 W tej projekcji v20 członkostwo wszystkich sześciu słów pozostaje takie samo: pięć unresolved, kroćset reject za dawność. Nie jest to twierdzenie o przyszłej finalnej delcie list; inne wymagane warunki nadal otwarte. Dowód dotyczy użycia, nie każdego znaczenia pełnego ID.
 
 ## Open Questions / Risks
-Decyzja pending. A rozdziela wspólną podstawę leksykalną od ograniczeń STANDARD; nie usuwa żadnego istniejącego wyłączenia. B wymaga dodatkowych danych dla tych samych udokumentowanych jednostek. Nie aktywujemy metadanych czytnika ani nowych źródeł, nie kontaktujemy się z autorami. Pełna macierz i odbiór nadal wymagane.
+Użytkownik zatwierdził A; wdrożenie v21 ukończone diagnostycznie. A rozdziela wspólną podstawę leksykalną od ograniczeń STANDARD; nie usuwa żadnego istniejącego wyłączenia. B wymaga dodatkowych danych dla tych samych udokumentowanych jednostek. Nie aktywujemy metadanych czytnika ani nowych źródeł, nie kontaktujemy się z autorami. Pełna macierz i odbiór nadal wymagane.
 
 ## Przyczyna bramki
 [AGENTS.md](../../../../../../AGENTS.md): „Decyzje zmieniające skład słownika lub kryteria dopuszczalności omawiamy z użytkownikiem przed ich wdrożeniem”. Poprzedni zapis scope=broad_lexical_condition_only jest wyraźnym ograniczeniem zatwierdzenia. [maister-implementation-plan-executor](/Users/robmar/.codex/plugins/cache/maister-plugins/maister-codex/2.2.3/skills/maister-implementation-plan-executor/SKILL.md): „ask the equivalent concise question in the final response and pause”. Rozszerzenie nie zostało wdrożone przed decyzją.
+
+## Zatwierdzenie i wdrożenie
+
+A potwierdzone w rozmowie; zapis bramki w orchestrator-state.yml. [Wdrożenie i runtime](shared-lexical-proof-implementation-review.md).

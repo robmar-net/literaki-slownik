@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-05T19:41:13Z",
+    "updated": "2026-10-05T20:21:27Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "Wdrożone A wieku STANDARD v20 z jawną niepewnością; 208/208+5/5, preflight14+12OK. Dwie projekcje10rekordów/16analiz/32ocen, 24readonly explain, powtarzalność i źródło bez zmian. Raport niewiadomych rozlicza wynik całego słowa; historyczne oceny nie są nowym pełnym build v20. Konieczna decyzja zakresu leksykalnego dowodu STANDARD; pełna macierz i8/36 nadal otwarte.",
+      "summary": "A wspólnego dowodu leksykalnego wdrożone v21; wiek/gra/pisownia/pozostałość osobno. 210/210 generator+5/5audit; dwie nowe projekcje10rekordów/16analiz/32ocen,24readonly explain, źródło i starsze oceny bez zmian. Domknięta mechanika70hostów,295mieszanych nazw i2rekordy ń mają niezależną odmowę. Pełna kwalifikacja/34klasy i8/36 nadal otwarte; konieczny próg własnego przeglądu opisów oficjalnego czytnika SGJP.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -246,7 +246,8 @@
         "Dodatni dowód A wdrożony v16: zamknięte mapowanie wznak, tylko leksykalny warunek BROAD; pełna kwalifikacja nadal otwarta.",
         "A: osobni kandydaci jawnie udokumentowanej pisowni istniejących analiz, tylko angol/jugol; źródłowe rekordy, inne warunki i niewiadome zachowane.",
         "Zatwierdzone A pisowni wdrożone w zamkniętym zakresie; walidacja utrwalonych źródeł/składników przed ocenami i odczytem.",
-        "Diagnostyczne próbki i indeks nie aktywują polityki ani odbioru; brakujące pełne części jawne."
+        "Diagnostyczne próbki i indeks nie aktywują polityki ani odbioru; brakujące pełne części jawne.",
+        "A shared lexical proof approved and implemented v21 for both variants; all other conditions separate, historical v16-v20 evaluations retained."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -767,19 +768,43 @@
         {
           "path": "analysis/evidence/shared-lexical-proof-simulation.json",
           "label": "Symulacja readonly sześciu użyć"
+        },
+        {
+          "path": "analysis/evidence/shared-lexical-proof-implementation-review.md",
+          "label": "Wdrożenie wspólnego dowodu"
+        },
+        {
+          "path": "analysis/evidence/shared-lexical-proof-runtime.json",
+          "label": "Runtime v21"
+        },
+        {
+          "path": "analysis/evidence/remaining-matrix-review.md",
+          "label": "Domknięcia macierzy hostów i niezależne odmowy"
+        },
+        {
+          "path": "analysis/evidence/remaining-matrix-runtime.json",
+          "label": "Pełna macierz hostów i zakres frag"
+        },
+        {
+          "path": "analysis/evidence/reader-use-proof-decision.md",
+          "label": "Próg opisów/przykładów oficjalnego czytnika"
+        },
+        {
+          "path": "analysis/evidence/reader-use-proof-review-cases.json",
+          "label": "Własne przypadki do decyzji"
         }
       ],
       "gate": {
-        "id": "documented_lexical_proof_shared_variants",
+        "id": "official_reader_own_use_description_proof",
         "status": "pending",
-        "created_at": "2026-10-05T19:41:13Z",
-        "question": "Czy sprawdzony dowód konkretnego polskiego użycia SGJP stosujemy do warunku leksykalnego również w STANDARD, z osobnymi pozostałymi warunkami?",
+        "created_at": "2026-10-05T20:20:06Z",
+        "question": "Czy własny ręczny przegląd jednoznacznych opisów/przykładów oficjalnego czytnika SGJP może być dowodem konkretnego użycia istniejącego rekordu, bez importu metadanych i z zachowaniem nierozpoznanej pozostałości?",
         "options": {
-          "A": "Ten sam dowód leksykalny dla obu wariantów, wiek/pisownia/gra osobno (rekomendowane).",
-          "B": "Dowód tylko BROAD; STANDARD wymaga osobnego dowodu leksykalnego."
+          "A": "Tak, po dokładnym przeglądzie i związaniu źródłowymi hashami; inne warunki osobno (rekomendowane).",
+          "B": "Czytnik tylko pomocniczy; nowe dowody opisowe wyłącznie z dotychczasowej dokumentacji."
         },
         "answer": null,
-        "artifact": "analysis/evidence/shared-lexical-proof-decision.md"
+        "artifact": "analysis/evidence/reader-use-proof-decision.md"
       },
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
@@ -1080,6 +1105,19 @@
           "artifact": "analysis/evidence/standard-age-baseline-decision.md",
           "scope": "age_condition_only_not_blanket_release_or_game_change",
           "answered_at": "2026-10-05T19:23:33Z"
+        },
+        {
+          "id": "documented_lexical_proof_shared_variants",
+          "status": "approved",
+          "created_at": "2026-10-05T19:41:13Z",
+          "question": "Czy sprawdzony dowód konkretnego polskiego użycia SGJP stosujemy do warunku leksykalnego również w STANDARD, z osobnymi pozostałymi warunkami?",
+          "options": {
+            "A": "Ten sam dowód leksykalny dla obu wariantów, wiek/pisownia/gra osobno (rekomendowane).",
+            "B": "Dowód tylko BROAD; STANDARD wymaga osobnego dowodu leksykalnego."
+          },
+          "answer": "A",
+          "artifact": "analysis/evidence/shared-lexical-proof-decision.md",
+          "answered_at": "2026-10-05T20:07:16Z"
         }
       ]
     }
@@ -1185,6 +1223,14 @@
         "full_resident_inventory_complete": false,
         "new_active_inputs": 0,
         "artifact": "analysis/evidence/capitalization-coverage.json"
+      },
+      "closed_host_matrix": {
+        "observed_at": "2026-10-05T20:20:06Z",
+        "source_definitions": 70,
+        "registration_complete": true,
+        "source_exercise_complete": true,
+        "full_qualification_complete": false,
+        "artifact": "analysis/evidence/remaining-matrix-runtime.json"
       }
     },
     "implementation_started": true,
@@ -1218,15 +1264,15 @@
       "G3": {
         "status": "in_progress",
         "attempts": 1,
-        "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified; userAcurrentnormgame, threeexactresidentlemma51expandedcases, fullfrag147/109lower/38upper; currentdownload=20260823 and primarySGJP about semantic limits inspected; PAN-1: zamknięta populacja147frag zinwentaryzowana; PAN-2: wszystkie13list i5500próbek powiązane, glosy niedostępne w odczycie; PAN-3: wstępny odczyt62pierwszychkontekstów, pełne mapowanie nierozstrzygnięte; PAN-4: pokrycie frag147/64alternatywy/108listy/62próbki/39beztrafień, bez wpływu na listy. Nazwy mieszkańców i pozostałe wyjątki nadal do inwentaryzacji.; PAN-3:12 użyć udokumentowanych SGJP+2 obserwacje WSJP, dokładne tożsamości i homonimy zachowane. Pełny ID nie jest gwarancją jednego znaczenia. PAN-4:14/147 z dowodem użycia,133 bez takiego przeglądu,147 kwalifikacji unresolved. Audyt snapshotu/mapowania i dwa identyczne odtworzenia;156/156 testów. Wymagany wybór roli ogólnego opisu wieku przed filtrem STANDARD. Bez aktywacji źródeł i zmian list,8/36 bez zmian.; public reader complete params13articles accessible; no metadata input activated; classificationproof gate pending; A documentary name proof approved, exact2 implemented with source/hash/row/fields guards; online values accessible but not active input; full reader147forms148articles,144unique/1multiple/2embedded, own notes audited twice byte-identical,172/172+5/5, no input/filter activated",
-        "next_action": "Rozstrzygnąć zakres leksykalnego dowodu STANDARD; domknąć pełną macierz."
+        "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified; userAcurrentnormgame, threeexactresidentlemma51expandedcases, fullfrag147/109lower/38upper; currentdownload=20260823 and primarySGJP about semantic limits inspected; PAN-1: zamknięta populacja147frag zinwentaryzowana; PAN-2: wszystkie13list i5500próbek powiązane, glosy niedostępne w odczycie; PAN-3: wstępny odczyt62pierwszychkontekstów, pełne mapowanie nierozstrzygnięte; PAN-4: pokrycie frag147/64alternatywy/108listy/62próbki/39beztrafień, bez wpływu na listy. Nazwy mieszkańców i pozostałe wyjątki nadal do inwentaryzacji.; PAN-3:12 użyć udokumentowanych SGJP+2 obserwacje WSJP, dokładne tożsamości i homonimy zachowane. Pełny ID nie jest gwarancją jednego znaczenia. PAN-4:14/147 z dowodem użycia,133 bez takiego przeglądu,147 kwalifikacji unresolved. Audyt snapshotu/mapowania i dwa identyczne odtworzenia;156/156 testów. Wymagany wybór roli ogólnego opisu wieku przed filtrem STANDARD. Bez aktywacji źródeł i zmian list,8/36 bez zmian.; public reader complete params13articles accessible; no metadata input activated; classificationproof gate pending; A documentary name proof approved, exact2 implemented with source/hash/row/fields guards; online values accessible but not active input; full reader147forms148articles,144unique/1multiple/2embedded, own notes audited twice byte-identical,172/172+5/5, no input/filter activated; complete closed70 mobilehost registrations/exercise,295mixednames independentcapitalreject,2nrecords6expansions independentbound/lengthreject,repeatreadonly",
+        "next_action": "Rozstrzygnąć rolę własnego przeglądu opisów czytnika; pełna macierz semantyczna/ortograficzna nadal wymagana."
       },
       "G4": {
         "status": "in_progress",
         "attempts": 1,
         "partial": true,
         "dependency_exception": "User explicitly authorized continuing code with evidence gaps: policy mechanics only, no active unresolved linguistic rules",
-        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed; context3 red→green,11/11 labels,169 records; persistence3 red→green,build2 red→green; fullconfirmedclass projection93446 candidates186892 components,repeat idempotent,FK/integrityOK; preposition3redgreen+buildintegration1green,81expandedcandidates(57proof/24unresolved),repeatFKintegrity;mobileby1redgreen64candidates16hosts;winien2redgreen7realJSONtext; norma1 policy +1 explain red→green, mobile1 constructor+1 explain red→green; accent1redgreen,sourcegame4redgreen,personal2redgreen,mobilegame1redgreen;fullprojection776/1796 repeatFKintegrity; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable; documented name4 tests red→green, exact three real records16expanded/32decisions, repeat idempotent, FK/integrityOK, live/persisted explain4 queries agree; semantic uses7 red→green,179/179+5/5; own source pin/remainder/condition scope/read tamper guard/quality payload; real295compact540expanded542analyses1084decisions two independent logical+quality equal, repeat0new, FK/integrity, source SHA unchanged; lexical-use2 red→green,181/181+5/5; actual295/540/543/1086 repeat/FK/logical/quality identical;12readonly explain; spelling5redgreen, real3sources/2candidates/5analyses/10decisions, independentlogicalequal/FK/idempotency/sourceunchanged; resident4redgreen,42analyses84decisions two independent/idempotent/readonly40; coverage2redgreen,34classes17234910unassessedsource readonly,full201/201+5/5; fiveadditionalphrase3redgreen,9sources14analyses28decisions two equal/read20,full204/204+5/5; agebaseline3redgreen,unknownrelevance1redgreen,final208/208+5/5; sixuses10sources16analyses32decisions two equal/24readonly; historicalunknownreports repeatreadonly",
+        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed; context3 red→green,11/11 labels,169 records; persistence3 red→green,build2 red→green; fullconfirmedclass projection93446 candidates186892 components,repeat idempotent,FK/integrityOK; preposition3redgreen+buildintegration1green,81expandedcandidates(57proof/24unresolved),repeatFKintegrity;mobileby1redgreen64candidates16hosts;winien2redgreen7realJSONtext; norma1 policy +1 explain red→green, mobile1 constructor+1 explain red→green; accent1redgreen,sourcegame4redgreen,personal2redgreen,mobilegame1redgreen;fullprojection776/1796 repeatFKintegrity; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable; documented name4 tests red→green, exact three real records16expanded/32decisions, repeat idempotent, FK/integrityOK, live/persisted explain4 queries agree; semantic uses7 red→green,179/179+5/5; own source pin/remainder/condition scope/read tamper guard/quality payload; real295compact540expanded542analyses1084decisions two independent logical+quality equal, repeat0new, FK/integrity, source SHA unchanged; lexical-use2 red→green,181/181+5/5; actual295/540/543/1086 repeat/FK/logical/quality identical;12readonly explain; spelling5redgreen, real3sources/2candidates/5analyses/10decisions, independentlogicalequal/FK/idempotency/sourceunchanged; resident4redgreen,42analyses84decisions two independent/idempotent/readonly40; coverage2redgreen,34classes17234910unassessedsource readonly,full201/201+5/5; fiveadditionalphrase3redgreen,9sources14analyses28decisions two equal/read20,full204/204+5/5; agebaseline3redgreen,unknownrelevance1redgreen,final208/208+5/5; sixuses10sources16analyses32decisions two equal/24readonly; historicalunknownreports repeatreadonly; sharedproof approvedA red3fail→green6/historyred→green,full210/210+5/5; new16analyses32decisions24readonly and oldv19/v20readonly",
         "remaining": "Full qualifier/category/orthography policy, mobile/preposition constructions and final decisions persistence/integration; G3 closure"
       },
       "G5": {
@@ -1242,7 +1288,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "Independent diagnostic explain authorized by plan §2 and user continue code",
-        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks; context explain JSON/text regression green,5 real readonly queries; qualifier coverage6 red→green,build integration1 red→green; full7458520/615/605 repeat canonical identical readonly; persisted explain2 red→green; alternative source trace regression fixed,legacycompatible,6realqueries rechecked readonly; contraction/mobile/corpus3redgreen,legacyreadonly20observations; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable; unknownreport3redImportError→green,buildreport1redFileNotFound→green; full160/160+5/5; readonly219713analyses213636keys repeat identical hashDBstable; persisted filter3 tests red→green, complete population validated through unresolved_report; lexical diagnostic rule order, no policy precedence; filter4 tests incl valid-hash wrong-rule rejection; full168/168+audit5/5; two readonly reports each of16/219713analyses identical, DB hashes unchanged; semantic uses7 red→green,179/179+5/5; own source pin/remainder/condition scope/read tamper guard/quality payload; real295compact540expanded542analyses1084decisions two independent logical+quality equal, repeat0new, FK/integrity, source SHA unchanged; lexical-use2 red→green,181/181+5/5; actual295/540/543/1086 repeat/FK/logical/quality identical;12readonly explain; qualitylinks3redgreen+SQLiteVMregression, full5066341units/270samples repeatreadonly; words2redgreen,641words1124analyses repeatreadonly; fullreviewpayload1redgreen; canonicalindex2redgreen/integration; full195/195+audit5/5 final, no warnings; resident4redgreen,42analyses84decisions two independent/idempotent/readonly40; coverage2redgreen,34classes17234910unassessedsource readonly,full201/201+5/5; fiveadditionalphrase3redgreen,9sources14analyses28decisions two equal/read20,full204/204+5/5; agebaseline3redgreen,unknownrelevance1redgreen,final208/208+5/5; sixuses10sources16analyses32decisions two equal/24readonly; historicalunknownreports repeatreadonly",
+        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks; context explain JSON/text regression green,5 real readonly queries; qualifier coverage6 red→green,build integration1 red→green; full7458520/615/605 repeat canonical identical readonly; persisted explain2 red→green; alternative source trace regression fixed,legacycompatible,6realqueries rechecked readonly; contraction/mobile/corpus3redgreen,legacyreadonly20observations; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable; unknownreport3redImportError→green,buildreport1redFileNotFound→green; full160/160+5/5; readonly219713analyses213636keys repeat identical hashDBstable; persisted filter3 tests red→green, complete population validated through unresolved_report; lexical diagnostic rule order, no policy precedence; filter4 tests incl valid-hash wrong-rule rejection; full168/168+audit5/5; two readonly reports each of16/219713analyses identical, DB hashes unchanged; semantic uses7 red→green,179/179+5/5; own source pin/remainder/condition scope/read tamper guard/quality payload; real295compact540expanded542analyses1084decisions two independent logical+quality equal, repeat0new, FK/integrity, source SHA unchanged; lexical-use2 red→green,181/181+5/5; actual295/540/543/1086 repeat/FK/logical/quality identical;12readonly explain; qualitylinks3redgreen+SQLiteVMregression, full5066341units/270samples repeatreadonly; words2redgreen,641words1124analyses repeatreadonly; fullreviewpayload1redgreen; canonicalindex2redgreen/integration; full195/195+audit5/5 final, no warnings; resident4redgreen,42analyses84decisions two independent/idempotent/readonly40; coverage2redgreen,34classes17234910unassessedsource readonly,full201/201+5/5; fiveadditionalphrase3redgreen,9sources14analyses28decisions two equal/read20,full204/204+5/5; agebaseline3redgreen,unknownrelevance1redgreen,final208/208+5/5; sixuses10sources16analyses32decisions two equal/24readonly; historicalunknownreports repeatreadonly; sharedproof approvedA red3fail→green6/historyred→green,full210/210+5/5; new16analyses32decisions24readonly and oldv19/v20readonly",
         "remaining": "Full matrix/source quality review, final decisions/derivations explain, complete canonical coverage and lists; G7 verification binding"
       },
       "G7": {
@@ -1296,7 +1342,7 @@
         "contact_route_allowed": false
       }
     },
-    "verification_note": "Wdrożone A wieku STANDARD v20 z jawną niepewnością; 208/208+5/5, preflight14+12OK. Dwie projekcje10rekordów/16analiz/32ocen, 24readonly explain, powtarzalność i źródło bez zmian. Raport niewiadomych rozlicza wynik całego słowa; historyczne oceny nie są nowym pełnym build v20. Konieczna decyzja zakresu leksykalnego dowodu STANDARD; pełna macierz i8/36 nadal otwarte.",
+    "verification_note": "A wspólnego dowodu leksykalnego wdrożone v21; wiek/gra/pisownia/pozostałość osobno. 210/210 generator+5/5audit; dwie nowe projekcje10rekordów/16analiz/32ocen,24readonly explain, źródło i starsze oceny bez zmian. Domknięta mechanika70hostów,295mieszanych nazw i2rekordy ń mają niezależną odmowę. Pełna kwalifikacja/34klasy i8/36 nadal otwarte; konieczny próg własnego przeglądu opisów oficjalnego czytnika SGJP.",
     "source_policy_clarification": {
       "recorded_at": "2026-10-04T21:49:35Z",
       "artifact": "analysis/evidence/source-policy-clarification.md",
@@ -1421,6 +1467,14 @@
       "scope": "age_condition_only_not_blanket_release_or_game_change",
       "implemented": "partial_diagnostic_v20",
       "runtime": "analysis/evidence/age-baseline-runtime.json"
+    },
+    "documented_lexical_proof_shared_variants": {
+      "answer": "A",
+      "approved_at": "2026-10-05T20:07:16Z",
+      "artifact": "analysis/evidence/shared-lexical-proof-decision.md",
+      "scope": "lexical_condition_both_variants_other_conditions_separate",
+      "implemented": "partial_diagnostic_v21",
+      "runtime": "analysis/evidence/shared-lexical-proof-runtime.json"
     }
   }
 }

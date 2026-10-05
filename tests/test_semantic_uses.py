@@ -186,7 +186,7 @@ class PositiveUseProofTests(unittest.TestCase):
         db.execute('insert into interpretation values (1,?,?,1,1,?,?,?)',(sid,6770165,'frag','',''))
         db.commit();return db,review
 
-    def test_positive_broad_condition_does_not_close_other_layers_or_remainder(self):
+    def test_positive_shared_condition_does_not_close_other_layers_or_remainder(self):
         with tempfile.TemporaryDirectory() as folder:
             db,review=self.fixture(Path(folder));materialize_assessments(db,use_reviews=[review])
             for variant in ('broad','standard'):
@@ -195,7 +195,7 @@ class PositiveUseProofTests(unittest.TestCase):
                 rest=next(r for r in rows if r['semantic_trace']['kind']=='unresolved_remainder')
                 checks=use['assessment']['language']['checks']
                 proof=next(c for c in checks if c['rule_id']=='linguistic-documented-use-lexical-proof-v1')
-                self.assertEqual(proof['status'],'accept' if variant=='broad' else 'unresolved')
+                self.assertEqual(proof['status'],'accept')
                 self.assertEqual(use['assessment']['membership']['status'],'unresolved')
                 self.assertEqual(use['assessment']['game']['status'],'unresolved')
                 self.assertFalse(any(c['rule_id']==proof['rule_id'] for c in rest['assessment']['language']['checks']))
@@ -213,3 +213,30 @@ class PositiveUseProofTests(unittest.TestCase):
             bad=copy.deepcopy(review);bad['evidence'][0]['sha256']='2'*64
             with self.assertRaises(GeneratorError):materialize_assessments(db,use_reviews=[bad])
             self.assertEqual(db.execute('select count(*) from analysis').fetchone()[0],0)
+
+    def test_old_broad_only_payload_is_readable_but_not_accepted_in_current_policy(self):
+        import hashlib
+        from literaki_slownik.canonical import dumps
+        for version in ('diagnostic-approved-conditions-v20','diagnostic-approved-conditions-v21'):
+            with self.subTest(version=version),tempfile.TemporaryDirectory() as folder:
+                db,review=self.fixture(Path(folder));materialize_assessments(db,use_reviews=[review])
+                db.execute('update analysis set policy_version=?',(version,))
+                rows=db.execute('select d.analysis_key,d.variant,d.assessment_key,p.assessment from variant_decision d join decision_payload p on p.assessment_key=d.assessment_key').fetchall()
+                for akey,variant,old,encoded in rows:
+                    value=json.loads(encoded)
+                    for layer in ('language','membership'):
+                        for c in value[layer]['checks']:
+                            if c['rule_id']=='linguistic-documented-use-lexical-proof-v1':
+                                c['status']='accept' if variant=='broad' else 'unresolved'
+                                c['message']=('Dodatni dowód leksykalny BROAD dokładnie udokumentowanego użycia; inne warunki osobno.' if variant=='broad' else 'Dowód BROAD nie rozstrzyga aktualnej kwalifikacji STANDARD.')
+                    encoded=dumps(value);new=hashlib.sha256(encoded.encode()).hexdigest()
+                    db.execute('insert or ignore into decision_payload values (?,?)',(new,encoded))
+                    db.execute('update variant_decision set assessment_key=? where analysis_key=? and variant=?',(new,akey,variant))
+                db.commit();before=db.total_changes
+                if version.endswith('v20'):
+                    rows=persisted_assessments(db,'wznak','standard')
+                    use=next(r for r in rows if r['semantic_trace']['kind']=='documented_use')
+                    self.assertEqual(next(c['status'] for c in use['assessment']['language']['checks'] if c['rule_id']=='linguistic-documented-use-lexical-proof-v1'),'unresolved')
+                else:
+                    with self.assertRaises(GeneratorError):persisted_assessments(db,'wznak','standard')
+                self.assertEqual(db.total_changes,before)

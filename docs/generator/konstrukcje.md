@@ -89,3 +89,7 @@ Zatwierdzone A dla adnotacji akcent wdrożono bez zmiany dawności: BROAD nie wy
 ## Podwojona partykuła — pełna klasa źródłowa sg
 
 Build i explain obsługują impt-double-particle-v1: tylko źródłowy impt:sg:sec:perf/imperf, zgodna spółgłoska, +że+ż. To formalna reguła segmenty.dat334–340, z trzema uporządkowanymi składnikami. Nazwy/kwalifikatory/ID zachowane.31 146 kandydatów z pełnych źródłowych rozkaźników, każdy z odrębnym game-double-particle-v1=reject. Nie generujemy dalszych podwojeń ani plural+żeż. Jedno źródło perf.imperf daje osobne ślady. Dotyczy analizy konstrukcji, nie wszystkich słów kończących się na żeż ani niezależnych homonimów. [Dowody i runtime](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/capital-double-review.md). Pełna polityka pozostałych klas nadal nieukończona.
+
+## Aktualizacja v21
+
+Przegląd całego przypiętego segmenty.dat potwierdził zgodność 70 zamkniętych definicji hostów, 16 hostów by poza osobnym by, 53 pozostałe i 47 sekwencji. Wszystkie definicje mają źródłowe rekordy i wynik konstruktora; brak permissive lub generowania po sufiksie. Domknięcie mechaniki nie oznacza kompletnej kwalifikacji ani odbioru.

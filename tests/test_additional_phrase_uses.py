@@ -30,7 +30,7 @@ class AdditionalPhraseUsesTests(unittest.TestCase):
             db.execute('insert into interpretation values (?,?,?,?,?,?,?,?)',(i,sid,row,i,i,s['raw_tag'],s['names'],s['qualifiers']))
         db.commit();return db,reviews
 
-    def test_five_explicit_uses_only_broad_lexical_condition_and_remainders(self):
+    def test_five_explicit_uses_shared_lexical_condition_and_remainders(self):
         directory=self.enterContext(tempfile.TemporaryDirectory())
         db,reviews=self.fixture(Path(directory));counts=materialize_assessments(db,use_reviews=reviews)
         self.assertEqual(counts['documented_use_analyses'],5)
@@ -41,12 +41,26 @@ class AdditionalPhraseUsesTests(unittest.TestCase):
                 use=next(r for r in rows if r['semantic_trace']['kind']=='documented_use')
                 rest=next(r for r in rows if r['semantic_trace']['kind']=='unresolved_remainder')
                 c=next(c for c in use['assessment']['language']['checks'] if c['rule_id']==RULE)
-                self.assertEqual(c['status'],'accept' if variant=='broad' else 'unresolved')
+                self.assertEqual(c['status'],'accept')
                 self.assertFalse(any(c['rule_id']==RULE for c in rest['assessment']['language']['checks']))
                 self.assertEqual(rest['assessment']['membership']['status'],
                     'reject' if word=='kroćset' and variant=='standard' else 'unresolved')
         self.assertEqual(materialize_assessments(db,use_reviews=list(reversed(reviews)))['new_analyses'],0)
         self.assertFalse(db.execute('pragma foreign_key_check').fetchall())
+
+    def test_shared_lexical_proof_keeps_history_and_remainder_independent(self):
+        directory=self.enterContext(tempfile.TemporaryDirectory())
+        db,reviews=self.fixture(Path(directory));materialize_assessments(db,use_reviews=reviews)
+        for variant in ('broad','standard'):
+            rows=persisted_assessments(db,'kroćset',variant)
+            use=next(r for r in rows if r['semantic_trace']['kind']=='documented_use')
+            checks=use['assessment']['language']['checks']
+            self.assertEqual(next(c['status'] for c in checks if c['rule_id']==RULE),'accept')
+            if variant=='standard':
+                self.assertTrue(any(c['status']=='reject' and c['rule_id']=='linguistic-historical-form-v1' for c in checks))
+                self.assertEqual(use['assessment']['membership']['status'],'reject')
+        from literaki_slownik.decisions import lexical_use_checks
+        with self.assertRaises(GeneratorError):lexical_use_checks(reviews[0],'unknown')
 
     def test_wrong_document_hash_or_source_mapping_refuses_before_writes(self):
         directory=self.enterContext(tempfile.TemporaryDirectory())

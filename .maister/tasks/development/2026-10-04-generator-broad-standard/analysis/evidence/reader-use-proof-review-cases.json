@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "scope": "own_observations_for_pending_proof_threshold_not_machine_metadata_import",
+  "cases": [
+    {
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "bezcen",
+        "lemma_id": "bezcen",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1221841
+        ]
+      },
+      "url": "https://sgjp.pl/leksemy/#91238/bezcen",
+      "response_sha256": "71bd8e980ba30fab9f89b26e42e7b4f1d47cc0b617a58b2fc79935da772ee2b8",
+      "own_class_observation": "phrase_component",
+      "snapshot_identity": "manual_exact_spelling_class_candidate_not_proven_complete_meanings",
+      "active_policy_effect": "none_pending_evidence_threshold"
+    },
+    {
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "oścież",
+        "lemma_id": "oścież:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          4320577
+        ]
+      },
+      "url": "https://sgjp.pl/leksemy/#91689/oścież",
+      "response_sha256": "cfc699b37c4b3c9945e1c460d11026ef1251803e4acdc9319980ffa85d94cf26",
+      "own_class_observation": "phrase_component",
+      "snapshot_identity": "manual_exact_spelling_class_candidate_not_proven_complete_meanings",
+      "active_policy_effect": "none_pending_evidence_threshold"
+    },
+    {
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "bin",
+        "lemma_id": "bin",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1252933
+        ]
+      },
+      "url": "https://sgjp.pl/leksemy/#91246/bin",
+      "response_sha256": "c754d604e589e7f646e71dd3d8c17bcb52c5fffeb6166cd7d3b0e5bdeb2050e1",
+      "own_class_observation": "surname_component",
+      "snapshot_identity": "manual_exact_spelling_class_candidate_not_proven_complete_meanings",
+      "active_policy_effect": "none_pending_evidence_threshold"
+    },
+    {
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "eleison",
+        "lemma_id": "eleison",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1709262
+        ]
+      },
+      "url": "https://sgjp.pl/leksemy/#91346/eleison",
+      "response_sha256": "3eaa88d5bf935737ff320d5f606235dcf7e8d6bfa736553c105ad6293c8d9c91",
+      "own_class_observation": "phrase_component",
+      "snapshot_identity": "manual_exact_spelling_class_candidate_not_proven_complete_meanings",
+      "active_policy_effect": "none_pending_evidence_threshold"
+    },
+    {
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "don",
+        "lemma_id": "don",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1554730
+        ]
+      },
+      "url": "https://sgjp.pl/leksemy/#91612/don",
+      "response_sha256": "0ed34271c02209d9b71608ae341fc317c6b3b8e64f7d3a1ce05d3195bb565d16",
+      "own_class_observation": "phrase_component",
+      "snapshot_identity": "manual_exact_spelling_class_candidate_not_proven_complete_meanings",
+      "active_policy_effect": "none_pending_evidence_threshold"
+    },
+    {
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "don",
+        "lemma_id": "don",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1554730
+        ]
+      },
+      "url": "https://sgjp.pl/leksemy/#1003284/don",
+      "response_sha256": "f13815983f9130d86053fc8637c0a0e493b374f16ac81bbadc0e54565251a3ac",
+      "own_class_observation": "article",
+      "snapshot_identity": "manual_exact_spelling_class_candidate_not_proven_complete_meanings",
+      "active_policy_effect": "none_pending_evidence_threshold"
+    }
+  ],
+  "raw_html_committed": false,
+  "new_active_inputs": 0
+}
