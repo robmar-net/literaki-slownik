@@ -98,3 +98,6 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 
 - [Użycie mieszkańca — wdrożenie](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/resident-use-implementation-review.md) — v18, pełny paradygmat pierwszego przypadku; klasa nadal otwarta.
 - [Pokrycie klas — raport](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/coverage-implementation-review.md) — źródło oddzielnie od analiz użyć, brakujące oceny jawne.
+
+- [Dalsze użycia SGJP](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/additional-phrase-use-review.md) — ten sam zatwierdzony próg BROAD, pięć dokładnych użyć i pozostałość.
+- [Próg wieku STANDARD](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/standard-age-baseline-decision.md) — pełny pomiar i konieczna decyzja przed kwalifikacją wieku nieoznaczonych interpretacji.

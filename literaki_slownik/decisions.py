@@ -39,6 +39,17 @@ def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyse
         scope_checks=release_scope_checks(candidate),game_checks=game)
 
 
+DOCUMENTED_LEXICAL_USE_SOURCES = {
+    'sgjp-authors-phrase-wznak-v1': (6770165,'wznak','wznak',''),
+    'sgjp-authors-phrase-dwojnasob-v1': (1647764,'dwójnasób','dwójnasób',''),
+    'sgjp-authors-phrase-krocset-v1': (2244647,'kroćset','kroćset','daw.'),
+    'sgjp-authors-phrase-rosciez-v1': (5520636,'roścież','roścież:F',''),
+    'sgjp-authors-phrase-trojnasob-v1': (6044918,'trójnasób','trójnasób',''),
+    'sgjp-authors-phrase-ziem-v1': (7186612,'ziem','ziem','gwar.'),
+}
+DOCUMENTED_LEXICAL_RULE = 'linguistic-documented-use-lexical-proof-v1'
+
+
 def lexical_use_checks(review, variant):
     """Wyłącznie sprawdzony przegląd własny; nie domyka innych warunków."""
     if not review or 'lexical_proof' not in review:return []
@@ -113,11 +124,12 @@ def checked_use_reviews(db, reviews):
                                                    for rule in conditions)):
                 raise GeneratorError('Warunek nie ma dokładnego mapowania i zgodnego dowodu użycia',4)
             if 'lexical_proof' in review:
-                expected_source=dict(source_id='sgjp-20260823',
+                identity=DOCUMENTED_LEXICAL_USE_SOURCES.get(review['use_id'])
+                expected_source=(dict(source_id='sgjp-20260823',
                     source_sha256='3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810',
-                    first_source_row=6770165,original='wznak',lemma_id='wznak',raw_tag='frag',names='',qualifiers='')
-                if (review['lexical_proof']!='linguistic-documented-use-lexical-proof-v1'
-                        or review['use_id']!='sgjp-authors-phrase-wznak-v1' or source!=expected_source
+                    first_source_row=identity[0],original=identity[1],lemma_id=identity[2],raw_tag='frag',names='',qualifiers=identity[3])
+                    if identity else None)
+                if (review['lexical_proof']!=DOCUMENTED_LEXICAL_RULE or source!=expected_source
                         or not any(p['artifact_id']=='sgjp-theory-own-review' and
                             p['sha256']==DOCUMENTARY_RULE_EVIDENCE['game-documented-surname-component-v1']
                             for p in evidence)):
@@ -177,12 +189,12 @@ def checked_persisted_use_coverage(db):
                 trace=expected[key][1]
                 relation=trace if trace['kind']=='documented_use' else None
                 game=resident_use_checks(relation)
-                language=resident_use_checks(relation,variant)
+                language=resident_use_checks(relation,variant)+lexical_use_checks(relation,variant)
                 for layer,checks in (('game',game),('language',language),('membership',game+language)):
                     actual=sorted(dumps(c) for c in value[layer]['checks']
-                                  if c['rule_id'] in RESIDENT_RELATION_CONDITIONS)
+                                  if c['rule_id'] in RESIDENT_RELATION_CONDITIONS|{DOCUMENTED_LEXICAL_RULE})
                     if actual!=sorted(dumps(c) for c in checks):
-                        raise GeneratorError('Zmieniony zakres lub wynik warunku relacji mieszkańca',4)
+                        raise GeneratorError('Zmieniony zakres lub wynik warunku udokumentowanego użycia',4)
                 if (key,variant) in checked or variant not in VARIANTS:
                     raise GeneratorError('Nieprawidłowe pokrycie wariantów użycia',4)
                 checked.add((key,variant))

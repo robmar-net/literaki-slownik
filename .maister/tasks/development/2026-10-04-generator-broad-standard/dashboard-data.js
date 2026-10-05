@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T17:59:04Z",
+  "generated": "2026-10-05T18:52:33Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Użycie mieszkańca i coverage wdrożone; pełna macierz G3 nadal otwarta"
+    "current_activity": "Konieczna decyzja progu wieku STANDARD; dalsze użycia SGJP wdrożone"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "A relacji mieszkańca wdrożone v18:11rekordów/14użyć, pozostałość i homonimy zachowane. Dwie projekcje22kompaktowe/28rozwinięć/42analizy/84oceny, logiczna treść/próbki identyczne,40readonly explain, źródła niezmienione. Raport coverage w build/indeksie: pełny G2 34klasy/7458520kompaktowych/17234910nieocenionych rozwinięć; projekcje28/28 źródła mimo42analiz. 201/201+5/5 bez ostrzeżeń, preflight14+12OK. G3/G4/G6 częściowe,8/36; pełna macierz i wydanie nadal otwarte.",
+      "summary": "Dodatni dowód BROAD wdrożony v19 dla5kolejnych dokładnych użyć SGJP; zachowane inne warunki i pozostałość. Dwie projekcje9rekordów/14analiz/28ocen, logiczna treść/próbki zgodne,20readonly explain;204/204+5/5,preflight14+12OK. Pełny przegląd wieku:7458520interpretacji,598244z wykluczającym warunkiem/6860276bez; puste kwalifikatory6423658. Konieczna decyzja progu wieku STANDARD przy braku wykluczającej etykiety; bez nowego filtra, pełna macierz i8/36 nadal otwarte.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -753,9 +753,37 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/coverage-runtime.json",
           "label": "Runtime pokrycia"
+        },
+        {
+          "path": "analysis/evidence/additional-phrase-use-review.md",
+          "label": "Dalsze użycia SGJP"
+        },
+        {
+          "path": "analysis/evidence/additional-phrase-runtime.json",
+          "label": "Runtime dalszych użyć"
+        },
+        {
+          "path": "analysis/evidence/age-baseline-inventory.json",
+          "label": "Pełny pomiar wieku"
+        },
+        {
+          "path": "analysis/evidence/standard-age-baseline-decision.md",
+          "label": "Próg wieku STANDARD"
         }
       ],
-      "gate": null
+      "gate": {
+        "id": "standard_age_baseline",
+        "status": "pending",
+        "created_at": "2026-10-05T18:52:33Z",
+        "question": "Jak STANDARD ma oceniać wiek interpretacji SGJP bez wykluczającej etykiety: według klasyfikacji źródłowej z jawną niepewnością, czy dopiero po dodatnim dowodzie współczesności?",
+        "options": {
+          "A": "Klasyfikacja źródłowa i konkretne wyłączenia; brak etykiety nie blokuje wieku, niepewność jawna, inne warunki osobno (rekomendowane).",
+          "B": "Dodatni dowód współczesności każdej nieoznaczonej interpretacji; do tego czasu unresolved."
+        },
+        "answer": null,
+        "artifact": "analysis/evidence/standard-age-baseline-decision.md",
+        "scope": "age_condition_only_not_blanket_release_or_game_change"
+      }
     },
     {
       "id": "phase_9",

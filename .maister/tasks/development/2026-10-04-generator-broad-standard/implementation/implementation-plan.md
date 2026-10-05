@@ -97,7 +97,7 @@ Najbliższy krok: PAN-1 — przygotowanie rejestru wszystkich 147 analiz frag i 
 
 Częściowo wykonano mechanikę policy/decisions: odrębne warstwy, zachowanie przyczyn, reject mimo innych niewiadomych, brak domyślnego accept oraz agregacja jednej spójnej analizy. Dodano zatwierdzony warunek niezalecania oraz konstrukcje impt + pojedyncza partykuła i by + nwok aglt. Dodano zatwierdzony priorytet dawności, zamkniętą ocenę wieku 160/16 etykiet i widoczność w explain. Pełna polityka i integracja konstrukcji z build nadal nieukończone; 4.1–4.4 wymagają domknięcia.
 
-Zależności: G2/G3. Pliki: `literaki_slownik/{policy,constructions,decisions}.py`, `tests/{test_policy,test_constructions,test_decisions,test_documented_names,test_semantic_uses,test_spelling_variants,test_resident_uses}.py`, `config/generator/{policy,semantic-uses,sources}.json`. K3/K4/K5; R03/R04/R05.
+Zależności: G2/G3. Pliki: `literaki_slownik/{policy,constructions,decisions}.py`, `tests/{test_policy,test_constructions,test_decisions,test_documented_names,test_semantic_uses,test_spelling_variants,test_resident_uses,test_additional_phrase_uses}.py`, `config/generator/{policy,semantic-uses,sources}.json`. K3/K4/K5; R03/R04/R05.
 
 - [ ] 4.1 Test-first z G3: odrębna kwalifikacja językowa/growa/profil, obowiązkowa wielka litera bez dopuszczenia przez lower, jedna spójna analiza, accept mimo odrzuconego homonimu, unresolved, zależny segment vs pospolita forma, mieszane etykiety, brak korpusu, profil NFC/znaki/limity, STANDARD ⊆ BROAD.
 - [ ] 4.2 Wdrożyć wersjonowany, zamknięty zestaw reguł, accept/reject/unresolved i wszystkie przyczyny; zachować oryginały, agregować dopiero po kwalifikacji i osobno pokazać reguły gry oraz profil płytek. Obecność wpisu nie oznacza dopuszczenia growego.
@@ -354,3 +354,9 @@ Czytnik SGJP ma odsyłacz Warszawa → warszawianka typu nazwa mieszkańca i odw
 A relacji mieszkańca wdrożone v18:11rekordów/14użyć, pozostałość i homonimy zachowane. Dwie projekcje22kompaktowe/28rozwinięć/42analizy/84oceny, logiczna treść/próbki identyczne,40readonly explain, źródła niezmienione. Raport coverage w build/indeksie: pełny G2 34klasy/7458520kompaktowych/17234910nieocenionych rozwinięć; projekcje28/28 źródła mimo42analiz. 201/201+5/5 bez ostrzeżeń, preflight14+12OK. G3/G4/G6 częściowe,8/36; pełna macierz i wydanie nadal otwarte.
 
 [Dowód użycia](../analysis/evidence/resident-use-implementation-review.md), [pokrycie](../analysis/evidence/coverage-implementation-review.md).
+
+## Kolejne użycia i próg wieku STANDARD
+
+Dodatni dowód BROAD wdrożony v19 dla5kolejnych dokładnych użyć SGJP; zachowane inne warunki i pozostałość. Dwie projekcje9rekordów/14analiz/28ocen, logiczna treść/próbki zgodne,20readonly explain;204/204+5/5,preflight14+12OK. Pełny przegląd wieku:7458520interpretacji,598244z wykluczającym warunkiem/6860276bez; puste kwalifikatory6423658. Konieczna decyzja progu wieku STANDARD przy braku wykluczającej etykiety; bez nowego filtra, pełna macierz i8/36 nadal otwarte.
+
+[Wdrożenie](../analysis/evidence/additional-phrase-use-review.md), [konieczna decyzja](../analysis/evidence/standard-age-baseline-decision.md).

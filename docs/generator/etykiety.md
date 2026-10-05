@@ -80,3 +80,7 @@ Zatwierdzone A dla adnotacji akcent wdrożono bez zmiany dawności: BROAD nie wy
 ## Zakres dowodu wieku — zatwierdzone A
 
 Ogólny opis całej klasy jako dawnej lub przestarzałej nie nadaje automatycznie takiego statusu wszystkim jej członkom. Odmowa STANDARD wymaga oznaczenia lub jednoznacznego dowodu dotyczącego konkretnej interpretacji. Jawne kwalifikatory daw./przest. i ich zatwierdzone pierwszeństwo nadal obowiązują. Brak etykiety wieku nie dowodzi pełnej poprawności ani dopuszczenia. Pełny ID SGJP może łączyć znaczenia; adnotacji jednego użycia nie przenosimy na wszystkie. [Decyzja](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/general-class-age-decision.md).
+
+## Dalsze dowody użyć i próg wieku
+
+Zatwierdzony dowód leksykalny BROAD stosuje się do pięciu kolejnych dokładnych użyć: dwójnasób, trójnasób, kroćset, roścież, ziem. Inne warunki i pozostałość osobno; istniejące daw. nadal odrzuca kroćset STANDARD. Pełny pomiar obejmuje7 458 520 interpretacji;6 860 276 nie ma wykluczającego warunku wieku. Nie uznano ich automatycznie za współczesne. [Próg wieku STANDARD](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/standard-age-baseline-decision.md) wymaga decyzji; nowego warunku nie aktywowano.

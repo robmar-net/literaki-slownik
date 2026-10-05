@@ -327,3 +327,9 @@ Czytnik SGJP ma odsyłacz Warszawa → warszawianka typu nazwa mieszkańca i odw
 A relacji mieszkańca wdrożone v18:11rekordów/14użyć, pozostałość i homonimy zachowane. Dwie projekcje22kompaktowe/28rozwinięć/42analizy/84oceny, logiczna treść/próbki identyczne,40readonly explain, źródła niezmienione. Raport coverage w build/indeksie: pełny G2 34klasy/7458520kompaktowych/17234910nieocenionych rozwinięć; projekcje28/28 źródła mimo42analiz. 201/201+5/5 bez ostrzeżeń, preflight14+12OK. G3/G4/G6 częściowe,8/36; pełna macierz i wydanie nadal otwarte.
 
 [Dowód użycia](../analysis/evidence/resident-use-implementation-review.md), [pokrycie](../analysis/evidence/coverage-implementation-review.md).
+
+## Kolejne użycia i próg wieku STANDARD
+
+Dodatni dowód BROAD wdrożony v19 dla5kolejnych dokładnych użyć SGJP; zachowane inne warunki i pozostałość. Dwie projekcje9rekordów/14analiz/28ocen, logiczna treść/próbki zgodne,20readonly explain;204/204+5/5,preflight14+12OK. Pełny przegląd wieku:7458520interpretacji,598244z wykluczającym warunkiem/6860276bez; puste kwalifikatory6423658. Konieczna decyzja progu wieku STANDARD przy braku wykluczającej etykiety; bez nowego filtra, pełna macierz i8/36 nadal otwarte.
+
+[Wdrożenie](../analysis/evidence/additional-phrase-use-review.md), [konieczna decyzja](../analysis/evidence/standard-age-baseline-decision.md).
