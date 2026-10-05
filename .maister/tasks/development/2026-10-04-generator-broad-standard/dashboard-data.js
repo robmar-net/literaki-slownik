@@ -456,7 +456,7 @@ window.MAISTER_DATA = {
           "label": "Norma 2026 i zamknięte mobilne klasy: przegląd"
         },
         {
-          "path": "analysis/evidence/norm-mobile-runtime.json",
+          "path": "analysis/evidence/norm-mobile-constructions-runtime.json",
           "label": "Połączony runtime normy i mobilnych klas"
         },
         {

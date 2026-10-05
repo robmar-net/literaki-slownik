@@ -25,7 +25,7 @@ Uzupełniający przegląd kodu segmenty.dat: etn. jest użyte przez klasę etnon
 
 ## Kontrola na pełnych źródłowych wejściach
 
-[Połączony runtime](norm-mobile-runtime.json) dla commit 606b371 obejmuje 93 158 interpretacji źródłowych, 93 871 kandydatów i 187 742 składniki; zero nowych kandydatów przy powtórzeniu i identyczny digest, FK/integrity OK, 134,666 s. To stan przed doprecyzowaniem odmiennych hostów.
+[Połączony runtime](norm-mobile-constructions-runtime.json) dla commit 606b371 obejmuje 93 158 interpretacji źródłowych, 93 871 kandydatów i 187 742 składniki; zero nowych kandydatów przy powtórzeniu i identyczny digest, FK/integrity OK, 134,666 s. To stan przed doprecyzowaniem odmiennych hostów.
 
 [Pełny runtime nowych klas po doprecyzowaniu](mobile-variant-runtime.json) obejmuje 144 interpretacje (wszystkie analizy leksemów mapy oraz osiem aglt), 312 kandydatów i 624 składniki. Powtórzenie daje zero nowych kandydatów oraz identyczny digest, FK/integrity OK, 38,613 s. Kod z tego pomiaru był dirty i jest związany SHA256; diagnostyka nie uzyskuje VERIFIED. Pozostałych klas nie mierzono ponownie po poprawce ograniczonej do nowego konstruktora; nie deklarujemy tego jako drugiego pełnego build G8.
 
