@@ -252,6 +252,30 @@ def mobile_by_sequence_candidates(host, operator, aglt=None):
             for tag in tags]
 
 
+def personal_aglt_candidates(host, aglt):
+    """Zamknięte klasy ja/ty/my/wy/wszyscy z segmenty.dat, bez permissive."""
+    _validate_source(host)
+    _validate_source(aglt)
+    if host['source_id'] != aglt['source_id']:
+        return []
+    lemma = host['lemma_id'].split(':',1)[0]
+    personal = {'ja':('sg','pri'), 'ty':('sg','sec'), 'my':('pl','pri'), 'wy':('pl','sec')}
+    allowed = set()
+    if lemma in personal and host['original']==lemma:
+        number,person = personal[lemma]
+        if host['raw_tag'].startswith(f'ppron12:{number}:nom:'):
+            allowed.add((number,person))
+    # Komentarz mówi o rzeczowniku PT, ale definicja klasy wskazuje
+    # wszystek/adj:%. Zachowujemy formalną definicję, nie rozszerzamy subst.
+    elif lemma=='wszystek' and host['original']=='wszyscy' and host['raw_tag'].startswith('adj:'):
+        allowed = {('pl','pri'),('pl','sec')}
+    tags = expand_tag(aglt['raw_tag'])
+    if not allowed or not all(len(t.split(':'))==5 and t.split(':')[0]=='aglt'
+            and tuple(t.split(':')[1:3]) in allowed and t.split(':')[3:]==['imperf','nwok'] for t in tags):
+        return []
+    return _attach_aglt(host,aglt,'personal-host-aglt-v1')
+
+
 def _attach_aglt(operator, aglt, rule_id, variant="nwok"):
     if aglt['raw_tag'].split(':', 1)[0] != 'aglt':
         return []
@@ -385,13 +409,15 @@ def materialize_confirmed_candidates(db, batch_size=10000):
                 save(candidate)
     all_endings = [dict(zip(SOURCE_FIELDS,row)) for row in db.execute(
         select + " where i.tag like 'aglt:%' order by i.source_id,i.first_row")]
-    lemmas = sorted({key[0] for key in MOBILE_AGLT_HOSTS})
+    lemmas = sorted({key[0] for key in MOBILE_AGLT_HOSTS} | {'ja','ty','my','wy','wszystek'})
     placeholders = ','.join('?' for _ in lemmas)
     source_hosts = [dict(zip(SOURCE_FIELDS,row)) for row in db.execute(
         select + f" where l.lemma_base in ({placeholders}) order by i.source_id,i.first_row",lemmas)]
     for host in source_hosts:
         for ending in all_endings:
             for candidate in mobile_aglt_candidates(host,ending):
+                save(candidate)
+            for candidate in personal_aglt_candidates(host,ending):
                 save(candidate)
     for host in source_hosts:
         for operator in operators:

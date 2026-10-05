@@ -250,4 +250,10 @@ Kontrola wszystkich bieżących klas poza impt: 536 interpretacji wejściowych, 
 
 Wdrożono A dla25dosłownych oznaczeń bez pełnego objaśnienia: source_label zachowany, gloss_status=unestablished, inne kryteria osobno. Pełny runtime:1908kompaktowych analiz, dwa identyczne raporty, sześć readonly explain; wielka litera Abchaz nadal odrzuca growo. Dodano logical-content bieżącego schematu do build:10zamkniętych relacji, klucze źródłowe zamiast ID, wykrywanie nowych tabel/kolumn i niespójnych FK. Testy potwierdzają identyczność po zmianie ID i zmianę hasha po modyfikacji powiązań/kwalifikatorów. To nie pełny indeks kanoniczny ani odbiór G8.
 
-[Adnotacja akcent](../analysis/evidence/accent-gloss-first-release-decision.md) pozostaje pending, bez rozszerzenia wyjątku przed odpowiedzią.
+[Adnotacja akcent](../analysis/evidence/accent-gloss-first-release-decision.md): zatwierdzone A, wdrożone; dawność oceniana osobno.
+
+## Adnotacja akcent i klasy źródłowe gry — przyrost
+
+Zatwierdzone A dla adnotacji akcent wdrożono bez zmiany dawności: BROAD nie wyklucza przez brak objaśnienia, STANDARD odrzuca dwie analizy daw.,rzad.,akcent. Pełny raport 7 458 520 analiz zachowuje 26 nieobjaśnionych oznaczeń w 1910 analizach. Dodano diagnostyczne warunki klas źródłowych gry: nazwy, brev, niesamodzielne segmenty oraz odrębną ocenę całości konstrukcji. Nowa zamknięta klasa ja/ty/my/wy/wszyscy zachowuje sześć kandydatów i growe odrzucenie tych analiz, bez usuwania homonimów. Pozostałe mobilne hosty i sekwencje by oceniono zgodnie z zachowanymi wyłączeniami gry; byle ma udokumentowany wyjątek. Pełna kwalifikacja i wydanie nadal nieukończone.
+
+[Przegląd i dowody](../analysis/evidence/accent-and-source-game-review.md).

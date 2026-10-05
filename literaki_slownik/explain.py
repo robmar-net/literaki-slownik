@@ -8,9 +8,9 @@ from .database import connect
 from .decisions import assess_analysis, aggregate, VARIANTS
 from .inputs import GeneratorError
 from .links import availability
-from .policy import assess_profile, approved_qualifier_checks, orthography_checks, release_scope_checks, construction_orthography_checks, VERSION
+from .policy import assess_profile, approved_qualifier_checks, orthography_checks, release_scope_checks, construction_orthography_checks, source_game_checks, VERSION
 from .sgjp import expand_tag, tag_errata
-from .constructions import impt_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, mobile_aglt_candidates, mobile_by_sequence_candidates, BY_AGLT_ENDINGS
+from .constructions import impt_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, mobile_aglt_candidates, mobile_by_sequence_candidates, personal_aglt_candidates, BY_AGLT_ENDINGS
 
 
 def _pending(rule_id, message):
@@ -19,12 +19,18 @@ def _pending(rule_id, message):
 
 def _assess(original, qualifiers, additional_checks=(), source_analyses=(), candidate=None):
     pending = _pending('linguistic-policy-not-active-v1', 'Pełna polityka językowa G3/G4 nie jest jeszcze aktywna.')
+    game_checks = _pending('game-metadata-not-complete-v1',
+                           'Pozostałe udokumentowane warunki growe wymagają domknięcia.')
+    if candidate is not None:
+        game_checks += source_game_checks(dict(raw_tag=candidate['expanded_tag'],
+                                              names=candidate['names'],qualifiers=qualifiers),candidate=candidate)
+    else:
+        game_checks += [check for source in source_analyses for check in source_game_checks(source)]
     return assess_analysis(original,
                            language={v: pending + approved_qualifier_checks(qualifiers, v) + list(additional_checks) +
                            [check for source in source_analyses for check in orthography_checks(source,v)] + construction_orthography_checks(candidate,v) for v in VARIANTS},
                            scope_checks=release_scope_checks(candidate),
-                           game_checks=_pending('game-metadata-not-complete-v1',
-                                                'Pozostałe udokumentowane warunki growe wymagają domknięcia.'))
+                           game_checks=game_checks)
 
 
 def _construction_sources(db, key):
@@ -55,6 +61,7 @@ def _derivations(db, key):
                     candidates.extend(by_aglt_candidates(operator, aglt))
                     candidates.extend(mobile_by_aglt_candidates(operator, aglt))
                 candidates.extend(mobile_aglt_candidates(operator, aglt))
+                candidates.extend(personal_aglt_candidates(operator, aglt))
     for ending in [None]+list(BY_AGLT_ENDINGS.values()):
         suffix='by'+(ending or '')
         if not key.endswith(suffix) or len(key)<=len(suffix):
@@ -153,7 +160,7 @@ def explain(run_dir, word, variant='standard'):
                 if sid not in sources:
                     metadata = db.execute('select metadata from source_artifact where source_id=?', (sid,)).fetchone()[0]
                     sources[sid] = json.loads(metadata)
-                assessed = _assess(original, qualifiers, source_analyses=[dict(original=original,lemma_id=lemma,raw_tag=tag)])
+                assessed = _assess(original, qualifiers, source_analyses=[dict(original=original,lemma_id=lemma,raw_tag=tag,names=names,qualifiers=qualifiers)])
                 analyses.append({'interpretation_id': iid, 'source_id': sid, 'first_source_row': row,
                                  'original': original, 'lemma_id': lemma, 'raw_tag': tag,
                                  'expanded_tags': list(expand_tag(tag)), 'names': names,

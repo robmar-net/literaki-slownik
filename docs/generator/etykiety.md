@@ -70,3 +70,9 @@ Zatwierdzono A: samo wymaganie kontekstu składniowego lub frazeologicznego nie 
 Wdrożono A dla25dosłownych oznaczeń bez pełnego objaśnienia: source_label zachowany, gloss_status=unestablished, inne kryteria osobno. Pełny runtime:1908kompaktowych analiz, dwa identyczne raporty, sześć readonly explain; wielka litera Abchaz nadal odrzuca growo. Dodano logical-content bieżącego schematu do build:10zamkniętych relacji, klucze źródłowe zamiast ID, wykrywanie nowych tabel/kolumn i niespójnych FK. Testy potwierdzają identyczność po zmianie ID i zmianę hasha po modyfikacji powiązań/kwalifikatorów. To nie pełny indeks kanoniczny ani odbiór G8.
 
 Pełny raport warunków wskazuje jedną etykietę bez oceny kwalifikatora: pisane_łącznie_z_przyimkiem (2rekordy). To nie oznacza pełnej semantyki pozostałych604etykiet: mapa ocenia warunki, nie kompletne objaśnienia. Daw.,rzad.,akcent ma już warunek dawności, lecz treść akcent nadal otwarta.
+
+## Adnotacja akcent i klasy źródłowe gry — bieżący przyrost
+
+Zatwierdzone A dla adnotacji akcent wdrożono bez zmiany dawności: BROAD nie wyklucza przez brak objaśnienia, STANDARD odrzuca dwie analizy daw.,rzad.,akcent. Pełny raport 7 458 520 analiz zachowuje 26 nieobjaśnionych oznaczeń w 1910 analizach. Dodano diagnostyczne warunki klas źródłowych gry: nazwy, brev, niesamodzielne segmenty oraz odrębną ocenę całości konstrukcji. Nowa zamknięta klasa ja/ty/my/wy/wszyscy zachowuje sześć kandydatów i growe odrzucenie tych analiz, bez usuwania homonimów. Pozostałe mobilne hosty i sekwencje by oceniono zgodnie z zachowanymi wyłączeniami gry; byle ma udokumentowany wyjątek. Pełna kwalifikacja i wydanie nadal nieukończone.
+
+[Przegląd i dowody](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/accent-and-source-game-review.md).

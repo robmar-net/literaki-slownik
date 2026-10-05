@@ -7,6 +7,57 @@ from literaki_slownik.inputs import GeneratorError
 
 
 class PolicyTests(unittest.TestCase):
+    def test_mobile_constructor_game_conditions_follow_host_not_final_letters(self):
+        from literaki_slownik.policy import source_game_checks
+        source=dict(raw_tag='aglt:sg:pri:imperf:nwok',names='',qualifiers='')
+        def checks(rule,form,lemma,pos):
+            host=dict(original=form,lemma_id=lemma,raw_tag=pos)
+            return source_game_checks(source,candidate=dict(rule_id=rule,components=[{'kind':'source_interpretation','interpretation':host}]))
+        for form,lemma,pos,status in [('byle','byle:M','comp','accept'),('że','że:M','comp','reject'),('kim','kto:S','subst:sg:inst:m1','reject'),('czyż','czyż:T','part','reject')]:
+            self.assertEqual(assessment(checks('mobile-source-host-aglt-v1',form,lemma,pos))['status'],status)
+        self.assertEqual(assessment(checks('mobile-host-by-sequence-v1','chyba','chyba:T','part'))['status'],'reject')
+        self.assertEqual(assessment(checks('mobile-by-host-aglt-v1','żeby','żeby:M','comp'))['status'],'accept')
+
+    def test_source_unit_kind_abbreviation_is_not_acronym_or_phrase_context(self):
+        from literaki_slownik.policy import source_game_checks
+        def source(tag, names='', qualifiers=''):
+            return dict(raw_tag=tag,names=names,qualifiers=qualifiers)
+        for tag in ('brev:pun','brev:npun','adja','pacta','numcomp','aglt:pl:pri:imperf:nwok'):
+            self.assertEqual(assessment(source_game_checks(source(tag)))['status'],'reject',tag)
+        for tag in ('subst:sg:nom:m3','frag','adjp'):
+            checks=source_game_checks(source(tag,'nazwa_pospolita','fraz.'))
+            self.assertFalse(any(c['status']=='reject' for c in checks),tag)
+        self.assertEqual(assessment(source_game_checks(source('ppron3:sg:gen:m1:ter:nakc:praep',qualifiers='pisane_łącznie_z_przyimkiem')))['status'],'reject')
+
+    def test_source_name_classes_preserve_mixed_and_future_unknown(self):
+        from literaki_slownik.policy import source_game_checks
+        def source(names):
+            return dict(raw_tag='subst:sg:nom:m3',names=names,qualifiers='')
+        self.assertEqual(assessment(source_game_checks(source('nazwa_geograficzna')))['status'],'reject')
+        self.assertEqual(assessment(source_game_checks(source('nazwa_pospolita')))['status'],'accept')
+        self.assertEqual(assessment(source_game_checks(source('nazwa_pospolita|nazwisko')))['status'],'unresolved')
+        self.assertEqual(assessment(source_game_checks(source('nazwa_pospolita|nowa_nazwa')))['status'],'unresolved')
+        checks=source_game_checks(source('nazwisko|nowa_nazwa'))
+        self.assertEqual(assessment(checks)['status'],'reject')
+        self.assertTrue(any(c['status']=='unresolved' for c in checks))
+
+    def test_whole_confirmed_construction_not_rejected_as_its_aglt_component(self):
+        from literaki_slownik.policy import source_game_checks
+        source=dict(raw_tag='aglt:sg:pri:imperf:nwok',names='',qualifiers='')
+        candidate=dict(rule_id='by-aglt-nwok-v1')
+        self.assertEqual(assessment(source_game_checks(source,candidate=candidate))['status'],'accept')
+        self.assertEqual(assessment(source_game_checks(source,candidate={'rule_id':'unknown'}))['status'],'unresolved')
+
+    def test_accent_gloss_concession_preserves_history_and_literal_scope(self):
+        from literaki_slownik.policy import accent_gloss_checks, approved_qualifier_checks
+        check, = accent_gloss_checks('daw.,rzad.,akcent')
+        self.assertEqual(check['source_label'], 'daw.,rzad.,akcent')
+        self.assertEqual(check['gloss_status'], 'unestablished')
+        self.assertEqual(check['status'], 'accept')
+        self.assertEqual(assessment(approved_qualifier_checks('daw.,rzad.,akcent','standard'))['status'], 'reject')
+        self.assertEqual(assessment(approved_qualifier_checks('daw.,rzad.,akcent','broad'))['status'], 'accept')
+        self.assertEqual(accent_gloss_checks('akcent|rzad.,akcent|nowe,akcent'), [])
+
     def test_unexplained_closed_labels_keep_gloss_unknown_without_whole_acceptance(self):
         from literaki_slownik.policy import unexplained_label_checks, approved_qualifier_checks
         for label in ('fot.', 'etn.', 'biblt.', 'pot.,slang'):

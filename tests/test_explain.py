@@ -14,6 +14,27 @@ from literaki_slownik.explain import explain
 
 
 class ExplainTests(unittest.TestCase):
+    def test_personal_construction_rejected_game_analysis_preserves_independent_homonym(self):
+        from tests.test_build import BuildTests
+        root=Path(self.temp.name)/'personal';root.mkdir()
+        p=BuildTests().manifest(root,'#</COPYRIGHT>\nja\tja\tppron12:sg:nom:m1:pri\t\t\nm\tbyć:A\taglt:sg:pri:imperf:nwok\t\t\njam\tjama\tsubst:pl:gen:f\t\t\n')
+        run=root/'run';build(p,run)
+        value=explain(run,'jam');c,=value['derivations']
+        self.assertIsNotNone(c['persisted_candidate_key'])
+        self.assertEqual(c['assessment']['game']['status'],'reject')
+        self.assertEqual(value['analyses'][0]['assessment']['game']['status'],'unresolved')
+        self.assertEqual(value['source_presence'],'present')
+
+    def test_source_kinds_visible_and_bound_homonym_does_not_remove_word(self):
+        from tests.test_build import BuildTests
+        root=Path(self.temp.name)/'source-kinds';root.mkdir()
+        p=BuildTests().manifest(root,'#</COPYRIGHT>\nbiało\tbiały\tadja\t\t\nbiało\tbiało\tadv:pos\t\t\nnp\tnp\tbrev:npun\t\t\n')
+        run=root/'run';build(p,run)
+        analyses=explain(run,'biało')['analyses']
+        statuses={a['raw_tag']:a['assessment']['game']['status'] for a in analyses}
+        self.assertEqual(statuses,{'adja':'reject','adv:pos':'unresolved'})
+        self.assertEqual(explain(run,'np')['analyses'][0]['assessment']['game']['status'],'reject')
+
     def test_unexplained_label_visible_without_automatic_language_acceptance(self):
         from tests.test_build import BuildTests
         from literaki_slownik.explain import format_explanation
@@ -72,7 +93,8 @@ class ExplainTests(unittest.TestCase):
         self.assertEqual(c['rule_id'],'mobile-source-host-aglt-v1')
         self.assertIsNotNone(c['persisted_candidate_key'])
         self.assertEqual([x['interpretation']['original'] for x in c['components']],['czyż','eś'])
-        self.assertEqual(c['assessment']['membership']['standard']['status'],'unresolved')
+        self.assertEqual(c['assessment']['membership']['standard']['status'],'reject')
+        self.assertEqual(c['assessment']['game']['status'],'reject')
         self.assertEqual(explain(run,'czyżś')['derivations'],[])
 
     def test_orthography_2026_direct_and_inherited_without_removing_source(self):

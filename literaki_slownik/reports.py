@@ -164,7 +164,8 @@ def qualifier_coverage(fields):
     Wejście: unikalne pary (surowe pole kwalifikatorów, liczba interpretacji).
     Liczniki etykiet mogą się nakładać; mianownik rekordów liczymy raz po polu.
     """
-    from .policy import approved_qualifier_checks, VERSION, UNEXPLAINED_FIRST_RELEASE_LABELS
+    from .policy import approved_qualifier_checks, VERSION, UNEXPLAINED_FIRST_RELEASE_LABELS, UNEXPLAINED_ACCENT_LABELS
+    waived_labels = UNEXPLAINED_FIRST_RELEASE_LABELS | UNEXPLAINED_ACCENT_LABELS
 
     inventory, counts = {}, Counter()
     try:
@@ -187,7 +188,7 @@ def qualifier_coverage(fields):
         has_condition = any(checks.values())
         if has_condition:
             mapped.add(label)
-        waived = label in UNEXPLAINED_FIRST_RELEASE_LABELS
+        waived = label in waived_labels
         label_rows.append({'label': label, 'compact_interpretations': count,
                            'gloss_status': 'unestablished' if waived else 'not_assessed_by_this_report',
                            'first_release_gloss_requirement_waived': waived,
@@ -200,7 +201,7 @@ def qualifier_coverage(fields):
     for field, count in sorted(inventory.items()):
         labels = sorted(set(field.split('|')) - {''})
         unknown = sorted(set(labels) - mapped)
-        unexplained = sorted(set(labels) & UNEXPLAINED_FIRST_RELEASE_LABELS)
+        unexplained = sorted(set(labels) & waived_labels)
         totals['records_with_unexplained_first_release_label'] += count if unexplained else 0
         totals['records_with_any_condition'] += count if set(labels) & mapped else 0
         totals['records_with_unmapped_label'] += count if unknown else 0
@@ -218,7 +219,7 @@ def qualifier_coverage(fields):
             'notice': 'Znany warunek nie oznacza pełnej semantyki etykiety ani dopuszczenia analizy. '
                       'Brak etykiety nie dowodzi poprawności; nie sumujemy nakładających się liczników.',
             'labels': label_rows, 'fields': field_rows,
-            'unexplained_first_release_labels': sorted(set(counts) & UNEXPLAINED_FIRST_RELEASE_LABELS),
+            'unexplained_first_release_labels': sorted(set(counts) & waived_labels),
             'unmapped_labels': sorted(set(counts) - mapped)}
 
 

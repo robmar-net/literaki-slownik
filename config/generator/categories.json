@@ -125,5 +125,77 @@
     "winien": 140
   },
   "status": "not_active_policy",
-  "version": "categories-discovery-v1"
+  "version": "categories-discovery-v2",
+  "confirmed_diagnostic_game_conditions": {
+    "abbreviation_class": "brev",
+    "abbreviation_rule_id": "game-abbreviation-v1",
+    "bound_form_classes": [
+      "adja",
+      "aglt",
+      "numcomp",
+      "pacta"
+    ],
+    "bound_rule_id": "game-dependent-segment-v1",
+    "context_alone_not_excluded": [
+      "frag",
+      "adjp"
+    ],
+    "evidence": [
+      "sgjp_instruction",
+      "morfeusz_tagset",
+      "morfeusz_segments",
+      "zds:1,5"
+    ],
+    "full_game_policy_pending": true,
+    "lexical_records_preserved": true,
+    "mixed_common_name": "unresolved_no_invented_senses",
+    "name_label_rule_id": "game-source-name-labels-v1",
+    "name_labels": [
+      "człon_nazwiska",
+      "człon_nazwiska_(herb)",
+      "człon_nazwy_firmy",
+      "człon_nazwy_geograficznej",
+      "człon_nazwy_instytucji",
+      "człon_nazwy_organizacji",
+      "człon_nazwy_własnej",
+      "człon_nazwy_święta",
+      "człon_przydomka",
+      "człon_pseudonimu",
+      "człon_tytułu",
+      "imię",
+      "marka",
+      "nazwa_członka_rodu",
+      "nazwa_firmy",
+      "nazwa_geograficzna",
+      "nazwa_instytucji",
+      "nazwa_języka_programowania",
+      "nazwa_kroju_pisma",
+      "nazwa_oprogramowania",
+      "nazwa_organizacji",
+      "nazwa_pospolita",
+      "nazwa_własna",
+      "nazwa_własna_astronomiczna",
+      "nazwa_własna_budowli",
+      "nazwa_własna_osoby",
+      "nazwa_własna_środka_lokomocji",
+      "nazwa_święta",
+      "nazwisko",
+      "nazwisko_(odmężowskie)",
+      "nazwisko_(odojcowskie)",
+      "patronimicum",
+      "przydomek",
+      "pseudonim",
+      "tytuł"
+    ],
+    "proper_name_rule_id": "game-proper-name-class-v1",
+    "whole_construction_rules": [
+      "by-aglt-nwok-v1",
+      "impt-single-particle-v1",
+      "mobile-by-host-aglt-v1",
+      "mobile-host-by-sequence-v1",
+      "mobile-source-host-aglt-v1",
+      "personal-host-aglt-v1",
+      "preposition-n-source-v1"
+    ]
+  }
 }

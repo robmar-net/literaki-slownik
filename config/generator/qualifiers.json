@@ -613,8 +613,10 @@
       "compact_interpretations": 1967
     },
     "daw.,rzad.,akcent": {
-      "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 2
+      "classification_status": "approved_accent_gloss_concession_history_condition_separate",
+      "compact_interpretations": 2,
+      "gloss_requirement": "non_excluding_first_release_user_approved",
+      "gloss_status": "unestablished"
     },
     "daw.,rzad.,anat.": {
       "classification_status": "pending_full_semantic_review",

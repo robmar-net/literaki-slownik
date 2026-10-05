@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "approved-conditions-v7",
+  "version": "approved-conditions-v9",
   "status": "partial_not_release_policy",
   "rules": [
     {
@@ -771,6 +771,22 @@
       },
       "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unexplained-labels-first-release-decision.md",
       "new_unknown_labels": "not_covered"
+    },
+    {
+      "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/accent-gloss-first-release-decision.md",
+      "gloss_status": "unestablished",
+      "literal_labels": [
+        "daw.,rzad.,akcent"
+      ],
+      "new_unknown_labels": "not_covered",
+      "operation": "non_excluding_unestablished_gloss",
+      "rule_id": "linguistic-accent-gloss-first-release-v1",
+      "scope": "closed_accent_label_first_release_history_separate",
+      "status": "confirmed_user_requirement_concession",
+      "variants": {
+        "broad": "non_excluding",
+        "standard": "non_excluding"
+      }
     }
   ]
 }

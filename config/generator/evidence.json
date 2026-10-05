@@ -71,7 +71,7 @@
     {
       "bytes": 57192,
       "id": "morfeusz_segments",
-      "inspected_sections": "136–185,334–345,380–383,625–641",
+      "inspected_sections": "136–185,334–345,380–383,625–641;174-191,1927-1930,1947",
       "path": "cache/sgjp-docs/Morfeusz/input/segmenty.dat",
       "publication": "reference_and_own_notes_only_cache_ignored",
       "role": "rule_evidence_only_not_lexical_input",
@@ -108,6 +108,16 @@
       "role": "documentation_observation_not_build_metadata",
       "version": "observed_2026-10-04_not_export_20260823",
       "publication": "own_notes_only_cache_ignored"
+    },
+    {
+      "bytes": 24466,
+      "id": "morfeusz_tagset",
+      "inspected_sections": "275-276,436-444,598,736-737,769-773",
+      "path": "cache/sgjp-docs/Morfeusz/input/morfeusz-sgjp.tagset",
+      "publication": "reference_and_own_notes_only_cache_ignored",
+      "role": "rule_evidence_only_not_lexical_input",
+      "sha256": "495170ca791217d98bf3eabbf2011057f183bfd88e97063cbd78c2714e1ad1dd",
+      "url": "https://download.sgjp.pl/morfeusz/20260823/morfeusz-src-20260823.tar.gz"
     }
   ],
   "status": "discovery_in_progress",

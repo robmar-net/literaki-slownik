@@ -11,6 +11,23 @@ def source(form='daj', tag='impt:sg:sec:perf', qualifiers=''):
 
 
 class ConstructionTests(unittest.TestCase):
+    def test_personal_hosts_match_exact_source_class_number_and_person(self):
+        from literaki_slownik.constructions import personal_aglt_candidates
+        for word,number,person,suffix in [('ja','sg','pri','m'),('ty','sg','sec','ś'),('my','pl','pri','śmy'),('wy','pl','sec','ście')]:
+            host=dict(source(word,f'ppron12:{number}:nom:m1.m2.m3.f.n:{person}'),lemma_id=word)
+            ending=source(suffix,f'aglt:{number}:{person}:imperf:nwok')
+            c,=personal_aglt_candidates(host,ending)
+            self.assertEqual(c['original'],word+suffix)
+            self.assertEqual([x['interpretation'] for x in c['components']],[host,ending])
+            self.assertEqual(personal_aglt_candidates(dict(host,raw_tag=host['raw_tag'].replace(':nom:',':voc:')),ending),[])
+            self.assertEqual(personal_aglt_candidates(host,dict(ending,source_id='other')),[])
+        host=dict(source('wszyscy','adj:pl:nom.voc:m1:pos'),lemma_id='wszystek')
+        for suffix,person in [('śmy','pri'),('ście','sec')]:
+            self.assertEqual(personal_aglt_candidates(host,source(suffix,f'aglt:pl:{person}:imperf:nwok'))[0]['original'],'wszyscy'+suffix)
+        self.assertEqual(personal_aglt_candidates(dict(host,lemma_id='wszyscy',raw_tag='subst:pl:nom:m1:pt'),ending),[])
+        self.assertEqual(personal_aglt_candidates(dict(source('ja','ppron12:sg:nom:m1:pri'),lemma_id='ja'),source('ś','aglt:sg:sec:imperf:nwok')),[])
+        self.assertEqual(personal_aglt_candidates(dict(source('ja','ppron12:sg:nom:m1:pri'),lemma_id='ja'),source('em','aglt:sg:pri:imperf:wok')),[])
+
     def test_closed_conditional_sequence_preserves_three_sources_and_rejects_disallowed_hosts(self):
         from literaki_slownik.constructions import mobile_by_sequence_candidates
         host=dict(source('chyba','part','rzad.'),lemma_id='chyba:T')

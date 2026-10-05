@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-05T08:40:16Z",
+    "updated": "2026-10-05T09:10:37.749839+00:00",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "Wdrożono A dla25dosłownych oznaczeń bez pełnego objaśnienia: source_label zachowany, gloss_status=unestablished, inne kryteria osobno. Pełny runtime:1908kompaktowych analiz, dwa identyczne raporty, sześć readonly explain; wielka litera Abchaz nadal odrzuca growo. Dodano logical-content bieżącego schematu do build:10zamkniętych relacji, klucze źródłowe zamiast ID, wykrywanie nowych tabel/kolumn i niespójnych FK. Testy potwierdzają identyczność po zmianie ID i zmianę hasha po modyfikacji powiązań/kwalifikatorów. To nie pełny indeks kanoniczny ani odbiór G8. Pending decyzja wymogu objaśnienia akcent dla dwóch dawnych rekordów.",
+      "summary": "Zatwierdzone A dla adnotacji akcent wdrożono bez zmiany dawności: BROAD nie wyklucza przez brak objaśnienia, STANDARD odrzuca dwie analizy daw.,rzad.,akcent. Pełny raport 7 458 520 analiz zachowuje 26 nieobjaśnionych oznaczeń w 1910 analizach. Dodano diagnostyczne warunki klas źródłowych gry: nazwy, brev, niesamodzielne segmenty oraz odrębną ocenę całości konstrukcji. Nowa zamknięta klasa ja/ty/my/wy/wszyscy zachowuje sześć kandydatów i growe odrzucenie tych analiz, bez usuwania homonimów. Pozostałe mobilne hosty i sekwencje by oceniono zgodnie z zachowanymi wyłączeniami gry; byle ma udokumentowany wyjątek. Pełna kwalifikacja i wydanie nadal nieukończone.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -232,7 +232,8 @@
         "A: własny kod/konfiguracje BSD-2-Clause; własna dokumentacja i raporty CC BY 4.0. Źródła zachowują odrębne warunki.",
         "A: STANDARD stosuje normę 2026 także dla nieoznaczonych dawnych zapisów; BROAD może je zachować z dowodem, reguły gry niezmienione.",
         "A: zakres kontrakcji pierwszego wydania ograniczony do18poświadczonych form;8innych kandydatów zachowane diagnostycznie poza zakresem, nieuznane za błędne. Niezależne homonimy oceniane osobno; rozszerzenie wymaga dowodu i nowego wydania.",
-        "A: zamknięte25oznaczeń zachowane z nieustalonym objaśnieniem; brak objaśnienia sam nie wyklucza ani nie blokuje wydania. Pozostałe kryteria i inne unknown nadal obowiązują."
+        "A: zamknięte25oznaczeń zachowane z nieustalonym objaśnieniem; brak objaśnienia sam nie wyklucza ani nie blokuje wydania. Pozostałe kryteria i inne unknown nadal obowiązują.",
+        "A: brak objaśnienia adnotacji akcent w daw.,rzad.,akcent sam nie wyklucza; zachowujemy adnotację, STANDARD nadal odrzuca za dawność."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -486,20 +487,35 @@
         {
           "path": "analysis/evidence/accent-gloss-first-release-decision.md",
           "label": "Wymóg objaśnienia akcent: dwa rekordy"
+        },
+        {
+          "path": "analysis/evidence/accent-and-source-game-review.md",
+          "label": "Przegląd akcent i klas gry"
+        },
+        {
+          "path": "analysis/evidence/accent-game-runtime.json",
+          "label": "Pełny runtime warunków i explain"
+        },
+        {
+          "path": "analysis/evidence/source-game-condition-coverage.json",
+          "label": "Pełna ekspozycja klas gry"
+        },
+        {
+          "path": "analysis/evidence/accent-condition-coverage.json",
+          "label": "Pokrycie po A adnotacji akcent"
+        },
+        {
+          "path": "analysis/evidence/personal-scope-runtime.json",
+          "label": "Powtarzalna projekcja z osobowymi hostami"
+        },
+        {
+          "path": "analysis/evidence/construction-game-runtime.json",
+          "label": "Wyłączenia konstrukcji i całe ślady"
         }
       ],
       "gate": {
-        "id": "accent_gloss_first_release_requirement",
-        "status": "pending",
-        "created_at": "2026-10-05T08:35:53Z",
-        "question": "Czy brak objaśnienia akcent sam ma nie blokować BROAD dla dwomakroć i trzemakroć, przy zachowaniu adnotacji i wszystkich innych kryteriów?",
-        "options": {
-          "A": "Tak: zachowaj adnotację z nieustalonym objaśnieniem; STANDARD nadal odrzuca za dawność (rekomendowane).",
-          "B": "Nie: wymagamy objaśnienia przed pełnym wydaniem BROAD."
-        },
-        "answer": null,
-        "artifact": "analysis/evidence/accent-gloss-first-release-decision.md",
-        "authority": "AGENTS.md; spec§6 i planG3/3.4; executor Ask the user before changing scope"
+        "question": null,
+        "answer": null
       },
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
@@ -653,6 +669,20 @@
           "artifact": "analysis/evidence/unexplained-labels-first-release-decision.md",
           "authority": "AGENTS.md; plan G3/3.4; executor: Ask the user before changing scope",
           "answered_at": "2026-10-05T08:24:56Z"
+        },
+        {
+          "id": "accent_gloss_first_release_requirement",
+          "status": "approved",
+          "created_at": "2026-10-05T08:35:53Z",
+          "question": "Czy brak objaśnienia akcent sam ma nie blokować BROAD dla dwomakroć i trzemakroć, przy zachowaniu adnotacji i wszystkich innych kryteriów?",
+          "options": {
+            "A": "Tak: zachowaj adnotację z nieustalonym objaśnieniem; STANDARD nadal odrzuca za dawność (rekomendowane).",
+            "B": "Nie: wymagamy objaśnienia przed pełnym wydaniem BROAD."
+          },
+          "answer": "A",
+          "artifact": "analysis/evidence/accent-gloss-first-release-decision.md",
+          "authority": "AGENTS.md; spec§6 i planG3/3.4; executor Ask the user before changing scope",
+          "answered_at": "2026-10-05T08:47:38Z"
         }
       ]
     }
@@ -743,7 +773,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "User explicitly authorized continuing code with evidence gaps: policy mechanics only, no active unresolved linguistic rules",
-        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed; context3 red→green,11/11 labels,169 records; persistence3 red→green,build2 red→green; fullconfirmedclass projection93446 candidates186892 components,repeat idempotent,FK/integrityOK; preposition3redgreen+buildintegration1green,81expandedcandidates(57proof/24unresolved),repeatFKintegrity;mobileby1redgreen64candidates16hosts;winien2redgreen7realJSONtext; norma1 policy +1 explain red→green, mobile1 constructor+1 explain red→green",
+        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed; context3 red→green,11/11 labels,169 records; persistence3 red→green,build2 red→green; fullconfirmedclass projection93446 candidates186892 components,repeat idempotent,FK/integrityOK; preposition3redgreen+buildintegration1green,81expandedcandidates(57proof/24unresolved),repeatFKintegrity;mobileby1redgreen64candidates16hosts;winien2redgreen7realJSONtext; norma1 policy +1 explain red→green, mobile1 constructor+1 explain red→green; accent1redgreen,sourcegame4redgreen,personal2redgreen,mobilegame1redgreen;fullprojection776/1796 repeatFKintegrity",
         "remaining": "Full qualifier/category/orthography policy, mobile/preposition constructions and final decisions persistence/integration; G3 closure"
       },
       "G5": {
@@ -803,7 +833,7 @@
         "artifact": "analysis/evidence/wiktionary-attestation-decision.md"
       }
     },
-    "verification_note": "Generator134/134,audit5/5; finalny preflight14/14+10configs po zmianie metadanych passed. Runtime25pełne7458520/1908readonlypowtarzalny5.704s. Logical-content770/1784twiceequal; hashe i artefakty zgodne. Pełneverify/G8pending,8/36plan.",
+    "verification_note": "Generator142/142,audit5/5; runtime readonly pełne7458520,1910 nieobjaśnionych oznaczeń; 776kandydatów1796składników, repeat0new/FK/integrityOK. Pełne G3–G9/verify/G8 nadal pending,8/36 plan. Finalny preflight14/14artefaktów+10config passed,hashe zgodne.",
     "source_policy_clarification": {
       "recorded_at": "2026-10-04T21:49:35Z",
       "artifact": "analysis/evidence/source-policy-clarification.md",

@@ -55,4 +55,6 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Oznaczenia bez pełnego objaśnienia](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unexplained-labels-first-release-decision.md) — zatwierdzone A i wdrożone; objaśnienia nadal nieustalone, 1908 analiz źródłowych, inne kryteria obowiązują.
 
 - [A25 i logiczna treść](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unexplained-and-logical-content-review.md) — 134/134 testów, pełne pokrycie i diagnostyczny hash bieżących relacji.
-- [Adnotacja akcent](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/accent-gloss-first-release-decision.md) — pending wybór wymogu dla dwóch dawnych rekordów; nieobjęte poprzednim wyjątkiem25.
+- [Adnotacja akcent](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/accent-gloss-first-release-decision.md) — zatwierdzone A, zachowana adnotacja i osobne odrzucenie STANDARD za dawność.
+
+- [Akcent i klasy źródłowe gry](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/accent-and-source-game-review.md) — 142 testy, pełny runtime klas i sześć konstrukcji osobowych bez utraty homonimów.

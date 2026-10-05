@@ -3,7 +3,8 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v10'
+VERSION = 'diagnostic-approved-conditions-v12'
+UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
     'char.,fot.', 'char.,gry', 'etn.', 'fot.', 'gry', 'gry,zool.',
@@ -21,8 +22,92 @@ def unexplained_label_checks(qualifiers):
              'evidence': ['config/generator/policy.json',
                           '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unexplained-labels-first-release-decision.md']}
             for label in sorted(set(qualifiers.split('|')) & UNEXPLAINED_FIRST_RELEASE_LABELS)]
+def accent_gloss_checks(qualifiers):
+    """Zachowaj nieobjaśnioną adnotację; dawność oceniana odrębnie."""
+    return [{'rule_id':'linguistic-accent-gloss-first-release-v1',
+             'status':'accept', 'source_label':label, 'gloss_status':'unestablished',
+             'message':'Adnotacja akcent zachowana: objaśnienie nieustalone. Sam brak objaśnienia nie wyklucza w pierwszym wydaniu; dawność i inne kryteria osobno.',
+             'evidence':['config/generator/policy.json',
+                         '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/accent-gloss-first-release-decision.md']}
+            for label in sorted(set(qualifiers.split('|')) & UNEXPLAINED_ACCENT_LABELS)]
+
+
 FIRST_RELEASE_CONTRACTIONS = frozenset('bezeń dlań doń nadeń nań odeń oń podeń poń przedeń przezeń spodeń spozań sprzedeń weń zań zeń znadeń'.split())
 DEFERRED_CONTRACTIONS = frozenset('kołoń pozań zzań ponadeń popodeń poprzezeń sponadeń spopodeń'.split())
+KNOWN_NAME_LABELS = frozenset({
+    'człon_nazwiska', 'człon_nazwiska_(herb)', 'człon_nazwy_firmy',
+    'człon_nazwy_geograficznej', 'człon_nazwy_instytucji', 'człon_nazwy_organizacji',
+    'człon_nazwy_własnej', 'człon_nazwy_święta', 'człon_przydomka', 'człon_pseudonimu',
+    'człon_tytułu', 'imię', 'marka', 'nazwa_członka_rodu', 'nazwa_firmy',
+    'nazwa_geograficzna', 'nazwa_instytucji', 'nazwa_języka_programowania',
+    'nazwa_kroju_pisma', 'nazwa_oprogramowania', 'nazwa_organizacji', 'nazwa_pospolita',
+    'nazwa_własna', 'nazwa_własna_astronomiczna', 'nazwa_własna_budowli',
+    'nazwa_własna_osoby', 'nazwa_własna_środka_lokomocji', 'nazwa_święta', 'nazwisko',
+    'nazwisko_(odmężowskie)', 'nazwisko_(odojcowskie)', 'patronimicum', 'przydomek',
+    'pseudonim', 'tytuł',
+})
+BOUND_FORM_CLASSES = frozenset({'adja', 'pacta', 'numcomp', 'aglt'})
+CONFIRMED_CONSTRUCTOR_RULES = frozenset({
+    'impt-single-particle-v1', 'by-aglt-nwok-v1', 'preposition-n-source-v1',
+    'mobile-by-host-aglt-v1', 'mobile-source-host-aglt-v1', 'mobile-host-by-sequence-v1', 'personal-host-aglt-v1',
+})
+
+
+def source_game_checks(source, candidate=None):
+    """Ocena klas zapisu; kandydat pochodzi wyłącznie z zamkniętego konstruktora.
+
+    Tag składnika nie oznacza klasy kompletnej rekonstrukcji. Frag/adjp
+    nie są automatycznie wykluczane przez wymaganie kontekstu.
+    """
+    labels = set(source['names'].split('|')) - {''}
+    unknown = sorted(labels - KNOWN_NAME_LABELS)
+    proper = sorted(labels & (KNOWN_NAME_LABELS - {'nazwa_pospolita'}))
+    mixed = bool(proper and 'nazwa_pospolita' in labels)
+    result = [{'rule_id':'game-source-name-labels-v1',
+               'status':'unresolved' if unknown else 'accept', 'unknown_labels':unknown,
+               'message':'Nieznane oznaczenia nazwy wymagają oceny.' if unknown else
+                         'Źródłowe oznaczenia nazw rozpoznane; inne warunki osobno.',
+               'evidence':['config/generator/categories.json', 'https://sgjp.pl/instrukcja/']}]
+    result.append({'rule_id':'game-proper-name-class-v1',
+                   'status':'unresolved' if mixed else 'reject' if proper else 'accept',
+                   'proper_name_labels':proper, 'mixed_common_name':mixed,
+                   'message':'Mieszana klasyfikacja pospolita/własna wymaga oceny tej analizy; nie tworzymy alternatywnych sensów.' if mixed else
+                             'Ta analiza jest źródłowo sklasyfikowana jako nazwa własna lub jej człon.' if proper else
+                             'Brak źródłowego oznaczenia nazwy własnej; inne warunki osobno.',
+                   'evidence':['config/generator/categories.json', 'https://sgjp.pl/instrukcja/']})
+    pos = source['raw_tag'].split(':',1)[0]
+    if candidate is not None:
+        confirmed = candidate['rule_id'] in CONFIRMED_CONSTRUCTOR_RULES
+        result.append({'rule_id':'game-construction-whole-unit-v1',
+                       'status':'accept' if confirmed else 'unresolved',
+                       'constructor_rule_id':candidate['rule_id'],
+                       'message':'Potwierdzony konstruktor: oceniamy całość, nie samodzielność końcówki; pozostałe warunki osobno.' if confirmed else
+                                 'Nieznany konstruktor wymaga oceny samodzielności całości.',
+                       'evidence':['config/generator/constructions.json']})
+        if candidate['rule_id']=='personal-host-aglt-v1':
+            result.append({'rule_id':'game-personal-host-aglt-v1','status':'reject',
+                           'message':'Końcówka czasownikowa dołączona do zaimka lub przymiotnika: ta konstrukcyjna analiza jest wyłączona przez zachowane reguły gry; homonimy osobno.',
+                           'evidence':['config/generator/constructions.json','docs/generator/konstrukcje.md']})
+        elif candidate['rule_id'] in {'mobile-source-host-aglt-v1','mobile-host-by-sequence-v1'}:
+            host = candidate['components'][0]['interpretation']
+            permitted = (candidate['rule_id']=='mobile-source-host-aglt-v1'
+                         and host['original']=='byle' and host['lemma_id'].split(':',1)[0]=='byle'
+                         and host['raw_tag']=='comp')
+            result.append({'rule_id':'game-mobile-host-composition-v1',
+                           'status':'accept' if permitted else 'reject',
+                           'message':'Udokumentowany wyjątek byle + końcówka osobowa; pozostałe kryteria osobno.' if permitted else
+                                     'Ta źródłowa konstrukcja mobilnej końcówki lub trybu przypuszczającego z nieczasownikowym hostem jest wyłączona przez zachowane reguły gry; homonimy osobno.',
+                           'evidence':['config/generator/constructions.json','docs/generator/konstrukcje.md']})
+    elif pos == 'brev':
+        result.append({'rule_id':'game-abbreviation-v1', 'status':'reject',
+                       'message':'Źródłowa analiza jest skrótem; nie utożsamiamy skrótu ze skrótowcem rzeczownikowym.',
+                       'evidence':['config/generator/categories.json', 'docs/generator/ortografia.md']})
+    elif pos in BOUND_FORM_CLASSES or 'pisane_łącznie_z_przyimkiem' in source['qualifiers'].split('|'):
+        result.append({'rule_id':'game-dependent-segment-v1', 'status':'reject',
+                       'source_class':pos,
+                       'message':'Źródłowa analiza jest niesamodzielnym składnikiem; może uczestniczyć w potwierdzonej pełnej konstrukcji.',
+                       'evidence':['config/generator/categories.json', 'docs/generator/konstrukcje.md']})
+    return result
 
 
 def release_scope_checks(candidate=None):
@@ -99,7 +184,7 @@ def approved_qualifier_checks(qualifiers, variant):
     return (history_checks(qualifiers, variant) + disrecommended_checks(qualifiers)
             + usage_checks(qualifiers) + incorrect_checks(qualifiers)
             + descriptive_checks(qualifiers) + context_checks(qualifiers)
-            + unexplained_label_checks(qualifiers))
+            + unexplained_label_checks(qualifiers) + accent_gloss_checks(qualifiers))
 
 
 DESCRIPTIVE_LABELS = frozenset({

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "constructions-discovery-v4",
+  "version": "constructions-discovery-v5",
   "status": "not_active_policy",
   "classes": {
     "full_personal_praet_cond": {
@@ -257,7 +257,47 @@
         "source_class_variant_vs_inflected_form": "actual_form_variant_by_sgjp_6_4_1_with_annotation",
         "observed_class_variant_differences": 8,
         "full_input_candidates": 312,
-        "full_input_components": 624
+        "full_input_components": 624,
+        "game_condition": {
+          "allowed_source_host": {
+            "lemma_base": "byle",
+            "original": "byle",
+            "raw_tag": "comp"
+          },
+          "conditional_by_sequence": "game_reject",
+          "evidence": [
+            "zds:5",
+            "dictionary-vs-game.md"
+          ],
+          "homonyms_preserved": true,
+          "other_generated_nonverb_hosts": "game_reject_not_language_incorrect",
+          "rule_id": "game-mobile-host-composition-v1"
+        }
+      },
+      "personal_host_subset": {
+        "aglt_variant": "nwok",
+        "evidence": [
+          "morfeusz_segments:174-183,1927-1930,1947",
+          "zds:5"
+        ],
+        "pronoun_number_person_match_required": true,
+        "pronoun_source_case": "nom",
+        "rule_id": "personal-host-aglt-v1",
+        "same_source_required": true,
+        "source_comment_definition_discrepancy": "Comment says noun PT, formal class uses wszystek/adj:%; noun host not inferred.",
+        "source_host_forms": [
+          "ja",
+          "ty",
+          "my",
+          "wy",
+          "wszyscy"
+        ],
+        "status": "materialized_source_candidates_game_excluded_homonyms_preserved",
+        "wszyscy_source_class": {
+          "lemma_base": "wszystek",
+          "original": "wszyscy",
+          "tag_pattern": "adj:%"
+        }
       }
     },
     "productive_derivation": {

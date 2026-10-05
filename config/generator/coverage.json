@@ -17,7 +17,10 @@
     "derived_whole_form_kwjp_links",
     "seven_winien_hash_bound_explain_errata",
     "first_release_preposition_n_scope_18_user_approved",
-    "closed_25_unexplained_label_requirement_concession_user_approved"
+    "closed_25_unexplained_label_requirement_concession_user_approved",
+    "closed_accent_gloss_requirement_concession_user_approved",
+    "diagnostic_source_game_classes_and_whole_unit_separation",
+    "closed_personal_host_constructions_game_excluded"
   ],
   "full_source_compact_interpretations": 7458520,
   "observed_combinations": {
@@ -89,5 +92,15 @@
     "gloss_status": "unestablished",
     "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unexplained-labels-first-release-decision.md",
     "not_full_qualification": true
+  },
+  "user_waived_accent_gloss_requirement": {
+    "compact_interpretations": 2,
+    "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/accent-gloss-first-release-decision.md",
+    "gloss_status": "unestablished",
+    "literal_labels": [
+      "daw.,rzad.,akcent"
+    ],
+    "not_full_qualification": true,
+    "standard_history_rejection_preserved": true
   }
 }

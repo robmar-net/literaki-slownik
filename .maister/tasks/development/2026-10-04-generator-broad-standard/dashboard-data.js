@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T08:40:16Z",
+  "generated": "2026-10-05T09:10:37.749839+00:00",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "A25wdrożone; hash logiczny bieżącej bazy; pending adnotacja akcent"
+    "current_activity": "Akcent A i klasy gry wdrożone; pełna macierz nadal w toku"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Wdrożono A dla25dosłownych oznaczeń bez pełnego objaśnienia: source_label zachowany, gloss_status=unestablished, inne kryteria osobno. Pełny runtime:1908kompaktowych analiz, dwa identyczne raporty, sześć readonly explain; wielka litera Abchaz nadal odrzuca growo. Dodano logical-content bieżącego schematu do build:10zamkniętych relacji, klucze źródłowe zamiast ID, wykrywanie nowych tabel/kolumn i niespójnych FK. Testy potwierdzają identyczność po zmianie ID i zmianę hasha po modyfikacji powiązań/kwalifikatorów. To nie pełny indeks kanoniczny ani odbiór G8. Pending decyzja wymogu objaśnienia akcent dla dwóch dawnych rekordów.",
+      "summary": "Zatwierdzone A dla adnotacji akcent wdrożono bez zmiany dawności: BROAD nie wyklucza przez brak objaśnienia, STANDARD odrzuca dwie analizy daw.,rzad.,akcent. Pełny raport 7 458 520 analiz zachowuje 26 nieobjaśnionych oznaczeń w 1910 analizach. Dodano diagnostyczne warunki klas źródłowych gry: nazwy, brev, niesamodzielne segmenty oraz odrębną ocenę całości konstrukcji. Nowa zamknięta klasa ja/ty/my/wy/wszyscy zachowuje sześć kandydatów i growe odrzucenie tych analiz, bez usuwania homonimów. Pozostałe mobilne hosty i sekwencje by oceniono zgodnie z zachowanymi wyłączeniami gry; byle ma udokumentowany wyjątek. Pełna kwalifikacja i wydanie nadal nieukończone.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -258,7 +258,8 @@ window.MAISTER_DATA = {
         "A: własny kod/konfiguracje BSD-2-Clause; własna dokumentacja i raporty CC BY 4.0. Źródła zachowują odrębne warunki.",
         "A: STANDARD stosuje normę 2026 także dla nieoznaczonych dawnych zapisów; BROAD może je zachować z dowodem, reguły gry niezmienione.",
         "A: zakres kontrakcji pierwszego wydania ograniczony do18poświadczonych form;8innych kandydatów zachowane diagnostycznie poza zakresem, nieuznane za błędne. Niezależne homonimy oceniane osobno; rozszerzenie wymaga dowodu i nowego wydania.",
-        "A: zamknięte25oznaczeń zachowane z nieustalonym objaśnieniem; brak objaśnienia sam nie wyklucza ani nie blokuje wydania. Pozostałe kryteria i inne unknown nadal obowiązują."
+        "A: zamknięte25oznaczeń zachowane z nieustalonym objaśnieniem; brak objaśnienia sam nie wyklucza ani nie blokuje wydania. Pozostałe kryteria i inne unknown nadal obowiązują.",
+        "A: brak objaśnienia adnotacji akcent w daw.,rzad.,akcent sam nie wyklucza; zachowujemy adnotację, STANDARD nadal odrzuca za dawność."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -512,20 +513,35 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/accent-gloss-first-release-decision.md",
           "label": "Wymóg objaśnienia akcent: dwa rekordy"
+        },
+        {
+          "path": "analysis/evidence/accent-and-source-game-review.md",
+          "label": "Przegląd akcent i klas gry"
+        },
+        {
+          "path": "analysis/evidence/accent-game-runtime.json",
+          "label": "Pełny runtime warunków i explain"
+        },
+        {
+          "path": "analysis/evidence/source-game-condition-coverage.json",
+          "label": "Pełna ekspozycja klas gry"
+        },
+        {
+          "path": "analysis/evidence/accent-condition-coverage.json",
+          "label": "Pokrycie po A adnotacji akcent"
+        },
+        {
+          "path": "analysis/evidence/personal-scope-runtime.json",
+          "label": "Powtarzalna projekcja z osobowymi hostami"
+        },
+        {
+          "path": "analysis/evidence/construction-game-runtime.json",
+          "label": "Wyłączenia konstrukcji i całe ślady"
         }
       ],
       "gate": {
-        "id": "accent_gloss_first_release_requirement",
-        "status": "pending",
-        "created_at": "2026-10-05T08:35:53Z",
-        "question": "Czy brak objaśnienia akcent sam ma nie blokować BROAD dla dwomakroć i trzemakroć, przy zachowaniu adnotacji i wszystkich innych kryteriów?",
-        "options": {
-          "A": "Tak: zachowaj adnotację z nieustalonym objaśnieniem; STANDARD nadal odrzuca za dawność (rekomendowane).",
-          "B": "Nie: wymagamy objaśnienia przed pełnym wydaniem BROAD."
-        },
-        "answer": null,
-        "artifact": "analysis/evidence/accent-gloss-first-release-decision.md",
-        "authority": "AGENTS.md; spec§6 i planG3/3.4; executor Ask the user before changing scope"
+        "question": null,
+        "answer": null
       }
     },
     {

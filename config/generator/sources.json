@@ -773,27 +773,27 @@
     },
     "policy": {
       "path": "../../config/generator/policy.json",
-      "sha256": "eda0b781615837ba8979c28559c1a7e6687ffb49d8a36e6650540fc9142efe5b"
+      "sha256": "73c7ffb333e33e0927ea19cf7f2ad2567e211f1a960f7a1d535a31aaa200d090"
     },
     "constructions": {
       "path": "../../config/generator/constructions.json",
-      "sha256": "b1ba4633f150eab885360f7250a76a11fd9a4f4ddb80439383be103d3bd2845a"
+      "sha256": "c3123747fcb6aac62213a9fc0a23022eb41d41bf34a0041a1f4cb68f9878ed25"
     },
     "evidence": {
       "path": "../../config/generator/evidence.json",
-      "sha256": "c011586e9f11b55dd0f06c607ef6ee8c3b250b4019eedfc352fecb7f4badd0f8"
+      "sha256": "e1c663ef9237198a303863d54a2768e0ec7a3ae042008786ff187a46c7dd6a03"
     },
     "coverage": {
       "path": "../../config/generator/coverage.json",
-      "sha256": "074e205d50b5e9215c113f4bba0b195f8ceb49e0b044787b6eb1d9325f172f37"
+      "sha256": "9b19c38907456775f5677b6caab2a47a0ae07d0382f8cb61ca10455b7a7694c1"
     },
     "qualifiers": {
       "path": "../../config/generator/qualifiers.json",
-      "sha256": "463165cd9776e568245ff3cc89769f8168359575eb51228c7e9a2ecebd164696"
+      "sha256": "6ba13b270393ad2d3b6f428fccce9a0bbb2189d9d677f9cc2b432decd9c52cce"
     },
     "categories": {
       "path": "../../config/generator/categories.json",
-      "sha256": "84f9ea5be48cf3bb78944a5422b7f9b0dfe8194cda568877fba815bcae213bfc"
+      "sha256": "d9f23d25ad4b8675076da651a558f3645346bb6e35c93aa470098a6e791a9855"
     },
     "pos-map": {
       "path": "../../config/generator/pos-map.json",
