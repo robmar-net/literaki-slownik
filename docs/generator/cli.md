@@ -12,7 +12,7 @@ Nieaktywna polityka językowa daje unresolved; diagnostyka nie nadaje końcowego
 
 ## Open Questions / Risks
 - Konstrukcje i pełna polityka wymagają domknięcia G3/G4. Verify/export oraz pełny odbiór nie są jeszcze gotowe.
-- Bieżące explain ocenia źródłowe interpretacje diagnostycznie, bez generowania rekonstrukcji. Brak w imporcie SGJP nie jest oceną wszystkich możliwych konstrukcji.
+- Bieżące explain ocenia źródłowe interpretacje oraz odtwarza kandydatów dwóch potwierdzonych klas. Brak w imporcie SGJP nie jest oceną wszystkich możliwych konstrukcji.
 - Brak powiązań w starszej bazie nie oznacza braku korpusowego ani F=0.
 
 ## Komendy dostępne
@@ -62,3 +62,7 @@ Explain w wersji `diagnostic-approved-conditions-v3` pokazuje również zatwierd
 Wersja `diagnostic-approved-conditions-v4` dodaje jawny niewykluczający warunek zakresu użycia dla 15 sprawdzonych etykiet potoczności/regionalności/gwarowości/wulgarności/rzadkości. Nieznane mieszanki pozostają do oceny; całe członkostwo nadal unresolved. W kolejnej wersji v5 niepopr. wdrożono zgodnie z zatwierdzonym A.
 
 Wersja `diagnostic-approved-conditions-v5` pokazuje reject językowy dla 27 etykiet jawnej niepoprawności w obu wariantach. Source_presence pozostaje present, a pozostałe analizy zachowane. List_membership nadal unresolved ze względu na brak pełnych konstrukcji i decyzji.
+
+## Diagnostyczni kandydaci konstrukcji
+
+Wersja `diagnostic-approved-conditions-v6` dodaje 357 etykiet opisowych. `derivations` pokazuje także znane klasy rozkaźnik + jedna partykuła i by + nwok aglt, z pełnymi składnikami oraz przyczynami ocen. Odczyt nie zapisuje kandydatów do bazy, nie nadaje pełnego dopuszczenia i nie uruchamia kompletnego build. JSON nie ucina wyników. Tekst pokazuje wiersze źródeł i odziedziczone ograniczenia; source_presence nadal oznacza obecność bezpośredniego wpisu. Powiązań KWJP kandydatów nie zbudowano, nie przypisujemy im F z segmentów.

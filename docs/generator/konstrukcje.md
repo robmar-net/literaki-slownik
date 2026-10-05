@@ -43,3 +43,9 @@ Pełny runtime: 92 622 źródłowe rekordy impt → 93 438 rozwiniętych analiz,
 ## Źródła społecznościowe — bieżąca faza
 
 Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bieżącej fazie nie używamy ich do budowy słownika ani rozstrzygania dopuszczalności. Zachowujemy przypięte dane SGJP i KWJP oraz ich odrębne role; KWJP nie jest dowodem poprawności konstrukcji. Brakujące poświadczenia pozostają unresolved — nie oznaczają odrzucenia formy i nie pozwalają deklarować pełnego wydania. Dotychczasowe audyty pozostają materiałem historycznym, bez aktywacji ich danych.
+
+## Konstrukcje w explain
+
+Explain odtwarza tylko potwierdzone klasy na podstawie pełnych interpretacji w istniejącym imporcie. Sufiks zapytania służy odnalezieniu możliwego źródłowego rozkaźnika; konstruktor musi potwierdzić klasę, zakończenie i dokładny wynik. By + aglt wymaga dokładnego by oraz właściwej nwok końcówki. Nie tworzy nibym ani mechanicznego czytajżeż.
+
+Pole derivations zawiera regułę, rozwinięty tag, pełne składniki i etykiety oraz diagnostyczną ocenę obu wariantów. Source_presence i source_aggregation nadal dotyczą tylko bezpośredniego importu SGJP; brak bezpośredniego wpisu nie zaprzecza istnieniu kandydata. Kandydat pozostaje candidate_not_qualified, list_membership unresolved. Brak persistence/build integration i pełnej macierzy nie jest ukrywany.

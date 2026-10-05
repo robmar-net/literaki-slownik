@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-04T22:56:37Z",
+    "updated": "2026-10-05T00:38:31Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "A niepopr. wdrożone: 27 etykiet, 3156 odrzuconych analiz; pełne pozostałe analizy 1714 kluczy zachowane. Generator79/79, audit5/5, preflight14/14 OK. Brak pending decyzji; G3–G6 nadal częściowe, następne pełna semantyka pozostałych etykiet i macierz konstrukcji.",
+      "summary": "357 etykiet opisowych i odtwarzanie kandydatów konstrukcji w explain wdrożone, generator86/86/audit5/5/preflight14/14. Pełny runtime:139729 rekordów ekspozycji, 9 zapytań readonly. Przed warunkiem kontekstu oczekujemy decyzji; G3–G6 częściowe.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -340,10 +340,30 @@
         {
           "path": "analysis/evidence/incorrect-runtime.json",
           "label": "Pełny runtime niepoprawności i alternatywnych analiz"
+        },
+        {
+          "path": "analysis/evidence/descriptive-label-review.json",
+          "label": "Przegląd 357 etykiet opisowych"
+        },
+        {
+          "path": "analysis/evidence/descriptive-derivation-runtime.json",
+          "label": "Pełny runtime etykiet i kandydatów konstrukcji"
+        },
+        {
+          "path": "analysis/evidence/context-restrictions-decision.md",
+          "label": "Wybór traktowania wymagań kontekstu"
         }
       ],
       "gate": {
-        "question": null,
+        "id": "context_restrictions_policy",
+        "status": "pending",
+        "created_at": "2026-10-05T00:38:31Z",
+        "artifact": "analysis/evidence/context-restrictions-decision.md",
+        "question": "Czy samo wymaganie składniowego/frazeologicznego kontekstu pozostaje niewykluczające dla udokumentowanej poprawnej formy w obu wariantach?",
+        "options": {
+          "A": "Tak, zachowaj wymaganie w explain; inne warunki i niesamodzielne morfemy osobno (rekomendowane).",
+          "B": "Indywidualny przegląd takich analiz, do rozstrzygnięcia unresolved."
+        },
         "answer": null
       },
       "started": "2026-10-04T12:47:44Z",
@@ -514,7 +534,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "User explicitly authorized continuing code with evidence gaps: policy mechanics only, no active unresolved linguistic rules",
-        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys",
+        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed",
         "remaining": "Full qualifier/category/orthography policy and mobile/preposition constructions; persistence and build integration; G3 closure"
       },
       "G5": {
@@ -530,7 +550,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "Independent diagnostic explain authorized by plan §2 and user continue code",
-        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants",
+        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks",
         "remaining": "Full strata and analysis payloads, report/build integration, other canonical reports/index, full final decisions/derivations explain"
       },
       "G7": {
@@ -574,7 +594,7 @@
         "artifact": "analysis/evidence/wiktionary-attestation-decision.md"
       }
     },
-    "verification_note": "Increment: generator79/79, audit5/5, preflight14/14 and hashes OK; readonly full incorrect-label runtime. Canonical verification and full release pending.",
+    "verification_note": "Increment:86/86 generator,5/5 baseline,14/14 preflight and config hashes; full readonly runtime6.353s, total_changes0. Full verification/release pending.",
     "source_policy_clarification": {
       "recorded_at": "2026-10-04T21:49:35Z",
       "artifact": "analysis/evidence/source-policy-clarification.md",

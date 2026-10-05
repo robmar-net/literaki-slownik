@@ -7,12 +7,54 @@ from .database import connect
 from .decisions import assess_analysis, aggregate, VARIANTS
 from .inputs import GeneratorError
 from .links import availability
-from .policy import assess_profile, disrecommended_checks, history_checks, usage_checks, incorrect_checks, VERSION
+from .policy import assess_profile, approved_qualifier_checks, VERSION
 from .sgjp import expand_tag
+from .constructions import impt_particle_candidates, by_aglt_candidates, BY_AGLT_ENDINGS
 
 
 def _pending(rule_id, message):
     return [{'rule_id': rule_id, 'status': 'unresolved', 'message': message, 'evidence': []}]
+
+
+def _assess(original, qualifiers):
+    pending = _pending('linguistic-policy-not-active-v1', 'Pełna polityka językowa G3/G4 nie jest jeszcze aktywna.')
+    return assess_analysis(original,
+                           language={v: pending + approved_qualifier_checks(qualifiers, v) for v in VARIANTS},
+                           game_checks=_pending('game-metadata-not-complete-v1',
+                                                'Pozostałe udokumentowane warunki growe wymagają domknięcia.'))
+
+
+def _construction_sources(db, key):
+    rows = db.execute('''select i.source_id,i.first_row,f.original,l.lemma_id,
+        i.tag,i.names,i.qualifiers from interpretation i
+        join surface_form f on f.id=i.form_id join lexeme l on l.id=i.lexeme_id
+        where f.game_key=? order by f.original,i.source_id,l.lemma_id,i.tag,i.names,i.qualifiers''', (key,))
+    fields = ('source_id','first_source_row','original','lemma_id','raw_tag','names','qualifiers')
+    return [dict(zip(fields,row)) for row in rows]
+
+
+def _derivations(db, key):
+    """Odtwórz tylko potwierdzone klasy z rzeczywistych składników importu."""
+    candidates = []
+    suffix = 'że' if key.endswith('że') else 'ż' if key.endswith('ż') else None
+    if suffix and len(key) > len(suffix):
+        for source in _construction_sources(db, key[:-len(suffix)]):
+            candidates.extend(impt_particle_candidates(source))
+    for ending in BY_AGLT_ENDINGS.values():
+        if key != 'by' + ending:
+            continue
+        operators = _construction_sources(db, 'by')
+        endings = [s for s in _construction_sources(db, ending)
+                   if s['raw_tag'].split(':',1)[0] == 'aglt' and s['raw_tag'].endswith(':nwok')]
+        for operator in operators:
+            for aglt in endings:
+                candidates.extend(by_aglt_candidates(operator, aglt))
+    result = []
+    for candidate in candidates:
+        assessed = _assess(candidate['original'], candidate['qualifiers'])
+        if assessed['game_key'] == key:
+            result.append({**candidate, 'assessment': assessed})
+    return result
 
 
 def _corpus(db, key, unavailable):
@@ -72,12 +114,7 @@ def explain(run_dir, word, variant='standard'):
                 where f.game_key=? order by f.original,i.source_id,l.lemma_id,i.tag,i.names,i.qualifiers''',
                 (query['game_key'],))
             for iid, sid, row, original, lemma, tag, names, qualifiers in rows:
-                pending = _pending('linguistic-policy-not-active-v1', 'Pełna polityka językowa G3/G4 nie jest jeszcze aktywna.')
-                assessed = assess_analysis(original,
-                                           language={v: pending + disrecommended_checks(qualifiers) + history_checks(qualifiers, v) + usage_checks(qualifiers) + incorrect_checks(qualifiers)
-                                                     for v in VARIANTS},
-                                           game_checks=_pending('game-metadata-not-complete-v1',
-                                                                'Pozostałe udokumentowane warunki growe wymagają domknięcia.'))
+                assessed = _assess(original, qualifiers)
                 analyses.append({'interpretation_id': iid, 'source_id': sid, 'first_source_row': row,
                                  'original': original, 'lemma_id': lemma, 'raw_tag': tag,
                                  'expanded_tags': list(expand_tag(tag)), 'names': names,
@@ -85,6 +122,15 @@ def explain(run_dir, word, variant='standard'):
                 if sid not in sources:
                     metadata = db.execute('select metadata from source_artifact where source_id=?', (sid,)).fetchone()[0]
                     sources[sid] = json.loads(metadata)
+            derivations = _derivations(db, query['game_key'])
+            for candidate in derivations:
+                for component in candidate['components']:
+                    if component['kind'] != 'source_interpretation':
+                        continue
+                    sid = component['interpretation']['source_id']
+                    if sid not in sources:
+                        metadata = db.execute('select metadata from source_artifact where source_id=?', (sid,)).fetchone()[0]
+                        sources[sid] = json.loads(metadata)
             unavailable = manifest['inputs']['manifest'].get('unavailable', [])
             corpus = _corpus(db, query['game_key'], unavailable)
         presence = 'present' if analyses else 'absent' if imported else 'not_observed_in_incomplete_import'
@@ -95,9 +141,9 @@ def explain(run_dir, word, variant='standard'):
             source_aggregation['status'] = 'unresolved'
         return {'query': {'word': word, 'nfc': query['nfc'], 'game_key': query['game_key']},
                 'variant': variant, 'readiness': manifest['readiness'], 'policy_version': VERSION,
-                'scope': 'diagnostic_imported_interpretations_only', 'source_presence': presence,
+                'scope': 'diagnostic_import_and_confirmed_derivation_candidates', 'source_presence': presence,
                 'import_complete': imported, 'stages': stages, 'sources': sources,
-                'analyses': analyses, 'source_aggregation': source_aggregation,
+                'analyses': analyses, 'source_aggregation': source_aggregation, 'derivations': derivations,
                 'list_membership': {'status': 'unresolved',
                                     'reason': 'Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane.'},
                 'corpus': corpus, 'diagnostics': diagnostics}
@@ -125,6 +171,20 @@ def format_explanation(value):
             lines.append(f"  {layer}: {labels[result['status']]}")
             for check in result['checks']:
                 lines.append(f"    {check['rule_id']}: {labels[check['status']]} — {check['message']}")
+    lines.append(f"\nKandydaci konstrukcji: {len(value['derivations'])}; pełne dopuszczenie nieustalone.")
+    for candidate in value['derivations']:
+        lines.append(f"  {candidate['original']} · {candidate['rule_id']} · {candidate['expanded_tag']}")
+        for component in candidate['components']:
+            if component['kind'] == 'source_interpretation':
+                source = component['interpretation']
+                lines.append(f"    Składnik: {source['original']} · {source['lemma_id']} · {source['raw_tag']} · "
+                             f"{source['source_id']}, wiersz {source['first_source_row']}; "
+                             f"nazwy: {source['names'] or 'brak oznaczenia'}; "
+                             f"kwalifikatory: {source['qualifiers'] or 'brak oznaczenia'}")
+            else:
+                lines.append(f"    Partykuła: {component['original']} · {component['rule_id']}")
+        for check in candidate['assessment']['membership'][value['variant']]['checks']:
+            lines.append(f"    {check['rule_id']}: {labels[check['status']]} — {check['message']}")
     lines.append(f"\nObserwacje korpusowe: {len(value['corpus']['observations'])}; nie oznaczają pewnej tożsamości sensu.")
     lines.append(value['corpus']['reason'])
     for item in value['corpus']['observations']:

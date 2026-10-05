@@ -3,23 +3,23 @@
   "invented_sense_cross_product": false,
   "literal_labels": {
     "anat.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 846
     },
     "anat.,muz.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "anat.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "anat.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 5
     },
     "antr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 43
     },
     "arch.,char.": {
@@ -163,27 +163,27 @@
       "compact_interpretations": 2272
     },
     "archeol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 29
     },
     "archit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 114
     },
     "archit.,bud.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "archit.,hist.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "archit.,rel.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "archit.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 130
     },
     "astrol.": {
@@ -203,11 +203,11 @@
       "compact_interpretations": 130
     },
     "bank.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "bibl.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 274
     },
     "biblt.": {
@@ -215,119 +215,119 @@
       "compact_interpretations": 11
     },
     "biochem.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 149
     },
     "biochem.,farm.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "biol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1096
     },
     "biol.,chem.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 227
     },
     "biol.,fiz.,miner.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "biol.,kulin.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 5
     },
     "biol.,med.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 77
     },
     "biol.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "bot.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 4382
     },
     "bot.,chem.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 12
     },
     "bot.,geol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "bot.,hist.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "bot.,kulin.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 56
     },
     "bot.,med.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 22
     },
     "bot.,miner.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "bot.,ogr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 70
     },
     "bot.,włók.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "bot.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "bud.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1567
     },
     "bud.,hist.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "bud.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "char.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1898
     },
     "char.,anat.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "char.,archit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "char.,biol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 3
     },
     "char.,bot.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 13
     },
     "char.,bot.,kulin.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "char.,bud.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "char.,chor.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 3
     },
     "char.,fot.": {
@@ -339,91 +339,91 @@
       "compact_interpretations": 1
     },
     "char.,hist.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 7
     },
     "char.,kulin.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "char.,lit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "char.,meteor.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "char.,mit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 3
     },
     "char.,mors.,żegl.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "char.,muz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 10
     },
     "char.,muz.,teatr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "char.,praw.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "char.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 3
     },
     "char.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 10
     },
     "char.,łow.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "char.,żegl.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 7
     },
     "chem.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2450
     },
     "chem.,farm.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "chem.,fiz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 163
     },
     "chem.,fiz.,muz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "chem.,ogr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 130
     },
     "chem.,wojsk.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "chor.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 654
     },
     "chor.,lit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "chor.,muz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 80
     },
     "daw.": {
@@ -695,35 +695,35 @@
       "compact_interpretations": 142
     },
     "druk.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 35
     },
     "druk.,hist.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "edyt.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 21
     },
     "ekon.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1322
     },
     "ekon.,praw.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "elektr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 66
     },
     "elektr.,komp.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "erud.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 52
     },
     "etn.": {
@@ -731,47 +731,47 @@
       "compact_interpretations": 929
     },
     "etnolog.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 33
     },
     "euf.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1278
     },
     "euf.,rzad.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 163
     },
     "farm.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 45
     },
     "film.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 90
     },
     "filoz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 311
     },
     "filoz.,rel.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "fiz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 366
     },
     "fiz.,mat.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "fiz.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "form.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1237
     },
     "fot.": {
@@ -787,27 +787,27 @@
       "compact_interpretations": 35
     },
     "genet.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "geogr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 163
     },
     "geogr.,geol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "geol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 361
     },
     "geol.,komp.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 130
     },
     "geol.,med.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "gry": {
@@ -823,11 +823,11 @@
       "compact_interpretations": 25759
     },
     "gwar.,archit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "gwar.,char.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 17
     },
     "gwar.,etn.": {
@@ -835,7 +835,7 @@
       "compact_interpretations": 12
     },
     "gwar.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 14
     },
     "gwar.,pot.": {
@@ -843,7 +843,7 @@
       "compact_interpretations": 107
     },
     "gwar.,pot.,żart.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 10
     },
     "gwar.,przest.": {
@@ -859,11 +859,11 @@
       "compact_interpretations": 1
     },
     "gwar.,rzad.,archit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "gwar.,rzad.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 4
     },
     "gwar.,z_D.": {
@@ -871,127 +871,127 @@
       "compact_interpretations": 2
     },
     "gwar.,łow.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "gwar.,środ.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 12
     },
     "górn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 811
     },
     "górn.,rzem.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 12
     },
     "górn.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 12
     },
     "handl.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 859
     },
     "hip.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 142
     },
     "hist.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 3785
     },
     "hist.,lit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 12
     },
     "hist.,mit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "hist.,monet.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "hist.,mors.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 34
     },
     "hist.,poligr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "hist.,polit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hist.,roln.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 22
     },
     "hist.,sport.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "hist.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "hist.,wojsk.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 24
     },
     "hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 6305
     },
     "hom.,anat.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,archit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "hom.,biol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 4
     },
     "hom.,bot.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 45
     },
     "hom.,bot.,kulin.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,bud.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "hom.,chem.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,chem.,fiz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,chor.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 4
     },
     "hom.,edyt.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,ekon.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 3
     },
     "hom.,fiz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 3
     },
     "hom.,fot.": {
@@ -999,7 +999,7 @@
       "compact_interpretations": 1
     },
     "hom.,geol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,gry": {
@@ -1007,115 +1007,115 @@
       "compact_interpretations": 1
     },
     "hom.,hist.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 29
     },
     "hom.,hydrol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,jęz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 12
     },
     "hom.,komp.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,kulin.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 3
     },
     "hom.,lit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 6
     },
     "hom.,mat.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,med.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 44
     },
     "hom.,meteor.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 5
     },
     "hom.,mit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 7
     },
     "hom.,mors.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,mors.,żegl.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,mot.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "hom.,muz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 16
     },
     "hom.,muz.,teatr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,paleont.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "hom.,praw.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 8
     },
     "hom.,psych.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 7
     },
     "hom.,rel.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 4
     },
     "hom.,sport.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "hom.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 9
     },
     "hom.,term.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,wojsk.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "hom.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 15
     },
     "hom.,łow.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "hom.,żegl.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 8
     },
     "hydrol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 10
     },
     "indyw.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 32162
     },
     "indyw.,arch.,char.": {
@@ -1123,11 +1123,11 @@
       "compact_interpretations": 4
     },
     "indyw.,char.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 8
     },
     "indyw.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "indyw.,niepopr.": {
@@ -1135,39 +1135,39 @@
       "compact_interpretations": 14
     },
     "indyw.,rzad.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 42
     },
     "indyw.,rzad.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "indyw.,żart.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "iron.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 27
     },
     "iron.,char.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "iron.,książk.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 13
     },
     "iron.,pogard.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 23
     },
     "iron.,pot.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 12
     },
     "iron.,pot.,żart.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 12
     },
     "iron.,przest.": {
@@ -1175,15 +1175,15 @@
       "compact_interpretations": 12
     },
     "iron.,rzad.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 34
     },
     "iron.,rzad.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "iron.,żart.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 93
     },
     "iron.,żart.,arch.,char.": {
@@ -1191,27 +1191,27 @@
       "compact_interpretations": 1
     },
     "iron.,żart.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "jęz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2914
     },
     "jęz.,komp.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 227
     },
     "jęz.,lit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "jęz.,mat.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "karc.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 551
     },
     "kolej.": {
@@ -1219,27 +1219,27 @@
       "compact_interpretations": 11
     },
     "komp.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1949
     },
     "komp.,lit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 35
     },
     "komp.,mat.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "komp.,muz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "komp.,psych.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 131
     },
     "książk.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2584
     },
     "książk.,arch.,char.": {
@@ -1247,7 +1247,7 @@
       "compact_interpretations": 3
     },
     "książk.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 3
     },
     "książk.,niepopr.": {
@@ -1259,11 +1259,11 @@
       "compact_interpretations": 2
     },
     "książk.,poet.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 3
     },
     "książk.,pogard.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 21
     },
     "książk.,przest.": {
@@ -1271,7 +1271,7 @@
       "compact_interpretations": 78
     },
     "książk.,rzad.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 172
     },
     "książk.,z_D.": {
@@ -1279,7 +1279,7 @@
       "compact_interpretations": 2
     },
     "książk.,żart.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 46
     },
     "książk.,żart.,arch.,char.": {
@@ -1287,139 +1287,139 @@
       "compact_interpretations": 1
     },
     "książk.,żart.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "kulin.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1287
     },
     "kulin.,mikol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 12
     },
     "kulin.,sport.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "kulin.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "lekcew.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 246
     },
     "lekcew.,pot.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 457
     },
     "lekcew.,pot.,rzad.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "lekcew.,wulg.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 14
     },
     "leśn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 489
     },
     "leśn.,ogr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "lit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1076
     },
     "lit.,muz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 22
     },
     "lotn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 390
     },
     "mat.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 859
     },
     "mat.,muz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "med.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2828
     },
     "med.,praw.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 12
     },
     "med.,psych.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 48
     },
     "med.,wet.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 22
     },
     "med.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 22
     },
     "meteor.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 737
     },
     "mikol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 605
     },
     "mikol.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "miner.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 107
     },
     "mit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1386
     },
     "monet.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 343
     },
     "mors.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1619
     },
     "mors.,wojsk.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 22
     },
     "mors.,żegl.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 56
     },
     "mot.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 154
     },
     "muz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1657
     },
     "muz.,teatr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 12
     },
     "muz.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "niepopr.": {
@@ -1531,15 +1531,15 @@
       "compact_interpretations": 127
     },
     "num.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 132
     },
     "ogr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 459
     },
     "paleont.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 300
     },
     "pisane_łącznie_z_przyimkiem": {
@@ -1547,7 +1547,7 @@
       "compact_interpretations": 2
     },
     "plast.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "po_liczebniku": {
@@ -1559,19 +1559,19 @@
       "compact_interpretations": 15
     },
     "poet.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 760
     },
     "poet.,rzad.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 371
     },
     "pogard.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 904
     },
     "pogard.,pot.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1304
     },
     "pogard.,pot.,arch.,char.": {
@@ -1579,15 +1579,15 @@
       "compact_interpretations": 3
     },
     "pogard.,pot.,char.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "pogard.,pot.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 4
     },
     "pogard.,pot.,rzad.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 15
     },
     "pogard.,przest.": {
@@ -1599,23 +1599,23 @@
       "compact_interpretations": 12
     },
     "pogard.,rzad.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 15
     },
     "pogard.,wulg.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 12
     },
     "pogard.,żart.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 37
     },
     "poligr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 623
     },
     "polit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 209
     },
     "pot.": {
@@ -1623,7 +1623,7 @@
       "compact_interpretations": 62286
     },
     "pot.,anat.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 44
     },
     "pot.,arch.,char.": {
@@ -1631,19 +1631,19 @@
       "compact_interpretations": 4
     },
     "pot.,bot.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 594
     },
     "pot.,bot.,geol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "pot.,bot.,kulin.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "pot.,char.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 16
     },
     "pot.,etn.": {
@@ -1655,43 +1655,43 @@
       "compact_interpretations": 11
     },
     "pot.,hist.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 24
     },
     "pot.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 20
     },
     "pot.,karc.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 121
     },
     "pot.,komp.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 707
     },
     "pot.,kulin.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 176
     },
     "pot.,monet.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "pot.,mors.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 66
     },
     "pot.,mors.,wojsk.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "pot.,muz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 5
     },
     "pot.,num.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "pot.,po_liczebniku": {
@@ -1719,7 +1719,7 @@
       "compact_interpretations": 195
     },
     "pot.,rub.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 22
     },
     "pot.,rzad.": {
@@ -1727,7 +1727,7 @@
       "compact_interpretations": 1612
     },
     "pot.,rzad.,karc.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 10
     },
     "pot.,rzad.,wulg.": {
@@ -1739,15 +1739,15 @@
       "compact_interpretations": 11
     },
     "pot.,sport.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 34
     },
     "pot.,szkol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 5
     },
     "pot.,wojsk.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "pot.,wulg.": {
@@ -1759,43 +1759,43 @@
       "compact_interpretations": 2
     },
     "pot.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "pot.,środ.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 207
     },
     "pot.,środ.,char.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "pot.,środ.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "pot.,żart.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 809
     },
     "pot.,żart.,char.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "pot.,żart.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "pot.,żegl.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 44
     },
     "praw.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1187
     },
     "przen.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 111
     },
     "przen.,arch.,char.": {
@@ -1803,11 +1803,11 @@
       "compact_interpretations": 2
     },
     "przen.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "przen.,rzad.,wulg.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 130
     },
     "przest.": {
@@ -2003,11 +2003,11 @@
       "compact_interpretations": 110
     },
     "psych.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 535
     },
     "pszcz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 267
     },
     "reg.": {
@@ -2015,23 +2015,23 @@
       "compact_interpretations": 5351
     },
     "reg.,bud.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 54
     },
     "reg.,char.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "reg.,hist.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 12
     },
     "reg.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "reg.,kulin.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 55
     },
     "reg.,rzad.": {
@@ -2039,7 +2039,7 @@
       "compact_interpretations": 336
     },
     "reg.,rzad.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "reg.,wulg.": {
@@ -2047,43 +2047,43 @@
       "compact_interpretations": 11
     },
     "reg.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "reg.,łow.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "rel.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1049
     },
     "roln.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2076
     },
     "roln.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "rub.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 3818
     },
     "rub.,rzad.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 260
     },
     "rub.,żart.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 23
     },
     "ryb.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 516
     },
     "ryb.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "rzad.": {
@@ -2091,7 +2091,7 @@
       "compact_interpretations": 177946
     },
     "rzad.,anat.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 12
     },
     "rzad.,arch.,char.": {
@@ -2103,23 +2103,23 @@
       "compact_interpretations": 1
     },
     "rzad.,biol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "rzad.,bot.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 49
     },
     "rzad.,char.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 9
     },
     "rzad.,chem.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "rzad.,elektr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "rzad.,etn.": {
@@ -2127,7 +2127,7 @@
       "compact_interpretations": 1
     },
     "rzad.,etnolog.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "rzad.,fot.": {
@@ -2135,83 +2135,83 @@
       "compact_interpretations": 1
     },
     "rzad.,geogr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "rzad.,hist.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 39
     },
     "rzad.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 169
     },
     "rzad.,hom.,term.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "rzad.,kulin.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 28
     },
     "rzad.,kulin.,sport.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "rzad.,lit.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 227
     },
     "rzad.,lotn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 66
     },
     "rzad.,mat.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "rzad.,med.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 5
     },
     "rzad.,med.,wet.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "rzad.,meteor.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "rzad.,mikol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 13
     },
     "rzad.,muz.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 130
     },
     "rzad.,num.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "rzad.,ogr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "rzad.,rel.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 108
     },
     "rzad.,roln.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "rzad.,ryb.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "rzad.,rzem.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "rzad.,slang": {
@@ -2219,23 +2219,23 @@
       "compact_interpretations": 13
     },
     "rzad.,sport.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 31
     },
     "rzad.,szt.,włók.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "rzad.,techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 863
     },
     "rzad.,term.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1058
     },
     "rzad.,wojsk.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "rzad.,wulg.": {
@@ -2243,39 +2243,39 @@
       "compact_interpretations": 97
     },
     "rzad.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 55
     },
     "rzad.,łow.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 7
     },
     "rzad.,łow.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "rzad.,łow.,zootechn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "rzad.,środ.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 260
     },
     "rzad.,środ.,łow.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "rzad.,żart.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 76
     },
     "rzad.,żegl.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 23
     },
     "rzem.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 294
     },
     "slang": {
@@ -2287,15 +2287,15 @@
       "compact_interpretations": 26
     },
     "sport.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2105
     },
     "sport.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "sport.,żegl.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "spoż.": {
@@ -2303,39 +2303,39 @@
       "compact_interpretations": 132
     },
     "szach.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 153
     },
     "szkol.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 66
     },
     "szt.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 457
     },
     "teatr.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 55
     },
     "techn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 8410
     },
     "term.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1244
     },
     "wet.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 22
     },
     "wet.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "wojsk.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1024
     },
     "wulg.": {
@@ -2343,19 +2343,19 @@
       "compact_interpretations": 13239
     },
     "wulg.,char.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "wulg.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2
     },
     "włók.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 430
     },
     "włók.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "z_D.": {
@@ -2363,51 +2363,51 @@
       "compact_interpretations": 12
     },
     "zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 6730
     },
     "zootechn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 284
     },
     "łow.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1768
     },
     "łow.,zool.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "łow.,zootechn.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "łow.,żegl.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 227
     },
     "środ.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 2319
     },
     "środ.,char.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "środ.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "środ.,sport.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 13
     },
     "środ.,łow.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 11
     },
     "żart.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 666
     },
     "żart.,arch.,char.": {
@@ -2415,11 +2415,11 @@
       "compact_interpretations": 1
     },
     "żart.,hom.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 1
     },
     "żegl.": {
-      "classification_status": "pending_full_semantic_review",
+      "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
       "compact_interpretations": 3317
     }
   },
@@ -3073,6 +3073,12 @@
       "decision": "A incorrect_source_label_policy",
       "registry": "config/generator/policy.json",
       "scope": "explicit_incorrectness_of_one_analysis_closed_27_labels"
+    },
+    {
+      "rule_id": "linguistic-descriptive-non-excluding-v1",
+      "decision": "approved prompt §2.3 and spec §5",
+      "registry": "config/generator/policy.json",
+      "scope": "closed_357_descriptive_labels_not_full_qualification"
     }
   ]
 }

@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-04T22:56:37Z",
+  "generated": "2026-10-05T00:38:31Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "A niepopr. wdrożone; dalsza semantyka etykiet i macierz konstrukcji"
+    "current_activity": "Kandydaci konstrukcji w explain; wybór warunku kontekstu"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "A niepopr. wdrożone: 27 etykiet, 3156 odrzuconych analiz; pełne pozostałe analizy 1714 kluczy zachowane. Generator79/79, audit5/5, preflight14/14 OK. Brak pending decyzji; G3–G6 nadal częściowe, następne pełna semantyka pozostałych etykiet i macierz konstrukcji.",
+      "summary": "357 etykiet opisowych i odtwarzanie kandydatów konstrukcji w explain wdrożone, generator86/86/audit5/5/preflight14/14. Pełny runtime:139729 rekordów ekspozycji, 9 zapytań readonly. Przed warunkiem kontekstu oczekujemy decyzji; G3–G6 częściowe.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -366,10 +366,30 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/incorrect-runtime.json",
           "label": "Pełny runtime niepoprawności i alternatywnych analiz"
+        },
+        {
+          "path": "analysis/evidence/descriptive-label-review.json",
+          "label": "Przegląd 357 etykiet opisowych"
+        },
+        {
+          "path": "analysis/evidence/descriptive-derivation-runtime.json",
+          "label": "Pełny runtime etykiet i kandydatów konstrukcji"
+        },
+        {
+          "path": "analysis/evidence/context-restrictions-decision.md",
+          "label": "Wybór traktowania wymagań kontekstu"
         }
       ],
       "gate": {
-        "question": null,
+        "id": "context_restrictions_policy",
+        "status": "pending",
+        "created_at": "2026-10-05T00:38:31Z",
+        "artifact": "analysis/evidence/context-restrictions-decision.md",
+        "question": "Czy samo wymaganie składniowego/frazeologicznego kontekstu pozostaje niewykluczające dla udokumentowanej poprawnej formy w obu wariantach?",
+        "options": {
+          "A": "Tak, zachowaj wymaganie w explain; inne warunki i niesamodzielne morfemy osobno (rekomendowane).",
+          "B": "Indywidualny przegląd takich analiz, do rozstrzygnięcia unresolved."
+        },
         "answer": null
       }
     },

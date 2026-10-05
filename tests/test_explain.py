@@ -28,6 +28,14 @@ class ExplainTests(unittest.TestCase):
         lines.append('kakaa\tkakao\tsubst:sg:gen:n\t\tniezal.')
         lines.append('regionalna\tregionalny\tadj:sg:nom:f:pos\t\treg.,rzad.')
         lines.append('abolicjoniźmie\tabolicjonizm\tsubst:sg:loc:m3\tnazwa_pospolita\tniepopr.')
+        lines.append('techniczne\ttechniczny\tadj:sg:nom:n:pos\t\ttechn.')
+        lines += ['czytaj\tczytać\timpt:sg:sec:imperf\t\trzad.',
+                  'dajcie\tdać\timpt:pl:sec:perf\t\t',
+                  'by\tby:T\tpart\t\t',
+                  'm\tbyć\taglt:sg:pri:imperf:nwok\t\t',
+                  'ś\tbyć\taglt:sg:sec:imperf:nwok\t\t',
+                  'Zrób\tzrobić\timpt:sg:sec:perf\t\tniepopr.',
+                  'zrób\tzrobić\timpt:sg:sec:perf\t\t']
         lines += ['masny\tmasny\tadj:sg:nom:m3:pos\t\tdaw._dziś_gwar.',
                   'masniejszy\tmasny\tadj:sg:nom:m3:com\t\tdaw.,daw._dziś_gwar.,rzad.']
         lines += [f'kot\tkot:S{i}\tsubst:sg:nom:m2\t\t' for i in range(150)]
@@ -47,6 +55,44 @@ class ExplainTests(unittest.TestCase):
             self.assertTrue(any(c['rule_id'] == 'linguistic-informal-rare-non-excluding-v1'
                                 and c['status'] == 'accept' for c in language['checks']))
         self.assertEqual(value['list_membership']['status'], 'unresolved')
+
+    def test_descriptive_condition_visible_without_full_acceptance(self):
+        value = explain(self.run, 'techniczne')
+        for variant in ('broad','standard'):
+            language = value['analyses'][0]['assessment']['language'][variant]
+            self.assertEqual(language['status'], 'unresolved')
+            self.assertTrue(any(c['rule_id'] == 'linguistic-descriptive-non-excluding-v1' for c in language['checks']))
+        self.assertEqual(value['list_membership']['status'], 'unresolved')
+
+    def test_confirmed_derivations_have_all_source_components_and_stay_candidates(self):
+        before = sha256(self.run / 'build.sqlite')
+        for word, rule in [('czytajże','impt-single-particle-v1'),
+                           ('dajcież','impt-single-particle-v1'), ('bym','by-aglt-nwok-v1')]:
+            value = explain(self.run, word)
+            self.assertEqual(value['source_presence'], 'absent')
+            candidate, = value['derivations']
+            self.assertEqual(candidate['original'], word)
+            self.assertEqual(candidate['rule_id'], rule)
+            self.assertEqual(candidate['status'], 'candidate_not_qualified')
+            self.assertTrue(candidate['components'])
+            self.assertEqual(value['list_membership']['status'], 'unresolved')
+            self.assertEqual(candidate['assessment']['membership']['standard']['status'], 'unresolved')
+        self.assertEqual(sha256(self.run / 'build.sqlite'), before)
+
+    def test_no_derivation_from_guessed_host_or_double_particle(self):
+        for word in ('nibym','czytajżeż','technicznem'):
+            self.assertEqual(explain(self.run, word)['derivations'], [])
+
+    def test_derivation_preserves_uppercase_and_incorrect_component_separately(self):
+        candidates = explain(self.run, 'zróbże')['derivations']
+        self.assertEqual({c['original'] for c in candidates}, {'Zróbże','zróbże'})
+        bad = next(c for c in candidates if c['original'] == 'Zróbże')
+        self.assertEqual(bad['qualifiers'], 'niepopr.')
+        self.assertEqual(bad['components'][0]['interpretation']['original'], 'Zrób')
+        self.assertEqual(bad['assessment']['language']['broad']['status'], 'reject')
+        self.assertEqual(bad['assessment']['game']['status'], 'reject')
+        good = next(c for c in candidates if c['original'] == 'zróbże')
+        self.assertEqual(good['assessment']['membership']['broad']['status'], 'unresolved')
 
     def test_incorrect_source_analysis_preserved_and_rejected_both_variants(self):
         value = explain(self.run, 'abolicjoniźmie')

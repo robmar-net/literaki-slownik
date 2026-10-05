@@ -197,3 +197,7 @@ Wdrożono zatwierdzony niewykluczający zakres potoczności, wulgarności, regio
 ## Niepoprawność — zatwierdzone A
 
 Zatwierdzone A: jawne niepopr. odrzuca konkretną interpretację w BROAD i STANDARD. Wdrożono 27 sprawdzonych dosłownych etykiet, zachowując wpisy i inne analizy. Niezal. pozostaje odrębne i niewykluczające; nieznane etykiety wymagają oceny. Pełna polityka i członkostwo w listach nadal nieukończone.
+
+## Etykiety opisowe i diagnostyka konstrukcji — postęp
+
+Dodano niewykluczające oznaczenia dziedzin, stylu i wariantów formy: 357 sprawdzonych dosłownych etykiet, 73 oznaczenia dziedzin, 18 stylu/użycia i 2 wariantów. Nowy warunek nie obejmuje mieszanek z nieznanymi ograniczeniami. Explain odtwarza teraz kandydatów potwierdzonych konstrukcji impt + jedna partykuła oraz by + nwok aglt z rzeczywistych składników importu, bez zapisu do bazy i bez końcowego dopuszczenia. Macierz kontekstu i pozostałe konstrukcje pozostają otwarte.

@@ -7,6 +7,29 @@ from literaki_slownik.inputs import GeneratorError
 
 
 class PolicyTests(unittest.TestCase):
+    def test_descriptive_qualifiers_do_not_reject_or_complete_analysis(self):
+        from literaki_slownik.policy import descriptive_checks
+        for field in ('med.', 'techn.', 'pot.,komp.', 'rzad.,techn.', 'książk.', 'char.', 'hom.', 'hist.'):
+            checks = descriptive_checks(field)
+            self.assertEqual(len(checks), 1, field)
+            self.assertEqual(checks[0]['status'], 'accept')
+            self.assertEqual(checks[0]['source_label'], field)
+            checks.append({'rule_id': 'remaining', 'status': 'unresolved', 'message': 'Test', 'evidence': []})
+            self.assertEqual(assessment(checks)['status'], 'unresolved')
+
+    def test_descriptive_closed_map_preserves_age_incorrectness_and_context(self):
+        from literaki_slownik.policy import descriptive_checks
+        for field in ('daw.,med.', 'niepopr.,pot.', 'po_liczebniku', 'z_D.', 'pisane_łącznie_z_przyimkiem', 'med.,nieznane'):
+            self.assertEqual(descriptive_checks(field), [], field)
+        self.assertEqual(assessment(descriptive_checks('techn.|daw.')+history_checks('techn.|daw.','standard'))['status'], 'reject')
+
+    def test_descriptive_registry_matches_literal_map(self):
+        from literaki_slownik.policy import DESCRIPTIVE_LABELS
+        rule = next(r for r in json.loads(Path('config/generator/policy.json').read_text())['rules']
+                    if r['rule_id'] == 'linguistic-descriptive-non-excluding-v1')
+        self.assertEqual(set(rule['literal_labels']), DESCRIPTIVE_LABELS)
+        self.assertEqual(rule['variants'], {'broad': 'non_excluding', 'standard': 'non_excluding'})
+
     def test_incorrect_labels_reject_both_variants(self):
         from literaki_slownik.policy import incorrect_checks
         for field in ('niepopr.', 'niepopr.,pot.', 'daw.,niepopr.', 'niepopr.,rzad.,hom.'):
