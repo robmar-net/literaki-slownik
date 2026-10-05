@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "approved-conditions-v13",
+  "version": "approved-conditions-v14",
   "status": "partial_not_release_policy",
   "rules": [
     {
@@ -840,5 +840,10 @@
     "standard": "unresolved",
     "remaining_conditions": "separate",
     "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-use-positive-proof-decision.md"
+  },
+  "documented_spelling_variants": {
+    "rule_id": "documented-spelling-variant-v1",
+    "scope": "closed_two_attested_base_forms_not_lower_rule",
+    "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-spelling-variants-decision.md"
   }
 }

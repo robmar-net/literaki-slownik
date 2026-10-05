@@ -58,3 +58,7 @@ Nowe build zapisuje `reports/filter-impact.json`: samodzielne, kolejne i łączn
 ## Udokumentowane użycia i pozostałość
 
 Nowe build v15 czytają przypięte `semantic-uses` i rozliczają source_rows / source_compact_interpretations / source_tag_expansions oddzielnie od documented_use_analyses i remainder_analyses. Unknown/filter podają semantic_analysis_kinds. Dowód użycia nie przechodzi na pozostałość; odczyt odmawia zgubionej analizy lub fałszywego śladu także z przeliczonym hashem. Przy przypiętym quality powstaje reports/quality-analyses.json, z pełnym źródłem i warstwami obu wariantów. To diagnostyczne warstwy utrwalonych analiz, nie pełna macierz quality-v1; UNREVIEWED i INCOMPLETE pozostają. [Przegląd](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/semantic-use-implementation-review.md).
+
+## Diagnostyczny indeks kanoniczny
+
+Build zapisuje reports/canonical-index.json: hashe/rozmiary ustalonego zestawu raportów, przyszłych list oraz hashe źródeł/dowodów/konfiguracji. Czasy, ścieżki i fizyczna baza wyłączone; jej treść logiczna wiązana przez logical-content. Indeks ma INCOMPLETE i jawne missing, nie jest verify. [Kontrola](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/canonical-index-implementation-review.md).

@@ -15,6 +15,40 @@ def analysis(word, rejected=(), pending=False):
 
 
 class LogicalContentTests(unittest.TestCase):
+    def test_canonical_index_compares_content_and_excludes_runtime_files(self):
+        import tempfile
+        from pathlib import Path
+        from literaki_slownik.canonical import load_json, write_json
+        from literaki_slownik.reports import canonical_index
+        with tempfile.TemporaryDirectory() as directory:
+            first, second = self.build_pair(Path(directory))
+            a = load_json(first/'reports/canonical-index.json')
+            b = load_json(second/'reports/canonical-index.json')
+            self.assertEqual(a, b)
+            self.assertEqual(a['status'], 'INCOMPLETE')
+            self.assertIn('lists/broad.txt', a['missing'])
+            self.assertIn('lists/standard.txt', a['missing'])
+            self.assertNotIn('reports/performance.json', a['files'])
+            write_json(second/'reports/performance.json', {'seconds': 999})
+            manifest=load_json(second/'manifest.json');manifest['created']='different'
+            write_json(second/'manifest.json', manifest)
+            self.assertEqual(canonical_index(second), a)
+            target=second/'reports/inventory.json'
+            write_json(target, {'changed': True})
+            self.assertNotEqual(canonical_index(second), a)
+
+    def test_canonical_index_rejects_report_alias_outside_run(self):
+        import tempfile
+        from pathlib import Path
+        from literaki_slownik.reports import canonical_index
+        with tempfile.TemporaryDirectory() as directory:
+            first, second = self.build_pair(Path(directory))
+            target=second/'reports/inventory.json'
+            target.unlink()
+            target.symlink_to(first/'reports/inventory.json')
+            with self.assertRaises(GeneratorError):
+                canonical_index(second)
+
     def build_pair(self, root):
         from tests.test_build import BuildTests
         from literaki_slownik.build import build

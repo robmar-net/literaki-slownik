@@ -773,7 +773,7 @@
     },
     "policy": {
       "path": "../../config/generator/policy.json",
-      "sha256": "2b752a386626166047f445901d2ad255fd166ed241558352049f3c7e82310f9f"
+      "sha256": "002d9db434499290313dffa79cca126b5b49ed1e57fab149e8b19c0ad7cac126"
     },
     "constructions": {
       "path": "../../config/generator/constructions.json",
@@ -801,11 +801,15 @@
     },
     "orthography": {
       "path": "../../config/generator/orthography.json",
-      "sha256": "3a0af8b621123bf749e44ac39fdb79d7658db60edc44abf82d9840812804fcd4"
+      "sha256": "d080505987cdc6fc471bd3d8fa6d78c5c5b5d6412e1da18cc18aa8db5b845718"
     },
     "semantic-uses": {
       "path": "../../config/generator/semantic-uses.json",
       "sha256": "9c8ec54dcde19c2572f565dde329c154b8b128eec91c049ffc8d2b615c41e743"
+    },
+    "quality-words": {
+      "path": "quality-words.json",
+      "sha256": "49d8f4bc7decb10fc1a5573db9cfbb3fefd88306ed5c42b103d46a8a298b6003"
     }
   },
   "unavailable": [

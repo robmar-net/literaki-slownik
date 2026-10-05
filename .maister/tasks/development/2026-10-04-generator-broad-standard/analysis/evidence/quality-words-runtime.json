@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "scope": "historical_219713_persisted_analyses_not_full_final_build_or_review",
+  "source_db_sha256": "1f36135a9b391eced167f6f37e48c2cce15f298a4c6e515b3b516fa213530265",
+  "source_unchanged": true,
+  "repeat_equal": true,
+  "first_seconds": 18.053673374990467,
+  "total_seconds": 34.784798333013896,
+  "sample_words": 641,
+  "selected_analyses": 1124,
+  "sample_sha256": "c3647fe3374c0a1c3cc70984f8bf79076f3f90e3ec8859c71b526728a5f4914a",
+  "strata": {
+    "word:construction:by-aglt-nwok-v1": {
+      "population": 4,
+      "sample_size": 4,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:construction:documented-spelling-variant-v1": {
+      "population": 0,
+      "sample_size": 0,
+      "coverage": "EMPTY_NOT_COVERAGE"
+    },
+    "word:construction:impt-double-particle-v1": {
+      "population": 30368,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:construction:impt-single-particle-v1": {
+      "population": 91104,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:construction:mobile-by-host-aglt-v1": {
+      "population": 64,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:construction:mobile-host-by-sequence-v1": {
+      "population": 260,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:construction:mobile-source-host-aglt-v1": {
+      "population": 244,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:construction:personal-host-aglt-v1": {
+      "population": 6,
+      "sample_size": 6,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:construction:preposition-n-source-v1": {
+      "population": 26,
+      "sample_size": 26,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:filter_changed:broad": {
+      "population": 36778,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:filter_changed:standard": {
+      "population": 59417,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:history": {
+      "population": 27893,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:homonyms": {
+      "population": 3606,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:proper_common": {
+      "population": 0,
+      "sample_size": 0,
+      "coverage": "EMPTY_NOT_COVERAGE"
+    },
+    "word:short": {
+      "population": 267,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:adj": {
+      "population": 21,
+      "sample_size": 21,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:adv": {
+      "population": 13,
+      "sample_size": 13,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:aglt": {
+      "population": 8,
+      "sample_size": 8,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:brev": {
+      "population": 1,
+      "sample_size": 1,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:comp": {
+      "population": 70,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:conj": {
+      "population": 11,
+      "sample_size": 11,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:depr": {
+      "population": 3,
+      "sample_size": 3,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:impt": {
+      "population": 91104,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:interj": {
+      "population": 4,
+      "sample_size": 4,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:part": {
+      "population": 202,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:ppron12": {
+      "population": 20,
+      "sample_size": 20,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:ppron3": {
+      "population": 1,
+      "sample_size": 1,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:praet": {
+      "population": 0,
+      "sample_size": 0,
+      "coverage": "EMPTY_NOT_COVERAGE"
+    },
+    "word:source_class:pred": {
+      "population": 1,
+      "sample_size": 1,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:prep": {
+      "population": 134,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:subst": {
+      "population": 73,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:source_class:winien": {
+      "population": 0,
+      "sample_size": 0,
+      "coverage": "EMPTY_NOT_COVERAGE"
+    },
+    "word:specialist": {
+      "population": 2225,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:unresolved:broad": {
+      "population": 176858,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "word:unresolved:standard": {
+      "population": 154219,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    }
+  },
+  "status": "UNREVIEWED",
+  "full_quality_matrix_pending": true,
+  "selected_keys_publication": "omitted_from_summary; complete_sample_bound_by_sha256"
+}

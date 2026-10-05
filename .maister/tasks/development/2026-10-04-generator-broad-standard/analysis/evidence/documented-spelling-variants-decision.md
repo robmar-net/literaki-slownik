@@ -2,7 +2,7 @@
 
 ## TL;DR
 Wdrożono zatwierdzony dowód BROAD dla wznak. Dalszy przegląd ortografii ujawnił brak poprawnych małoliterowych wariantów niektórych istniejących leksemów w eksporcie SGJP.
-Proponujemy A: osobny kandydat pisowni wyłącznie z dosłownym dowodem normy i dokładnym źródłem, bez zmiany źródłowego rekordu.
+Zatwierdzone A: osobny kandydat pisowni wyłącznie z dosłownym dowodem normy i dokładnym źródłem, bez zmiany źródłowego rekordu.
 To rozszerzenie modelu rekonstrukcji, wymagające decyzji; nie zmienia reguł gry ani nie dopuszcza samoczynnego lower.
 
 ## Key Decisions
@@ -17,7 +17,7 @@ To rozszerzenie modelu rekonstrukcji, wymagające decyzji; nie zmienia reguł gr
 - Pełna klasa mieszkańców nadal nierozpoznana: etn. nie jest jej kompletnym indeksem; warszawianka/krakowianka mają zwykłe nazwa_pospolita i puste kwalifikatory. Bawarka/bawarka ilustrują niebezpieczeństwo przeniesienia klasy na herbaciany homonim.
 - Pełny ID nie gwarantuje jednej semantyki. Dowód tylko konkretnego użycia; nieznane możliwości zachowane. Finalna delta list nadal niepoliczalna przed pełną macierzą.
 
-## Projekt A do decyzji
+## Zatwierdzony projekt A
 
 A — rekomendowane: dodać osobny typ udokumentowanego wariantu ortograficznego istniejącej analizy. Pierwsze przypadki wyłącznie literalne formy podstawowe angol i jugol, bez automatycznego generowania fleksji. Kandydat zawiera cały rekord źródłowy, źródłowy zapis, nowy zapis, przypięty dokument i ID użycia. Źródłowe sgjp_record/interpretation i ich pisownia pozostają nietknięte.
 
@@ -35,4 +35,8 @@ RJP: przypięty wcześniej PDF SHA87daaddd86911370d4df3c1e5769028e8fa9087e052c89
 
 ## Dlaczego pytamy
 
-[AGENTS.md](../../../../../AGENTS.md) wymaga omówienia zmian kryteriów/składu przed wdrożeniem. Skill maister-implementation-plan-executor wymaga: „At a material deviation or recovery decision […] ask […] and pause”. A dodaje nowy typ kandydata pisowni do zatwierdzonych konstruktorów, dotąd opartych na dołączaniu źródłowych segmentów. Dlatego projekt, przykłady i kontrole są gotowe do przeglądu przed zmianą kodu.
+[AGENTS.md](../../../../../../AGENTS.md) wymaga omówienia zmian kryteriów/składu przed wdrożeniem. Skill maister-implementation-plan-executor wymaga: „At a material deviation or recovery decision […] ask […] and pause”. A dodaje nowy typ kandydata pisowni do zatwierdzonych konstruktorów, dotąd opartych na dołączaniu źródłowych segmentów. Dlatego projekt, przykłady i kontrole są gotowe do przeglądu przed zmianą kodu.
+
+## Zatwierdzenie
+
+A zatwierdzone przez użytkownika; zapis 2026-10-05T16:49:33Z. Wdrożenie zgodnie z zamkniętym zakresem, bez zmiany reguł gry.

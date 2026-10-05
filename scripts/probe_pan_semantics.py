@@ -10,6 +10,7 @@ import sqlite3
 import tarfile
 import unicodedata
 from collections import Counter
+from contextlib import closing
 from pathlib import Path
 
 
@@ -24,7 +25,7 @@ def digest(path):
 
 def probe(database, samples, lists):
     cases = {}
-    with sqlite3.connect(Path(database).resolve().as_uri() + '?mode=ro', uri=True) as db:
+    with closing(sqlite3.connect(Path(database).resolve().as_uri() + '?mode=ro', uri=True)) as db:
         query = 'SELECT source_id,row_number,form,lemma,tag,names,qualifiers FROM sgjp_record'
         for sid, row, original, lemma, tag, names, qualifiers in db.execute(query + " WHERE tag='frag' ORDER BY source_id,row_number"):
             identity = (sid, original, lemma, tag, names, qualifiers)

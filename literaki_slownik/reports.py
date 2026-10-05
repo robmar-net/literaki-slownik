@@ -10,6 +10,52 @@ from .inputs import GeneratorError
 from .canonical import dumps
 
 
+def canonical_index(run_dir):
+    """Indeks I2 dla diagnostycznego przebiegu; nie zastępuje verify.
+
+    Jawna lista plików zapobiega związaniu czasów, ścieżek i fizycznej bazy.
+    Brakujące części pełnego pakietu pozostają widoczne, bez pustych list.
+    """
+    from pathlib import Path
+    from .canonical import load_json, sha256
+    root=Path(run_dir).resolve()
+    manifest=load_json(root/'manifest.json')
+    inputs=manifest['inputs']
+    required=('lists/broad.txt','lists/standard.txt','reports/import-counts.json',
+              'reports/inventory.json','reports/qualifier-conditions.json',
+              'reports/construction-candidates.json','reports/decisions.json',
+              'reports/unresolved.json','reports/links.json','reports/filter-impact.json',
+              'reports/logical-content.json','reports/coverage.json')
+    paths=list(required)
+    if 'quality' in inputs['manifest']['configurations']:
+        paths.extend(('reports/quality-analyses.json','reports/quality-links.json'))
+    if 'quality-words' in inputs['manifest']['configurations']:
+        paths.append('reports/quality-words.json')
+    files,missing={},[]
+    for relative in sorted(paths):
+        target=root/relative
+        if target.is_symlink() or not target.resolve().is_relative_to(root):
+            raise GeneratorError('Plik indeksu poza przebiegiem lub dowiązanie',4,relative)
+        if not target.exists():
+            missing.append(relative)
+        elif not target.is_file():
+            raise GeneratorError('Pozycja indeksu nie jest plikiem',4,relative)
+        else:
+            files[relative]={'sha256':sha256(target),'bytes':target.stat().st_size}
+    provenance={
+        'mode':inputs['mode'],
+        'sources':sorted([{'source_id':a['source_id'],'kind':a['kind'],'sha256':a['sha256'],
+                           'evidence_sha256':sorted(e['sha256'] for e in a['evidence'])}
+                          for a in inputs['artifacts']],key=lambda a:a['source_id']),
+        'configurations':{name:value['sha256'] for name,value in sorted(
+            inputs['manifest']['configurations'].items())},
+    }
+    return {'schema_version':1,'scope':'diagnostic_content_index_not_release_verification',
+            'status':'INCOMPLETE','files':files,'missing':missing,'provenance':provenance,
+            'excluded':['manifest.json','reports/performance.json','build.sqlite',
+                        'review','verification','logs','local_paths','timestamps']}
+
+
 def unresolved_report(db):
     """Pełne liczniki zapisanych niewiadomych, także pod znanym odrzuceniem.
 

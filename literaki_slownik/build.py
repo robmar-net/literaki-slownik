@@ -9,7 +9,7 @@ from .database import connect
 from .inputs import GeneratorError, inspect_sources
 from . import sgjp, kwjp
 from .run import create_run, set_stage
-from .reports import qualifier_coverage, logical_content_report, unresolved_report, persisted_filter_impact
+from .reports import qualifier_coverage, logical_content_report, unresolved_report, persisted_filter_impact, canonical_index
 from .constructions import materialize_confirmed_candidates
 from .links import create_links, link_report
 from .decisions import materialize_assessments
@@ -145,11 +145,21 @@ def build(manifest_path, run_dir, batch_size=10000):
             quality_reference=inputs['manifest']['configurations'].get('quality')
             if quality_reference:
                 from .inputs import checked_file
-                from .quality import sample_persisted_analyses
+                from .quality import sample_persisted_analyses, sample_corpus_links
                 start=time.monotonic()
                 config=load_json(checked_file(Path(manifest_path).resolve().parent,quality_reference))
                 write_json(run/'reports/quality-analyses.json',sample_persisted_analyses(db,config))
                 performance['diagnostic_quality_analyses']={'seconds':time.monotonic()-start}
+                start=time.monotonic()
+                write_json(run/'reports/quality-links.json',sample_corpus_links(db,config))
+                performance['diagnostic_quality_links']={'seconds':time.monotonic()-start}
+                words_reference=inputs['manifest']['configurations'].get('quality-words')
+                if words_reference:
+                    from .quality import sample_word_analyses
+                    definitions=load_json(checked_file(Path(manifest_path).resolve().parent,words_reference))
+                    start=time.monotonic()
+                    write_json(run/'reports/quality-words.json',sample_word_analyses(db,config,definitions))
+                    performance['diagnostic_quality_words']={'seconds':time.monotonic()-start}
             start = time.monotonic()
             write_json(run / 'reports/logical-content.json', logical_content_report(db))
             performance['diagnostic_logical_content'] = {'seconds': time.monotonic() - start}
@@ -161,6 +171,7 @@ def build(manifest_path, run_dir, batch_size=10000):
                                    'unit': 'bytes on macOS, KiB on Linux'}
         performance['database_bytes'] = (run / 'build.sqlite').stat().st_size
         write_json(run / 'reports/performance.json', performance)
+        write_json(run / 'reports/canonical-index.json', canonical_index(run))
         return {'run_dir': str(run.resolve()), 'readiness': 'INCOMPLETE', 'counts': counts,
                 'completed': ['preflight', 'import_sgjp', 'import_kwjp'],
                 'pending': ['constructions', 'decisions', 'links', 'reports']}

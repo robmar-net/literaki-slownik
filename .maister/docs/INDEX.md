@@ -86,4 +86,12 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 
 - [Dodatni dowód — wdrożenie](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/positive-use-implementation-review.md) —181/181+5/5, trzy użycia, pełna kwalifikacja nadal otwarta.
 
-- [Udokumentowane warianty pisowni](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-spelling-variants-decision.md) — propozycja do decyzji, angol/jugol, odrębna od automatycznego lower.
+- [Udokumentowane warianty pisowni](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-spelling-variants-decision.md) — zatwierdzone A i wdrożone, angol/jugol, odrębne od automatycznego lower.
+
+- [Pisownia — wdrożenie](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/spelling-variants-implementation-review.md) — fragment implementacji, pełne wydanie otwarte.
+
+- [Warstwy jakości i pomiary](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/quality-strata-implementation-review.md) — fragment implementacji, pełne wydanie otwarte.
+
+- [Diagnostyczny indeks I2](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/canonical-index-implementation-review.md) — fragment implementacji, pełne wydanie otwarte.
+
+- [Dowód jawnych relacji mieszkańców](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/resident-relations-proof-decision.md) — publiczny czytnik potwierdzony; bramka progu dowodu przed aktywacją.

@@ -4,7 +4,7 @@
 Moduł `literaki_slownik.quality` realizuje zatwierdzony dobór quality-v1.
 Wybiera do 30 różnych jednostek na warstwę, zachowując populacje i nakładanie prób.
 Próbka i szablon przeglądu mają status UNREVIEWED; nie nadają VERIFIED.
-Integracja z pełnymi raportami i decyzjami generatora pozostaje do wykonania.
+Nowe build zapisują trzy diagnostyczne próbki; pełna macierz i odbiór pozostają do wykonania.
 
 ## Key Decisions
 - SHA256 liczony z kanonicznego JSON `[seed,warstwa,klucz]`, UTF-8 bez spacji. Przy remisie rozstrzyga klucz.
@@ -13,7 +13,7 @@ Integracja z pełnymi raportami i decyzjami generatora pozostaje do wykonania.
 - Pusta warstwa ma EMPTY_NOT_COVERAGE. Wybrane jednostki mają SAMPLED_NOT_VERIFIED.
 
 ## Open Questions / Risks
-- Moduł nie określa przynależności słów do warstw ani nie rozstrzyga dopuszczalności. Warstwy zależą od pełnych analiz i raportów.
+- Dobór warstw opiera się na utrwalonych analizach i etykietach; nie rozstrzyga dopuszczalności. Pełne pokrycie klas zależy od domknięcia macierzy.
 - Szablon wiąże przegląd hashami z próbką, indeksem kanonicznym i dowodami. Weryfikacja wypełnionego przeglądu będzie częścią G7.
 - Próba nie jest statystyczną gwarancją bezbłędności i nie zastępuje kontroli kompletności macierzy.
 
@@ -21,7 +21,7 @@ Integracja z pełnymi raportami i decyzjami generatora pozostaje do wykonania.
 
 `sample_strata(strata, config)` przyjmuje mapę identyfikatorów warstw do posortowanych strumieni kluczy. Klucz musi identyfikować jednostkę merytoryczną; jednostki korpusowe i słowa powinny mieć odrębne przestrzenie nazw. W raporcie są wielkości populacji, prób, hashe wybranych kluczy, liczba unikalnych jednostek i lista przecięć prób.
 
-`review_template(sample, canonical_index_sha256=..., evidence_sha256=...)` tworzy pozycje z pustą oceną, recenzentem i uzasadnieniem źródłowym. Nie przypisuje poprawności domyślnie ani nie zawiera jeszcze pełnych analiz; te musi dostarczyć etap raportowania.
+`review_template(sample, canonical_index_sha256=..., evidence_sha256=...)` tworzy pozycje z pustą oceną, recenzentem i uzasadnieniem źródłowym. Nie przypisuje poprawności domyślnie. Jeśli próbka zawiera items, dołącza pełne jednostki do selected_unit i wymaga zgodnego pokrycia bez duplikatów.
 
 Konfiguracja `config/generator/quality.json` jest zamknięta dla zatwierdzonej quality-v1. Inna wersja, seed, limit lub kodowanie wymaga jawnej aktualizacji kontraktu.
 
@@ -32,3 +32,7 @@ Diagnostyczne użycie na rzeczywistych powiązaniach lemma-all zapisano w [quali
 ## Diagnostyczne próbki utrwalonych analiz
 
 sample_persisted_analyses dobiera do30 stabilnych kluczy na rodzaj analizy (źródłowe rozwinięcie/konstrukcja/użycie/pozostałość) oraz status każdego wariantu. Dołącza rekord źródłowy i wszystkie warstwy obu wariantów. Build z przypiętym quality zapisuje reports/quality-analyses.json. Wynik UNREVIEWED, full_quality_matrix_pending: nie zastępuje wymaganych warstw słownych/konstrukcyjnych i metod linków pełnego odbioru. Próbka podaje także puste warstwy jako EMPTY_NOT_COVERAGE.
+
+## Próbki słów i powiązań
+
+`sample_word_analyses` dobiera całe klucze słowne; dołącza wszystkie analizy i obie oceny, ślady konstrukcji i źródła. Definicje tematów w przypiętym quality-words służą wyłącznie próbkowaniu. `sample_corpus_links` rozlicza każdą jednostkę KWJP i jej kandydatury, F tylko raz. Build zapisuje quality-words.json i quality-links.json. UNREVIEWED i EMPTY_NOT_COVERAGE pozostają wiążące. [Pomiary i granice](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/quality-strata-implementation-review.md).

@@ -369,6 +369,67 @@ def preposition_n_candidates(preposition, pronoun):
     return results
 
 
+
+SPELLING_VARIANT_RULE = 'documented-spelling-variant-v1'
+SPELLING_SOURCE_SHA = '3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810'
+SPELLING_DOCUMENT_SHA = '87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e'
+
+
+def spelling_variant_candidates(source):
+    """Dwa literalne przykłady normy, dokładny rekord; żadnej reguły lower."""
+    _validate_source(source)
+    identities = {('Angol','Angol',9040,'pot.,etn.'):'angol',
+                  ('Jugol','Jugol',358226,''):'jugol'}
+    target=identities.get((source['original'],source['lemma_id'],source['first_source_row'],source['qualifiers']))
+    if (target is None or source['source_id']!='sgjp-20260823'
+            or source.get('source_sha256')!=SPELLING_SOURCE_SHA
+            or source['raw_tag']!='subst:sg:nom:m1' or source['names']!='nazwa_pospolita'):
+        return []
+    trace={'source_original':source['original'],'target_original':target,
+        'use_id':'rjp-informal-ethnic-'+target+'-v1','coverage':'documented_use_only',
+        'document_sha256':SPELLING_DOCUMENT_SHA,'norm_effective_from':'2026-01-01',
+        'locator':'https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43; §8.1.2 pkt4 uwaga'}
+    return [{'rule_id':SPELLING_VARIANT_RULE,'status':'candidate_not_qualified',
+        'original':target,'lemma_id':source['lemma_id'],'expanded_tag':source['raw_tag'],
+        'names':source['names'],'qualifiers':source['qualifiers'],
+        'components':[{'kind':'source_interpretation','interpretation':dict(source)}],
+        'orthographic_variant':trace,
+        'linguistic_evidence':{'rule_id':'orthography-attested-lowercase-2026-v1','status':'accept',
+            'message':'Jawny przykład normy2026 potwierdza mały zapis tego użycia; inne warunki językowe i growe osobno.',
+            'evidence':[trace['locator'],'config/generator/orthography.json']},
+        'evidence':['config/generator/orthography.json',trace['locator']]}]
+
+
+def checked_spelling_variants(db):
+    """Przed oceną sprawdź źródło, payload i rzeczywiste relacje składników."""
+    import json
+    import hashlib
+    from .canonical import dumps
+    if not db.execute("select 1 from sqlite_master where name='derivation_candidate'").fetchone():return
+    for row in db.execute('select * from derivation_candidate where rule_id=?',(SPELLING_VARIANT_RULE,)):
+        try:
+            value=json.loads(row[8]);parts=value['components']
+            if len(parts)!=1 or parts[0]['kind']!='source_interpretation':
+                raise ValueError('składnik')
+            ref=parts[0]['interpretation']
+            raw=db.execute("""select i.source_id,i.first_row,f.original,l.lemma_id,i.tag,i.names,i.qualifiers,s.metadata
+                from interpretation i join surface_form f on f.id=i.form_id
+                join lexeme l on l.id=i.lexeme_id join source_artifact s on s.source_id=i.source_id
+                where i.source_id=? and i.first_row=? and f.original=? and l.lemma_id=?""",
+                (ref['source_id'],ref['first_source_row'],ref['original'],ref['lemma_id'])).fetchone()
+            if raw is None:raise ValueError('źródło')
+            source=dict(zip(SOURCE_FIELDS,raw[:7]));source['source_sha256']=json.loads(raw[7]).get('sha256')
+            candidates=spelling_variant_candidates(source)
+            if len(candidates)!=1 or value!=candidates[0]:raise ValueError('dowód/mapowanie')
+            c=candidates[0];encoded=dumps(c);key=hashlib.sha256(encoded.encode()).hexdigest()
+            expected=(key,c['rule_id'],c['original'],c['original'],c['lemma_id'],c['expanded_tag'],c['names'],c['qualifiers'],encoded)
+            if row!=expected:raise ValueError('klucz/pola')
+            components=db.execute('select position,kind,source_id,source_row from derivation_component where candidate_key=? order by position',(key,)).fetchall()
+            if components!=[(0,'source_interpretation',source['source_id'],source['first_source_row'])]:
+                raise ValueError('relacje składników')
+        except (KeyError,ValueError,TypeError,AttributeError) as error:
+            raise GeneratorError('Niespójny kandydat udokumentowanej pisowni; wymagany nowy build',4) from error
+
 def materialize_confirmed_candidates(db, batch_size=10000):
     """Zapisz potwierdzony podzbiór bez dopuszczenia lub pełnego statusu etapu.
 
@@ -452,7 +513,13 @@ def materialize_confirmed_candidates(db, batch_size=10000):
         for pronoun in pronouns:
             for candidate in preposition_n_candidates(preposition, pronoun):
                 save(candidate)
+    import json
+    hashes={sid:json.loads(metadata).get('sha256') for sid,metadata in db.execute('select source_id,metadata from source_artifact')}
+    for row in db.execute(select + " where l.source_id='sgjp-20260823' and l.lemma_id in ('Angol','Jugol') order by i.source_id,i.first_row"):
+        source=dict(zip(SOURCE_FIELDS,row));source['source_sha256']=hashes[source['source_id']]
+        for candidate in spelling_variant_candidates(source):save(candidate)
     db.commit()
+    checked_spelling_variants(db)
     by_rule = dict(db.execute('select rule_id,count(*) from derivation_candidate group by rule_id order by rule_id'))
     from .reports import construction_scope_report
     return {'schema_version': 1, 'release_scope':construction_scope_report(db),

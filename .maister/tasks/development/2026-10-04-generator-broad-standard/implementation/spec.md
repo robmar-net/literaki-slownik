@@ -311,3 +311,13 @@ Zatwierdzone A dodatniego dowodu wdrożone v16 tylko dla użycia na wznak: lexic
 Przegląd RJP §8.1.2 pkt3–4 i SGJP:83 ID z etn.,84 kombinacje,967 interpretacji; dwie identyczne reprodukcje readonly. Etykieta nie pokrywa mieszkańców. Norma dopuszcza angol/jugol małą literą, eksport ma tylko Angol/Jugol. Osobny kandydat udokumentowanej pisowni wymaga decyzji nowego modelu; nie wdrożono przed A. Pełna macierz,8/36 i bramka phase10 bez zmian.
 
 [Projekt do decyzji](../analysis/evidence/documented-spelling-variants-decision.md).
+
+## Pisownia, próbki i indeks — wdrożenie
+
+A pisowni wdrożone v17:2 kandydatów angol/jugol,5analiz/10ocen, dwie projekcje stabilne bez zmian źródła. Quality:pełne13list/5066341jednostek/270próbek; projekcja219713analiz/641słów/1124analizy, dwa identyczne dobory readonly. Pełne payloady review i diagnostyczny indeks I2. G3/G4/G6 częściowe,8/36; odbiór i pełna macierz nadal otwarte.
+
+[Przegląd pisowni](../analysis/evidence/spelling-variants-implementation-review.md), [warstwy jakości](../analysis/evidence/quality-strata-implementation-review.md), [indeks I2](../analysis/evidence/canonical-index-implementation-review.md).
+
+## Jawne relacje mieszkańców — dalsze G3
+
+Czytnik SGJP ma odsyłacz Warszawa → warszawianka typu nazwa mieszkańca i odwrotną relację do miejscowości. Pełna klasa nie jest kompletna. [Próg nowego dowodu](../analysis/evidence/resident-relations-proof-decision.md) wymaga decyzji przed aktywacją; dane online nie są importerem. Końcowe kontrole przyrostu195/195+5/5 bez ostrzeżeń;8/36 bez zmian.

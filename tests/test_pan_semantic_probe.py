@@ -6,6 +6,8 @@ import tarfile
 import tempfile
 import io
 import unittest
+from contextlib import closing
+from unittest.mock import patch
 from pathlib import Path
 
 
@@ -18,7 +20,7 @@ class PanProbeTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             db = root / 'input.sqlite'
-            with sqlite3.connect(db) as conn:
+            with closing(sqlite3.connect(db)) as conn, conn:
                 conn.executescript('CREATE TABLE sgjp_record(source_id,row_number,form,lemma,tag,names,qualifiers);')
                 conn.executemany('INSERT INTO sgjp_record VALUES(?,?,?,?,?,?,?)', [
                     ('sgjp-test', 1, 'oścież', 'oścież:F', 'frag', '', ''),
@@ -37,7 +39,11 @@ class PanProbeTest(unittest.TestCase):
             with tarfile.open(samples, 'w:gz') as archive:
                 info = tarfile.TarInfo('samples/test.json'); info.size = len(raw)
                 archive.addfile(info, io.BytesIO(raw))
-            result = module.probe(db, samples, [])
+            connection=sqlite3.connect(db.resolve().as_uri()+'?mode=ro',uri=True)
+            with patch.object(module.sqlite3,'connect',return_value=connection):
+                result = module.probe(db, samples, [])
+            with self.assertRaises(sqlite3.ProgrammingError):
+                connection.execute('select 1')
             self.assertEqual(len(result['cases']), 3)
             by_form = {c['source']['original']: c for c in result['cases']}
             case = by_form['oścież']

@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T16:36:58Z",
+  "generated": "2026-10-05T17:30:54Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Dowód wznak wdrożony; udokumentowane warianty angol/jugol do decyzji"
+    "current_activity": "Wdrożone A pisowni i próbki; wymagany wybór progu dowodu relacji mieszkańca"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Zatwierdzone A dodatniego dowodu wdrożone v16 tylko dla użycia na wznak: lexical BROAD accept, STANDARD nadal unknown; inne warunki i pozostałość zachowane.181/181+5/5; dwie niezależne projekcje295/540/543/1086 logicznie identyczne, idempotencja i FK/integrity OK; źródło bez zmian. G3/G4/G6 nadal częściowe,8/36. RJP/SGJP:83etn ID/967interpretacji, podwójny readonly raport identyczny; jawny mały zapis angol/jugol poza źródłem, konieczna decyzja nowego typu kandydata.",
+      "summary": "A pisowni wdrożone v17:2 kandydatów angol/jugol,5analiz/10ocen, dwie projekcje stabilne bez zmian źródła. Quality:pełne13list/5066341jednostek/270próbek; projekcja219713analiz/641słów/1124analizy, dwa identyczne dobory readonly. Pełne payloady review i diagnostyczny indeks I2. G3/G4/G6 częściowe,8/36; odbiór i pełna macierz nadal otwarte. Końcowo195/195+5/5 bez ostrzeżeń; naprawiono zamykanie SQLite w probe PAN. Czytnik SGJP jawnie wiąże warszawianka z Warszawą; wymagany próg dowodu relacyjnego przed aktywacją.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -269,15 +269,17 @@ window.MAISTER_DATA = {
         "A: osobne udokumentowane użycia dokładnego rekordu źródłowego; spójne warstwy ocen, niewiadoma pozostałość, bez aktywacji metadanych czytnika.",
         "Model A wdrożony v15: warunki dokumentacyjne przypięte tylko do potwierdzonego użycia; brak propagacji na pozostałość, bez zmiany reguł gry.",
         "A: dokumentacyjny dodatni dowód leksykalny BROAD tylko dokładnie potwierdzonego użycia; STANDARD i pozostałe warunki osobno, nierozpoznana pozostałość zachowana.",
-        "Dodatni dowód A wdrożony v16: zamknięte mapowanie wznak, tylko leksykalny warunek BROAD; pełna kwalifikacja nadal otwarta."
+        "Dodatni dowód A wdrożony v16: zamknięte mapowanie wznak, tylko leksykalny warunek BROAD; pełna kwalifikacja nadal otwarta.",
+        "A: osobni kandydaci jawnie udokumentowanej pisowni istniejących analiz, tylko angol/jugol; źródłowe rekordy, inne warunki i niewiadome zachowane.",
+        "Zatwierdzone A pisowni wdrożone w zamkniętym zakresie; walidacja utrwalonych źródeł/składników przed ocenami i odczytem.",
+        "Diagnostyczne próbki i indeks nie aktywują polityki ani odbioru; brakujące pełne części jawne."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
         "Mechanika próbek nie zastępuje integracji raportów, pełnych analiz w przeglądzie ani odbioru G8.",
         "Brak kompletnej klasy nazw mieszkańców oraz rozdzielenia frag/obcych zwrotów w eksporcie. Nie zakładamy istnienia brakujących metadanych. Kontakt z innymi grupami wykluczony przez użytkownika; brakujące dowody nadal otwarte.",
         "Dokumentacja klasy może różnić się zakresem od opisu konkretnego znaczenia; pełny ID SGJP może łączyć znaczenia. Brak automatycznej propagacji i nowego filtra przed decyzją.",
-        "Jedno źródłowe rozpoznanie może odpowiadać kilku publicznym artykułom lub opisowi przy artykule nadrzędnym. Potrzebna decyzja modelu użyć; nie ustalono pełnej zgodności snapshotu.",
-        "Brak osobnych kandydatów udokumentowanej pisowni angol/jugol; model do decyzji. Pełna klasa mieszkańców nadal niezamknięta."
+        "Jedno źródłowe rozpoznanie może odpowiadać kilku publicznym artykułom lub opisowi przy artykule nadrzędnym. Potrzebna decyzja modelu użyć; nie ustalono pełnej zgodności snapshotu."
       ],
       "artifacts": [
         {
@@ -703,21 +705,51 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/documented-spelling-variants-decision.md",
           "label": "documented-spelling-variants-decision.md"
+        },
+        {
+          "path": "analysis/evidence/spelling-variants-runtime.json",
+          "label": "Runtime pisowni"
+        },
+        {
+          "path": "analysis/evidence/spelling-variants-implementation-review.md",
+          "label": "Wdrożenie pisowni"
+        },
+        {
+          "path": "analysis/evidence/quality-links-runtime.json",
+          "label": "Pełny pomiar próbek linków"
+        },
+        {
+          "path": "analysis/evidence/quality-words-runtime.json",
+          "label": "Pomiar próbek słów"
+        },
+        {
+          "path": "analysis/evidence/quality-strata-implementation-review.md",
+          "label": "Warstwy quality-v1"
+        },
+        {
+          "path": "analysis/evidence/canonical-index-implementation-review.md",
+          "label": "Diagnostyczny I2"
+        },
+        {
+          "path": "analysis/evidence/resident-relations-observation.json",
+          "label": "Własna obserwacja jawnych relacji mieszkańca"
+        },
+        {
+          "path": "analysis/evidence/resident-relations-proof-decision.md",
+          "label": "Próg dowodu relacyjnego mieszkańca"
         }
       ],
       "gate": {
-        "id": "documented_spelling_variant_model",
+        "id": "resident_relation_documentary_proof",
         "status": "pending",
-        "created_at": "2026-10-05T16:36:58Z",
-        "question": "Czy dodajemy osobne, źródłowo udokumentowane warianty pisowni istniejących analiz, zaczynając tylko od angol i jugol?",
+        "created_at": "2026-10-05T17:30:54Z",
+        "question": "Czy jawny, ręcznie sprawdzony odsyłacz nazwy mieszkańca SGJP wystarcza jako dowód klasy konkretnego użycia, z dokładnym źródłem i zachowaną pozostałością?",
         "options": {
-          "A": "Tak: osobne kandydaty z dokładnym źródłem i dowodem normy, oryginał bez zmian; inne warunki osobno (rekomendowane).",
-          "B": "Czekamy na dopuszczone małoliterowe analizy źródłowe; brak pozostaje luką."
+          "A": "Tak: własny przypięty przegląd, pierwszy przypadek warszawianka; bez importu metadanych i zmiany reguł gry (rekomendowane).",
+          "B": "Tylko wskazówka: wymagamy dodatkowego dosłownego opisu; obecny przypadek unresolved."
         },
         "answer": null,
-        "artifact": "analysis/evidence/documented-spelling-variants-decision.md",
-        "authority": "AGENTS.md eligibility discussion; executor material model deviation",
-        "scope": "closed_documented_spelling_variant_candidates_not_new_lexemes_or_game_rules"
+        "artifact": "analysis/evidence/resident-relations-proof-decision.md"
       }
     },
     {

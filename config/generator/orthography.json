@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "orthography-discovery-v3",
+  "version": "orthography-discovery-v4",
   "status": "not_active_policy",
   "normalization": "NFC",
   "lookup_key": "NFC_LOWER_NFC",
@@ -70,6 +70,37 @@
       "full_matrix_complete": false,
       "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/game-capitalization-norm-decision.md",
       "evidence": "rjp:8.1.2 point3"
+    },
+    {
+      "rule_id": "documented-spelling-variant-v1",
+      "source_id": "sgjp-20260823",
+      "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+      "document_sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
+      "scope": "two_literal_base_forms_documented_use_only",
+      "cases": [
+        {
+          "original": "Angol",
+          "lemma_id": "Angol",
+          "first_source_row": 9040,
+          "raw_tag": "subst:sg:nom:m1",
+          "names": "nazwa_pospolita",
+          "qualifiers": "pot.,etn.",
+          "target": "angol"
+        },
+        {
+          "original": "Jugol",
+          "lemma_id": "Jugol",
+          "first_source_row": 358226,
+          "raw_tag": "subst:sg:nom:m1",
+          "names": "nazwa_pospolita",
+          "qualifiers": "",
+          "target": "jugol"
+        }
+      ],
+      "generate_inflection": false,
+      "source_rewrite": false,
+      "remaining_conditions": "separate",
+      "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-spelling-variants-decision.md"
     }
   ],
   "game_mandatory_capital_norm_effective_from": "2026-01-01",

@@ -97,7 +97,7 @@ Najbliższy krok: PAN-1 — przygotowanie rejestru wszystkich 147 analiz frag i 
 
 Częściowo wykonano mechanikę policy/decisions: odrębne warstwy, zachowanie przyczyn, reject mimo innych niewiadomych, brak domyślnego accept oraz agregacja jednej spójnej analizy. Dodano zatwierdzony warunek niezalecania oraz konstrukcje impt + pojedyncza partykuła i by + nwok aglt. Dodano zatwierdzony priorytet dawności, zamkniętą ocenę wieku 160/16 etykiet i widoczność w explain. Pełna polityka i integracja konstrukcji z build nadal nieukończone; 4.1–4.4 wymagają domknięcia.
 
-Zależności: G2/G3. Pliki: `literaki_slownik/{policy,constructions,decisions}.py`, `tests/{test_policy,test_constructions,test_decisions,test_documented_names,test_semantic_uses}.py`, `config/generator/{policy,semantic-uses,sources}.json`. K3/K4/K5; R03/R04/R05.
+Zależności: G2/G3. Pliki: `literaki_slownik/{policy,constructions,decisions}.py`, `tests/{test_policy,test_constructions,test_decisions,test_documented_names,test_semantic_uses,test_spelling_variants}.py`, `config/generator/{policy,semantic-uses,sources}.json`. K3/K4/K5; R03/R04/R05.
 
 - [ ] 4.1 Test-first z G3: odrębna kwalifikacja językowa/growa/profil, obowiązkowa wielka litera bez dopuszczenia przez lower, jedna spójna analiza, accept mimo odrzuconego homonimu, unresolved, zależny segment vs pospolita forma, mieszane etykiety, brak korpusu, profil NFC/znaki/limity, STANDARD ⊆ BROAD.
 - [ ] 4.2 Wdrożyć wersjonowany, zamknięty zestaw reguł, accept/reject/unresolved i wszystkie przyczyny; zachować oryginały, agregować dopiero po kwalifikacji i osobno pokazać reguły gry oraz profil płytek. Obecność wpisu nie oznacza dopuszczenia growego.
@@ -119,7 +119,7 @@ Zależności: G2/G3/G4. Pliki: `literaki_slownik/links.py`, `tests/test_links.py
 
 Niezależny fragment po zleceniu kontynuacji kodu: diagnostyczne explain tekst/JSON, wszystkie source interpretacje i rozwinięcia, wpis versus gra/profil, niepełny import, pełne powiązania bez powielania F. Osiem rzeczywistych zapytań i hashe read-only sprawdzone. Dodano mechanikę quality-v1 i szablon przeglądu: 7 testów, powtarzalna próbka 90 jednostek na rzeczywistych 184 917 rekordach lemma-all. Dodano strumieniowy raport samodzielnych/kolejnych/łącznych efektów filtrów, z kontrolą homonimów, niewiadomych i pominiętych odrzuceń. Przynależność do pełnych warstw, analizy w przeglądzie, integracja raportów i finalne decyzje pozostają do wykonania; kroków nie oznaczono complete.
 
-Zależności: G4/G5. Pliki: `literaki_slownik/{explain,reports,quality}.py`, `tests/{test_explain,test_reports,test_quality,test_unknown_report,test_persisted_filter_impact,test_semantic_uses}.py`; CLI/build aktualizowane sekwencyjnie. K7/K9 oraz K8; R07/R09/R11.
+Zależności: G4/G5. Pliki: `literaki_slownik/{explain,reports,quality}.py`, `tests/{test_explain,test_reports,test_quality,test_unknown_report,test_persisted_filter_impact,test_semantic_uses}.py`; CLI/build i `config/generator/{quality-words,sources}.json` aktualizowane sekwencyjnie; definicje warstw to dobór próby, nie filtry słownika. K7/K9 oraz K8; R07/R09/R11.
 
 - [ ] 6.1 Test-first: accept/reject/unresolved/absent, failed build, wszystkie homonimy/składniki, odrzucenie profilu, brak KWJP; wszystkie analizy w JSON, żadnego cichego ucięcia; wpis istniejący lecz niedopuszczalny growo ma osobny powód i pozostaje osiągalny.
 - [ ] 6.2 Wdrożyć explain tekst/JSON oraz raporty importu, inwentaryzacji, pokrycia, niewiadomych, powiązań i filtrów (samodzielnie/kolejno/łącznie, analizy versus utracone formy).
@@ -338,3 +338,13 @@ Zatwierdzone A dodatniego dowodu wdrożone v16 tylko dla użycia na wznak: lexic
 Przegląd RJP §8.1.2 pkt3–4 i SGJP:83 ID z etn.,84 kombinacje,967 interpretacji; dwie identyczne reprodukcje readonly. Etykieta nie pokrywa mieszkańców. Norma dopuszcza angol/jugol małą literą, eksport ma tylko Angol/Jugol. Osobny kandydat udokumentowanej pisowni wymaga decyzji nowego modelu; nie wdrożono przed A. Pełna macierz,8/36 i bramka phase10 bez zmian.
 
 [Projekt do decyzji](../analysis/evidence/documented-spelling-variants-decision.md).
+
+## Pisownia, próbki i indeks — wdrożenie
+
+A pisowni wdrożone v17:2 kandydatów angol/jugol,5analiz/10ocen, dwie projekcje stabilne bez zmian źródła. Quality:pełne13list/5066341jednostek/270próbek; projekcja219713analiz/641słów/1124analizy, dwa identyczne dobory readonly. Pełne payloady review i diagnostyczny indeks I2. G3/G4/G6 częściowe,8/36; odbiór i pełna macierz nadal otwarte.
+
+[Przegląd pisowni](../analysis/evidence/spelling-variants-implementation-review.md), [warstwy jakości](../analysis/evidence/quality-strata-implementation-review.md), [indeks I2](../analysis/evidence/canonical-index-implementation-review.md).
+
+## Jawne relacje mieszkańców — dalsze G3
+
+Czytnik SGJP ma odsyłacz Warszawa → warszawianka typu nazwa mieszkańca i odwrotną relację do miejscowości. Pełna klasa nie jest kompletna. [Próg nowego dowodu](../analysis/evidence/resident-relations-proof-decision.md) wymaga decyzji przed aktywacją; dane online nie są importerem. Końcowe kontrole przyrostu195/195+5/5 bez ostrzeżeń;8/36 bez zmian.

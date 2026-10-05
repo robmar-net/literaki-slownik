@@ -79,8 +79,8 @@ def checked_use_reviews(db, reviews):
             row=db.execute('''select i.id,f.original,l.lemma_id,i.tag,i.names,i.qualifiers,s.metadata
                 from interpretation i join surface_form f on f.id=i.form_id
                 join lexeme l on l.id=i.lexeme_id join source_artifact s on s.source_id=i.source_id
-                where i.source_id=? and i.first_row=?''',
-                (source['source_id'],source['first_source_row'])).fetchone()
+                where i.source_id=? and i.first_row=? and f.original=? and l.lemma_id=?''',
+                (source['source_id'],source['first_source_row'],source['original'],source['lemma_id'])).fetchone()
             if (row is None or tuple(source[k] for k in fields[3:]) != row[1:6]
                     or json.loads(row[6]).get('sha256') != source['source_sha256']
                     or not re.fullmatch('[a-f0-9]{64}',source['source_sha256'])):
@@ -125,6 +125,8 @@ def checked_use_reviews(db, reviews):
 
 def checked_persisted_use_coverage(db):
     """Nie pozwól zgubić pozostałości ani sfałszować użycia poprawnym hashem JSON."""
+    from .constructions import checked_spelling_variants
+    checked_spelling_variants(db)
     import hashlib
     import json
     from .canonical import dumps
@@ -188,6 +190,8 @@ def materialize_assessments(db, batch_size=10000, *, use_reviews=()):
         raise GeneratorError('Porcja ocen musi mieć od 1 do 10 000 analiz',2)
     if db.execute('select 1 from analysis where policy_version!=? limit 1',(POLICY_VERSION,)).fetchone():
         raise GeneratorError('Inna wersja ocen; wymagany nowy build bez nadpisania poprzednich danych',4)
+    from .constructions import checked_spelling_variants
+    checked_spelling_variants(db)
     reviewed=checked_use_reviews(db,use_reviews)
     review_payload=dumps(sorted((item for items in reviewed.values() for item in items),key=lambda item:item['use_id']))
     marker=db.execute('select kind,metadata from source_artifact where source_id=?',(USE_REVIEW_ID,)).fetchone()

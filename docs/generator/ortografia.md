@@ -36,4 +36,8 @@ Obowiązkową wielką literę oceniamy według normy2026 w obu wariantach, równ
 
 ## Dalszy przegląd mieszkańców i etnonimów
 
-RJP §8.1.2 pkt3 obejmuje także wsie, osiedla i dzielnice. Odrębna uwaga pkt4 dopuszcza małą literę dla jawnych nieoficjalnych nazw etnicznych; nie rozszerzamy tego na wszystkie nazwy. SGJP nie ma małych angol/jugol, ma tylko dokładne Angol/Jugol. Projekt osobnych kandydatów pisowni czeka na decyzję; źródłowych zapisów nie zmieniono. Pełny raport83 ID z etn. nie jest kompletną klasą mieszkańców — dwie wskazane nazwy kobiet nie mają etn. Brak nowych aktywnych filtrów.
+RJP §8.1.2 pkt3 obejmuje także wsie, osiedla i dzielnice. Odrębna uwaga pkt4 dopuszcza małą literę dla jawnych nieoficjalnych nazw etnicznych; nie rozszerzamy tego na wszystkie nazwy. SGJP nie ma małych angol/jugol, ma tylko dokładne Angol/Jugol. Zatwierdzone A wdrożono dla dwóch dosłownych form podstawowych; źródłowych zapisów nie zmieniono. Pełny raport83 ID z etn. nie jest kompletną klasą mieszkańców — dwie wskazane nazwy kobiet nie mają etn. Brak nowych aktywnych filtrów.
+
+## Osobny wariant pisowni — zatwierdzone A
+
+Angol/Jugol mają osobnych kandydatów angol/jugol, z dokładnym rekordem, SHA eksportu i RJP, ID użycia oraz jednym składnikiem źródłowym. Wpisy i inne homonimy zachowane. Nie tworzymy pozostałej fleksji przez automatyczne lower. Inne warunki nadal unresolved. [Wdrożenie i runtime](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/spelling-variants-implementation-review.md).

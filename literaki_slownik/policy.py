@@ -3,7 +3,7 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v16'
+VERSION = 'diagnostic-approved-conditions-v17'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -48,7 +48,7 @@ KNOWN_NAME_LABELS = frozenset({
 })
 BOUND_FORM_CLASSES = frozenset({'adja', 'pacta', 'numcomp', 'aglt'})
 CONFIRMED_CONSTRUCTOR_RULES = frozenset({
-    'impt-single-particle-v1', 'impt-double-particle-v1', 'by-aglt-nwok-v1', 'preposition-n-source-v1',
+    'documented-spelling-variant-v1', 'impt-single-particle-v1', 'impt-double-particle-v1', 'by-aglt-nwok-v1', 'preposition-n-source-v1',
     'mobile-by-host-aglt-v1', 'mobile-source-host-aglt-v1', 'mobile-host-by-sequence-v1', 'personal-host-aglt-v1',
 })
 

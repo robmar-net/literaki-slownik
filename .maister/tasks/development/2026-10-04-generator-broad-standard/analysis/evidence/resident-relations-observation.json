@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-05T17:30:54Z",
+  "scope": "own_public_reference_observation_not_active_semantic_metadata",
+  "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+  "source_records": [
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 6309663,
+      "original": "warszawiance",
+      "lemma_id": "warszawianka",
+      "raw_tag": "subst:sg:dat.loc:f",
+      "names": "nazwa_pospolita",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 6309664,
+      "original": "warszawianek",
+      "lemma_id": "warszawianka",
+      "raw_tag": "subst:pl:gen:f",
+      "names": "nazwa_pospolita",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 6309665,
+      "original": "warszawianka",
+      "lemma_id": "warszawianka",
+      "raw_tag": "subst:sg:nom:f",
+      "names": "nazwa_pospolita",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 6309666,
+      "original": "warszawiankach",
+      "lemma_id": "warszawianka",
+      "raw_tag": "subst:pl:loc:f",
+      "names": "nazwa_pospolita",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 6309667,
+      "original": "warszawiankami",
+      "lemma_id": "warszawianka",
+      "raw_tag": "subst:pl:inst:f",
+      "names": "nazwa_pospolita",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 6309668,
+      "original": "warszawianki",
+      "lemma_id": "warszawianka",
+      "raw_tag": "subst:pl:nom.acc.voc:f",
+      "names": "nazwa_pospolita",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 6309669,
+      "original": "warszawianki",
+      "lemma_id": "warszawianka",
+      "raw_tag": "subst:sg:gen:f",
+      "names": "nazwa_pospolita",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 6309670,
+      "original": "warszawianko",
+      "lemma_id": "warszawianka",
+      "raw_tag": "subst:sg:voc:f",
+      "names": "nazwa_pospolita",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 6309671,
+      "original": "warszawiankom",
+      "lemma_id": "warszawianka",
+      "raw_tag": "subst:pl:dat:f",
+      "names": "nazwa_pospolita",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 6309672,
+      "original": "warszawianką",
+      "lemma_id": "warszawianka",
+      "raw_tag": "subst:sg:inst:f",
+      "names": "nazwa_pospolita",
+      "qualifiers": ""
+    },
+    {
+      "source_id": "sgjp-20260823",
+      "first_source_row": 6309673,
+      "original": "warszawiankę",
+      "lemma_id": "warszawianka",
+      "raw_tag": "subst:sg:acc:f",
+      "names": "nazwa_pospolita",
+      "qualifiers": ""
+    }
+  ],
+  "compact_interpretations": 11,
+  "expanded_interpretations": 14,
+  "response_sha256": {
+    "warszawa-search": "a9a1e57a742612f752ca8d5b5987a5f0ecae512a1e8c4d6cf0fcc21bd9416c41",
+    "warszawa-tables": "61ee252c6d215fda9fa9fcf90f403af5ffb41a9ba7a649cc67e00c051fa0cb0c",
+    "warszawianka-tables": "723b546ed57afdab9eebee812197d9f55e35de85d6e11cde1d0a1540ad2ada45"
+  },
+  "parent_web_id": 7791,
+  "target_web_id": 61637,
+  "own_observation": "W artykule Warszawa odsyłacz typu nazwa mieszkańca wskazuje warszawianka; cel ma odwrotny odsyłacz do miejscowości Warszawa i męskiego odpowiednika.",
+  "urls": [
+    "https://sgjp.pl/leksemy/#7791/Warszawa",
+    "https://sgjp.pl/leksemy/#61637/warszawianka",
+    "https://sgjp.pl/instrukcja/"
+  ],
+  "population_complete": false,
+  "full_id_single_sense_proven": false,
+  "active_build_inputs_added": 0,
+  "automatic_eligibility_decisions": false,
+  "metadata_reuse_status": "not_activated; no licensed_machine_snapshot_alignment_established",
+  "reference_code_sha256": {
+    "tmp/sgjp-reader-page.html": "57fbda8794bb53ae22e4f39274dd86e20da8ea72754e503da369c06f9e50cfa2",
+    "tmp/sgjp-reader-view.js": "59684e0387f00e9a21823323b9e5af97d23480b7c6f2852b93aab94074e90c70"
+  }
+}

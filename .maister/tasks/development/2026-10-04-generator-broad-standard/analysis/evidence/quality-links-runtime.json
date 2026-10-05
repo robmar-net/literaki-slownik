@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "scope": "full_historical_13_list_link_population_not_final_build_or_review",
+  "source_db_sha256": "d00d987207f8cc8327a7bd643e5d39ea47d674b0ea7a1d29133d21061532ad96",
+  "source_unchanged": true,
+  "repeat_identical": true,
+  "evidence_units": 5066341,
+  "sample_sha256": "d06b819972da13e40a01310106f7dfdac4e5bda62f766afa7a1d047f126dabf3",
+  "sample_units": 270,
+  "strata": {
+    "link:BIGRAM_SEGMENTS:AMBIGUOUS": {
+      "population": 0,
+      "sample_size": 0,
+      "coverage": "EMPTY_NOT_COVERAGE"
+    },
+    "link:BIGRAM_SEGMENTS:EXACT_CANDIDATE": {
+      "population": 0,
+      "sample_size": 0,
+      "coverage": "EMPTY_NOT_COVERAGE"
+    },
+    "link:BIGRAM_SEGMENTS:NOT_APPLICABLE": {
+      "population": 1627126,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "link:BIGRAM_SEGMENTS:UNMATCHED": {
+      "population": 0,
+      "sample_size": 0,
+      "coverage": "EMPTY_NOT_COVERAGE"
+    },
+    "link:NFC_FORM:AMBIGUOUS": {
+      "population": 0,
+      "sample_size": 0,
+      "coverage": "EMPTY_NOT_COVERAGE"
+    },
+    "link:NFC_FORM:EXACT_CANDIDATE": {
+      "population": 1160596,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "link:NFC_FORM:NOT_APPLICABLE": {
+      "population": 0,
+      "sample_size": 0,
+      "coverage": "EMPTY_NOT_COVERAGE"
+    },
+    "link:NFC_FORM:UNMATCHED": {
+      "population": 341673,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "link:NFC_LEMMA_POS:AMBIGUOUS": {
+      "population": 41341,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "link:NFC_LEMMA_POS:EXACT_CANDIDATE": {
+      "population": 405551,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "link:NFC_LEMMA_POS:NOT_APPLICABLE": {
+      "population": 0,
+      "sample_size": 0,
+      "coverage": "EMPTY_NOT_COVERAGE"
+    },
+    "link:NFC_LEMMA_POS:UNMATCHED": {
+      "population": 195097,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "link:NFC_LOWER_FORM:AMBIGUOUS": {
+      "population": 126929,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "link:NFC_LOWER_FORM:EXACT_CANDIDATE": {
+      "population": 1034001,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    },
+    "link:NFC_LOWER_FORM:NOT_APPLICABLE": {
+      "population": 0,
+      "sample_size": 0,
+      "coverage": "EMPTY_NOT_COVERAGE"
+    },
+    "link:NFC_LOWER_FORM:UNMATCHED": {
+      "population": 134027,
+      "sample_size": 30,
+      "coverage": "SAMPLED_NOT_VERIFIED"
+    }
+  },
+  "first_seconds": 33.097918165964074,
+  "total_seconds": 69.15188008296536,
+  "status": "UNREVIEWED",
+  "full_quality_matrix_pending": true,
+  "selected_keys_publication": "omitted_from_summary; complete_sample_bound_by_sha256"
+}

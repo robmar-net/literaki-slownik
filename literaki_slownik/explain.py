@@ -10,7 +10,7 @@ from .inputs import GeneratorError
 from .links import availability
 from .policy import assess_profile, VERSION
 from .sgjp import expand_tag, tag_errata
-from .constructions import impt_particle_candidates, impt_double_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, mobile_aglt_candidates, mobile_by_sequence_candidates, personal_aglt_candidates, BY_AGLT_ENDINGS
+from .constructions import impt_particle_candidates, impt_double_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, mobile_aglt_candidates, mobile_by_sequence_candidates, personal_aglt_candidates, spelling_variant_candidates, BY_AGLT_ENDINGS
 
 
 def _construction_sources(db, key):
@@ -25,6 +25,10 @@ def _construction_sources(db, key):
 def _derivations(db, key):
     """Odtwórz tylko potwierdzone klasy z rzeczywistych składników importu."""
     candidates = []
+    for source in _construction_sources(db,key):
+        metadata=db.execute('select metadata from source_artifact where source_id=?',(source['source_id'],)).fetchone()
+        source['source_sha256']=json.loads(metadata[0]).get('sha256') if metadata else None
+        candidates.extend(spelling_variant_candidates(source))
     if key.endswith('żeż') and len(key)>3:
         for source in _construction_sources(db,key[:-3]):
             candidates.extend(impt_double_particle_candidates(source))
@@ -231,6 +235,10 @@ def format_explanation(value):
     lines.append(f"\nKandydaci konstrukcji: {len(value['derivations'])}; pełne dopuszczenie nieustalone.")
     for candidate in value['derivations']:
         lines.append(f"  {candidate['original']} · {candidate['rule_id']} · {candidate['expanded_tag']}")
+        trace=candidate.get('orthographic_variant')
+        if trace:
+            lines.append(f"    Wariant pisowni: {trace['source_original']} → {trace['target_original']}; użycie {trace['use_id']}, {trace['coverage']}")
+            lines.append(f"    Dowód normy: {trace['document_sha256']} · {trace['locator']}")
         if candidate['persisted_candidate_key']:
             lines.append(f"    Zapisany ślad: {candidate['persisted_candidate_key']}")
         for component in candidate['components']:
