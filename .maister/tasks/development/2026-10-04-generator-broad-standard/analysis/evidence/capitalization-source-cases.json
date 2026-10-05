@@ -1,0 +1,459 @@
+{
+  "lemmas": {
+    "krakowiak:Sm1": {
+      "compact": 12,
+      "expanded": 17,
+      "originals": [
+        "krakowiacy",
+        "krakowiak",
+        "krakowiaka",
+        "krakowiakach",
+        "krakowiakami",
+        "krakowiaki",
+        "krakowiakiem",
+        "krakowiakom",
+        "krakowiakowi",
+        "krakowiaku",
+        "krakowiaków"
+      ]
+    },
+    "krakowiak:Sm2": {
+      "compact": 11,
+      "expanded": 14,
+      "originals": [
+        "krakowiak",
+        "krakowiaka",
+        "krakowiakach",
+        "krakowiakami",
+        "krakowiaki",
+        "krakowiakiem",
+        "krakowiakom",
+        "krakowiakowi",
+        "krakowiaku",
+        "krakowiaków"
+      ]
+    },
+    "warszawiak": {
+      "compact": 12,
+      "expanded": 17,
+      "originals": [
+        "warszawiacy",
+        "warszawiak",
+        "warszawiaka",
+        "warszawiakach",
+        "warszawiakami",
+        "warszawiaki",
+        "warszawiakiem",
+        "warszawiakom",
+        "warszawiakowi",
+        "warszawiaku",
+        "warszawiaków"
+      ]
+    },
+    "warszawianin": {
+      "compact": 12,
+      "expanded": 17,
+      "originals": [
+        "warszawian",
+        "warszawianach",
+        "warszawianami",
+        "warszawianie",
+        "warszawianin",
+        "warszawianina",
+        "warszawianinem",
+        "warszawianinie",
+        "warszawianinowi",
+        "warszawianom",
+        "warszawiany"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "first_row": 2229527,
+      "lemma_id": "krakowiak:Sm1",
+      "names": "nazwa_pospolita",
+      "original": "krakowiacy",
+      "qualifiers": "",
+      "tag": "subst:pl:nom.voc:m1"
+    },
+    {
+      "first_row": 2229528,
+      "lemma_id": "krakowiak:Sm1",
+      "names": "nazwa_pospolita",
+      "original": "krakowiak",
+      "qualifiers": "",
+      "tag": "subst:sg:nom:m1"
+    },
+    {
+      "first_row": 2229529,
+      "lemma_id": "krakowiak:Sm1",
+      "names": "nazwa_pospolita",
+      "original": "krakowiaka",
+      "qualifiers": "",
+      "tag": "subst:sg:gen.acc:m1"
+    },
+    {
+      "first_row": 2229530,
+      "lemma_id": "krakowiak:Sm1",
+      "names": "nazwa_pospolita",
+      "original": "krakowiakach",
+      "qualifiers": "",
+      "tag": "subst:pl:loc:m1"
+    },
+    {
+      "first_row": 2229531,
+      "lemma_id": "krakowiak:Sm1",
+      "names": "nazwa_pospolita",
+      "original": "krakowiakami",
+      "qualifiers": "",
+      "tag": "subst:pl:inst:m1"
+    },
+    {
+      "first_row": 2229532,
+      "lemma_id": "krakowiak:Sm1",
+      "names": "nazwa_pospolita",
+      "original": "krakowiaki",
+      "qualifiers": "",
+      "tag": "depr:pl:nom.acc.voc:m2"
+    },
+    {
+      "first_row": 2229533,
+      "lemma_id": "krakowiak:Sm1",
+      "names": "nazwa_pospolita",
+      "original": "krakowiakiem",
+      "qualifiers": "",
+      "tag": "subst:sg:inst:m1"
+    },
+    {
+      "first_row": 2229534,
+      "lemma_id": "krakowiak:Sm1",
+      "names": "nazwa_pospolita",
+      "original": "krakowiakom",
+      "qualifiers": "",
+      "tag": "subst:pl:dat:m1"
+    },
+    {
+      "first_row": 2229535,
+      "lemma_id": "krakowiak:Sm1",
+      "names": "nazwa_pospolita",
+      "original": "krakowiakowi",
+      "qualifiers": "",
+      "tag": "subst:sg:dat:m1"
+    },
+    {
+      "first_row": 2229536,
+      "lemma_id": "krakowiak:Sm1",
+      "names": "nazwa_pospolita",
+      "original": "krakowiaku",
+      "qualifiers": "",
+      "tag": "subst:sg:loc:m1"
+    },
+    {
+      "first_row": 2229537,
+      "lemma_id": "krakowiak:Sm1",
+      "names": "nazwa_pospolita",
+      "original": "krakowiaku",
+      "qualifiers": "",
+      "tag": "subst:sg:voc:m1"
+    },
+    {
+      "first_row": 2229538,
+      "lemma_id": "krakowiak:Sm1",
+      "names": "nazwa_pospolita",
+      "original": "krakowiaków",
+      "qualifiers": "",
+      "tag": "subst:pl:gen.acc:m1"
+    },
+    {
+      "first_row": 2229516,
+      "lemma_id": "krakowiak:Sm2",
+      "names": "nazwa_pospolita",
+      "original": "krakowiak",
+      "qualifiers": "chor.",
+      "tag": "subst:sg:nom:m2"
+    },
+    {
+      "first_row": 2229517,
+      "lemma_id": "krakowiak:Sm2",
+      "names": "nazwa_pospolita",
+      "original": "krakowiaka",
+      "qualifiers": "chor.",
+      "tag": "subst:sg:gen.acc:m2"
+    },
+    {
+      "first_row": 2229518,
+      "lemma_id": "krakowiak:Sm2",
+      "names": "nazwa_pospolita",
+      "original": "krakowiakach",
+      "qualifiers": "chor.",
+      "tag": "subst:pl:loc:m2"
+    },
+    {
+      "first_row": 2229519,
+      "lemma_id": "krakowiak:Sm2",
+      "names": "nazwa_pospolita",
+      "original": "krakowiakami",
+      "qualifiers": "chor.",
+      "tag": "subst:pl:inst:m2"
+    },
+    {
+      "first_row": 2229520,
+      "lemma_id": "krakowiak:Sm2",
+      "names": "nazwa_pospolita",
+      "original": "krakowiaki",
+      "qualifiers": "chor.",
+      "tag": "subst:pl:nom.acc.voc:m2"
+    },
+    {
+      "first_row": 2229521,
+      "lemma_id": "krakowiak:Sm2",
+      "names": "nazwa_pospolita",
+      "original": "krakowiakiem",
+      "qualifiers": "chor.",
+      "tag": "subst:sg:inst:m2"
+    },
+    {
+      "first_row": 2229522,
+      "lemma_id": "krakowiak:Sm2",
+      "names": "nazwa_pospolita",
+      "original": "krakowiakom",
+      "qualifiers": "chor.",
+      "tag": "subst:pl:dat:m2"
+    },
+    {
+      "first_row": 2229523,
+      "lemma_id": "krakowiak:Sm2",
+      "names": "nazwa_pospolita",
+      "original": "krakowiakowi",
+      "qualifiers": "chor.",
+      "tag": "subst:sg:dat:m2"
+    },
+    {
+      "first_row": 2229524,
+      "lemma_id": "krakowiak:Sm2",
+      "names": "nazwa_pospolita",
+      "original": "krakowiaku",
+      "qualifiers": "chor.",
+      "tag": "subst:sg:loc:m2"
+    },
+    {
+      "first_row": 2229525,
+      "lemma_id": "krakowiak:Sm2",
+      "names": "nazwa_pospolita",
+      "original": "krakowiaku",
+      "qualifiers": "chor.",
+      "tag": "subst:sg:voc:m2"
+    },
+    {
+      "first_row": 2229526,
+      "lemma_id": "krakowiak:Sm2",
+      "names": "nazwa_pospolita",
+      "original": "krakowiaków",
+      "qualifiers": "chor.",
+      "tag": "subst:pl:gen:m2"
+    },
+    {
+      "first_row": 6309639,
+      "lemma_id": "warszawiak",
+      "names": "nazwa_pospolita",
+      "original": "warszawiacy",
+      "qualifiers": "",
+      "tag": "subst:pl:nom.voc:m1"
+    },
+    {
+      "first_row": 6309640,
+      "lemma_id": "warszawiak",
+      "names": "nazwa_pospolita",
+      "original": "warszawiak",
+      "qualifiers": "",
+      "tag": "subst:sg:nom:m1"
+    },
+    {
+      "first_row": 6309641,
+      "lemma_id": "warszawiak",
+      "names": "nazwa_pospolita",
+      "original": "warszawiaka",
+      "qualifiers": "",
+      "tag": "subst:sg:gen.acc:m1"
+    },
+    {
+      "first_row": 6309642,
+      "lemma_id": "warszawiak",
+      "names": "nazwa_pospolita",
+      "original": "warszawiakach",
+      "qualifiers": "",
+      "tag": "subst:pl:loc:m1"
+    },
+    {
+      "first_row": 6309643,
+      "lemma_id": "warszawiak",
+      "names": "nazwa_pospolita",
+      "original": "warszawiakami",
+      "qualifiers": "",
+      "tag": "subst:pl:inst:m1"
+    },
+    {
+      "first_row": 6309644,
+      "lemma_id": "warszawiak",
+      "names": "nazwa_pospolita",
+      "original": "warszawiaki",
+      "qualifiers": "",
+      "tag": "depr:pl:nom.acc.voc:m2"
+    },
+    {
+      "first_row": 6309645,
+      "lemma_id": "warszawiak",
+      "names": "nazwa_pospolita",
+      "original": "warszawiakiem",
+      "qualifiers": "",
+      "tag": "subst:sg:inst:m1"
+    },
+    {
+      "first_row": 6309646,
+      "lemma_id": "warszawiak",
+      "names": "nazwa_pospolita",
+      "original": "warszawiakom",
+      "qualifiers": "",
+      "tag": "subst:pl:dat:m1"
+    },
+    {
+      "first_row": 6309647,
+      "lemma_id": "warszawiak",
+      "names": "nazwa_pospolita",
+      "original": "warszawiakowi",
+      "qualifiers": "",
+      "tag": "subst:sg:dat:m1"
+    },
+    {
+      "first_row": 6309648,
+      "lemma_id": "warszawiak",
+      "names": "nazwa_pospolita",
+      "original": "warszawiaku",
+      "qualifiers": "",
+      "tag": "subst:sg:loc:m1"
+    },
+    {
+      "first_row": 6309649,
+      "lemma_id": "warszawiak",
+      "names": "nazwa_pospolita",
+      "original": "warszawiaku",
+      "qualifiers": "",
+      "tag": "subst:sg:voc:m1"
+    },
+    {
+      "first_row": 6309650,
+      "lemma_id": "warszawiak",
+      "names": "nazwa_pospolita",
+      "original": "warszawiaków",
+      "qualifiers": "",
+      "tag": "subst:pl:gen.acc:m1"
+    },
+    {
+      "first_row": 6309651,
+      "lemma_id": "warszawianin",
+      "names": "nazwa_pospolita",
+      "original": "warszawian",
+      "qualifiers": "",
+      "tag": "subst:pl:gen.acc:m1"
+    },
+    {
+      "first_row": 6309652,
+      "lemma_id": "warszawianin",
+      "names": "nazwa_pospolita",
+      "original": "warszawianach",
+      "qualifiers": "",
+      "tag": "subst:pl:loc:m1"
+    },
+    {
+      "first_row": 6309653,
+      "lemma_id": "warszawianin",
+      "names": "nazwa_pospolita",
+      "original": "warszawianami",
+      "qualifiers": "",
+      "tag": "subst:pl:inst:m1"
+    },
+    {
+      "first_row": 6309654,
+      "lemma_id": "warszawianin",
+      "names": "nazwa_pospolita",
+      "original": "warszawianie",
+      "qualifiers": "",
+      "tag": "subst:pl:nom.voc:m1"
+    },
+    {
+      "first_row": 6309655,
+      "lemma_id": "warszawianin",
+      "names": "nazwa_pospolita",
+      "original": "warszawianin",
+      "qualifiers": "",
+      "tag": "subst:sg:nom:m1"
+    },
+    {
+      "first_row": 6309656,
+      "lemma_id": "warszawianin",
+      "names": "nazwa_pospolita",
+      "original": "warszawianina",
+      "qualifiers": "",
+      "tag": "subst:sg:gen.acc:m1"
+    },
+    {
+      "first_row": 6309657,
+      "lemma_id": "warszawianin",
+      "names": "nazwa_pospolita",
+      "original": "warszawianinem",
+      "qualifiers": "",
+      "tag": "subst:sg:inst:m1"
+    },
+    {
+      "first_row": 6309658,
+      "lemma_id": "warszawianin",
+      "names": "nazwa_pospolita",
+      "original": "warszawianinie",
+      "qualifiers": "",
+      "tag": "subst:sg:loc:m1"
+    },
+    {
+      "first_row": 6309659,
+      "lemma_id": "warszawianin",
+      "names": "nazwa_pospolita",
+      "original": "warszawianinie",
+      "qualifiers": "",
+      "tag": "subst:sg:voc:m1"
+    },
+    {
+      "first_row": 6309660,
+      "lemma_id": "warszawianin",
+      "names": "nazwa_pospolita",
+      "original": "warszawianinowi",
+      "qualifiers": "",
+      "tag": "subst:sg:dat:m1"
+    },
+    {
+      "first_row": 6309661,
+      "lemma_id": "warszawianin",
+      "names": "nazwa_pospolita",
+      "original": "warszawianom",
+      "qualifiers": "",
+      "tag": "subst:pl:dat:m1"
+    },
+    {
+      "first_row": 6309662,
+      "lemma_id": "warszawianin",
+      "names": "nazwa_pospolita",
+      "original": "warszawiany",
+      "qualifiers": "",
+      "tag": "depr:pl:nom.acc.voc:m2"
+    }
+  ],
+  "source_database_mode": "ro",
+  "total_changes": 0,
+  "schema_version": 1,
+  "observed_at": "2026-10-05T10:09:09Z",
+  "scope": "three_example_lexemes_not_full_capitalization_inventory",
+  "source_id": "sgjp-20260823",
+  "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+  "norm_url": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf",
+  "norm_section": "8.1.2 point3, printedpage43",
+  "active_rule_changed": false
+}

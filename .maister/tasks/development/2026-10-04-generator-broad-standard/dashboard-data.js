@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T09:10:37.749839+00:00",
+  "generated": "2026-10-05T10:09:09Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Akcent A i klasy gry wdrożone; pełna macierz nadal w toku"
+    "current_activity": "Utrwalone oceny sprawdzone; potrzebna decyzja normy odniesienia growej wielkiej litery"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Zatwierdzone A dla adnotacji akcent wdrożono bez zmiany dawności: BROAD nie wyklucza przez brak objaśnienia, STANDARD odrzuca dwie analizy daw.,rzad.,akcent. Pełny raport 7 458 520 analiz zachowuje 26 nieobjaśnionych oznaczeń w 1910 analizach. Dodano diagnostyczne warunki klas źródłowych gry: nazwy, brev, niesamodzielne segmenty oraz odrębną ocenę całości konstrukcji. Nowa zamknięta klasa ja/ty/my/wy/wszyscy zachowuje sześć kandydatów i growe odrzucenie tych analiz, bez usuwania homonimów. Pozostałe mobilne hosty i sekwencje by oceniono zgodnie z zachowanymi wyłączeniami gry; byle ma udokumentowany wyjątek. Pełna kwalifikacja i wydanie nadal nieukończone.",
+      "summary": "Utrwalono diagnostycznie każde rozwinięcie tagu i każdą konstrukcję, dwa warianty i komplet powodów w schema2. Wspólne dokumenty JSON/SHA nie tracą indywidualnego profilu ani homonimów. Explain pokazuje zapisane analizy z wersją; build tworzy decisions.json, logical-content obejmuje nowe relacje. Projekcja615 interpretacji daje1626 analiz/3252 oceny,72 dokumenty powodów, repeat0new i identyczny digest; FK/integrity OK. Generator147/147,audyt5/5. Pełna polityka/listy/verify/export pozostają nieukończone. Przed filtrem wymagającym wielkiej litery dla dawnych zapisów BROAD potrzebne doprecyzowanie normy odniesienia wspólnych reguł gry.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -537,11 +537,36 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/construction-game-runtime.json",
           "label": "Wyłączenia konstrukcji i całe ślady"
+        },
+        {
+          "path": "analysis/evidence/persisted-assessments-review.md",
+          "label": "Utrwalone analizy i powody ocen"
+        },
+        {
+          "path": "analysis/evidence/persisted-assessment-runtime.json",
+          "label": "Rzeczywista kontrola zapisanych ocen"
+        },
+        {
+          "path": "analysis/evidence/capitalization-source-cases.json",
+          "label": "Przykłady wielkiej litery i niezależnego homonimu"
+        },
+        {
+          "path": "analysis/evidence/game-capitalization-norm-decision.md",
+          "label": "Norma odniesienia growej wielkiej litery"
         }
       ],
       "gate": {
-        "question": null,
-        "answer": null
+        "id": "broad_game_capitalization_norm_reference",
+        "status": "pending",
+        "created_at": "2026-10-05T10:09:09Z",
+        "question": "Czy obowiązkową wielką literę w regułach gry oceniamy według normy2026 także dla dawnych zapisów zachowanych językowo w BROAD?",
+        "options": {
+          "A": "Tak: wspólny growy warunek normy2026, dawne wpisy pozostają w bazie; homonimy osobno (rekomendowane).",
+          "B": "Najpierw doprecyzujmy wpływ normy historycznej na warstwę grową; bez aktywacji nowego filtra."
+        },
+        "answer": null,
+        "artifact": "analysis/evidence/game-capitalization-norm-decision.md",
+        "authority": "AGENTS.md; spec§6; planG3/3.4"
       }
     },
     {

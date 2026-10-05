@@ -14,6 +14,18 @@ from literaki_slownik.explain import explain
 
 
 class ExplainTests(unittest.TestCase):
+    def test_persisted_expanded_assessments_are_reachable_readonly(self):
+        from tests.test_build import BuildTests
+        root=Path(self.temp.name)/'snapshots';root.mkdir()
+        p=BuildTests().manifest(root,'#</COPYRIGHT>\nkot\tkot\tsubst:sg:nom.acc:m2\t\t\n')
+        run=root/'run';build(p,run)
+        before=sha256(run/'build.sqlite')
+        value=explain(run,'kot')
+        self.assertEqual({a['expanded_tag'] for a in value['persisted_analyses']},{'subst:sg:nom:m2','subst:sg:acc:m2'})
+        self.assertEqual(len(value['persisted_analyses']),2)
+        self.assertTrue(all(a['assessment']['membership']['status']=='unresolved' for a in value['persisted_analyses']))
+        self.assertEqual(sha256(run/'build.sqlite'),before)
+
     def test_personal_construction_rejected_game_analysis_preserves_independent_homonym(self):
         from tests.test_build import BuildTests
         root=Path(self.temp.name)/'personal';root.mkdir()
@@ -387,6 +399,9 @@ class ExplainTests(unittest.TestCase):
 
     def test_legacy_database_without_candidate_tables_still_explains_on_demand(self):
         with connect(self.run / 'build.sqlite') as db:
+            db.execute('drop table variant_decision')
+            db.execute('drop table decision_payload')
+            db.execute('drop table analysis')
             db.execute('drop table derivation_component')
             db.execute('drop table derivation_candidate')
         value = explain(self.run, 'czytajże')

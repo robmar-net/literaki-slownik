@@ -58,3 +58,6 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Adnotacja akcent](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/accent-gloss-first-release-decision.md) — zatwierdzone A, zachowana adnotacja i osobne odrzucenie STANDARD za dawność.
 
 - [Akcent i klasy źródłowe gry](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/accent-and-source-game-review.md) — 142 testy, pełny runtime klas i sześć konstrukcji osobowych bez utraty homonimów.
+
+- [Utrwalone analizy i powody ocen](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/persisted-assessments-review.md) — schema2, idempotencja, pełne rozwinięcia, bez ukończonego wydania.
+- [Norma odniesienia wielkiej litery w grze](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/game-capitalization-norm-decision.md) — wymagana decyzja przed filtrem dawnych zapisów BROAD.

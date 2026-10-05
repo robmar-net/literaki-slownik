@@ -5,32 +5,12 @@ import hashlib
 import sqlite3
 from .canonical import load_json, dumps
 from .database import connect
-from .decisions import assess_analysis, aggregate, VARIANTS
+from .decisions import assess_diagnostic as _assess, aggregate, persisted_assessments, VARIANTS
 from .inputs import GeneratorError
 from .links import availability
-from .policy import assess_profile, approved_qualifier_checks, orthography_checks, release_scope_checks, construction_orthography_checks, source_game_checks, VERSION
+from .policy import assess_profile, VERSION
 from .sgjp import expand_tag, tag_errata
 from .constructions import impt_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, mobile_aglt_candidates, mobile_by_sequence_candidates, personal_aglt_candidates, BY_AGLT_ENDINGS
-
-
-def _pending(rule_id, message):
-    return [{'rule_id': rule_id, 'status': 'unresolved', 'message': message, 'evidence': []}]
-
-
-def _assess(original, qualifiers, additional_checks=(), source_analyses=(), candidate=None):
-    pending = _pending('linguistic-policy-not-active-v1', 'Pełna polityka językowa G3/G4 nie jest jeszcze aktywna.')
-    game_checks = _pending('game-metadata-not-complete-v1',
-                           'Pozostałe udokumentowane warunki growe wymagają domknięcia.')
-    if candidate is not None:
-        game_checks += source_game_checks(dict(raw_tag=candidate['expanded_tag'],
-                                              names=candidate['names'],qualifiers=qualifiers),candidate=candidate)
-    else:
-        game_checks += [check for source in source_analyses for check in source_game_checks(source)]
-    return assess_analysis(original,
-                           language={v: pending + approved_qualifier_checks(qualifiers, v) + list(additional_checks) +
-                           [check for source in source_analyses for check in orthography_checks(source,v)] + construction_orthography_checks(candidate,v) for v in VARIANTS},
-                           scope_checks=release_scope_checks(candidate),
-                           game_checks=game_checks)
 
 
 def _construction_sources(db, key):
@@ -167,6 +147,7 @@ def explain(run_dir, word, variant='standard'):
                                  'qualifiers': qualifiers, 'assessment': assessed,
                                  'tag_errata': tag_errata(sources[sid].get('sha256'),lemma,original,tag)})
             derivations = _derivations(db, query['game_key'])
+            persisted = persisted_assessments(db,query['game_key'],variant)
             for candidate in derivations:
                 for component in candidate['components']:
                     if component['kind'] != 'source_interpretation':
@@ -188,6 +169,7 @@ def explain(run_dir, word, variant='standard'):
                 'scope': 'diagnostic_import_and_confirmed_derivation_candidates', 'source_presence': presence,
                 'import_complete': imported, 'stages': stages, 'sources': sources,
                 'analyses': analyses, 'source_aggregation': source_aggregation, 'derivations': derivations,
+                'persisted_analyses':persisted,
                 'list_membership': {'status': 'unresolved',
                                     'reason': 'Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane.'},
                 'corpus': corpus, 'diagnostics': diagnostics}
@@ -217,6 +199,10 @@ def format_explanation(value):
             lines.append(f"  {layer}: {labels[result['status']]}")
             for check in result['checks']:
                 lines.append(f"    {check['rule_id']}: {labels[check['status']]} — {check['message']}")
+    lines.append(f"\nZapisane rozwinięte analizy: {len(value.get('persisted_analyses',[]))}; diagnostyczne oceny z czasu build.")
+    for item in value.get('persisted_analyses',[]):
+        lines.append(f"  {item['analysis_key']} · {item['expanded_tag']} · {item['variant']} · "
+                     f"{labels[item['assessment']['membership']['status']]} · wersja {item['policy_version']}")
     lines.append(f"\nKandydaci konstrukcji: {len(value['derivations'])}; pełne dopuszczenie nieustalone.")
     for candidate in value['derivations']:
         lines.append(f"  {candidate['original']} · {candidate['rule_id']} · {candidate['expanded_tag']}")

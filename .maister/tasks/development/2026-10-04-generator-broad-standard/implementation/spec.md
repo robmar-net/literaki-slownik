@@ -257,3 +257,9 @@ Wdrożono A dla25dosłownych oznaczeń bez pełnego objaśnienia: source_label z
 Zatwierdzone A dla adnotacji akcent wdrożono bez zmiany dawności: BROAD nie wyklucza przez brak objaśnienia, STANDARD odrzuca dwie analizy daw.,rzad.,akcent. Pełny raport 7 458 520 analiz zachowuje 26 nieobjaśnionych oznaczeń w 1910 analizach. Dodano diagnostyczne warunki klas źródłowych gry: nazwy, brev, niesamodzielne segmenty oraz odrębną ocenę całości konstrukcji. Nowa zamknięta klasa ja/ty/my/wy/wszyscy zachowuje sześć kandydatów i growe odrzucenie tych analiz, bez usuwania homonimów. Pozostałe mobilne hosty i sekwencje by oceniono zgodnie z zachowanymi wyłączeniami gry; byle ma udokumentowany wyjątek. Pełna kwalifikacja i wydanie nadal nieukończone.
 
 [Przegląd i dowody](../analysis/evidence/accent-and-source-game-review.md).
+
+## Utrwalone oceny — postęp i następna decyzja
+
+Utrwalono diagnostycznie każde rozwinięcie tagu i każdą konstrukcję, dwa warianty i komplet powodów w schema2. Wspólne dokumenty JSON/SHA nie tracą indywidualnego profilu ani homonimów. Explain pokazuje zapisane analizy z wersją; build tworzy decisions.json, logical-content obejmuje nowe relacje. Projekcja615 interpretacji daje1626 analiz/3252 oceny,72 dokumenty powodów, repeat0new i identyczny digest; FK/integrity OK. Generator147/147,audyt5/5. Pełna polityka/listy/verify/export pozostają nieukończone. Przed filtrem wymagającym wielkiej litery dla dawnych zapisów BROAD potrzebne doprecyzowanie normy odniesienia wspólnych reguł gry.
+
+[Przegląd](../analysis/evidence/persisted-assessments-review.md); [decyzja](../analysis/evidence/game-capitalization-norm-decision.md).

@@ -12,6 +12,7 @@ from .run import create_run, set_stage
 from .reports import qualifier_coverage, logical_content_report
 from .constructions import materialize_confirmed_candidates
 from .links import create_links, link_report
+from .decisions import materialize_assessments
 
 
 def flush(db, sql, batch):
@@ -111,6 +112,11 @@ def build(manifest_path, run_dir, batch_size=10000):
             construction_counts = materialize_confirmed_candidates(db, batch_size)
             performance['diagnostic_constructions'] = {'seconds': time.monotonic() - start}
             write_json(run / 'reports/construction-candidates.json', construction_counts)
+            stage='decisions'
+            start=time.monotonic()
+            decision_counts=materialize_assessments(db,batch_size)
+            performance['diagnostic_decisions']={'seconds':time.monotonic()-start}
+            write_json(run/'reports/decisions.json',decision_counts)
             # Powiązania bezpośrednie są niezależne od kwalifikacji językowej.
             # Pełny etap czeka także na powiązania wszystkich klas konstrukcji.
             stage = 'links'

@@ -1,4 +1,73 @@
 import unittest
+
+
+class PersistedDecisionTests(unittest.TestCase):
+    def test_shared_reasons_keep_each_original_profile_and_complete_decision(self):
+        import tempfile
+        from pathlib import Path
+        from tests.test_build import BuildTests
+        from literaki_slownik.build import build
+        from literaki_slownik.database import connect
+        from literaki_slownik.decisions import persisted_assessments,assess_diagnostic
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);p=BuildTests().manifest(root,'#</COPYRIGHT>\nkot\tkot\tsubst:sg:nom:m2\t\t\npies\tpies\tsubst:sg:nom:m2\t\t\n')
+            run=root/'run';build(p,run)
+            with connect(run/'build.sqlite',readonly=True) as db:
+                self.assertEqual(db.execute('select count(*) from decision_payload').fetchone()[0],1)
+                for word in ('kot','pies'):
+                    row,=persisted_assessments(db,word,'standard')
+                    live=assess_diagnostic(word,'',source_analyses=[dict(original=word,lemma_id=word,raw_tag='subst:sg:nom:m2',names='',qualifiers='')])
+                    self.assertEqual(row['assessment']['profile'],live['profile'])
+                    self.assertEqual(row['assessment']['membership'],live['membership']['standard'])
+                self.assertEqual(db.total_changes,0)
+
+    def test_all_expansions_and_homonyms_preserved_with_stable_content_keys(self):
+        import tempfile
+        from pathlib import Path
+        from tests.test_build import BuildTests
+        from literaki_slownik.build import build
+        from literaki_slownik.database import connect
+        from literaki_slownik.decisions import materialize_assessments,persisted_assessments
+        from literaki_slownik.reports import logical_content_report
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            p=BuildTests().manifest(root,'#</COPYRIGHT>\nbiało\tbiały\tadja\t\t\nbiało\tbiało\tadv:pos\t\t\njam\tjama\tsubst:pl:gen:f\t\t\nkot\tkot\tsubst:sg:nom.acc:m2\t\t\nja\tja\tppron12:sg:nom:m1:pri\t\t\nm\tbyć:A\taglt:sg:pri:imperf:nwok\t\t\n')
+            run=root/'run';build(p,run)
+            with connect(run/'build.sqlite') as db:
+                first=materialize_assessments(db,batch_size=2)
+                self.assertEqual(first['source_analyses'],7)
+                self.assertEqual(first['construction_analyses'],1)
+                self.assertEqual(first['variant_decisions'],16)
+                self.assertEqual(db.execute("select count(*) from analysis where expanded_tag in ('subst:sg:nom:m2','subst:sg:acc:m2')").fetchone()[0],2)
+                statuses=db.execute("select a.original,a.expanded_tag,d.game_status from analysis a join variant_decision d using(analysis_key) where d.variant='standard' and a.original in ('biało','jam') order by a.original,a.expanded_tag").fetchall()
+                self.assertEqual(statuses,[('biało','adja','reject'),('biało','adv:pos','unresolved'),('jam','aglt:sg:pri:imperf:nwok','reject'),('jam','subst:pl:gen:f','unresolved')])
+                before=logical_content_report(db)
+                second=materialize_assessments(db,batch_size=3)
+                self.assertEqual(second['new_analyses'],0)
+                self.assertEqual(second['new_decisions'],0)
+                self.assertEqual(logical_content_report(db),before)
+                self.assertEqual(db.execute('pragma foreign_key_check').fetchall(),[])
+
+    def test_policy_change_refuses_overwriting_previous_snapshot(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+        from tests.test_build import BuildTests
+        from literaki_slownik.build import build
+        from literaki_slownik.database import connect
+        from literaki_slownik.decisions import materialize_assessments,persisted_assessments
+        from literaki_slownik.inputs import GeneratorError
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);p=BuildTests().manifest(root,'#</COPYRIGHT>\nkot\tkot\tsubst:sg:nom:m2\t\t\n')
+            run=root/'run';build(p,run)
+            with connect(run/'build.sqlite') as db:
+                materialize_assessments(db)
+                with patch('literaki_slownik.decisions.POLICY_VERSION','future'):
+                    with self.assertRaises(GeneratorError):materialize_assessments(db)
+                db.execute("update decision_payload set assessment='{}'")
+                with self.assertRaises(GeneratorError):materialize_assessments(db)
+                with self.assertRaises(GeneratorError):persisted_assessments(db,'kot','standard')
+
 from literaki_slownik.decisions import assessment, assess_analysis, aggregate
 from literaki_slownik.inputs import GeneratorError
 

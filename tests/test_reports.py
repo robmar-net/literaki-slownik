@@ -45,6 +45,7 @@ class LogicalContentTests(unittest.TestCase):
                 db.execute('pragma foreign_keys=off')
                 db.execute('update lexeme set id=id+1000')
                 db.execute('update interpretation set lexeme_id=lexeme_id+1000,id=id+1000')
+                db.execute('update analysis set interpretation_id=interpretation_id+1000 where interpretation_id is not null')
                 db.execute('update evidence_candidate set lexeme_id=lexeme_id+1000 where lexeme_id is not null')
                 db.execute('update surface_form set id=id+1000')
                 db.execute('update interpretation set form_id=form_id+1000')

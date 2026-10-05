@@ -1,4 +1,4 @@
-PRAGMA user_version=1;
+PRAGMA user_version=2;
 CREATE TABLE source_artifact (
  source_id TEXT PRIMARY KEY, kind TEXT NOT NULL, metadata TEXT NOT NULL
 );
@@ -52,3 +52,30 @@ CREATE TABLE derivation_component (
  CHECK ((kind='source_interpretation' AND source_id IS NOT NULL AND source_row IS NOT NULL)
      OR (kind='grammatical_particle' AND source_id IS NULL AND source_row IS NULL))
 );
+CREATE TABLE analysis (
+ analysis_key TEXT PRIMARY KEY,
+ interpretation_id INTEGER REFERENCES interpretation,
+ candidate_key TEXT REFERENCES derivation_candidate,
+ expanded_tag TEXT NOT NULL, original TEXT NOT NULL, nfc TEXT NOT NULL,
+ game_key TEXT NOT NULL, length INTEGER NOT NULL,
+ policy_version TEXT NOT NULL,
+ CHECK ((interpretation_id IS NOT NULL AND candidate_key IS NULL)
+     OR (interpretation_id IS NULL AND candidate_key IS NOT NULL))
+);
+CREATE INDEX analysis_game_key ON analysis(game_key);
+CREATE INDEX analysis_interpretation ON analysis(interpretation_id);
+CREATE TABLE decision_payload (
+ assessment_key TEXT PRIMARY KEY, assessment TEXT NOT NULL
+);
+CREATE TABLE variant_decision (
+ analysis_key TEXT NOT NULL REFERENCES analysis,
+ variant TEXT NOT NULL CHECK(variant IN ('broad','standard')),
+ language_status TEXT NOT NULL CHECK(language_status IN ('accept','reject','unresolved')),
+ game_status TEXT NOT NULL CHECK(game_status IN ('accept','reject','unresolved')),
+ profile_status TEXT NOT NULL CHECK(profile_status IN ('accept','reject','unresolved')),
+ scope_status TEXT NOT NULL CHECK(scope_status IN ('accept','reject','unresolved')),
+ membership_status TEXT NOT NULL CHECK(membership_status IN ('accept','reject','unresolved')),
+ assessment_key TEXT NOT NULL REFERENCES decision_payload,
+ PRIMARY KEY(analysis_key,variant)
+);
+CREATE INDEX decision_membership ON variant_decision(variant,membership_status);

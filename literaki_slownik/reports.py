@@ -26,6 +26,9 @@ def logical_content_report(db):
         'derivation_component': 'candidate_key position kind source_id source_row',
         'evidence_link': 'evidence_id method status sense_identity_confirmed reason',
         'evidence_candidate': 'id evidence_id lexeme_id form_id candidate_key',
+        'analysis': 'analysis_key interpretation_id candidate_key expanded_tag original nfc game_key length policy_version',
+        'decision_payload': 'assessment_key assessment',
+        'variant_decision': 'analysis_key variant language_status game_status profile_status scope_status membership_status assessment_key',
     }
     queries = {
         'source_artifact': ('select source_id,kind,metadata from source_artifact order by source_id', (2,)),
@@ -47,14 +50,22 @@ def logical_content_report(db):
             from evidence_candidate c join corpus_evidence e on e.id=c.evidence_id
             left join lexeme l on l.id=c.lexeme_id left join surface_form f on f.id=c.form_id
             order by e.source_id,e.row_number,l.source_id,l.lemma_id,f.original,c.candidate_key''', ()),
+        'analysis': ('''select a.analysis_key,i.source_id,i.first_row,a.candidate_key,a.expanded_tag,a.original,a.nfc,a.game_key,a.length,a.policy_version
+            from analysis a left join interpretation i on i.id=a.interpretation_id order by a.analysis_key''',()),
+        'decision_payload': ('select assessment_key,assessment from decision_payload order by assessment_key',(1,)),
+        'variant_decision': ('''select analysis_key,variant,language_status,game_status,profile_status,scope_status,membership_status,assessment_key
+            from variant_decision order by analysis_key,variant''',()),
     }
     try:
         tables = {row[0] for row in db.execute("select name from sqlite_master where type='table' and name not like 'sqlite_%'")}
-        required = set(columns) - {'evidence_link', 'evidence_candidate'}
+        assessment_tables={'analysis','variant_decision','decision_payload'}
+        required = set(columns) - {'evidence_link', 'evidence_candidate'} - assessment_tables
         if not required <= tables or tables - set(columns):
             raise GeneratorError('Nieznany lub niepełny schemat logical-content', 4)
         if ('evidence_link' in tables) != ('evidence_candidate' in tables):
             raise GeneratorError('Niepełny schemat powiązań logical-content', 4)
+        if tables & assessment_tables and not assessment_tables<=tables:
+            raise GeneratorError('Niepełny schemat ocen logical-content',4)
         for table in sorted(tables):
             actual = {row[1] for row in db.execute(f'pragma table_info({table})')}
             if actual != set(columns[table].split()):

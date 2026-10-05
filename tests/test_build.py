@@ -12,6 +12,17 @@ from literaki_slownik.inputs import GeneratorError
 
 
 class BuildTests(unittest.TestCase):
+    def test_diagnostic_decisions_written_with_full_reasons_without_activating_policy(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p=self.manifest(directory,'#</COPYRIGHT>\nkot\tkot\tsubst:sg:nom.acc:m2\t\t\n')
+            run=Path(directory)/'run';build(p,run)
+            with connect(run/'build.sqlite',readonly=True) as db:
+                self.assertEqual(db.execute('select count(*) from analysis').fetchone()[0],2)
+                self.assertEqual(db.execute('select count(*) from variant_decision').fetchone()[0],4)
+                self.assertEqual(db.execute('select distinct membership_status from variant_decision').fetchall(),[('unresolved',)])
+            self.assertTrue(load_json(run/'reports/decisions.json')['full_qualification_pending'])
+            self.assertEqual(load_json(run/'manifest.json')['stages']['decisions']['status'],'pending')
+
     def test_preposition_candidates_store_proof_and_unresolved_without_losing_homonym(self):
         with tempfile.TemporaryDirectory() as directory:
             p = self.manifest(directory, '#</COPYRIGHT>\ndo\tdo:P\tprep:gen\t\t\nkoło\tkoło:P\tprep:gen\t\t\nń\ton:S\tppron3:sg:gen:m1.m2.m3:ter:nakc:praep\t\tpisane_łącznie_z_przyimkiem\ndoń\tdonia\tsubst:pl:gen:f\t\t\n')

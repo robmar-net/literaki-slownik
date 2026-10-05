@@ -72,3 +72,7 @@ Wersja `diagnostic-approved-conditions-v7` dodaje zatwierdzony warunek kontekstu
 Nowe `build` zapisują także `reports/qualifier-conditions.json`: znane warunki i nierozpoznane etykiety. Raport pozostaje częściowy; nie zmienia gotowości INCOMPLETE ani statusu reports pending. Szczegóły w [raportach](raporty.md).
 
 Nowe `build` utrwalają również potwierdzone dwa rodzaje kandydatów konstrukcji i zapisują `reports/construction-candidates.json`. `explain` pokazuje `persisted_candidate_key` oraz zapisany ślad w tekście; dla wcześniejszych baz jest null. Pełny etap constructions pozostaje pending; nie oznacza to kompletnej kwalifikacji lub wydania.
+
+## Utrwalone oceny diagnostyczne (schema2)
+
+Nowy build zapisuje każde rozwinięcie tagu i każdą konstrukcję do analysis, po dwie variant_decision, i pełne współdzielone powody decision_payload identyfikowane SHA256. reports/decisions.json rozlicza pokrycie. Explain JSON udostępnia persisted_analyses z wersją zapisu, kompletną oceną i indywidualnym profilem. Bieżące analyses/derivations pozostają diagnostyką aktualnego kodu, więc wersje należy czytać osobno. Stara baza bez tabel ocen daje pustą persisted_analyses, bez zapisu lub migracji. Zmieniona wersja/treść wymaga nowego build; uszkodzony hash powodów jest błędem odczytu. decisions nadal pending, list_membership unresolved, INCOMPLETE; pełne verify/export niegotowe.
