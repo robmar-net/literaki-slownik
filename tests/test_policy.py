@@ -7,6 +7,30 @@ from literaki_slownik.inputs import GeneratorError
 
 
 class PolicyTests(unittest.TestCase):
+    def test_context_requirement_is_retained_and_non_excluding(self):
+        from literaki_slownik.policy import context_checks
+        for field, context in [('fraz.','phraseological_usage'), ('po_liczebniku','after_numeral'),
+                               ('z_D.','adjective_genitive'), ('gwar.,z_D.','adjective_genitive')]:
+            check, = context_checks(field)
+            self.assertEqual(check['status'], 'accept')
+            self.assertEqual(check['required_context'], context)
+            self.assertEqual(check['source_label'], field)
+
+    def test_context_does_not_restore_historical_form_or_bound_morpheme(self):
+        from literaki_slownik.policy import context_checks, approved_qualifier_checks
+        self.assertEqual(context_checks('pisane_łącznie_z_przyimkiem'), [])
+        self.assertEqual(context_checks('po_liczebniku,nieznane'), [])
+        self.assertEqual(assessment(approved_qualifier_checks('daw.,z_D.','standard'))['status'], 'reject')
+        self.assertEqual(assessment(approved_qualifier_checks('daw.,z_D.','broad'))['status'], 'accept')
+        self.assertEqual(len(context_checks('z_D.|z_D.')), 1)
+
+    def test_context_registry_matches_closed_mapping(self):
+        from literaki_slownik.policy import CONTEXT_REQUIREMENTS
+        rule = next(r for r in json.loads(Path('config/generator/policy.json').read_text())['rules']
+                    if r['rule_id'] == 'linguistic-context-non-excluding-v1')
+        self.assertEqual(rule['context_requirements'], CONTEXT_REQUIREMENTS)
+        self.assertEqual(rule['variants'], {'broad':'non_excluding','standard':'non_excluding'})
+
     def test_descriptive_qualifiers_do_not_reject_or_complete_analysis(self):
         from literaki_slownik.policy import descriptive_checks
         for field in ('med.', 'techn.', 'pot.,komp.', 'rzad.,techn.', 'książk.', 'char.', 'hom.', 'hist.'):

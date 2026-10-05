@@ -33,4 +33,4 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 
 - [Ocena niepoprawności SGJP](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/incorrect-forms-decision.md) — zatwierdzone A i wdrożony filtr konkretnych interpretacji, odrębny od niezalecania.
 
-- [Wymagania kontekstu](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/context-restrictions-decision.md) — rzeczywiste przypadki składni/frazeologii, decyzja przed nowym warunkiem.
+- [Wymagania kontekstu](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/context-restrictions-decision.md) — zatwierdzone A, 11 etykiet i pełny runtime warunku kontekstu.

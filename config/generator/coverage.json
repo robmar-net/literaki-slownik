@@ -10,7 +10,8 @@
     "closed_usage_registry_15_labels_non_excluding_approved_scope",
     "explicit_incorrectness_27_literal_labels_approved_A",
     "closed_357_descriptive_label_registry",
-    "readonly_explain_confirmed_derivation_candidates"
+    "readonly_explain_confirmed_derivation_candidates",
+    "closed_11_context_labels_non_excluding_approved_A"
   ],
   "full_source_compact_interpretations": 7458520,
   "observed_combinations": {
@@ -40,30 +41,22 @@
     "char.,gry",
     "etn.",
     "fot.",
-    "fraz.",
-    "fraz.,rzad.",
     "gry",
     "gry,zool.",
     "gwar.,etn.",
-    "gwar.,z_D.",
     "hom.,fot.",
     "hom.,gry",
     "kolej.",
-    "książk.,z_D.",
     "pisane_łącznie_z_przyimkiem",
-    "po_liczebniku",
     "podniosłe",
     "pot.,etn.",
     "pot.,gry",
-    "pot.,po_liczebniku",
     "pot.,slang",
-    "pot.,z_D.",
     "rzad.,etn.",
     "rzad.,fot.",
     "rzad.,slang",
     "slang",
     "slang,wulg.",
-    "spoż.",
-    "z_D."
+    "spoż."
   ]
 }

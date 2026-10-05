@@ -29,6 +29,7 @@ class ExplainTests(unittest.TestCase):
         lines.append('regionalna\tregionalny\tadj:sg:nom:f:pos\t\treg.,rzad.')
         lines.append('abolicjoniźmie\tabolicjonizm\tsubst:sg:loc:m3\tnazwa_pospolita\tniepopr.')
         lines.append('techniczne\ttechniczny\tadj:sg:nom:n:pos\t\ttechn.')
+        lines.append('procenta\tprocent\tsubst:sg:gen:m3\tnazwa_pospolita\tpo_liczebniku')
         lines += ['czytaj\tczytać\timpt:sg:sec:imperf\t\trzad.',
                   'dajcie\tdać\timpt:pl:sec:perf\t\t',
                   'by\tby:T\tpart\t\t',
@@ -62,6 +63,18 @@ class ExplainTests(unittest.TestCase):
             language = value['analyses'][0]['assessment']['language'][variant]
             self.assertEqual(language['status'], 'unresolved')
             self.assertTrue(any(c['rule_id'] == 'linguistic-descriptive-non-excluding-v1' for c in language['checks']))
+        self.assertEqual(value['list_membership']['status'], 'unresolved')
+
+    def test_required_context_visible_in_json_and_text_without_full_acceptance(self):
+        from literaki_slownik.explain import format_explanation
+        value = explain(self.run, 'procenta')
+        for variant in ('broad','standard'):
+            language = value['analyses'][0]['assessment']['language'][variant]
+            check = next(c for c in language['checks'] if c['rule_id'] == 'linguistic-context-non-excluding-v1')
+            self.assertEqual(check['required_context'], 'after_numeral')
+            self.assertEqual(check['status'], 'accept')
+            self.assertEqual(language['status'], 'unresolved')
+        self.assertIn('Użycie po liczebniku.', format_explanation(value))
         self.assertEqual(value['list_membership']['status'], 'unresolved')
 
     def test_confirmed_derivations_have_all_source_components_and_stay_candidates(self):

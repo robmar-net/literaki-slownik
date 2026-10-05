@@ -49,3 +49,5 @@ Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bi
 Explain odtwarza tylko potwierdzone klasy na podstawie pełnych interpretacji w istniejącym imporcie. Sufiks zapytania służy odnalezieniu możliwego źródłowego rozkaźnika; konstruktor musi potwierdzić klasę, zakończenie i dokładny wynik. By + aglt wymaga dokładnego by oraz właściwej nwok końcówki. Nie tworzy nibym ani mechanicznego czytajżeż.
 
 Pole derivations zawiera regułę, rozwinięty tag, pełne składniki i etykiety oraz diagnostyczną ocenę obu wariantów. Source_presence i source_aggregation nadal dotyczą tylko bezpośredniego importu SGJP; brak bezpośredniego wpisu nie zaprzecza istnieniu kandydata. Kandydat pozostaje candidate_not_qualified, list_membership unresolved. Brak persistence/build integration i pełnej macierzy nie jest ukrywany.
+
+Warunek kontekstu A nie obejmuje `pisane_łącznie_z_przyimkiem`: źródłowe ń pozostaje niesamodzielnym składnikiem. Nie zezwala na automatyczne tworzenie niepoświadczonych kontrakcji.

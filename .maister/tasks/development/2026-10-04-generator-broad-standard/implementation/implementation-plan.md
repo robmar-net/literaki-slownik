@@ -200,4 +200,8 @@ Zatwierdzone A: jawne niepopr. odrzuca konkretną interpretację w BROAD i STAND
 
 ## Etykiety opisowe i diagnostyka konstrukcji — postęp
 
-Dodano niewykluczające oznaczenia dziedzin, stylu i wariantów formy: 357 sprawdzonych dosłownych etykiet, 73 oznaczenia dziedzin, 18 stylu/użycia i 2 wariantów. Nowy warunek nie obejmuje mieszanek z nieznanymi ograniczeniami. Explain odtwarza teraz kandydatów potwierdzonych konstrukcji impt + jedna partykuła oraz by + nwok aglt z rzeczywistych składników importu, bez zapisu do bazy i bez końcowego dopuszczenia. Macierz kontekstu i pozostałe konstrukcje pozostają otwarte.
+Dodano niewykluczające oznaczenia dziedzin, stylu i wariantów formy: 357 sprawdzonych dosłownych etykiet, 73 oznaczenia dziedzin, 18 stylu/użycia i 2 wariantów. Nowy warunek nie obejmuje mieszanek z nieznanymi ograniczeniami. Explain odtwarza teraz kandydatów potwierdzonych konstrukcji impt + jedna partykuła oraz by + nwok aglt z rzeczywistych składników importu, bez zapisu do bazy i bez końcowego dopuszczenia. Warunek kontekstu zatwierdzono osobnym A; pozostałe konstrukcje i pełna macierz pozostają otwarte.
+
+## Zatwierdzony warunek kontekstu
+
+Zatwierdzono A: samo wymaganie kontekstu składniowego lub frazeologicznego nie wyklucza poprawnej formy w BROAD ani STANDARD. Wdrożono zamkniętą mapę 11 dosłownych etykiet; explain zachowuje source_label i required_context. Dawność, niepoprawność, niesamodzielne składniki i pozostałe kryteria oceniane są osobno. Pełny odczyt 7 458 520 rekordów potwierdził 169 rekordów kontekstu; pięć rzeczywistych zapytań bez zapisów do bazy. Pełna kwalifikacja i integracja build nadal nieukończone.

@@ -66,3 +66,5 @@ Wersja `diagnostic-approved-conditions-v5` pokazuje reject językowy dla 27 etyk
 ## Diagnostyczni kandydaci konstrukcji
 
 Wersja `diagnostic-approved-conditions-v6` dodaje 357 etykiet opisowych. `derivations` pokazuje także znane klasy rozkaźnik + jedna partykuła i by + nwok aglt, z pełnymi składnikami oraz przyczynami ocen. Odczyt nie zapisuje kandydatów do bazy, nie nadaje pełnego dopuszczenia i nie uruchamia kompletnego build. JSON nie ucina wyników. Tekst pokazuje wiersze źródeł i odziedziczone ograniczenia; source_presence nadal oznacza obecność bezpośredniego wpisu. Powiązań KWJP kandydatów nie zbudowano, nie przypisujemy im F z segmentów.
+
+Wersja `diagnostic-approved-conditions-v7` dodaje zatwierdzony warunek kontekstu dla 11 etykiet. JSON zachowuje `source_label` i `required_context`; tekst pokazuje wymaganie. Status accept dotyczy tylko tego warunku. Pełna ocena językowa i list_membership mogą pozostać unresolved, a znana odmowa nadal ma pierwszeństwo.

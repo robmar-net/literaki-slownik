@@ -3,7 +3,7 @@
 ## TL;DR
 Wybrana forma może być poprawna w określonym otoczeniu składniowym; to inna sytuacja niż niesamodzielny morfem.
 W przypiętym SGJP trzy rodziny oznaczeń kontekstu obejmują 169 rekordów, 84 napisy i 24 pełne ID leksemów.
-Nie włączono reguły domyślnej akceptacji ani odmowy tych etykiet; wybór dotyczy samego wymagania kontekstu.
+Użytkownik zatwierdził A; wdrożono niewykluczający warunek kontekstu dla 11 sprawdzonych etykiet.
 
 ## Key Decisions
 - Oceniamy jedną konkretną analizę i zachowujemy jej wymagania; nie łączymy warunków różnych homonimów.
@@ -12,7 +12,7 @@ Nie włączono reguły domyślnej akceptacji ani odmowy tych etykiet; wybór dot
 - Nie zmieniamy zasad gry i nie aktywujemy danych Wikisłownika.
 
 ## Open Questions / Risks
-- Czy poprawność źródłowej formy w określonym kontekście wystarcza, by sam kontekst nie wykluczał jej analizy, czy każdy taki przypadek wymaga indywidualnego przeglądu?
+- Wybór rozstrzygnięty odpowiedzią A; pełna macierz językowa pozostaje częściowa.
 - A nie nadaje całemu słowu accept; dawność, niepoprawność, kategoria, ortografia, gra i profil nadal są osobnymi warunkami.
 - Wpływ końcowy zależy od innych analiz i przyszłych konstrukcji; liczby poniżej nie są deltą list wydania.
 
@@ -36,3 +36,9 @@ Oddzielne pisane_łącznie_z_przyimkiem dotyczy tylko dwóch analiz ń. Nie prze
 **A — rekomendowany:** samo wymaganie składniowego lub frazeologicznego kontekstu nie odrzuca udokumentowanej poprawnej formy w BROAD ani STANDARD. Zachowujemy wymaganie w explain. Dotyczy zamkniętej mapy sprawdzonych etykiet, bez zniesienia ograniczeń niesamodzielnych składników.
 
 **B:** nie nadajemy tym oznaczeniom automatycznego efektu niewykluczającego; każda taka analiza wymaga indywidualnego przeglądu i do tego czasu pozostaje unresolved. To dodatkowa kontrola użycia, a nie automatyczne odrzucenie całych leksemów.
+
+## Wykonanie zatwierdzonego A
+
+2026-10-05T00:48:09Z — Zatwierdzono A: samo wymaganie kontekstu składniowego lub frazeologicznego nie wyklucza poprawnej formy w BROAD ani STANDARD. Wdrożono zamkniętą mapę 11 dosłownych etykiet; explain zachowuje source_label i required_context. Dawność, niepoprawność, niesamodzielne składniki i pozostałe kryteria oceniane są osobno. Pełny odczyt 7 458 520 rekordów potwierdził 169 rekordów kontekstu; pięć rzeczywistych zapytań bez zapisów do bazy. Pełna kwalifikacja i integracja build nadal nieukończone.
+
+[Pełny runtime](context-runtime.json): 11/11 etykiet, 169 rekordów, 2.937 s, total_changes=0. Trzy testy polityki red (brak funkcji/rejestru) → green; dodatkowy test regresji explain JSON/tekst. Generator 90/90. Nie przypisujemy testowi explain nieobserwowanego red.

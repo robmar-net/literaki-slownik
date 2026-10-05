@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "approved-conditions-v5",
+  "version": "approved-conditions-v6",
   "status": "partial_not_release_policy",
   "rules": [
     {
@@ -693,6 +693,44 @@
       ],
       "review": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/descriptive-label-review.json",
       "interpretation": "357 zaobserwowanych całych etykiet opisowych; char./hom. oznaczają wariant/opis formy, nie ocenę poprawności. Historyczność, niepoprawność i warunki składniowe oceniane osobno."
+    },
+    {
+      "rule_id": "linguistic-context-non-excluding-v1",
+      "status": "confirmed",
+      "operation": "non_excluding_context_requirement",
+      "scope": "required_context_only_not_full_qualification_or_bound_morpheme_permission",
+      "literal_labels": [
+        "daw.,z_D.",
+        "daw._dziś_gwar.,z_D.",
+        "fraz.",
+        "fraz.,rzad.",
+        "gwar.,z_D.",
+        "książk.,z_D.",
+        "po_liczebniku",
+        "pot.,po_liczebniku",
+        "pot.,z_D.",
+        "przest.,z_D.",
+        "z_D."
+      ],
+      "context_requirements": {
+        "daw.,z_D.": "adjective_genitive",
+        "daw._dziś_gwar.,z_D.": "adjective_genitive",
+        "fraz.": "phraseological_usage",
+        "fraz.,rzad.": "phraseological_usage",
+        "gwar.,z_D.": "adjective_genitive",
+        "książk.,z_D.": "adjective_genitive",
+        "po_liczebniku": "after_numeral",
+        "pot.,po_liczebniku": "after_numeral",
+        "pot.,z_D.": "adjective_genitive",
+        "przest.,z_D.": "adjective_genitive",
+        "z_D.": "adjective_genitive"
+      },
+      "variants": {
+        "broad": "non_excluding",
+        "standard": "non_excluding"
+      },
+      "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/context-restrictions-decision.md",
+      "interpretation": "A: kontekst zachowany i sam niewykluczający. Dawność/niepoprawność/kategoria/gra/profil osobno; ń jako składnik łączony z przyimkiem nie jest objęte regułą."
     }
   ]
 }

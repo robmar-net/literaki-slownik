@@ -3,14 +3,44 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v6'
+VERSION = 'diagnostic-approved-conditions-v7'
+CONTEXT_REQUIREMENTS = {
+    'daw.,z_D.': 'adjective_genitive',
+    'daw._dziś_gwar.,z_D.': 'adjective_genitive',
+    'fraz.': 'phraseological_usage',
+    'fraz.,rzad.': 'phraseological_usage',
+    'gwar.,z_D.': 'adjective_genitive',
+    'książk.,z_D.': 'adjective_genitive',
+    'po_liczebniku': 'after_numeral',
+    'pot.,po_liczebniku': 'after_numeral',
+    'pot.,z_D.': 'adjective_genitive',
+    'przest.,z_D.': 'adjective_genitive',
+    'z_D.': 'adjective_genitive',
+}
+
+
+def context_checks(qualifiers):
+    """Zachowaj wymaganie użycia; samo w sobie nie odrzuca poprawnej formy."""
+    descriptions = {
+        'adjective_genitive': 'Określenie przymiotnikowe w dopełniaczu.',
+        'phraseological_usage': 'Użycie frazeologiczne.',
+        'after_numeral': 'Użycie po liczebniku.',
+    }
+    return [{'rule_id': 'linguistic-context-non-excluding-v1',
+             'status': 'accept', 'source_label': label,
+             'required_context': CONTEXT_REQUIREMENTS[label],
+             'message': descriptions[CONTEXT_REQUIREMENTS[label]] +
+                        ' Samo wymaganie kontekstu nie wyklucza; inne ograniczenia oceniane osobno.',
+             'evidence': ['config/generator/policy.json',
+                          '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/context-restrictions-decision.md']}
+            for label in sorted(set(qualifiers.split('|')) & CONTEXT_REQUIREMENTS.keys())]
 
 
 def approved_qualifier_checks(qualifiers, variant):
     """Zatwierdzone warunki kwalifikatorów; inne warstwy nadal osobno."""
     return (history_checks(qualifiers, variant) + disrecommended_checks(qualifiers)
             + usage_checks(qualifiers) + incorrect_checks(qualifiers)
-            + descriptive_checks(qualifiers))
+            + descriptive_checks(qualifiers) + context_checks(qualifiers))
 
 
 DESCRIPTIVE_LABELS = frozenset({

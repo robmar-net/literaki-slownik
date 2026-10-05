@@ -648,7 +648,9 @@
     },
     "daw.,z_D.": {
       "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 2
+      "compact_interpretations": 2,
+      "approved_context_condition": "non_excluding",
+      "required_context": "adjective_genitive"
     },
     "daw.,zool.": {
       "classification_status": "pending_full_semantic_review",
@@ -684,7 +686,9 @@
     },
     "daw._dziś_gwar.,z_D.": {
       "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 4
+      "compact_interpretations": 4,
+      "approved_context_condition": "non_excluding",
+      "required_context": "adjective_genitive"
     },
     "daw._dziś_rzad.": {
       "classification_status": "pending_full_semantic_review",
@@ -780,11 +784,15 @@
     },
     "fraz.": {
       "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 93
+      "compact_interpretations": 93,
+      "approved_context_condition": "non_excluding",
+      "required_context": "phraseological_usage"
     },
     "fraz.,rzad.": {
       "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 35
+      "compact_interpretations": 35,
+      "approved_context_condition": "non_excluding",
+      "required_context": "phraseological_usage"
     },
     "genet.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -868,7 +876,9 @@
     },
     "gwar.,z_D.": {
       "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 2
+      "compact_interpretations": 2,
+      "approved_context_condition": "non_excluding",
+      "required_context": "adjective_genitive"
     },
     "gwar.,łow.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -1276,7 +1286,9 @@
     },
     "książk.,z_D.": {
       "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 2
+      "compact_interpretations": 2,
+      "approved_context_condition": "non_excluding",
+      "required_context": "adjective_genitive"
     },
     "książk.,żart.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -1552,7 +1564,9 @@
     },
     "po_liczebniku": {
       "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 14
+      "compact_interpretations": 14,
+      "approved_context_condition": "non_excluding",
+      "required_context": "after_numeral"
     },
     "podniosłe": {
       "classification_status": "pending_full_semantic_review",
@@ -1696,7 +1710,9 @@
     },
     "pot.,po_liczebniku": {
       "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 1
+      "compact_interpretations": 1,
+      "approved_context_condition": "non_excluding",
+      "required_context": "after_numeral"
     },
     "pot.,przest.": {
       "classification_status": "pending_full_semantic_review",
@@ -1756,7 +1772,9 @@
     },
     "pot.,z_D.": {
       "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 2
+      "compact_interpretations": 2,
+      "approved_context_condition": "non_excluding",
+      "required_context": "adjective_genitive"
     },
     "pot.,zool.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -1956,7 +1974,9 @@
     },
     "przest.,z_D.": {
       "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 2
+      "compact_interpretations": 2,
+      "approved_context_condition": "non_excluding",
+      "required_context": "adjective_genitive"
     },
     "przest.,zool.": {
       "classification_status": "pending_full_semantic_review",
@@ -2360,7 +2380,9 @@
     },
     "z_D.": {
       "classification_status": "pending_full_semantic_review",
-      "compact_interpretations": 12
+      "compact_interpretations": 12,
+      "approved_context_condition": "non_excluding",
+      "required_context": "adjective_genitive"
     },
     "zool.": {
       "classification_status": "confirmed_descriptive_condition_only_not_full_qualification",
@@ -3079,6 +3101,12 @@
       "decision": "approved prompt §2.3 and spec §5",
       "registry": "config/generator/policy.json",
       "scope": "closed_357_descriptive_labels_not_full_qualification"
+    },
+    {
+      "rule_id": "linguistic-context-non-excluding-v1",
+      "decision": "approved A context_restrictions_policy",
+      "registry": "config/generator/policy.json",
+      "scope": "closed_11_context_labels_not_full_qualification"
     }
   ]
 }
