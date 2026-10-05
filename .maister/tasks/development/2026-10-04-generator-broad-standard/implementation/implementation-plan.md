@@ -12,6 +12,7 @@ Status: plan zatwierdzony przez użytkownika odpowiedzią A; implementacja rozpo
 - Wiążące wejścia: [specyfikacja](spec.md), [wymagania](../analysis/requirements.md), [audyt specyfikacji](../verification/spec-audit.md), G1/N1/C1.
 - Wszystkie pliki wspólne edytuje koordynator. Brak równoległych zapisów i nakładającej się odpowiedzialności.
 - Odbiór techniczny nie zastępuje źródłowego rozstrzygnięcia macierzy klas i przeglądu jakości.
+- Najbliższa praca G3: własny przegląd znaczeń na dostępnych materiałach PAN (PAN-1–PAN-5), bez kontaktu z innymi grupami; aktywacja filtrów wymaga omówienia wpływu.
 
 ## Open Questions / Risks
 
@@ -75,6 +76,22 @@ Zależności: G2. Pliki: `docs/generator/{etykiety,konstrukcje,ortografia,mapowa
 Doprecyzowanie zatwierdzone A (2026-10-04T14:40:29Z): audyt oficjalnych metadanych SGJP oraz niezależnych poświadczeń istniejących konstrukcji. Nowe artefakty po pozytywnym audycie warunków wymagają pełnej metryki, mapowania do przypiętego eksportu, hasha i testów odmowy przy BLOCKED/nieznanym pochodzeniu. Bez nowych leksemów i zmiany reguł gry. Dotąd nie aktywowano uzupełniającego artefaktu; brak licencjonowanego snapshotu pozostaje rzeczywistą luką.
 
 G3 to badanie źródłowe, bez z góry obiecanego wyniku. Pobieranie nowych dokumentów tylko w zadeklarowanej roli po sprawdzeniu warunków; bez danych benchmarku lub internetowych list haseł. Dokumentacja językowa nie staje się importerem słów. Ustalenia muszą dać przykłady do niezależnych testów G4/G5; nie dopisujemy intuicyjnych wyjątków.
+
+### G3 — samodzielny przegląd znaczeń na materiałach PAN
+
+Doprecyzowanie G3.1/G3.3/G3.4 na prośbę użytkownika; nie dodaje dziesiątej grupy ani nie zmniejsza zakresu odbioru. Wstępne rozpoznanie źródeł już wykonano w [przeglądzie PAN](../analysis/evidence/pan-data-recheck.md); poniższe działania wymagają pełnego przeglądu przypadków. Nie kontaktujemy się z innymi grupami.
+
+| Etap | Wynik | Praca do wykonania |
+|---|---|---|
+| PAN-1 | Inwentaryzacja przypadków | Wyprowadzić z pełnego SGJP rekordy wymagające przeglądu, z pełnym ID, tagiem, nazwami, kwalifikatorami i powodem. Zacząć od zamkniętej populacji 147 analiz frag; następnie nazwy mieszkańców obu rodzajów i pozostałe wyjątki znaczeniowe. Sufiksy i statystyki służą tylko do wyszukiwania kandydatów, nie dowodzą kompletności klasy. |
+| PAN-2 | Zebranie dowodów PAN | Powiązać przypadki z przyjętymi listami lemma/orth/orth_lc/bigram i sprawdzonymi próbkami KWJP½M. Sprawdzić dostępne glosy/uwagi/odsyłacze SGJP oraz dokumentację. Zarejestrować także rzeczywisty brak dostępu lub brak potrzebnych wartości; nie zakładać gotowego eksportu glos. Zapisać URL, wersję, hash, warunki, bibliografię i ID/numer próbki; surowe materiały poza Git. |
+| PAN-3 | Przegląd i mapowanie znaczeń | Przejrzeć dowody dla konkretnego znaczenia i dopasować do pełnego ID SGJP; zachować niezależne homonimy. Odróżnić rozpoznanie znaczenia od oceny normatywnej i growej. Zapisać uzasadnienie, sprzeczności, poziom pewności i status: potwierdzone, nierozstrzygnięte albo dowód niedostępny. Brak wystąpienia w KWJP nie oznacza odrzucenia. |
+| PAN-4 | Pomiar pokrycia i wpływu | Rozliczyć wszystkie rekordy wskazanej populacji: przejrzane, rozstrzygnięte, nierozstrzygnięte, bez dowodu i z konfliktem mapowania. Dla mieszkańców osobno udokumentować sposób wyznaczenia populacji i ograniczenia jej kompletności; nie przedstawiać listy kandydatów jako całej klasy. Pokazać wpływ na analizy i całe słowa z uwzględnieniem homonimów, osobno BROAD/STANDARD. Nie zamykać G3 przez częściowe przykłady. |
+| PAN-5 | Przekazanie do G4 i decyzji | Przedstawić użytkownikowi rozstrzygnięcia zmieniające skład list lub kryteria wraz z przykładami, alternatywami i wpływem. Po wymaganych decyzjach wdrożyć wyłącznie udokumentowane mapowanie z testami rozdzielenia homonimów, zachowania unresolved i śladów explain. Zebranie dowodów nie aktywuje samo nowych wejść ani filtrów. |
+
+Oczekiwane artefakty w analysis/evidence/: pan-semantic-cases.json (rekordy/pełne ID, dowody, mapowanie i status), pan-semantic-coverage.json (populacje, rozliczenie i wpływ), pan-semantic-review.md (wnioski, ograniczenia i decyzje do omówienia). Ewentualny skrypt odtwarzający ekstrakcję trafia do scripts/; surowe dane, robocze indeksy i cache pozostają ignorowane. Materiały dowodowe zachowują role źródeł; KWJP nie staje się dowodem poprawności konstrukcji, a teksty 2011–2020 nie rozstrzygają normy pisowni 2026.
+
+Najbliższy krok: PAN-1 — przygotowanie rejestru wszystkich 147 analiz frag i ich niezależnych interpretacji SGJP. Następnie PAN-2/PAN-3 dla tej zamkniętej populacji; równolegle nie tworzymy arbitralnych filtrów mieszkańców po końcówkach słów.
 
 ### G4 — kwalifikacja, rekonstrukcje i agregacja
 
@@ -272,4 +289,4 @@ Utrwalono diagnostycznie każde rozwinięcie tagu i każdą konstrukcję, dwa wa
 
 Wdrożono A: growy obowiązek wielkiej litery według normy2026 w obu wariantach, na udokumentowanym podzbiorze trzech pełnych ID; dawne wpisy i taneczny homonim zachowane. Dodano zamkniętą klasę impt_sg + że + ż z trzema składnikami i odrębną odmową grową. Rzeczywista projekcja wszystkich obecnych wejść konstruktorów oraz przykładów kapitalizacji:93 284 interpretacje,125 360 konstrukcji,219 713 analiz i439 426 ocen; powtórzenie0nowych rekordów/identyczny hash/FK/integrityOK. Generator151/151,audyt5/5,preflight14wejść+10konfiguracjiOK. Pełna macierz semantyki/ortografii i wydanie nadal nieukończone.
 
-[Przegląd](../analysis/evidence/capital-double-review.md). Pozostałą lukę semantyczną opisuje [przygotowane zapytanie do autorów](../analysis/evidence/sgjp-semantic-metadata-request.md), którego jeszcze nie wysłano.
+[Przegląd](../analysis/evidence/capital-double-review.md). Pozostałą lukę semantyczną opisuje [historyczny projekt niewysłanego zapytania](../analysis/evidence/sgjp-semantic-metadata-request.md); kontakt został wykluczony przez użytkownika. Dalsza praca korzysta z [przeglądu PAN](../analysis/evidence/pan-data-recheck.md) i etapów PAN-1–PAN-5 w G3.

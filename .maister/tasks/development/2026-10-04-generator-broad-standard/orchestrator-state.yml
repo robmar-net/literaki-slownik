@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-05T11:08:05Z",
+    "updated": "2026-10-05T12:34:07Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -236,7 +236,8 @@
         "A: brak objaśnienia adnotacji akcent w daw.,rzad.,akcent sam nie wyklucza; zachowujemy adnotację, STANDARD nadal odrzuca za dawność.",
         "A: wspólny growy warunek obowiązkowej wielkiej litery odnosi się do normy2026 także dla dawnych interpretacji BROAD; dawne wpisy zachowane językowo, niezależne homonimy osobno.",
         "Nie kontaktujemy się z innymi grupami w tym projekcie; przygotowane zapytanie do SGJP pozostaje niewysłanym materiałem historycznym. Braki klasyfikacji rozpoznajemy samodzielnie na podstawie dopuszczonych danych i dokumentacji.",
-        "Dane PAN częściowo uzupełniają wiedzę o znaczeniach: KWJP bigramy i publiczne próbki kontekstowe, SGJP glosy/relacje poza eksportem. Własny przegląd możliwy bez kontaktu; nie aktywowano danych ani filtrów, kompletność nadal otwarta."
+        "Dane PAN częściowo uzupełniają wiedzę o znaczeniach: KWJP bigramy i publiczne próbki kontekstowe, SGJP glosy/relacje poza eksportem. Własny przegląd możliwy bez kontaktu; nie aktywowano danych ani filtrów, kompletność nadal otwarta.",
+        "Użytkownik zlecił dopisanie do planu samodzielnego przeglądu PAN: PAN-1–PAN-5 w G3. Najbliżej pełny rejestr147frag, dalej dowody/mapowanie/pokrycie i omówienie wpływu przed G4. Zakres9grup/36kroków i bramka phase10 zachowane."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -857,7 +858,8 @@
       "G3": {
         "status": "in_progress",
         "attempts": 1,
-        "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified; userAcurrentnormgame, threeexactresidentlemma51expandedcases, fullfrag147/109lower/38upper; currentdownload=20260823 and primarySGJP about semantic limits inspected"
+        "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified; userAcurrentnormgame, threeexactresidentlemma51expandedcases, fullfrag147/109lower/38upper; currentdownload=20260823 and primarySGJP about semantic limits inspected",
+        "next_action": "PAN-1: pełny rejestr147frag z alternatywnymi interpretacjami; potem PAN-2/PAN-3 dowody PAN, PAN-4 pokrycie i PAN-5 omówienie przed aktywacją."
       },
       "G4": {
         "status": "in_progress",
@@ -942,6 +944,40 @@
       "later_independent_editing_required": false,
       "changes_to_eligibility_require_prior_discussion": true,
       "active_filter_changed": false
+    },
+    "pan_semantic_work_plan": {
+      "requested_at": "2026-10-05T12:34:07Z",
+      "user_request": "co dalej? dopiszemy to do planu pracy?",
+      "steps": [
+        {
+          "id": "PAN-1",
+          "title": "Inwentaryzacja przypadków",
+          "status": "pending"
+        },
+        {
+          "id": "PAN-2",
+          "title": "Zebranie dowodów PAN",
+          "status": "pending"
+        },
+        {
+          "id": "PAN-3",
+          "title": "Przegląd i mapowanie znaczeń",
+          "status": "pending"
+        },
+        {
+          "id": "PAN-4",
+          "title": "Pomiar pokrycia i wpływu",
+          "status": "pending"
+        },
+        {
+          "id": "PAN-5",
+          "title": "Przekazanie do G4 i decyzji",
+          "status": "pending"
+        }
+      ],
+      "existing_discovery": "analysis/evidence/pan-data-recheck.md",
+      "changes_eligibility": false,
+      "external_contact": false
     }
   }
 }

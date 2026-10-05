@@ -134,3 +134,7 @@ Zapisano dokładną decyzję użytkownika, odrzucono bramkę wysyłki i zachowan
 ### 2026-10-05T11:08:05Z — samodzielny przegląd danych PAN
 
 Na prośbę użytkownika sprawdzono cztery listy KWJP, klasy SGJP i model glos/relacji, publiczną dokumentację oraz wszystkie 5500 JSON publicznych próbek KWJP½M z przypiętego repo. Skorygowano zbyt szerokie wcześniejsze przedstawienie braku wiedzy: konteksty pomagają w konkretnych przypadkach, nie stanowią kompletnej tabeli wyjątków. Hashe/listy/ID próbek i bibliografia utrwalone, surowe teksty tylko ignorowany tmp. Brak kontaktu, nowych aktywnych wejść i decyzji o dopuszczalności. Kod i etapy bez zmian; testów kodu nie powtarzano przy zmianach dowodowych/dokumentacyjnych.
+
+### 2026-10-05T12:34:07Z — doprecyzowanie planu G3 na prośbę użytkownika
+
+Dopisano PAN-1–PAN-5 do zatwierdzonego planu: inwentaryzacja, dowody PAN, mapowanie znaczeń, pełne rozliczenie pokrycia/wpływu i przekazanie do wymaganych decyzji/G4. Najbliższy krok to zamknięta populacja147frag; brak deklaracji kompletności kandydatów mieszkańców. MD/HTML/state/dashboard zsynchronizowane. Zachowano9grup/36głównychkroków i8ukończonych; żadnego dodatkowego kroku nie uznano za wykonanego. Wcześniejszy przegląd jest wejściem, nie zakończeniem tych etapów. Brak zmiany kodu, źródeł aktywnych i polityki. Weryfikacja dokumentacyjna, bez powtarzania suity.
