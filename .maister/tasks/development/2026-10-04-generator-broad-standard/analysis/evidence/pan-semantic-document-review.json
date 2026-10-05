@@ -1,0 +1,428 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-05T13:29:02Z",
+  "automatic_eligibility_decisions": false,
+  "cases_sha256": "aeff137a0210decd00e473b7f903990380b7ef701f8dac3aba19aa90579cd03c",
+  "sources": {
+    "sgjp-theory": {
+      "url": "https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf",
+      "sha256": "3e3d104b1a210e0097c511b36f1440de539413ec64079fba505c47c3bf7684ca",
+      "role": "documentary_observation_only",
+      "observed_at": "2026-10-05T13:29:02Z",
+      "publication": "own_annotations_and_reference_only_raw_pdf_ignored",
+      "authors": "Zygmunt Saloni, Włodzimierz Gruszczyński, Marcin Woliński, Robert Wołosz, Danuta Skowrońska",
+      "edition": "wydanie czwarte",
+      "active_build_input": false
+    },
+    "wsjp-na-osciez": {
+      "url": "https://wsjp.pl/haslo/podglad/60283/na-osciez",
+      "role": "documentary_observation_only",
+      "observed_at": "2026-10-05T13:29:02Z",
+      "authors": "zespół WSJP PAN, Instytut Języka Polskiego PAN",
+      "entry_modified": "2018-09-28",
+      "publication": "own_notes_and_reference_only_no_entry_copy",
+      "upstream_snapshot_sha256": null,
+      "active_build_input": false,
+      "data_import_status": "not_activated_conditions_unestablished"
+    },
+    "wsjp-w-dwojnasob-2": {
+      "url": "https://wsjp.pl/haslo/podglad/108922/w-dwojnasob/5259334/rozumiec",
+      "role": "documentary_observation_only",
+      "observed_at": "2026-10-05T13:29:02Z",
+      "authors": "zespół WSJP PAN, Instytut Języka Polskiego PAN",
+      "publication": "own_notes_and_reference_only_no_entry_copy",
+      "upstream_snapshot_sha256": null,
+      "active_build_input": false,
+      "data_import_status": "not_activated_conditions_unestablished"
+    }
+  },
+  "annotations": [
+    {
+      "case_id": "0f583782a1b609cd941207080268873eba8bf5a9a16cf8af36f461fb1fc4f993",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "Banja",
+        "lemma_id": "Banja",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          24334
+        ]
+      },
+      "scope": "documented_use_only",
+      "semantic_class": "proper_name_component",
+      "usage": "Banja Luka",
+      "evidence": [
+        {
+          "source_id": "sgjp-theory",
+          "locator": "7.12; s.138"
+        }
+      ],
+      "mapping_basis": "exact_spelling_and_frag_class; full_meaning_inventory_not_established",
+      "normative_status": "pending",
+      "eligibility_status": "unresolved"
+    },
+    {
+      "case_id": "3d1c63a6576765cf176efa08897c73edd492db8f1c82e713ae32f7a2464a1f08",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "Ben",
+        "lemma_id": "Ben:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          37268
+        ]
+      },
+      "scope": "documented_use_only",
+      "semantic_class": "proper_name_component",
+      "usage": "Ben Gurion",
+      "evidence": [
+        {
+          "source_id": "sgjp-theory",
+          "locator": "7.12; s.138"
+        }
+      ],
+      "mapping_basis": "exact_spelling_and_frag_class; full_meaning_inventory_not_established",
+      "normative_status": "pending",
+      "eligibility_status": "unresolved"
+    },
+    {
+      "case_id": "b301700688e159490dbc963399dffdf2c05741c4cba29d8de517b9d3503a652b",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "Buenos",
+        "lemma_id": "Buenos",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          85590
+        ]
+      },
+      "scope": "documented_use_only",
+      "semantic_class": "proper_name_component",
+      "usage": "Buenos Aires",
+      "evidence": [
+        {
+          "source_id": "sgjp-theory",
+          "locator": "1.4; s.19"
+        }
+      ],
+      "mapping_basis": "exact_spelling_and_frag_class; full_meaning_inventory_not_established",
+      "normative_status": "pending",
+      "eligibility_status": "unresolved"
+    },
+    {
+      "case_id": "924744d5e6c964fb8125e1471a29879dc052784a1e196a0f55fccf358970b1c8",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "Sankt",
+        "lemma_id": "Sankt",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          809450
+        ]
+      },
+      "scope": "documented_use_only",
+      "semantic_class": "proper_name_component",
+      "usage": "Sankt Petersburg",
+      "evidence": [
+        {
+          "source_id": "sgjp-theory",
+          "locator": "7.12; s.138"
+        }
+      ],
+      "mapping_basis": "exact_spelling_and_frag_class; full_meaning_inventory_not_established",
+      "normative_status": "pending",
+      "eligibility_status": "unresolved"
+    },
+    {
+      "case_id": "3039159294a26f1ddd1e095bebd033d7516e6cdf449b356aa4182c6c8a00f443",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "de",
+        "lemma_id": "de:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1463128
+        ]
+      },
+      "scope": "documented_use_only",
+      "semantic_class": "proper_name_component",
+      "usage": "de Gaulle",
+      "evidence": [
+        {
+          "source_id": "sgjp-theory",
+          "locator": "7.12; s.138"
+        }
+      ],
+      "mapping_basis": "exact_spelling_and_frag_class; full_meaning_inventory_not_established",
+      "normative_status": "pending",
+      "eligibility_status": "unresolved"
+    },
+    {
+      "case_id": "ef1dedc40d3537816962c474ce8d58eb45f7c2d4134833bae9a2318ca782ce40",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "dwójnasób",
+        "lemma_id": "dwójnasób",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1647764
+        ]
+      },
+      "scope": "documented_use_only",
+      "semantic_class": "phrase_component",
+      "usage": "w dwójnasób",
+      "evidence": [
+        {
+          "source_id": "sgjp-theory",
+          "locator": "7.7.2; s.134"
+        },
+        {
+          "source_id": "wsjp-w-dwojnasob-2",
+          "locator": "znaczenie2; kwalifikator książk."
+        }
+      ],
+      "mapping_basis": "exact_spelling_and_frag_class; full_meaning_inventory_not_established",
+      "normative_status": "conflicting_descriptions_pending_policy",
+      "eligibility_status": "unresolved"
+    },
+    {
+      "case_id": "df25c1b6af12ed07471f3d19e5c81efa7a6b44f1512e1e9a5837b262833c1656",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "ibn",
+        "lemma_id": "ibn",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          1960055
+        ]
+      },
+      "scope": "documented_use_only",
+      "semantic_class": "proper_name_component",
+      "usage": "przed nazwiskiem",
+      "evidence": [
+        {
+          "source_id": "sgjp-theory",
+          "locator": "7.12; s.138"
+        }
+      ],
+      "mapping_basis": "exact_spelling_and_frag_class; full_meaning_inventory_not_established",
+      "normative_status": "pending",
+      "eligibility_status": "unresolved"
+    },
+    {
+      "case_id": "8aa013989ffa9b523dc44b78da5f60598fb3a0c74ef2887a3e777aeb087ec3c9",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "kroćset",
+        "lemma_id": "kroćset",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "daw.",
+        "row_numbers": [
+          2244647
+        ]
+      },
+      "scope": "documented_use_only",
+      "semantic_class": "phrase_component",
+      "usage": "do kroćset",
+      "evidence": [
+        {
+          "source_id": "sgjp-theory",
+          "locator": "7.12; s.138"
+        }
+      ],
+      "mapping_basis": "exact_spelling_and_frag_class; full_meaning_inventory_not_established",
+      "normative_status": "pending",
+      "eligibility_status": "unresolved"
+    },
+    {
+      "case_id": "7647618cd71b618490c715fcb98b582153019233790ed1374a81daeca9c380a2",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "oścież",
+        "lemma_id": "oścież:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          4320577
+        ]
+      },
+      "scope": "documented_use_only",
+      "semantic_class": "phrase_component",
+      "usage": "na oścież",
+      "evidence": [
+        {
+          "source_id": "wsjp-na-osciez",
+          "locator": "warianty; typ frazy"
+        }
+      ],
+      "mapping_basis": "research_correspondence_not_activated_source_metadata",
+      "normative_status": "pending",
+      "eligibility_status": "unresolved"
+    },
+    {
+      "case_id": "de62407ee5ec2606647915eec80fd00c65654411dcb6ff53422c124fbff810fa",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "rozcież",
+        "lemma_id": "rozcież:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "gwar.",
+        "row_numbers": [
+          5356131
+        ]
+      },
+      "scope": "documented_use_only",
+      "semantic_class": "phrase_component",
+      "usage": "na rozcież",
+      "evidence": [
+        {
+          "source_id": "wsjp-na-osciez",
+          "locator": "warianty; typ frazy"
+        }
+      ],
+      "mapping_basis": "research_correspondence_not_activated_source_metadata",
+      "normative_status": "pending",
+      "eligibility_status": "unresolved"
+    },
+    {
+      "case_id": "674dd598e02b474bcf45392c8b108626a54acd905904bcf0c4a4aad5f0d326d5",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "roścież",
+        "lemma_id": "roścież:F",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          5520636
+        ]
+      },
+      "scope": "documented_use_only",
+      "semantic_class": "phrase_component",
+      "usage": "na roścież",
+      "evidence": [
+        {
+          "source_id": "sgjp-theory",
+          "locator": "1.4; s.19"
+        }
+      ],
+      "mapping_basis": "exact_spelling_and_frag_class; full_meaning_inventory_not_established",
+      "normative_status": "pending",
+      "eligibility_status": "unresolved"
+    },
+    {
+      "case_id": "eff8a74076daf13fd14d05232fb894789728c582986fc7486a76106c5be6e9ba",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "trójnasób",
+        "lemma_id": "trójnasób",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6044918
+        ]
+      },
+      "scope": "documented_use_only",
+      "semantic_class": "phrase_component",
+      "usage": "w trójnasób",
+      "evidence": [
+        {
+          "source_id": "sgjp-theory",
+          "locator": "7.7.2; s.134"
+        }
+      ],
+      "mapping_basis": "exact_spelling_and_frag_class; full_meaning_inventory_not_established",
+      "normative_status": "pending",
+      "eligibility_status": "unresolved"
+    },
+    {
+      "case_id": "d2cb887c6097d0c29d27d9b2c34083bbd084e281ed29396b6d62723423574a5c",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "wznak",
+        "lemma_id": "wznak",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "",
+        "row_numbers": [
+          6770165
+        ]
+      },
+      "scope": "documented_use_only",
+      "semantic_class": "phrase_component",
+      "usage": "na wznak",
+      "evidence": [
+        {
+          "source_id": "sgjp-theory",
+          "locator": "7.12; s.137"
+        }
+      ],
+      "mapping_basis": "exact_spelling_and_frag_class; full_meaning_inventory_not_established",
+      "normative_status": "pending",
+      "eligibility_status": "unresolved"
+    },
+    {
+      "case_id": "1968822bb51d99649f38582be0129b0ab796ac9fab7abbbe76756b7b12d29805",
+      "source": {
+        "source_id": "sgjp-20260823",
+        "original": "ziem",
+        "lemma_id": "ziem",
+        "tag": "frag",
+        "names": "",
+        "qualifiers": "gwar.",
+        "row_numbers": [
+          7186612
+        ]
+      },
+      "scope": "documented_use_only",
+      "semantic_class": "phrase_component",
+      "usage": "po na/w/o; gwarowe",
+      "evidence": [
+        {
+          "source_id": "sgjp-theory",
+          "locator": "1.4; s.19"
+        }
+      ],
+      "mapping_basis": "exact_spelling_and_frag_class; full_meaning_inventory_not_established",
+      "normative_status": "pending",
+      "eligibility_status": "unresolved"
+    }
+  ],
+  "identity_limitation": {
+    "source_id": "sgjp-theory",
+    "locator": "2.1; s.21",
+    "full_lemma_id_is_not_one_semantic_sense": true,
+    "example": "para",
+    "consequence": "evidence_for_one_use_must_not_be_propagated_to_all_meanings"
+  },
+  "public_gloss_read": {
+    "method": "anonymous_GET_used_by_public_reader_javascript",
+    "endpoint": "https://sgjp.pl/edycja/ajax/search-by-form/",
+    "query_form": "oścież",
+    "observed_http_status": [
+      502,
+      502
+    ],
+    "meaning": "values_unavailable_in_attempts_not_proof_of_missing_data",
+    "protected_access": false,
+    "bulk_read": false
+  }
+}

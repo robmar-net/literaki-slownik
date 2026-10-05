@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T13:11:06Z",
+  "generated": "2026-10-05T13:31:53Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "G3: frag147zinwentaryzowane; mapowanie znaczeń nadal otwarte, mieszkańcy do przeglądu."
+    "current_activity": "Przegląd PAN14/147; wybór sposobu używania opisów wieku czeka na decyzję"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Wdrożono A: growy obowiązek wielkiej litery według normy2026 w obu wariantach, na udokumentowanym podzbiorze trzech pełnych ID; dawne wpisy i taneczny homonim zachowane. Dodano zamkniętą klasę impt_sg + że + ż z trzema składnikami i odrębną odmową grową. Rzeczywista projekcja wszystkich obecnych wejść konstruktorów oraz przykładów kapitalizacji:93 284 interpretacje,125 360 konstrukcji,219 713 analiz i439 426 ocen; powtórzenie0nowych rekordów/identyczny hash/FK/integrityOK. Generator151/151,audyt5/5,preflight14wejść+10konfiguracjiOK. Pełna macierz semantyki/ortografii i wydanie nadal nieukończone. PAN-1: zamknięta populacja147frag zinwentaryzowana; PAN-2: wszystkie13list i5500próbek powiązane, glosy niedostępne w odczycie; PAN-3: wstępny odczyt62pierwszychkontekstów, pełne mapowanie nierozstrzygnięte; PAN-4: pokrycie frag147/64alternatywy/108listy/62próbki/39beztrafień, bez wpływu na listy. Nazwy mieszkańców i pozostałe wyjątki nadal do inwentaryzacji.",
+      "summary": "PAN-3:12 użyć udokumentowanych SGJP+2 obserwacje WSJP, dokładne tożsamości i homonimy zachowane. Pełny ID nie jest gwarancją jednego znaczenia. PAN-4:14/147 z dowodem użycia,133 bez takiego przeglądu,147 kwalifikacji unresolved. Audyt snapshotu/mapowania i dwa identyczne odtworzenia;156/156 testów. Wymagany wybór roli ogólnego opisu wieku przed filtrem STANDARD. Bez aktywacji źródeł i zmian list,8/36 bez zmian.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -268,7 +268,8 @@ window.MAISTER_DATA = {
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
         "Mechanika próbek nie zastępuje integracji raportów, pełnych analiz w przeglądzie ani odbioru G8.",
-        "Brak kompletnej klasy nazw mieszkańców oraz rozdzielenia frag/obcych zwrotów w eksporcie. Nie zakładamy istnienia brakujących metadanych. Kontakt z innymi grupami wykluczony przez użytkownika; brakujące dowody nadal otwarte."
+        "Brak kompletnej klasy nazw mieszkańców oraz rozdzielenia frag/obcych zwrotów w eksporcie. Nie zakładamy istnienia brakujących metadanych. Kontakt z innymi grupami wykluczony przez użytkownika; brakujące dowody nadal otwarte.",
+        "Dokumentacja klasy może różnić się zakresem od opisu konkretnego znaczenia; pełny ID SGJP może łączyć znaczenia. Brak automatycznej propagacji i nowego filtra przed decyzją."
       ],
       "artifacts": [
         {
@@ -598,11 +599,37 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/pan-semantic-coverage.json",
           "label": "Pokrycie, odtworzenie i kontrola odczytu"
+        },
+        {
+          "path": "analysis/evidence/pan-document-review.md",
+          "label": "Dokumentacyjne mapowanie PAN i granica znaczenia"
+        },
+        {
+          "path": "analysis/evidence/pan-semantic-document-review.json",
+          "label": "Dokładne adnotacje14 użyć"
+        },
+        {
+          "path": "analysis/evidence/pan-document-review-coverage.json",
+          "label": "Odtworzenie i pokrycie przeglądu"
+        },
+        {
+          "path": "analysis/evidence/general-class-age-decision.md",
+          "label": "Wiek klasy a konkretnego znaczenia — pending"
         }
       ],
       "gate": {
-        "question": null,
-        "answer": null
+        "id": "general_class_age_policy",
+        "status": "pending",
+        "created_at": "2026-10-05T13:31:53Z",
+        "question": "Czy ogólny opis całej klasy jako przestarzałej ma automatycznie wykluczać jej wymienione przykłady ze STANDARD, mimo braku kwalifikatora wieku w eksporcie?",
+        "options": {
+          "A": "Nie: wymagaj oznaczenia lub jednoznacznego dowodu wieku konkretnej interpretacji; rekomendowane.",
+          "B": "Tak: przenieś opis wieku na dosłownie wymienione przykłady klasy."
+        },
+        "answer": null,
+        "artifact": "analysis/evidence/general-class-age-decision.md",
+        "authority": "AGENTS.md: discuss decisions changing membership or criteria before implementation",
+        "scope": "age_evidence_policy_not_game_rules_or_source_import_authorization"
       }
     },
     {

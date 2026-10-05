@@ -269,3 +269,9 @@ Utrwalono diagnostycznie każde rozwinięcie tagu i każdą konstrukcję, dwa wa
 Wdrożono A: growy obowiązek wielkiej litery według normy2026 w obu wariantach, na udokumentowanym podzbiorze trzech pełnych ID; dawne wpisy i taneczny homonim zachowane. Dodano zamkniętą klasę impt_sg + że + ż z trzema składnikami i odrębną odmową grową. Rzeczywista projekcja wszystkich obecnych wejść konstruktorów oraz przykładów kapitalizacji:93 284 interpretacje,125 360 konstrukcji,219 713 analiz i439 426 ocen; powtórzenie0nowych rekordów/identyczny hash/FK/integrityOK. Generator151/151,audyt5/5,preflight14wejść+10konfiguracjiOK. Pełna macierz semantyki/ortografii i wydanie nadal nieukończone.
 
 [Przegląd](../analysis/evidence/capital-double-review.md). Pozostałą lukę semantyczną opisuje [przygotowane zapytanie do autorów](../analysis/evidence/sgjp-semantic-metadata-request.md), którego jeszcze nie wysłano.
+
+## Dokumentacyjne mapowanie PAN — postęp i wybór wieku
+
+PAN-3:12 użyć udokumentowanych SGJP+2 obserwacje WSJP, dokładne tożsamości i homonimy zachowane. Pełny ID nie jest gwarancją jednego znaczenia. PAN-4:14/147 z dowodem użycia,133 bez takiego przeglądu,147 kwalifikacji unresolved. Audyt snapshotu/mapowania i dwa identyczne odtworzenia;156/156 testów. Wymagany wybór roli ogólnego opisu wieku przed filtrem STANDARD. Bez aktywacji źródeł i zmian list,8/36 bez zmian.
+
+[Przegląd](../analysis/evidence/pan-document-review.md); [decyzja wieku](../analysis/evidence/general-class-age-decision.md). PAN-1–PAN-5 pozostają częściowe, bez zmiany checkboxów.

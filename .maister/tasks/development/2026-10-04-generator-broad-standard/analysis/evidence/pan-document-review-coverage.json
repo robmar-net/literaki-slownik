@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "automatic_eligibility_decisions": false,
+  "full_semantic_mapping_complete": false,
+  "coverage": {
+    "cases": 147,
+    "documented_use_cases": 14,
+    "without_documented_use_review": 133,
+    "eligibility_unresolved": 147
+  },
+  "documented_use_classes": {
+    "phrase_component": 8,
+    "proper_name_component": 6
+  },
+  "normative_review_statuses": {
+    "conflicting_descriptions_pending_policy": 1,
+    "pending": 13
+  },
+  "cases_sha256": "aeff137a0210decd00e473b7f903990380b7ef701f8dac3aba19aa90579cd03c",
+  "review_sha256": "b411856a12b389693347168994fea808b6a6af4a9acd90da493b079671a716c7",
+  "observed_at": "2026-10-05T13:31:53Z",
+  "repeated_output_identical": true,
+  "repeated_output_sha256": "b67294a33b36139d6d880509a93633959b42c6fadb6b23fe00c1fa5aa6981f3f",
+  "sgjp_documented_use_cases": 12,
+  "wsjp_observation_only_cases": 2,
+  "final_list_deltas_measured": false,
+  "active_build_inputs_added": 0,
+  "policy_changed": false,
+  "tests": "156/156",
+  "baseline": "not_repeated_observational_tool_only",
+  "possible_age_condition_effect": {
+    "option_A": {
+      "generic_description_rejections": 0
+    },
+    "option_B": {
+      "standard_compact_source_analyses_rejected_by_age": 2,
+      "broad_compact_source_analyses_rejected_by_age": 0,
+      "lemma_ids": [
+        "dwójnasób",
+        "trójnasób"
+      ],
+      "independent_source_analyses_for_these_spelling_keys": 0
+    },
+    "meaning": "condition_level_scenario_only_not_final_membership_delta"
+  }
+}

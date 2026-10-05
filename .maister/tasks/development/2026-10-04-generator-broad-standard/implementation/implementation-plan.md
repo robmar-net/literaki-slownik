@@ -296,3 +296,9 @@ Wdrożono A: growy obowiązek wielkiej litery według normy2026 w obu wariantach
 PAN-1: zamknięta populacja147frag zinwentaryzowana; PAN-2: wszystkie13list i5500próbek powiązane, glosy niedostępne w odczycie; PAN-3: wstępny odczyt62pierwszychkontekstów, pełne mapowanie nierozstrzygnięte; PAN-4: pokrycie frag147/64alternatywy/108listy/62próbki/39beztrafień, bez wpływu na listy. Nazwy mieszkańców i pozostałe wyjątki nadal do inwentaryzacji.
 
 Dwa odtworzenia identyczne; hash bazy źródłowej bez zmian,152/152testów. Tokenizer zachowuje granice zapisów z łącznikiem. Nie aktywowano nowej klasyfikacji ani filtrów; główne checkboxy pozostają8/36. [Przegląd](../analysis/evidence/pan-semantic-review.md).
+
+## Dokumentacyjne mapowanie PAN — postęp i wybór wieku
+
+PAN-3:12 użyć udokumentowanych SGJP+2 obserwacje WSJP, dokładne tożsamości i homonimy zachowane. Pełny ID nie jest gwarancją jednego znaczenia. PAN-4:14/147 z dowodem użycia,133 bez takiego przeglądu,147 kwalifikacji unresolved. Audyt snapshotu/mapowania i dwa identyczne odtworzenia;156/156 testów. Wymagany wybór roli ogólnego opisu wieku przed filtrem STANDARD. Bez aktywacji źródeł i zmian list,8/36 bez zmian.
+
+[Przegląd](../analysis/evidence/pan-document-review.md); [decyzja wieku](../analysis/evidence/general-class-age-decision.md). PAN-1–PAN-5 pozostają częściowe, bez zmiany checkboxów.
