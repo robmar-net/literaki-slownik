@@ -13,7 +13,7 @@ Nie zmieniono reguł gry ani zapisów źródłowych; kandydaci pozostają niezak
 - Brak etykiety dawności nie wyklucza udokumentowanej zmiany pisowni.
 
 ## Open Questions / Risks
-- Bramka A/B pozostaje pending do odpowiedzi użytkownika.
+- Użytkownik zatwierdził A; konkretne klasy aktywujemy po dowodzie i testach.
 - Potrzebna jest pełna macierz zmian pisowni, nie tylko dwa wyjątki albo ogólna reguła sufiksu.
 - Rozstrzygnięcie nie dowodzi kompletności kategorii i pozostałych kwalifikatorów.
 
@@ -42,4 +42,4 @@ A — rekomendowane: STANDARD stosuje normę z 2026 r.; BROAD może zachować ud
 
 B — oba warianty na tym etapie opierają ocenę pisowni na przypiętym SGJP; rozbieżności z normą 2026 są jawnie opisane, a odmienna baza normy wymaga aktualizacji specyfikacji przed dalszym wydaniem.
 
-Pytanie wynika z AGENTS.md: decyzje zmieniające skład słownika lub kryteria dopuszczalności omawiamy przed wdrożeniem, oraz G3/3.4 zatwierdzonego planu. Nie wdrażamy tej zmiany bez odpowiedzi.
+Pytanie wynika z AGENTS.md: decyzje zmieniające skład słownika lub kryteria dopuszczalności omawiamy przed wdrożeniem, oraz G3/3.4 zatwierdzonego planu. Użytkownik odpowiedział A; odpowiedź zarejestrowano w stanie zadania.

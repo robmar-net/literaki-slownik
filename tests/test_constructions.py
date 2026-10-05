@@ -11,6 +11,30 @@ def source(form='daj', tag='impt:sg:sec:perf', qualifiers=''):
 
 
 class ConstructionTests(unittest.TestCase):
+    def test_closed_mobile_hosts_require_source_class_variant_and_same_source(self):
+        from literaki_slownik.constructions import mobile_aglt_candidates
+        for form,lemma,tag,ending,etag,result in [
+            ('czyż','czyż:T','part','eś','aglt:sg:sec:imperf:wok','czyżeś'),
+            ('że','że:M','comp','m','aglt:sg:pri:imperf:nwok','żem'),
+            ('jeśli','jeśli:M','comp','śmy','aglt:pl:pri:imperf:nwok','jeśliśmy'),
+            ('cóż','cóż:S','subst:sg:nom:n','em','aglt:sg:pri:imperf:wok','cóżem')]:
+            host=dict(source(form,tag,'rzad.'),lemma_id=lemma)
+            suffix=source(ending,etag,'niezal.')
+            c,=mobile_aglt_candidates(host,suffix)
+            self.assertEqual(c['original'],result)
+            self.assertEqual([x['interpretation'] for x in c['components']],[host,suffix])
+            self.assertEqual(c['qualifiers'],'niezal.|rzad.')
+        for form,lemma,tag,ending,etag in [
+            ('czyż','czyż:T','part','ś','aglt:sg:sec:imperf:nwok'),
+            ('że','że:M','comp','em','aglt:sg:pri:imperf:wok'),
+            ('kim','kto:S','subst:sg:inst:m1','ś','aglt:sg:sec:imperf:nwok'),
+            ('niby','niby','part','m','aglt:sg:pri:imperf:nwok'),
+            ('czyż','inna','part','eś','aglt:sg:sec:imperf:wok'),
+            ('aby','aby:M','comp','m','aglt:sg:pri:imperf:nwok')]:
+            self.assertEqual(mobile_aglt_candidates(dict(source(form,tag),lemma_id=lemma),source(ending,etag)),[])
+        host=dict(source('że','comp'),lemma_id='że:M')
+        self.assertEqual(mobile_aglt_candidates(host,dict(source('m','aglt:sg:pri:imperf:nwok'),source_id='other')),[])
+
     def test_mobile_by_hosts_closed_by_lemma_and_pos_not_suffix(self):
         from literaki_slownik.constructions import mobile_by_aglt_candidates
         ending = source('śmy','aglt:pl:pri:imperf:nwok')

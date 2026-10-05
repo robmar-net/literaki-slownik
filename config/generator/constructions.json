@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "constructions-discovery-v2",
+  "version": "constructions-discovery-v3",
   "status": "not_active_policy",
   "classes": {
     "full_personal_praet_cond": {
@@ -184,6 +184,23 @@
         "variant": "nwok",
         "lemma_pos_and_source_match_required": true,
         "by_itself": "existing_by_aglt_rule_not_duplicated"
+      },
+      "other_host_subset": {
+        "rule_id": "mobile-source-host-aglt-v1",
+        "status": "materialized_consistent_subset_full_matrix_pending",
+        "source_classes": [
+          "z_aglt",
+          "z_aglt_nwok",
+          "z_aglt_nwok2"
+        ],
+        "source_definition_count": 53,
+        "source_lemma_pos_variant_required": true,
+        "vowel_variant_agreement_required": true,
+        "conditional_by_sequence": "pending",
+        "evidence": [
+          "morfeusz_segments:143-155,743-815",
+          "sgjp_theory:6.4.1"
+        ]
       }
     },
     "productive_derivation": {

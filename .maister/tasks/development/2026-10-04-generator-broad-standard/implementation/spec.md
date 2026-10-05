@@ -227,3 +227,7 @@ Połączona kontrola wszystkich wdrożonych konstruktorów: 93 071 źródłowych
 ## Norma 2026 — wymagany wybór
 
 Sprawdzono wszystkie 70 definicji zamkniętych klas mobilnych hostów. Rozbieżność SGJP z normą 2026 przy nieoznaczonych jeśliby/jeżeliby wymaga [decyzji przed zmianą kwalifikacji](../analysis/evidence/orthography-2026-decision.md). Reguły gry pozostają bez zmian.
+
+## Norma 2026 i dalsze mobilne końcówki — postęp
+
+Wdrożono A dla normy 2026: dokładne analizy comp jeśliby/jeżeliby i ich składniki konstrukcyjne mają odrzucenie STANDARD; BROAD nie wyklucza przez samą dawną pisownię. Nie usunięto wpisów i nie zmieniono reguł gry. Dodano kandydatów mobilnych końcówek dla trzech pozostałych zamkniętych klas, z kontrolą lematu, POS, wokaliczności, źródła i śladów. Odmienne formy niezgodne z wariantem źródłowej klasy wymagają dalszej oceny; pełna macierz i kwalifikacja nadal otwarte.

@@ -777,7 +777,7 @@
     },
     "constructions": {
       "path": "../../config/generator/constructions.json",
-      "sha256": "273511de17291cddba57b54074722617d4b02019f20ecf9d627b83909fe40e34"
+      "sha256": "129e6e390f7d4108409e9c95134eba0ec3ebb254362b061c74005476d1fad374"
     },
     "evidence": {
       "path": "../../config/generator/evidence.json",
@@ -801,7 +801,7 @@
     },
     "orthography": {
       "path": "../../config/generator/orthography.json",
-      "sha256": "51af4d535de450a2c2ff53c5ea2609b48c02d6adf60a4546c7e00e9f16a5e7a7"
+      "sha256": "237095f787c9e7bdd7ed50507e0d4e4fefb80ce24d6760c7328d3592e200f384"
     }
   },
   "unavailable": [

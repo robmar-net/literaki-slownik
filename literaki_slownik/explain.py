@@ -8,19 +8,20 @@ from .database import connect
 from .decisions import assess_analysis, aggregate, VARIANTS
 from .inputs import GeneratorError
 from .links import availability
-from .policy import assess_profile, approved_qualifier_checks, VERSION
+from .policy import assess_profile, approved_qualifier_checks, orthography_checks, VERSION
 from .sgjp import expand_tag, tag_errata
-from .constructions import impt_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, BY_AGLT_ENDINGS
+from .constructions import impt_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, mobile_aglt_candidates, BY_AGLT_ENDINGS
 
 
 def _pending(rule_id, message):
     return [{'rule_id': rule_id, 'status': 'unresolved', 'message': message, 'evidence': []}]
 
 
-def _assess(original, qualifiers, additional_checks=()):
+def _assess(original, qualifiers, additional_checks=(), source_analyses=()):
     pending = _pending('linguistic-policy-not-active-v1', 'Pełna polityka językowa G3/G4 nie jest jeszcze aktywna.')
     return assess_analysis(original,
-                           language={v: pending + approved_qualifier_checks(qualifiers, v) + list(additional_checks) for v in VARIANTS},
+                           language={v: pending + approved_qualifier_checks(qualifiers, v) + list(additional_checks) +
+                           [check for source in source_analyses for check in orthography_checks(source,v)] for v in VARIANTS},
                            game_checks=_pending('game-metadata-not-complete-v1',
                                                 'Pozostałe udokumentowane warunki growe wymagają domknięcia.'))
 
@@ -41,16 +42,18 @@ def _derivations(db, key):
     if suffix and len(key) > len(suffix):
         for source in _construction_sources(db, key[:-len(suffix)]):
             candidates.extend(impt_particle_candidates(source))
-    for ending in BY_AGLT_ENDINGS.values():
+    for ending in list(BY_AGLT_ENDINGS.values()) + ['e'+x for x in BY_AGLT_ENDINGS.values()]:
         if not key.endswith(ending) or len(key) <= len(ending):
             continue
         operators = _construction_sources(db, key[:-len(ending)])
         endings = [s for s in _construction_sources(db, ending)
-                   if s['raw_tag'].split(':',1)[0] == 'aglt' and s['raw_tag'].endswith(':nwok')]
+                   if s['raw_tag'].split(':',1)[0] == 'aglt']
         for operator in operators:
             for aglt in endings:
-                candidates.extend(by_aglt_candidates(operator, aglt))
-                candidates.extend(mobile_by_aglt_candidates(operator, aglt))
+                if aglt['raw_tag'].endswith(':nwok'):
+                    candidates.extend(by_aglt_candidates(operator, aglt))
+                    candidates.extend(mobile_by_aglt_candidates(operator, aglt))
+                candidates.extend(mobile_aglt_candidates(operator, aglt))
     if key.endswith('ń') and len(key) > 1:
         for preposition in _construction_sources(db, key[:-1]):
             for pronoun in _construction_sources(db, 'ń'):
@@ -59,7 +62,8 @@ def _derivations(db, key):
     stored = bool(db.execute("select 1 from sqlite_master where name='derivation_candidate'").fetchone())
     for candidate in candidates:
         proof = candidate.get('linguistic_evidence')
-        assessed = _assess(candidate['original'], candidate['qualifiers'], [proof] if proof else [])
+        assessed = _assess(candidate['original'], candidate['qualifiers'], [proof] if proof else [],
+                           [c['interpretation'] for c in candidate['components'] if c['kind']=='source_interpretation'])
         if assessed['game_key'] == key:
             candidate_key = hashlib.sha256(dumps(candidate).encode('utf-8')).hexdigest()
             present = stored and db.execute(
@@ -137,7 +141,7 @@ def explain(run_dir, word, variant='standard'):
                 if sid not in sources:
                     metadata = db.execute('select metadata from source_artifact where source_id=?', (sid,)).fetchone()[0]
                     sources[sid] = json.loads(metadata)
-                assessed = _assess(original, qualifiers)
+                assessed = _assess(original, qualifiers, source_analyses=[dict(original=original,lemma_id=lemma,raw_tag=tag)])
                 analyses.append({'interpretation_id': iid, 'source_id': sid, 'first_source_row': row,
                                  'original': original, 'lemma_id': lemma, 'raw_tag': tag,
                                  'expanded_tags': list(expand_tag(tag)), 'names': names,

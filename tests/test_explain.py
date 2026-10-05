@@ -14,6 +14,39 @@ from literaki_slownik.explain import explain
 
 
 class ExplainTests(unittest.TestCase):
+    def test_closed_mobile_source_host_is_reachable_and_persisted(self):
+        from tests.test_build import BuildTests
+        root = Path(self.temp.name) / 'mobile-source'
+        root.mkdir()
+        p = BuildTests().manifest(root,'#</COPYRIGHT>\nczyż\tczyż:T\tpart\t\t\neś\tbyć:A\taglt:sg:sec:imperf:wok\t\t\n')
+        run = root / 'run'
+        build(p,run)
+        c, = explain(run,'czyżeś')['derivations']
+        self.assertEqual(c['rule_id'],'mobile-source-host-aglt-v1')
+        self.assertIsNotNone(c['persisted_candidate_key'])
+        self.assertEqual([x['interpretation']['original'] for x in c['components']],['czyż','eś'])
+        self.assertEqual(c['assessment']['membership']['standard']['status'],'unresolved')
+        self.assertEqual(explain(run,'czyżś')['derivations'],[])
+
+    def test_orthography_2026_direct_and_inherited_without_removing_source(self):
+        from tests.test_build import BuildTests
+        root = Path(self.temp.name) / 'orthography'
+        root.mkdir()
+        p = BuildTests().manifest(root,'#</COPYRIGHT>\njeśliby\tjeśliby\tcomp\t\t\nm\tbyć:A\taglt:sg:pri:imperf:nwok\t\t\n')
+        run = root / 'run'
+        build(p,run)
+        before = [sha256(run/f) for f in ('manifest.json','build.sqlite')]
+        direct = explain(run,'jeśliby')['analyses'][0]
+        derived, = explain(run,'jeślibym')['derivations']
+        for analysis in (direct,derived):
+            self.assertEqual(analysis['assessment']['language']['standard']['status'],'reject')
+            checks = analysis['assessment']['language']['broad']['checks']
+            rule = next(c for c in checks if c['rule_id']=='orthography-2026-conjunction-by-v1')
+            self.assertEqual(rule['status'],'accept')
+            self.assertEqual(rule['source_lemma_id'],'jeśliby')
+        self.assertEqual(explain(run,'jeśliby')['source_presence'],'present')
+        self.assertEqual(before,[sha256(run/f) for f in ('manifest.json','build.sqlite')])
+
     def test_mobile_by_host_trace_distinguishes_same_spelling_wrong_pos(self):
         from tests.test_build import BuildTests
         root = Path(self.temp.name) / 'mobile'

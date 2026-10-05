@@ -3,7 +3,30 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v7'
+VERSION = 'diagnostic-approved-conditions-v8'
+# Dosłowne leksemy potwierdzone pełnym odczytem SGJP i poradą UŁ/RJP2026.
+ORTHOGRAPHY_2026_CONJUNCTIONS = frozenset({'jeśliby','jeżeliby'})
+
+
+def orthography_checks(source, variant):
+    """Ocena konkretnej źródłowej analizy; nie ogólna reguła końcowych liter."""
+    if variant not in {'broad','standard'}:
+        raise GeneratorError('Wariant musi być broad lub standard', 2)
+    lemma = source['lemma_id']
+    if (lemma not in ORTHOGRAPHY_2026_CONJUNCTIONS or source['raw_tag'] != 'comp'
+            or source['original'] != lemma):
+        return []
+    return [{'rule_id':'orthography-2026-conjunction-by-v1',
+             'status':'reject' if variant == 'standard' else 'accept',
+             'source_lemma_id':lemma, 'norm_effective_from':'2026-01-01',
+             'message':'Norma 2026 wymaga pisowni rozdzielnej; ta analiza odpada ze STANDARD.'
+                       if variant == 'standard' else
+                       'Udokumentowany dawny zapis nie wyklucza sam w BROAD; reguły gry i inne warunki osobno.',
+             'evidence':['config/generator/orthography.json',
+                         '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md',
+                         'https://www.poradnia-jezykowa.uni.lodz.pl/szczegoly/pisownia-spojnikow-jesli-jezeli-z-czastka-by']}]
+
+
 CONTEXT_REQUIREMENTS = {
     'daw.,z_D.': 'adjective_genitive',
     'daw._dziś_gwar.,z_D.': 'adjective_genitive',

@@ -15,6 +15,61 @@ PREPOSITION_N_DOCUMENTED = frozenset('bezeń dlań doń nadeń nań odeń oń po
 MOBILE_BY_HOSTS = {**dict.fromkeys('aby choćby chociażby iżby gdyby jakby jakoby żeby ażeby jeżeliby jeśliby byleby kieby'.split(), 'comp'),
                    **dict.fromkeys('oby bodajby czyżby'.split(), 'part')}
 
+# Zamknięte definicje z_aglt/z_aglt_nwok/z_aglt_nwok2; nie reguła sufiksu.
+MOBILE_AGLT_HOSTS = {('albo', 'part'): 'nwok',
+ ('alboż', 'part'): 'wok',
+ ('ale', 'conj'): 'nwok',
+ ('ale', 'part'): 'nwok',
+ ('ależ', 'part'): 'wok',
+ ('aniżeli', 'conj'): 'nwok',
+ ('azali', 'part'): 'nwok',
+ ('azaliż', 'part'): 'wok',
+ ('bo', 'comp'): 'nwok',
+ ('bowiem', 'comp'): 'wok',
+ ('byle', 'comp'): 'nwok',
+ ('chyba', 'part'): 'nwok',
+ ('co', 'comp'): 'nwok',
+ ('co', 'subst:%'): 'nwok',
+ ('czemu', 'adv'): 'nwok',
+ ('czy', 'part'): 'nwok',
+ ('czyli', 'part'): 'nwok',
+ ('czyliż', 'part'): 'wok',
+ ('czyż', 'part'): 'wok',
+ ('cóż', 'subst:%'): 'wok',
+ ('dlaczego', 'adv'): 'nwok',
+ ('dopóki', 'comp'): 'nwok',
+ ('dopóty', 'conj'): 'nwok',
+ ('gdy', 'adv'): 'nwok',
+ ('gdzie', 'adv'): 'nwok',
+ ('gdzie', 'part'): 'nwok',
+ ('gdzież', 'adv'): 'wok',
+ ('iż', 'comp'): 'wok',
+ ('jakżeż', 'part'): 'wok',
+ ('jeszcze', 'part'): 'nwok',
+ ('jeśli', 'comp'): 'nwok',
+ ('jeżeli', 'comp'): 'nwok',
+ ('już', 'part'): 'wok',
+ ('kiedy', 'adv'): 'nwok',
+ ('kiedy', 'comp'): 'nwok',
+ ('kto', 'subst:%'): 'nwok',
+ ('któż', 'subst:%'): 'wok',
+ ('ledwie', 'comp'): 'nwok',
+ ('niźli', 'conj'): 'nwok',
+ ('niż', 'conj'): 'wok',
+ ('niżeli', 'conj'): 'nwok',
+ ('póki', 'comp'): 'nwok',
+ ('skoro', 'comp'): 'nwok',
+ ('skąd', 'adv'): 'wok',
+ ('tak', 'adv:%'): 'wok',
+ ('to', 'comp'): 'nwok',
+ ('tylko', 'part'): 'nwok',
+ ('wcale', 'adv'): 'nwok',
+ ('zaledwie', 'comp'): 'nwok',
+ ('zali', 'part'): 'nwok',
+ ('zaliż', 'part'): 'wok',
+ ('że', 'comp'): 'nwok',
+ ('że', 'part'): 'nwok'}
+
 
 def _validate_source(source):
     if (not isinstance(source, dict) or any(field not in source for field in SOURCE_FIELDS)
@@ -80,15 +135,38 @@ def mobile_by_aglt_candidates(host, aglt):
     return _attach_aglt(host, aglt, 'mobile-by-host-aglt-v1')
 
 
-def _attach_aglt(operator, aglt, rule_id):
+def mobile_aglt_candidates(host, aglt):
+    """Źródłowy host i właściwa wokaliczność, bez permissive ani swobodnego by."""
+    _validate_source(host)
+    _validate_source(aglt)
+    if host['source_id'] != aglt['source_id']:
+        return []
+    lemma = host['lemma_id'].split(':',1)[0]
+    variant = MOBILE_AGLT_HOSTS.get((lemma,host['raw_tag']))
+    if variant is None:
+        for pattern in ('subst:%','adv:%'):
+            if host['raw_tag'].startswith(pattern[:-1]):
+                variant = MOBILE_AGLT_HOSTS.get((lemma,pattern))
+    if variant is None or (not host['raw_tag'].startswith('subst:') and host['original'] != lemma):
+        return []
+    # Definicja klasy może obejmować odmienną formę o innej wokaliczności.
+    # Nie nadajemy jej niezgodnej końcówki; luka pozostaje w macierzy źródłowej.
+    vowel = unicodedata.normalize('NFC',host['original'])[-1].lower() in VOWELS
+    if vowel != (variant == 'nwok') or not aglt['raw_tag'].endswith(':'+variant):
+        return []
+    return _attach_aglt(host,aglt,'mobile-source-host-aglt-v1',variant)
+
+
+def _attach_aglt(operator, aglt, rule_id, variant="nwok"):
     if aglt['raw_tag'].split(':', 1)[0] != 'aglt':
         return []
     results = []
     for tag in expand_tag(aglt['raw_tag']):
         fields = tag.split(':')
-        if (len(fields) != 5 or fields[3:] != ['imperf', 'nwok']
-                or BY_AGLT_ENDINGS.get((fields[1], fields[2])) != aglt['original']):
-            raise GeneratorError('Niepokryta forma by + aglt; wymagany wariant nwok', 4,
+        if (len(fields) != 5 or (fields[1],fields[2]) not in BY_AGLT_ENDINGS
+                or fields[3:] != ['imperf', variant]
+                or (('e' if variant=='wok' else '') + BY_AGLT_ENDINGS.get((fields[1], fields[2]),'')) != aglt['original']):
+            raise GeneratorError('Niepokryta forma aglt; wymagany wariant źródłowej klasy', 4,
                                  aglt['source_id'], aglt['first_source_row'])
         inherited = {field: '|'.join(sorted({label for item in (operator, aglt)
                                             for label in item[field].split('|') if label}))
@@ -209,6 +287,16 @@ def materialize_confirmed_candidates(db, batch_size=10000):
     for host in mobile_hosts:
         for ending in endings:
             for candidate in mobile_by_aglt_candidates(host, ending):
+                save(candidate)
+    all_endings = [dict(zip(SOURCE_FIELDS,row)) for row in db.execute(
+        select + " where i.tag like 'aglt:%' order by i.source_id,i.first_row")]
+    lemmas = sorted({key[0] for key in MOBILE_AGLT_HOSTS})
+    placeholders = ','.join('?' for _ in lemmas)
+    source_hosts = [dict(zip(SOURCE_FIELDS,row)) for row in db.execute(
+        select + f" where l.lemma_base in ({placeholders}) order by i.source_id,i.first_row",lemmas)]
+    for host in source_hosts:
+        for ending in all_endings:
+            for candidate in mobile_aglt_candidates(host,ending):
                 save(candidate)
     prepositions = [dict(zip(SOURCE_FIELDS,row)) for row in db.execute(
         select + " where i.tag like 'prep:%' order by i.source_id,i.first_row")]

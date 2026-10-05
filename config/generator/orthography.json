@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "orthography-discovery-v1",
+  "version": "orthography-discovery-v2",
   "status": "not_active_policy",
   "normalization": "NFC",
   "lookup_key": "NFC_LOWER_NFC",
@@ -12,5 +12,29 @@
   "game_rules": "unchanged",
   "game_rule_reference_is_automatic_update": false,
   "historical_spelling_matrix": "pending",
-  "evidence": ["rjp:4.4-4.6,4.9", "game-rules-references.json", "dictionary-vs-game.md"]
+  "evidence": [
+    "rjp:4.4-4.6,4.9",
+    "game-rules-references.json",
+    "dictionary-vs-game.md"
+  ],
+  "standard_norm_effective_from": "2026-01-01",
+  "broad_documented_older_spelling": "non_excluding_other_conditions_separate",
+  "confirmed_rules": [
+    {
+      "rule_id": "orthography-2026-conjunction-by-v1",
+      "lemma_ids": [
+        "jeśliby",
+        "jeżeliby"
+      ],
+      "pos": "comp",
+      "source_original_equals_lemma": true,
+      "variants": {
+        "standard": "reject",
+        "broad": "non_excluding"
+      },
+      "inherit_in_constructions": true,
+      "full_matrix_complete": false,
+      "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md"
+    }
+  ]
 }

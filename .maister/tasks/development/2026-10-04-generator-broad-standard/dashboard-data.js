@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T02:07:45.899598+00:00",
+  "generated": "2026-10-05T06:40:46.995671+00:00",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Licencje A wdrożone; wymagany wybór normy pisowni 2026"
+    "current_activity": "Norma A wdrożona; kontrola pełnych źródłowych klas mobilnych"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Połączona kontrola wszystkich wdrożonych konstruktorów: 93 071 źródłowych interpretacji, 93 591 kandydatów i 187 182 składniki. Powtórzenie daje identyczny digest i zero nowych kandydatów, FK/integrity OK. To projekcja klas z pełnego źródła, nie pełny build G8. Warunki własnych materiałów zatwierdzono A i zapisano z oddzielnymi atrybucjami źródeł. Pełna macierz i listy pozostają nieukończone. Sprawdzono 70 definicji mobilnych hostów; nowa bramka normy2026 dotyczy m.in. nieoznaczonych jeśliby/jeżeliby. Brak aktywacji zmiany przed odpowiedzią.",
+      "summary": "Wdrożono A dla normy 2026: dokładne analizy comp jeśliby/jeżeliby i ich składniki konstrukcyjne mają odrzucenie STANDARD; BROAD nie wyklucza przez samą dawną pisownię. Nie usunięto wpisów i nie zmieniono reguł gry. Dodano kandydatów mobilnych końcówek dla trzech pozostałych zamkniętych klas, z kontrolą lematu, POS, wokaliczności, źródła i śladów. Odmienne formy niezgodne z wariantem źródłowej klasy wymagają dalszej oceny; pełna macierz i kwalifikacja nadal otwarte.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -255,7 +255,8 @@ window.MAISTER_DATA = {
         "A incorrect_source_label_policy: jawne niepopr. na sprawdzonej dosłownej etykiecie odrzuca konkretną interpretację w BROAD i STANDARD, bez usunięcia wpisu lub innych analiz.",
         "A context_restrictions_policy: samo wymaganie kontekstu niewykluczające; explain zachowuje je, niesamodzielne morfemy osobno.",
         "A contraction_documentation_proof: dosłowne wskazanie całej kontrakcji przez autorów SGJP wystarcza jako dowód językowy dla18 form; pozostałe kryteria osobno,8pozostałych bez automatycznej analogii.",
-        "A: własny kod/konfiguracje BSD-2-Clause; własna dokumentacja i raporty CC BY 4.0. Źródła zachowują odrębne warunki."
+        "A: własny kod/konfiguracje BSD-2-Clause; własna dokumentacja i raporty CC BY 4.0. Źródła zachowują odrębne warunki.",
+        "A: STANDARD stosuje normę 2026 także dla nieoznaczonych dawnych zapisów; BROAD może je zachować z dowodem, reguły gry niezmienione."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -449,19 +450,15 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/mobile-host-inventory.json",
           "label": "Pełna inwentaryzacja czterech zamkniętych klas hostów"
+        },
+        {
+          "path": "analysis/evidence/norm-mobile-review.md",
+          "label": "Norma 2026 i zamknięte mobilne klasy: przegląd"
         }
       ],
       "gate": {
-        "id": "orthography_2026_unlabelled_source_forms",
-        "status": "pending",
-        "created_at": "2026-10-05T02:07:45.899598+00:00",
-        "question": "Czy STANDARD stosuje normę 2026 także wobec dawnych zapisów bez etykiety dawności w SGJP, a BROAD może zachować udokumentowane dawne zapisy?",
-        "options": {
-          "A": "STANDARD norma2026; BROAD udokumentowane dawne zapisy, reguły gry osobno (rekomendowane).",
-          "B": "Oba warianty na tym etapie oceniają pisownię według przypiętego SGJP; jawna korekta specyfikacji."
-        },
-        "answer": null,
-        "artifact": "analysis/evidence/orthography-2026-decision.md"
+        "question": null,
+        "answer": null
       }
     },
     {

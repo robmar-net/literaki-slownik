@@ -7,6 +7,19 @@ from literaki_slownik.inputs import GeneratorError
 
 
 class PolicyTests(unittest.TestCase):
+    def test_orthography_2026_exact_lemma_pos_and_variant_without_suffix_guess(self):
+        from literaki_slownik.policy import orthography_checks
+        for word in ('jeśliby','jeżeliby'):
+            src = dict(original=word,lemma_id=word,raw_tag='comp')
+            self.assertEqual(assessment(orthography_checks(src,'standard'))['status'],'reject')
+            self.assertEqual(assessment(orthography_checks(src,'broad'))['status'],'accept')
+        for src in [dict(original='Jeśliby',lemma_id='Jeśliba',raw_tag='subst:pl:gen:f'),
+                    dict(original='jeśliby',lemma_id='inny',raw_tag='comp'),
+                    dict(original='jeśliby',lemma_id='jeśliby',raw_tag='part'),
+                    dict(original='gdyby',lemma_id='gdyby:M',raw_tag='comp'),
+                    dict(original='niby',lemma_id='niby',raw_tag='part')]:
+            self.assertEqual(orthography_checks(src,'standard'),[])
+
     def test_context_requirement_is_retained_and_non_excluding(self):
         from literaki_slownik.policy import context_checks
         for field, context in [('fraz.','phraseological_usage'), ('po_liczebniku','after_numeral'),
