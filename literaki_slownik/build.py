@@ -9,7 +9,7 @@ from .database import connect
 from .inputs import GeneratorError, inspect_sources
 from . import sgjp, kwjp
 from .run import create_run, set_stage
-from .reports import qualifier_coverage, logical_content_report
+from .reports import qualifier_coverage, logical_content_report, unresolved_report
 from .constructions import materialize_confirmed_candidates
 from .links import create_links, link_report
 from .decisions import materialize_assessments
@@ -127,6 +127,9 @@ def build(manifest_path, run_dir, batch_size=10000):
                        link_report(db, inputs['manifest'].get('unavailable', [])))
             performance['diagnostic_links'] = {'seconds': time.monotonic() - start}
             stage = 'reports'
+            start = time.monotonic()
+            write_json(run / 'reports/unresolved.json', unresolved_report(db))
+            performance['diagnostic_unresolved'] = {'seconds': time.monotonic() - start}
             start = time.monotonic()
             write_json(run / 'reports/logical-content.json', logical_content_report(db))
             performance['diagnostic_logical_content'] = {'seconds': time.monotonic() - start}

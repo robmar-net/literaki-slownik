@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T13:31:53Z",
+  "generated": "2026-10-05T14:25:32Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Przegląd PAN14/147; wybór sposobu używania opisów wieku czeka na decyzję"
+    "current_activity": "A wieku wdrożone; raport niewiadomych gotowy, próg dowodu nazwiska czeka na decyzję"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "PAN-3:12 użyć udokumentowanych SGJP+2 obserwacje WSJP, dokładne tożsamości i homonimy zachowane. Pełny ID nie jest gwarancją jednego znaczenia. PAN-4:14/147 z dowodem użycia,133 bez takiego przeglądu,147 kwalifikacji unresolved. Audyt snapshotu/mapowania i dwa identyczne odtworzenia;156/156 testów. Wymagany wybór roli ogólnego opisu wieku przed filtrem STANDARD. Bez aktywacji źródeł i zmian list,8/36 bez zmian.",
+      "summary": "A wieku klasy zapisane w policyv10; jawne etykiety dawności zachowane. G3:13 publicznych artykułów SGJP odczytano po poprawieniu parametrów; dostępne glosy, metadane nadal bez aktywacji. G6:reports/unresolved.json rozlicza wszystkie zapisane analizy, niewiadome pod odmową i spójne homonimy.160/160+5/5,preflight14+10OK; dwa readonly raporty219713 analiz identyczne/hash bazy bez zmian. Wybór progu dowodu dla dokładnych członów nazwiska wymaga decyzji przed filtrem; pełne wydanie nadal nieukończone,8/36.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -263,7 +263,8 @@ window.MAISTER_DATA = {
         "A: wspólny growy warunek obowiązkowej wielkiej litery odnosi się do normy2026 także dla dawnych interpretacji BROAD; dawne wpisy zachowane językowo, niezależne homonimy osobno.",
         "Nie kontaktujemy się z innymi grupami w tym projekcie; przygotowane zapytanie do SGJP pozostaje niewysłanym materiałem historycznym. Braki klasyfikacji rozpoznajemy samodzielnie na podstawie dopuszczonych danych i dokumentacji.",
         "Dane PAN częściowo uzupełniają wiedzę o znaczeniach: KWJP bigramy i publiczne próbki kontekstowe, SGJP glosy/relacje poza eksportem. Własny przegląd możliwy bez kontaktu; nie aktywowano danych ani filtrów, kompletność nadal otwarta.",
-        "Użytkownik zlecił dopisanie do planu samodzielnego przeglądu PAN: PAN-1–PAN-5 w G3. Najbliżej pełny rejestr147frag, dalej dowody/mapowanie/pokrycie i omówienie wpływu przed G4. Zakres9grup/36kroków i bramka phase10 zachowane."
+        "Użytkownik zlecił dopisanie do planu samodzielnego przeglądu PAN: PAN-1–PAN-5 w G3. Najbliżej pełny rejestr147frag, dalej dowody/mapowanie/pokrycie i omówienie wpływu przed G4. Zakres9grup/36kroków i bramka phase10 zachowane.",
+        "Zatwierdzone A: ogólny opis wieku całej klasy nie nadaje jej członkom automatycznego odrzucenia STANDARD. Potrzebne oznaczenie lub jednoznaczny dowód konkretnej interpretacji; jawne daw./przest. pozostają wiążące. Bez przeniesienia WSJP do wejść, bez zmiany reguł gry; pełna kwalifikacja nadal otwarta."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -615,21 +616,41 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/general-class-age-decision.md",
           "label": "Wiek klasy a konkretnego znaczenia — pending"
+        },
+        {
+          "path": "analysis/evidence/sgjp-public-reader-review.md",
+          "label": "Dostępne glosy: punktowy odczyt i granice"
+        },
+        {
+          "path": "analysis/evidence/sgjp-public-reader-observations.json",
+          "label": "Metryki13 publicznych odczytów"
+        },
+        {
+          "path": "analysis/evidence/unresolved-report-review.md",
+          "label": "Raport niewiadomych zapisanych analiz"
+        },
+        {
+          "path": "analysis/evidence/unresolved-runtime.json",
+          "label": "Readonly raport219713 analiz, dwa odtworzenia"
+        },
+        {
+          "path": "analysis/evidence/documented-name-class-proof-decision.md",
+          "label": "Próg dowodu klasy członu nazwiska — pending"
         }
       ],
       "gate": {
-        "id": "general_class_age_policy",
+        "id": "documented_name_class_proof",
         "status": "pending",
-        "created_at": "2026-10-05T13:31:53Z",
-        "question": "Czy ogólny opis całej klasy jako przestarzałej ma automatycznie wykluczać jej wymienione przykłady ze STANDARD, mimo braku kwalifikatora wieku w eksporcie?",
+        "created_at": "2026-10-05T14:25:32Z",
+        "question": "Czy jednoznaczny opis konkretnej formy przez autorów SGJP wystarcza do uzupełnienia brakującej klasy członu nazwiska w jej dokładnej źródłowej analizie?",
         "options": {
-          "A": "Nie: wymagaj oznaczenia lub jednoznacznego dowodu wieku konkretnej interpretacji; rekomendowane.",
-          "B": "Tak: przenieś opis wieku na dosłownie wymienione przykłady klasy."
+          "A": "Tak: ręcznie zweryfikowane ID i opis autorów wystarczą; istniejące wyłączenie growe, homonimy osobno (rekomendowane).",
+          "B": "Wymagaj dodatkowego niezależnego dowodu; do tego czasu unresolved."
         },
         "answer": null,
-        "artifact": "analysis/evidence/general-class-age-decision.md",
-        "authority": "AGENTS.md: discuss decisions changing membership or criteria before implementation",
-        "scope": "age_evidence_policy_not_game_rules_or_source_import_authorization"
+        "artifact": "analysis/evidence/documented-name-class-proof-decision.md",
+        "authority": "AGENTS.md: discuss membership/criteria decisions before implementation",
+        "scope": "documentary_proof_threshold_first_exact_de_F_and_ibn_not_game_rule_change_or_metadata_database_activation"
       }
     },
     {

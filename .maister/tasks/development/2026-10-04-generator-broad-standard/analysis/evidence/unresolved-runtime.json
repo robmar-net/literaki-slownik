@@ -1,0 +1,103 @@
+{
+  "observed_at": "2026-10-05T14:21:07Z",
+  "scope": "all_persisted_diagnostic_projection_assessments_not_full_build_G8",
+  "database_sha256_before_after": "1f36135a9b391eced167f6f37e48c2cce15f298a4c6e515b3b516fa213530265",
+  "unchanged": true,
+  "readonly": true,
+  "repeat_identical": true,
+  "report_sha256": "4f67e6b1bc5a1f56c9251ca3f0848f915c5b643d90c1cf590545e9cae25f5811",
+  "report": {
+    "schema_version": 1,
+    "scope": "all_persisted_assessments_not_full_release",
+    "full_qualification_pending": true,
+    "variants": {
+      "broad": {
+        "analyses": 219713,
+        "analysis_membership": {
+          "accept": 0,
+          "reject": 37809,
+          "unresolved": 181904
+        },
+        "word_keys": 213636,
+        "word_membership": {
+          "accept": 0,
+          "reject": 36778,
+          "unresolved": 176858
+        },
+        "analyses_with_unresolved_checks": 219713,
+        "rejected_analyses_with_unresolved_checks": 37809
+      },
+      "standard": {
+        "analyses": 219713,
+        "analysis_membership": {
+          "accept": 0,
+          "reject": 61815,
+          "unresolved": 157898
+        },
+        "word_keys": 213636,
+        "word_membership": {
+          "accept": 0,
+          "reject": 59417,
+          "unresolved": 154219
+        },
+        "analyses_with_unresolved_checks": 219713,
+        "rejected_analyses_with_unresolved_checks": 61815
+      }
+    },
+    "rules": [
+      {
+        "variant": "broad",
+        "layer": "game",
+        "rule_id": "game-metadata-not-complete-v1",
+        "analyses": 219713,
+        "word_keys": 213636,
+        "analyses_with_rejected_membership": 37809
+      },
+      {
+        "variant": "broad",
+        "layer": "language",
+        "rule_id": "linguistic-policy-not-active-v1",
+        "analyses": 219713,
+        "word_keys": 213636,
+        "analyses_with_rejected_membership": 37809
+      },
+      {
+        "variant": "broad",
+        "layer": "language",
+        "rule_id": "preposition-n-whole-form-proof-v1",
+        "analyses": 24,
+        "word_keys": 8,
+        "analyses_with_rejected_membership": 24
+      },
+      {
+        "variant": "standard",
+        "layer": "game",
+        "rule_id": "game-metadata-not-complete-v1",
+        "analyses": 219713,
+        "word_keys": 213636,
+        "analyses_with_rejected_membership": 61815
+      },
+      {
+        "variant": "standard",
+        "layer": "language",
+        "rule_id": "linguistic-policy-not-active-v1",
+        "analyses": 219713,
+        "word_keys": 213636,
+        "analyses_with_rejected_membership": 61815
+      },
+      {
+        "variant": "standard",
+        "layer": "language",
+        "rule_id": "preposition-n-whole-form-proof-v1",
+        "analyses": 24,
+        "word_keys": 8,
+        "analyses_with_rejected_membership": 24
+      }
+    ]
+  },
+  "seconds": 41.60403416695772,
+  "code_sha256": {
+    "literaki_slownik/reports.py": "a467e91c744cf90c9dc02706af74a46e1d28773b8bc9192c005f76c2b6afa13b",
+    "literaki_slownik/build.py": "54c1ddef7351c287193b7badf5156f19af06d5bb3732f55837be8016fffb8981"
+  }
+}

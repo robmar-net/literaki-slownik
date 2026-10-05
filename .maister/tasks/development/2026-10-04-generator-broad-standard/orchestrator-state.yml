@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-05T13:31:53Z",
+    "updated": "2026-10-05T14:25:32Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "PAN-3:12 użyć udokumentowanych SGJP+2 obserwacje WSJP, dokładne tożsamości i homonimy zachowane. Pełny ID nie jest gwarancją jednego znaczenia. PAN-4:14/147 z dowodem użycia,133 bez takiego przeglądu,147 kwalifikacji unresolved. Audyt snapshotu/mapowania i dwa identyczne odtworzenia;156/156 testów. Wymagany wybór roli ogólnego opisu wieku przed filtrem STANDARD. Bez aktywacji źródeł i zmian list,8/36 bez zmian.",
+      "summary": "A wieku klasy zapisane w policyv10; jawne etykiety dawności zachowane. G3:13 publicznych artykułów SGJP odczytano po poprawieniu parametrów; dostępne glosy, metadane nadal bez aktywacji. G6:reports/unresolved.json rozlicza wszystkie zapisane analizy, niewiadome pod odmową i spójne homonimy.160/160+5/5,preflight14+10OK; dwa readonly raporty219713 analiz identyczne/hash bazy bez zmian. Wybór progu dowodu dla dokładnych członów nazwiska wymaga decyzji przed filtrem; pełne wydanie nadal nieukończone,8/36.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -237,7 +237,8 @@
         "A: wspólny growy warunek obowiązkowej wielkiej litery odnosi się do normy2026 także dla dawnych interpretacji BROAD; dawne wpisy zachowane językowo, niezależne homonimy osobno.",
         "Nie kontaktujemy się z innymi grupami w tym projekcie; przygotowane zapytanie do SGJP pozostaje niewysłanym materiałem historycznym. Braki klasyfikacji rozpoznajemy samodzielnie na podstawie dopuszczonych danych i dokumentacji.",
         "Dane PAN częściowo uzupełniają wiedzę o znaczeniach: KWJP bigramy i publiczne próbki kontekstowe, SGJP glosy/relacje poza eksportem. Własny przegląd możliwy bez kontaktu; nie aktywowano danych ani filtrów, kompletność nadal otwarta.",
-        "Użytkownik zlecił dopisanie do planu samodzielnego przeglądu PAN: PAN-1–PAN-5 w G3. Najbliżej pełny rejestr147frag, dalej dowody/mapowanie/pokrycie i omówienie wpływu przed G4. Zakres9grup/36kroków i bramka phase10 zachowane."
+        "Użytkownik zlecił dopisanie do planu samodzielnego przeglądu PAN: PAN-1–PAN-5 w G3. Najbliżej pełny rejestr147frag, dalej dowody/mapowanie/pokrycie i omówienie wpływu przed G4. Zakres9grup/36kroków i bramka phase10 zachowane.",
+        "Zatwierdzone A: ogólny opis wieku całej klasy nie nadaje jej członkom automatycznego odrzucenia STANDARD. Potrzebne oznaczenie lub jednoznaczny dowód konkretnej interpretacji; jawne daw./przest. pozostają wiążące. Bez przeniesienia WSJP do wejść, bez zmiany reguł gry; pełna kwalifikacja nadal otwarta."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -589,21 +590,41 @@
         {
           "path": "analysis/evidence/general-class-age-decision.md",
           "label": "Wiek klasy a konkretnego znaczenia — pending"
+        },
+        {
+          "path": "analysis/evidence/sgjp-public-reader-review.md",
+          "label": "Dostępne glosy: punktowy odczyt i granice"
+        },
+        {
+          "path": "analysis/evidence/sgjp-public-reader-observations.json",
+          "label": "Metryki13 publicznych odczytów"
+        },
+        {
+          "path": "analysis/evidence/unresolved-report-review.md",
+          "label": "Raport niewiadomych zapisanych analiz"
+        },
+        {
+          "path": "analysis/evidence/unresolved-runtime.json",
+          "label": "Readonly raport219713 analiz, dwa odtworzenia"
+        },
+        {
+          "path": "analysis/evidence/documented-name-class-proof-decision.md",
+          "label": "Próg dowodu klasy członu nazwiska — pending"
         }
       ],
       "gate": {
-        "id": "general_class_age_policy",
+        "id": "documented_name_class_proof",
         "status": "pending",
-        "created_at": "2026-10-05T13:31:53Z",
-        "question": "Czy ogólny opis całej klasy jako przestarzałej ma automatycznie wykluczać jej wymienione przykłady ze STANDARD, mimo braku kwalifikatora wieku w eksporcie?",
+        "created_at": "2026-10-05T14:25:32Z",
+        "question": "Czy jednoznaczny opis konkretnej formy przez autorów SGJP wystarcza do uzupełnienia brakującej klasy członu nazwiska w jej dokładnej źródłowej analizie?",
         "options": {
-          "A": "Nie: wymagaj oznaczenia lub jednoznacznego dowodu wieku konkretnej interpretacji; rekomendowane.",
-          "B": "Tak: przenieś opis wieku na dosłownie wymienione przykłady klasy."
+          "A": "Tak: ręcznie zweryfikowane ID i opis autorów wystarczą; istniejące wyłączenie growe, homonimy osobno (rekomendowane).",
+          "B": "Wymagaj dodatkowego niezależnego dowodu; do tego czasu unresolved."
         },
         "answer": null,
-        "artifact": "analysis/evidence/general-class-age-decision.md",
-        "authority": "AGENTS.md: discuss decisions changing membership or criteria before implementation",
-        "scope": "age_evidence_policy_not_game_rules_or_source_import_authorization"
+        "artifact": "analysis/evidence/documented-name-class-proof-decision.md",
+        "authority": "AGENTS.md: discuss membership/criteria decisions before implementation",
+        "scope": "documentary_proof_threshold_first_exact_de_F_and_ibn_not_game_rule_change_or_metadata_database_activation"
       },
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
@@ -802,6 +823,21 @@
           "question_delivery": "request_user_input_async",
           "answered_at": "2026-10-05T10:43:48Z",
           "resolution": "Kontakt z innymi grupami wykluczony przez użytkownika dla projektu; wiadomość nigdy niewysłana. Braki dowodów pozostają otwarte, nie zmieniają kryteriów dopuszczalności."
+        },
+        {
+          "id": "general_class_age_policy",
+          "status": "approved",
+          "created_at": "2026-10-05T13:31:53Z",
+          "question": "Czy ogólny opis całej klasy jako przestarzałej ma automatycznie wykluczać jej wymienione przykłady ze STANDARD, mimo braku kwalifikatora wieku w eksporcie?",
+          "options": {
+            "A": "Nie: wymagaj oznaczenia lub jednoznacznego dowodu wieku konkretnej interpretacji; rekomendowane.",
+            "B": "Tak: przenieś opis wieku na dosłownie wymienione przykłady klasy."
+          },
+          "answer": "A",
+          "artifact": "analysis/evidence/general-class-age-decision.md",
+          "authority": "AGENTS.md: discuss decisions changing membership or criteria before implementation",
+          "scope": "age_evidence_policy_not_game_rules_or_source_import_authorization",
+          "answered_at": "2026-10-05T14:09:14Z"
         }
       ]
     }
@@ -864,6 +900,14 @@
         "samples_inspected": 5500,
         "new_active_build_inputs": 0,
         "classification_complete": false
+      },
+      "public_reader_recheck": {
+        "observed_at": "2026-10-05T14:25:32Z",
+        "articles_read": 13,
+        "artifact": "analysis/evidence/sgjp-public-reader-observations.json",
+        "values_accessible": true,
+        "new_active_build_inputs": 0,
+        "classification_complete": false
       }
     },
     "implementation_started": true,
@@ -897,8 +941,8 @@
       "G3": {
         "status": "in_progress",
         "attempts": 1,
-        "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified; userAcurrentnormgame, threeexactresidentlemma51expandedcases, fullfrag147/109lower/38upper; currentdownload=20260823 and primarySGJP about semantic limits inspected; PAN-1: zamknięta populacja147frag zinwentaryzowana; PAN-2: wszystkie13list i5500próbek powiązane, glosy niedostępne w odczycie; PAN-3: wstępny odczyt62pierwszychkontekstów, pełne mapowanie nierozstrzygnięte; PAN-4: pokrycie frag147/64alternatywy/108listy/62próbki/39beztrafień, bez wpływu na listy. Nazwy mieszkańców i pozostałe wyjątki nadal do inwentaryzacji.; PAN-3:12 użyć udokumentowanych SGJP+2 obserwacje WSJP, dokładne tożsamości i homonimy zachowane. Pełny ID nie jest gwarancją jednego znaczenia. PAN-4:14/147 z dowodem użycia,133 bez takiego przeglądu,147 kwalifikacji unresolved. Audyt snapshotu/mapowania i dwa identyczne odtworzenia;156/156 testów. Wymagany wybór roli ogólnego opisu wieku przed filtrem STANDARD. Bez aktywacji źródeł i zmian list,8/36 bez zmian.",
-        "next_action": "Decyzja wieku klasy, dalsze dokładne mapowanie133frag i inwentaryzacja mieszkańców obu rodzajów; bez kontaktów."
+        "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified; userAcurrentnormgame, threeexactresidentlemma51expandedcases, fullfrag147/109lower/38upper; currentdownload=20260823 and primarySGJP about semantic limits inspected; PAN-1: zamknięta populacja147frag zinwentaryzowana; PAN-2: wszystkie13list i5500próbek powiązane, glosy niedostępne w odczycie; PAN-3: wstępny odczyt62pierwszychkontekstów, pełne mapowanie nierozstrzygnięte; PAN-4: pokrycie frag147/64alternatywy/108listy/62próbki/39beztrafień, bez wpływu na listy. Nazwy mieszkańców i pozostałe wyjątki nadal do inwentaryzacji.; PAN-3:12 użyć udokumentowanych SGJP+2 obserwacje WSJP, dokładne tożsamości i homonimy zachowane. Pełny ID nie jest gwarancją jednego znaczenia. PAN-4:14/147 z dowodem użycia,133 bez takiego przeglądu,147 kwalifikacji unresolved. Audyt snapshotu/mapowania i dwa identyczne odtworzenia;156/156 testów. Wymagany wybór roli ogólnego opisu wieku przed filtrem STANDARD. Bez aktywacji źródeł i zmian list,8/36 bez zmian.; public reader complete params13articles accessible; no metadata input activated; classificationproof gate pending",
+        "next_action": "Rozstrzygnąć próg dowodu nazwiska, następnie dokładne mapowanie i dalszy przegląd147frag oraz mieszkańców; bez kontaktu."
       },
       "G4": {
         "status": "in_progress",
@@ -921,7 +965,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "Independent diagnostic explain authorized by plan §2 and user continue code",
-        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks; context explain JSON/text regression green,5 real readonly queries; qualifier coverage6 red→green,build integration1 red→green; full7458520/615/605 repeat canonical identical readonly; persisted explain2 red→green; alternative source trace regression fixed,legacycompatible,6realqueries rechecked readonly; contraction/mobile/corpus3redgreen,legacyreadonly20observations; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable",
+        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks; context explain JSON/text regression green,5 real readonly queries; qualifier coverage6 red→green,build integration1 red→green; full7458520/615/605 repeat canonical identical readonly; persisted explain2 red→green; alternative source trace regression fixed,legacycompatible,6realqueries rechecked readonly; contraction/mobile/corpus3redgreen,legacyreadonly20observations; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable; unknownreport3redImportError→green,buildreport1redFileNotFound→green; full160/160+5/5; readonly219713analyses213636keys repeat identical hashDBstable",
         "remaining": "Full strata and analysis payloads, report/build integration, other canonical reports/index, full final decisions/derivations explain"
       },
       "G7": {
@@ -975,7 +1019,7 @@
         "contact_route_allowed": false
       }
     },
-    "verification_note": "PAN-3:12 użyć udokumentowanych SGJP+2 obserwacje WSJP, dokładne tożsamości i homonimy zachowane. Pełny ID nie jest gwarancją jednego znaczenia. PAN-4:14/147 z dowodem użycia,133 bez takiego przeglądu,147 kwalifikacji unresolved. Audyt snapshotu/mapowania i dwa identyczne odtworzenia;156/156 testów. Wymagany wybór roli ogólnego opisu wieku przed filtrem STANDARD. Bez aktywacji źródeł i zmian list,8/36 bez zmian. Baseline audytu5/5 z poprzedniej kontroli, nie powtarzano dla odrębnego narzędzia obserwacyjnego. phase10 pending.",
+    "verification_note": "A wieku klasy zapisane w policyv10; jawne etykiety dawności zachowane. G3:13 publicznych artykułów SGJP odczytano po poprawieniu parametrów; dostępne glosy, metadane nadal bez aktywacji. G6:reports/unresolved.json rozlicza wszystkie zapisane analizy, niewiadome pod odmową i spójne homonimy.160/160+5/5,preflight14+10OK; dwa readonly raporty219713 analiz identyczne/hash bazy bez zmian. Wybór progu dowodu dla dokładnych członów nazwiska wymaga decyzji przed filtrem; pełne wydanie nadal nieukończone,8/36.",
     "source_policy_clarification": {
       "recorded_at": "2026-10-04T21:49:35Z",
       "artifact": "analysis/evidence/source-policy-clarification.md",
@@ -1026,6 +1070,14 @@
       "last_artifact": "analysis/evidence/pan-document-review.md",
       "documented_use_cases": 14,
       "full_lemma_id_is_not_single_sense": true
+    },
+    "general_class_age_policy": {
+      "answer": "A",
+      "approved_at": "2026-10-05T14:09:14Z",
+      "generic_description_alone_excludes": false,
+      "specific_source_labels_preserved": true,
+      "supplementary_sources_activated": false,
+      "artifact": "analysis/evidence/general-class-age-decision.md"
     }
   }
 }

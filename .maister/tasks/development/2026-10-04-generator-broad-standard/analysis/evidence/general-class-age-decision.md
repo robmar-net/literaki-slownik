@@ -1,15 +1,15 @@
 # Opis całej klasy a wiek konkretnego znaczenia
 
 ## TL;DR
-Potrzebny wybór przed zmianą kryterium wieku w STANDARD. Opis klasy w dokumentacji SGJP i opis konkretnego znaczenia WSJP mogą prowadzić do innych ocen. Żadnego nowego filtra nie aktywowano.
+Użytkownik zatwierdził A: ogólny opis klasy sam nie wyklucza ze STANDARD. Opis klasy w dokumentacji SGJP i opis konkretnego znaczenia WSJP mogą prowadzić do innych ocen. Żadnego nowego filtra nie aktywowano.
 
 ## Key Decisions
-- Rekomendacja A: ogólny opis klasy jako przestarzałej nie odrzuca automatycznie każdego jej członka. Potrzebne oznaczenie lub jednoznaczny dowód dotyczący konkretnej interpretacji; istniejące jawne daw./przest. nadal obowiązują.
-- B: przenosić opis wieku na wszystkie formy dosłownie wymienione jako przykłady tej klasy, także bez kwalifikatora w eksporcie. Nie rozszerzać przez analogię na inne wyrazy.
+- Zatwierdzone A: ogólny opis klasy jako przestarzałej nie odrzuca automatycznie każdego jej członka. Potrzebne oznaczenie lub jednoznaczny dowód dotyczący konkretnej interpretacji; istniejące jawne daw./przest. nadal obowiązują.
+- Niewybrane B: przenosić opis wieku na wszystkie formy dosłownie wymienione jako przykłady tej klasy, także bez kwalifikatora w eksporcie. Nie rozszerzać przez analogię na inne wyrazy.
 - Wybór nie dopuszcza nowych leksemów, nie aktywuje WSJP jako wejścia i nie zmienia reguł gry. Odczyt i własna notatka z odsyłaczem to odrębna rola od kopiowania bazy haseł.
 
 ## Open Questions / Risks
-- Decyzja pending. Wariant A nie oznacza automatycznego accept: pozostałe oceny nadal obowiązują.
+- Decyzja A zatwierdzona 2026-10-05T14:09:14Z. Wariant A nie oznacza automatycznego accept: pozostałe oceny nadal obowiązują.
 - Nie porównano wszystkich znaczeń. Trójnasób nie ma tu odrębnego aktualnego hasła do rozstrzygnięcia wieku. Nowsza data strony ani użycie w korpusie nie dowodzą same poprawności w normie2026.
 - Warunki włączenia danych WSJP nadal nieustalone; żadnego importu ani aktywacji.
 
@@ -22,3 +22,9 @@ B dodaje odmowę wieku STANDARD dla dwóch źródłowych analiz i dwóch kluczy.
 ## Dlaczego potrzebna decyzja
 
 [AGENTS.md](../../../../../AGENTS.md) wymaga: „Decyzje zmieniające skład słownika lub kryteria dopuszczalności omawiamy z użytkownikiem przed ich wdrożeniem”. Zmiana sposobu używania opisów wieku spełnia ten warunek. Następna faza Maister nie została rozpoczęta; obowiązkowa bramka phase10 pozostaje odrębna.
+
+## Wdrożenie decyzji
+
+Zatwierdzone A: ogólny opis wieku całej klasy nie nadaje jej członkom automatycznego odrzucenia STANDARD. Potrzebne oznaczenie lub jednoznaczny dowód konkretnej interpretacji; jawne daw./przest. pozostają wiążące. Bez przeniesienia WSJP do wejść, bez zmiany reguł gry; pełna kwalifikacja nadal otwarta.
+
+Kontrakt zapisano w config/generator/policy.json. Runtime history_checks już korzysta wyłącznie z zamkniętych dosłownych kwalifikatorów: nie miał filtra dziedziczenia opisu klasy, więc nie trzeba go usuwać ani zmieniać wersji ocen. Zatwierdzenie nie jest oceną wieku wszystkich pozostałych znaczeń.

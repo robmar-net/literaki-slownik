@@ -71,3 +71,7 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 
 - [Dokumentacyjny przegląd PAN](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/pan-document-review.md) —14 użyć, dokładne ID, bez domniemania pojedynczego znaczenia;156 testów.
 - [Opis klasy a wiek interpretacji](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/general-class-age-decision.md) — materialny wybór przed filtrem, pending.
+
+- [Dostępne glosy publicznego czytnika](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/sgjp-public-reader-review.md) —13 odczytów, own reference, bez aktywacji metadanych.
+- [Raport niewiadomych](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unresolved-report-review.md) —160/160+5/5,219713analiz, brak ukrywania luk pod odmową.
+- [Próg dowodu klasy nazwiska](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-name-class-proof-decision.md) — decyzja przed dokładnym filtrem de:F/ibn.

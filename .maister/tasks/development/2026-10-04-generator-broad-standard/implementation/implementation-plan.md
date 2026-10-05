@@ -119,7 +119,7 @@ Zależności: G2/G3/G4. Pliki: `literaki_slownik/links.py`, `tests/test_links.py
 
 Niezależny fragment po zleceniu kontynuacji kodu: diagnostyczne explain tekst/JSON, wszystkie source interpretacje i rozwinięcia, wpis versus gra/profil, niepełny import, pełne powiązania bez powielania F. Osiem rzeczywistych zapytań i hashe read-only sprawdzone. Dodano mechanikę quality-v1 i szablon przeglądu: 7 testów, powtarzalna próbka 90 jednostek na rzeczywistych 184 917 rekordach lemma-all. Dodano strumieniowy raport samodzielnych/kolejnych/łącznych efektów filtrów, z kontrolą homonimów, niewiadomych i pominiętych odrzuceń. Przynależność do pełnych warstw, analizy w przeglądzie, integracja raportów i finalne decyzje pozostają do wykonania; kroków nie oznaczono complete.
 
-Zależności: G4/G5. Pliki: `literaki_slownik/{explain,reports,quality}.py`, `tests/{test_explain,test_reports,test_quality}.py`; CLI/build aktualizowane sekwencyjnie. K7/K9 oraz K8; R07/R09/R11.
+Zależności: G4/G5. Pliki: `literaki_slownik/{explain,reports,quality}.py`, `tests/{test_explain,test_reports,test_quality,test_unknown_report}.py`; CLI/build aktualizowane sekwencyjnie. K7/K9 oraz K8; R07/R09/R11.
 
 - [ ] 6.1 Test-first: accept/reject/unresolved/absent, failed build, wszystkie homonimy/składniki, odrzucenie profilu, brak KWJP; wszystkie analizy w JSON, żadnego cichego ucięcia; wpis istniejący lecz niedopuszczalny growo ma osobny powód i pozostaje osiągalny.
 - [ ] 6.2 Wdrożyć explain tekst/JSON oraz raporty importu, inwentaryzacji, pokrycia, niewiadomych, powiązań i filtrów (samodzielnie/kolejno/łącznie, analizy versus utracone formy).
@@ -302,3 +302,13 @@ Dwa odtworzenia identyczne; hash bazy źródłowej bez zmian,152/152testów. Tok
 PAN-3:12 użyć udokumentowanych SGJP+2 obserwacje WSJP, dokładne tożsamości i homonimy zachowane. Pełny ID nie jest gwarancją jednego znaczenia. PAN-4:14/147 z dowodem użycia,133 bez takiego przeglądu,147 kwalifikacji unresolved. Audyt snapshotu/mapowania i dwa identyczne odtworzenia;156/156 testów. Wymagany wybór roli ogólnego opisu wieku przed filtrem STANDARD. Bez aktywacji źródeł i zmian list,8/36 bez zmian.
 
 [Przegląd](../analysis/evidence/pan-document-review.md); [decyzja wieku](../analysis/evidence/general-class-age-decision.md). PAN-1–PAN-5 pozostają częściowe, bez zmiany checkboxów.
+
+## Zatwierdzone A: zakres dowodu wieku
+
+Zatwierdzone A: ogólny opis wieku całej klasy nie nadaje jej członkom automatycznego odrzucenia STANDARD. Potrzebne oznaczenie lub jednoznaczny dowód konkretnej interpretacji; jawne daw./przest. pozostają wiążące. Bez przeniesienia WSJP do wejść, bez zmiany reguł gry; pełna kwalifikacja nadal otwarta.
+
+## Publiczny czytnik i raport niewiadomych — postęp
+
+A wieku klasy zapisane w policyv10; jawne etykiety dawności zachowane. G3:13 publicznych artykułów SGJP odczytano po poprawieniu parametrów; dostępne glosy, metadane nadal bez aktywacji. G6:reports/unresolved.json rozlicza wszystkie zapisane analizy, niewiadome pod odmową i spójne homonimy.160/160+5/5,preflight14+10OK; dwa readonly raporty219713 analiz identyczne/hash bazy bez zmian. Wybór progu dowodu dla dokładnych członów nazwiska wymaga decyzji przed filtrem; pełne wydanie nadal nieukończone,8/36.
+
+[Odczyt](../analysis/evidence/sgjp-public-reader-review.md); [raport](../analysis/evidence/unresolved-report-review.md); [próg dowodu](../analysis/evidence/documented-name-class-proof-decision.md).

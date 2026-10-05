@@ -46,3 +46,7 @@ python3 scripts/probe_generator_evidence.py --mode qualifier-conditions --databa
 Wdrożono A dla25dosłownych oznaczeń bez pełnego objaśnienia: source_label zachowany, gloss_status=unestablished, inne kryteria osobno. Pełny runtime:1908kompaktowych analiz, dwa identyczne raporty, sześć readonly explain; wielka litera Abchaz nadal odrzuca growo. Dodano logical-content bieżącego schematu do build:10zamkniętych relacji, klucze źródłowe zamiast ID, wykrywanie nowych tabel/kolumn i niespójnych FK. Testy potwierdzają identyczność po zmianie ID i zmianę hasha po modyfikacji powiązań/kwalifikatorów. To nie pełny indeks kanoniczny ani odbiór G8.
 
 reports/logical-content.json jest diagnostyczną kontrolą bieżącego schematu; po utrwaleniu decyzji kwalifikacji kontrakt musi zostać rozszerzony. Zmiana kodu lub schematu wymaga nowego build, wcześniejszych baz nie migrujemy.
+
+## Niewiadome zapisanych ocen
+
+Nowe build tworzą reports/unresolved.json: osobno liczby analiz i kluczy słów w BROAD/STANDARD, status członkostwa i niewiadome w każdej warstwie. Znana odmowa nie usuwa niewiadomych; wspólne payloady nie zaniżają liczby analiz, a powtórzony check nie zawyża liczby dotkniętych analiz. Wynik słowa zachowuje dopuszczony homonim. Raport odmawia niepełnego zapisu lub niezgodnych hashy/statusów. To diagnostyka, INCOMPLETE i pełne reports pending; nie nadaje VERIFIED. [Przegląd i runtime](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unresolved-report-review.md).

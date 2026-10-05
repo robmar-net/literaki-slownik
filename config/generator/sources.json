@@ -773,7 +773,7 @@
     },
     "policy": {
       "path": "../../config/generator/policy.json",
-      "sha256": "73c7ffb333e33e0927ea19cf7f2ad2567e211f1a960f7a1d535a31aaa200d090"
+      "sha256": "68b58891da44857cc8cd64724e236c00967abc7b481c578cb61eb3e681c4fdd8"
     },
     "constructions": {
       "path": "../../config/generator/constructions.json",

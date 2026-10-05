@@ -1,5 +1,6 @@
 """Raporty podanych analiz; bez domniemania kompletności całego wydania."""
 from collections import Counter
+from functools import lru_cache
 import hashlib
 import json
 import sqlite3
@@ -7,6 +8,102 @@ import sqlite3
 from .decisions import assessment, aggregate, VARIANTS
 from .inputs import GeneratorError
 from .canonical import dumps
+
+
+def unresolved_report(db):
+    """Pełne liczniki zapisanych niewiadomych, także pod znanym odrzuceniem.
+
+    Słowo agregujemy po spójnych analizach. Nie liczymy wspólnego payloadu
+    jako pojedynczej analizy ani nie powielamy powodów z membership.
+    Pamięć: ograniczony cache powodów i zbiór reguł jednego słowa.
+    """
+    layers = ('language', 'game', 'profile', 'release_scope')
+    statuses = ('accept', 'reject', 'unresolved')
+
+    @lru_cache(maxsize=256)
+    def checked_payload(key, text):
+        if not isinstance(text, str):
+            raise GeneratorError('Nieprawidłowy zapis powodów oceny', 4)
+        if hashlib.sha256(text.encode()).hexdigest() != key:
+            raise GeneratorError('Niezgodny hash powodów w raporcie niewiadomych', 4)
+        value = json.loads(text)
+        for layer in (*layers, 'membership'):
+            if not isinstance(value[layer]['checks'], list) or not value[layer]['checks']:
+                raise GeneratorError('Brak powodów wymaganej warstwy oceny', 4)
+            if assessment(value[layer]['checks'])['status'] != value[layer]['status']:
+                raise GeneratorError('Niespójne powody i status oceny', 4)
+        combined = assessment(check for layer in layers for check in value[layer]['checks'])
+        if combined['status'] != value['membership']['status']:
+            raise GeneratorError('Niespójna kwalifikacja całej analizy', 4)
+        return value
+
+    variants = {v: {'analyses': 0, 'analysis_membership': dict.fromkeys(statuses, 0),
+                    'word_keys': 0, 'word_membership': dict.fromkeys(statuses, 0),
+                    'analyses_with_unresolved_checks': 0,
+                    'rejected_analyses_with_unresolved_checks': 0} for v in VARIANTS}
+    rules = {}
+    group = None
+    group_states, group_rules = set(), set()
+
+    def finish_group():
+        if group is None:
+            return
+        variant = group[1]
+        word_status = ('accept' if 'accept' in group_states else
+                       'unresolved' if 'unresolved' in group_states else 'reject')
+        variants[variant]['word_keys'] += 1
+        variants[variant]['word_membership'][word_status] += 1
+        for rule in group_rules:
+            rules[rule]['word_keys'] += 1
+
+    try:
+        expected = db.execute('select count(*) from analysis').fetchone()[0]
+        decisions = db.execute('select count(*) from variant_decision').fetchone()[0]
+        if decisions != expected * len(VARIANTS):
+            raise GeneratorError('Niepełne pokrycie wariantów w raporcie niewiadomych', 4)
+        query = '''select a.game_key,d.variant,d.language_status,d.game_status,
+            d.profile_status,d.scope_status,d.membership_status,p.assessment_key,p.assessment
+            from analysis a join variant_decision d on d.analysis_key=a.analysis_key
+            join decision_payload p on p.assessment_key=d.assessment_key
+            order by a.game_key,d.variant,a.analysis_key'''
+        processed = 0
+        for key, variant, language, game, profile, scope, membership, payload_key, text in db.execute(query):
+            if variant not in variants or membership not in statuses:
+                raise GeneratorError('Nieznany wariant lub status zapisanej oceny', 4)
+            value = checked_payload(payload_key, text)
+            stored = (language, game, profile, scope, membership)
+            if stored != tuple(value[layer]['status'] for layer in (*layers, 'membership')):
+                raise GeneratorError('Statusy bazy różnią się od zapisanych powodów', 4)
+            if group != (key, variant):
+                finish_group()
+                group = (key, variant)
+                group_states, group_rules = set(), set()
+            group_states.add(membership)
+            total = variants[variant]
+            total['analyses'] += 1
+            total['analysis_membership'][membership] += 1
+            unknowns = {(variant, layer, check['rule_id']) for layer in layers
+                        for check in value[layer]['checks'] if check['status'] == 'unresolved'}
+            total['analyses_with_unresolved_checks'] += bool(unknowns)
+            total['rejected_analyses_with_unresolved_checks'] += bool(unknowns) and membership == 'reject'
+            for rule in unknowns:
+                counts = rules.setdefault(rule, {'analyses': 0, 'word_keys': 0,
+                                                'analyses_with_rejected_membership': 0})
+                counts['analyses'] += 1
+                counts['analyses_with_rejected_membership'] += membership == 'reject'
+            group_rules.update(unknowns)
+            processed += 1
+        finish_group()
+        if processed != decisions or any(v['analyses'] != expected for v in variants.values()):
+            raise GeneratorError('Brak analiz, powodów lub wariantów w raporcie niewiadomych', 4)
+        return {'schema_version': 1, 'scope': 'all_persisted_assessments_not_full_release',
+                'full_qualification_pending': True, 'variants': variants,
+                'rules': [{'variant': v, 'layer': layer, 'rule_id': rule, **counts}
+                          for (v, layer, rule), counts in sorted(rules.items())]}
+    except GeneratorError:
+        raise
+    except (sqlite3.Error, KeyError, TypeError, ValueError) as error:
+        raise GeneratorError('Nie można odczytać pełnych ocen dla raportu niewiadomych', 4) from error
 
 
 def logical_content_report(db):

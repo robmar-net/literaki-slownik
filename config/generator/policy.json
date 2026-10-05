@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "approved-conditions-v9",
+  "version": "approved-conditions-v10",
   "status": "partial_not_release_policy",
   "rules": [
     {
@@ -788,5 +788,13 @@
         "standard": "non_excluding"
       }
     }
-  ]
+  ],
+  "age_evidence_scope": {
+    "generic_class_description_alone": "non_excluding",
+    "required_exclusion_basis": "specific_interpretation_label_or_unambiguous_documented_age",
+    "explicit_historical_labels": "unchanged",
+    "absence_of_age_label_is_not_full_acceptance": true,
+    "full_lemma_id_is_not_single_semantic_sense": true,
+    "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/general-class-age-decision.md"
+  }
 }

@@ -76,3 +76,7 @@ Pełny raport warunków wskazuje jedną etykietę bez oceny kwalifikatora: pisan
 Zatwierdzone A dla adnotacji akcent wdrożono bez zmiany dawności: BROAD nie wyklucza przez brak objaśnienia, STANDARD odrzuca dwie analizy daw.,rzad.,akcent. Pełny raport 7 458 520 analiz zachowuje 26 nieobjaśnionych oznaczeń w 1910 analizach. Dodano diagnostyczne warunki klas źródłowych gry: nazwy, brev, niesamodzielne segmenty oraz odrębną ocenę całości konstrukcji. Nowa zamknięta klasa ja/ty/my/wy/wszyscy zachowuje sześć kandydatów i growe odrzucenie tych analiz, bez usuwania homonimów. Pozostałe mobilne hosty i sekwencje by oceniono zgodnie z zachowanymi wyłączeniami gry; byle ma udokumentowany wyjątek. Pełna kwalifikacja i wydanie nadal nieukończone.
 
 [Przegląd i dowody](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/accent-and-source-game-review.md).
+
+## Zakres dowodu wieku — zatwierdzone A
+
+Ogólny opis całej klasy jako dawnej lub przestarzałej nie nadaje automatycznie takiego statusu wszystkim jej członkom. Odmowa STANDARD wymaga oznaczenia lub jednoznacznego dowodu dotyczącego konkretnej interpretacji. Jawne kwalifikatory daw./przest. i ich zatwierdzone pierwszeństwo nadal obowiązują. Brak etykiety wieku nie dowodzi pełnej poprawności ani dopuszczenia. Pełny ID SGJP może łączyć znaczenia; adnotacji jednego użycia nie przenosimy na wszystkie. [Decyzja](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/general-class-age-decision.md).
