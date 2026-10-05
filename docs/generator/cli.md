@@ -76,3 +76,7 @@ Nowe `build` utrwalają również potwierdzone dwa rodzaje kandydatów konstrukc
 ## Utrwalone oceny diagnostyczne (schema2)
 
 Nowy build zapisuje każde rozwinięcie tagu i każdą konstrukcję do analysis, po dwie variant_decision, i pełne współdzielone powody decision_payload identyfikowane SHA256. reports/decisions.json rozlicza pokrycie. Explain JSON udostępnia persisted_analyses z wersją zapisu, kompletną oceną i indywidualnym profilem. Bieżące analyses/derivations pozostają diagnostyką aktualnego kodu, więc wersje należy czytać osobno. Stara baza bez tabel ocen daje pustą persisted_analyses, bez zapisu lub migracji. Zmieniona wersja/treść wymaga nowego build; uszkodzony hash powodów jest błędem odczytu. decisions nadal pending, list_membership unresolved, INCOMPLETE; pełne verify/export niegotowe.
+
+## Diagnostyka policyv13
+
+Nowa wersja pokazuje udokumentowany podzbiór obowiązkowej wielkiej litery według normy2026, osobno od historycznej oceny językowej, oraz źródłowy konstruktor impt_sg+że+ż z growym reject. Explain dla krakowiak zachowuje oba pełne ID; idźżeż pokazuje źródłowy rozkaźnik i dwie oddzielne partykuły. Bieżąca ocena policyv13 i wcześniejszy zapis ocen mają własne wersje, bez nadpisywania starych build. List_membership i pełna gotowość nadal nieukończone.

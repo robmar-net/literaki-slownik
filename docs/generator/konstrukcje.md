@@ -36,7 +36,7 @@ Przypadki rozdzielające pochodzą z danych SGJP: `jam` ma niezależną analizę
 
 ## Zaimplementowane konstruktory
 
-`literaki_slownik.constructions` tworzy kandydatów dla rozkaźnika z jedną partykułą i źródłowego `by` (comp/part) z czterema końcówkami aglt nwok. Każdy wynik zachowuje pełne składniki, ID homonimów i źródłowe kwalifikatory. Nie tworzymy podwojonej partykuły ani nie zgadujemy hosta po końcowych literach. Nieznana klasa lub niezgodne zakończenie daje błąd pokrycia. Kandydaci są utrwalani przez build; pełna kwalifikacja do list nadal wymaga domknięcia.
+`literaki_slownik.constructions` tworzy kandydatów dla rozkaźnika z jedną partykułą i źródłowego `by` (comp/part) z czterema końcówkami aglt nwok. Każdy wynik zachowuje pełne składniki, ID homonimów i źródłowe kwalifikatory. Pierwotny podzbiór obejmował tylko jedną partykułę; poniżej opisano nową odrębną klasę podwojenia. Nie zgadujemy hosta po końcowych literach. Nieznana klasa lub niezgodne zakończenie daje błąd pokrycia. Kandydaci są utrwalani przez build; pełna kwalifikacja do list nadal wymaga domknięcia.
 
 Pełny runtime: 92 622 źródłowe rekordy impt → 93 438 rozwiniętych analiz, 91 104 różne napisy; 4 100 napisów odpada już w profilu alfabetu/długości. To nie końcowa delta listy. Dwa źródłowe by × cztery aglt dają osiem analiz czterech napisów. [Raport](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/approved-rules-runtime.json).
 
@@ -46,7 +46,7 @@ Wikisłownik i podobne źródła społecznościowe odkładamy na później. W bi
 
 ## Konstrukcje w explain
 
-Explain odtwarza tylko potwierdzone klasy na podstawie pełnych interpretacji w istniejącym imporcie. Sufiks zapytania służy odnalezieniu możliwego źródłowego rozkaźnika; konstruktor musi potwierdzić klasę, zakończenie i dokładny wynik. By + aglt wymaga dokładnego by oraz właściwej nwok końcówki. Nie tworzy nibym ani mechanicznego czytajżeż.
+Explain odtwarza tylko potwierdzone klasy na podstawie pełnych interpretacji w istniejącym imporcie. Sufiks zapytania służy odnalezieniu możliwego źródłowego rozkaźnika; konstruktor musi potwierdzić klasę, zakończenie i dokładny wynik. By + aglt wymaga dokładnego by oraz właściwej nwok końcówki. Nie tworzy nibym; czytajżeż wymaga odrębnej, zamkniętej klasy źródłowego podwojenia opisanej poniżej.
 
 Pole derivations zawiera regułę, rozwinięty tag, pełne składniki i etykiety oraz diagnostyczną ocenę obu wariantów. Source_presence i source_aggregation nadal dotyczą tylko bezpośredniego importu SGJP; brak bezpośredniego wpisu nie zaprzecza istnieniu kandydata. Kandydat pozostaje candidate_not_qualified, list_membership unresolved. Pełna macierz i końcowe decyzje pozostają otwarte; zapis dwóch klas w build dodano w kolejnym kroku.
 
@@ -85,3 +85,7 @@ A zatwierdzone i wdrożone: zakres kontrakcji pierwszego wydania obejmuje 18 po�
 Zatwierdzone A dla adnotacji akcent wdrożono bez zmiany dawności: BROAD nie wyklucza przez brak objaśnienia, STANDARD odrzuca dwie analizy daw.,rzad.,akcent. Pełny raport 7 458 520 analiz zachowuje 26 nieobjaśnionych oznaczeń w 1910 analizach. Dodano diagnostyczne warunki klas źródłowych gry: nazwy, brev, niesamodzielne segmenty oraz odrębną ocenę całości konstrukcji. Nowa zamknięta klasa ja/ty/my/wy/wszyscy zachowuje sześć kandydatów i growe odrzucenie tych analiz, bez usuwania homonimów. Pozostałe mobilne hosty i sekwencje by oceniono zgodnie z zachowanymi wyłączeniami gry; byle ma udokumentowany wyjątek. Pełna kwalifikacja i wydanie nadal nieukończone.
 
 [Przegląd i dowody](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/accent-and-source-game-review.md).
+
+## Podwojona partykuła — pełna klasa źródłowa sg
+
+Build i explain obsługują impt-double-particle-v1: tylko źródłowy impt:sg:sec:perf/imperf, zgodna spółgłoska, +że+ż. To formalna reguła segmenty.dat334–340, z trzema uporządkowanymi składnikami. Nazwy/kwalifikatory/ID zachowane.31 146 kandydatów z pełnych źródłowych rozkaźników, każdy z odrębnym game-double-particle-v1=reject. Nie generujemy dalszych podwojeń ani plural+żeż. Jedno źródło perf.imperf daje osobne ślady. Dotyczy analizy konstrukcji, nie wszystkich słów kończących się na żeż ani niezależnych homonimów. [Dowody i runtime](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/capital-double-review.md). Pełna polityka pozostałych klas nadal nieukończona.

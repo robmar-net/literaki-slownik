@@ -149,10 +149,10 @@ class BuildTests(unittest.TestCase):
             build(p, run)
             with connect(run / 'build.sqlite', readonly=True) as db:
                 forms = {row[0] for row in db.execute('select original from derivation_candidate')}
-                self.assertEqual(forms, {'dajże','bym'})
+                self.assertEqual(forms, {'dajże','dajżeż','bym'})
                 self.assertEqual(db.execute('pragma foreign_key_check').fetchall(), [])
             report = load_json(run / 'reports/construction-candidates.json')
-            self.assertEqual(report['candidates'], 2)
+            self.assertEqual(report['candidates'], 3)
             self.assertTrue(report['full_constructions_pending'])
             manifest = load_json(run / 'manifest.json')
             self.assertEqual(manifest['stages']['constructions']['status'], 'pending')

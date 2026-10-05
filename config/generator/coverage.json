@@ -20,7 +20,10 @@
     "closed_25_unexplained_label_requirement_concession_user_approved",
     "closed_accent_gloss_requirement_concession_user_approved",
     "diagnostic_source_game_classes_and_whole_unit_separation",
-    "closed_personal_host_constructions_game_excluded"
+    "closed_personal_host_constructions_game_excluded",
+    "game_mandatory_capital_2026_norm_reference_user_approved",
+    "three_full_lemma_resident_capital_subset",
+    "source_singular_double_particle_game_rejection"
   ],
   "full_source_compact_interpretations": 7458520,
   "observed_combinations": {

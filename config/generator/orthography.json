@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "orthography-discovery-v2",
+  "version": "orthography-discovery-v3",
   "status": "not_active_policy",
   "normalization": "NFC",
   "lookup_key": "NFC_LOWER_NFC",
@@ -45,6 +45,36 @@
       },
       "lexicalized_independent_words": "independent_source_analysis_not_rejected_by_this_derivation_rule",
       "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md"
+    },
+    {
+      "rule_id": "game-mandatory-capital-2026-v1",
+      "source_lemma_ids": [
+        "krakowiak:Sm1",
+        "warszawiak",
+        "warszawianin"
+      ],
+      "source_classes": {
+        "subst": "m1",
+        "depr": "m2"
+      },
+      "game_variants": {
+        "broad": "reject",
+        "standard": "reject"
+      },
+      "language_source_lowercase_variants": {
+        "broad": "non_excluding_historical",
+        "standard": "reject"
+      },
+      "source_rewrite": false,
+      "scope": "documented_subset_not_full_resident_inventory",
+      "full_matrix_complete": false,
+      "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/game-capitalization-norm-decision.md",
+      "evidence": "rjp:8.1.2 point3"
     }
+  ],
+  "game_mandatory_capital_norm_effective_from": "2026-01-01",
+  "game_mandatory_capital_norm_variants": [
+    "broad",
+    "standard"
   ]
 }

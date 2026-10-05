@@ -30,3 +30,7 @@ Pytanie wynika z AGENTS.md: „Decyzje zmieniające skład słownika lub kryteri
 
 ## Źródła i role
 [RJP, wersja jednolita11-2025](https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf), drukowana strona43, §8.1.2 pkt3; wcześniej przypięty dokument normy, bez importu leksemów. [WSJP PAN, krakowiak — taniec](https://wsjp.pl/haslo/podglad/125451/krakowiak/5284965/taniec) potwierdza rozdzielenie przykładu; tylko odczyt referencyjny, bez aktywacji danych WSJP, kopiowania definicji lub tabel fleksyjnych. Źródłem analiz pozostaje przypięty SGJP. SGJP i dokumenty mają osobne warunki opisane w ATTRIBUTIONS/config; nie przypisujemy sobie ich autorstwa.
+
+## Rozstrzygnięcie — 2026-10-05T10:18:04Z
+
+Użytkownik zatwierdził A. Wspólny growy warunek odnosi się do normy2026 w obu wariantach. Wdrożony podzbiór dowodowy obejmuje trzy wskazane pełne ID i ich rzeczownikowe/deprecjatywne formy; pełna inwentaryzacja mieszkańców nadal wymagana. Baza nie traci dawnych wpisów ani tanecznego homonimu.

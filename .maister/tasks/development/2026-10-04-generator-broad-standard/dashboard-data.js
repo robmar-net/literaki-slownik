@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T10:09:09Z",
+  "generated": "2026-10-05T10:34:29Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Utrwalone oceny sprawdzone; potrzebna decyzja normy odniesienia growej wielkiej litery"
+    "current_activity": "A wdrożone i przetestowane; przygotowane zapytanie o brakujące metadane czeka na zgodę na wysłanie"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Utrwalono diagnostycznie każde rozwinięcie tagu i każdą konstrukcję, dwa warianty i komplet powodów w schema2. Wspólne dokumenty JSON/SHA nie tracą indywidualnego profilu ani homonimów. Explain pokazuje zapisane analizy z wersją; build tworzy decisions.json, logical-content obejmuje nowe relacje. Projekcja615 interpretacji daje1626 analiz/3252 oceny,72 dokumenty powodów, repeat0new i identyczny digest; FK/integrity OK. Generator147/147,audyt5/5. Pełna polityka/listy/verify/export pozostają nieukończone. Przed filtrem wymagającym wielkiej litery dla dawnych zapisów BROAD potrzebne doprecyzowanie normy odniesienia wspólnych reguł gry.",
+      "summary": "Wdrożono A: growy obowiązek wielkiej litery według normy2026 w obu wariantach, na udokumentowanym podzbiorze trzech pełnych ID; dawne wpisy i taneczny homonim zachowane. Dodano zamkniętą klasę impt_sg + że + ż z trzema składnikami i odrębną odmową grową. Rzeczywista projekcja wszystkich obecnych wejść konstruktorów oraz przykładów kapitalizacji:93 284 interpretacje,125 360 konstrukcji,219 713 analiz i439 426 ocen; powtórzenie0nowych rekordów/identyczny hash/FK/integrityOK. Generator151/151,audyt5/5,preflight14wejść+10konfiguracjiOK. Pełna macierz semantyki/ortografii i wydanie nadal nieukończone.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -259,11 +259,13 @@ window.MAISTER_DATA = {
         "A: STANDARD stosuje normę 2026 także dla nieoznaczonych dawnych zapisów; BROAD może je zachować z dowodem, reguły gry niezmienione.",
         "A: zakres kontrakcji pierwszego wydania ograniczony do18poświadczonych form;8innych kandydatów zachowane diagnostycznie poza zakresem, nieuznane za błędne. Niezależne homonimy oceniane osobno; rozszerzenie wymaga dowodu i nowego wydania.",
         "A: zamknięte25oznaczeń zachowane z nieustalonym objaśnieniem; brak objaśnienia sam nie wyklucza ani nie blokuje wydania. Pozostałe kryteria i inne unknown nadal obowiązują.",
-        "A: brak objaśnienia adnotacji akcent w daw.,rzad.,akcent sam nie wyklucza; zachowujemy adnotację, STANDARD nadal odrzuca za dawność."
+        "A: brak objaśnienia adnotacji akcent w daw.,rzad.,akcent sam nie wyklucza; zachowujemy adnotację, STANDARD nadal odrzuca za dawność.",
+        "A: wspólny growy warunek obowiązkowej wielkiej litery odnosi się do normy2026 także dla dawnych interpretacji BROAD; dawne wpisy zachowane językowo, niezależne homonimy osobno."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
-        "Mechanika próbek nie zastępuje integracji raportów, pełnych analiz w przeglądzie ani odbioru G8."
+        "Mechanika próbek nie zastępuje integracji raportów, pełnych analiz w przeglądzie ani odbioru G8.",
+        "Brak kompletnej klasy nazw mieszkańców oraz rozdzielenia frag/obcych zwrotów w eksporcie. Zespół SGJP opisuje zasadniczy brak znaczeń; nie zakładamy istnienia brakujących metadanych. Zapytanie przygotowane, niewysłane."
       ],
       "artifacts": [
         {
@@ -553,20 +555,42 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/game-capitalization-norm-decision.md",
           "label": "Norma odniesienia growej wielkiej litery"
+        },
+        {
+          "path": "analysis/evidence/capital-double-review.md",
+          "label": "Przegląd normy growej i podwojonej partykuły"
+        },
+        {
+          "path": "analysis/evidence/capital-double-runtime.json",
+          "label": "Powtarzalne pełne wejścia obecnych konstruktorów"
+        },
+        {
+          "path": "analysis/evidence/capital-double-conditions.json",
+          "label": "Kontrola obu wariantów i homonimów"
+        },
+        {
+          "path": "analysis/evidence/frag-semantic-gap.json",
+          "label": "Pełna inwentaryzacja frag i brak klasyfikacji semantycznej"
+        },
+        {
+          "path": "analysis/evidence/sgjp-semantic-metadata-request.md",
+          "label": "Przygotowane zapytanie do autorów, niewysłane"
         }
       ],
       "gate": {
-        "id": "broad_game_capitalization_norm_reference",
+        "id": "sgjp_semantic_metadata_outbound_authorization",
         "status": "pending",
-        "created_at": "2026-10-05T10:09:09Z",
-        "question": "Czy obowiązkową wielką literę w regułach gry oceniamy według normy2026 także dla dawnych zapisów zachowanych językowo w BROAD?",
+        "created_at": "2026-10-05T10:34:29Z",
+        "question": "Czy wysłać przygotowane zapytanie do zespołu SGJP (sgjpol@gmail.com) w imieniu użytkownika?",
         "options": {
-          "A": "Tak: wspólny growy warunek normy2026, dawne wpisy pozostają w bazie; homonimy osobno (rekomendowane).",
-          "B": "Najpierw doprecyzujmy wpływ normy historycznej na warstwę grową; bez aktywacji nowego filtra."
+          "A": "Tak, wyślij zatwierdzony projekt wiadomości (rekomendowane).",
+          "B": "Nie wysyłaj; kontynuuj bez kontaktu z autorami."
         },
         "answer": null,
-        "artifact": "analysis/evidence/game-capitalization-norm-decision.md",
-        "authority": "AGENTS.md; spec§6; planG3/3.4"
+        "artifact": "analysis/evidence/sgjp-semantic-metadata-request.md",
+        "authority": "Explicit user instruction required before using tools to send messages to others; prior repo authorization is not outbound authorization.",
+        "scope": "outbound_message_only_not_dictionary_policy_or_source_activation",
+        "question_delivery": "request_user_input_async"
       }
     },
     {

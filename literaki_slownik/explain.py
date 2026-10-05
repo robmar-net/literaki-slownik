@@ -10,7 +10,7 @@ from .inputs import GeneratorError
 from .links import availability
 from .policy import assess_profile, VERSION
 from .sgjp import expand_tag, tag_errata
-from .constructions import impt_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, mobile_aglt_candidates, mobile_by_sequence_candidates, personal_aglt_candidates, BY_AGLT_ENDINGS
+from .constructions import impt_particle_candidates, impt_double_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, mobile_aglt_candidates, mobile_by_sequence_candidates, personal_aglt_candidates, BY_AGLT_ENDINGS
 
 
 def _construction_sources(db, key):
@@ -25,6 +25,9 @@ def _construction_sources(db, key):
 def _derivations(db, key):
     """Odtwórz tylko potwierdzone klasy z rzeczywistych składników importu."""
     candidates = []
+    if key.endswith('żeż') and len(key)>3:
+        for source in _construction_sources(db,key[:-3]):
+            candidates.extend(impt_double_particle_candidates(source))
     suffix = 'że' if key.endswith('że') else 'ż' if key.endswith('ż') else None
     if suffix and len(key) > len(suffix):
         for source in _construction_sources(db, key[:-len(suffix)]):

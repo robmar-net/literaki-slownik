@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-05T10:09:09Z",
+    "updated": "2026-10-05T10:34:29Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "Utrwalono diagnostycznie każde rozwinięcie tagu i każdą konstrukcję, dwa warianty i komplet powodów w schema2. Wspólne dokumenty JSON/SHA nie tracą indywidualnego profilu ani homonimów. Explain pokazuje zapisane analizy z wersją; build tworzy decisions.json, logical-content obejmuje nowe relacje. Projekcja615 interpretacji daje1626 analiz/3252 oceny,72 dokumenty powodów, repeat0new i identyczny digest; FK/integrity OK. Generator147/147,audyt5/5. Pełna polityka/listy/verify/export pozostają nieukończone. Przed filtrem wymagającym wielkiej litery dla dawnych zapisów BROAD potrzebne doprecyzowanie normy odniesienia wspólnych reguł gry.",
+      "summary": "Wdrożono A: growy obowiązek wielkiej litery według normy2026 w obu wariantach, na udokumentowanym podzbiorze trzech pełnych ID; dawne wpisy i taneczny homonim zachowane. Dodano zamkniętą klasę impt_sg + że + ż z trzema składnikami i odrębną odmową grową. Rzeczywista projekcja wszystkich obecnych wejść konstruktorów oraz przykładów kapitalizacji:93 284 interpretacje,125 360 konstrukcji,219 713 analiz i439 426 ocen; powtórzenie0nowych rekordów/identyczny hash/FK/integrityOK. Generator151/151,audyt5/5,preflight14wejść+10konfiguracjiOK. Pełna macierz semantyki/ortografii i wydanie nadal nieukończone.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -233,11 +233,13 @@
         "A: STANDARD stosuje normę 2026 także dla nieoznaczonych dawnych zapisów; BROAD może je zachować z dowodem, reguły gry niezmienione.",
         "A: zakres kontrakcji pierwszego wydania ograniczony do18poświadczonych form;8innych kandydatów zachowane diagnostycznie poza zakresem, nieuznane za błędne. Niezależne homonimy oceniane osobno; rozszerzenie wymaga dowodu i nowego wydania.",
         "A: zamknięte25oznaczeń zachowane z nieustalonym objaśnieniem; brak objaśnienia sam nie wyklucza ani nie blokuje wydania. Pozostałe kryteria i inne unknown nadal obowiązują.",
-        "A: brak objaśnienia adnotacji akcent w daw.,rzad.,akcent sam nie wyklucza; zachowujemy adnotację, STANDARD nadal odrzuca za dawność."
+        "A: brak objaśnienia adnotacji akcent w daw.,rzad.,akcent sam nie wyklucza; zachowujemy adnotację, STANDARD nadal odrzuca za dawność.",
+        "A: wspólny growy warunek obowiązkowej wielkiej litery odnosi się do normy2026 także dla dawnych interpretacji BROAD; dawne wpisy zachowane językowo, niezależne homonimy osobno."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
-        "Mechanika próbek nie zastępuje integracji raportów, pełnych analiz w przeglądzie ani odbioru G8."
+        "Mechanika próbek nie zastępuje integracji raportów, pełnych analiz w przeglądzie ani odbioru G8.",
+        "Brak kompletnej klasy nazw mieszkańców oraz rozdzielenia frag/obcych zwrotów w eksporcie. Zespół SGJP opisuje zasadniczy brak znaczeń; nie zakładamy istnienia brakujących metadanych. Zapytanie przygotowane, niewysłane."
       ],
       "artifacts": [
         {
@@ -527,20 +529,42 @@
         {
           "path": "analysis/evidence/game-capitalization-norm-decision.md",
           "label": "Norma odniesienia growej wielkiej litery"
+        },
+        {
+          "path": "analysis/evidence/capital-double-review.md",
+          "label": "Przegląd normy growej i podwojonej partykuły"
+        },
+        {
+          "path": "analysis/evidence/capital-double-runtime.json",
+          "label": "Powtarzalne pełne wejścia obecnych konstruktorów"
+        },
+        {
+          "path": "analysis/evidence/capital-double-conditions.json",
+          "label": "Kontrola obu wariantów i homonimów"
+        },
+        {
+          "path": "analysis/evidence/frag-semantic-gap.json",
+          "label": "Pełna inwentaryzacja frag i brak klasyfikacji semantycznej"
+        },
+        {
+          "path": "analysis/evidence/sgjp-semantic-metadata-request.md",
+          "label": "Przygotowane zapytanie do autorów, niewysłane"
         }
       ],
       "gate": {
-        "id": "broad_game_capitalization_norm_reference",
+        "id": "sgjp_semantic_metadata_outbound_authorization",
         "status": "pending",
-        "created_at": "2026-10-05T10:09:09Z",
-        "question": "Czy obowiązkową wielką literę w regułach gry oceniamy według normy2026 także dla dawnych zapisów zachowanych językowo w BROAD?",
+        "created_at": "2026-10-05T10:34:29Z",
+        "question": "Czy wysłać przygotowane zapytanie do zespołu SGJP (sgjpol@gmail.com) w imieniu użytkownika?",
         "options": {
-          "A": "Tak: wspólny growy warunek normy2026, dawne wpisy pozostają w bazie; homonimy osobno (rekomendowane).",
-          "B": "Najpierw doprecyzujmy wpływ normy historycznej na warstwę grową; bez aktywacji nowego filtra."
+          "A": "Tak, wyślij zatwierdzony projekt wiadomości (rekomendowane).",
+          "B": "Nie wysyłaj; kontynuuj bez kontaktu z autorami."
         },
         "answer": null,
-        "artifact": "analysis/evidence/game-capitalization-norm-decision.md",
-        "authority": "AGENTS.md; spec§6; planG3/3.4"
+        "artifact": "analysis/evidence/sgjp-semantic-metadata-request.md",
+        "authority": "Explicit user instruction required before using tools to send messages to others; prior repo authorization is not outbound authorization.",
+        "scope": "outbound_message_only_not_dictionary_policy_or_source_activation",
+        "question_delivery": "request_user_input_async"
       },
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
@@ -708,6 +732,20 @@
           "artifact": "analysis/evidence/accent-gloss-first-release-decision.md",
           "authority": "AGENTS.md; spec§6 i planG3/3.4; executor Ask the user before changing scope",
           "answered_at": "2026-10-05T08:47:38Z"
+        },
+        {
+          "id": "broad_game_capitalization_norm_reference",
+          "status": "approved",
+          "created_at": "2026-10-05T10:09:09Z",
+          "question": "Czy obowiązkową wielką literę w regułach gry oceniamy według normy2026 także dla dawnych zapisów zachowanych językowo w BROAD?",
+          "options": {
+            "A": "Tak: wspólny growy warunek normy2026, dawne wpisy pozostają w bazie; homonimy osobno (rekomendowane).",
+            "B": "Najpierw doprecyzujmy wpływ normy historycznej na warstwę grową; bez aktywacji nowego filtra."
+          },
+          "answer": "A",
+          "artifact": "analysis/evidence/game-capitalization-norm-decision.md",
+          "authority": "AGENTS.md; spec§6; planG3/3.4",
+          "answered_at": "2026-10-05T10:15:39Z"
         }
       ]
     }
@@ -791,14 +829,14 @@
       "G3": {
         "status": "in_progress",
         "attempts": 1,
-        "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified"
+        "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified; userAcurrentnormgame, threeexactresidentlemma51expandedcases, fullfrag147/109lower/38upper; currentdownload=20260823 and primarySGJP about semantic limits inspected"
       },
       "G4": {
         "status": "in_progress",
         "attempts": 1,
         "partial": true,
         "dependency_exception": "User explicitly authorized continuing code with evidence gaps: policy mechanics only, no active unresolved linguistic rules",
-        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed; context3 red→green,11/11 labels,169 records; persistence3 red→green,build2 red→green; fullconfirmedclass projection93446 candidates186892 components,repeat idempotent,FK/integrityOK; preposition3redgreen+buildintegration1green,81expandedcandidates(57proof/24unresolved),repeatFKintegrity;mobileby1redgreen64candidates16hosts;winien2redgreen7realJSONtext; norma1 policy +1 explain red→green, mobile1 constructor+1 explain red→green; accent1redgreen,sourcegame4redgreen,personal2redgreen,mobilegame1redgreen;fullprojection776/1796 repeatFKintegrity; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK",
+        "tests": "8 focused policy/decision tests red→green; uppercase/profile separate, coherent analysis, unknown preserved, cross-word aggregation refused; 4 tests niezal. + 8 konstrukcji, red→green; wszystkie 92622 impt i 2330 niezal. sprawdzone; 5 testów wieku + zgodność rejestru red→green; 615 pól pełnego źródła i 8 explain; usage 3 policy tests + explain red→green, 15 labels fully observed; incorrect 4 policy tests + explain red→green, all27 labels observed; 3303 real analyses of1714 keys; descriptive3 red→green,357 literals observed; context3 red→green,11/11 labels,169 records; persistence3 red→green,build2 red→green; fullconfirmedclass projection93446 candidates186892 components,repeat idempotent,FK/integrityOK; preposition3redgreen+buildintegration1green,81expandedcandidates(57proof/24unresolved),repeatFKintegrity;mobileby1redgreen64candidates16hosts;winien2redgreen7realJSONtext; norma1 policy +1 explain red→green, mobile1 constructor+1 explain red→green; accent1redgreen,sourcegame4redgreen,personal2redgreen,mobilegame1redgreen;fullprojection776/1796 repeatFKintegrity; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable",
         "remaining": "Full qualifier/category/orthography policy, mobile/preposition constructions and final decisions persistence/integration; G3 closure"
       },
       "G5": {
@@ -814,7 +852,7 @@
         "attempts": 1,
         "partial": true,
         "dependency_exception": "Independent diagnostic explain authorized by plan §2 and user continue code",
-        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks; context explain JSON/text regression green,5 real readonly queries; qualifier coverage6 red→green,build integration1 red→green; full7458520/615/605 repeat canonical identical readonly; persisted explain2 red→green; alternative source trace regression fixed,legacycompatible,6realqueries rechecked readonly; contraction/mobile/corpus3redgreen,legacyreadonly20observations; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK",
+        "tests": "5 explain tests red→green plus 2 CLI tests; full diagnostic 8 queries, DB/manifest hashes unchanged; quality 7/7 red→green, full lemma-all 184917 units twice, identical 90-unit sample; explain approved niezal. test and 5 real queries pass; report 5 tests red→green; real 8 keys/15 analyses, both variants; derivations2 red→green plus uppercase/incorrect inheritance, full source traces and readonly checks; context explain JSON/text regression green,5 real readonly queries; qualifier coverage6 red→green,build integration1 red→green; full7458520/615/605 repeat canonical identical readonly; persisted explain2 red→green; alternative source trace regression fixed,legacycompatible,6realqueries rechecked readonly; contraction/mobile/corpus3redgreen,legacyreadonly20observations; persistedassessments5redgreen,147/147+audit5/5,actual1626analyses3252decisions72payloads,repeat0new/logicalequal/FKintegrityOK; capitalpolicy1redgreen+explain1green,doubleconstructor1redgreen+buildexplain1redgreen; full151/151,audit5/5; actual125360candidates282110components219713analyses439426decisions588payloadsrepeatstable",
         "remaining": "Full strata and analysis payloads, report/build integration, other canonical reports/index, full final decisions/derivations explain"
       },
       "G7": {
@@ -856,9 +894,16 @@
         "current_build_use": false,
         "current_eligibility_evidence_use": false,
         "artifact": "analysis/evidence/wiktionary-attestation-decision.md"
+      },
+      "semantic_metadata_request": {
+        "prepared_at": "2026-10-05T10:34:29Z",
+        "artifact": "analysis/evidence/sgjp-semantic-metadata-request.md",
+        "recipient": "sgjpol@gmail.com",
+        "sent": false,
+        "data_activation_authorized_by_message": false
       }
     },
-    "verification_note": "147/147 generator,audit5/5,preflight14artefacts+10configsOK;1626analyses3252decisionsrepeatstable. G3–G9/fullverify/G8 pending,8/36. Pendinggate broad_game_capitalization_norm_reference.",
+    "verification_note": "151/151generator,audit5/5,preflight14+10OK; actualfullcurrentconstructorprojection219713analyses439426decisionsrepeat0new/logicalequal/FKintegrityOK. G3–G9/fullverify/G8 pending,8/36. No outbound message sent; awaiting explicit outbound authorization.",
     "source_policy_clarification": {
       "recorded_at": "2026-10-04T21:49:35Z",
       "artifact": "analysis/evidence/source-policy-clarification.md",

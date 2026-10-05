@@ -3,7 +3,7 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v12'
+VERSION = 'diagnostic-approved-conditions-v13'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -48,9 +48,28 @@ KNOWN_NAME_LABELS = frozenset({
 })
 BOUND_FORM_CLASSES = frozenset({'adja', 'pacta', 'numcomp', 'aglt'})
 CONFIRMED_CONSTRUCTOR_RULES = frozenset({
-    'impt-single-particle-v1', 'by-aglt-nwok-v1', 'preposition-n-source-v1',
+    'impt-single-particle-v1', 'impt-double-particle-v1', 'by-aglt-nwok-v1', 'preposition-n-source-v1',
     'mobile-by-host-aglt-v1', 'mobile-source-host-aglt-v1', 'mobile-host-by-sequence-v1', 'personal-host-aglt-v1',
 })
+
+# Pełne identyfikatory rozdzielają mieszkańca od tanecznego homonimu m2.
+# Podzbiór dowodowy; nie rozpoznajemy mieszkańców po sufiksie ani samym m1.
+MANDATORY_CAPITAL_2026_LEMMAS = frozenset({'warszawianin','warszawiak','krakowiak:Sm1'})
+
+
+def mandatory_capital_checks(source):
+    lemma=source.get('lemma_id')
+    tag=source['raw_tag'].split(':')
+    if (lemma not in MANDATORY_CAPITAL_2026_LEMMAS or len(tag)!=4
+            or not ((tag[0]=='subst' and tag[-1]=='m1') or (tag[0]=='depr' and tag[-1]=='m2'))):
+        return []
+    return [{'rule_id':'game-mandatory-capital-2026-v1','status':'reject',
+             'source_lemma_id':lemma,'norm_effective_from':'2026-01-01',
+             'message':'Ta interpretacja nazwy mieszkańca wymaga wielkiej litery według normy2026, również przy dawnym zapisie w BROAD; inne homonimy osobno.',
+             'evidence':['config/generator/orthography.json',
+                         '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/capitalization-source-cases.json',
+                         '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/game-capitalization-norm-decision.md',
+                         'https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43']}]
 
 
 def source_game_checks(source, candidate=None):
@@ -84,7 +103,11 @@ def source_game_checks(source, candidate=None):
                        'message':'Potwierdzony konstruktor: oceniamy całość, nie samodzielność końcówki; pozostałe warunki osobno.' if confirmed else
                                  'Nieznany konstruktor wymaga oceny samodzielności całości.',
                        'evidence':['config/generator/constructions.json']})
-        if candidate['rule_id']=='personal-host-aglt-v1':
+        if candidate['rule_id']=='impt-double-particle-v1':
+            result.append({'rule_id':'game-double-particle-v1','status':'reject',
+                           'message':'Ta analiza zawiera dwa dołączenia partykuły że/ż; zachowane reguły gry wykluczają ją, niezależne homonimy osobno.',
+                           'evidence':['config/generator/constructions.json','docs/generator/konstrukcje.md']})
+        elif candidate['rule_id']=='personal-host-aglt-v1':
             result.append({'rule_id':'game-personal-host-aglt-v1','status':'reject',
                            'message':'Końcówka czasownikowa dołączona do zaimka lub przymiotnika: ta konstrukcyjna analiza jest wyłączona przez zachowane reguły gry; homonimy osobno.',
                            'evidence':['config/generator/constructions.json','docs/generator/konstrukcje.md']})
@@ -107,6 +130,8 @@ def source_game_checks(source, candidate=None):
                        'source_class':pos,
                        'message':'Źródłowa analiza jest niesamodzielnym składnikiem; może uczestniczyć w potwierdzonej pełnej konstrukcji.',
                        'evidence':['config/generator/categories.json', 'docs/generator/konstrukcje.md']})
+    if candidate is None:
+        result+=mandatory_capital_checks(source)
     return result
 
 
@@ -132,6 +157,12 @@ def orthography_checks(source, variant):
     """Ocena konkretnej źródłowej analizy; nie ogólna reguła końcowych liter."""
     if variant not in {'broad','standard'}:
         raise GeneratorError('Wariant musi być broad lub standard', 2)
+    capital=mandatory_capital_checks(source)
+    if capital and source['original'].islower():
+        return [{**capital[0],'rule_id':'orthography-2026-resident-capital-v1',
+                 'status':'reject' if variant=='standard' else 'accept',
+                 'message':'Źródłowy dawny zapis małoliterowy nie odpowiada normie2026 wymaganej w STANDARD.' if variant=='standard' else
+                           'Udokumentowany dawny zapis niewykluczający językowo w BROAD; obowiązkowa wielka litera w grze oceniana osobno.'}]
     lemma = source['lemma_id']
     if (lemma not in ORTHOGRAPHY_2026_CONJUNCTIONS or source['raw_tag'] != 'comp'
             or source['original'] != lemma):

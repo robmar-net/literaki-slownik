@@ -11,6 +11,22 @@ def source(form='daj', tag='impt:sg:sec:perf', qualifiers=''):
 
 
 class ConstructionTests(unittest.TestCase):
+    def test_double_particle_only_source_singular_with_two_separate_components(self):
+        from literaki_slownik.constructions import impt_double_particle_candidates
+        from literaki_slownik.decisions import assess_diagnostic
+        raw=dict(source('idź','impt:sg:sec:perf.imperf','daw.'),lemma_id='iść')
+        results=impt_double_particle_candidates(raw)
+        self.assertEqual(len(results),2)
+        for c in results:
+            self.assertEqual(c['original'],'idźżeż')
+            self.assertEqual(c['components'][0]['interpretation'],raw)
+            self.assertEqual([p['original'] for p in c['components'][1:]],['że','ż'])
+            self.assertEqual(c['linguistic_evidence']['status'],'accept')
+            self.assertEqual(c['qualifiers'],'daw.')
+            self.assertEqual(assess_diagnostic(c['original'],c['qualifiers'],[c['linguistic_evidence']],[raw],c)['game']['status'],'reject')
+        self.assertEqual(impt_double_particle_candidates(source('idźcie','impt:pl:sec:imperf')),[])
+        self.assertEqual(impt_double_particle_candidates(source('idźże','part')),[])
+
     def test_personal_hosts_match_exact_source_class_number_and_person(self):
         from literaki_slownik.constructions import personal_aglt_candidates
         for word,number,person,suffix in [('ja','sg','pri','m'),('ty','sg','sec','ś'),('my','pl','pri','śmy'),('wy','pl','sec','ście')]:
@@ -240,14 +256,14 @@ class PersistedConstructionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory, self.database(directory) as db:
             self.insert_sources(db)
             report = materialize_confirmed_candidates(db, batch_size=1)
-            self.assertEqual(report['candidates'], 3)  # dwa homonimy daj i by+m; wpis dajże zachowany
+            self.assertEqual(report['candidates'], 5)  # dwa homonimy × dwie klasy i by+m; wpis dajże zachowany
             self.assertEqual(report['scope'], 'confirmed_subset_candidates_not_full_constructions')
             self.assertTrue(report['full_constructions_pending'])
             candidates = [json.loads(row[0]) for row in db.execute('select payload from derivation_candidate where original=?', ('dajże',))]
             self.assertEqual({c['lemma_id'] for c in candidates}, {'dać:S1','dać:S2'})
             self.assertEqual({c['qualifiers'] for c in candidates}, {'','niepopr.'})
             self.assertTrue(all(c['status']=='candidate_not_qualified' for c in candidates))
-            self.assertEqual(db.execute('select count(*) from derivation_component').fetchone()[0], 6)
+            self.assertEqual(db.execute('select count(*) from derivation_component').fetchone()[0], 12)
             self.assertEqual(db.execute('select count(*) from interpretation').fetchone()[0], 6)
             self.assertEqual(db.execute('pragma foreign_key_check').fetchall(), [])
             self.assertEqual(db.execute('select count(*) from derivation_candidate where original=?', ('byem',)).fetchone()[0], 0)
@@ -271,4 +287,4 @@ class PersistedConstructionTests(unittest.TestCase):
             db.execute("update interpretation set tag='impt:sg:sec:new' where first_row=2")
             with self.assertRaises(GeneratorError):
                 materialize_confirmed_candidates(db, batch_size=1)
-            self.assertEqual(db.execute('select count(*) from derivation_candidate').fetchone()[0], 1)
+            self.assertEqual(db.execute('select count(*) from derivation_candidate').fetchone()[0], 2)

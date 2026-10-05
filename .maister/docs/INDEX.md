@@ -61,3 +61,6 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 
 - [Utrwalone analizy i powody ocen](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/persisted-assessments-review.md) — schema2, idempotencja, pełne rozwinięcia, bez ukończonego wydania.
 - [Norma odniesienia wielkiej litery w grze](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/game-capitalization-norm-decision.md) — wymagana decyzja przed filtrem dawnych zapisów BROAD.
+
+- [Norma growa i podwojona partykuła](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/capital-double-review.md) — wdrożoneA,151/151+5/5, pełne wejścia obecnych konstruktorów, bez pełnego wydania.
+- [Projekt zapytania do zespołu SGJP](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/sgjp-semantic-metadata-request.md) — brakujące klasy semantyczne; niewysłane, wymaga wyraźnej zgody na kontakt.

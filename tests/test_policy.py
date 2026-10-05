@@ -7,6 +7,23 @@ from literaki_slownik.inputs import GeneratorError
 
 
 class PolicyTests(unittest.TestCase):
+    def test_current_mandatory_capital_not_evaded_by_historical_lowercase(self):
+        from literaki_slownik.policy import mandatory_capital_checks, orthography_checks, source_game_checks
+        for lemma,word,tag in [('warszawianin','warszawianin','subst:sg:nom:m1'),
+                               ('warszawiak','warszawiaków','subst:pl:gen.acc:m1'),
+                               ('krakowiak:Sm1','krakowiaki','depr:pl:nom.acc.voc:m2')]:
+            source=dict(original=word,lemma_id=lemma,raw_tag=tag,names='nazwa_pospolita',qualifiers='')
+            self.assertEqual(assessment(mandatory_capital_checks(source))['status'],'reject')
+            self.assertEqual(assessment(source_game_checks(source))['status'],'reject')
+            self.assertEqual(assessment(orthography_checks(source,'standard'))['status'],'reject')
+            self.assertEqual(assessment(orthography_checks(source,'broad'))['status'],'accept')
+        for source in [dict(original='krakowiak',lemma_id='krakowiak:Sm2',raw_tag='subst:sg:nom:m2'),
+                       dict(original='warszawianin',lemma_id='inny',raw_tag='subst:sg:nom:m1'),
+                       dict(original='warszawiak',lemma_id='warszawiak',raw_tag='frag')]:
+            self.assertEqual(mandatory_capital_checks(source),[])
+            self.assertEqual(orthography_checks(source,'standard'),[])
+        self.assertEqual(orthography_checks(dict(original='Warszawiak',lemma_id='warszawiak',raw_tag='subst:sg:nom:m1'),'standard'),[])
+
     def test_mobile_constructor_game_conditions_follow_host_not_final_letters(self):
         from literaki_slownik.policy import source_game_checks
         source=dict(raw_tag='aglt:sg:pri:imperf:nwok',names='',qualifiers='')

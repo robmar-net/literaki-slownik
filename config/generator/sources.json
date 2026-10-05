@@ -777,15 +777,15 @@
     },
     "constructions": {
       "path": "../../config/generator/constructions.json",
-      "sha256": "c3123747fcb6aac62213a9fc0a23022eb41d41bf34a0041a1f4cb68f9878ed25"
+      "sha256": "58c9d6878ca1b969fac8630e66604fb361f29f986ae7cde603462733d8a2a413"
     },
     "evidence": {
       "path": "../../config/generator/evidence.json",
-      "sha256": "e1c663ef9237198a303863d54a2768e0ec7a3ae042008786ff187a46c7dd6a03"
+      "sha256": "618f5da64dbb3c7fc7111f05020d874aa26e8766c50f4bfa13f1f36390beae94"
     },
     "coverage": {
       "path": "../../config/generator/coverage.json",
-      "sha256": "9b19c38907456775f5677b6caab2a47a0ae07d0382f8cb61ca10455b7a7694c1"
+      "sha256": "64cae847135efbd7372721b3b4ca2c025aadea655f08c0a78e62ce75c569f3ec"
     },
     "qualifiers": {
       "path": "../../config/generator/qualifiers.json",
@@ -801,7 +801,7 @@
     },
     "orthography": {
       "path": "../../config/generator/orthography.json",
-      "sha256": "4c35677c9cb04806f3b29c30865398c975046e9339ed6c7b51c9cf53b2c2eeaa"
+      "sha256": "3a0af8b621123bf749e44ac39fdb79d7658db60edc44abf82d9840812804fcd4"
     }
   },
   "unavailable": [

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "constructions-discovery-v5",
+  "version": "constructions-discovery-v6",
   "status": "not_active_policy",
   "classes": {
     "full_personal_praet_cond": {
@@ -170,12 +170,24 @@
       "evidence_scope_complete": true
     },
     "double_particle": {
-      "status": "language_confirmed_game_excluded",
+      "status": "materialized_source_singular_candidates_game_excluded",
       "evidence": [
+        "morfeusz_segments:334-340",
         "rjp:4.6",
         "zds:5"
       ],
-      "reject_interpretation_not_homonymous_string": true
+      "reject_interpretation_not_homonymous_string": true,
+      "rule_id": "impt-double-particle-v1",
+      "source_rule": "impt_sg_(im)perf ze z?",
+      "number": "sg",
+      "person": "sec",
+      "maximum_added_particles": 2,
+      "particle_sequence": [
+        "że",
+        "ż"
+      ],
+      "repeated_generation": false,
+      "storage": "three_ordered_components_source_fk_and_two_grammatical_particles"
     },
     "mobile_aglt": {
       "status": "pending_full_host_matrix",

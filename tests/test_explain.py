@@ -14,6 +14,38 @@ from literaki_slownik.explain import explain
 
 
 class ExplainTests(unittest.TestCase):
+    def test_double_particle_build_explain_and_independent_fixture_homonym(self):
+        from tests.test_build import BuildTests
+        root=Path(self.temp.name)/'double';root.mkdir()
+        # Druga analiza jest własną fiksturą, nie poświadczeniem takiego rzeczownika.
+        p=BuildTests().manifest(root,'#</COPYRIGHT>\nidź\tiść\timpt:sg:sec:imperf\t\t\nidźżeż\tfikstura\tsubst:sg:nom:m3\t\t\n')
+        run=root/'run';build(p,run);before=sha256(run/'build.sqlite')
+        value=explain(run,'idźżeż');c,=value['derivations']
+        self.assertEqual(c['rule_id'],'impt-double-particle-v1')
+        self.assertIsNotNone(c['persisted_candidate_key'])
+        self.assertEqual(len(c['components']),3)
+        self.assertEqual(c['assessment']['game']['status'],'reject')
+        self.assertEqual(value['analyses'][0]['assessment']['game']['status'],'unresolved')
+        self.assertEqual(len(value['persisted_analyses']),2)
+        self.assertEqual(sha256(run/'build.sqlite'),before)
+
+    def test_current_capital_rule_keeps_dance_homonym_and_source_entries(self):
+        from tests.test_build import BuildTests
+        root=Path(self.temp.name)/'capital';root.mkdir()
+        p=BuildTests().manifest(root,'#</COPYRIGHT>\nkrakowiak\tkrakowiak:Sm1\tsubst:sg:nom:m1\tnazwa_pospolita\t\nkrakowiak\tkrakowiak:Sm2\tsubst:sg:nom:m2\tnazwa_pospolita\tchor.\n')
+        run=root/'run';build(p,run);before=sha256(run/'build.sqlite')
+        for variant in ('broad','standard'):
+            value=explain(run,'krakowiak',variant)
+            by_lemma={a['lemma_id']:a['assessment'] for a in value['analyses']}
+            resident=by_lemma['krakowiak:Sm1'];dance=by_lemma['krakowiak:Sm2']
+            self.assertEqual(resident['game']['status'],'reject')
+            self.assertEqual(resident['language'][variant]['status'],'reject' if variant=='standard' else 'unresolved')
+            self.assertEqual(dance['game']['status'],'unresolved')
+            self.assertEqual(value['source_presence'],'present')
+            self.assertEqual(len(value['persisted_analyses']),2)
+            self.assertEqual({a['assessment']['game']['status'] for a in value['persisted_analyses']},{'reject','unresolved'})
+        self.assertEqual(sha256(run/'build.sqlite'),before)
+
     def test_persisted_expanded_assessments_are_reachable_readonly(self):
         from tests.test_build import BuildTests
         root=Path(self.temp.name)/'snapshots';root.mkdir()
@@ -263,8 +295,8 @@ class ExplainTests(unittest.TestCase):
             self.assertEqual(candidate['assessment']['membership']['standard']['status'], 'unresolved')
         self.assertEqual(sha256(self.run / 'build.sqlite'), before)
 
-    def test_no_derivation_from_guessed_host_or_double_particle(self):
-        for word in ('nibym','czytajżeż','technicznem'):
+    def test_no_derivation_from_guessed_host_or_unsupported_particle_sequence(self):
+        for word in ('nibym','czytajżeżże','dajcieżeż','technicznem'):
             self.assertEqual(explain(self.run, word)['derivations'], [])
 
     def test_derivation_preserves_uppercase_and_incorrect_component_separately(self):

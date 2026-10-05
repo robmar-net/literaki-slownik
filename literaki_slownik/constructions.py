@@ -6,6 +6,7 @@ from .sgjp import expand_tag
 
 VOWELS = frozenset('aąeęioóuy')
 IMPT_PARTICLE_RULE = 'impt-single-particle-v1'
+IMPT_DOUBLE_PARTICLE_RULE = 'impt-double-particle-v1'
 SOURCE_FIELDS = ('source_id', 'first_source_row', 'original', 'lemma_id', 'raw_tag', 'names', 'qualifiers')
 BY_AGLT_ENDINGS = {('sg', 'pri'): 'm', ('sg', 'sec'): 'ś', ('pl', 'pri'): 'śmy', ('pl', 'sec'): 'ście'}
 PREPOSITION_N_UNVARIED = frozenset('na do dla koło o po poza spoza za zza'.split())
@@ -160,6 +161,24 @@ def impt_particle_candidates(source):
             ],
             'evidence': ['docs/generator/konstrukcje.md', 'config/generator/constructions.json'],
         })
+    return results
+
+
+def impt_double_particle_candidates(source):
+    """Źródłowa reguła sg + że + ż; bez rekursywnego mnożenia partykuł."""
+    results=[]
+    for single in impt_particle_candidates(source):
+        if not single['expanded_tag'].startswith('impt:sg:sec:'):
+            continue
+        results.append({**single,'rule_id':IMPT_DOUBLE_PARTICLE_RULE,
+                        'original':single['original']+'ż',
+                        'components':[single['components'][0]]+[
+                            {'kind':'grammatical_particle','original':particle,'rule_id':IMPT_DOUBLE_PARTICLE_RULE}
+                            for particle in ('że','ż')],
+                        'linguistic_evidence':{
+                            'rule_id':'impt-double-particle-source-proof-v1','status':'accept',
+                            'message':'Zamknięta źródłowa reguła impt_sg ze z? potwierdza całość; growe wyłączenie oceniane osobno.',
+                            'evidence':['config/generator/constructions.json','morfeusz_segments:334-340']}})
     return results
 
 
@@ -390,7 +409,8 @@ def materialize_confirmed_candidates(db, batch_size=10000):
 
     for row in db.execute(select + " where i.tag like 'impt:%' order by i.source_id,i.first_row"):
         source_count += 1
-        for candidate in impt_particle_candidates(dict(zip(SOURCE_FIELDS,row))):
+        source=dict(zip(SOURCE_FIELDS,row))
+        for candidate in impt_particle_candidates(source)+impt_double_particle_candidates(source):
             save(candidate)
     operators = [dict(zip(SOURCE_FIELDS,row)) for row in db.execute(
         select + " where f.original='by' and i.tag in ('part','comp') order by i.source_id,i.first_row")]
