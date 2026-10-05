@@ -326,3 +326,15 @@ Pełny odczyt147frag/148artykułów ukończony jako podzadanie PAN-2; pełne map
 A modelu użyć zatwierdzone i wdrożone diagnostycznie: rekordy i schema2 zachowane; własny przegląd ze SHA, warunki przypięte do użycia, nierozpoznane możliwości bez propagacji odmowy. Explain/raporty/próbka rozliczają pełne warstwy i jednostki.179/179+5/5; rzeczywiste295interpretacji/540rozwinięć/542analiz, dwa zapisy i próbki identyczne. Ibn reject→unresolved diagnostycznie; bez dopuszczenia do listy. Pełna macierz i8/36 pozostają otwarte; próg dodatniego dowodu językowego wznak pending.
 
 [Przegląd](../analysis/evidence/semantic-use-implementation-review.md); [próg dodatniego dowodu](../analysis/evidence/documented-use-positive-proof-decision.md).
+
+## Dodatni dowód użycia — zatwierdzone A
+
+Zatwierdzone A dodatniego dowodu wdrożone v16 tylko dla użycia na wznak: lexical BROAD accept, STANDARD nadal unknown; inne warunki i pozostałość zachowane.181/181+5/5; dwie niezależne projekcje295/540/543/1086 logicznie identyczne, idempotencja i FK/integrity OK; źródło bez zmian. G3/G4/G6 nadal częściowe,8/36.
+
+[Wdrożenie](../analysis/evidence/positive-use-implementation-review.md).
+
+## Dalszy przegląd ortografii G3
+
+Przegląd RJP §8.1.2 pkt3–4 i SGJP:83 ID z etn.,84 kombinacje,967 interpretacji; dwie identyczne reprodukcje readonly. Etykieta nie pokrywa mieszkańców. Norma dopuszcza angol/jugol małą literą, eksport ma tylko Angol/Jugol. Osobny kandydat udokumentowanej pisowni wymaga decyzji nowego modelu; nie wdrożono przed A. Pełna macierz,8/36 i bramka phase10 bez zmian.
+
+[Projekt do decyzji](../analysis/evidence/documented-spelling-variants-decision.md).

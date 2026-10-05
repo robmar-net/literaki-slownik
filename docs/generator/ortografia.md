@@ -33,3 +33,7 @@ Zatwierdzone A dla adnotacji akcent wdrożono bez zmiany dawności: BROAD nie wy
 ## Wspólna norma growa2026 — zatwierdzone A
 
 Obowiązkową wielką literę oceniamy według normy2026 w obu wariantach, również dla dawnych zapisów zachowanych językowo w BROAD. Pierwszy udokumentowany podzbiór: warszawianin, warszawiak, krakowiak:Sm1, subst:m1/depr:m2. STANDARD odrzuca dawny lowercase językowo; BROAD zachowuje go jako niewykluczający przez samą historię, lecz ta interpretacja odpada growo. Wpisy pozostają w bazie. Krakowiak:Sm2 jako taniec oceniany osobno. Nie wyznaczamy klasy po sufiksie/m1; pełna inwentaryzacja wymaga dalszych danych i dowodów. [Rozstrzygnięcie](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/game-capitalization-norm-decision.md); [runtime](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/capital-double-review.md).
+
+## Dalszy przegląd mieszkańców i etnonimów
+
+RJP §8.1.2 pkt3 obejmuje także wsie, osiedla i dzielnice. Odrębna uwaga pkt4 dopuszcza małą literę dla jawnych nieoficjalnych nazw etnicznych; nie rozszerzamy tego na wszystkie nazwy. SGJP nie ma małych angol/jugol, ma tylko dokładne Angol/Jugol. Projekt osobnych kandydatów pisowni czeka na decyzję; źródłowych zapisów nie zmieniono. Pełny raport83 ID z etn. nie jest kompletną klasą mieszkańców — dwie wskazane nazwy kobiet nie mają etn. Brak nowych aktywnych filtrów.

@@ -14,7 +14,7 @@ DOCUMENTARY_RULE_EVIDENCE = {
 
 
 def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyses=(), candidate=None,
-                      *, documented_condition_ids=None):
+                      *, documented_condition_ids=None, lexical_use_review=None):
     """Wspólna ocena explain i zapisu; nie aktywuje nierozstrzygniętej polityki."""
     pending=[{'rule_id':'linguistic-policy-not-active-v1','status':'unresolved',
               'message':'Pełna polityka językowa G3/G4 nie jest jeszcze aktywna.','evidence':[]}]
@@ -31,8 +31,18 @@ def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyse
     return assess_analysis(original,
         language={v:pending+approved_qualifier_checks(qualifiers,v)+list(additional_checks)
                   +[check for source in source_analyses for check in orthography_checks(source,v) if in_scope(check)]
-                  +construction_orthography_checks(candidate,v) for v in VARIANTS},
+                  +construction_orthography_checks(candidate,v)
+                  +lexical_use_checks(lexical_use_review,v) for v in VARIANTS},
         scope_checks=release_scope_checks(candidate),game_checks=game)
+
+
+def lexical_use_checks(review, variant):
+    """Wyłącznie sprawdzony przegląd własny; nie domyka innych warunków."""
+    if not review or 'lexical_proof' not in review:return []
+    return [{'rule_id':review['lexical_proof'],'status':'accept' if variant=='broad' else 'unresolved',
+        'message':('Dodatni dowód leksykalny BROAD dokładnie udokumentowanego użycia; inne warunki osobno.'
+                   if variant=='broad' else 'Dowód BROAD nie rozstrzyga aktualnej kwalifikacji STANDARD.'),
+        'scope':'documented_use_lexical_condition_only','evidence':review['evidence']}]
 
 
 USE_REVIEW_ID = 'own-semantic-use-review-v1'
@@ -52,7 +62,7 @@ def checked_use_reviews(db, reviews):
     result, seen = {}, set()
     try:
         for review in reviews:
-            if (set(review) - {'documented_conditions'} != {'use_id','source','description','coverage','evidence'}
+            if (set(review) - {'documented_conditions','lexical_proof'} != {'use_id','source','description','coverage','evidence'}
                     or not isinstance(review['use_id'],str)
                     or not re.fullmatch('[a-z0-9][a-z0-9_-]{0,127}',review['use_id'])
                     or review['use_id'] in seen
@@ -94,6 +104,16 @@ def checked_use_reviews(db, reviews):
             if (set(conditions)-available or any(not any(p['sha256']==DOCUMENTARY_RULE_EVIDENCE[rule] for p in evidence)
                                                    for rule in conditions)):
                 raise GeneratorError('Warunek nie ma dokładnego mapowania i zgodnego dowodu użycia',4)
+            if 'lexical_proof' in review:
+                expected_source=dict(source_id='sgjp-20260823',
+                    source_sha256='3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810',
+                    first_source_row=6770165,original='wznak',lemma_id='wznak',raw_tag='frag',names='',qualifiers='')
+                if (review['lexical_proof']!='linguistic-documented-use-lexical-proof-v1'
+                        or review['use_id']!='sgjp-authors-phrase-wznak-v1' or source!=expected_source
+                        or not any(p['artifact_id']=='sgjp-theory-own-review' and
+                            p['sha256']==DOCUMENTARY_RULE_EVIDENCE['game-documented-surname-component-v1']
+                            for p in evidence)):
+                    raise GeneratorError('Nieudokumentowane mapowanie dodatniego dowodu leksykalnego',4)
             # Kopia kanoniczna odcina późniejsze mutacje obiektu caller.
             result.setdefault(row[0],[]).append(json.loads(dumps(review)))
         for items in result.values():items.sort(key=lambda item:item['use_id'])
@@ -241,7 +261,7 @@ def materialize_assessments(db, batch_size=10000, *, use_reviews=()):
                         'message':'Udokumentowane użycie wymaga osobnego domknięcia warunków.',
                         'evidence':review['evidence']}],
                         source_analyses=[dict(source,raw_tag=tag,source_sha256=source_hashes[source['source_id']])],
-                        documented_condition_ids=review.get('documented_conditions',[]))
+                        documented_condition_ids=review.get('documented_conditions',[]),lexical_use_review=review)
                     use['semantic_trace']={'kind':'documented_use',**review}
                     save(use_key,row[0],None,tag,use);use_count+=1;source_count+=1
             save(key,row[0],None,tag,assessed);source_count+=1

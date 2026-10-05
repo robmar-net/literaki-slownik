@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T16:02:35Z",
+  "generated": "2026-10-05T16:36:58Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Model użyć wdrożony; próg dodatniego dowodu językowego wznak do decyzji"
+    "current_activity": "Dowód wznak wdrożony; udokumentowane warianty angol/jugol do decyzji"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "A modelu użyć wdrożone: dokładny własny przegląd, przypięte warunki dokumentacyjne, niewiadoma pozostałość, explain/unknown/filter/próbka.179/179+5/5;147kluczy frag z homonimami,295rekordów/540rozwinięć/542analiz/1084ocen; dwa logicznie identyczne nowe zapisy i próbki, źródło bez zmian. Ibn diagnostycznie reject→unresolved po wyłączeniu przenoszenia dowodu użycia na pozostałość; reguły gry i listy bez zmian. Następny wybór progu dodatniego dowodu językowego dla wznak;G3/G4/G6 partial,8/36.",
+      "summary": "Zatwierdzone A dodatniego dowodu wdrożone v16 tylko dla użycia na wznak: lexical BROAD accept, STANDARD nadal unknown; inne warunki i pozostałość zachowane.181/181+5/5; dwie niezależne projekcje295/540/543/1086 logicznie identyczne, idempotencja i FK/integrity OK; źródło bez zmian. G3/G4/G6 nadal częściowe,8/36. RJP/SGJP:83etn ID/967interpretacji, podwójny readonly raport identyczny; jawny mały zapis angol/jugol poza źródłem, konieczna decyzja nowego typu kandydata.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -267,7 +267,9 @@ window.MAISTER_DATA = {
         "Zatwierdzone A: ogólny opis wieku całej klasy nie nadaje jej członkom automatycznego odrzucenia STANDARD. Potrzebne oznaczenie lub jednoznaczny dowód konkretnej interpretacji; jawne daw./przest. pozostają wiążące. Bez przeniesienia WSJP do wejść, bez zmiany reguł gry; pełna kwalifikacja nadal otwarta.",
         "Zatwierdzone A: jednoznaczny opis konkretnej formy przez autorów SGJP i ręcznie zweryfikowana tożsamość wystarczają do uzupełnienia klasy członu nazwiska. Wdrożono tylko de:F/frag i ibn/frag, ze strażnikami hasha, źródła, wiersza i pięciu pól. Wpisy i de:S zachowane; reguły gry niezmienione, metadane online nieaktywne.",
         "A: osobne udokumentowane użycia dokładnego rekordu źródłowego; spójne warstwy ocen, niewiadoma pozostałość, bez aktywacji metadanych czytnika.",
-        "Model A wdrożony v15: warunki dokumentacyjne przypięte tylko do potwierdzonego użycia; brak propagacji na pozostałość, bez zmiany reguł gry."
+        "Model A wdrożony v15: warunki dokumentacyjne przypięte tylko do potwierdzonego użycia; brak propagacji na pozostałość, bez zmiany reguł gry.",
+        "A: dokumentacyjny dodatni dowód leksykalny BROAD tylko dokładnie potwierdzonego użycia; STANDARD i pozostałe warunki osobno, nierozpoznana pozostałość zachowana.",
+        "Dodatni dowód A wdrożony v16: zamknięte mapowanie wznak, tylko leksykalny warunek BROAD; pełna kwalifikacja nadal otwarta."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -275,7 +277,7 @@ window.MAISTER_DATA = {
         "Brak kompletnej klasy nazw mieszkańców oraz rozdzielenia frag/obcych zwrotów w eksporcie. Nie zakładamy istnienia brakujących metadanych. Kontakt z innymi grupami wykluczony przez użytkownika; brakujące dowody nadal otwarte.",
         "Dokumentacja klasy może różnić się zakresem od opisu konkretnego znaczenia; pełny ID SGJP może łączyć znaczenia. Brak automatycznej propagacji i nowego filtra przed decyzją.",
         "Jedno źródłowe rozpoznanie może odpowiadać kilku publicznym artykułom lub opisowi przy artykule nadrzędnym. Potrzebna decyzja modelu użyć; nie ustalono pełnej zgodności snapshotu.",
-        "Próg dodatniego dowodu językowego przykładu wznak wymaga decyzji; pełna macierz nadal otwarta."
+        "Brak osobnych kandydatów udokumentowanej pisowni angol/jugol; model do decyzji. Pełna klasa mieszkańców nadal niezamknięta."
       ],
       "artifacts": [
         {
@@ -681,21 +683,41 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/documented-use-positive-proof-decision.md",
           "label": "documented-use-positive-proof-decision.md"
+        },
+        {
+          "path": "analysis/evidence/positive-use-runtime.json",
+          "label": "positive-use-runtime.json"
+        },
+        {
+          "path": "analysis/evidence/positive-use-implementation-review.md",
+          "label": "positive-use-implementation-review.md"
+        },
+        {
+          "path": "analysis/evidence/capitalization-coverage.json",
+          "label": "capitalization-coverage.json"
+        },
+        {
+          "path": "analysis/evidence/capitalization-coverage-probe.py",
+          "label": "capitalization-coverage-probe.py"
+        },
+        {
+          "path": "analysis/evidence/documented-spelling-variants-decision.md",
+          "label": "documented-spelling-variants-decision.md"
         }
       ],
       "gate": {
-        "id": "documented_use_positive_lexical_proof",
+        "id": "documented_spelling_variant_model",
         "status": "pending",
-        "created_at": "2026-10-05T16:02:35Z",
-        "question": "Czy jawny przykład poprawnego użycia w autorskiej dokumentacji SGJP, powiązany z dokładnym rekordem, wystarcza jako dodatni leksykalny dowód BROAD tego użycia?",
+        "created_at": "2026-10-05T16:36:58Z",
+        "question": "Czy dodajemy osobne, źródłowo udokumentowane warianty pisowni istniejących analiz, zaczynając tylko od angol i jugol?",
         "options": {
-          "A": "Tak: dla tego warunku i użycia; pozostałe warstwy i niewiadome osobno (rekomendowane).",
-          "B": "Wymagamy dodatkowo niezależnego dopuszczonego źródła normatywnego; do tego czasu unresolved."
+          "A": "Tak: osobne kandydaty z dokładnym źródłem i dowodem normy, oryginał bez zmian; inne warunki osobno (rekomendowane).",
+          "B": "Czekamy na dopuszczone małoliterowe analizy źródłowe; brak pozostaje luką."
         },
         "answer": null,
-        "artifact": "analysis/evidence/documented-use-positive-proof-decision.md",
-        "authority": "AGENTS.md prior discussion of eligibility criteria; phase8 material criteria decision",
-        "scope": "positive_lexical_proof_threshold_not_game_change_or_reader_database_activation"
+        "artifact": "analysis/evidence/documented-spelling-variants-decision.md",
+        "authority": "AGENTS.md eligibility discussion; executor material model deviation",
+        "scope": "closed_documented_spelling_variant_candidates_not_new_lexemes_or_game_rules"
       }
     },
     {

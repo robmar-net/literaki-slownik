@@ -168,3 +168,48 @@ class SemanticUsesTests(unittest.TestCase):
                 for reader in (unresolved_report,persisted_filter_impact):
                     with self.assertRaises(GeneratorError):reader(db)
                 with self.assertRaises(GeneratorError):persisted_assessments(db,'don','standard')
+
+
+class PositiveUseProofTests(unittest.TestCase):
+    def fixture(self, root):
+        manager=connect(root/'build.sqlite',create=True);db=manager.__enter__()
+        self.addCleanup(manager.__exit__,None,None,None)
+        review=next(r for r in json.loads(Path('config/generator/semantic-uses.json').read_text())['reviews']
+                    if r['use_id']=='sgjp-authors-phrase-wznak-v1')
+        # Jawna fikstura reprodukuje tożsamość; nie jest danymi wydania.
+        from tests.test_documented_names import source,SHA
+        r=source('wznak','wznak',6770165);sid=r['source_id']
+        db.execute('insert into source_artifact values (?,?,?)',(sid,'sgjp_tab',json.dumps({'sha256':SHA,'origin':'synthetic_test_only'})))
+        db.execute('insert into sgjp_record values (?,?,?,?,?,?,?)',(sid,6770165,'wznak','wznak','frag','',''))
+        db.execute('insert into surface_form values (1,?,?,?,5)',('wznak','wznak','wznak'))
+        db.execute('insert into lexeme values (1,?,?,?)',(sid,'wznak','wznak'))
+        db.execute('insert into interpretation values (1,?,?,1,1,?,?,?)',(sid,6770165,'frag','',''))
+        db.commit();return db,review
+
+    def test_positive_broad_condition_does_not_close_other_layers_or_remainder(self):
+        with tempfile.TemporaryDirectory() as folder:
+            db,review=self.fixture(Path(folder));materialize_assessments(db,use_reviews=[review])
+            for variant in ('broad','standard'):
+                rows=persisted_assessments(db,'wznak',variant)
+                use=next(r for r in rows if r['semantic_trace']['kind']=='documented_use')
+                rest=next(r for r in rows if r['semantic_trace']['kind']=='unresolved_remainder')
+                checks=use['assessment']['language']['checks']
+                proof=next(c for c in checks if c['rule_id']=='linguistic-documented-use-lexical-proof-v1')
+                self.assertEqual(proof['status'],'accept' if variant=='broad' else 'unresolved')
+                self.assertEqual(use['assessment']['membership']['status'],'unresolved')
+                self.assertEqual(use['assessment']['game']['status'],'unresolved')
+                self.assertFalse(any(c['rule_id']==proof['rule_id'] for c in rest['assessment']['language']['checks']))
+            before=logical_content_report(db)
+            self.assertEqual(materialize_assessments(db,use_reviews=[review])['new_analyses'],0)
+            self.assertEqual(logical_content_report(db),before)
+
+    def test_lexical_proof_cannot_be_reused_for_another_use_or_document(self):
+        with tempfile.TemporaryDirectory() as folder:
+            db,review=self.fixture(Path(folder))
+            for field,value in (('use_id','other-use'),('lexical_proof','unapproved-rule')):
+                bad=copy.deepcopy(review);bad[field]=value;before=db.total_changes
+                with self.assertRaises(GeneratorError):materialize_assessments(db,use_reviews=[bad])
+                self.assertEqual(db.total_changes,before)
+            bad=copy.deepcopy(review);bad['evidence'][0]['sha256']='2'*64
+            with self.assertRaises(GeneratorError):materialize_assessments(db,use_reviews=[bad])
+            self.assertEqual(db.execute('select count(*) from analysis').fetchone()[0],0)

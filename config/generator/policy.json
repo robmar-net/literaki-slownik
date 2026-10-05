@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "approved-conditions-v12",
+  "version": "approved-conditions-v13",
   "status": "partial_not_release_policy",
   "rules": [
     {
@@ -832,5 +832,13 @@
     "qualified_layers": "language_game_profile_release_scope_coherent_per_use",
     "online_metadata_activated": false,
     "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/semantic-use-alternatives-decision.md"
+  },
+  "documented_use_positive_lexical_proof": {
+    "rule_id": "linguistic-documented-use-lexical-proof-v1",
+    "first_use": "sgjp-authors-phrase-wznak-v1",
+    "effect": "positive_broad_lexical_condition_only",
+    "standard": "unresolved",
+    "remaining_conditions": "separate",
+    "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-use-positive-proof-decision.md"
   }
 }

@@ -1,0 +1,705 @@
+{
+  "schema_version": 1,
+  "scope": "etn_label_inventory_and_closed_documentary_lookup_not_complete_resident_class",
+  "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+  "source_db_sha256": "e0371fdf8b4be3187c864a2f2dcb5544d8445d99f79dbbe24c04bbaa5007f35e",
+  "readonly": true,
+  "source_unchanged": true,
+  "active_policy_inputs_added": 0,
+  "etn_lemma_count": 83,
+  "etn_label_combination_count": 84,
+  "etn_compact_interpretations": 967,
+  "etn_inventory": [
+    {
+      "lemma_id": "Abchaz",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 13
+    },
+    {
+      "lemma_id": "Abchazka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Abisynka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Abisyńczyk",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Afrykaner",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Afrykanerka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Albanka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Albańczyk",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Alzatczyk",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Alzatka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Angol",
+      "names": "nazwa_pospolita",
+      "qualifiers": "pot.,etn.",
+      "compact_interpretations": 13
+    },
+    {
+      "lemma_id": "Arab",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Arabka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Aria",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Bengalczyk",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Bengalka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Bukowinianin",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Bukowińczyk",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Burusz",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Chaldejczyk",
+      "names": "nazwa_własna_osoby",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Chaldejka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Cypryjka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Czechosłowaczka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Czukcza",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 13
+    },
+    {
+      "lemma_id": "Czukczyjka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Czuwasz",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Dalmatynka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Dalmatyńczyk",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Ewenk",
+      "names": "nazwa_własna_osoby",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Ewenka",
+      "names": "nazwa_własna_osoby",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Galicyjczyk",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Galicyjka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Hetyta",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Hucułka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Indonezyjka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Kałmuczka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Kałmuk:Sm1~cy",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Koptyjka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Kosowianin",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Kujawianin",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Kurd",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Kurdyjka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Lankijczyk",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Lankijka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Malgasz",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 13
+    },
+    {
+      "lemma_id": "Masaj",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 13
+    },
+    {
+      "lemma_id": "Mazowszanin",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Małopolanin",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Mołdawianin",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Mołdawianka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Norweg",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 13
+    },
+    {
+      "lemma_id": "Norweżka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Persjanka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Persyjka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Polanin:Sm1~nie",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Pomorzanin",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Romka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Rusinka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Rusnak:Sm1~cy",
+      "names": "nazwa_pospolita",
+      "qualifiers": "gwar.,etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Serbołużyczanin",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Serbołużyczanka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Siuksyjka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Syberyjczyk",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Syjamczyk",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Syryjka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Szwab:Sm1~i~owie",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 13
+    },
+    {
+      "lemma_id": "Szwabka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Sławianin",
+      "names": "nazwa_pospolita",
+      "qualifiers": "daw.,etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Tadżyjka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Taj",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Tajka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Trobriandczyk",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Trobriandka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Trzebowianin",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Tyrolczyk",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Tyrolka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Wareg",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Wielkopolanin",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Wolinianin",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "strzygoń",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "strzygoń",
+      "names": "nazwa_pospolita",
+      "qualifiers": "rzad.,etn.",
+      "compact_interpretations": 1
+    },
+    {
+      "lemma_id": "Łemkini",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    },
+    {
+      "lemma_id": "Łużyczanin",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 12
+    },
+    {
+      "lemma_id": "Łużyczanka",
+      "names": "nazwa_pospolita",
+      "qualifiers": "etn.",
+      "compact_interpretations": 11
+    }
+  ],
+  "examples": {
+    "angol": [
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 9040,
+        "original": "Angol",
+        "lemma_id": "Angol",
+        "raw_tag": "subst:sg:nom:m1",
+        "names": "nazwa_pospolita",
+        "qualifiers": "pot.,etn."
+      },
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 9053,
+        "original": "Angol",
+        "lemma_id": "Angola",
+        "raw_tag": "subst:pl:gen:f",
+        "names": "nazwa_geograficzna",
+        "qualifiers": "char."
+      }
+    ],
+    "jugol": [
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 358226,
+        "original": "Jugol",
+        "lemma_id": "Jugol",
+        "raw_tag": "subst:sg:nom:m1",
+        "names": "nazwa_pospolita",
+        "qualifiers": ""
+      }
+    ],
+    "kitajec": [],
+    "makaroniarz": [
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 2384688,
+        "original": "makaroniarz",
+        "lemma_id": "makaroniarz",
+        "raw_tag": "subst:sg:nom:m1",
+        "names": "nazwa_pospolita",
+        "qualifiers": "pogard.,pot."
+      }
+    ],
+    "szkop": [
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 908721,
+        "original": "Szkop",
+        "lemma_id": "Szkop:Sm1",
+        "raw_tag": "subst:sg:nom:m1",
+        "names": "nazwisko",
+        "qualifiers": ""
+      },
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 908733,
+        "original": "Szkop",
+        "lemma_id": "Szkop:Sf",
+        "raw_tag": "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:f",
+        "names": "nazwisko",
+        "qualifiers": ""
+      },
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 5910860,
+        "original": "szkop",
+        "lemma_id": "szkop",
+        "raw_tag": "subst:sg:nom:m1",
+        "names": "nazwa_pospolita",
+        "qualifiers": ""
+      }
+    ],
+    "żabojad": [
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 7432074,
+        "original": "żabojad",
+        "lemma_id": "żabojad",
+        "raw_tag": "subst:sg:nom:m1",
+        "names": "nazwa_pospolita",
+        "qualifiers": "pot."
+      }
+    ],
+    "warszawianka": [
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 987918,
+        "original": "Warszawianka",
+        "lemma_id": "Warszawianka",
+        "raw_tag": "subst:sg:nom:f",
+        "names": "nazwa_geograficzna",
+        "qualifiers": ""
+      },
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 6309665,
+        "original": "warszawianka",
+        "lemma_id": "warszawianka",
+        "raw_tag": "subst:sg:nom:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": ""
+      }
+    ],
+    "krakowianka": [
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 2229577,
+        "original": "krakowianka",
+        "lemma_id": "krakowianka",
+        "raw_tag": "subst:sg:nom:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": ""
+      }
+    ],
+    "bawarka": [
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 32011,
+        "original": "Bawarka",
+        "lemma_id": "Bawarka",
+        "raw_tag": "subst:sg:nom:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": ""
+      },
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 1206021,
+        "original": "bawarka",
+        "lemma_id": "bawarka",
+        "raw_tag": "subst:sg:nom:f",
+        "names": "nazwa_pospolita",
+        "qualifiers": "kulin."
+      }
+    ],
+    "krakus": [
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 449363,
+        "original": "Krakus",
+        "lemma_id": "Krakus:Sm1",
+        "raw_tag": "subst:sg:nom:m1",
+        "names": "nazwisko",
+        "qualifiers": ""
+      },
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 449375,
+        "original": "Krakus",
+        "lemma_id": "Krakus:Sf",
+        "raw_tag": "subst:sg.pl:nom.gen.dat.acc.inst.loc.voc:f",
+        "names": "nazwisko",
+        "qualifiers": ""
+      },
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 2229681,
+        "original": "krakus",
+        "lemma_id": "krakus",
+        "raw_tag": "subst:sg:nom:m1",
+        "names": "nazwa_pospolita",
+        "qualifiers": ""
+      }
+    ],
+    "sądeczanin": [
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 928468,
+        "original": "Sądeczanin",
+        "lemma_id": "Sądeczanin",
+        "raw_tag": "subst:sg:nom:m1",
+        "names": "nazwa_pospolita",
+        "qualifiers": ""
+      },
+      {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 5944839,
+        "original": "sądeczanin",
+        "lemma_id": "sądeczanin",
+        "raw_tag": "subst:sg:nom:m1",
+        "names": "nazwa_pospolita",
+        "qualifiers": ""
+      }
+    ],
+    "chochołowianin": []
+  },
+  "full_resident_inventory_complete": false
+}

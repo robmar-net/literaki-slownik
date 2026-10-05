@@ -773,7 +773,7 @@
     },
     "policy": {
       "path": "../../config/generator/policy.json",
-      "sha256": "ed5d9e3b2cb65c61274d1801ec65fd87b1cfaa90c964ee7ab1c0113d34bc219b"
+      "sha256": "2b752a386626166047f445901d2ad255fd166ed241558352049f3c7e82310f9f"
     },
     "constructions": {
       "path": "../../config/generator/constructions.json",
@@ -805,7 +805,7 @@
     },
     "semantic-uses": {
       "path": "../../config/generator/semantic-uses.json",
-      "sha256": "97ff90e0f5ac75b09413b66603697ef2ebff54f0a9afe3bf5162272757e008b5"
+      "sha256": "9c8ec54dcde19c2572f565dde329c154b8b128eec91c049ffc8d2b615c41e743"
     }
   },
   "unavailable": [

@@ -82,4 +82,8 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Alternatywne użycia jednego rekordu](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/semantic-use-alternatives-decision.md) — zatwierdzone A, model diagnostyczny i pozostałość wdrożone.
 
 - [Model użyć — wdrożenie i runtime](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/semantic-use-implementation-review.md) —179/179+5/5, własne2adnotacje, pełne ślady i próbka, dalsza kwalifikacja otwarta.
-- [Dodatni dowód językowy użycia](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-use-positive-proof-decision.md) — konieczne ustalenie progu przed oceną wznak.
+- [Dodatni dowód językowy użycia](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-use-positive-proof-decision.md) — zatwierdzone A, wdrożone dla warunku leksykalnego BROAD użycia wznak.
+
+- [Dodatni dowód — wdrożenie](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/positive-use-implementation-review.md) —181/181+5/5, trzy użycia, pełna kwalifikacja nadal otwarta.
+
+- [Udokumentowane warianty pisowni](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-spelling-variants-decision.md) — propozycja do decyzji, angol/jugol, odrębna od automatycznego lower.
