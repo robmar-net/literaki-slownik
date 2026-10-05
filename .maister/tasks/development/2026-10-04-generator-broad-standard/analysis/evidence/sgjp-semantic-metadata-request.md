@@ -1,7 +1,7 @@
 # Projekt zapytania do zespołu SGJP
 
 ## TL;DR
-Eksport Morfeusza20260823 nie zawiera pełnej klasyfikacji semantycznej potrzebnej do zachowania reguł gry po zmianie normy2026. Przygotowano krótkie zapytanie do zespołu SGJP o dostępność odpowiednich metadanych i warunki ich użycia. Wiadomość nie została wysłana.
+Eksport Morfeusza20260823 nie zawiera pełnej klasyfikacji semantycznej potrzebnej do zachowania reguł gry po zmianie normy2026. Przygotowano krótkie zapytanie do zespołu SGJP o dostępność odpowiednich metadanych i warunki ich użycia. Wiadomość nie została wysłana. Użytkownik wykluczył kontakt z innymi grupami; poniższy projekt zachowujemy wyłącznie jako materiał historyczny.
 
 ## Key Decisions
 - Kontakt opublikowany przez autorów: sgjpol@gmail.com, https://sgjp.pl/o-slowniku/.
@@ -9,10 +9,10 @@ Eksport Morfeusza20260823 nie zawiera pełnej klasyfikacji semantycznej potrzebn
 - Każde otrzymane uzupełnienie wymaga przypięcia wersji, pełnych ID, audytu warunków i kontroli mapowania. Nie staje się automatycznie wejściem build.
 
 ## Open Questions / Risks
-- Wysłanie wiadomości w imieniu użytkownika wymaga jego wyraźnej instrukcji. Ogólna zgoda na prace w repo nie obejmuje komunikacji z innymi osobami.
+- Kontakt został wykluczony przez użytkownika. Nie oczekujemy zgody na wysłanie i nie uzależniamy dalszej pracy od odpowiedzi autorów.
 - Sama odpowiedź metodologiczna może nie dostarczyć kompletnej klasyfikacji; nie ogranicza to samodzielnego dokończenia technicznych elementów w zatwierdzonym zakresie.
 
-## Treść do wysłania
+## Historyczna treść niewysłanego projektu
 
 Do: sgjpol@gmail.com
 
@@ -32,3 +32,7 @@ Jeśli odpowiednie dane istnieją, czy można uzyskać ich niewielką, wersjonow
 
 Z góry dziękujemy za pomoc.
 Projekt literaki-slownik
+
+## Rozstrzygnięcie użytkownika — 2026-10-05T10:43:48Z
+
+„nie kontaktujemy sie z innymi grupami, powiedz czego nie wiemy i dlaczego potrzebujemy”. Wiadomości nie wysłano. Potrzebne są klasyfikacje konkretnych znaczeń powiązane z pełnymi ID: nazwy mieszkańców wymagające wielkiej litery oraz niesamodzielne człony obcych zwrotów. Nie potrzebujemy pełnych definicji wszystkich haseł. Eksport zachowuje gramatykę i fleksję, ale nie rozstrzyga tych klas semantycznych. Brak oznaczenia pozostaje luką dowodową, nie automatycznym odrzuceniem. Reguł gry ani zakresu odbioru nie zmieniono.

@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T10:34:29Z",
+  "generated": "2026-10-05T10:43:48Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -260,12 +260,13 @@ window.MAISTER_DATA = {
         "A: zakres kontrakcji pierwszego wydania ograniczony do18poświadczonych form;8innych kandydatów zachowane diagnostycznie poza zakresem, nieuznane za błędne. Niezależne homonimy oceniane osobno; rozszerzenie wymaga dowodu i nowego wydania.",
         "A: zamknięte25oznaczeń zachowane z nieustalonym objaśnieniem; brak objaśnienia sam nie wyklucza ani nie blokuje wydania. Pozostałe kryteria i inne unknown nadal obowiązują.",
         "A: brak objaśnienia adnotacji akcent w daw.,rzad.,akcent sam nie wyklucza; zachowujemy adnotację, STANDARD nadal odrzuca za dawność.",
-        "A: wspólny growy warunek obowiązkowej wielkiej litery odnosi się do normy2026 także dla dawnych interpretacji BROAD; dawne wpisy zachowane językowo, niezależne homonimy osobno."
+        "A: wspólny growy warunek obowiązkowej wielkiej litery odnosi się do normy2026 także dla dawnych interpretacji BROAD; dawne wpisy zachowane językowo, niezależne homonimy osobno.",
+        "Nie kontaktujemy się z innymi grupami w tym projekcie; przygotowane zapytanie do SGJP pozostaje niewysłanym materiałem historycznym. Braki klasyfikacji rozpoznajemy samodzielnie na podstawie dopuszczonych danych i dokumentacji."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
         "Mechanika próbek nie zastępuje integracji raportów, pełnych analiz w przeglądzie ani odbioru G8.",
-        "Brak kompletnej klasy nazw mieszkańców oraz rozdzielenia frag/obcych zwrotów w eksporcie. Zespół SGJP opisuje zasadniczy brak znaczeń; nie zakładamy istnienia brakujących metadanych. Zapytanie przygotowane, niewysłane."
+        "Brak kompletnej klasy nazw mieszkańców oraz rozdzielenia frag/obcych zwrotów w eksporcie. Nie zakładamy istnienia brakujących metadanych. Kontakt z innymi grupami wykluczony przez użytkownika; brakujące dowody nadal otwarte."
       ],
       "artifacts": [
         {
@@ -578,19 +579,8 @@ window.MAISTER_DATA = {
         }
       ],
       "gate": {
-        "id": "sgjp_semantic_metadata_outbound_authorization",
-        "status": "pending",
-        "created_at": "2026-10-05T10:34:29Z",
-        "question": "Czy wysłać przygotowane zapytanie do zespołu SGJP (sgjpol@gmail.com) w imieniu użytkownika?",
-        "options": {
-          "A": "Tak, wyślij zatwierdzony projekt wiadomości (rekomendowane).",
-          "B": "Nie wysyłaj; kontynuuj bez kontaktu z autorami."
-        },
-        "answer": null,
-        "artifact": "analysis/evidence/sgjp-semantic-metadata-request.md",
-        "authority": "Explicit user instruction required before using tools to send messages to others; prior repo authorization is not outbound authorization.",
-        "scope": "outbound_message_only_not_dictionary_policy_or_source_activation",
-        "question_delivery": "request_user_input_async"
+        "question": null,
+        "answer": null
       }
     },
     {
