@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "constructions-discovery-v3",
+  "version": "constructions-discovery-v4",
   "status": "not_active_policy",
   "classes": {
     "full_personal_praet_cond": {
@@ -75,7 +75,7 @@
       "build_integration": "diagnostic_subset_stage_remains_pending"
     },
     "preposition_n": {
-      "status": "materialized_with_approved_documentation_proof_and_unresolved_remainder",
+      "status": "first_release_scope_18_approved_eight_diagnostic_candidates_retained",
       "source_candidate_analyses": 27,
       "source_candidate_strings": 26,
       "required_cases": [
@@ -128,7 +128,46 @@
         "nakc",
         "praep"
       ],
-      "full_qualification_pending": true
+      "full_qualification_pending": true,
+      "release_scope": {
+        "rule_id": "first-release-contraction-scope-v1",
+        "in_scope_whole_forms": [
+          "bezeń",
+          "dlań",
+          "doń",
+          "nadeń",
+          "nań",
+          "odeń",
+          "oń",
+          "podeń",
+          "poń",
+          "przedeń",
+          "przezeń",
+          "spodeń",
+          "spozań",
+          "sprzedeń",
+          "weń",
+          "zań",
+          "zeń",
+          "znadeń"
+        ],
+        "outside_scope_diagnostic_forms": [
+          "kołoń",
+          "pozań",
+          "zzań",
+          "ponadeń",
+          "popodeń",
+          "poprzezeń",
+          "sponadeń",
+          "spopodeń"
+        ],
+        "scope_decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-contractions-scope-decision.md",
+        "outside_scope_does_not_mean_lexically_incorrect": true,
+        "independent_homonyms_unaffected": true,
+        "future_extension_requires_evidence_and_new_verified_release": true
+      },
+      "required_whole_form_evidence_scope": "18_documented_forms_first_release",
+      "evidence_scope_complete": true
     },
     "double_particle": {
       "status": "language_confirmed_game_excluded",
@@ -196,7 +235,21 @@
         "source_definition_count": 53,
         "source_lemma_pos_variant_required": true,
         "vowel_variant_agreement_required": true,
-        "conditional_by_sequence": "pending",
+        "conditional_by_sequence": {
+          "rule_id": "mobile-host-by-sequence-v1",
+          "source_classes": [
+            "z_aglt",
+            "z_aglt_nwok"
+          ],
+          "operator_pos": "part",
+          "operator": "by",
+          "optional_aglt_variant": "nwok",
+          "exclude_nwok2_hosts": true,
+          "status": "materialized_source_candidates_full_qualification_pending",
+          "evidence": [
+            "morfeusz_segments:148-155,743-815"
+          ]
+        },
         "evidence": [
           "morfeusz_segments:143-155,743-815",
           "sgjp_theory:6.4.1"

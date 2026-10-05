@@ -14,6 +14,39 @@ from literaki_slownik.explain import explain
 
 
 class ExplainTests(unittest.TestCase):
+    def test_historical_conditional_host_sequence_is_reachable_with_2026_assessment(self):
+        from tests.test_build import BuildTests
+        root=Path(self.temp.name)/'conditional';root.mkdir()
+        p=BuildTests().manifest(root,'#</COPYRIGHT>\nchyba\tchyba:T\tpart\t\t\nby\tby:T\tpart\t\t\nm\tbyć:A\taglt:sg:pri:imperf:nwok\t\t\n')
+        run=root/'run';build(p,run)
+        for word in ('chybaby','chybabym'):
+            c,=explain(run,word)['derivations']
+            self.assertIsNotNone(c['persisted_candidate_key'])
+            self.assertEqual(c['assessment']['language']['standard']['status'],'reject')
+            self.assertEqual(c['assessment']['release_scope']['status'],'accept')
+            check=next(x for x in c['assessment']['language']['broad']['checks'] if x['rule_id']=='orthography-2026-host-by-sequence-v1')
+            self.assertEqual(check['status'],'accept')
+            self.assertEqual(c['components'][0]['interpretation']['original'],'chyba')
+        self.assertEqual(explain(run,'nibybym')['derivations'],[])
+
+    def test_first_release_contraction_scope_preserves_candidates_and_direct_homonym(self):
+        from tests.test_build import BuildTests
+        root=Path(self.temp.name)/'scope';root.mkdir()
+        p=BuildTests().manifest(root,'#</COPYRIGHT>\nkoło\tkoło:P\tprep:gen\t\t\ndo\tdo:P\tprep:gen\t\t\nń\ton:S\tppron3:sg:gen:m1:ter:nakc:praep\t\tpisane_łącznie_z_przyimkiem\nkołoń\twłasny-homonim\tsubst:sg:nom:m3\t\t\n')
+        run=root/'run';build(p,run)
+        value=explain(run,'kołoń');c,=value['derivations']
+        self.assertIsNotNone(c['persisted_candidate_key'])
+        self.assertEqual(c['linguistic_evidence']['status'],'unresolved')
+        self.assertEqual(c['assessment']['release_scope']['status'],'reject')
+        self.assertEqual(c['assessment']['language']['standard']['status'],'unresolved')
+        self.assertEqual(c['assessment']['membership']['standard']['status'],'reject')
+        self.assertEqual(value['analyses'][0]['assessment']['release_scope']['status'],'accept')
+        self.assertEqual(explain(run,'doń')['derivations'][0]['assessment']['release_scope']['status'],'accept')
+        report=load_json(run/'reports/construction-candidates.json')['release_scope']
+        self.assertEqual(report['in_scope_candidate_analyses'],1)
+        self.assertEqual(report['outside_scope_candidate_analyses'],1)
+        self.assertEqual(report['outside_scope_forms'],[{'original':'kołoń','candidate_analyses':1}])
+
     def test_closed_mobile_source_host_is_reachable_and_persisted(self):
         from tests.test_build import BuildTests
         root = Path(self.temp.name) / 'mobile-source'

@@ -14,6 +14,17 @@ def analysis(language, game, form='kot'):
 
 
 class DecisionsTests(unittest.TestCase):
+    def test_release_scope_excludes_candidate_without_lexical_rejection_or_homonym_loss(self):
+        outside = assess_analysis('kołoń', language={v:checks('unresolved') for v in ('broad','standard')},
+                                  game_checks=checks('accept'), scope_checks=checks('reject'))
+        self.assertEqual(outside['language']['standard']['status'],'unresolved')
+        self.assertEqual(outside['game']['status'],'accept')
+        self.assertEqual(outside['release_scope']['status'],'reject')
+        self.assertEqual(outside['membership']['standard']['status'],'reject')
+        direct = analysis('accept','accept','kołoń')
+        self.assertEqual(direct['release_scope']['status'],'accept')
+        self.assertEqual(aggregate([outside,direct],'standard')['status'],'accept')
+
     def test_known_reject_retains_unknown_and_empty_is_not_accept(self):
         value = assessment(checks('unresolved') + checks('reject'))
         self.assertEqual(value['status'], 'reject')

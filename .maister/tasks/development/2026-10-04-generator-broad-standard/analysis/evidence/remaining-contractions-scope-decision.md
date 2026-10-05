@@ -3,8 +3,8 @@
 ## TL;DR
 18 całych form ma zatwierdzony dowód z dokumentacji SGJP.
 Osiem innych ma zgodne składniki i techniczny ślad, ale nie znaleziono wymaganego poświadczenia całej formy.
-Potrzebny jest wybór: jawnie zawęzić zakres pierwszego wydania albo zachować dotychczasowy zakres i blokadę wydania.
-Żadnego wyłączenia zakresu nie wdrożono przed odpowiedzią; to nie decyzja o błędności słów.
+Użytkownik zatwierdził A: zakres kontrakcji pierwszego wydania obejmuje 18 poświadczonych form.
+Osiem innych zachowujemy poza zakresem wydania, bez uznania ich za błędne.
 
 ## Key Decisions
 - Dotychczasowe A wystarcza dla dosłownie wymienionych form, nie dla wszystkich możliwych sklejeń.
@@ -13,7 +13,7 @@ Potrzebny jest wybór: jawnie zawęzić zakres pierwszego wydania albo zachować
 - Niezależne homonimy pozostają oceniane osobno; nie blokujemy całego napisu przez brak dowodu tej konstrukcji.
 
 ## Open Questions / Risks
-- A/B pending. Brak odpowiedzi nie pozwala wyłączyć wymaganej części macierzy ani zakończyć K4/K5.
+- A zatwierdzone; zawężenie dotyczy wyłącznie tej klasy. Pozostałe warunki K4/K5 nadal wymagane.
 - Wikisłownik i podobne źródła użytkownik odroczył. Nie używamy ich jako obejścia.
 - To zawężenie tylko zakresu kontrakcji, bez zgody na pomijanie innych klas, testów lub dwóch pełnych przebiegów.
 
@@ -31,3 +31,5 @@ A — pierwszy pełny pakiet ma jawnie ograniczony zakres przyimek+-ń do 18 ca�
 B — zachowujemy wymóg całej macierzy 26 kontrakcji. Brakujące poświadczenia pozostają rzeczywistą blokadą K4/K5 i pełnego wydania. Niezależna implementacja może trwać, ale nie można zadeklarować ukończenia ani zwolnić blokady przez flagę operatora.
 
 Pytanie wynika z zatwierdzonego planu G3/3.4 oraz AGENTS: zmianę zakresu/kryteriów omawiamy przed wdrożeniem. Executor Maister wymaga: „Ask the user before changing scope”. Żadna odpowiedź nie zmienia zasad gry.
+
+2026-10-05T07:37:14.961438+00:00 — A zatwierdzone po wyjaśnieniu odwracalności decyzji. Kandydat, składniki i dowód pozostają bez zmian; oddzielna warstwa release_scope decyduje o zakresie aktualnego wydania.

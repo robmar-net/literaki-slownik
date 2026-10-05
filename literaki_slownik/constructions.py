@@ -70,6 +70,54 @@ MOBILE_AGLT_HOSTS = {('albo', 'part'): 'nwok',
  ('że', 'comp'): 'nwok',
  ('że', 'part'): 'nwok'}
 
+MOBILE_BY_SEQUENCE_HOSTS = frozenset([('albo', 'part'),
+ ('alboż', 'part'),
+ ('ale', 'conj'),
+ ('ale', 'part'),
+ ('ależ', 'part'),
+ ('aniżeli', 'conj'),
+ ('azali', 'part'),
+ ('azaliż', 'part'),
+ ('bo', 'comp'),
+ ('bowiem', 'comp'),
+ ('byle', 'comp'),
+ ('chyba', 'part'),
+ ('co', 'comp'),
+ ('czemu', 'adv'),
+ ('czy', 'part'),
+ ('czyli', 'part'),
+ ('czyliż', 'part'),
+ ('czyż', 'part'),
+ ('cóż', 'subst:%'),
+ ('dlaczego', 'adv'),
+ ('dopóki', 'comp'),
+ ('dopóty', 'conj'),
+ ('gdzie', 'adv'),
+ ('gdzie', 'part'),
+ ('gdzież', 'adv'),
+ ('iż', 'comp'),
+ ('jakżeż', 'part'),
+ ('jeszcze', 'part'),
+ ('jeśli', 'comp'),
+ ('jeżeli', 'comp'),
+ ('już', 'part'),
+ ('kiedy', 'adv'),
+ ('kiedy', 'comp'),
+ ('któż', 'subst:%'),
+ ('ledwie', 'comp'),
+ ('niźli', 'conj'),
+ ('niż', 'conj'),
+ ('niżeli', 'conj'),
+ ('póki', 'comp'),
+ ('skoro', 'comp'),
+ ('skąd', 'adv'),
+ ('tak', 'adv:%'),
+ ('to', 'comp'),
+ ('tylko', 'part'),
+ ('zaledwie', 'comp'),
+ ('zali', 'part'),
+ ('zaliż', 'part')])
+
 
 def _validate_source(source):
     if (not isinstance(source, dict) or any(field not in source for field in SOURCE_FIELDS)
@@ -166,6 +214,42 @@ def mobile_aglt_candidates(host, aglt):
                 'evidence':['https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf#page=93'],
                 'message':'Źródłowy zamknięty host odmienny; wariant końcówki według zakończenia rzeczywistej formy (SGJP §6.4.1).'}
     return results
+
+
+def mobile_by_sequence_candidates(host, operator, aglt=None):
+    """Zamknięte z_aglt/z_aglt_nwok + źródłowe partykułowe by, opcjonalnie nwok."""
+    for item in (host,operator) if aglt is None else (host,operator,aglt):
+        _validate_source(item)
+        if item['source_id'] != host['source_id']:
+            return []
+    lemma=host['lemma_id'].split(':',1)[0]
+    matched = ((lemma,host['raw_tag']) in MOBILE_BY_SEQUENCE_HOSTS
+               or any((lemma,p) in MOBILE_BY_SEQUENCE_HOSTS and host['raw_tag'].startswith(p[:-1])
+                      for p in ('subst:%','adv:%')))
+    if (not matched or (not host['raw_tag'].startswith('subst:') and host['original']!=lemma)
+            or operator['original']!='by' or operator['raw_tag']!='part'):
+        return []
+    tags=[operator['raw_tag']]
+    if aglt is not None:
+        if not aglt['raw_tag'].startswith('aglt:'):
+            return []
+        tags=[]
+        for tag in expand_tag(aglt['raw_tag']):
+            fields=tag.split(':')
+            if (len(fields)!=5 or fields[3:]!=['imperf','nwok']
+                    or (fields[1],fields[2]) not in BY_AGLT_ENDINGS
+                    or BY_AGLT_ENDINGS[(fields[1],fields[2])]!=aglt['original']):
+                continue
+            tags.append(tag)
+    items=(host,operator) if aglt is None else (host,operator,aglt)
+    inherited={field:'|'.join(sorted({label for item in items for label in item[field].split('|') if label}))
+               for field in ('names','qualifiers')}
+    return [{'rule_id':'mobile-host-by-sequence-v1','status':'candidate_not_qualified',
+             'original':host['original']+'by'+(aglt['original'] if aglt is not None else ''),
+             'lemma_id':host['lemma_id'],'expanded_tag':tag,**inherited,
+             'components':[{'kind':'source_interpretation','interpretation':dict(item)} for item in items],
+             'evidence':['docs/generator/konstrukcje.md','config/generator/constructions.json']}
+            for tag in tags]
 
 
 def _attach_aglt(operator, aglt, rule_id, variant="nwok"):
@@ -309,6 +393,11 @@ def materialize_confirmed_candidates(db, batch_size=10000):
         for ending in all_endings:
             for candidate in mobile_aglt_candidates(host,ending):
                 save(candidate)
+    for host in source_hosts:
+        for operator in operators:
+            for ending in [None]+endings:
+                for candidate in mobile_by_sequence_candidates(host,operator,ending):
+                    save(candidate)
     prepositions = [dict(zip(SOURCE_FIELDS,row)) for row in db.execute(
         select + " where i.tag like 'prep:%' order by i.source_id,i.first_row")]
     pronouns = [dict(zip(SOURCE_FIELDS,row)) for row in db.execute(
@@ -319,7 +408,9 @@ def materialize_confirmed_candidates(db, batch_size=10000):
                 save(candidate)
     db.commit()
     by_rule = dict(db.execute('select rule_id,count(*) from derivation_candidate group by rule_id order by rule_id'))
-    return {'schema_version': 1, 'scope': 'confirmed_subset_candidates_not_full_constructions',
+    from .reports import construction_scope_report
+    return {'schema_version': 1, 'release_scope':construction_scope_report(db),
+            'scope': 'confirmed_subset_candidates_not_full_constructions',
             'full_constructions_pending': True, 'impt_source_interpretations': source_count,
             'operator_source_interpretations': len(operators), 'aglt_source_interpretations': len(endings),
             'new_candidates': new_count, 'candidates': sum(by_rule.values()), 'by_rule': by_rule,

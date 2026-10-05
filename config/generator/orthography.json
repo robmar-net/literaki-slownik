@@ -35,6 +35,16 @@
       "inherit_in_constructions": true,
       "full_matrix_complete": false,
       "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md"
+    },
+    {
+      "rule_id": "orthography-2026-host-by-sequence-v1",
+      "constructor": "mobile-host-by-sequence-v1",
+      "variants": {
+        "broad": "non_excluding_documented_historical_construction",
+        "standard": "reject_separate_spelling"
+      },
+      "lexicalized_independent_words": "independent_source_analysis_not_rejected_by_this_derivation_rule",
+      "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md"
     }
   ]
 }

@@ -1,6 +1,6 @@
 """Wszystkie warunki przy jednej analizie; agregacja dopiero po kwalifikacji."""
 from .inputs import GeneratorError
-from .policy import assess_profile, spelling_checks
+from .policy import assess_profile, spelling_checks, release_scope_checks
 
 STATUSES = frozenset({'accept', 'reject', 'unresolved'})
 VARIANTS = ('broad', 'standard')
@@ -21,7 +21,7 @@ def assessment(checks):
     return {'status': status, 'checks': checks}
 
 
-def assess_analysis(original, *, language, game_checks):
+def assess_analysis(original, *, language, game_checks, scope_checks=None):
     if set(language) != set(VARIANTS):
         raise GeneratorError('Wymagane odrębne oceny BROAD i STANDARD', 4)
     languages = {variant: assessment(language[variant]) for variant in VARIANTS}
@@ -30,10 +30,11 @@ def assess_analysis(original, *, language, game_checks):
     # Pusta ocena growa jest unknown, nawet gdy sprawdzenie samej wielkości liter przechodzi.
     game = assessment(assessment(game_checks)['checks'] + spelling_checks(original))
     profile = assess_profile(original)
-    membership = {variant: assessment(languages[variant]['checks'] + game['checks'] + profile['checks'])
+    scope = assessment(release_scope_checks() if scope_checks is None else scope_checks)
+    membership = {variant: assessment(languages[variant]['checks'] + game['checks'] + profile['checks'] + scope['checks'])
                   for variant in VARIANTS}
     return {'original': original, 'game_key': profile['game_key'],
-            'language': languages, 'game': game, 'profile': profile, 'membership': membership}
+            'language': languages, 'game': game, 'profile': profile, 'release_scope':scope, 'membership': membership}
 
 
 def aggregate(analyses, variant):

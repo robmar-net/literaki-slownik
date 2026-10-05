@@ -11,6 +11,23 @@ def source(form='daj', tag='impt:sg:sec:perf', qualifiers=''):
 
 
 class ConstructionTests(unittest.TestCase):
+    def test_closed_conditional_sequence_preserves_three_sources_and_rejects_disallowed_hosts(self):
+        from literaki_slownik.constructions import mobile_by_sequence_candidates
+        host=dict(source('chyba','part','rzad.'),lemma_id='chyba:T')
+        operator=dict(source('by','part'),lemma_id='by:T')
+        ending=source('śmy','aglt:pl:pri:imperf:nwok')
+        c,=mobile_by_sequence_candidates(host,operator,ending)
+        self.assertEqual(c['original'],'chybabyśmy')
+        self.assertEqual([x['interpretation'] for x in c['components']],[host,operator,ending])
+        self.assertEqual(c['qualifiers'],'rzad.')
+        base,=mobile_by_sequence_candidates(host,operator)
+        self.assertEqual(base['original'],'chybaby')
+        self.assertEqual(len(base['components']),2)
+        for form,lemma,pos in [('że','że:M','comp'),('co','co:S','subst:sg:nom:n'),('gdy','gdy','adv'),('niby','niby','part'),('aby','aby:M','comp')]:
+            self.assertEqual(mobile_by_sequence_candidates(dict(source(form,pos),lemma_id=lemma),operator,ending),[])
+        self.assertEqual(mobile_by_sequence_candidates(host,dict(operator,raw_tag='comp'),ending),[])
+        self.assertEqual(mobile_by_sequence_candidates(host,operator,dict(ending,source_id='other')),[])
+
     def test_inflected_closed_host_uses_theory_variant_and_records_class_difference(self):
         from literaki_slownik.constructions import mobile_aglt_candidates
         host=dict(source('kim','subst:sg:inst:m1'),lemma_id='kto:S')

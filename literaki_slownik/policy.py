@@ -3,7 +3,25 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v8'
+VERSION = 'diagnostic-approved-conditions-v9'
+FIRST_RELEASE_CONTRACTIONS = frozenset('bezeń dlań doń nadeń nań odeń oń podeń poń przedeń przezeń spodeń spozań sprzedeń weń zań zeń znadeń'.split())
+DEFERRED_CONTRACTIONS = frozenset('kołoń pozań zzań ponadeń popodeń poprzezeń sponadeń spopodeń'.split())
+
+
+def release_scope_checks(candidate=None):
+    """Zakres wydania dotyczy śladu konstrukcji; nie błędności ani całego napisu."""
+    status, message = 'accept', 'Analiza nie jest wyłączona przez ograniczenie zakresu kontrakcji; inne warunki osobno.'
+    if candidate is not None and candidate['rule_id']=='preposition-n-source-v1':
+        original = candidate['original']
+        if original in DEFERRED_CONTRACTIONS:
+            status, message = 'reject', 'Kandydat poza zakresem pierwszego wydania; zachowany diagnostycznie, bez uznania formy za błędną.'
+        elif original not in FIRST_RELEASE_CONTRACTIONS:
+            status, message = 'unresolved', 'Nieznany zakres kontrakcji: wymagana ocena, bez automatycznego wyłączenia.'
+    return [{'rule_id':'first-release-contraction-scope-v1', 'status':status,
+             'message':message, 'evidence':['config/generator/constructions.json',
+             '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-contractions-scope-decision.md']}]
+
+
 # Dosłowne leksemy potwierdzone pełnym odczytem SGJP i poradą UŁ/RJP2026.
 ORTHOGRAPHY_2026_CONJUNCTIONS = frozenset({'jeśliby','jeżeliby'})
 
@@ -756,3 +774,17 @@ def assess_profile(original):
     return {'status': 'reject' if any(c['status'] == 'reject' for c in checks) else 'accept',
             'version': 'pl-v1', 'original': original, 'nfc': nfc, 'game_key': key,
             'length': len(key), 'invalid_characters': invalid, 'checks': checks}
+
+
+def construction_orthography_checks(candidate, variant):
+    if candidate is None or candidate['rule_id']!='mobile-host-by-sequence-v1':
+        return []
+    if variant not in {'broad','standard'}:
+        raise GeneratorError('Wariant musi być broad lub standard',2)
+    return [{'rule_id':'orthography-2026-host-by-sequence-v1',
+             'status':'reject' if variant=='standard' else 'accept',
+             'norm_effective_from':'2026-01-01',
+             'message':'Ta konstrukcja wymaga rozdzielnej pisowni by według normy2026; odrębne źródłowe wyrazy oceniane osobno.'
+                       if variant=='standard' else 'Udokumentowana źródłowa konstrukcja historyczna; sama pisownia nie wyklucza w BROAD. Inne warunki osobno.',
+             'evidence':['config/generator/orthography.json',
+              'https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf'] }]

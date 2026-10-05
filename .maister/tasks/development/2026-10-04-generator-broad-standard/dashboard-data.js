@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T06:48:37.840635+00:00",
+  "generated": "2026-10-05T07:37:14.961438+00:00",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Norma A i mobilne końcówki wdrożone; wybór zakresu kontrakcji"
+    "current_activity": "Zakres18kontrakcji zatwierdzony; kontrola sekwencji by i dalszej macierzy"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Norma2026 A wdrożona i dziedziczona przez konstrukcje; testy122/122,audit5/5. Nowe zamknięte mobilne klasy dają312kandydatów/624składniki powtarzalnie, FK/integrityOK. Osiem różnic wariantu wyjaśniono przez SGJP6.4.1, ze śladem adnotacji. Wymagany wybór zakresu ośmiu niepoświadczonych kontrakcji; nie wyłączono ich przed odpowiedzią. Pełna polityka i wydanie nadal nieukończone.",
+      "summary": "A zatwierdzone i wdrożone: zakres kontrakcji pierwszego wydania obejmuje 18 poświadczonych form (57 analiz), osiem innych (24 analizy) pozostaje diagnostycznie poza zakresem. Ocena językowa niewiadoma nie została zmieniona na błędność. Nowa warstwa release_scope jest oddzielna od języka, gry i profilu; członkostwo jest oceniane dla pojedynczej analizy, więc homonimy nie są tracone. Nie zmieniono kluczy ani treści utrwalonych kandydatów. Dodano zamknięte źródłowe sekwencje host+partykułowe by+(opcjonalna końcówka nwok), z pełnymi 2/3 składnikami i odrębną oceną pisowni normy2026.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -256,7 +256,8 @@ window.MAISTER_DATA = {
         "A context_restrictions_policy: samo wymaganie kontekstu niewykluczające; explain zachowuje je, niesamodzielne morfemy osobno.",
         "A contraction_documentation_proof: dosłowne wskazanie całej kontrakcji przez autorów SGJP wystarcza jako dowód językowy dla18 form; pozostałe kryteria osobno,8pozostałych bez automatycznej analogii.",
         "A: własny kod/konfiguracje BSD-2-Clause; własna dokumentacja i raporty CC BY 4.0. Źródła zachowują odrębne warunki.",
-        "A: STANDARD stosuje normę 2026 także dla nieoznaczonych dawnych zapisów; BROAD może je zachować z dowodem, reguły gry niezmienione."
+        "A: STANDARD stosuje normę 2026 także dla nieoznaczonych dawnych zapisów; BROAD może je zachować z dowodem, reguły gry niezmienione.",
+        "A: zakres kontrakcji pierwszego wydania ograniczony do18poświadczonych form;8innych kandydatów zachowane diagnostycznie poza zakresem, nieuznane za błędne. Niezależne homonimy oceniane osobno; rozszerzenie wymaga dowodu i nowego wydania."
       ],
       "risks": [
         "Pełna macierz kwalifikatorów/konstrukcji i udokumentowane warunki gry nadal wymagają domknięcia.",
@@ -474,19 +475,19 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/remaining-contractions-scope-decision.md",
           "label": "Wybór zakresu niepoświadczonych kontrakcji"
+        },
+        {
+          "path": "analysis/evidence/first-release-scope-review.md",
+          "label": "Zakres pierwszego wydania i sekwencje by"
+        },
+        {
+          "path": "analysis/evidence/first-release-scope-runtime.json",
+          "label": "Rzeczywista kontrola zakresu kontrakcji"
         }
       ],
       "gate": {
-        "id": "remaining_contractions_first_release_scope",
-        "status": "pending",
-        "created_at": "2026-10-05T06:48:37.840635+00:00",
-        "question": "Czy jawnie ograniczamy zakres kontrakcji pierwszego wydania do 18 form dosłownie wskazanych przez SGJP?",
-        "options": {
-          "A": "Tak: osiem innych poza zakresem pierwszego wydania, zachowane diagnostycznie; bez uznania za błędne.",
-          "B": "Nie: zakres26 i blokada do znalezienia wymaganych poświadczeń."
-        },
-        "answer": null,
-        "artifact": "analysis/evidence/remaining-contractions-scope-decision.md"
+        "question": null,
+        "answer": null
       }
     },
     {

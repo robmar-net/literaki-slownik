@@ -129,3 +129,21 @@ def qualifier_coverage(fields):
                       'Brak etykiety nie dowodzi poprawności; nie sumujemy nakładających się liczników.',
             'labels': label_rows, 'fields': field_rows,
             'unmapped_labels': sorted(set(counts) - mapped)}
+
+
+def construction_scope_report(db):
+    """Analizy kandydatów poza zakresem nie są licznikiem błędnych słów."""
+    from .policy import release_scope_checks
+    counts = Counter()
+    outside = Counter()
+    for rule, original, n in db.execute('select rule_id,original,count(*) from derivation_candidate group by rule_id,original order by rule_id,original'):
+        status = assessment(release_scope_checks(dict(rule_id=rule,original=original)))['status']
+        counts[status] += n
+        if status=='reject':
+            outside[original] += n
+    return {'schema_version':1,'scope':'candidate_release_scope_not_lexical_correctness_or_final_lists',
+            'rule_id':'first-release-contraction-scope-v1',
+            'in_scope_candidate_analyses':counts['accept'],
+            'outside_scope_candidate_analyses':counts['reject'],
+            'unresolved_scope_candidate_analyses':counts['unresolved'],
+            'outside_scope_forms':[{'original':w,'candidate_analyses':n} for w,n in sorted(outside.items())]}

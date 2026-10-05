@@ -7,6 +7,14 @@ from literaki_slownik.inputs import GeneratorError
 
 
 class PolicyTests(unittest.TestCase):
+    def test_closed_first_release_contraction_scope_unknown_not_silently_excluded(self):
+        from literaki_slownik.policy import release_scope_checks
+        for form,status in [('doń','accept'),('nań','accept'),('kołoń','reject'),('zzań','reject'),('nibyń','unresolved')]:
+            checks = release_scope_checks(dict(rule_id='preposition-n-source-v1',original=form))
+            self.assertEqual(assessment(checks)['status'],status)
+        self.assertEqual(assessment(release_scope_checks())['status'],'accept')
+        self.assertEqual(assessment(release_scope_checks(dict(rule_id='other',original='kołoń')))['status'],'accept')
+
     def test_orthography_2026_exact_lemma_pos_and_variant_without_suffix_guess(self):
         from literaki_slownik.policy import orthography_checks
         for word in ('jeśliby','jeżeliby'):

@@ -239,3 +239,7 @@ Wdrożono A dla normy 2026: dokładne analizy comp jeśliby/jeżeliby i ich skł
 ## Runtime i następna bramka zakresu
 
 Rzeczywista kontrola nowych mobilnych klas: 312 kandydatów i 624 składniki, identyczny digest przy powtórzeniu, FK/integrity OK. Osiem różnic wariantu klasy i odmienionej formy rozstrzygnięto przez SGJP §6.4.1; adnotacja zachowuje oba warianty. Generator 122/122, audyt 5/5. Wymagana decyzja o zakresie ośmiu niepoświadczonych kontrakcji pozostaje pending; brak wyłączenia przed odpowiedzią. [Warianty zakresu](../analysis/evidence/remaining-contractions-scope-decision.md).
+
+## Zatwierdzona korekta zakresu pierwszego wydania
+
+A zatwierdzone i wdrożone: zakres kontrakcji pierwszego wydania obejmuje 18 poświadczonych form (57 analiz), osiem innych (24 analizy) pozostaje diagnostycznie poza zakresem. Ocena językowa niewiadoma nie została zmieniona na błędność. Nowa warstwa release_scope jest oddzielna od języka, gry i profilu; członkostwo jest oceniane dla pojedynczej analizy, więc homonimy nie są tracone. Nie zmieniono kluczy ani treści utrwalonych kandydatów. Dodano zamknięte źródłowe sekwencje host+partykułowe by+(opcjonalna końcówka nwok), z pełnymi 2/3 składnikami i odrębną oceną pisowni normy2026.

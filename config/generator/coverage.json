@@ -15,7 +15,8 @@
     "preposition_n_18_whole_forms_documented_approved_A",
     "closed_16_mobile_by_hosts",
     "derived_whole_form_kwjp_links",
-    "seven_winien_hash_bound_explain_errata"
+    "seven_winien_hash_bound_explain_errata",
+    "first_release_preposition_n_scope_18_user_approved"
   ],
   "full_source_compact_interpretations": 7458520,
   "observed_combinations": {
@@ -27,7 +28,6 @@
     "all_compound_qualifier_semantics_and_variant_policy",
     "full_category_and_orthography_matrix",
     "mobile_host_matrix",
-    "whole_form_evidence_for_eight_remaining_preposition_n_contractions",
     "documented_game_conditions_without_sjp_editorial_source_policy"
   ],
   "release_blocked": true,
@@ -62,5 +62,23 @@
     "slang",
     "slang,wulg.",
     "spoż."
+  ],
+  "user_excluded_from_first_release": [
+    {
+      "class": "preposition_n",
+      "forms": [
+        "kołoń",
+        "pozań",
+        "zzań",
+        "ponadeń",
+        "popodeń",
+        "poprzezeń",
+        "sponadeń",
+        "spopodeń"
+      ],
+      "candidate_analyses": 24,
+      "status": "diagnostic_retained_not_lexically_rejected",
+      "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-contractions-scope-decision.md"
+    }
   ]
 }
