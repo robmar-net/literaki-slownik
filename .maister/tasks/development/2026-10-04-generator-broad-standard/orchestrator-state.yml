@@ -20,7 +20,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-04T11:05:21Z",
-    "updated": "2026-10-05T12:34:07Z",
+    "updated": "2026-10-05T13:11:06Z",
     "task_path": ".maister/tasks/development/2026-10-04-generator-broad-standard"
   },
   "task": {
@@ -214,7 +214,7 @@
       "completed": "2026-10-04T12:47:44Z"
     },
     "phase_8": {
-      "summary": "Wdrożono A: growy obowiązek wielkiej litery według normy2026 w obu wariantach, na udokumentowanym podzbiorze trzech pełnych ID; dawne wpisy i taneczny homonim zachowane. Dodano zamkniętą klasę impt_sg + że + ż z trzema składnikami i odrębną odmową grową. Rzeczywista projekcja wszystkich obecnych wejść konstruktorów oraz przykładów kapitalizacji:93 284 interpretacje,125 360 konstrukcji,219 713 analiz i439 426 ocen; powtórzenie0nowych rekordów/identyczny hash/FK/integrityOK. Generator151/151,audyt5/5,preflight14wejść+10konfiguracjiOK. Pełna macierz semantyki/ortografii i wydanie nadal nieukończone.",
+      "summary": "Wdrożono A: growy obowiązek wielkiej litery według normy2026 w obu wariantach, na udokumentowanym podzbiorze trzech pełnych ID; dawne wpisy i taneczny homonim zachowane. Dodano zamkniętą klasę impt_sg + że + ż z trzema składnikami i odrębną odmową grową. Rzeczywista projekcja wszystkich obecnych wejść konstruktorów oraz przykładów kapitalizacji:93 284 interpretacje,125 360 konstrukcji,219 713 analiz i439 426 ocen; powtórzenie0nowych rekordów/identyczny hash/FK/integrityOK. Generator151/151,audyt5/5,preflight14wejść+10konfiguracjiOK. Pełna macierz semantyki/ortografii i wydanie nadal nieukończone. PAN-1: zamknięta populacja147frag zinwentaryzowana; PAN-2: wszystkie13list i5500próbek powiązane, glosy niedostępne w odczycie; PAN-3: wstępny odczyt62pierwszychkontekstów, pełne mapowanie nierozstrzygnięte; PAN-4: pokrycie frag147/64alternatywy/108listy/62próbki/39beztrafień, bez wpływu na listy. Nazwy mieszkańców i pozostałe wyjątki nadal do inwentaryzacji.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -560,6 +560,18 @@
         {
           "path": "analysis/evidence/pan-data-recheck.json",
           "label": "Przykłady list, identyfikatory próbek i hashe"
+        },
+        {
+          "path": "analysis/evidence/pan-semantic-review.md",
+          "label": "Pełny rejestr frag: przegląd i granice mapowania"
+        },
+        {
+          "path": "analysis/evidence/pan-semantic-cases.json",
+          "label": "147 przypadków, alternatywy i ślady dowodów"
+        },
+        {
+          "path": "analysis/evidence/pan-semantic-coverage.json",
+          "label": "Pokrycie, odtworzenie i kontrola odczytu"
         }
       ],
       "gate": {
@@ -858,8 +870,8 @@
       "G3": {
         "status": "in_progress",
         "attempts": 1,
-        "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified; userAcurrentnormgame, threeexactresidentlemma51expandedcases, fullfrag147/109lower/38upper; currentdownload=20260823 and primarySGJP about semantic limits inspected",
-        "next_action": "PAN-1: pełny rejestr147frag z alternatywnymi interpretacjami; potem PAN-2/PAN-3 dowody PAN, PAN-4 pokrycie i PAN-5 omówienie przed aktywacją."
+        "evidence": "Full inventory 79/615/682; 120 excess/30 defective lexemes; 7 winien tag discrepancies; full KWJP lemma-all verified; userAcurrentnormgame, threeexactresidentlemma51expandedcases, fullfrag147/109lower/38upper; currentdownload=20260823 and primarySGJP about semantic limits inspected; PAN-1: zamknięta populacja147frag zinwentaryzowana; PAN-2: wszystkie13list i5500próbek powiązane, glosy niedostępne w odczycie; PAN-3: wstępny odczyt62pierwszychkontekstów, pełne mapowanie nierozstrzygnięte; PAN-4: pokrycie frag147/64alternatywy/108listy/62próbki/39beztrafień, bez wpływu na listy. Nazwy mieszkańców i pozostałe wyjątki nadal do inwentaryzacji.",
+        "next_action": "Mapowanie dowodów frag do znaczeń, poszukiwanie publicznego odczytu glos; inwentaryzacja mieszkańców obu rodzajów."
       },
       "G4": {
         "status": "in_progress",
@@ -952,22 +964,26 @@
         {
           "id": "PAN-1",
           "title": "Inwentaryzacja przypadków",
-          "status": "pending"
+          "status": "in_progress",
+          "scope_completed": "frag inventory/evidence candidates only, not all exceptions or semantic closure"
         },
         {
           "id": "PAN-2",
           "title": "Zebranie dowodów PAN",
-          "status": "pending"
+          "status": "in_progress",
+          "scope_completed": "frag inventory/evidence candidates only, not all exceptions or semantic closure"
         },
         {
           "id": "PAN-3",
           "title": "Przegląd i mapowanie znaczeń",
-          "status": "pending"
+          "status": "in_progress",
+          "scope_completed": "frag inventory/evidence candidates only, not all exceptions or semantic closure"
         },
         {
           "id": "PAN-4",
           "title": "Pomiar pokrycia i wpływu",
-          "status": "pending"
+          "status": "in_progress",
+          "scope_completed": "frag inventory/evidence candidates only, not all exceptions or semantic closure"
         },
         {
           "id": "PAN-5",
@@ -977,7 +993,10 @@
       ],
       "existing_discovery": "analysis/evidence/pan-data-recheck.md",
       "changes_eligibility": false,
-      "external_contact": false
+      "external_contact": false,
+      "frag_inventory_complete": true,
+      "frag_mapping_complete": false,
+      "last_artifact": "analysis/evidence/pan-semantic-review.md"
     }
   }
 }

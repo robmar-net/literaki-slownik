@@ -66,3 +66,5 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Projekt zapytania do zespołu SGJP](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/sgjp-semantic-metadata-request.md) — materiał historyczny, niewysłany; kontakt wykluczony przez użytkownika.
 
 - [Ponowny przegląd danych PAN](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/pan-data-recheck.md) — konteksty KWJP, publiczne próbki i glosy SGJP; częściowe dowody, bez zmiany filtrów.
+
+- [Pełna inwentaryzacja frag i dowodów PAN](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/pan-semantic-review.md) — 147 analiz, alternatywne interpretacje i konteksty; mapowanie znaczeń nadal otwarte.

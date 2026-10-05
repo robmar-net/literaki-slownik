@@ -290,3 +290,9 @@ Utrwalono diagnostycznie każde rozwinięcie tagu i każdą konstrukcję, dwa wa
 Wdrożono A: growy obowiązek wielkiej litery według normy2026 w obu wariantach, na udokumentowanym podzbiorze trzech pełnych ID; dawne wpisy i taneczny homonim zachowane. Dodano zamkniętą klasę impt_sg + że + ż z trzema składnikami i odrębną odmową grową. Rzeczywista projekcja wszystkich obecnych wejść konstruktorów oraz przykładów kapitalizacji:93 284 interpretacje,125 360 konstrukcji,219 713 analiz i439 426 ocen; powtórzenie0nowych rekordów/identyczny hash/FK/integrityOK. Generator151/151,audyt5/5,preflight14wejść+10konfiguracjiOK. Pełna macierz semantyki/ortografii i wydanie nadal nieukończone.
 
 [Przegląd](../analysis/evidence/capital-double-review.md). Pozostałą lukę semantyczną opisuje [historyczny projekt niewysłanego zapytania](../analysis/evidence/sgjp-semantic-metadata-request.md); kontakt został wykluczony przez użytkownika. Dalsza praca korzysta z [przeglądu PAN](../analysis/evidence/pan-data-recheck.md) i etapów PAN-1–PAN-5 w G3.
+
+## Przegląd PAN — postęp populacji frag
+
+PAN-1: zamknięta populacja147frag zinwentaryzowana; PAN-2: wszystkie13list i5500próbek powiązane, glosy niedostępne w odczycie; PAN-3: wstępny odczyt62pierwszychkontekstów, pełne mapowanie nierozstrzygnięte; PAN-4: pokrycie frag147/64alternatywy/108listy/62próbki/39beztrafień, bez wpływu na listy. Nazwy mieszkańców i pozostałe wyjątki nadal do inwentaryzacji.
+
+Dwa odtworzenia identyczne; hash bazy źródłowej bez zmian,152/152testów. Tokenizer zachowuje granice zapisów z łącznikiem. Nie aktywowano nowej klasyfikacji ani filtrów; główne checkboxy pozostają8/36. [Przegląd](../analysis/evidence/pan-semantic-review.md).

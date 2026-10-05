@@ -1,0 +1,39 @@
+{
+  "observed_at": "2026-10-05T13:11:06Z",
+  "scope": "frag only; residents and other semantic exceptions not inventoried yet",
+  "counts": {
+    "cases": 147,
+    "with_other_source_analyses": 64,
+    "with_corpus_candidates": 108,
+    "with_sample_matches": 62,
+    "without_corpus_or_sample_match": 39,
+    "semantic_unresolved": 147
+  },
+  "source_rows": 147,
+  "lowercase_cases": 109,
+  "uppercase_cases": 38,
+  "corpus_records": 13969,
+  "sample_files_with_matches": 844,
+  "sample_matches": 1141,
+  "source_samples": {
+    "sha256": "aedad77022508fe10d0d537e6a082884b8e7a97d4836a184ff744a5261db55b1",
+    "files_inspected": 5500,
+    "sample_units_inspected": 11108
+  },
+  "source_lists": 13,
+  "semantic_review": "Preliminary: first matching context inspected for each of62cases; full1141matches not individually adjudicated",
+  "complete_inventory_matches_previous": true,
+  "repeat_identical_bytes": true,
+  "repeat_sha256": "7b836a6c0c8c2593cd0e71fdaa6751346ef001a435aa6e298292a29241d80159",
+  "registry_sha256": "aeff137a0210decd00e473b7f903990380b7ef701f8dac3aba19aa90579cd03c",
+  "script_sha256": "aa46fc71aab3af18cfd0476ec7038ecbb91c4028830b11c37d5e009a76386278",
+  "readonly_database_sha256_before": "e0371fdf8b4be3187c864a2f2dcb5544d8445d99f79dbbe24c04bbaa5007f35e",
+  "readonly_database_sha256_after": "e0371fdf8b4be3187c864a2f2dcb5544d8445d99f79dbbe24c04bbaa5007f35e",
+  "list_impact": {
+    "broad": null,
+    "standard": null,
+    "reason": "No semantic mapping activated; no final lists available"
+  },
+  "tests": "152/152 full suite, includes new observational probe test; red missing file→green, hyphen false match red→green",
+  "gloss_access": "Public SGJP HTML provides classification options but not requested entry gloss values; CUA returned No browser is available. No protected editing endpoint or bulk scrape requested."
+}

@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T12:34:07Z",
+  "generated": "2026-10-05T13:11:06Z",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "G3: PAN-1 — rejestr wszystkich147analizfrag przed przeglądem dowodów i mapowaniem znaczeń."
+    "current_activity": "G3: frag147zinwentaryzowane; mapowanie znaczeń nadal otwarte, mieszkańcy do przeglądu."
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Wdrożono A: growy obowiązek wielkiej litery według normy2026 w obu wariantach, na udokumentowanym podzbiorze trzech pełnych ID; dawne wpisy i taneczny homonim zachowane. Dodano zamkniętą klasę impt_sg + że + ż z trzema składnikami i odrębną odmową grową. Rzeczywista projekcja wszystkich obecnych wejść konstruktorów oraz przykładów kapitalizacji:93 284 interpretacje,125 360 konstrukcji,219 713 analiz i439 426 ocen; powtórzenie0nowych rekordów/identyczny hash/FK/integrityOK. Generator151/151,audyt5/5,preflight14wejść+10konfiguracjiOK. Pełna macierz semantyki/ortografii i wydanie nadal nieukończone.",
+      "summary": "Wdrożono A: growy obowiązek wielkiej litery według normy2026 w obu wariantach, na udokumentowanym podzbiorze trzech pełnych ID; dawne wpisy i taneczny homonim zachowane. Dodano zamkniętą klasę impt_sg + że + ż z trzema składnikami i odrębną odmową grową. Rzeczywista projekcja wszystkich obecnych wejść konstruktorów oraz przykładów kapitalizacji:93 284 interpretacje,125 360 konstrukcji,219 713 analiz i439 426 ocen; powtórzenie0nowych rekordów/identyczny hash/FK/integrityOK. Generator151/151,audyt5/5,preflight14wejść+10konfiguracjiOK. Pełna macierz semantyki/ortografii i wydanie nadal nieukończone. PAN-1: zamknięta populacja147frag zinwentaryzowana; PAN-2: wszystkie13list i5500próbek powiązane, glosy niedostępne w odczycie; PAN-3: wstępny odczyt62pierwszychkontekstów, pełne mapowanie nierozstrzygnięte; PAN-4: pokrycie frag147/64alternatywy/108listy/62próbki/39beztrafień, bez wpływu na listy. Nazwy mieszkańców i pozostałe wyjątki nadal do inwentaryzacji.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -586,6 +586,18 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/pan-data-recheck.json",
           "label": "Przykłady list, identyfikatory próbek i hashe"
+        },
+        {
+          "path": "analysis/evidence/pan-semantic-review.md",
+          "label": "Pełny rejestr frag: przegląd i granice mapowania"
+        },
+        {
+          "path": "analysis/evidence/pan-semantic-cases.json",
+          "label": "147 przypadków, alternatywy i ślady dowodów"
+        },
+        {
+          "path": "analysis/evidence/pan-semantic-coverage.json",
+          "label": "Pokrycie, odtworzenie i kontrola odczytu"
         }
       ],
       "gate": {
