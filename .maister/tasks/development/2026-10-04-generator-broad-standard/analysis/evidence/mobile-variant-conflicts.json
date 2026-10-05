@@ -1,0 +1,122 @@
+{
+  "scope": "full_closed_class_source_variant_conflicts",
+  "count": 8,
+  "items": [
+    {
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 1409112,
+        "original": "czym",
+        "lemma_id": "co:S",
+        "raw_tag": "subst:sg:inst:n:ncol",
+        "names": "",
+        "qualifiers": ""
+      },
+      "source_class_variant": "nwok",
+      "ending_compatible_variant": "wok",
+      "status": "source_class_difference_annotated_theory_variant_used_candidate_not_qualified"
+    },
+    {
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 1409113,
+        "original": "czym",
+        "lemma_id": "co:S",
+        "raw_tag": "subst:sg:loc:n:ncol",
+        "names": "",
+        "qualifiers": ""
+      },
+      "source_class_variant": "nwok",
+      "ending_compatible_variant": "wok",
+      "status": "source_class_difference_annotated_theory_variant_used_candidate_not_qualified"
+    },
+    {
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 1455396,
+        "original": "czymże",
+        "lemma_id": "cóż",
+        "raw_tag": "subst:sg:inst:n:ncol",
+        "names": "",
+        "qualifiers": ""
+      },
+      "source_class_variant": "wok",
+      "ending_compatible_variant": "nwok",
+      "status": "source_class_difference_annotated_theory_variant_used_candidate_not_qualified"
+    },
+    {
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 1455397,
+        "original": "czymże",
+        "lemma_id": "cóż",
+        "raw_tag": "subst:sg:loc:n:ncol",
+        "names": "",
+        "qualifiers": ""
+      },
+      "source_class_variant": "wok",
+      "ending_compatible_variant": "nwok",
+      "status": "source_class_difference_annotated_theory_variant_used_candidate_not_qualified"
+    },
+    {
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 2268808,
+        "original": "kim",
+        "lemma_id": "kto",
+        "raw_tag": "subst:sg:inst:m1",
+        "names": "",
+        "qualifiers": ""
+      },
+      "source_class_variant": "nwok",
+      "ending_compatible_variant": "wok",
+      "status": "source_class_difference_annotated_theory_variant_used_candidate_not_qualified"
+    },
+    {
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 2268809,
+        "original": "kim",
+        "lemma_id": "kto",
+        "raw_tag": "subst:sg:loc:m1",
+        "names": "",
+        "qualifiers": ""
+      },
+      "source_class_variant": "nwok",
+      "ending_compatible_variant": "wok",
+      "status": "source_class_difference_annotated_theory_variant_used_candidate_not_qualified"
+    },
+    {
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 2268966,
+        "original": "kimże",
+        "lemma_id": "któż",
+        "raw_tag": "subst:sg:inst:m1",
+        "names": "",
+        "qualifiers": ""
+      },
+      "source_class_variant": "wok",
+      "ending_compatible_variant": "nwok",
+      "status": "source_class_difference_annotated_theory_variant_used_candidate_not_qualified"
+    },
+    {
+      "source": {
+        "source_id": "sgjp-20260823",
+        "first_source_row": 2268967,
+        "original": "kimże",
+        "lemma_id": "któż",
+        "raw_tag": "subst:sg:loc:m1",
+        "names": "",
+        "qualifiers": ""
+      },
+      "source_class_variant": "wok",
+      "ending_compatible_variant": "nwok",
+      "status": "source_class_difference_annotated_theory_variant_used_candidate_not_qualified"
+    }
+  ],
+  "source_mode": "ro",
+  "total_changes": 0,
+  "resolution": "source_closed_host_eligibility_with_actual_form_vocality_from_sgjp_6_4_1",
+  "rule_id": "mobile-inflected-host-vocality-v1"
+}

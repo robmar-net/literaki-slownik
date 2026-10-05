@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-05T06:40:46.995671+00:00",
+  "generated": "2026-10-05T06:48:37.840635+00:00",
   "task": {
     "title": "Pierwszy generator BROAD i STANDARD",
     "description": "Implementacja zatwierdzonego projektu G1/N1/C1: Python/SQLite, SGJP/KWJP, pełna fleksja, kontrolowane konstrukcje, explain, verify i export.",
@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Norma A wdrożona; kontrola pełnych źródłowych klas mobilnych"
+    "current_activity": "Norma A i mobilne końcówki wdrożone; wybór zakresu kontrakcji"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -240,7 +240,7 @@ window.MAISTER_DATA = {
       "started": "2026-10-04T12:47:44Z",
       "completed": null,
       "skip_reason": null,
-      "summary": "Wdrożono A dla normy 2026: dokładne analizy comp jeśliby/jeżeliby i ich składniki konstrukcyjne mają odrzucenie STANDARD; BROAD nie wyklucza przez samą dawną pisownię. Nie usunięto wpisów i nie zmieniono reguł gry. Dodano kandydatów mobilnych końcówek dla trzech pozostałych zamkniętych klas, z kontrolą lematu, POS, wokaliczności, źródła i śladów. Odmienne formy niezgodne z wariantem źródłowej klasy wymagają dalszej oceny; pełna macierz i kwalifikacja nadal otwarte.",
+      "summary": "Norma2026 A wdrożona i dziedziczona przez konstrukcje; testy122/122,audit5/5. Nowe zamknięte mobilne klasy dają312kandydatów/624składniki powtarzalnie, FK/integrityOK. Osiem różnic wariantu wyjaśniono przez SGJP6.4.1, ze śladem adnotacji. Wymagany wybór zakresu ośmiu niepoświadczonych kontrakcji; nie wyłączono ich przed odpowiedzią. Pełna polityka i wydanie nadal nieukończone.",
       "decisions": [
         "Sekwencyjnie zgodnie z zatwierdzonym planem, brak zainstalowanego task-group-implementer: wykonanie inline",
         "Wpis/kwalifikacja językowa, reguły gry, profil i członkostwo w liście rozdzielone; lower nie omija wyłączeń gry.",
@@ -454,11 +454,39 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/evidence/norm-mobile-review.md",
           "label": "Norma 2026 i zamknięte mobilne klasy: przegląd"
+        },
+        {
+          "path": "analysis/evidence/norm-mobile-runtime.json",
+          "label": "Połączony runtime normy i mobilnych klas"
+        },
+        {
+          "path": "analysis/evidence/mobile-variant-runtime.json",
+          "label": "Pełny runtime mobilnych wariantów"
+        },
+        {
+          "path": "analysis/evidence/mobile-variant-conflicts.json",
+          "label": "Wyjaśnienie ośmiu różnic wariantu"
+        },
+        {
+          "path": "analysis/evidence/norm-mobile-explain-runtime.json",
+          "label": "Rzeczywiste explain normy i mobilnych klas"
+        },
+        {
+          "path": "analysis/evidence/remaining-contractions-scope-decision.md",
+          "label": "Wybór zakresu niepoświadczonych kontrakcji"
         }
       ],
       "gate": {
-        "question": null,
-        "answer": null
+        "id": "remaining_contractions_first_release_scope",
+        "status": "pending",
+        "created_at": "2026-10-05T06:48:37.840635+00:00",
+        "question": "Czy jawnie ograniczamy zakres kontrakcji pierwszego wydania do 18 form dosłownie wskazanych przez SGJP?",
+        "options": {
+          "A": "Tak: osiem innych poza zakresem pierwszego wydania, zachowane diagnostycznie; bez uznania za błędne.",
+          "B": "Nie: zakres26 i blokada do znalezienia wymaganych poświadczeń."
+        },
+        "answer": null,
+        "artifact": "analysis/evidence/remaining-contractions-scope-decision.md"
       }
     },
     {

@@ -1,0 +1,491 @@
+{
+  "observed_at": "2026-10-05T06:41:55.161450+00:00",
+  "scope": "readonly_actual_full_G2_diagnostic_explain_not_final_membership",
+  "queries": [
+    {
+      "word": "jeśliby",
+      "direct": 1,
+      "derived": 0,
+      "assessments": [
+        {
+          "lemma_id": "jeśliby",
+          "source_rule": null,
+          "language": {
+            "broad": "unresolved",
+            "standard": "reject"
+          },
+          "norm_checks": {
+            "broad": [
+              {
+                "rule_id": "orthography-2026-conjunction-by-v1",
+                "status": "accept",
+                "source_lemma_id": "jeśliby",
+                "norm_effective_from": "2026-01-01",
+                "message": "Udokumentowany dawny zapis nie wyklucza sam w BROAD; reguły gry i inne warunki osobno.",
+                "evidence": [
+                  "config/generator/orthography.json",
+                  ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md",
+                  "https://www.poradnia-jezykowa.uni.lodz.pl/szczegoly/pisownia-spojnikow-jesli-jezeli-z-czastka-by"
+                ]
+              }
+            ],
+            "standard": [
+              {
+                "rule_id": "orthography-2026-conjunction-by-v1",
+                "status": "reject",
+                "source_lemma_id": "jeśliby",
+                "norm_effective_from": "2026-01-01",
+                "message": "Norma 2026 wymaga pisowni rozdzielnej; ta analiza odpada ze STANDARD.",
+                "evidence": [
+                  "config/generator/orthography.json",
+                  ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md",
+                  "https://www.poradnia-jezykowa.uni.lodz.pl/szczegoly/pisownia-spojnikow-jesli-jezeli-z-czastka-by"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "text_norm_visible": true,
+      "list_membership": {
+        "status": "unresolved",
+        "reason": "Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane."
+      }
+    },
+    {
+      "word": "jeżeliby",
+      "direct": 1,
+      "derived": 0,
+      "assessments": [
+        {
+          "lemma_id": "jeżeliby",
+          "source_rule": null,
+          "language": {
+            "broad": "unresolved",
+            "standard": "reject"
+          },
+          "norm_checks": {
+            "broad": [
+              {
+                "rule_id": "orthography-2026-conjunction-by-v1",
+                "status": "accept",
+                "source_lemma_id": "jeżeliby",
+                "norm_effective_from": "2026-01-01",
+                "message": "Udokumentowany dawny zapis nie wyklucza sam w BROAD; reguły gry i inne warunki osobno.",
+                "evidence": [
+                  "config/generator/orthography.json",
+                  ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md",
+                  "https://www.poradnia-jezykowa.uni.lodz.pl/szczegoly/pisownia-spojnikow-jesli-jezeli-z-czastka-by"
+                ]
+              }
+            ],
+            "standard": [
+              {
+                "rule_id": "orthography-2026-conjunction-by-v1",
+                "status": "reject",
+                "source_lemma_id": "jeżeliby",
+                "norm_effective_from": "2026-01-01",
+                "message": "Norma 2026 wymaga pisowni rozdzielnej; ta analiza odpada ze STANDARD.",
+                "evidence": [
+                  "config/generator/orthography.json",
+                  ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md",
+                  "https://www.poradnia-jezykowa.uni.lodz.pl/szczegoly/pisownia-spojnikow-jesli-jezeli-z-czastka-by"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "text_norm_visible": true,
+      "list_membership": {
+        "status": "unresolved",
+        "reason": "Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane."
+      }
+    },
+    {
+      "word": "jeślibym",
+      "direct": 0,
+      "derived": 1,
+      "assessments": [
+        {
+          "lemma_id": "jeśliby",
+          "source_rule": "mobile-by-host-aglt-v1",
+          "language": {
+            "broad": "unresolved",
+            "standard": "reject"
+          },
+          "norm_checks": {
+            "broad": [
+              {
+                "rule_id": "orthography-2026-conjunction-by-v1",
+                "status": "accept",
+                "source_lemma_id": "jeśliby",
+                "norm_effective_from": "2026-01-01",
+                "message": "Udokumentowany dawny zapis nie wyklucza sam w BROAD; reguły gry i inne warunki osobno.",
+                "evidence": [
+                  "config/generator/orthography.json",
+                  ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md",
+                  "https://www.poradnia-jezykowa.uni.lodz.pl/szczegoly/pisownia-spojnikow-jesli-jezeli-z-czastka-by"
+                ]
+              }
+            ],
+            "standard": [
+              {
+                "rule_id": "orthography-2026-conjunction-by-v1",
+                "status": "reject",
+                "source_lemma_id": "jeśliby",
+                "norm_effective_from": "2026-01-01",
+                "message": "Norma 2026 wymaga pisowni rozdzielnej; ta analiza odpada ze STANDARD.",
+                "evidence": [
+                  "config/generator/orthography.json",
+                  ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md",
+                  "https://www.poradnia-jezykowa.uni.lodz.pl/szczegoly/pisownia-spojnikow-jesli-jezeli-z-czastka-by"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "text_norm_visible": true,
+      "list_membership": {
+        "status": "unresolved",
+        "reason": "Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane."
+      }
+    },
+    {
+      "word": "jeżelibyście",
+      "direct": 0,
+      "derived": 1,
+      "assessments": [
+        {
+          "lemma_id": "jeżeliby",
+          "source_rule": "mobile-by-host-aglt-v1",
+          "language": {
+            "broad": "unresolved",
+            "standard": "reject"
+          },
+          "norm_checks": {
+            "broad": [
+              {
+                "rule_id": "orthography-2026-conjunction-by-v1",
+                "status": "accept",
+                "source_lemma_id": "jeżeliby",
+                "norm_effective_from": "2026-01-01",
+                "message": "Udokumentowany dawny zapis nie wyklucza sam w BROAD; reguły gry i inne warunki osobno.",
+                "evidence": [
+                  "config/generator/orthography.json",
+                  ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md",
+                  "https://www.poradnia-jezykowa.uni.lodz.pl/szczegoly/pisownia-spojnikow-jesli-jezeli-z-czastka-by"
+                ]
+              }
+            ],
+            "standard": [
+              {
+                "rule_id": "orthography-2026-conjunction-by-v1",
+                "status": "reject",
+                "source_lemma_id": "jeżeliby",
+                "norm_effective_from": "2026-01-01",
+                "message": "Norma 2026 wymaga pisowni rozdzielnej; ta analiza odpada ze STANDARD.",
+                "evidence": [
+                  "config/generator/orthography.json",
+                  ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md",
+                  "https://www.poradnia-jezykowa.uni.lodz.pl/szczegoly/pisownia-spojnikow-jesli-jezeli-z-czastka-by"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "text_norm_visible": true,
+      "list_membership": {
+        "status": "unresolved",
+        "reason": "Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane."
+      }
+    },
+    {
+      "word": "gdybym",
+      "direct": 0,
+      "derived": 1,
+      "assessments": [
+        {
+          "lemma_id": "gdyby:M",
+          "source_rule": "mobile-by-host-aglt-v1",
+          "language": {
+            "broad": "unresolved",
+            "standard": "unresolved"
+          },
+          "norm_checks": {
+            "broad": [],
+            "standard": []
+          }
+        }
+      ],
+      "text_norm_visible": false,
+      "list_membership": {
+        "status": "unresolved",
+        "reason": "Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane."
+      }
+    },
+    {
+      "word": "czyżeś",
+      "direct": 0,
+      "derived": 1,
+      "assessments": [
+        {
+          "lemma_id": "czyż:T",
+          "source_rule": "mobile-source-host-aglt-v1",
+          "language": {
+            "broad": "unresolved",
+            "standard": "unresolved"
+          },
+          "norm_checks": {
+            "broad": [],
+            "standard": []
+          }
+        }
+      ],
+      "text_norm_visible": false,
+      "list_membership": {
+        "status": "unresolved",
+        "reason": "Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane."
+      }
+    },
+    {
+      "word": "żem",
+      "direct": 0,
+      "derived": 2,
+      "assessments": [
+        {
+          "lemma_id": "że:M",
+          "source_rule": "mobile-source-host-aglt-v1",
+          "language": {
+            "broad": "unresolved",
+            "standard": "unresolved"
+          },
+          "norm_checks": {
+            "broad": [],
+            "standard": []
+          }
+        },
+        {
+          "lemma_id": "że:T",
+          "source_rule": "mobile-source-host-aglt-v1",
+          "language": {
+            "broad": "unresolved",
+            "standard": "unresolved"
+          },
+          "norm_checks": {
+            "broad": [],
+            "standard": []
+          }
+        }
+      ],
+      "text_norm_visible": false,
+      "list_membership": {
+        "status": "unresolved",
+        "reason": "Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane."
+      }
+    },
+    {
+      "word": "jeśliśmy",
+      "direct": 0,
+      "derived": 1,
+      "assessments": [
+        {
+          "lemma_id": "jeśli",
+          "source_rule": "mobile-source-host-aglt-v1",
+          "language": {
+            "broad": "unresolved",
+            "standard": "unresolved"
+          },
+          "norm_checks": {
+            "broad": [],
+            "standard": []
+          }
+        }
+      ],
+      "text_norm_visible": false,
+      "list_membership": {
+        "status": "unresolved",
+        "reason": "Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane."
+      }
+    },
+    {
+      "word": "cóżem",
+      "direct": 0,
+      "derived": 3,
+      "assessments": [
+        {
+          "lemma_id": "cóż",
+          "source_rule": "mobile-source-host-aglt-v1",
+          "language": {
+            "broad": "unresolved",
+            "standard": "unresolved"
+          },
+          "norm_checks": {
+            "broad": [],
+            "standard": []
+          }
+        },
+        {
+          "lemma_id": "cóż",
+          "source_rule": "mobile-source-host-aglt-v1",
+          "language": {
+            "broad": "unresolved",
+            "standard": "unresolved"
+          },
+          "norm_checks": {
+            "broad": [],
+            "standard": []
+          }
+        },
+        {
+          "lemma_id": "cóż",
+          "source_rule": "mobile-source-host-aglt-v1",
+          "language": {
+            "broad": "unresolved",
+            "standard": "unresolved"
+          },
+          "norm_checks": {
+            "broad": [],
+            "standard": []
+          }
+        }
+      ],
+      "text_norm_visible": false,
+      "list_membership": {
+        "status": "unresolved",
+        "reason": "Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane."
+      }
+    },
+    {
+      "word": "kimś",
+      "direct": 2,
+      "derived": 0,
+      "assessments": [
+        {
+          "lemma_id": "ktoś:Sm1~ogoś",
+          "source_rule": null,
+          "language": {
+            "broad": "unresolved",
+            "standard": "unresolved"
+          },
+          "norm_checks": {
+            "broad": [],
+            "standard": []
+          }
+        },
+        {
+          "lemma_id": "ktoś:Sm1~ogoś",
+          "source_rule": null,
+          "language": {
+            "broad": "unresolved",
+            "standard": "unresolved"
+          },
+          "norm_checks": {
+            "broad": [],
+            "standard": []
+          }
+        }
+      ],
+      "text_norm_visible": false,
+      "list_membership": {
+        "status": "unresolved",
+        "reason": "Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane."
+      }
+    },
+    {
+      "word": "nibym",
+      "direct": 0,
+      "derived": 0,
+      "assessments": [],
+      "text_norm_visible": false,
+      "list_membership": {
+        "status": "unresolved",
+        "reason": "Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane."
+      }
+    },
+    {
+      "word": "czyżś",
+      "direct": 0,
+      "derived": 0,
+      "assessments": [],
+      "text_norm_visible": false,
+      "list_membership": {
+        "status": "unresolved",
+        "reason": "Diagnostyka importu; pełna polityka i konstrukcje nie są jeszcze zaimplementowane."
+      }
+    }
+  ],
+  "post_variant_clarification_queries": [
+    {
+      "word": "kimem",
+      "source_analyses": 0,
+      "derivations": [
+        {
+          "rule_id": "mobile-source-host-aglt-v1",
+          "lemma_id": "kto",
+          "host_variant_evidence": {
+            "source_class_variant": "nwok",
+            "form_variant": "wok",
+            "rule_id": "mobile-inflected-host-vocality-v1",
+            "evidence": [
+              "https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf#page=93"
+            ],
+            "message": "Źródłowy zamknięty host odmienny; wariant końcówki według zakończenia rzeczywistej formy (SGJP §6.4.1)."
+          }
+        },
+        {
+          "rule_id": "mobile-source-host-aglt-v1",
+          "lemma_id": "kto",
+          "host_variant_evidence": {
+            "source_class_variant": "nwok",
+            "form_variant": "wok",
+            "rule_id": "mobile-inflected-host-vocality-v1",
+            "evidence": [
+              "https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf#page=93"
+            ],
+            "message": "Źródłowy zamknięty host odmienny; wariant końcówki według zakończenia rzeczywistej formy (SGJP §6.4.1)."
+          }
+        }
+      ]
+    },
+    {
+      "word": "czymem",
+      "source_analyses": 0,
+      "derivations": [
+        {
+          "rule_id": "mobile-source-host-aglt-v1",
+          "lemma_id": "co:S",
+          "host_variant_evidence": {
+            "source_class_variant": "nwok",
+            "form_variant": "wok",
+            "rule_id": "mobile-inflected-host-vocality-v1",
+            "evidence": [
+              "https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf#page=93"
+            ],
+            "message": "Źródłowy zamknięty host odmienny; wariant końcówki według zakończenia rzeczywistej formy (SGJP §6.4.1)."
+          }
+        },
+        {
+          "rule_id": "mobile-source-host-aglt-v1",
+          "lemma_id": "co:S",
+          "host_variant_evidence": {
+            "source_class_variant": "nwok",
+            "form_variant": "wok",
+            "rule_id": "mobile-inflected-host-vocality-v1",
+            "evidence": [
+              "https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf#page=93"
+            ],
+            "message": "Źródłowy zamknięty host odmienny; wariant końcówki według zakończenia rzeczywistej formy (SGJP §6.4.1)."
+          }
+        }
+      ]
+    },
+    {
+      "word": "kimś",
+      "source_analyses": 2,
+      "derivations": []
+    }
+  ]
+}

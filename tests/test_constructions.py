@@ -11,6 +11,17 @@ def source(form='daj', tag='impt:sg:sec:perf', qualifiers=''):
 
 
 class ConstructionTests(unittest.TestCase):
+    def test_inflected_closed_host_uses_theory_variant_and_records_class_difference(self):
+        from literaki_slownik.constructions import mobile_aglt_candidates
+        host=dict(source('kim','subst:sg:inst:m1'),lemma_id='kto:S')
+        suffix=source('em','aglt:sg:pri:imperf:wok')
+        c,=mobile_aglt_candidates(host,suffix)
+        self.assertEqual(c['original'],'kimem')
+        self.assertEqual(c['host_variant_evidence']['source_class_variant'],'nwok')
+        self.assertEqual(c['host_variant_evidence']['form_variant'],'wok')
+        self.assertEqual(c['status'],'candidate_not_qualified')
+        self.assertEqual(mobile_aglt_candidates(host,source('m','aglt:sg:pri:imperf:nwok')),[])
+
     def test_closed_mobile_hosts_require_source_class_variant_and_same_source(self):
         from literaki_slownik.constructions import mobile_aglt_candidates
         for form,lemma,tag,ending,etag,result in [

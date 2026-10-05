@@ -149,12 +149,23 @@ def mobile_aglt_candidates(host, aglt):
                 variant = MOBILE_AGLT_HOSTS.get((lemma,pattern))
     if variant is None or (not host['raw_tag'].startswith('subst:') and host['original'] != lemma):
         return []
-    # Definicja klasy może obejmować odmienną formę o innej wokaliczności.
-    # Nie nadajemy jej niezgodnej końcówki; luka pozostaje w macierzy źródłowej.
     vowel = unicodedata.normalize('NFC',host['original'])[-1].lower() in VOWELS
-    if vowel != (variant == 'nwok') or not aglt['raw_tag'].endswith(':'+variant):
+    form_variant = 'nwok' if vowel else 'wok'
+    # Odmienny host ma źródłowe uprawnienie przez subst:%; wariant dla
+    # konkretnej formy określa teoria SGJP §6.4.1, nie gruboziarnista klasa.
+    inflected = (lemma,'subst:%') in MOBILE_AGLT_HOSTS and host['raw_tag'].startswith('subst:')
+    actual_variant = form_variant if inflected else variant
+    if form_variant != actual_variant or not aglt['raw_tag'].endswith(':'+actual_variant):
         return []
-    return _attach_aglt(host,aglt,'mobile-source-host-aglt-v1',variant)
+    results = _attach_aglt(host,aglt,'mobile-source-host-aglt-v1',actual_variant)
+    if actual_variant != variant:
+        for candidate in results:
+            candidate['host_variant_evidence'] = {
+                'source_class_variant':variant,'form_variant':actual_variant,
+                'rule_id':'mobile-inflected-host-vocality-v1',
+                'evidence':['https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf#page=93'],
+                'message':'Źródłowy zamknięty host odmienny; wariant końcówki według zakończenia rzeczywistej formy (SGJP §6.4.1).'}
+    return results
 
 
 def _attach_aglt(operator, aglt, rule_id, variant="nwok"):

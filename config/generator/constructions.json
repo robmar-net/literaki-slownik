@@ -200,7 +200,11 @@
         "evidence": [
           "morfeusz_segments:143-155,743-815",
           "sgjp_theory:6.4.1"
-        ]
+        ],
+        "source_class_variant_vs_inflected_form": "actual_form_variant_by_sgjp_6_4_1_with_annotation",
+        "observed_class_variant_differences": 8,
+        "full_input_candidates": 312,
+        "full_input_components": 624
       }
     },
     "productive_derivation": {

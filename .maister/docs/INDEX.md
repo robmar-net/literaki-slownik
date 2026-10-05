@@ -47,3 +47,6 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Warunki publikacji](../../docs/generator/publikacja.md) — zatwierdzony wariant A, zakres własnych materiałów i atrybucje źródeł.
 
 - [Norma 2026 a nieoznaczone dawne zapisy](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md) — konieczny wybór przed aktywacją kwalifikacji.
+
+- [Norma i mobilne klasy](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/norm-mobile-review.md) — wdrożenie A, rzeczywiste kontrolne przebiegi i ograniczenia.
+- [Zakres niepoświadczonych kontrakcji](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-contractions-scope-decision.md) — pending decyzja przed zmianą zakresu pierwszego wydania.

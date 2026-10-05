@@ -71,3 +71,7 @@ Wdrożono zatwierdzone A: 57 rozwiniętych analiz 18 dosłownie wskazanych form 
 ## Pozostałe zamknięte klasy mobilnych końcówek
 
 Wdrożono A dla normy 2026: dokładne analizy comp jeśliby/jeżeliby i ich składniki konstrukcyjne mają odrzucenie STANDARD; BROAD nie wyklucza przez samą dawną pisownię. Nie usunięto wpisów i nie zmieniono reguł gry. Dodano kandydatów mobilnych końcówek dla trzech pozostałych zamkniętych klas, z kontrolą lematu, POS, wokaliczności, źródła i śladów. Odmienne formy niezgodne z wariantem źródłowej klasy wymagają dalszej oceny; pełna macierz i kwalifikacja nadal otwarte. Źródło: [Teoria SGJP](https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf), §6.4.1.
+
+## Rozbieżności przy odmiennych hostach
+
+Rzeczywista kontrola nowych mobilnych klas: 312 kandydatów i 624 składniki, identyczny digest przy powtórzeniu, FK/integrity OK. Osiem różnic wariantu klasy i odmienionej formy rozstrzygnięto przez SGJP §6.4.1; adnotacja zachowuje oba warianty. Generator 122/122, audyt 5/5. Wymagana decyzja o zakresie ośmiu niepoświadczonych kontrakcji pozostaje pending; brak wyłączenia przed odpowiedzią.
