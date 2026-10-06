@@ -8,10 +8,11 @@ from .canonical import dumps, write_json, load_json
 from .database import connect
 from .inputs import GeneratorError, inspect_sources
 from . import sgjp, kwjp
-from .run import create_run, set_stage
+from .run import create_run, set_stage, STAGES
 from .reports import qualifier_coverage, logical_content_report, unresolved_report, persisted_filter_impact, canonical_index, coverage_report
 from .constructions import materialize_confirmed_candidates
-from .links import create_links, link_report
+from .links import (create_links, link_report, load_pos_map, verify_link_completeness,
+                    link_stage_gate, SHARED_POS, DEFAULT_POS_MAP_VERSION)
 from .decisions import materialize_assessments
 
 
@@ -127,13 +128,25 @@ def build(manifest_path, run_dir, batch_size=10000):
             performance['diagnostic_decisions']={'seconds':time.monotonic()-start}
             write_json(run/'reports/decisions.json',decision_counts)
             # Powiązania bezpośrednie są niezależne od kwalifikacji językowej.
-            # Pełny etap czeka także na powiązania wszystkich klas konstrukcji.
+            # Pełny etap wymaga kompletnego zbioru konstrukcji i niezależnej kontroli krawędzi.
             stage = 'links'
             start = time.monotonic()
-            create_links(db)
+            allowed_pos, pos_map_version = SHARED_POS, DEFAULT_POS_MAP_VERSION
+            pos_reference = inputs['manifest']['configurations'].get('pos-map')
+            if pos_reference:
+                from .inputs import checked_file
+                pos_map = load_pos_map(checked_file(Path(manifest_path).resolve().parent, pos_reference))
+                allowed_pos, pos_map_version = pos_map['pairs'], pos_map['version']
+            create_links(db, allowed_pos)
             db.commit()
-            write_json(run / 'reports/links.json',
-                       link_report(db, inputs['manifest'].get('unavailable', [])))
+            links = link_report(db, inputs['manifest'].get('unavailable', []),
+                                details=True, pos_map_version=pos_map_version)
+            constructions_status = load_json(run / 'manifest.json')['stages']['constructions']['status']
+            links['stage_completion'] = link_stage_gate(
+                verify_link_completeness(db, allowed_pos), constructions_status)
+            write_json(run / 'reports/links.json', links)
+            if links['stage_completion']['complete']:
+                set_stage(run, 'links', 'complete')
             performance['diagnostic_links'] = {'seconds': time.monotonic() - start}
             stage = 'reports'
             start = time.monotonic()
@@ -175,9 +188,10 @@ def build(manifest_path, run_dir, batch_size=10000):
         performance['database_bytes'] = (run / 'build.sqlite').stat().st_size
         write_json(run / 'reports/performance.json', performance)
         write_json(run / 'reports/canonical-index.json', canonical_index(run))
+        stages = load_json(run / 'manifest.json')['stages']
         return {'run_dir': str(run.resolve()), 'readiness': 'INCOMPLETE', 'counts': counts,
-                'completed': ['preflight', 'import_sgjp', 'import_kwjp'],
-                'pending': ['constructions', 'decisions', 'links', 'reports']}
+                'completed': [name for name in STAGES if stages[name]['status'] == 'complete'],
+                'pending': [name for name in STAGES if stages[name]['status'] == 'pending']}
     except BaseException as error:
         try:
             set_stage(run, stage, 'failed', {'reason': str(error)})

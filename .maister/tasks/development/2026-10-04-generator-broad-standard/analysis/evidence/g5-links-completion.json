@@ -1,0 +1,3086 @@
+{
+ "availability_samples": {
+  "abyśmy": {
+   "2grams-lemma-all": [
+    [
+     "word",
+     "word",
+     "NOT_APPLICABLE",
+     null
+    ]
+   ],
+   "slowa-lemma-all": [],
+   "slowa-lemma-fakt": [],
+   "slowa-lemma-fikcja": [],
+   "slowa-lemma-publicystyka": [],
+   "slowa-orth-all": [
+    [
+     "abyśmy",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-fakt": [
+    [
+     "abyśmy",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-fikcja": [
+    [
+     "abyśmy",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-publicystyka": [
+    [
+     "abyśmy",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-all": [
+    [
+     "abyśmy",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-fakt": [
+    [
+     "abyśmy",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-fikcja": [
+    [
+     "abyśmy",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-publicystyka": [
+    [
+     "abyśmy",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "unavailable": [
+    [
+     "NKJP",
+     "UNAVAILABLE"
+    ]
+   ]
+  },
+  "czytaj": {
+   "2grams-lemma-all": [
+    [
+     "word",
+     "word",
+     "NOT_APPLICABLE",
+     null
+    ]
+   ],
+   "slowa-lemma-all": [
+    [
+     "czytać",
+     "lexeme",
+     "OBSERVED",
+     [
+      840
+     ]
+    ]
+   ],
+   "slowa-lemma-fakt": [
+    [
+     "czytać",
+     "lexeme",
+     "OBSERVED",
+     [
+      221
+     ]
+    ]
+   ],
+   "slowa-lemma-fikcja": [
+    [
+     "czytać",
+     "lexeme",
+     "OBSERVED",
+     [
+      174
+     ]
+    ]
+   ],
+   "slowa-lemma-publicystyka": [
+    [
+     "czytać",
+     "lexeme",
+     "OBSERVED",
+     [
+      445
+     ]
+    ]
+   ],
+   "slowa-orth-all": [
+    [
+     "czytaj",
+     "form",
+     "OBSERVED",
+     [
+      442
+     ]
+    ]
+   ],
+   "slowa-orth-fakt": [
+    [
+     "czytaj",
+     "form",
+     "OBSERVED",
+     [
+      161
+     ]
+    ]
+   ],
+   "slowa-orth-fikcja": [
+    [
+     "czytaj",
+     "form",
+     "OBSERVED",
+     [
+      95
+     ]
+    ]
+   ],
+   "slowa-orth-publicystyka": [
+    [
+     "czytaj",
+     "form",
+     "OBSERVED",
+     [
+      186
+     ]
+    ]
+   ],
+   "slowa-orth_lc-all": [
+    [
+     "czytaj",
+     "form",
+     "OBSERVED",
+     [
+      766
+     ]
+    ]
+   ],
+   "slowa-orth_lc-fakt": [
+    [
+     "czytaj",
+     "form",
+     "OBSERVED",
+     [
+      188
+     ]
+    ]
+   ],
+   "slowa-orth_lc-fikcja": [
+    [
+     "czytaj",
+     "form",
+     "OBSERVED",
+     [
+      158
+     ]
+    ]
+   ],
+   "slowa-orth_lc-publicystyka": [
+    [
+     "czytaj",
+     "form",
+     "OBSERVED",
+     [
+      420
+     ]
+    ]
+   ],
+   "unavailable": [
+    [
+     "NKJP",
+     "UNAVAILABLE"
+    ]
+   ]
+  },
+  "czytajże": {
+   "2grams-lemma-all": [
+    [
+     "word",
+     "word",
+     "NOT_APPLICABLE",
+     null
+    ]
+   ],
+   "slowa-lemma-all": [],
+   "slowa-lemma-fakt": [],
+   "slowa-lemma-fikcja": [],
+   "slowa-lemma-publicystyka": [],
+   "slowa-orth-all": [
+    [
+     "czytajże",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-fakt": [
+    [
+     "czytajże",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-fikcja": [
+    [
+     "czytajże",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-publicystyka": [
+    [
+     "czytajże",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-all": [
+    [
+     "czytajże",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-fakt": [
+    [
+     "czytajże",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-fikcja": [
+    [
+     "czytajże",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-publicystyka": [
+    [
+     "czytajże",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "unavailable": [
+    [
+     "NKJP",
+     "UNAVAILABLE"
+    ]
+   ]
+  },
+  "doń": {
+   "2grams-lemma-all": [
+    [
+     "word",
+     "word",
+     "NOT_APPLICABLE",
+     null
+    ]
+   ],
+   "slowa-lemma-all": [
+    [
+     "donia",
+     "lexeme",
+     "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+     null
+    ]
+   ],
+   "slowa-lemma-fakt": [
+    [
+     "donia",
+     "lexeme",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-lemma-fikcja": [
+    [
+     "donia",
+     "lexeme",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-lemma-publicystyka": [
+    [
+     "donia",
+     "lexeme",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-all": [
+    [
+     "doń",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-fakt": [
+    [
+     "doń",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-fikcja": [
+    [
+     "doń",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-publicystyka": [
+    [
+     "doń",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-all": [
+    [
+     "doń",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-fakt": [
+    [
+     "doń",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-fikcja": [
+    [
+     "doń",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-publicystyka": [
+    [
+     "doń",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "doń",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "unavailable": [
+    [
+     "NKJP",
+     "UNAVAILABLE"
+    ]
+   ]
+  },
+  "jeśliby": {
+   "2grams-lemma-all": [
+    [
+     "word",
+     "word",
+     "NOT_APPLICABLE",
+     null
+    ]
+   ],
+   "slowa-lemma-all": [
+    [
+     "jeśliby",
+     "lexeme",
+     "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+     null
+    ]
+   ],
+   "slowa-lemma-fakt": [
+    [
+     "jeśliby",
+     "lexeme",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-lemma-fikcja": [
+    [
+     "jeśliby",
+     "lexeme",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-lemma-publicystyka": [
+    [
+     "jeśliby",
+     "lexeme",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-all": [
+    [
+     "jeśliby",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "jeśliby",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-fakt": [
+    [
+     "jeśliby",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "jeśliby",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-fikcja": [
+    [
+     "jeśliby",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "jeśliby",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-publicystyka": [
+    [
+     "jeśliby",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "jeśliby",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-all": [
+    [
+     "jeśliby",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "jeśliby",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-fakt": [
+    [
+     "jeśliby",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "jeśliby",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-fikcja": [
+    [
+     "jeśliby",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "jeśliby",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth_lc-publicystyka": [
+    [
+     "jeśliby",
+     "form",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "jeśliby",
+     "derivation_candidate",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "unavailable": [
+    [
+     "NKJP",
+     "UNAVAILABLE"
+    ]
+   ]
+  },
+  "kot": {
+   "2grams-lemma-all": [
+    [
+     "word",
+     "word",
+     "NOT_APPLICABLE",
+     null
+    ]
+   ],
+   "slowa-lemma-all": [
+    [
+     "Kot:Sf",
+     "lexeme",
+     "OBSERVED",
+     [
+      990
+     ]
+    ],
+    [
+     "Kot:Sm1",
+     "lexeme",
+     "OBSERVED",
+     [
+      990
+     ]
+    ],
+    [
+     "Kot:Sm3",
+     "lexeme",
+     "OBSERVED",
+     [
+      990
+     ]
+    ],
+    [
+     "kot:Sm1",
+     "lexeme",
+     "OBSERVED",
+     [
+      6756
+     ]
+    ],
+    [
+     "kot:Sm2",
+     "lexeme",
+     "OBSERVED",
+     [
+      6756
+     ]
+    ],
+    [
+     "kota",
+     "lexeme",
+     "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+     null
+    ]
+   ],
+   "slowa-lemma-fakt": [
+    [
+     "Kot:Sf",
+     "lexeme",
+     "OBSERVED",
+     [
+      592
+     ]
+    ],
+    [
+     "Kot:Sm1",
+     "lexeme",
+     "OBSERVED",
+     [
+      592
+     ]
+    ],
+    [
+     "Kot:Sm3",
+     "lexeme",
+     "OBSERVED",
+     [
+      592
+     ]
+    ],
+    [
+     "kot:Sm1",
+     "lexeme",
+     "OBSERVED",
+     [
+      2769
+     ]
+    ],
+    [
+     "kot:Sm2",
+     "lexeme",
+     "OBSERVED",
+     [
+      2769
+     ]
+    ],
+    [
+     "kota",
+     "lexeme",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-lemma-fikcja": [
+    [
+     "Kot:Sf",
+     "lexeme",
+     "OBSERVED",
+     [
+      179
+     ]
+    ],
+    [
+     "Kot:Sm1",
+     "lexeme",
+     "OBSERVED",
+     [
+      179
+     ]
+    ],
+    [
+     "Kot:Sm3",
+     "lexeme",
+     "OBSERVED",
+     [
+      179
+     ]
+    ],
+    [
+     "kot:Sm1",
+     "lexeme",
+     "OBSERVED",
+     [
+      2772
+     ]
+    ],
+    [
+     "kot:Sm2",
+     "lexeme",
+     "OBSERVED",
+     [
+      2772
+     ]
+    ],
+    [
+     "kota",
+     "lexeme",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-lemma-publicystyka": [
+    [
+     "Kot:Sf",
+     "lexeme",
+     "OBSERVED",
+     [
+      219
+     ]
+    ],
+    [
+     "Kot:Sm1",
+     "lexeme",
+     "OBSERVED",
+     [
+      219
+     ]
+    ],
+    [
+     "Kot:Sm3",
+     "lexeme",
+     "OBSERVED",
+     [
+      219
+     ]
+    ],
+    [
+     "kot:Sm1",
+     "lexeme",
+     "OBSERVED",
+     [
+      1215
+     ]
+    ],
+    [
+     "kot:Sm2",
+     "lexeme",
+     "OBSERVED",
+     [
+      1215
+     ]
+    ],
+    [
+     "kota",
+     "lexeme",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ]
+   ],
+   "slowa-orth-all": [
+    [
+     "Kot",
+     "form",
+     "OBSERVED",
+     [
+      1180
+     ]
+    ],
+    [
+     "kot",
+     "form",
+     "OBSERVED",
+     [
+      1399
+     ]
+    ]
+   ],
+   "slowa-orth-fakt": [
+    [
+     "Kot",
+     "form",
+     "OBSERVED",
+     [
+      620
+     ]
+    ],
+    [
+     "kot",
+     "form",
+     "OBSERVED",
+     [
+      516
+     ]
+    ]
+   ],
+   "slowa-orth-fikcja": [
+    [
+     "Kot",
+     "form",
+     "OBSERVED",
+     [
+      319
+     ]
+    ],
+    [
+     "kot",
+     "form",
+     "OBSERVED",
+     [
+      695
+     ]
+    ]
+   ],
+   "slowa-orth-publicystyka": [
+    [
+     "Kot",
+     "form",
+     "OBSERVED",
+     [
+      241
+     ]
+    ],
+    [
+     "kot",
+     "form",
+     "OBSERVED",
+     [
+      188
+     ]
+    ]
+   ],
+   "slowa-orth_lc-all": [
+    [
+     "Kot",
+     "form",
+     "OBSERVED",
+     [
+      2588
+     ]
+    ],
+    [
+     "kot",
+     "form",
+     "OBSERVED",
+     [
+      2588
+     ]
+    ]
+   ],
+   "slowa-orth_lc-fakt": [
+    [
+     "Kot",
+     "form",
+     "OBSERVED",
+     [
+      1140
+     ]
+    ],
+    [
+     "kot",
+     "form",
+     "OBSERVED",
+     [
+      1140
+     ]
+    ]
+   ],
+   "slowa-orth_lc-fikcja": [
+    [
+     "Kot",
+     "form",
+     "OBSERVED",
+     [
+      1014
+     ]
+    ],
+    [
+     "kot",
+     "form",
+     "OBSERVED",
+     [
+      1014
+     ]
+    ]
+   ],
+   "slowa-orth_lc-publicystyka": [
+    [
+     "Kot",
+     "form",
+     "OBSERVED",
+     [
+      434
+     ]
+    ],
+    [
+     "kot",
+     "form",
+     "OBSERVED",
+     [
+      434
+     ]
+    ]
+   ],
+   "unavailable": [
+    [
+     "NKJP",
+     "UNAVAILABLE"
+    ]
+   ]
+  },
+  "miałem": {
+   "2grams-lemma-all": [
+    [
+     "word",
+     "word",
+     "NOT_APPLICABLE",
+     null
+    ]
+   ],
+   "slowa-lemma-all": [
+    [
+     "miał",
+     "lexeme",
+     "OBSERVED",
+     [
+      40
+     ]
+    ],
+    [
+     "mieć",
+     "lexeme",
+     "OBSERVED",
+     [
+      197511
+     ]
+    ]
+   ],
+   "slowa-lemma-fakt": [
+    [
+     "miał",
+     "lexeme",
+     "OBSERVED",
+     [
+      9
+     ]
+    ],
+    [
+     "mieć",
+     "lexeme",
+     "OBSERVED",
+     [
+      59168
+     ]
+    ]
+   ],
+   "slowa-lemma-fikcja": [
+    [
+     "miał",
+     "lexeme",
+     "OBSERVED",
+     [
+      13
+     ]
+    ],
+    [
+     "mieć",
+     "lexeme",
+     "OBSERVED",
+     [
+      82818
+     ]
+    ]
+   ],
+   "slowa-lemma-publicystyka": [
+    [
+     "miał",
+     "lexeme",
+     "OBSERVED",
+     [
+      18
+     ]
+    ],
+    [
+     "mieć",
+     "lexeme",
+     "OBSERVED",
+     [
+      55525
+     ]
+    ]
+   ],
+   "slowa-orth-all": [
+    [
+     "miałem",
+     "form",
+     "OBSERVED",
+     [
+      8
+     ]
+    ]
+   ],
+   "slowa-orth-fakt": [
+    [
+     "miałem",
+     "form",
+     "OBSERVED",
+     [
+      1
+     ]
+    ]
+   ],
+   "slowa-orth-fikcja": [
+    [
+     "miałem",
+     "form",
+     "OBSERVED",
+     [
+      4
+     ]
+    ]
+   ],
+   "slowa-orth-publicystyka": [
+    [
+     "miałem",
+     "form",
+     "OBSERVED",
+     [
+      3
+     ]
+    ]
+   ],
+   "slowa-orth_lc-all": [
+    [
+     "miałem",
+     "form",
+     "OBSERVED",
+     [
+      8
+     ]
+    ]
+   ],
+   "slowa-orth_lc-fakt": [
+    [
+     "miałem",
+     "form",
+     "OBSERVED",
+     [
+      1
+     ]
+    ]
+   ],
+   "slowa-orth_lc-fikcja": [
+    [
+     "miałem",
+     "form",
+     "OBSERVED",
+     [
+      4
+     ]
+    ]
+   ],
+   "slowa-orth_lc-publicystyka": [
+    [
+     "miałem",
+     "form",
+     "OBSERVED",
+     [
+      3
+     ]
+    ]
+   ],
+   "unavailable": [
+    [
+     "NKJP",
+     "UNAVAILABLE"
+    ]
+   ]
+  },
+  "polski": {
+   "2grams-lemma-all": [
+    [
+     "word",
+     "word",
+     "NOT_APPLICABLE",
+     null
+    ]
+   ],
+   "slowa-lemma-all": [
+    [
+     "Polska:Sf~i",
+     "lexeme",
+     "OBSERVED",
+     [
+      89502
+     ]
+    ],
+    [
+     "Polski",
+     "lexeme",
+     "OBSERVED",
+     [
+      52
+     ]
+    ],
+    [
+     "polski:A",
+     "lexeme",
+     "OBSERVED",
+     [
+      92608
+     ]
+    ],
+    [
+     "polski:S",
+     "lexeme",
+     "OBSERVED",
+     [
+      122
+     ]
+    ]
+   ],
+   "slowa-lemma-fakt": [
+    [
+     "Polska:Sf~i",
+     "lexeme",
+     "OBSERVED",
+     [
+      34617
+     ]
+    ],
+    [
+     "Polski",
+     "lexeme",
+     "OBSERVED",
+     [
+      15
+     ]
+    ],
+    [
+     "polski:A",
+     "lexeme",
+     "OBSERVED",
+     [
+      40912
+     ]
+    ],
+    [
+     "polski:S",
+     "lexeme",
+     "OBSERVED",
+     [
+      40
+     ]
+    ]
+   ],
+   "slowa-lemma-fikcja": [
+    [
+     "Polska:Sf~i",
+     "lexeme",
+     "OBSERVED",
+     [
+      5919
+     ]
+    ],
+    [
+     "Polski",
+     "lexeme",
+     "OBSERVED",
+     [
+      15
+     ]
+    ],
+    [
+     "polski:A",
+     "lexeme",
+     "OBSERVED",
+     [
+      6841
+     ]
+    ],
+    [
+     "polski:S",
+     "lexeme",
+     "OBSERVED",
+     [
+      33
+     ]
+    ]
+   ],
+   "slowa-lemma-publicystyka": [
+    [
+     "Polska:Sf~i",
+     "lexeme",
+     "OBSERVED",
+     [
+      48966
+     ]
+    ],
+    [
+     "Polski",
+     "lexeme",
+     "OBSERVED",
+     [
+      22
+     ]
+    ],
+    [
+     "polski:A",
+     "lexeme",
+     "OBSERVED",
+     [
+      44855
+     ]
+    ],
+    [
+     "polski:S",
+     "lexeme",
+     "OBSERVED",
+     [
+      49
+     ]
+    ]
+   ],
+   "slowa-orth-all": [
+    [
+     "Polski",
+     "form",
+     "OBSERVED",
+     [
+      30941
+     ]
+    ],
+    [
+     "polski",
+     "form",
+     "OBSERVED",
+     [
+      6810
+     ]
+    ]
+   ],
+   "slowa-orth-fakt": [
+    [
+     "Polski",
+     "form",
+     "OBSERVED",
+     [
+      11751
+     ]
+    ],
+    [
+     "polski",
+     "form",
+     "OBSERVED",
+     [
+      3053
+     ]
+    ]
+   ],
+   "slowa-orth-fikcja": [
+    [
+     "Polski",
+     "form",
+     "OBSERVED",
+     [
+      2443
+     ]
+    ],
+    [
+     "polski",
+     "form",
+     "OBSERVED",
+     [
+      687
+     ]
+    ]
+   ],
+   "slowa-orth-publicystyka": [
+    [
+     "Polski",
+     "form",
+     "OBSERVED",
+     [
+      16747
+     ]
+    ],
+    [
+     "polski",
+     "form",
+     "OBSERVED",
+     [
+      3070
+     ]
+    ]
+   ],
+   "slowa-orth_lc-all": [
+    [
+     "Polski",
+     "form",
+     "OBSERVED",
+     [
+      38004
+     ]
+    ],
+    [
+     "polski",
+     "form",
+     "OBSERVED",
+     [
+      38004
+     ]
+    ]
+   ],
+   "slowa-orth_lc-fakt": [
+    [
+     "Polski",
+     "form",
+     "OBSERVED",
+     [
+      15005
+     ]
+    ],
+    [
+     "polski",
+     "form",
+     "OBSERVED",
+     [
+      15005
+     ]
+    ]
+   ],
+   "slowa-orth_lc-fikcja": [
+    [
+     "Polski",
+     "form",
+     "OBSERVED",
+     [
+      3145
+     ]
+    ],
+    [
+     "polski",
+     "form",
+     "OBSERVED",
+     [
+      3145
+     ]
+    ]
+   ],
+   "slowa-orth_lc-publicystyka": [
+    [
+     "Polski",
+     "form",
+     "OBSERVED",
+     [
+      19854
+     ]
+    ],
+    [
+     "polski",
+     "form",
+     "OBSERVED",
+     [
+      19854
+     ]
+    ]
+   ],
+   "unavailable": [
+    [
+     "NKJP",
+     "UNAVAILABLE"
+    ]
+   ]
+  },
+  "rok": {
+   "2grams-lemma-all": [
+    [
+     "word",
+     "word",
+     "NOT_APPLICABLE",
+     null
+    ]
+   ],
+   "slowa-lemma-all": [
+    [
+     "Rok:Sf",
+     "lexeme",
+     "OBSERVED",
+     [
+      37
+     ]
+    ],
+    [
+     "Rok:Sm1",
+     "lexeme",
+     "OBSERVED",
+     [
+      37
+     ]
+    ],
+    [
+     "rok:Sm3~lata",
+     "lexeme",
+     "OBSERVED",
+     [
+      315221
+     ]
+    ],
+    [
+     "rok:Sm3~roki",
+     "lexeme",
+     "OBSERVED",
+     [
+      315221
+     ]
+    ]
+   ],
+   "slowa-lemma-fakt": [
+    [
+     "Rok:Sf",
+     "lexeme",
+     "OBSERVED",
+     [
+      2
+     ]
+    ],
+    [
+     "Rok:Sm1",
+     "lexeme",
+     "OBSERVED",
+     [
+      2
+     ]
+    ],
+    [
+     "rok:Sm3~lata",
+     "lexeme",
+     "OBSERVED",
+     [
+      136678
+     ]
+    ],
+    [
+     "rok:Sm3~roki",
+     "lexeme",
+     "OBSERVED",
+     [
+      136678
+     ]
+    ]
+   ],
+   "slowa-lemma-fikcja": [
+    [
+     "Rok:Sf",
+     "lexeme",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "Rok:Sm1",
+     "lexeme",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "rok:Sm3~lata",
+     "lexeme",
+     "OBSERVED",
+     [
+      40881
+     ]
+    ],
+    [
+     "rok:Sm3~roki",
+     "lexeme",
+     "OBSERVED",
+     [
+      40881
+     ]
+    ]
+   ],
+   "slowa-lemma-publicystyka": [
+    [
+     "Rok:Sf",
+     "lexeme",
+     "OBSERVED",
+     [
+      35
+     ]
+    ],
+    [
+     "Rok:Sm1",
+     "lexeme",
+     "OBSERVED",
+     [
+      35
+     ]
+    ],
+    [
+     "rok:Sm3~lata",
+     "lexeme",
+     "OBSERVED",
+     [
+      137662
+     ]
+    ],
+    [
+     "rok:Sm3~roki",
+     "lexeme",
+     "OBSERVED",
+     [
+      137662
+     ]
+    ]
+   ],
+   "slowa-orth-all": [
+    [
+     "Rok",
+     "form",
+     "OBSERVED",
+     [
+      2976
+     ]
+    ],
+    [
+     "rok",
+     "form",
+     "OBSERVED",
+     [
+      18597
+     ]
+    ]
+   ],
+   "slowa-orth-fakt": [
+    [
+     "Rok",
+     "form",
+     "OBSERVED",
+     [
+      1173
+     ]
+    ],
+    [
+     "rok",
+     "form",
+     "OBSERVED",
+     [
+      6159
+     ]
+    ]
+   ],
+   "slowa-orth-fikcja": [
+    [
+     "Rok",
+     "form",
+     "OBSERVED",
+     [
+      407
+     ]
+    ],
+    [
+     "rok",
+     "form",
+     "OBSERVED",
+     [
+      2688
+     ]
+    ]
+   ],
+   "slowa-orth-publicystyka": [
+    [
+     "Rok",
+     "form",
+     "OBSERVED",
+     [
+      1396
+     ]
+    ],
+    [
+     "rok",
+     "form",
+     "OBSERVED",
+     [
+      9750
+     ]
+    ]
+   ],
+   "slowa-orth_lc-all": [
+    [
+     "Rok",
+     "form",
+     "OBSERVED",
+     [
+      21657
+     ]
+    ],
+    [
+     "rok",
+     "form",
+     "OBSERVED",
+     [
+      21657
+     ]
+    ]
+   ],
+   "slowa-orth_lc-fakt": [
+    [
+     "Rok",
+     "form",
+     "OBSERVED",
+     [
+      7357
+     ]
+    ],
+    [
+     "rok",
+     "form",
+     "OBSERVED",
+     [
+      7357
+     ]
+    ]
+   ],
+   "slowa-orth_lc-fikcja": [
+    [
+     "Rok",
+     "form",
+     "OBSERVED",
+     [
+      3129
+     ]
+    ],
+    [
+     "rok",
+     "form",
+     "OBSERVED",
+     [
+      3129
+     ]
+    ]
+   ],
+   "slowa-orth_lc-publicystyka": [
+    [
+     "Rok",
+     "form",
+     "OBSERVED",
+     [
+      11171
+     ]
+    ],
+    [
+     "rok",
+     "form",
+     "OBSERVED",
+     [
+      11171
+     ]
+    ]
+   ],
+   "unavailable": [
+    [
+     "NKJP",
+     "UNAVAILABLE"
+    ]
+   ]
+  },
+  "róża": {
+   "2grams-lemma-all": [
+    [
+     "word",
+     "word",
+     "NOT_APPLICABLE",
+     null
+    ]
+   ],
+   "slowa-lemma-all": [
+    [
+     "Róż:Sm1",
+     "lexeme",
+     "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+     null
+    ],
+    [
+     "Róża",
+     "lexeme",
+     "OBSERVED",
+     [
+      2108
+     ]
+    ],
+    [
+     "róża",
+     "lexeme",
+     "OBSERVED",
+     [
+      2218
+     ]
+    ]
+   ],
+   "slowa-lemma-fakt": [
+    [
+     "Róż:Sm1",
+     "lexeme",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "Róża",
+     "lexeme",
+     "OBSERVED",
+     [
+      324
+     ]
+    ],
+    [
+     "róża",
+     "lexeme",
+     "OBSERVED",
+     [
+      861
+     ]
+    ]
+   ],
+   "slowa-lemma-fikcja": [
+    [
+     "Róż:Sm1",
+     "lexeme",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "Róża",
+     "lexeme",
+     "OBSERVED",
+     [
+      1471
+     ]
+    ],
+    [
+     "róża",
+     "lexeme",
+     "OBSERVED",
+     [
+      891
+     ]
+    ]
+   ],
+   "slowa-lemma-publicystyka": [
+    [
+     "Róż:Sm1",
+     "lexeme",
+     "NOT_IN_PUBLISHED_LIST",
+     null
+    ],
+    [
+     "Róża",
+     "lexeme",
+     "OBSERVED",
+     [
+      313
+     ]
+    ],
+    [
+     "róża",
+     "lexeme",
+     "OBSERVED",
+     [
+      466
+     ]
+    ]
+   ],
+   "slowa-orth-all": [
+    [
+     "Róża",
+     "form",
+     "OBSERVED",
+     [
+      1200
+     ]
+    ],
+    [
+     "róża",
+     "form",
+     "OBSERVED",
+     [
+      163
+     ]
+    ]
+   ],
+   "slowa-orth-fakt": [
+    [
+     "Róża",
+     "form",
+     "OBSERVED",
+     [
+      203
+     ]
+    ],
+    [
+     "róża",
+     "form",
+     "OBSERVED",
+     [
+      91
+     ]
+    ]
+   ],
+   "slowa-orth-fikcja": [
+    [
+     "Róża",
+     "form",
+     "OBSERVED",
+     [
+      818
+     ]
+    ],
+    [
+     "róża",
+     "form",
+     "OBSERVED",
+     [
+      54
+     ]
+    ]
+   ],
+   "slowa-orth-publicystyka": [
+    [
+     "Róża",
+     "form",
+     "OBSERVED",
+     [
+      179
+     ]
+    ],
+    [
+     "róża",
+     "form",
+     "OBSERVED",
+     [
+      18
+     ]
+    ]
+   ],
+   "slowa-orth_lc-all": [
+    [
+     "Róża",
+     "form",
+     "OBSERVED",
+     [
+      1373
+     ]
+    ],
+    [
+     "róża",
+     "form",
+     "OBSERVED",
+     [
+      1373
+     ]
+    ]
+   ],
+   "slowa-orth_lc-fakt": [
+    [
+     "Róża",
+     "form",
+     "OBSERVED",
+     [
+      300
+     ]
+    ],
+    [
+     "róża",
+     "form",
+     "OBSERVED",
+     [
+      300
+     ]
+    ]
+   ],
+   "slowa-orth_lc-fikcja": [
+    [
+     "Róża",
+     "form",
+     "OBSERVED",
+     [
+      874
+     ]
+    ],
+    [
+     "róża",
+     "form",
+     "OBSERVED",
+     [
+      874
+     ]
+    ]
+   ],
+   "slowa-orth_lc-publicystyka": [
+    [
+     "Róża",
+     "form",
+     "OBSERVED",
+     [
+      199
+     ]
+    ],
+    [
+     "róża",
+     "form",
+     "OBSERVED",
+     [
+      199
+     ]
+    ]
+   ],
+   "unavailable": [
+    [
+     "NKJP",
+     "UNAVAILABLE"
+    ]
+   ]
+  },
+  "zamek": {
+   "2grams-lemma-all": [
+    [
+     "word",
+     "word",
+     "NOT_APPLICABLE",
+     null
+    ]
+   ],
+   "slowa-lemma-all": [
+    [
+     "Zamek",
+     "lexeme",
+     "OBSERVED",
+     [
+      42
+     ]
+    ],
+    [
+     "zamek:Sm3~a",
+     "lexeme",
+     "OBSERVED",
+     [
+      5729
+     ]
+    ],
+    [
+     "zamek:Sm3~u",
+     "lexeme",
+     "OBSERVED",
+     [
+      5729
+     ]
+    ]
+   ],
+   "slowa-lemma-fakt": [
+    [
+     "Zamek",
+     "lexeme",
+     "OBSERVED",
+     [
+      6
+     ]
+    ],
+    [
+     "zamek:Sm3~a",
+     "lexeme",
+     "OBSERVED",
+     [
+      1434
+     ]
+    ],
+    [
+     "zamek:Sm3~u",
+     "lexeme",
+     "OBSERVED",
+     [
+      1434
+     ]
+    ]
+   ],
+   "slowa-lemma-fikcja": [
+    [
+     "Zamek",
+     "lexeme",
+     "OBSERVED",
+     [
+      1
+     ]
+    ],
+    [
+     "zamek:Sm3~a",
+     "lexeme",
+     "OBSERVED",
+     [
+      2690
+     ]
+    ],
+    [
+     "zamek:Sm3~u",
+     "lexeme",
+     "OBSERVED",
+     [
+      2690
+     ]
+    ]
+   ],
+   "slowa-lemma-publicystyka": [
+    [
+     "Zamek",
+     "lexeme",
+     "OBSERVED",
+     [
+      35
+     ]
+    ],
+    [
+     "zamek:Sm3~a",
+     "lexeme",
+     "OBSERVED",
+     [
+      1605
+     ]
+    ],
+    [
+     "zamek:Sm3~u",
+     "lexeme",
+     "OBSERVED",
+     [
+      1605
+     ]
+    ]
+   ],
+   "slowa-orth-all": [
+    [
+     "Zamek",
+     "form",
+     "OBSERVED",
+     [
+      473
+     ]
+    ],
+    [
+     "zamek",
+     "form",
+     "OBSERVED",
+     [
+      1381
+     ]
+    ]
+   ],
+   "slowa-orth-fakt": [
+    [
+     "Zamek",
+     "form",
+     "OBSERVED",
+     [
+      144
+     ]
+    ],
+    [
+     "zamek",
+     "form",
+     "OBSERVED",
+     [
+      347
+     ]
+    ]
+   ],
+   "slowa-orth-fikcja": [
+    [
+     "Zamek",
+     "form",
+     "OBSERVED",
+     [
+      124
+     ]
+    ],
+    [
+     "zamek",
+     "form",
+     "OBSERVED",
+     [
+      758
+     ]
+    ]
+   ],
+   "slowa-orth-publicystyka": [
+    [
+     "Zamek",
+     "form",
+     "OBSERVED",
+     [
+      205
+     ]
+    ],
+    [
+     "zamek",
+     "form",
+     "OBSERVED",
+     [
+      276
+     ]
+    ]
+   ],
+   "slowa-orth_lc-all": [
+    [
+     "Zamek",
+     "form",
+     "OBSERVED",
+     [
+      1857
+     ]
+    ],
+    [
+     "zamek",
+     "form",
+     "OBSERVED",
+     [
+      1857
+     ]
+    ]
+   ],
+   "slowa-orth_lc-fakt": [
+    [
+     "Zamek",
+     "form",
+     "OBSERVED",
+     [
+      492
+     ]
+    ],
+    [
+     "zamek",
+     "form",
+     "OBSERVED",
+     [
+      492
+     ]
+    ]
+   ],
+   "slowa-orth_lc-fikcja": [
+    [
+     "Zamek",
+     "form",
+     "OBSERVED",
+     [
+      882
+     ]
+    ],
+    [
+     "zamek",
+     "form",
+     "OBSERVED",
+     [
+      882
+     ]
+    ]
+   ],
+   "slowa-orth_lc-publicystyka": [
+    [
+     "Zamek",
+     "form",
+     "OBSERVED",
+     [
+      483
+     ]
+    ],
+    [
+     "zamek",
+     "form",
+     "OBSERVED",
+     [
+      483
+     ]
+    ]
+   ],
+   "unavailable": [
+    [
+     "NKJP",
+     "UNAVAILABLE"
+    ]
+   ]
+  }
+ },
+ "availability_seconds_after_fix": {
+  "abyśmy": 0.0011,
+  "czytaj": 0.0055,
+  "czytajże": 0.0003,
+  "doń": 0.0003,
+  "jeśliby": 0.0009,
+  "kot": 0.0008,
+  "miałem": 0.0006,
+  "polski": 0.0072,
+  "rok": 0.0153,
+  "róża": 0.0056,
+  "zamek": 0.001
+ },
+ "construction_counts_by_rule": {
+  "by-aglt-nwok-v1": 8,
+  "documented-spelling-variant-v1": 2,
+  "impt-double-particle-v1": 31146,
+  "impt-single-particle-v1": 93438,
+  "mobile-by-host-aglt-v1": 64,
+  "mobile-host-by-sequence-v1": 305,
+  "mobile-source-host-aglt-v1": 312,
+  "personal-host-aglt-v1": 6,
+  "preposition-n-source-v1": 81
+ },
+ "input_database": "data/work/import-20261004-1302/build.sqlite (tylko odczyt, kopia przez sqlite backup)",
+ "inputs_identical_to_sources_json": true,
+ "links_report_sha256_canonical": "49306c4746bcccd6a9e2d74e84aefc20c0d21f2fca92de2fa42259091f956d87",
+ "lists": {
+  "2grams-lemma-all": {
+   "candidate_edges": 0,
+   "candidate_edges_by_target": {
+    "derivation_candidate": 0,
+    "form": 0,
+    "lexeme": 0
+   },
+   "candidates_per_unit": {
+    "0": 1627126
+   },
+   "distinct_targets": {
+    "derivation_candidate": 0,
+    "form": 0,
+    "lexeme": 0
+   },
+   "evidence_units": 1627126,
+   "genre": "all",
+   "kind": "kwjp_bigram",
+   "link_statuses": {
+    "NOT_APPLICABLE": 1627126
+   },
+   "methods": {
+    "BIGRAM_SEGMENTS": 1627126
+   },
+   "publication_threshold": 5,
+   "sum_freq": 62690472,
+   "sum_freq_by_status": {
+    "NOT_APPLICABLE": 62690472
+   }
+  },
+  "slowa-lemma-all": {
+   "candidate_edges": 134636,
+   "candidate_edges_by_target": {
+    "derivation_candidate": 0,
+    "form": 0,
+    "lexeme": 134636
+   },
+   "candidates_per_unit": {
+    "0": 63610,
+    "1": 108854,
+    "2": 11610,
+    "3": 810,
+    "4": 33
+   },
+   "distinct_targets": {
+    "derivation_candidate": 0,
+    "form": 0,
+    "lexeme": 95173
+   },
+   "evidence_units": 184917,
+   "genre": "all",
+   "kind": "kwjp_lemma",
+   "link_statuses": {
+    "AMBIGUOUS": 12453,
+    "EXACT_CANDIDATE": 108854,
+    "UNMATCHED": 63610
+   },
+   "methods": {
+    "NFC_LEMMA_POS": 184917
+   },
+   "publication_threshold": 5,
+   "sum_freq": 81664894,
+   "sum_freq_by_status": {
+    "AMBIGUOUS": 3468121,
+    "EXACT_CANDIDATE": 74653601,
+    "UNMATCHED": 3543172
+   },
+   "unmatched_by_pos": {
+    "adj": 5192,
+    "adja": 44,
+    "adjc": 9,
+    "adjp": 36,
+    "adv": 401,
+    "aglt": 9,
+    "bedzie": 9,
+    "brev": 1137,
+    "comp": 55,
+    "conj": 85,
+    "depr": 16,
+    "dig": 50,
+    "fin": 182,
+    "frag": 155,
+    "ger": 131,
+    "imps": 2,
+    "impt": 34,
+    "inf": 64,
+    "interj": 405,
+    "interp": 72,
+    "num": 179,
+    "numcomp": 35,
+    "pact": 93,
+    "pant": 4,
+    "part": 260,
+    "pcon": 8,
+    "ppas": 304,
+    "ppron12": 18,
+    "ppron3": 17,
+    "praet": 180,
+    "pred": 38,
+    "prep": 153,
+    "romandig": 66,
+    "siebie": 9,
+    "subst": 40210,
+    "sym": 12,
+    "winien": 1,
+    "xxs": 9887,
+    "xxx": 4048
+   }
+  },
+  "slowa-lemma-fakt": {
+   "candidate_edges": 124418,
+   "candidate_edges_by_target": {
+    "derivation_candidate": 0,
+    "form": 0,
+    "lexeme": 124418
+   },
+   "candidates_per_unit": {
+    "0": 51084,
+    "1": 103503,
+    "2": 9309,
+    "3": 723,
+    "4": 32
+   },
+   "distinct_targets": {
+    "derivation_candidate": 0,
+    "form": 0,
+    "lexeme": 86216
+   },
+   "evidence_units": 164651,
+   "genre": "fakt",
+   "kind": "kwjp_lemma",
+   "link_statuses": {
+    "AMBIGUOUS": 10064,
+    "EXACT_CANDIDATE": 103503,
+    "UNMATCHED": 51084
+   },
+   "methods": {
+    "NFC_LEMMA_POS": 164651
+   },
+   "publication_threshold": 5,
+   "sum_freq": 28579794,
+   "sum_freq_by_status": {
+    "AMBIGUOUS": 1190154,
+    "EXACT_CANDIDATE": 26114775,
+    "UNMATCHED": 1274865
+   },
+   "unmatched_by_pos": {
+    "adj": 4540,
+    "adja": 44,
+    "adjc": 8,
+    "adjp": 33,
+    "adv": 359,
+    "aglt": 9,
+    "bedzie": 9,
+    "brev": 856,
+    "comp": 49,
+    "conj": 83,
+    "depr": 11,
+    "dig": 49,
+    "fin": 158,
+    "frag": 143,
+    "ger": 115,
+    "imps": 2,
+    "impt": 22,
+    "inf": 52,
+    "interj": 291,
+    "interp": 59,
+    "num": 173,
+    "numcomp": 34,
+    "pact": 85,
+    "pant": 4,
+    "part": 232,
+    "pcon": 6,
+    "ppas": 279,
+    "ppron12": 16,
+    "ppron3": 17,
+    "praet": 124,
+    "pred": 34,
+    "prep": 145,
+    "romandig": 62,
+    "siebie": 9,
+    "subst": 30569,
+    "sym": 12,
+    "winien": 1,
+    "xxs": 8551,
+    "xxx": 3839
+   }
+  },
+  "slowa-lemma-fikcja": {
+   "candidate_edges": 108789,
+   "candidate_edges_by_target": {
+    "derivation_candidate": 0,
+    "form": 0,
+    "lexeme": 108789
+   },
+   "candidates_per_unit": {
+    "0": 33411,
+    "1": 93960,
+    "2": 6447,
+    "3": 605,
+    "4": 30
+   },
+   "distinct_targets": {
+    "derivation_candidate": 0,
+    "form": 0,
+    "lexeme": 72378
+   },
+   "evidence_units": 134453,
+   "genre": "fikcja",
+   "kind": "kwjp_lemma",
+   "link_statuses": {
+    "AMBIGUOUS": 7082,
+    "EXACT_CANDIDATE": 93960,
+    "UNMATCHED": 33411
+   },
+   "methods": {
+    "NFC_LEMMA_POS": 134453
+   },
+   "publication_threshold": 5,
+   "sum_freq": 24137485,
+   "sum_freq_by_status": {
+    "AMBIGUOUS": 885871,
+    "EXACT_CANDIDATE": 22133124,
+    "UNMATCHED": 1118490
+   },
+   "unmatched_by_pos": {
+    "adj": 3218,
+    "adja": 16,
+    "adjc": 9,
+    "adjp": 34,
+    "adv": 326,
+    "aglt": 8,
+    "bedzie": 8,
+    "brev": 314,
+    "comp": 46,
+    "conj": 65,
+    "depr": 14,
+    "dig": 42,
+    "fin": 155,
+    "frag": 131,
+    "ger": 63,
+    "impt": 31,
+    "inf": 51,
+    "interj": 372,
+    "interp": 51,
+    "num": 163,
+    "numcomp": 28,
+    "pact": 49,
+    "pant": 3,
+    "part": 220,
+    "pcon": 8,
+    "ppas": 245,
+    "ppron12": 15,
+    "ppron3": 16,
+    "praet": 161,
+    "pred": 36,
+    "prep": 122,
+    "romandig": 49,
+    "siebie": 9,
+    "subst": 20211,
+    "sym": 11,
+    "winien": 1,
+    "xxs": 4446,
+    "xxx": 2664
+   }
+  },
+  "slowa-lemma-publicystyka": {
+   "candidate_edges": 123576,
+   "candidate_edges_by_target": {
+    "derivation_candidate": 0,
+    "form": 0,
+    "lexeme": 123576
+   },
+   "candidates_per_unit": {
+    "0": 46992,
+    "1": 99234,
+    "2": 10916,
+    "3": 794,
+    "4": 32
+   },
+   "distinct_targets": {
+    "derivation_candidate": 0,
+    "form": 0,
+    "lexeme": 88165
+   },
+   "evidence_units": 157968,
+   "genre": "publicystyka",
+   "kind": "kwjp_lemma",
+   "link_statuses": {
+    "AMBIGUOUS": 11742,
+    "EXACT_CANDIDATE": 99234,
+    "UNMATCHED": 46992
+   },
+   "methods": {
+    "NFC_LEMMA_POS": 157968
+   },
+   "publication_threshold": 5,
+   "sum_freq": 28947615,
+   "sum_freq_by_status": {
+    "AMBIGUOUS": 1392096,
+    "EXACT_CANDIDATE": 26405702,
+    "UNMATCHED": 1149817
+   },
+   "unmatched_by_pos": {
+    "adj": 4105,
+    "adja": 31,
+    "adjc": 6,
+    "adjp": 33,
+    "adv": 325,
+    "aglt": 8,
+    "bedzie": 8,
+    "brev": 942,
+    "comp": 46,
+    "conj": 74,
+    "depr": 6,
+    "dig": 40,
+    "fin": 142,
+    "frag": 131,
+    "ger": 100,
+    "impt": 20,
+    "inf": 47,
+    "interj": 210,
+    "interp": 62,
+    "num": 157,
+    "numcomp": 29,
+    "pact": 83,
+    "pant": 4,
+    "part": 213,
+    "pcon": 5,
+    "ppas": 218,
+    "ppron12": 13,
+    "ppron3": 13,
+    "praet": 127,
+    "pred": 31,
+    "prep": 138,
+    "romandig": 62,
+    "siebie": 5,
+    "subst": 28483,
+    "sym": 11,
+    "winien": 1,
+    "xxs": 8311,
+    "xxx": 2752
+   }
+  },
+  "slowa-orth-all": {
+   "candidate_edges": 314959,
+   "candidate_edges_by_target": {
+    "derivation_candidate": 34,
+    "form": 314925,
+    "lexeme": 0
+   },
+   "candidates_per_unit": {
+    "0": 105031,
+    "1": 314910,
+    "2": 14,
+    "3": 4,
+    "4": 1,
+    "5": 1
+   },
+   "distinct_targets": {
+    "derivation_candidate": 34,
+    "form": 314925,
+    "lexeme": 0
+   },
+   "evidence_units": 419961,
+   "genre": "all",
+   "kind": "kwjp_orth",
+   "link_statuses": {
+    "AMBIGUOUS": 20,
+    "EXACT_CANDIDATE": 314910,
+    "UNMATCHED": 105031
+   },
+   "methods": {
+    "NFC_FORM": 419961
+   },
+   "publication_threshold": 5,
+   "sum_freq": 81042800,
+   "sum_freq_by_status": {
+    "AMBIGUOUS": 186535,
+    "EXACT_CANDIDATE": 72629649,
+    "UNMATCHED": 8226616
+   }
+  },
+  "slowa-orth-fakt": {
+   "candidate_edges": 296629,
+   "candidate_edges_by_target": {
+    "derivation_candidate": 34,
+    "form": 296595,
+    "lexeme": 0
+   },
+   "candidates_per_unit": {
+    "0": 87853,
+    "1": 296580,
+    "2": 14,
+    "3": 4,
+    "4": 1,
+    "5": 1
+   },
+   "distinct_targets": {
+    "derivation_candidate": 34,
+    "form": 296595,
+    "lexeme": 0
+   },
+   "evidence_units": 384453,
+   "genre": "fakt",
+   "kind": "kwjp_orth",
+   "link_statuses": {
+    "AMBIGUOUS": 20,
+    "EXACT_CANDIDATE": 296580,
+    "UNMATCHED": 87853
+   },
+   "methods": {
+    "NFC_FORM": 384453
+   },
+   "publication_threshold": 5,
+   "sum_freq": 28326758,
+   "sum_freq_by_status": {
+    "AMBIGUOUS": 56824,
+    "EXACT_CANDIDATE": 25564227,
+    "UNMATCHED": 2705707
+   }
+  },
+  "slowa-orth-fikcja": {
+   "candidate_edges": 265295,
+   "candidate_edges_by_target": {
+    "derivation_candidate": 34,
+    "form": 265261,
+    "lexeme": 0
+   },
+   "candidates_per_unit": {
+    "0": 66302,
+    "1": 265246,
+    "2": 14,
+    "3": 4,
+    "4": 1,
+    "5": 1
+   },
+   "distinct_targets": {
+    "derivation_candidate": 34,
+    "form": 265261,
+    "lexeme": 0
+   },
+   "evidence_units": 331568,
+   "genre": "fikcja",
+   "kind": "kwjp_orth",
+   "link_statuses": {
+    "AMBIGUOUS": 20,
+    "EXACT_CANDIDATE": 265246,
+    "UNMATCHED": 66302
+   },
+   "methods": {
+    "NFC_FORM": 331568
+   },
+   "publication_threshold": 5,
+   "sum_freq": 23956698,
+   "sum_freq_by_status": {
+    "AMBIGUOUS": 91506,
+    "EXACT_CANDIDATE": 21233831,
+    "UNMATCHED": 2631361
+   }
+  },
+  "slowa-orth-publicystyka": {
+   "candidate_edges": 283842,
+   "candidate_edges_by_target": {
+    "derivation_candidate": 27,
+    "form": 283815,
+    "lexeme": 0
+   },
+   "candidates_per_unit": {
+    "0": 82469,
+    "1": 283803,
+    "2": 9,
+    "3": 4,
+    "4": 1,
+    "5": 1
+   },
+   "distinct_targets": {
+    "derivation_candidate": 27,
+    "form": 283815,
+    "lexeme": 0
+   },
+   "evidence_units": 366287,
+   "genre": "publicystyka",
+   "kind": "kwjp_orth",
+   "link_statuses": {
+    "AMBIGUOUS": 15,
+    "EXACT_CANDIDATE": 283803,
+    "UNMATCHED": 82469
+   },
+   "methods": {
+    "NFC_FORM": 366287
+   },
+   "publication_threshold": 5,
+   "sum_freq": 28759344,
+   "sum_freq_by_status": {
+    "AMBIGUOUS": 38205,
+    "EXACT_CANDIDATE": 25831591,
+    "UNMATCHED": 2889548
+   }
+  },
+  "slowa-orth_lc-all": {
+   "candidate_edges": 348648,
+   "candidate_edges_by_target": {
+    "derivation_candidate": 45,
+    "form": 348603,
+    "lexeme": 0
+   },
+   "candidates_per_unit": {
+    "0": 45684,
+    "1": 280983,
+    "2": 33753,
+    "3": 50,
+    "4": 1,
+    "5": 1
+   },
+   "distinct_targets": {
+    "derivation_candidate": 45,
+    "form": 348603,
+    "lexeme": 0
+   },
+   "evidence_units": 360472,
+   "genre": "all",
+   "kind": "kwjp_orth_lc",
+   "link_statuses": {
+    "AMBIGUOUS": 33805,
+    "EXACT_CANDIDATE": 280983,
+    "UNMATCHED": 45684
+   },
+   "methods": {
+    "NFC_LOWER_FORM": 360472
+   },
+   "publication_threshold": 5,
+   "sum_freq": 81318653,
+   "sum_freq_by_status": {
+    "AMBIGUOUS": 19724107,
+    "EXACT_CANDIDATE": 58865844,
+    "UNMATCHED": 2728702
+   }
+  },
+  "slowa-orth_lc-fakt": {
+   "candidate_edges": 328757,
+   "candidate_edges_by_target": {
+    "derivation_candidate": 45,
+    "form": 328712,
+    "lexeme": 0
+   },
+   "candidates_per_unit": {
+    "0": 35225,
+    "1": 264712,
+    "2": 31943,
+    "3": 50,
+    "4": 1,
+    "5": 1
+   },
+   "distinct_targets": {
+    "derivation_candidate": 45,
+    "form": 328712,
+    "lexeme": 0
+   },
+   "evidence_units": 331932,
+   "genre": "fakt",
+   "kind": "kwjp_orth_lc",
+   "link_statuses": {
+    "AMBIGUOUS": 31995,
+    "EXACT_CANDIDATE": 264712,
+    "UNMATCHED": 35225
+   },
+   "methods": {
+    "NFC_LOWER_FORM": 331932
+   },
+   "publication_threshold": 5,
+   "sum_freq": 28437454,
+   "sum_freq_by_status": {
+    "AMBIGUOUS": 6838875,
+    "EXACT_CANDIDATE": 20630201,
+    "UNMATCHED": 968378
+   }
+  },
+  "slowa-orth_lc-fikcja": {
+   "candidate_edges": 295460,
+   "candidate_edges_by_target": {
+    "derivation_candidate": 41,
+    "form": 295419,
+    "lexeme": 0
+   },
+   "candidates_per_unit": {
+    "0": 21546,
+    "1": 235765,
+    "2": 29774,
+    "3": 46,
+    "4": 1,
+    "5": 1
+   },
+   "distinct_targets": {
+    "derivation_candidate": 41,
+    "form": 295419,
+    "lexeme": 0
+   },
+   "evidence_units": 287133,
+   "genre": "fikcja",
+   "kind": "kwjp_orth_lc",
+   "link_statuses": {
+    "AMBIGUOUS": 29822,
+    "EXACT_CANDIDATE": 235765,
+    "UNMATCHED": 21546
+   },
+   "methods": {
+    "NFC_LOWER_FORM": 287133
+   },
+   "publication_threshold": 5,
+   "sum_freq": 24032881,
+   "sum_freq_by_status": {
+    "AMBIGUOUS": 6040345,
+    "EXACT_CANDIDATE": 17092575,
+    "UNMATCHED": 899961
+   }
+  },
+  "slowa-orth_lc-publicystyka": {
+   "candidate_edges": 315324,
+   "candidate_edges_by_target": {
+    "derivation_candidate": 41,
+    "form": 315283,
+    "lexeme": 0
+   },
+   "candidates_per_unit": {
+    "0": 31543,
+    "1": 252485,
+    "2": 31340,
+    "3": 50,
+    "4": 1,
+    "5": 1
+   },
+   "distinct_targets": {
+    "derivation_candidate": 41,
+    "form": 315283,
+    "lexeme": 0
+   },
+   "evidence_units": 315420,
+   "genre": "publicystyka",
+   "kind": "kwjp_orth_lc",
+   "link_statuses": {
+    "AMBIGUOUS": 31392,
+    "EXACT_CANDIDATE": 252485,
+    "UNMATCHED": 31543
+   },
+   "methods": {
+    "NFC_LOWER_FORM": 315420
+   },
+   "publication_threshold": 5,
+   "sum_freq": 28848318,
+   "sum_freq_by_status": {
+    "AMBIGUOUS": 6844887,
+    "EXACT_CANDIDATE": 21143068,
+    "UNMATCHED": 860363
+   }
+  }
+ },
+ "performance_macos": {
+  "constructions_seconds": 35.01,
+  "copy_seconds": 11.13,
+  "database_bytes": 5628846080,
+  "fk_seconds": 23.39,
+  "links_seconds": 159.44,
+  "peak_rss_bytes_macos": 1344192512,
+  "report_seconds": 64.49,
+  "verify_seconds": 31.18
+ },
+ "performance_note": "Czas dostępności 11 słów po poprawce planu zapytań; wcześniejsze 26,5 s dotyczyło wersji ze skanem listy. Peak RSS obejmuje kopię bazy i weryfikację.",
+ "pos_map_version": "pos-map-v1",
+ "reproduce": [
+  "PYTHONPATH=. python3 tmp/g5_full_links.py data/work/import-20261004-1302/build.sqlite data/work/g5-NOWY",
+  "PYTHONPATH=. python3 tmp/g5_samples.py data/work/g5-NOWY"
+ ],
+ "schema_version": 1,
+ "scope": "G5 pełny przebieg powiązań na kopii importu; nie build G8, nie decyzje słownikowe",
+ "stage_completion": {
+  "blocking": [
+   "constructions=pending: zbiór kandydatów konstrukcji nie jest pełny"
+  ],
+  "complete": false,
+  "verification": {
+   "derivation_candidates_checked": true,
+   "inconsistent_statuses": 0,
+   "method": "independent_sql_recomputation_of_structural_edges",
+   "missing_edges": 0,
+   "unexpected_edges": 0,
+   "units_without_link": 0
+  }
+ },
+ "stage_would_complete_if_constructions_complete": true,
+ "totals": {
+  "candidate_edges": 2940333,
+  "derivation_candidates": 125362,
+  "derivation_candidates_with_corpus_edge": 45,
+  "evidence_units": 5066341,
+  "foreign_key_violations": 0
+ },
+ "unavailable": [
+  {
+   "metrics": null,
+   "reason": "BLOCKED_LICENSE_VERSION_UNRESOLVED",
+   "source_id": "NKJP",
+   "status": "UNAVAILABLE"
+  }
+ ],
+ "work_directory": "data/work/g5-20261005-225423"
+}

@@ -110,9 +110,9 @@ Fragment wykonany niezależnie podczas blokady dowodowej G3: moduł links, 4 tes
 
 Zależności: G2/G3/G4. Pliki: `literaki_slownik/links.py`, `tests/test_links.py`; dopracowanie `config/generator/pos-map.json`. K6; R06.
 
-- [ ] 5.1 Test-first: lemma/POS/homonimy, dokładna forma i orth_lc, wielka litera, F raz przy jednostce, gatunki 1–4, brak gatunkowy/globalny, segmentacja, bigram, zera miar i brak POS.
-- [ ] 5.2 Wdrożyć pełne mapowanie z metodą, kandydatami i niepewnością; miary pozostają przy rekordzie korpusu. Dopasowanie strukturalne nie dowodzi sensu ani dopuszczalności słowa.
-- [ ] 5.3 Wdrożyć wszystkie statusy dostępności/null/powody, mianowniki per lista i odrębność gatunków/miar; jawne UNAVAILABLE NKJP; nie imputować ani rekonstruować częstości segmentowanych form.
+- [x] 5.1 Test-first: lemma/POS/homonimy, dokładna forma i orth_lc, wielka litera, F raz przy jednostce, gatunki 1–4, brak gatunkowy/globalny, segmentacja, bigram, zera miar i brak POS.
+- [x] 5.2 Wdrożyć pełne mapowanie z metodą, kandydatami i niepewnością; miary pozostają przy rekordzie korpusu. Dopasowanie strukturalne nie dowodzi sensu ani dopuszczalności słowa.
+- [x] 5.3 Wdrożyć wszystkie statusy dostępności/null/powody, mianowniki per lista i odrębność gatunków/miar; jawne UNAVAILABLE NKJP; nie imputować ani rekonstruować częstości segmentowanych form.
 - [ ] 5.4 Green oraz pełny raport liczebności/metod/niejednoznaczności/niedopasowań; źródłowy przegląd mapowania powiązany z macierzą i późniejszą próbką jakości.
 
 ### G6 — explain, raporty i deterministyczne próbki

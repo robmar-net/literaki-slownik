@@ -41,7 +41,7 @@ Pliki planu mają również historyczne dopiski. Przy wznowieniu czytać najnows
 - Przegląd 605 etykiet wykazał 604 ze znanym warunkiem; jedna niemapowana dotyczy dwóch interpretacji `ń`, mających niezależne powody odrzucenia. Znany pojedynczy warunek nie oznacza pełnej kwalifikacji analizy.
 - Mechanika 70 źródłowych definicji hostów konstrukcji została sprawdzona; pełna kwalifikacja językowa/growa pozostaje odrębna.
 - Ostatnia wykonana pełna suita: 210 testów generatora i 5 audytu, wszystkie przeszły. To wynik historyczny, nie zastępstwo za testy przyszłych zmian.
-- Maister: `development`, `phase_8`, zadanie `in_progress`; G7–G9 oczekują. W głównym planie pozostało 8 z 36 niezaznaczonych pozycji, lecz to nie miara czasu: dotyczą dużych etapów pełnych przebiegów i odbioru. Nie zamykać częściowych G3–G6 na podstawie liczby checkboxów.
+- Maister: `development`, `phase_8`, zadanie `in_progress`; G7–G9 oczekują. W głównym planie zaznaczono 11 z 36 pozycji (25 otwartych, stan 2026-10-06), lecz to nie miara czasu: dotyczą dużych etapów pełnych przebiegów i odbioru. Nie zamykać częściowych G3–G6 na podstawie liczby checkboxów.
 - Dostępne komendy publicznego CLI: `inspect-sources`, `build`, `explain`. `verify` i `export` są dopiero do wdrożenia. Nie ma jeszcze końcowych list ani zmiany działającej gry.
 
 ## 3. Granice pracy i źródeł

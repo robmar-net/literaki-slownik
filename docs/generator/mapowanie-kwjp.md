@@ -3,7 +3,7 @@
 ## TL;DR
 Pełne mapowanie lemma-all sprawdzono i niezależnie odtworzono.
 Dopasowanie strukturalne nie potwierdza sensu ani dopuszczalności w grze.
-Moduł links działa w build dla bezpośrednich form/leksemów; pełne powiązania konstrukcji nadal wymagają wykonania.
+Build wiąże formy, leksemy i bieżących kandydatów konstrukcji, a niezależna weryfikacja daje 0 braków. Etap links pozostaje pending, bo zbiór konstrukcji nie jest pełny.
 
 ## Key Decisions
 - NFC, zachowanie wielkości liter, lemma_base + identyczny POS; pełny lemma_id zostaje.
@@ -13,7 +13,8 @@ Moduł links działa w build dla bezpośrednich form/leksemów; pełne powiązan
 ## Open Questions / Risks
 - Zgodność napisu i POS nie dowodzi zgodności znaczenia. Listy nie zawierają flagi zgadywania taggera.
 - Nie ustalono szczegółowej semantyki części klas spoza SGJP; ich status pozostaje UNMATCHED, bez aliasu.
-- G5 pozostaje częściowa: bezpośrednie powiązania są zintegrowane, pełne relacje konstrukcji i odbiór pozostają przed nami.
+- G5 pozostaje częściowa: bramka links czeka na constructions=complete, a próbka jakości/odbiór należą do G6/G8.
+- Homograf konstrukcji (np. doń) dostaje NOT_IN_PUBLISHED_LIST zamiast statusu progowego; F segmentu może być zaniżone (miałem), nie korygujemy go.
 
 SGJP ma 34 klasy, KWJP lemma 39; 32 wspólne nazwy mają jawne mapowanie w `config/generator/pos-map.json`. Pozostałe KWJP `dig,interp,romandig,siebie,sym,xxs,xxx` pozostają niedopasowane. SGJP `cond,pacta` nie otrzymują wymyślonych aliasów.
 
@@ -43,3 +44,12 @@ Komenda build tworzy bezpośrednie powiązania wszystkich zaimportowanych jednos
 ## Całe formy konstrukcji
 
 Nowe relacje wskazują candidate_key przez FK tylko dla dopasowania całego napisu orth/orth_lc. Częstość korzenia nie przechodzi na konstrukcję; F nie jest powielane za homonimami lub śladami. Explain zachowuje zgodność wcześniejszych baz. Pełny etap links nadal wymaga pozostałych klas i odbioru.
+
+## Bramka kompletności i dostępność per słowo
+Build wczytuje `pos-map.json` z manifestu (wersja `pos-map-v1`, zapisana w raporcie). Mapowanie musi deklarować brak potwierdzenia sensu i brak podziału F. UNMATCHED ma powód: `NO_POS`, `POS_OUTSIDE_EXPLICIT_MAP` albo `NO_STRUCTURAL_CANDIDATE`. AMBIGUOUS nie wybiera sensu.
+
+`verify_link_completeness` niezależnie odtwarza w SQL oczekiwany zbiór krawędzi, w tym do `derivation_candidate`. Liczy braki, nadmiarowe krawędzie, jednostki bez powiązania i niespójne statusy. `reports/links.json` zawiera `stage_completion`. Etap links zostaje oznaczony complete tylko wtedy, gdy wszystkie liczniki wynoszą 0, a etap constructions jest complete. Dziś constructions jest pending, więc links też pozostaje pending, a build zwraca INCOMPLETE.
+
+`word_availability` pokazuje cele słowa (formy, konstrukcje, leksemy) osobno dla każdej listy i gatunku. Dostępne statusy to: OBSERVED z miarami; NOT_APPLICABLE dla bigramów; NOT_IN_PUBLISHED_LIST; ABSENT_OR_BELOW_PUBLICATION_THRESHOLD; UNMATCHED dla POS spoza mapy. NKJP ma jawny status UNAVAILABLE. Brak w liście nie oznacza zera.
+
+Pełny przebieg na kopii importu (`data/work/g5-20261005-225423`): 5 066 341 jednostek, 2 940 333 krawędzie, w tym 301 do kandydatów konstrukcji (+301 względem 2 940 032). Kandydatów konstrukcji jest 125 362, z czego 45 ma krawędź korpusową. Weryfikacja: 0 braków, 0 nadmiarów, 0 jednostek bez powiązania, 0 niespójności. Naruszenia FK: 0. Szczegóły w [przeglądzie G5](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/g5-links-completion-review.md).

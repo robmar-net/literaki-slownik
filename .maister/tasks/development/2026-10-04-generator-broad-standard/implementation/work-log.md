@@ -255,3 +255,36 @@ Użytkownik: „odlozmy ten ruch, zeby nie zanieczyscic losowymi danymi naszej b
 
 Nowe opisowe dowody czytnika odłożone przez użytkownika; obserwacje historyczne, brak nowych wejść. Pełny przegląd zatwierdzonego SGJP v21:7458520interpretacji/615pól/605etykiet,604ze znanym warunkiem; jedna bez mapowania dotyczy2rekordów ń z niezależną odmową. Pełna macierz semantyczna/ortograficzna i8/36 nadal otwarte; brak automatycznej akceptacji lub pominięcia odbioru.
 Wykonano istniejący skrypt qualifier-conditions na pełnym G2 readonly, bez nowych wejść. Zweryfikowano605/615/7458520, unmapped2 i zachowanie każdej odmowy BROAD w STANDARD. Istotne wyniki i hash raportu zapisane; pełny odtwarzalny raport w tmp. Zmiany dokumentacyjne/stanu; nie zmieniono kodu, konfiguracji kwalifikacji ani bazy. Poprzednie210+5 pozostają wynikami ostatniej zmiany kodu; nie powtarzano suity po dokumentach.
+
+## 2026-10-05T23:03:41Z — wznowienie: zakres techniczny bez decyzji (issue #1)
+
+Użytkownik wybrał zakres „tech”: G5/G6, G7 verify/export, inwentarz unresolved (część techniczna G3.4), pomiar pełnego buildu, poprawka runbooka. Executor z delegacją do task-group-implementer, sekwencyjnie. Baseline 210/210+5/5, preflight 14 źródeł ALLOWED. Pełny build pomiarowy `data/work/measure-20261005-223725-a` na HEAD 1704a40 uruchomiony w tle (`/usr/bin/time -l`).
+
+## 2026-10-05T23:03:41Z — G5 (task-group-implementer)
+
+PARTIAL. Zaznaczone 5.1–5.3: 7 nowych testów red→green (links 5, build 2), pos-map z manifestu z walidacją, powody UNMATCHED, krawędzie kandydatów konstrukcji, word_availability z jawnym UNAVAILABLE NKJP. 5.4 otwarte: bramka `links` czeka na constructions (G3/G4); przegląd próbki w G6/G8. Pełny przebieg: 5 066 341 jednostek, 2 940 333 krawędzie, 0 braków/nadmiarów/FK; hash links.json 49306c47…6d87. 217/217+5/5. Dowód: analysis/evidence/g5-links-completion-review.md. Decyzje bez wpływu na skład list (klasy KWJP bez odpowiednika w SGJP, status form równych konstrukcjom) odłożone do przedstawienia.
+Standardy: AGENTS.md, .maister/docs/INDEX.md; brak osobnych plików standardów.
+
+## 2026-10-06 — G3.4 (część techniczna): inwentarz `unresolved`
+
+- Dodano sondę `scripts/probe_unresolved_inventory.py` (tylko odczyt, deterministyczna; 2 przebiegi bajtowo identyczne, SHA 13497395…).
+- Raport: `analysis/evidence/unresolved-inventory.md/.json`.
+- Unia słów zależnych: BROAD 46 802, STANDARD 46 406. Dominują nazwy mieszkańców z przesiewu `-anin/-anka` (39 095 / 38 997, dolna granica) i adjp (7 556 / 7 269).
+- Rozstrzygalne decyzją właściciela bez nowych źródeł: adjp, `-by` spoza RJP, mieszkańcy z RJP, warstwa kwalifikatorów; mieszkańcy z przesiewu tylko decyzją klasową.
+- G3.4 pozostaje niezaznaczone: inwentarz nie zamyka decyzji. Do porównania z `reports/unresolved.json` pomiarowego buildu.
+
+## 2026-10-06 — Pomiar pełnego buildu (materiał do G8.1, krok niezaznaczony)
+
+- Katalog `data/work/measure-20261005-223725-a`, kod HEAD `1704a40`, Python 3.14, macOS. Komenda: `/usr/bin/time -l python3 -m literaki_slownik build --manifest config/generator/sources.json --run-dir <nowy> --json`, rc=0.
+- Czas 29 315 s (~8 h 9 min; user 6 309 s, sys 8 313 s), maks. RSS 1,64 GB, baza 22,3 GB (katalog 21 GiB).
+- Najdłuższe etapy diagnostyczne: decisions 9 487 s, filter_impact 5 031 s, quality_analyses 4 257 s, quality_words 3 056 s, logical_content 2 661 s, unresolved 2 265 s, coverage 2 058 s. Import: SGJP 71 s, KWJP 189 s.
+- Readiness INCOMPLETE (zgodnie z oczekiwaniem); etapy constructions/links/decisions/reports pozostają pending.
+- `unresolved.json`: słowa unresolved BROAD 3 508 109 / STANDARD 3 119 229, accept 0 – zgodne z inwentarzem G3.4 (stałe placeholdery).
+- Wniosek: pełny przebieg jest wykonalny lokalnie, ale ~8 h na przebieg; dwa niezależne przebiegi G8 to ~16 h. Etapy diagnostyczne są kandydatem do optymalizacji przed G8.
+
+## 2026-10-06 — Wstrzymanie prac na prośbę właściciela
+
+- G7 przerwane w trakcie (limit kwoty agenta). Częściowy kod (`run.code_identity`, `tests/release_helpers.py`, `tests/test_verify.py`, `tests/test_export.py`; brak `verify.py`/`export.py`) odłożony na gałąź `wip/g7-verify-export`, poza `main`.
+- Na `main`: G5 5.1–5.3, inwentarz G3.4, pomiar buildu; testy 217/217 + audit 5/5.
+- Stan planu: 11 z 36 kroków zaznaczonych, 25 otwartych. Faza Maister: phase_8 in_progress.
+- Wznowienie: dokończyć G7 z gałęzi WIP, potem G6; decyzje właściciela wg `analysis/evidence/unresolved-inventory.md` i `g5-links-completion-review.md`.

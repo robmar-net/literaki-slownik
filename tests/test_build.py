@@ -72,6 +72,42 @@ class BuildTests(unittest.TestCase):
             self.assertEqual(manifest['readiness'], 'INCOMPLETE')
             self.assertIn('diagnostic_links', load_json(run / 'reports/performance.json'))
 
+    def test_links_gate_records_verification_and_keeps_stage_pending_without_constructions(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p = self.corpus_manifest(directory)
+            run = Path(directory) / 'run'
+            result = build(p, run)
+            report = load_json(run / 'reports/links.json')
+            gate = report['stage_completion']
+            self.assertFalse(gate['complete'])
+            self.assertTrue(gate['blocking'][0].startswith('constructions=pending'))
+            self.assertEqual(gate['verification']['missing_edges'], 0)
+            self.assertEqual(gate['verification']['unexpected_edges'], 0)
+            self.assertEqual(report['lists']['corpus']['unmatched_by_pos'], {'subst': 1})
+            self.assertEqual(report['pos_map_version'], 'builtin-identity-shared-pos')
+            self.assertEqual(load_json(run / 'manifest.json')['stages']['links']['status'], 'pending')
+            self.assertEqual(result['readiness'], 'INCOMPLETE')
+
+    def test_build_uses_declared_pos_map(self):
+        import json
+        with tempfile.TemporaryDirectory() as directory:
+            p = self.corpus_manifest(directory)
+            manifest = load_json(p)
+            data = json.loads((Path(__file__).resolve().parents[1] / 'config/generator/pos-map.json').read_text(encoding='utf-8'))
+            data['confirmed_pairs'].pop('subst')
+            data['version'] = 'pos-map-test'
+            config = Path(directory) / 'pos-map.json'
+            config.write_text(json.dumps(data), encoding='utf-8')
+            manifest['configurations']['pos-map'] = {'path': config.name,
+                                                     'sha256': hashlib.sha256(config.read_bytes()).hexdigest()}
+            rewrite(p, manifest)
+            run = Path(directory) / 'run'
+            build(p, run)
+            report = load_json(run / 'reports/links.json')
+            self.assertEqual(report['pos_map_version'], 'pos-map-test')
+            self.assertEqual(report['lists']['corpus']['link_statuses'], {'UNMATCHED': 2})
+            self.assertEqual(report['stage_completion']['verification']['missing_edges'], 0)
+
     def test_links_failure_preserves_imports_and_candidate_traces(self):
         with tempfile.TemporaryDirectory() as directory:
             p = self.corpus_manifest(directory)
