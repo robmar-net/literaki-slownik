@@ -40,9 +40,9 @@ Pliki planu mają również historyczne dopiski. Przy wznowieniu czytać najnows
 - G3–G6 są częściowe: implementacja warstw ocen i konstrukcji, powiązania korpusowe, explain, raporty i deterministyczny dobór próbek. Polityka diagnostyczna v21 nie jest pełnym wydaniem.
 - Przegląd 605 etykiet wykazał 604 ze znanym warunkiem; jedna niemapowana dotyczy dwóch interpretacji `ń`, mających niezależne powody odrzucenia. Znany pojedynczy warunek nie oznacza pełnej kwalifikacji analizy.
 - Mechanika 70 źródłowych definicji hostów konstrukcji została sprawdzona; pełna kwalifikacja językowa/growa pozostaje odrębna.
-- Ostatnia wykonana pełna suita: 210 testów generatora i 5 audytu, wszystkie przeszły. To wynik historyczny, nie zastępstwo za testy przyszłych zmian.
-- Maister: `development`, `phase_8`, zadanie `in_progress`; G7–G9 oczekują. W głównym planie zaznaczono 11 z 36 pozycji (25 otwartych, stan 2026-10-06), lecz to nie miara czasu: dotyczą dużych etapów pełnych przebiegów i odbioru. Nie zamykać częściowych G3–G6 na podstawie liczby checkboxów.
-- Dostępne komendy publicznego CLI: `inspect-sources`, `build`, `explain`. `verify` i `export` są dopiero do wdrożenia. Nie ma jeszcze końcowych list ani zmiany działającej gry.
+- Ostatnia wykonana pełna suita: 247 testów generatora i 5 audytu, wszystkie przeszły (2026-10-08). To wynik historyczny, nie zastępstwo za testy przyszłych zmian.
+- Maister: `development`, `phase_8`, zadanie `in_progress`; G7 ukończone 2026-10-08, G8–G9 oczekują. W głównym planie zaznaczono 15 z 36 pozycji (21 otwartych, stan 2026-10-08), lecz to nie miara czasu: dotyczą dużych etapów pełnych przebiegów i odbioru. Nie zamykać częściowych G3–G6 na podstawie liczby checkboxów.
+- Dostępne komendy publicznego CLI: `inspect-sources`, `build`, `explain`, `verify`, `export` (opis: `docs/generator/cli.md`). Obecny build zawsze dostaje odmowę verify. Nie ma jeszcze końcowych list ani zmiany działającej gry.
 
 ## 3. Granice pracy i źródeł
 
@@ -62,7 +62,7 @@ Pliki planu mają również historyczne dopiski. Przy wznowieniu czytać najnows
 - [ ] **G3: dowody i pełna macierz.** Z zatwierdzonych danych wyprowadzić pozostałe przypadki, rozliczyć populacje, dowody i wpływ na całe słowa. Domknąć semantykę, fleksję/konstrukcje, ortografię i mapowanie KWJP. Zachować `unresolved` tam, gdzie brak rozstrzygnięcia; wskazać dokładnie brakującą informację i dlaczego jest potrzebna. Nie aktywować odłożonych opisów czytnika. Propozycje zmieniające skład lub kryteria przedstawić właścicielowi przed wdrożeniem.
 - [ ] **G4: pełna kwalifikacja i konstrukcje.** Zintegrować udokumentowane reguły, dziedziczenie ograniczeń, agregację jednej spójnej analizy i `STANDARD ⊆ BROAD`. Odrzucenie homonimu nie usuwa niezależnej poprawnej analizy. Pełna macierz musi odpowiadać konfiguracjom i testom.
 - [ ] **G5/G6: kompletne powiązania i diagnostyka.** Domknąć linki wszystkich kandydatów, statusy dostępności i niepewności, explain, wpływ filtrów i próbki jakości. Dobór próbki nie zastępuje jej rzeczywistego przeglądu.
-- [ ] **G7: verify/export.** Wdrożyć kontrolę K1–K10, związanie review i peer-run hashami, atomowy eksport do nowego celu, manifest, atrybucje i odmowę wydania niekompletnego wyniku. Sprawdzić awarie i ochronę wcześniejszych plików.
+- [x] **G7: verify/export.** Wdrożyć kontrolę K1–K10, związanie review i peer-run hashami, atomowy eksport do nowego celu, manifest, atrybucje i odmowę wydania niekompletnego wyniku. Sprawdzić awarie i ochronę wcześniejszych plików.
 - [ ] **G8: dwa pełne przebiegi.** Najpierw utrwalić użyty kod; potem dwa nowe katalogi na tych samych przypiętych wejściach. Porównać listy i kanoniczną treść, nie fizyczne bajty SQLite ani czasy. Zmierzyć czas/RSS/rozmiar, wykonać explain i pełny przegląd próbki, odebrać K1–K10. Nierozstrzygnięcia wpływające na wymaganą kompletność blokują pełne wydanie.
 - [ ] **G9 i pozostałe fazy Maister.** Uzupełnić sprawdzony runbook wydania, dokumentację i przekazanie; zachować obowiązkową bramkę wyboru weryfikacji w fazie 10 i przeprowadzić wymagany odbiór. Commit/push wszystkich istotnych zmian na koniec.
 

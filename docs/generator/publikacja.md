@@ -4,7 +4,7 @@
 Przygotowano konkretne warianty licencji własnego kodu oraz dokumentacji i raportów.
 Warunki SGJP i KWJP zachowujemy oddzielnie, razem z pełną atrybucją i opisem zmian.
 Użytkownik zatwierdził A: BSD-2-Clause dla własnego kodu oraz CC BY 4.0 dla własnej dokumentacji i raportów.
-Gotowość list nadal zależy od pełnej kwalifikacji, dwóch odtworzeń i przeglądu.
+Gotowość list nadal zależy od pełnej kwalifikacji, dwóch odtworzeń i przeglądu. Verify/export (G7) opisuje sekcja na końcu.
 
 ## Key Decisions
 - Licencja projektu dotyczy tylko praw do naszych wkładów. Nie przypisuje nam praw do materiałów zewnętrznych ani nie zmienia warunków źródeł.
@@ -49,3 +49,29 @@ C: inne warunki wskazane przez użytkownika przed wdrożeniem licencji.
 Konieczność wyboru wynika z zatwierdzonego planu G7/7.2: „ustalić jawnie warunki kodu/dokumentacji/list/raportów (…) bez narzucania licencji”. Pytanie zadano podczas dalszej niezależnej implementacji; użytkownik odpowiedział A.
 
 2026-10-05T02:04:26.057030+00:00 — Zatwierdzone warunki wdrożono w repozytorium. Nie oznacza to ukończenia G7 ani wydania list.
+
+## Verify i export — wdrożenie G7
+
+`verify --run-dir A --peer-run B --review PLIK` sprawdza K1–K10 i niczego nie buduje ani nie poprawia. Każde wywołanie zapisuje nową próbę `A/verification/attempt-NNNN/`: `package-plan.json` (zawsze INCOMPLETE, I1), katalog `candidate/` z przyszłym pakietem i `verification.json` z wynikiem per K. Manifest przebiegu zmienia się tylko przy pełnym powodzeniu: dostaje readiness VERIFIED i pieczęć hashy. Przy odmowie kod wyjścia to 5, a JSON ma `status: refused`.
+
+| K | Co sprawdza verify |
+|---|---|
+| wszystkie | Każdy etap ma status complete. Running po awarii albo pending blokuje każde K (§9). |
+| K1 | Ponowny inspect-sources: wejścia, hashe i tryb. Fikstura (`mode: test`) nigdy nie przechodzi przez publiczne CLI. |
+| K2 | `import-counts.json` rozlicza dokładnie aktywne źródła i zgadza się z `expected_counts`. |
+| K3 | `lists/{broad,standard}.txt`: UTF-8 bez BOM, LF, klucze NFC/lower, unikalne i posortowane. Każda lista jest równa członkostwu accept w bazie, a STANDARD ⊆ BROAD. |
+| K4 | Raporty coverage/decisions/construction-candidates bez znaczników `*_pending`, wszystkie klasy źródła CLOSED, brak ocen pominiętych. |
+| K5 | Żadne nierozstrzygnięcie nie zmienia list. Pozostałe reguły muszą być w `known_limitations` z przypiętym dowodem braku wpływu. |
+| K6 | Bramka etapu links jest zamknięta i nic jej nie blokuje. |
+| K7 | Przegląd ma runtime explain dla accept, reject, unresolved, absent, rekonstrukcji, homonimów, odrzucenia przez profil i braku KWJP. Hash każdego wyniku zgadza się z bieżącym explain. |
+| K8 | Kod jest niezmieniony od build, z commitu i nie dirty. Canonical-index zgadza się z plikami, logical-content z bazą, integrity_check i FK są w porządku. Drugi, niezależny build z tych samych wejść ma identyczne pliki kanoniczne. Czasy, log i performance nie są porównywane. |
+| K9 | Przegląd jest związany hashami canonical-index i logical-content. Obejmuje każdą pozycję każdej próbki quality-v1, każda ma ocenę, przeglądającego i uzasadnienie źródłowe. Pozycja oznaczona jako wpływająca na listy lub linki blokuje werdykt. |
+| K10 | Dla `configurations.release` warunki code/documentation/lists/reports mają status DECLARED i przypięte pliki, jest jawna decyzja o dystrybucji bazy oraz atrybucje i ograniczenia. |
+
+Warunki pakietu zapisuje [config/generator/release.json](../../config/generator/release.json) według zatwierdzonego A. Lista known_limitations jest pusta: wpis wymaga decyzji właściciela i dowodu braku wpływu.
+
+`export --run-dir A --output-dir NOWY` przyjmuje tylko przebieg VERIFIED. Najpierw sprawdza pieczęć: manifest przebiegu, wejścia, canonical-index wraz z plikami, bajty `build.sqlite`, plan i każdy plik kandydata. Każda zmiana po verify daje odmowę 5. Następnie kopiuje zweryfikowane bajty do `.NOWY.staging-*` obok celu, dopisuje `reports/verification.json` i `release-manifest.json` (hashe wszystkich plików poza nim samym), porównuje hashe i ustawia pliki tylko do odczytu. Na koniec przenosi staging przez rename bez zamiany (macOS `renamex_np`, Linux `renameat2`). Istniejący cel, nawet pusty i nawet powstały w trakcie, nie zostaje nadpisany. Po awarii zostaje oznaczony staging, a przebieg pozostaje VERIFIED i można ponowić export do nowego celu. Po sukcesie przebieg ma status FROZEN, baza jest tylko do odczytu, a każda zmiana etapu, ponowne verify lub export kończy się odmową.
+
+Pakiet zawiera: `LL-PL-BROAD.txt`, `LL-PL-STANDARD.txt`, kanoniczne raporty z `canonical-index.json`, `reports/verification.json`, `ATTRIBUTIONS.md` (wszystkie użyte źródła i atrybucje projektu), `LIMITATIONS.md`, `TERMS.md` i `release-manifest.json`. Baza nie jest plikiem pakietu. Wiążą ją hash logical-content i hash pliku w archiwum przebiegu.
+
+Stan na 2026-10-07: dzisiejszy build nie zapisuje list, a etapy constructions/decisions/reports zostają pending, więc verify prawdziwego przebiegu zawsze odmawia. Mechanikę VERIFIED → FROZEN sprawdzają testy na fiksturze (`tests/test_verify.py`, `tests/test_export.py`, `tests/test_lifecycle.py`). Pierwszy prawdziwy odbiór to G8.

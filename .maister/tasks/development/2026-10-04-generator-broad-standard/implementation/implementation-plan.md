@@ -128,12 +128,14 @@ Zależności: G4/G5. Pliki: `literaki_slownik/{explain,reports,quality}.py`, `te
 
 ### G7 — verify, plan pakietu i export
 
+Wdrożone 2026-10-07: verify K1–K10, kandydat i plan przed werdyktem, pieczęć hashy, export przez staging i rename bez zamiany, odmowy po verify/FROZEN; 31 testów G7 (24 z gałęzi WIP + 5 lifecycle + zaostrzona asercja K7 + pominięcie przejść bazy nieukończonego przebiegu), mutacje 15/15 czerwone. Warunki pakietu: `config/generator/release.json` (A). Odbiór prawdziwego przebiegu to G8; dzisiejszy build zawsze dostaje odmowę.
+
 Zależności: G1–G6. Pliki: `literaki_slownik/{verify,export}.py`, `tests/{test_verify,test_export,test_lifecycle}.py`, `docs/generator/publikacja.md`, konfiguracja warunków pakietu. K1–K10; R08/R10/R11.
 
-- [ ] 7.1 Test-first: niekompletny etap/macierze/review, niewłaściwe hashe, fikstura produkcyjna, niespójna baza, zmieniony kod/wejścia, peer-run różniący się treścią lub tylko czasem, nieznane nierozstrzygnięcia i każda brakująca pozycja K.
-- [ ] 7.2 Wdrożyć verify K1–K10 oraz review/peer-run związane hashami; I1 plan pakietu/candidate przygotowany przed verdict; ustalić jawnie warunki kodu/dokumentacji/list/raportów i ewentualnej dystrybucji bazy, bez narzucania licencji.
-- [ ] 7.3 Test-first i export: staging w tym samym systemie plików, nowy cel bez nadpisania/wyścigu, hashe zweryfikowanych bajtów, manifest bez rekursji, atrybucje/ograniczenia, FROZEN i odczyt bez zmiany danych językowych.
-- [ ] 7.4 Green i dwa małe przepływy lifecycle; awarie na granicach etapów/transakcji/eksportu, zachowanie wcześniejszych plików, odmowa zmian po verify. Fixture testuje mechanikę wewnętrzną, publiczne CLI nie omija wymogu produkcyjnych źródeł.
+- [x] 7.1 Test-first: niekompletny etap/macierze/review, niewłaściwe hashe, fikstura produkcyjna, niespójna baza, zmieniony kod/wejścia, peer-run różniący się treścią lub tylko czasem, nieznane nierozstrzygnięcia i każda brakująca pozycja K.
+- [x] 7.2 Wdrożyć verify K1–K10 oraz review/peer-run związane hashami; I1 plan pakietu/candidate przygotowany przed verdict; ustalić jawnie warunki kodu/dokumentacji/list/raportów i ewentualnej dystrybucji bazy, bez narzucania licencji.
+- [x] 7.3 Test-first i export: staging w tym samym systemie plików, nowy cel bez nadpisania/wyścigu, hashe zweryfikowanych bajtów, manifest bez rekursji, atrybucje/ograniczenia, FROZEN i odczyt bez zmiany danych językowych.
+- [x] 7.4 Green i dwa małe przepływy lifecycle; awarie na granicach etapów/transakcji/eksportu, zachowanie wcześniejszych plików, odmowa zmian po verify. Fixture testuje mechanikę wewnętrzną, publiczne CLI nie omija wymogu produkcyjnych źródeł.
 
 ### G8 — pełne odtworzenia i odbiór źródłowy
 

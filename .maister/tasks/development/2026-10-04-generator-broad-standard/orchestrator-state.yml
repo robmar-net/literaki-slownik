@@ -1307,8 +1307,11 @@
         "remaining": "Full matrix/source quality review, final decisions/derivations explain, complete canonical coverage and lists; G7 verification binding"
       },
       "G7": {
-        "status": "pending",
-        "attempts": 0
+        "status": "completed",
+        "attempts": 2,
+        "completed_at": "2026-10-08",
+        "tests": "247/247 + audit 5/5; G7 31 tests (verify, export, lifecycle); mutations 15/15 red; real build verify REFUSED rc=5 0.34s",
+        "remaining": "Real acceptance in G8; release conditions (release.json, table A) to confirm with owner"
       },
       "G8": {
         "status": "pending",

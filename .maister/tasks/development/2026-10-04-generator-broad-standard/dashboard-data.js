@@ -13,7 +13,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "development",
     "path": ".maister/tasks/development/2026-10-04-generator-broad-standard",
-    "current_activity": "Nowe opisowe dowody odłożone; pełny przegląd kwalifikatorów v21 ukończony"
+    "current_activity": "G7 verify/export ukończone (2026-10-08); dalej G6 i decyzje G3/G4"
   },
   "characteristics": {
     "has_reproducible_defect": false,

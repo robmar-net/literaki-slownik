@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "kind": "literaki-release-conditions",
+  "package_id": "LL-PL",
+  "conditions": {
+    "code": {
+      "status": "DECLARED",
+      "terms": "Własny kod, skrypty, testy i konfiguracje: BSD-2-Clause.",
+      "basis": "Decyzja właściciela A z 2026-10-05; docs/generator/publikacja.md",
+      "files": [
+        {
+          "path": "../../LICENSE",
+          "sha256": "1f023bebe5494043cecc6d8c56fbdd309e857041f2ae6f41fec57f215e45a79d"
+        }
+      ]
+    },
+    "documentation": {
+      "status": "DECLARED",
+      "terms": "Własna dokumentacja: CC BY 4.0; obce oryginały zachowują własne warunki.",
+      "basis": "Decyzja właściciela A z 2026-10-05; docs/generator/publikacja.md",
+      "files": [
+        {
+          "path": "../../LICENSE-DOCS.md",
+          "sha256": "e373f9b6d624b72fff828f27539bb731a7e262c5423450ce1d50ccb48b7c643e"
+        }
+      ]
+    },
+    "lists": {
+      "status": "DECLARED",
+      "terms": "Listy pochodzą z tekstowego eksportu SGJP i zachowują jego warunki BSD-2-Clause z pełną atrybucją; projekt nie deklaruje wyłącznej własności zbioru, a zakres zmian opisują raporty pakietu.",
+      "basis": "Decyzja właściciela A z 2026-10-05; docs/generator/publikacja.md",
+      "files": [
+        {
+          "path": "../../ATTRIBUTIONS.md",
+          "sha256": "edc573804a2946ae31fd81fa21f892225af544c4ee869604d33510f0e98b300e"
+        }
+      ]
+    },
+    "reports": {
+      "status": "DECLARED",
+      "terms": "Własne raporty: CC BY 4.0; dane i miary KWJP w raportach zachowują źródłowe CC BY 4.0 z atrybucją i opisem zmian.",
+      "basis": "Decyzja właściciela A z 2026-10-05; docs/generator/publikacja.md",
+      "files": [
+        {
+          "path": "../../LICENSE-DOCS.md",
+          "sha256": "e373f9b6d624b72fff828f27539bb731a7e262c5423450ce1d50ccb48b7c643e"
+        },
+        {
+          "path": "../../ATTRIBUTIONS.md",
+          "sha256": "edc573804a2946ae31fd81fa21f892225af544c4ee869604d33510f0e98b300e"
+        }
+      ]
+    },
+    "database": {
+      "distributed": false,
+      "status": "NOT_DISTRIBUTED",
+      "note": "Baza przebiegu pozostaje w archiwum przebiegu; pakiet wiąże ją hashem logical-content i hashem pliku."
+    }
+  },
+  "attributions": {
+    "path": "../../ATTRIBUTIONS.md",
+    "sha256": "edc573804a2946ae31fd81fa21f892225af544c4ee869604d33510f0e98b300e"
+  },
+  "limitations": [
+    "Brak NKJP: źródło zablokowane (N1); KWJP nie jest filtrem dopuszczalności.",
+    "Pakiet nie jest wdrożony do gry i nie zmienia reguł gry."
+  ],
+  "known_limitations": []
+}

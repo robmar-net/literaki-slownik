@@ -288,3 +288,11 @@ Standardy: AGENTS.md, .maister/docs/INDEX.md; brak osobnych plików standardów.
 - Na `main`: G5 5.1–5.3, inwentarz G3.4, pomiar buildu; testy 217/217 + audit 5/5.
 - Stan planu: 11 z 36 kroków zaznaczonych, 25 otwartych. Faza Maister: phase_8 in_progress.
 - Wznowienie: dokończyć G7 z gałęzi WIP, potem G6; decyzje właściciela wg `analysis/evidence/unresolved-inventory.md` i `g5-links-completion-review.md`.
+
+## 2026-10-07/08 — G7 verify/export ukończone
+
+- Wznowione z `wip/g7-verify-export`. Nowe `literaki_slownik/verify.py` (K1–K10, kandydat `verification/attempt-NNNN/candidate` i `package-plan.json` INCOMPLETE przed werdyktem, pieczęć hashy w manifeście) i `literaki_slownik/export.py` (staging obok celu, kopia zweryfikowanych bajtów, `release-manifest.json`, pliki 0444, rename bez zamiany: `renamex_np`/`renameat2`, odmowa po FROZEN i przy istniejącym celu). CLI `verify`/`export`, kod 5 dla odmowy; `set_stage` odmawia po VERIFIED/FROZEN.
+- Warunki pakietu: `config/generator/release.json` wyprowadzone z zatwierdzonej tabeli A (`docs/generator/publikacja.md`); baza NOT_DISTRIBUTED. Do potwierdzenia przez właściciela przy G8.
+- Testy: 247/247 + audit 5/5. G7: 31 testów (verify, export, lifecycle: przerwany build, awaria w staging, stan running). Mutacje 15/15 czerwone, pliki przywrócone (`cmp`).
+- Prawdziwy build `data/work/measure-20261005-223725-a`: pierwsza próba verify czytała całą bazę 21 GB (`integrity_check` + logical-content) ponad 1 h mimo nieukończonego przebiegu; przerwana. Poprawka: przy nieukończonym przebiegu verify pomija przejścia bazy (notatka w K8), a ten sam katalog peer jest odrzucany przed nimi. Wynik po poprawce: REFUSED, rc=5, 0,34 s, RSS 33 MB; każde K z czytelnym powodem (etapy pending, brak list, PENDING_FULL_MATRIX, unresolved, brak review i tożsamości kodu, peer = ten sam katalog, build sprzed `configurations.release`).
+- Koszt dla G8: odbiór ukończonego przebiegu czyta całą bazę dla run i peer (szacunek >1 h na bazę, ~2700 s samego logical-content w buildzie). Do uwzględnienia w budżecie czasu G8.

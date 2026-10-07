@@ -1,7 +1,7 @@
 # CLI generatora — bieżący stan
 
 ## TL;DR
-Działają inspect-sources, build importu i diagnostyczne explain. Pełny generator nadal jest w implementacji.
+Działają inspect-sources, build importu, diagnostyczne explain oraz verify/export (G7). Pełny generator nadal jest w implementacji.
 Explain czyta bazę bez zmian i pokazuje wszystkie źródłowe interpretacje.
 Nieaktywna polityka językowa daje unresolved; diagnostyka nie nadaje końcowego członkostwa w liście.
 
@@ -11,7 +11,7 @@ Nieaktywna polityka językowa daje unresolved; diagnostyka nie nadaje końcowego
 - Oryginał, język, reguły gry, profil i końcowa lista są rozdzielone. Korpus nie dopuszcza słowa do gry.
 
 ## Open Questions / Risks
-- Konstrukcje i pełna polityka wymagają domknięcia G3/G4. Verify/export oraz pełny odbiór nie są jeszcze gotowe.
+- Konstrukcje i pełna polityka wymagają domknięcia G3/G4. Verify/export działają, ale dzisiejszy build zawsze dostaje odmowę: etapy constructions/decisions/reports pozostają pending, a listy nie powstają.
 - Bieżące explain ocenia źródłowe interpretacje oraz odtwarza kandydatów dwóch potwierdzonych klas. Brak w imporcie SGJP nie jest oceną wszystkich możliwych konstrukcji.
 - Brak powiązań w starszej bazie nie oznacza braku korpusowego ani F=0.
 
@@ -23,7 +23,11 @@ python3 -m literaki_slownik inspect-sources --manifest config/generator/sources.
 python3 -m literaki_slownik build --manifest config/generator/sources.json --run-dir data/work/import-new --json
 python3 -m literaki_slownik explain --run-dir data/work/import-new --word PCV
 python3 -m literaki_slownik explain --run-dir data/work/import-new --word DNA --variant broad --json
+python3 -m literaki_slownik verify --run-dir data/work/run-a --peer-run data/work/run-b --review sciezka/quality-review.json --json
+python3 -m literaki_slownik export --run-dir data/work/run-a --output-dir data/work/pakiet-nowy --json
 ```
+
+Verify i export opisuje [publikacja.md](publikacja.md#verify-i-export--wdrożenie-g7).
 
 Build odmawia istniejącego katalogu. Aktualnie wykonuje preflight i importy; pozostawia INCOMPLETE oraz jawnie pending dla dalszych etapów. Użyj nowego katalogu przy ponowieniu. Nie modyfikuj historycznego audytu.
 
@@ -44,7 +48,7 @@ Jeżeli baza ma relacje evidence_link/evidence_candidate, explain pokazuje powi�
 
 ## Kody i kontrola
 
-JSON: jeden obiekt UTF-8 na stdout, błędy na stderr. Kod 0 oznacza poprawną diagnostykę także dla reject/unresolved/absent. Kod 2: błędne argumenty/schemat, 3: niedopuszczone wejście/hash, 4: błąd operacyjny/odczytu, 130: przerwanie. Kody wydania 5 zostają w kontrakcie przyszłego verify/export; nie dodano obejścia wydania.
+JSON: jeden obiekt UTF-8 na stdout, błędy na stderr. Kod 0 oznacza poprawną diagnostykę także dla reject/unresolved/absent. Kod 2: błędne argumenty/schemat, 3: niedopuszczone wejście/hash, 4: błąd operacyjny/odczytu, 130: przerwanie. Kod 5: verify odmówił VERIFIED (JSON `status: refused`, wynik per K) albo export odmówił. Publiczne CLI nie ma obejścia ani trybu fikstury.
 
 ```sh
 python3 -m unittest discover -s tests -p 'test_*.py'

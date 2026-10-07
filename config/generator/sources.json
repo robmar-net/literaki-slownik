@@ -810,6 +810,10 @@
     "quality-words": {
       "path": "quality-words.json",
       "sha256": "49d8f4bc7decb10fc1a5573db9cfbb3fefd88306ed5c42b103d46a8a298b6003"
+    },
+    "release": {
+      "path": "release.json",
+      "sha256": "b4da009df2ea409e43a07d5d726c0c83128a8ffe851a96832c009497cfaee3d2"
     }
   },
   "unavailable": [
