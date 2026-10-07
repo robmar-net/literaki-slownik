@@ -296,3 +296,20 @@ Standardy: AGENTS.md, .maister/docs/INDEX.md; brak osobnych plików standardów.
 - Testy: 247/247 + audit 5/5. G7: 31 testów (verify, export, lifecycle: przerwany build, awaria w staging, stan running). Mutacje 15/15 czerwone, pliki przywrócone (`cmp`).
 - Prawdziwy build `data/work/measure-20261005-223725-a`: pierwsza próba verify czytała całą bazę 21 GB (`integrity_check` + logical-content) ponad 1 h mimo nieukończonego przebiegu; przerwana. Poprawka: przy nieukończonym przebiegu verify pomija przejścia bazy (notatka w K8), a ten sam katalog peer jest odrzucany przed nimi. Wynik po poprawce: REFUSED, rc=5, 0,34 s, RSS 33 MB; każde K z czytelnym powodem (etapy pending, brak list, PENDING_FULL_MATRIX, unresolved, brak review i tożsamości kodu, peer = ten sam katalog, build sprzed `configurations.release`).
 - Koszt dla G8: odbiór ukończonego przebiegu czyta całą bazę dla run i peer (szacunek >1 h na bazę, ~2700 s samego logical-content w buildzie). Do uwzględnienia w budżecie czasu G8.
+
+## 2026-10-08 — G3/G4 runda 1 decyzji właściciela
+
+- Decyzje (AskUserQuestion):
+  - Q: koniunkcja etykiet złożonych;
+  - adjp: dopuścić, ale oznaczyć do ewentualnego wycofania;
+  - `-by` (bodajby, niechby, kieby, jeźliby): dopuścić;
+  - R2: dosłowne przykłady RJP jako dowód klasy mieszkańca.
+- Szczegóły: `analysis/evidence/owner-decisions-round1-decision.md`.
+- Polityka v22:
+  - `MANDATORY_CAPITAL_2026_LEMMAS` +6 lematów;
+  - `game-adjp-graphic-word-v1` (`provisional: true`, przełącznik `ADJP_GAME_STATUS`);
+  - `orthography-sgjp-single-word-by-v1`;
+  - `coverage.json`: pending Q zamknięte, 4 wpisy confirmed; nowy pin w `sources.json`.
+- Testy: nowe 5 (red ImportError → green); pełna suita 252/252 + audit 5/5. Mutacje 4/4 czerwone, plik przywrócony.
+- Pomiar sondą (486 s, readonly): słowa zależne BROAD 46 802 → 39 172, STANDARD 46 406 → 39 064, unia 46 877 → 39 245. Pozostały R1, F, U/P.
+- G3/G4 nie zaznaczone: kolejne rundy (F, U/P, R1, pending macierzy klas).

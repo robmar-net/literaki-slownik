@@ -43,6 +43,11 @@ RJP_JOINED_BY = frozenset({'aby', 'ażeby', 'byleby', 'chociażby', 'choćby', '
                            'gdzieżby', 'iżby', 'jakby', 'jakoby', 'jakżeby', 'niby', 'niżby',
                            'żeby', 'oby'})
 CODED_BY = frozenset({'jeśliby', 'jeżeliby'})
+# Runda 1 decyzji właściciela (2026-10-08, owner-decisions-round1-decision.md):
+# kategorie rozstrzygnięte regułą polityki v22 nie są już niewiadomą.
+OWNER_RESOLVED = frozenset({'adjp', 'conjunction_by_outside_rjp_list', 'qualifier_registry_semantics'})
+# Bawarka (kulin., napój) nie jest nazwą mieszkanki; decyzja R2.
+NOT_RESIDENT = frozenset({'bawarka'})
 BY_CLASSES = frozenset({'comp', 'conj', 'part', 'qub', 'adv'})
 
 CATEGORIES = (
@@ -151,6 +156,10 @@ def main():
             cats |= 1 << CAT_INDEX['documented_use_remainder']
         if src['qualifiers']:
             cats |= QUAL_BIT
+        if lemma_base in NOT_RESIDENT:
+            cats &= ~(1 << CAT_INDEX['resident_rjp_examples'])
+        for name in OWNER_RESOLVED:
+            cats &= ~(1 << CAT_INDEX[name])
         return cats
 
     def record(assessed, src, tag, cls, remainder, compact_id, identity):

@@ -27,7 +27,11 @@
     "two_exact_documented_surname_components_hash_bound",
     "closed_70_mobile_source_host_definitions_exactly_registered_and_exercised",
     "295_mixed_name_records_independent_capital_rejection",
-    "two_unmapped_preposition_n_records_independent_bound_and_length_rejection"
+    "two_unmapped_preposition_n_records_independent_bound_and_length_rejection",
+    "compound_qualifier_conjunction_user_approved",
+    "rjp_literal_resident_examples_capital_user_approved",
+    "adjp_graphic_word_provisional_user_approved",
+    "by_single_word_sgjp_user_approved"
   ],
   "full_source_compact_interpretations": 7458520,
   "observed_combinations": {
@@ -36,7 +40,6 @@
     "tag": 682
   },
   "pending": [
-    "all_compound_qualifier_semantics_and_variant_policy",
     "full_category_and_orthography_matrix",
     "documented_game_conditions_without_sjp_editorial_source_policy"
   ],

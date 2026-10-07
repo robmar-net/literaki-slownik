@@ -3,7 +3,7 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v21'
+VERSION = 'diagnostic-approved-conditions-v22'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -54,7 +54,12 @@ CONFIRMED_CONSTRUCTOR_RULES = frozenset({
 
 # Pełne identyfikatory rozdzielają mieszkańca od tanecznego homonimu m2.
 # Podzbiór dowodowy; nie rozpoznajemy mieszkańców po sufiksie ani samym m1.
-MANDATORY_CAPITAL_2026_LEMMAS = frozenset({'warszawianin','warszawiak','krakowiak:Sm1'})
+# Runda 1 (2026-10-08): dosłowne przykłady RJP §8.1.2 pkt 3 jako dowód klasy.
+MANDATORY_CAPITAL_2026_LEMMAS = frozenset({'warszawianin','warszawiak','krakowiak:Sm1',
+    'krakowianin','krakus','kresowianin','rzymianin','sądeczanin','zatorzanin'})
+
+# Decyzja warunkowa właściciela (runda 1): wycofanie to zmiana na 'reject' i nowy build.
+ADJP_GAME_STATUS = 'accept'
 
 
 RESIDENT_RELATION_SOURCES = {6309663: ('warszawiance', 'subst:sg:dat.loc:f'),
@@ -196,6 +201,14 @@ def source_game_checks(source, candidate=None):
         result.append({'rule_id':'game-abbreviation-v1', 'status':'reject',
                        'message':'Źródłowa analiza jest skrótem; nie utożsamiamy skrótu ze skrótowcem rzeczownikowym.',
                        'evidence':['config/generator/categories.json', 'docs/generator/ortografia.md']})
+    elif pos == 'adjp':
+        result.append({'rule_id':'game-adjp-graphic-word-v1', 'status':ADJP_GAME_STATUS,
+                       'provisional':True, 'source_class':pos,
+                       'message':'Forma przyimkowa (po polsku) jest osobnym wyrazem graficznym według RJP §4.4; '
+                                 'dopuszczona warunkowo decyzją właściciela, oznaczona do ewentualnego wycofania.'
+                                 if ADJP_GAME_STATUS=='accept' else
+                                 'Forma przyimkowa wycofana decyzją właściciela jako niesamodzielny wyraz w grze.',
+                       'evidence':['.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/owner-decisions-round1-decision.md', 'https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf']})
     elif pos in BOUND_FORM_CLASSES or 'pisane_łącznie_z_przyimkiem' in source['qualifiers'].split('|'):
         result.append({'rule_id':'game-dependent-segment-v1', 'status':'reject',
                        'source_class':pos,
@@ -223,6 +236,8 @@ def release_scope_checks(candidate=None):
 
 # Dosłowne leksemy potwierdzone pełnym odczytem SGJP i poradą UŁ/RJP2026.
 ORTHOGRAPHY_2026_CONJUNCTIONS = frozenset({'jeśliby','jeżeliby'})
+# Runda 1: zapis łączny SGJP spoza otwartej listy RJP §4.5 pkt 1c (,,np.'').
+SGJP_SINGLE_WORD_BY = {'bodajby':'part','niechby':'part','kieby':'comp','jeźliby':'comp'}
 
 
 def orthography_checks(source, variant):
@@ -236,6 +251,10 @@ def orthography_checks(source, variant):
                  'message':'Źródłowy dawny zapis małoliterowy nie odpowiada normie2026 wymaganej w STANDARD.' if variant=='standard' else
                            'Udokumentowany dawny zapis niewykluczający językowo w BROAD; obowiązkowa wielka litera w grze oceniana osobno.'}]
     lemma = source['lemma_id']
+    if SGJP_SINGLE_WORD_BY.get(lemma) == source['raw_tag'] and source['original'] == lemma:
+        return [{'rule_id':'orthography-sgjp-single-word-by-v1','status':'accept','source_lemma_id':lemma,
+                 'message':'Zapis łączny według SGJP; otwarta lista RJP §4.5 pkt 1c go nie wyklucza (decyzja właściciela). Wiek i gra osobno.',
+                 'evidence':['.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/owner-decisions-round1-decision.md', 'https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf']}]
     if (lemma not in ORTHOGRAPHY_2026_CONJUNCTIONS or source['raw_tag'] != 'comp'
             or source['original'] != lemma):
         return []
