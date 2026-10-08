@@ -27,6 +27,8 @@ MOBILE_AGLT_HOSTS = {('albo', 'part'): 'nwok',
  ('azaliż', 'part'): 'wok',
  ('bo', 'comp'): 'nwok',
  ('bowiem', 'comp'): 'wok',
+ ('bodaj', 'part'): 'wok',
+ ('bogdaj', 'part'): 'wok',
  ('byle', 'comp'): 'nwok',
  ('chyba', 'part'): 'nwok',
  ('co', 'comp'): 'nwok',
@@ -179,6 +181,53 @@ def impt_double_particle_candidates(source):
                             'rule_id':'impt-double-particle-source-proof-v1','status':'accept',
                             'message':'Zamknięta źródłowa reguła impt_sg ze z? potwierdza całość; growe wyłączenie oceniane osobno.',
                             'evidence':['config/generator/constructions.json','morfeusz_segments:334-340']}})
+    return results
+
+
+PRED_PARTICLE_RULE = 'pred-particle-ze-v1'
+PRED_PARTICLE_HOSTS = frozenset({'trzeba', 'można'})
+NIE_DEGREE_RULE = 'nie-prefix-degree-v1'
+ZDS_DECISION = '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/zds-game-rules-decision.md'
+
+
+def pred_particle_candidates(source):
+    """ZDS §5: -że/-ż łącznie z czasownikami niewłaściwymi trzeba i można (trzebaż)."""
+    _validate_source(source)
+    if (source['raw_tag'] != 'pred' or source['original'] not in PRED_PARTICLE_HOSTS
+            or source['lemma_id'] != source['original']):
+        return []
+    particle = 'ż' if source['original'][-1] in VOWELS else 'że'
+    return [{'rule_id': PRED_PARTICLE_RULE, 'status': 'candidate_not_qualified',
+             'original': source['original'] + particle, 'lemma_id': source['lemma_id'], 'expanded_tag': 'pred',
+             'names': source['names'], 'qualifiers': source['qualifiers'],
+             'components': [{'kind': 'source_interpretation', 'interpretation': dict(source)},
+                            {'kind': 'grammatical_particle', 'original': particle, 'rule_id': PRED_PARTICLE_RULE}],
+             'evidence': [ZDS_DECISION]}]
+
+
+def nie_degree_candidates(source, exists):
+    """ZDS §5 i pisownia 2026: nie- łącznie z przymiotnikiem lub przysłówkiem w każdym stopniu.
+
+    Stopień równy tylko wtedy, gdy źródło nie ma już takiego napisu (SGJP zwykle ma przeczenia
+    w stopniu równym jako osobne hasła). Lematy na nie- pomijamy: mogą być już zaprzeczone.
+    """
+    _validate_source(source)
+    if source['raw_tag'].split(':', 1)[0] not in {'adj', 'adv'} or source['original'] != source['original'].lower():
+        return []
+    if source['lemma_id'].startswith('nie'):
+        return []
+    original = 'nie' + source['original']
+    results = []
+    for tag in expand_tag(source['raw_tag']):
+        degree = tag.split(':')[-1]
+        if degree not in {'pos', 'com', 'sup'} or (degree == 'pos' and exists(original)):
+            continue
+        results.append({'rule_id': NIE_DEGREE_RULE, 'status': 'candidate_not_qualified',
+                        'original': original, 'lemma_id': source['lemma_id'], 'expanded_tag': tag,
+                        'names': source['names'], 'qualifiers': source['qualifiers'],
+                        'components': [{'kind': 'grammatical_particle', 'original': 'nie', 'rule_id': NIE_DEGREE_RULE},
+                                       {'kind': 'source_interpretation', 'interpretation': dict(source)}],
+                        'evidence': [ZDS_DECISION, 'https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf']})
     return results
 
 
@@ -513,6 +562,14 @@ def materialize_confirmed_candidates(db, batch_size=10000):
         for pronoun in pronouns:
             for candidate in preposition_n_candidates(preposition, pronoun):
                 save(candidate)
+    # Runda 5 (ZDS §5): trzeba/można + że/ż oraz nie- w każdym stopniu.
+    for row in db.execute(select + " where i.tag='pred' and f.original in ('trzeba','można') order by i.source_id,i.first_row"):
+        for candidate in pred_particle_candidates(dict(zip(SOURCE_FIELDS,row))):
+            save(candidate)
+    exists = lambda original: db.execute('select 1 from surface_form where original=?', (original,)).fetchone() is not None
+    for row in db.execute(select + " where i.tag like 'adj:%' or i.tag like 'adv:%' order by i.source_id,i.first_row").fetchall():
+        for candidate in nie_degree_candidates(dict(zip(SOURCE_FIELDS,row)), exists):
+            save(candidate)
     import json
     hashes={sid:json.loads(metadata).get('sha256') for sid,metadata in db.execute('select source_id,metadata from source_artifact')}
     for row in db.execute(select + " where l.source_id='sgjp-20260823' and l.lemma_id in ('Angol','Jugol') order by i.source_id,i.first_row"):

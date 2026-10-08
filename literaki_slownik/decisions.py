@@ -1,4 +1,5 @@
 """Wszystkie warunki przy jednej analizie; agregacja dopiero po kwalifikacji."""
+import json
 from .inputs import GeneratorError
 from .policy import (assess_profile, spelling_checks, release_scope_checks,
                      approved_qualifier_checks, orthography_checks, construction_orthography_checks,
@@ -13,6 +14,22 @@ DOCUMENTARY_RULE_EVIDENCE = {
     'game-mandatory-capital-2026-v1':'87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e',
     'orthography-2026-resident-capital-v1':'87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e',
 }
+
+
+def nonfiction_frequencies(db, form=None):
+    """Runda 4: frekwencja form w tekstach nieliterackich KWJP (orth_lc, fakt + publicystyka).
+
+    Build bierze całą tabelę, explain jedną formę; obie ścieżki muszą dawać tę samą ocenę.
+    """
+    sources=[sid for sid,kind,metadata in db.execute('select source_id,kind,metadata from source_artifact')
+             if kind=='kwjp_orth_lc' and json.loads(metadata).get('genre') in {'fakt','publicystyka'}]
+    result={}
+    for sid in sources:
+        query,args=(('select unit_1,freq from corpus_evidence where source_id=?',(sid,)) if form is None else
+                    ('select unit_1,freq from corpus_evidence where source_id=? and unit_1=?',(sid,form)))
+        for unit,freq in db.execute(query,args):
+            result[unit]=result.get(unit,0)+freq
+    return result
 
 
 def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyses=(), candidate=None,
@@ -60,7 +77,7 @@ def lexical_use_checks(review, variant, *, policy_version=POLICY_VERSION):
         raise GeneratorError('Nieznany wariant słownika',2)
     if not review or 'lexical_proof' not in review:return []
     legacy = policy_version in {f'diagnostic-approved-conditions-v{v}' for v in range(16,21)}
-    if policy_version not in {POLICY_VERSION, 'approved-conditions-v24', 'approved-conditions-v25', *(f'diagnostic-approved-conditions-v{v}' for v in (21, 22, 23))} and not legacy:
+    if policy_version not in {POLICY_VERSION, 'approved-conditions-v24', 'approved-conditions-v25', 'approved-conditions-v26', *(f'diagnostic-approved-conditions-v{v}' for v in (21, 22, 23))} and not legacy:
         raise GeneratorError('Nieznana wersja dowodu leksykalnego użycia',4)
     message = ('Dodatni dowód leksykalny BROAD dokładnie udokumentowanego użycia; inne warunki osobno.'
                if variant=='broad' else 'Dowód BROAD nie rozstrzyga aktualnej kwalifikacji STANDARD.') if legacy else (
@@ -295,13 +312,7 @@ def materialize_assessments(db, batch_size=10000, *, use_reviews=()):
                    for sid,metadata in db.execute('select source_id,metadata from source_artifact')}
     if expected_marker and marker is None:
         db.execute('insert into source_artifact values (?,?,?)',(USE_REVIEW_ID,*expected_marker))
-    # Runda 4: współczesne użycie formy w tekstach nieliterackich KWJP (fakt + publicystyka).
-    nonfiction_sources=[sid for sid,kind,metadata in db.execute('select source_id,kind,metadata from source_artifact')
-                        if kind=='kwjp_orth_lc' and json.loads(metadata).get('genre') in {'fakt','publicystyka'}]
-    nonfiction={}
-    for sid in nonfiction_sources:
-        for form,freq in db.execute('select unit_1,freq from corpus_evidence where source_id=?',(sid,)):
-            nonfiction[form]=nonfiction.get(form,0)+freq
+    nonfiction=nonfiction_frequencies(db)
     query='''select i.id,i.source_id,i.first_row,f.original,l.lemma_id,i.tag,i.names,i.qualifiers
         from interpretation i join surface_form f on f.id=i.form_id join lexeme l on l.id=i.lexeme_id
         order by i.source_id,i.first_row'''

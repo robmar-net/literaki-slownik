@@ -1,10 +1,10 @@
-"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v26)."""
+"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v27)."""
 from functools import lru_cache
 import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'approved-conditions-v26'
+VERSION = 'approved-conditions-v27'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -67,9 +67,13 @@ ROUND4_DECISION = '.maister/tasks/development/2026-10-04-generator-broad-standar
 # odrzucamy jak brev. Zamknięta lista z przypiętego SGJP: lematy bez samogłoski oraz
 # bliźniaki form brev, po ręcznym oddzieleniu zwykłych słów (dom, ul, sen, gen, kat, cal…).
 ABBREVIATION_NOUN_LEMMAS = frozenset({
-    'abp', 'bhp', 'bmw', 'bp', 'ckm', 'dr', 'ftp', 'ha:S', 'kb', 'kbk', 'kbks', 'km', 'kmdr', 'kmdt',
+    'abc', 'abp', 'bhp', 'bmw', 'bp', 'ckm', 'dr', 'ftp', 'ha:S', 'kb', 'kbk', 'kbks', 'km', 'kmdr', 'kmdt',
     'lkm', 'm-c', 'mgr', 'mjr', 'nr', 'pkt', 'ppłk', 'płk', 'r-k', 'rh', 'rkm', 'scs', 'sms', 'tv',
     'vw', 'wc', 'wf', 'www'})
+# Runda 5: przykłady wyłączeń wymienione wprost w ZDS §1 i §5 (zasady gry, decyzja 2026-10-08).
+ZDS_DECISION = '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/zds-game-rules-decision.md'
+ZDS_NAMED_EXCLUSIONS = frozenset({'desa', 'pewex', 'cezal', 'com', 'edu', 'org', 'doc', 'rar', 'gamescom',
+                                  'spodeń', 'pozań', 'zzań'})
 # Runda 4: wyjątki R1 z przeglądu według frekwencji KWJP (nie-mieszkańcy).
 NON_RESIDENT_EXCEPTIONS_ROUND4 = frozenset({'powodzianin', 'targowiczanin'})
 NON_RESIDENT_FEMININE_EXCEPTIONS = frozenset({'sielanka', 'przytulanka', 'kijanka', 'markietanka'})
@@ -79,6 +83,8 @@ CONTEMPORARY_USE_MIN_NONFICTION = 30
 CONFIRMED_CONSTRUCTOR_RULES = frozenset({
     'documented-spelling-variant-v1', 'impt-single-particle-v1', 'impt-double-particle-v1', 'by-aglt-nwok-v1', 'preposition-n-source-v1',
     'mobile-by-host-aglt-v1', 'mobile-source-host-aglt-v1', 'mobile-host-by-sequence-v1', 'personal-host-aglt-v1',
+    # Runda 5 (ZDS §5).
+    'pred-particle-ze-v1', 'nie-prefix-degree-v1',
 })
 
 # Pełne identyfikatory rozdzielają mieszkańca od tanecznego homonimu m2.
@@ -228,6 +234,11 @@ def source_game_checks(source, candidate=None):
                              'Brak źródłowego oznaczenia nazwy własnej; inne warunki osobno.',
                    'evidence':['config/generator/categories.json', 'https://sgjp.pl/instrukcja/']})
     pos = source['raw_tag'].split(':',1)[0]
+    named = (candidate or source).get('original', '').lower()
+    if named in ZDS_NAMED_EXCLUSIONS:
+        result.append({'rule_id':'game-zds-named-exclusion-v1', 'status':'reject', 'zds_example':named,
+                       'message':'Przykład wyłączenia wymieniony wprost w ZDS (sklep, domena, format pliku albo niedozwolone -ń).',
+                       'evidence':[ZDS_DECISION, 'https://sjp.pl/sl/dp.phtml']})
     if candidate is not None:
         confirmed = candidate['rule_id'] in CONFIRMED_CONSTRUCTOR_RULES
         result.append({'rule_id':'game-construction-whole-unit-v1',
@@ -247,8 +258,8 @@ def source_game_checks(source, candidate=None):
         elif candidate['rule_id'] in {'mobile-source-host-aglt-v1','mobile-host-by-sequence-v1'}:
             host = candidate['components'][0]['interpretation']
             permitted = (candidate['rule_id']=='mobile-source-host-aglt-v1'
-                         and host['original']=='byle' and host['lemma_id'].split(':',1)[0]=='byle'
-                         and host['raw_tag']=='comp')
+                         and (host['original'],host['raw_tag']) in {('byle','comp'),('bodaj','part'),('bogdaj','part')}
+                         and host['lemma_id'].split(':',1)[0]==host['original'])
             result.append({'rule_id':'game-mobile-host-composition-v1',
                            'status':'accept' if permitted else 'reject',
                            'message':'Udokumentowany wyjątek byle + końcówka osobowa; pozostałe kryteria osobno.' if permitted else

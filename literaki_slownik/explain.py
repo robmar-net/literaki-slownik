@@ -5,12 +5,12 @@ import hashlib
 import sqlite3
 from .canonical import load_json, dumps
 from .database import connect
-from .decisions import assess_diagnostic as _assess, aggregate, persisted_assessments, VARIANTS
+from .decisions import assess_diagnostic as _assess, aggregate, persisted_assessments, nonfiction_frequencies, VARIANTS
 from .inputs import GeneratorError
 from .links import availability
 from .policy import assess_profile, VERSION
 from .sgjp import expand_tag, tag_errata
-from .constructions import impt_particle_candidates, impt_double_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, mobile_aglt_candidates, mobile_by_sequence_candidates, personal_aglt_candidates, spelling_variant_candidates, BY_AGLT_ENDINGS
+from .constructions import pred_particle_candidates, nie_degree_candidates, impt_particle_candidates, impt_double_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, mobile_aglt_candidates, mobile_by_sequence_candidates, personal_aglt_candidates, spelling_variant_candidates, BY_AGLT_ENDINGS
 
 
 def _construction_sources(db, key):
@@ -36,6 +36,11 @@ def _derivations(db, key):
     if suffix and len(key) > len(suffix):
         for source in _construction_sources(db, key[:-len(suffix)]):
             candidates.extend(impt_particle_candidates(source))
+            candidates.extend(pred_particle_candidates(source))
+    if key.startswith('nie') and len(key) > 3:
+        exists = lambda original: db.execute('select 1 from surface_form where original=?', (original,)).fetchone() is not None
+        for source in _construction_sources(db, key[3:]):
+            candidates.extend(nie_degree_candidates(source, exists))
     for ending in list(BY_AGLT_ENDINGS.values()) + ['e'+x for x in BY_AGLT_ENDINGS.values()]:
         if not key.endswith(ending) or len(key) <= len(ending):
             continue
@@ -69,7 +74,8 @@ def _derivations(db, key):
     for candidate in candidates:
         proof = candidate.get('linguistic_evidence')
         assessed = _assess(candidate['original'], candidate['qualifiers'], [proof] if proof else [],
-                           [c['interpretation'] for c in candidate['components'] if c['kind']=='source_interpretation'],candidate=candidate)
+                           [c['interpretation'] for c in candidate['components'] if c['kind']=='source_interpretation'],candidate=candidate,
+                           contemporary_frequency=nonfiction_frequencies(db, candidate['original'].lower()).get(candidate['original'].lower()))
         if assessed['game_key'] == key:
             candidate_key = hashlib.sha256(dumps(candidate).encode('utf-8')).hexdigest()
             present = stored and db.execute(
@@ -147,7 +153,9 @@ def explain(run_dir, word, variant='standard'):
                 if sid not in sources:
                     metadata = db.execute('select metadata from source_artifact where source_id=?', (sid,)).fetchone()[0]
                     sources[sid] = json.loads(metadata)
-                assessed = _assess(original, qualifiers, source_analyses=[dict(source_id=sid,first_source_row=row,source_sha256=sources[sid].get('sha256'),original=original,lemma_id=lemma,raw_tag=tag,names=names,qualifiers=qualifiers)])
+                current = nonfiction_frequencies(db, original.lower()).get(original.lower())
+                assessed = _assess(original, qualifiers, source_analyses=[dict(source_id=sid,first_source_row=row,source_sha256=sources[sid].get('sha256'),original=original,lemma_id=lemma,raw_tag=tag,names=names,qualifiers=qualifiers)],
+                                   contemporary_frequency=current)
                 analyses.append({'interpretation_id': iid, 'source_id': sid, 'first_source_row': row,
                                  'original': original, 'lemma_id': lemma, 'raw_tag': tag,
                                  'expanded_tags': list(expand_tag(tag)), 'names': names,
@@ -161,7 +169,8 @@ def explain(run_dir, word, variant='standard'):
                     source={k:analysis[k] for k in ('source_id','first_source_row','original','lemma_id','raw_tag','names','qualifiers')}
                     source['source_sha256']=sources[source['source_id']].get('sha256')
                     analysis['assessment']=_assess(source['original'],source['qualifiers'],
-                        source_analyses=[source],documented_condition_ids=[])
+                        source_analyses=[source],documented_condition_ids=[],
+                        contemporary_frequency=nonfiction_frequencies(db, source['original'].lower()).get(source['original'].lower()))
                     analysis['assessment_scope']='source_fields_without_use_specific_conditions'
             for candidate in derivations:
                 for component in candidate['components']:
