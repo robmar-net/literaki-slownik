@@ -14,4 +14,6 @@ Jeśli włączamy materiały w innych językach, zachowujemy ich oryginalną tre
 - Aktualna implementacja ma zatwierdzoną specyfikację i plan w `.maister/tasks/development/2026-10-04-generator-broad-standard/`. Nie oznaczamy pełnego wydania przy unresolved wpływających na listy; reguł gry nie zmieniamy.
 - Decyzje zmieniające skład słownika lub kryteria dopuszczalności omawiamy z użytkownikiem przed ich wdrożeniem: przedstawiamy przykłady, alternatywy i przewidywany wpływ. Nie przejmujemy automatycznie polityki redakcyjnej ani ograniczeń źródłowych SJP.pl.
 
+- Wiki projektu (https://github.com/robmar-net/literaki-slownik/wiki) opisuje dla odwiedzających rodzaje słowników, kryteria filtrowania, liczby i linki do pobrania. Każda praca, która zmienia kryteria, wersję list, źródła albo tworzy wydanie, aktualizuje też wiki według [runbooka wiki](docs/runbook-wiki.md). Praca bez aktualizacji wiki nie jest skończona.
+
 - Nie kontaktujemy się z innymi grupami w ramach tego projektu. Brakujących danych i dowodów szukamy samodzielnie w dopuszczonych źródłach; nie wysyłamy zapytań do ich autorów.

@@ -1,5 +1,7 @@
 # Literaki — słownik
 
+**[Wiki projektu](https://github.com/robmar-net/literaki-slownik/wiki)** opisuje w skrócie, jakie słowniki tworzymy, jak filtrujemy słowa i skąd je pobrać.
+
 Dopiero rozpoczynamy prace nad tym projektem. Na razie nie wiemy, co uda się osiągnąć — będziemy stopniowo sprawdzać możliwości i rozwijać pomysł.
 
 Pierwsze prace dotyczą audytu źródeł do słowników języka polskiego: SGJP dla Morfeusza, KWJP100 i unigramów NKJP. Audyt sprawdza pochodzenie, warunki użycia, formaty oraz możliwości zbudowania odtwarzalnego procesu. Nie jest jeszcze gotowym słownikiem.
