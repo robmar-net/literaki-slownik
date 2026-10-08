@@ -17,10 +17,11 @@ class DocumentedNamesTests(unittest.TestCase):
             a=assess_diagnostic(s['original'],'',source_analyses=[s])
             self.assertEqual(a['game']['status'],'reject')
             self.assertTrue(any(c['rule_id']==RULE for c in a['game']['checks']))
-            self.assertTrue(any(c['status']=='unresolved' for c in a['game']['checks']))
+            # Runda 3: brak zastępczych niewiadomych; odmowa nadal ma własną regułę.
+            self.assertFalse(any(c['status']=='unresolved' for c in a['game']['checks']))
             for v in ('broad','standard'):
                 self.assertEqual(a['membership'][v]['status'],'reject')
-                self.assertEqual(a['language'][v]['status'],'unresolved')
+                self.assertEqual(a['language'][v]['status'],'accept')
 
     def test_no_propagation_to_changed_source_or_homonym(self):
         s=source('de','de:F',1463128)
@@ -35,9 +36,9 @@ class DocumentedNamesTests(unittest.TestCase):
         noun=dict(s,first_source_row=1463129,lemma_id='de:S',
                   raw_tag='subst:sg:nom:n:ncol',names='nazwa_pospolita')
         a=assess_diagnostic('de','',source_analyses=[noun])
-        self.assertEqual(a['game']['status'],'unresolved')
+        self.assertEqual(a['game']['status'],'accept')
         frag=assess_diagnostic('de','',source_analyses=[s])
-        self.assertEqual(aggregate([frag,a],'standard')['status'],'unresolved')
+        self.assertEqual(aggregate([frag,a],'standard')['status'],'accept')
 
     def test_complete_construction_does_not_inherit_fragment_class(self):
         s=source('de','de:F',1463128)

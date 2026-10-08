@@ -18,10 +18,13 @@ DOCUMENTARY_RULE_EVIDENCE = {
 def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyses=(), candidate=None,
                       *, documented_condition_ids=None, lexical_use_review=None):
     """Wspólna ocena explain i zapisu; nie aktywuje nierozstrzygniętej polityki."""
-    pending=[{'rule_id':'linguistic-policy-not-active-v1','status':'unresolved',
-              'message':'Pełna polityka językowa G3/G4 nie jest jeszcze aktywna.','evidence':[]}]
-    game=[{'rule_id':'game-metadata-not-complete-v1','status':'unresolved',
-           'message':'Pozostałe udokumentowane warunki growe wymagają domknięcia.','evidence':[]}]
+    # Runda 3: polityka aktywna; zamknięta macierz klas i warunki gry z opublikowanych zasad.
+    pending=[{'rule_id':'linguistic-policy-active-v1','status':'accept',
+              'message':'Polityka językowa aktywna: zamknięta macierz klas i etykiet; pozostałe warunki osobno.',
+              'evidence':['.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/agent-decisions-round3-decision.md']}]
+    game=[{'rule_id':'game-documented-conditions-v1','status':'accept',
+           'message':'Opublikowane zasady Literaków: słowa słownikowe i ich formy, poza wielką literą, skrótami i łącznikiem; wyłączenia osobno.',
+           'evidence':['https://www.kurnik.pl/literaki/zasady.phtml','.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/agent-decisions-round3-decision.md']}]
     if candidate is not None:
         game+=source_game_checks(dict(raw_tag=candidate['expanded_tag'],names=candidate['names'],qualifiers=qualifiers),candidate=candidate)
     else:
@@ -56,7 +59,7 @@ def lexical_use_checks(review, variant, *, policy_version=POLICY_VERSION):
         raise GeneratorError('Nieznany wariant słownika',2)
     if not review or 'lexical_proof' not in review:return []
     legacy = policy_version in {f'diagnostic-approved-conditions-v{v}' for v in range(16,21)}
-    if policy_version not in {POLICY_VERSION, 'diagnostic-approved-conditions-v21', 'diagnostic-approved-conditions-v22'} and not legacy:
+    if policy_version not in {POLICY_VERSION, *(f'diagnostic-approved-conditions-v{v}' for v in (21, 22, 23))} and not legacy:
         raise GeneratorError('Nieznana wersja dowodu leksykalnego użycia',4)
     message = ('Dodatni dowód leksykalny BROAD dokładnie udokumentowanego użycia; inne warunki osobno.'
                if variant=='broad' else 'Dowód BROAD nie rozstrzyga aktualnej kwalifikacji STANDARD.') if legacy else (
@@ -337,7 +340,8 @@ def materialize_assessments(db, batch_size=10000, *, use_reviews=()):
             'source_compact_interpretations':compact_count,
             'source_rows':db.execute('select count(*) from sgjp_record').fetchone()[0],
             'analyses':actual_analyses,'variant_decisions':actual_decisions,
-            'new_analyses':new_analyses,'new_decisions':new_decisions,'full_qualification_pending':True}
+            'new_analyses':new_analyses,'new_decisions':new_decisions,
+            'full_qualification_pending':bool(db.execute("select 1 from variant_decision where membership_status='unresolved' limit 1").fetchone())}
 
 
 def persisted_assessments(db, key, variant):

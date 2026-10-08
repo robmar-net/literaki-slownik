@@ -65,7 +65,7 @@ class SpellingVariantsTests(unittest.TestCase):
                 rows=persisted_assessments(db,'angol',v)
                 self.assertEqual(len(rows),3)
                 variant=next(r for r in rows if r['candidate_key'])
-                self.assertEqual(variant['assessment']['membership']['status'],'unresolved')
+                self.assertEqual(variant['assessment']['membership']['status'],'accept')
                 self.assertFalse(any(c['rule_id']=='game-uppercase-v1' and c['status']=='reject' for c in variant['assessment']['game']['checks']))
                 self.assertTrue(all(r['assessment']['game']['status']=='reject' for r in rows if r['interpretation_id']))
             before=logical_content_report(db)

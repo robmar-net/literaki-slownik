@@ -21,6 +21,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SGJP = ('#</COPYRIGHT>\nkot\tkot\tsubst:sg:nom.acc:m2\t\t\n'
         'kotek\tkotek\tsubst:sg:nom:m2\t\t\n'
         'zamek\tzamek:a\tsubst:sg:nom:m3\t\t\nzamek\tzamek:b\tsubst:sg:nom:m3\t\t\n')
+# Nieznana etykieta daje prawdziwe unresolved: decisions pending, bez list (przebieg nieukończony).
+INCOMPLETE_SGJP = SGJP + 'kotka\tkotka\tsubst:sg:nom:f\t\tnieznane\n'
 EXPLAIN_CASES = (('accept', 'kot'), ('reject', 'kotek'), ('unresolved', 'zamek'),
                  ('absent', 'pies'), ('reconstruction', 'kot'), ('homonyms', 'zamek'),
                  ('profile_reject', 'k'), ('no_kwjp', 'kotek'))
@@ -56,13 +58,13 @@ def release_conditions(directory, *, lists_status='DECLARED', known=()):
     return config
 
 
-def fixture_inputs(directory, **conditions):
+def fixture_inputs(directory, *, sgjp=SGJP, **conditions):
     """Manifest test: SGJP, jedna lista KWJP, quality i warunki pakietu."""
     directory = Path(directory)
     path, manifest = fixture_manifest(directory)
     source = directory / 'source.gz'
     with gzip.open(source, 'wt', encoding='utf-8') as stream:
-        stream.write(SGJP)
+        stream.write(sgjp)
     manifest['artifacts'][0]['sha256'] = hashlib.sha256(source.read_bytes()).hexdigest()
     corpus = directory / 'lemma.csv.gz'
     with gzip.open(corpus, 'wt', encoding='utf-8') as stream:

@@ -17,7 +17,7 @@ class AgeBaselineTests(unittest.TestCase):
             self.assertNotIn('contemporary_confirmed',checks[0].values())
             result=assess_diagnostic('dom',labels)
             self.assertIn(RULE,[c['rule_id'] for c in result['language']['standard']['checks']])
-            self.assertEqual(result['membership']['standard']['status'],'unresolved')
+            self.assertEqual(result['membership']['standard']['status'],'accept')
         self.assertEqual(standard_age_baseline_checks('','broad'),[])
         with self.assertRaises(GeneratorError):standard_age_baseline_checks('','other')
 

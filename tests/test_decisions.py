@@ -42,7 +42,7 @@ class PersistedDecisionTests(unittest.TestCase):
                 self.assertEqual(first['variant_decisions'],16)
                 self.assertEqual(db.execute("select count(*) from analysis where expanded_tag in ('subst:sg:nom:m2','subst:sg:acc:m2')").fetchone()[0],2)
                 statuses=db.execute("select a.original,a.expanded_tag,d.game_status from analysis a join variant_decision d using(analysis_key) where d.variant='standard' and a.original in ('biało','jam') order by a.original,a.expanded_tag").fetchall()
-                self.assertEqual(statuses,[('biało','adja','reject'),('biało','adv:pos','unresolved'),('jam','aglt:sg:pri:imperf:nwok','reject'),('jam','subst:pl:gen:f','unresolved')])
+                self.assertEqual(statuses,[('biało','adja','reject'),('biało','adv:pos','accept'),('jam','aglt:sg:pri:imperf:nwok','reject'),('jam','subst:pl:gen:f','accept')])
                 before=logical_content_report(db)
                 second=materialize_assessments(db,batch_size=3)
                 self.assertEqual(second['new_analyses'],0)

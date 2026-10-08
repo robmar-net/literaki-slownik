@@ -330,3 +330,17 @@ Standardy: AGENTS.md, .maister/docs/INDEX.md; brak osobnych plików standardów.
 - Testy: 7 nowych (red → green), 4 odwrócone asercje pozostałości. 259/259 + audit 5/5. Mutacje 10/10 czerwone.
 - Pomiar sondą (581 s, readonly): słowa zależne od kategorii merytorycznej BROAD 39 172 → 0, STANDARD 39 064 → 0. Bilans odmowy + czyste = 5 056 983 w obu wariantach.
 - G3/G4 nadal niezaznaczone: pending `full_category_and_orthography_matrix` i `documented_game_conditions_without_sjp_editorial_source_policy`, aktywacja placeholderów, nowy pełny build.
+
+## 2026-10-08 — runda 3: decyzje agenta, aktywacja polityki (v24)
+
+- Właściciel przekazał pozostałe decyzje G3/G4 agentowi jako odwracalne. Szczegóły: `analysis/evidence/agent-decisions-round3-decision.md`.
+- Decyzje:
+  - warunki gry z zasad Literaków (kurnik.pl): wielka litera, skróty, łącznik lub apostrof;
+  - macierz 34 klas (`CLASS_MATRIX`);
+  - zamknięty zbiór konstruktorów;
+  - zastępcze unresolved zamienione na jawne reguły accept.
+- Aktywacja odsłoniła lukę: etykieta bez warunku przechodziła po cichu. Dodano `linguistic-unknown-qualifier-v1`.
+- Build domyka etapy i pisze `lists/{broad,standard}.txt`. Flagi `*_pending` i status indeksu kanonicznego są liczone z danych.
+- `coverage.json`: pending puste, 3 wpisy confirmed, `agent_decisions`; nowy pin w `sources.json`.
+- Testy: 6 nowych, około 35 asercji sprzed aktywacji odwróconych po sprawdzeniu każdej, fikstura nieukończona z prawdziwym unresolved. Wynik 265/265 + audit 5/5. Mutacje 6/6 czerwone.
+- Następny krok: pełny build na zacommitowanym kodzie (pomiar list, około 8 h).

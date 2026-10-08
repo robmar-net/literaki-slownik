@@ -1,9 +1,10 @@
-"""Potwierdzone warunki i profil; pełna polityka językowa nadal nieukończona."""
+"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v24)."""
+from functools import lru_cache
 import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v23'
+VERSION = 'approved-conditions-v24'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -47,6 +48,18 @@ KNOWN_NAME_LABELS = frozenset({
     'pseudonim', 'tytuł',
 })
 BOUND_FORM_CLASSES = frozenset({'adja', 'pacta', 'numcomp', 'aglt'})
+# Runda 3 (2026-10-08, decyzja agenta z upoważnienia właściciela): zamknięta macierz
+# 34 klas źródłowych SGJP. 'word' — wyraz oceniany dalej zwykłymi warunkami;
+# 'bound' — niesamodzielny segment (tylko w konstrukcji lub z łącznikiem);
+# 'abbreviation' — skrót. Nieznana klasa nie jest CLOSED i blokuje odbiór (K4).
+CLASS_MATRIX = {
+    **dict.fromkeys(('adj', 'adjc', 'adjp', 'adv', 'bedzie', 'comp', 'cond', 'conj', 'depr', 'fin',
+                     'frag', 'ger', 'imps', 'impt', 'inf', 'interj', 'num', 'pact', 'pant', 'part',
+                     'pcon', 'ppas', 'ppron12', 'ppron3', 'praet', 'pred', 'prep', 'subst', 'winien'),
+                    'word'),
+    **dict.fromkeys(BOUND_FORM_CLASSES, 'bound'),
+    'brev': 'abbreviation',
+}
 CONFIRMED_CONSTRUCTOR_RULES = frozenset({
     'documented-spelling-variant-v1', 'impt-single-particle-v1', 'impt-double-particle-v1', 'by-aglt-nwok-v1', 'preposition-n-source-v1',
     'mobile-by-host-aglt-v1', 'mobile-source-host-aglt-v1', 'mobile-host-by-sequence-v1', 'personal-host-aglt-v1',
@@ -338,12 +351,29 @@ def context_checks(qualifiers):
             for label in sorted(set(qualifiers.split('|')) & CONTEXT_REQUIREMENTS.keys())]
 
 
-def approved_qualifier_checks(qualifiers, variant):
-    """Zatwierdzone warunki kwalifikatorów; inne warstwy nadal osobno."""
+def _known_qualifier_checks(qualifiers, variant):
     return (history_checks(qualifiers, variant) + disrecommended_checks(qualifiers)
             + usage_checks(qualifiers) + incorrect_checks(qualifiers)
             + descriptive_checks(qualifiers) + context_checks(qualifiers)
             + unexplained_label_checks(qualifiers) + accent_gloss_checks(qualifiers))
+
+
+@lru_cache(maxsize=None)
+def _label_has_condition(label):
+    return any(_known_qualifier_checks(label, v) for v in ('broad', 'standard'))
+
+
+def approved_qualifier_checks(qualifiers, variant):
+    """Zatwierdzone warunki kwalifikatorów; inne warstwy nadal osobno.
+
+    Etykieta bez znanego warunku daje unresolved: po aktywacji polityki (runda 3)
+    nic jej już nie maskuje, a nowa etykieta źródła nie może przejść po cichu.
+    """
+    unknown = sorted(label for label in set(qualifiers.split('|')) - {''} if not _label_has_condition(label))
+    return (_known_qualifier_checks(qualifiers, variant)
+            + ([{'rule_id': 'linguistic-unknown-qualifier-v1', 'status': 'unresolved', 'unknown_labels': unknown,
+                 'message': 'Etykieta kwalifikatora bez zatwierdzonego warunku wymaga oceny.',
+                 'evidence': ['config/generator/qualifiers.json']}] if unknown else []))
 
 
 DESCRIPTIVE_LABELS = frozenset({

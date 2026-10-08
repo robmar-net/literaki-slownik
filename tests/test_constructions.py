@@ -257,8 +257,8 @@ class PersistedConstructionTests(unittest.TestCase):
             self.insert_sources(db)
             report = materialize_confirmed_candidates(db, batch_size=1)
             self.assertEqual(report['candidates'], 5)  # dwa homonimy × dwie klasy i by+m; wpis dajże zachowany
-            self.assertEqual(report['scope'], 'confirmed_subset_candidates_not_full_constructions')
-            self.assertTrue(report['full_constructions_pending'])
+            self.assertEqual(report['scope'], 'closed_first_release_constructor_set')
+            self.assertFalse(report['full_constructions_pending'])
             candidates = [json.loads(row[0]) for row in db.execute('select payload from derivation_candidate where original=?', ('dajże',))]
             self.assertEqual({c['lemma_id'] for c in candidates}, {'dać:S1','dać:S2'})
             self.assertEqual({c['qualifiers'] for c in candidates}, {'','niepopr.'})

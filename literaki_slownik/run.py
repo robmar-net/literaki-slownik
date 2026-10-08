@@ -52,7 +52,7 @@ def create_run(path, inputs):
 
 
 def set_stage(path, stage, status, details=None):
-    if stage not in STAGES or status not in {'running', 'complete', 'failed'}:
+    if stage not in STAGES or status not in {'pending', 'running', 'complete', 'failed'}:
         raise GeneratorError('Niepoprawny etap/status', 4)
     target = Path(path) / 'manifest.json'
     manifest = load_json(target)

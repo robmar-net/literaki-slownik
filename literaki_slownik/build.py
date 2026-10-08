@@ -71,6 +71,22 @@ def import_kwjp(db, artifact, batch_size):
     return {'records': count, 'sum_freq': sum_freq}
 
 
+def write_lists(db, run):
+    """Listy wydania: posortowane klucze z zaakceptowanym członkostwem (ta sama kwerenda co verify K3)."""
+    (run / 'lists').mkdir(exist_ok=True)
+    sizes = {}
+    for variant in ('broad', 'standard'):
+        keys = [row[0] for row in db.execute('''select distinct a.game_key from analysis a
+            join variant_decision d on d.analysis_key=a.analysis_key
+            where d.variant=? and d.membership_status='accept' order by a.game_key''', (variant,))]
+        sizes[variant] = keys
+        (run / 'lists' / f'{variant}.txt').write_bytes(''.join(k + '\n' for k in keys).encode('utf-8'))
+    outside = set(sizes['standard']) - set(sizes['broad'])
+    if outside:
+        raise GeneratorError(f'STANDARD nie jest podzbiorem BROAD: {len(outside)} słów', 4)
+    return {variant: len(keys) for variant, keys in sizes.items()}
+
+
 def build(manifest_path, run_dir, batch_size=10000):
     if type(batch_size) is not int or batch_size < 1 or batch_size > 10000:
         raise GeneratorError('Porcja musi mieć od 1 do 10 000 rekordów', 2)
@@ -107,14 +123,18 @@ def build(manifest_path, run_dir, batch_size=10000):
             write_json(run / 'reports/inventory.json', inventory)
             write_json(run / 'reports/qualifier-conditions.json',
                        qualifier_coverage(inventory['qualifiers'].items()))
-            # Potwierdzony podzbiór pozostaje diagnostyczny; status etapu nadal pending.
+            # Runda 3: zarejestrowany zbiór konstruktorów jest zamkniętym zakresem wydania.
             stage = 'constructions'
             start = time.monotonic()
+            set_stage(run, stage, 'running')
             construction_counts = materialize_confirmed_candidates(db, batch_size)
             performance['diagnostic_constructions'] = {'seconds': time.monotonic() - start}
             write_json(run / 'reports/construction-candidates.json', construction_counts)
+            if not construction_counts['full_constructions_pending']:
+                set_stage(run, stage, 'complete')
             stage='decisions'
             start=time.monotonic()
+            set_stage(run,stage,'running')
             use_reviews=[]
             use_reference=inputs['manifest']['configurations'].get('semantic-uses')
             if use_reference:
@@ -127,6 +147,11 @@ def build(manifest_path, run_dir, batch_size=10000):
             decision_counts=materialize_assessments(db,batch_size,use_reviews=use_reviews)
             performance['diagnostic_decisions']={'seconds':time.monotonic()-start}
             write_json(run/'reports/decisions.json',decision_counts)
+            if decision_counts['full_qualification_pending']:
+                set_stage(run,stage,'pending',{'reason':'nierozstrzygnięte członkostwo analiz'})
+            else:
+                write_lists(db,run)
+                set_stage(run,stage,'complete')
             # Powiązania bezpośrednie są niezależne od kwalifikacji językowej.
             # Pełny etap wymaga kompletnego zbioru konstrukcji i niezależnej kontroli krawędzi.
             stage = 'links'
@@ -150,6 +175,7 @@ def build(manifest_path, run_dir, batch_size=10000):
             performance['diagnostic_links'] = {'seconds': time.monotonic() - start}
             stage = 'reports'
             start = time.monotonic()
+            set_stage(run, stage, 'running')
             write_json(run / 'reports/unresolved.json', unresolved_report(db))
             performance['diagnostic_unresolved'] = {'seconds': time.monotonic() - start}
             start = time.monotonic()
@@ -177,8 +203,10 @@ def build(manifest_path, run_dir, batch_size=10000):
             write_json(run / 'reports/logical-content.json', logical_content_report(db))
             performance['diagnostic_logical_content'] = {'seconds': time.monotonic() - start}
             start = time.monotonic()
-            write_json(run / 'reports/coverage.json', coverage_report(db))
+            coverage = coverage_report(db)
+            write_json(run / 'reports/coverage.json', coverage)
             performance['diagnostic_coverage'] = {'seconds': time.monotonic() - start}
+            set_stage(run, stage, 'complete' if coverage['status'] == 'COMPLETE' else 'pending')
             # Potwierdzenie niezmienności całego kompletu wejść po odczycie.
             checked = inspect_sources(manifest_path)
             if checked['manifest_sha256'] != inputs['manifest_sha256']:

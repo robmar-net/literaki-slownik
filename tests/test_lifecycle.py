@@ -107,7 +107,10 @@ class LifecycleTests(unittest.TestCase):
                                 capture_output=True, text=True)
         self.assertEqual(result.returncode, 5, result.stderr)
         self.assertIn('Werdykt: REFUSED', result.stdout)
-        self.assertIn('K10: BLOKADA', result.stdout)
+        # Kompletny build fikstury: blokują tryb test (K1) i brak przeglądu (K7, K9).
+        self.assertIn('K1: BLOKADA', result.stdout)
+        self.assertIn('K9: BLOKADA', result.stdout)
+        self.assertIn('K3: OK', result.stdout)
         self.assertIn('blokady: K1', result.stderr)
 
 

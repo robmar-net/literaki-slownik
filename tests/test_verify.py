@@ -10,7 +10,7 @@ from literaki_slownik.build import build
 from literaki_slownik.canonical import load_json, write_json
 from literaki_slownik.inputs import GeneratorError
 from literaki_slownik.verify import verify, KS
-from tests.release_helpers import (complete_pair, complete_run, fixture_inputs, make_review,
+from tests.release_helpers import (INCOMPLETE_SGJP, complete_pair, complete_run, fixture_inputs, make_review,
                                    repin_release, tree_hashes)
 
 
@@ -46,7 +46,7 @@ class VerifyTests(unittest.TestCase):
         self.assertEqual(load_json(attempt / 'verification.json')['verdict'], 'VERIFIED')
 
     def test_incomplete_build_refused_with_reason_per_k_and_files_preserved(self):
-        manifest = fixture_inputs(self.directory)
+        manifest = fixture_inputs(self.directory, sgjp=INCOMPLETE_SGJP)
         run, peer = self.directory / 'a', self.directory / 'b'
         build(manifest, run)
         build(manifest, peer)
@@ -56,9 +56,9 @@ class VerifyTests(unittest.TestCase):
         for k in KS:
             self.assertEqual(report['checks'][k]['status'], 'fail', k)
             self.assertTrue(report['checks'][k]['reasons'], k)
-        self.assertIn('constructions', reasons(report, 'K4'))
-        self.assertIn('pending', reasons(report, 'K4'))
-        self.assertIn('links', reasons(report, 'K6'))
+        self.assertIn('decisions ma status pending', reasons(report, 'K4'))
+        self.assertIn('full_qualification_pending', reasons(report, 'K4'))
+        self.assertIn('nierozstrzygniętych', reasons(report, 'K5'))
         self.assertIn('lists/broad.txt', reasons(report, 'K3'))
         self.assertIn('przegląd', reasons(report, 'K9'))
         self.assertEqual(load_json(run / 'manifest.json')['readiness'], 'INCOMPLETE')
@@ -140,7 +140,7 @@ class VerifyTests(unittest.TestCase):
         self.assertEqual(walked, [1])
 
     def test_incomplete_run_refused_without_walking_database(self):
-        manifest = fixture_inputs(self.directory)
+        manifest = fixture_inputs(self.directory, sgjp=INCOMPLETE_SGJP)
         run, peer = self.directory / 'a', self.directory / 'b'
         build(manifest, run)
         build(manifest, peer)

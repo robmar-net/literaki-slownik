@@ -12,16 +12,20 @@ from literaki_slownik.inputs import GeneratorError
 
 
 class BuildTests(unittest.TestCase):
-    def test_diagnostic_decisions_written_with_full_reasons_without_activating_policy(self):
+    def test_activated_decisions_complete_stage_and_write_lists(self):
         with tempfile.TemporaryDirectory() as directory:
             p=self.manifest(directory,'#</COPYRIGHT>\nkot\tkot\tsubst:sg:nom.acc:m2\t\t\n')
             run=Path(directory)/'run';build(p,run)
             with connect(run/'build.sqlite',readonly=True) as db:
                 self.assertEqual(db.execute('select count(*) from analysis').fetchone()[0],2)
                 self.assertEqual(db.execute('select count(*) from variant_decision').fetchone()[0],4)
-                self.assertEqual(db.execute('select distinct membership_status from variant_decision').fetchall(),[('unresolved',)])
-            self.assertTrue(load_json(run/'reports/decisions.json')['full_qualification_pending'])
-            self.assertEqual(load_json(run/'manifest.json')['stages']['decisions']['status'],'pending')
+                self.assertEqual(db.execute('select distinct membership_status from variant_decision').fetchall(),[('accept',)])
+            self.assertFalse(load_json(run/'reports/decisions.json')['full_qualification_pending'])
+            self.assertEqual(load_json(run/'manifest.json')['stages']['decisions']['status'],'complete')
+            # Listy to klucze z zaakceptowanym członkostwem; readiness nadaje dopiero verify.
+            for variant in ('broad','standard'):
+                self.assertEqual((run/'lists'/f'{variant}.txt').read_bytes(),b'kot\n')
+            self.assertEqual(load_json(run/'manifest.json')['readiness'],'INCOMPLETE')
 
     def test_preposition_candidates_store_proof_and_unresolved_without_losing_homonym(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -66,26 +70,26 @@ class BuildTests(unittest.TestCase):
             self.assertEqual(report['lists']['corpus']['link_statuses'], {'AMBIGUOUS': 1, 'UNMATCHED': 1})
             self.assertEqual(report['unavailable'][0]['source_id'], 'NKJP')
             manifest = load_json(run / 'manifest.json')
-            # Dopóki konstrukcje nie są powiązane, pełny etap pozostaje pending.
-            self.assertEqual(manifest['stages']['links']['status'], 'pending')
-            self.assertIn('links', result['pending'])
+            # Zamknięty zbiór konstruktorów (runda 3) pozwala domknąć etap links.
+            self.assertEqual(manifest['stages']['links']['status'], 'complete')
+            self.assertNotIn('links', result['pending'])
             self.assertEqual(manifest['readiness'], 'INCOMPLETE')
             self.assertIn('diagnostic_links', load_json(run / 'reports/performance.json'))
 
-    def test_links_gate_records_verification_and_keeps_stage_pending_without_constructions(self):
+    def test_links_gate_records_verification_and_completes_with_closed_constructions(self):
         with tempfile.TemporaryDirectory() as directory:
             p = self.corpus_manifest(directory)
             run = Path(directory) / 'run'
             result = build(p, run)
             report = load_json(run / 'reports/links.json')
             gate = report['stage_completion']
-            self.assertFalse(gate['complete'])
-            self.assertTrue(gate['blocking'][0].startswith('constructions=pending'))
+            self.assertTrue(gate['complete'])
+            self.assertEqual(gate['blocking'], [])
             self.assertEqual(gate['verification']['missing_edges'], 0)
             self.assertEqual(gate['verification']['unexpected_edges'], 0)
             self.assertEqual(report['lists']['corpus']['unmatched_by_pos'], {'subst': 1})
             self.assertEqual(report['pos_map_version'], 'builtin-identity-shared-pos')
-            self.assertEqual(load_json(run / 'manifest.json')['stages']['links']['status'], 'pending')
+            self.assertEqual(load_json(run / 'manifest.json')['stages']['links']['status'], 'complete')
             self.assertEqual(result['readiness'], 'INCOMPLETE')
 
     def test_build_uses_declared_pos_map(self):
@@ -178,7 +182,7 @@ class BuildTests(unittest.TestCase):
             self.assertEqual(manifest['readiness'], 'INCOMPLETE')
             self.assertEqual(manifest['stages']['reports']['status'], 'pending')
 
-    def test_confirmed_candidates_materialized_without_completing_constructions(self):
+    def test_confirmed_candidates_materialized_and_constructions_complete(self):
         with tempfile.TemporaryDirectory() as directory:
             p = self.manifest(directory, '#</COPYRIGHT>\ndaj\tdać\timpt:sg:sec:perf\t\trzad.\nby\tby:T\tpart\t\t\nm\tbyć\taglt:sg:pri:imperf:nwok\t\t\n')
             run = Path(directory) / 'run'
@@ -189,9 +193,9 @@ class BuildTests(unittest.TestCase):
                 self.assertEqual(db.execute('pragma foreign_key_check').fetchall(), [])
             report = load_json(run / 'reports/construction-candidates.json')
             self.assertEqual(report['candidates'], 3)
-            self.assertTrue(report['full_constructions_pending'])
+            self.assertFalse(report['full_constructions_pending'])
             manifest = load_json(run / 'manifest.json')
-            self.assertEqual(manifest['stages']['constructions']['status'], 'pending')
+            self.assertEqual(manifest['stages']['constructions']['status'], 'complete')
             self.assertEqual(manifest['readiness'], 'INCOMPLETE')
 
     def test_construction_failure_marks_failed_and_preserves_import(self):

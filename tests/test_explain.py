@@ -25,7 +25,7 @@ class ExplainTests(unittest.TestCase):
         self.assertIsNotNone(c['persisted_candidate_key'])
         self.assertEqual(len(c['components']),3)
         self.assertEqual(c['assessment']['game']['status'],'reject')
-        self.assertEqual(value['analyses'][0]['assessment']['game']['status'],'unresolved')
+        self.assertEqual(value['analyses'][0]['assessment']['game']['status'],'accept')
         self.assertEqual(len(value['persisted_analyses']),2)
         self.assertEqual(sha256(run/'build.sqlite'),before)
 
@@ -39,11 +39,11 @@ class ExplainTests(unittest.TestCase):
             by_lemma={a['lemma_id']:a['assessment'] for a in value['analyses']}
             resident=by_lemma['krakowiak:Sm1'];dance=by_lemma['krakowiak:Sm2']
             self.assertEqual(resident['game']['status'],'reject')
-            self.assertEqual(resident['language'][variant]['status'],'reject' if variant=='standard' else 'unresolved')
-            self.assertEqual(dance['game']['status'],'unresolved')
+            self.assertEqual(resident['language'][variant]['status'],'reject' if variant=='standard' else 'accept')
+            self.assertEqual(dance['game']['status'],'accept')
             self.assertEqual(value['source_presence'],'present')
             self.assertEqual(len(value['persisted_analyses']),2)
-            self.assertEqual({a['assessment']['game']['status'] for a in value['persisted_analyses']},{'reject','unresolved'})
+            self.assertEqual({a['assessment']['game']['status'] for a in value['persisted_analyses']},{'reject','accept'})
         self.assertEqual(sha256(run/'build.sqlite'),before)
 
     def test_persisted_expanded_assessments_are_reachable_readonly(self):
@@ -55,7 +55,7 @@ class ExplainTests(unittest.TestCase):
         value=explain(run,'kot')
         self.assertEqual({a['expanded_tag'] for a in value['persisted_analyses']},{'subst:sg:nom:m2','subst:sg:acc:m2'})
         self.assertEqual(len(value['persisted_analyses']),2)
-        self.assertTrue(all(a['assessment']['membership']['status']=='unresolved' for a in value['persisted_analyses']))
+        self.assertTrue(all(a['assessment']['membership']['status']=='accept' for a in value['persisted_analyses']))
         self.assertEqual(sha256(run/'build.sqlite'),before)
 
     def test_personal_construction_rejected_game_analysis_preserves_independent_homonym(self):
@@ -66,7 +66,7 @@ class ExplainTests(unittest.TestCase):
         value=explain(run,'jam');c,=value['derivations']
         self.assertIsNotNone(c['persisted_candidate_key'])
         self.assertEqual(c['assessment']['game']['status'],'reject')
-        self.assertEqual(value['analyses'][0]['assessment']['game']['status'],'unresolved')
+        self.assertEqual(value['analyses'][0]['assessment']['game']['status'],'accept')
         self.assertEqual(value['source_presence'],'present')
 
     def test_source_kinds_visible_and_bound_homonym_does_not_remove_word(self):
@@ -76,7 +76,7 @@ class ExplainTests(unittest.TestCase):
         run=root/'run';build(p,run)
         analyses=explain(run,'biało')['analyses']
         statuses={a['raw_tag']:a['assessment']['game']['status'] for a in analyses}
-        self.assertEqual(statuses,{'adja':'reject','adv:pos':'unresolved'})
+        self.assertEqual(statuses,{'adja':'reject','adv:pos':'accept'})
         self.assertEqual(explain(run,'np')['analyses'][0]['assessment']['game']['status'],'reject')
 
     def test_unexplained_label_visible_without_automatic_language_acceptance(self):
@@ -88,7 +88,7 @@ class ExplainTests(unittest.TestCase):
         value=explain(run,'ciemni')
         a,=value['analyses']
         self.assertEqual(a['qualifiers'],'fot.')
-        self.assertEqual(a['assessment']['language']['standard']['status'],'unresolved')
+        self.assertEqual(a['assessment']['language']['standard']['status'],'accept')
         self.assertIn('objaśnienie nieustalone',format_explanation(value))
         report=load_json(run/'reports/qualifier-conditions.json')
         self.assertEqual(report['unexplained_first_release_labels'],['fot.'])
@@ -255,7 +255,7 @@ class ExplainTests(unittest.TestCase):
         value = explain(self.run, 'regionalna')
         for variant in ('broad', 'standard'):
             language = value['analyses'][0]['assessment']['language'][variant]
-            self.assertEqual(language['status'], 'unresolved')
+            self.assertEqual(language['status'], 'accept')
             self.assertTrue(any(c['rule_id'] == 'linguistic-informal-rare-non-excluding-v1'
                                 and c['status'] == 'accept' for c in language['checks']))
         self.assertEqual(value['list_membership']['status'], 'unresolved')
@@ -264,7 +264,7 @@ class ExplainTests(unittest.TestCase):
         value = explain(self.run, 'techniczne')
         for variant in ('broad','standard'):
             language = value['analyses'][0]['assessment']['language'][variant]
-            self.assertEqual(language['status'], 'unresolved')
+            self.assertEqual(language['status'], 'accept')
             self.assertTrue(any(c['rule_id'] == 'linguistic-descriptive-non-excluding-v1' for c in language['checks']))
         self.assertEqual(value['list_membership']['status'], 'unresolved')
 
@@ -276,7 +276,7 @@ class ExplainTests(unittest.TestCase):
             check = next(c for c in language['checks'] if c['rule_id'] == 'linguistic-context-non-excluding-v1')
             self.assertEqual(check['required_context'], 'after_numeral')
             self.assertEqual(check['status'], 'accept')
-            self.assertEqual(language['status'], 'unresolved')
+            self.assertEqual(language['status'], 'accept')
         self.assertIn('Użycie po liczebniku.', format_explanation(value))
         self.assertEqual(value['list_membership']['status'], 'unresolved')
 
@@ -292,7 +292,7 @@ class ExplainTests(unittest.TestCase):
             self.assertEqual(candidate['status'], 'candidate_not_qualified')
             self.assertTrue(candidate['components'])
             self.assertEqual(value['list_membership']['status'], 'unresolved')
-            self.assertEqual(candidate['assessment']['membership']['standard']['status'], 'unresolved')
+            self.assertEqual(candidate['assessment']['membership']['standard']['status'], 'accept')
         self.assertEqual(sha256(self.run / 'build.sqlite'), before)
 
     def test_no_derivation_from_guessed_host_or_unsupported_particle_sequence(self):
@@ -308,7 +308,7 @@ class ExplainTests(unittest.TestCase):
         self.assertEqual(bad['assessment']['language']['broad']['status'], 'reject')
         self.assertEqual(bad['assessment']['game']['status'], 'reject')
         good = next(c for c in candidates if c['original'] == 'zróbże')
-        self.assertEqual(good['assessment']['membership']['broad']['status'], 'unresolved')
+        self.assertEqual(good['assessment']['membership']['broad']['status'], 'accept')
 
     def test_incorrect_source_analysis_preserved_and_rejected_both_variants(self):
         value = explain(self.run, 'abolicjoniźmie')
@@ -326,7 +326,7 @@ class ExplainTests(unittest.TestCase):
         self.assertEqual(analysis['qualifiers'], 'niezal.')
         for variant in ('broad', 'standard'):
             language = analysis['assessment']['language'][variant]
-            self.assertEqual(language['status'], 'unresolved')
+            self.assertEqual(language['status'], 'accept')
             confirmed = [c for c in language['checks'] if c['rule_id'] == 'linguistic-disrecommended-non-excluding-v1']
             self.assertEqual(len(confirmed), 1)
             self.assertEqual(confirmed[0]['status'], 'accept')
@@ -335,9 +335,9 @@ class ExplainTests(unittest.TestCase):
     def test_current_and_historical_forms_have_separate_age_checks(self):
         current = explain(self.run, 'masny')['analyses'][0]['assessment']
         old = explain(self.run, 'masniejszy')['analyses'][0]['assessment']
-        self.assertEqual(current['language']['standard']['status'], 'unresolved')
+        self.assertEqual(current['language']['standard']['status'], 'accept')
         self.assertEqual(old['language']['standard']['status'], 'reject')
-        self.assertEqual(old['language']['broad']['status'], 'unresolved')
+        self.assertEqual(old['language']['broad']['status'], 'accept')
         self.assertTrue(any(c['rule_id'] == 'linguistic-historical-form-v1'
                             for c in old['language']['standard']['checks']))
         self.assertEqual(explain(self.run, 'masniejszy')['list_membership']['status'], 'unresolved')
@@ -358,7 +358,7 @@ class ExplainTests(unittest.TestCase):
     def test_uppercase_and_profile_both_visible_without_lexical_accept(self):
         value = explain(self.run, 'pcv')
         assessed = value['analyses'][0]['assessment']
-        self.assertEqual(assessed['language']['standard']['status'], 'unresolved')
+        self.assertEqual(assessed['language']['standard']['status'], 'accept')
         self.assertEqual(assessed['game']['status'], 'reject')
         self.assertEqual(assessed['profile']['invalid_characters'], ['v'])
         self.assertEqual(assessed['membership']['standard']['status'], 'reject')

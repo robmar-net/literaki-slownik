@@ -108,5 +108,5 @@ class UnknownReportTest(unittest.TestCase):
             report = load_json(first / 'reports/unresolved.json')
             self.assertEqual(report, load_json(second / 'reports/unresolved.json'))
             self.assertEqual(report['variants']['standard']['analyses'], 1)
-            self.assertEqual(report['variants']['standard']['analyses_with_unresolved_checks'], 1)
+            self.assertEqual(report['variants']['standard']['analyses_with_unresolved_checks'], 0)
             self.assertEqual(load_json(first / 'manifest.json')['readiness'], 'INCOMPLETE')

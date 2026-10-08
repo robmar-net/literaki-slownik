@@ -19,7 +19,7 @@ class SemanticUsesTests(unittest.TestCase):
         use=assess_diagnostic('de','',source_analyses=[record],documented_condition_ids=[RULE])
         remainder=assess_diagnostic('de','',source_analyses=[record],documented_condition_ids=[])
         self.assertEqual(use['game']['status'],'reject')
-        self.assertEqual(remainder['game']['status'],'unresolved')
+        self.assertEqual(remainder['game']['status'],'accept')
         self.assertFalse(any(c['rule_id']==RULE for c in remainder['game']['checks']))
 
     def test_build_reads_only_manifest_pinned_use_review_configuration(self):
@@ -197,8 +197,8 @@ class PositiveUseProofTests(unittest.TestCase):
                 checks=use['assessment']['language']['checks']
                 proof=next(c for c in checks if c['rule_id']=='linguistic-documented-use-lexical-proof-v1')
                 self.assertEqual(proof['status'],'accept')
-                self.assertEqual(use['assessment']['membership']['status'],'unresolved')
-                self.assertEqual(use['assessment']['game']['status'],'unresolved')
+                self.assertEqual(use['assessment']['membership']['status'],'accept')
+                self.assertEqual(use['assessment']['game']['status'],'accept')
                 self.assertFalse(any(c['rule_id']==proof['rule_id'] for c in rest['assessment']['language']['checks']))
             before=logical_content_report(db)
             self.assertEqual(materialize_assessments(db,use_reviews=[review])['new_analyses'],0)

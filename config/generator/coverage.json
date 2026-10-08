@@ -34,7 +34,10 @@
     "by_single_word_sgjp_user_approved",
     "frag_graphic_word_provisional_user_approved",
     "documented_uses_exhaust_reviewed_ids_user_approved",
-    "resident_screen_class_capital_with_76_exceptions_user_approved"
+    "resident_screen_class_capital_with_76_exceptions_user_approved",
+    "class_matrix_34_classes_agent_decided",
+    "game_conditions_from_published_rules_agent_decided",
+    "closed_first_release_constructor_set_agent_decided"
   ],
   "full_source_compact_interpretations": 7458520,
   "observed_combinations": {
@@ -42,10 +45,7 @@
     "qualifiers": 615,
     "tag": 682
   },
-  "pending": [
-    "full_category_and_orthography_matrix",
-    "documented_game_conditions_without_sjp_editorial_source_policy"
-  ],
+  "pending": [],
   "release_blocked": true,
   "schema_version": 1,
   "status": "incomplete",
@@ -115,5 +115,12 @@
     "not_full_qualification": true,
     "standard_history_rejection_preserved": true
   },
-  "latest_matrix_review": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-matrix-review.md"
+  "latest_matrix_review": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-matrix-review.md",
+  "agent_decisions": {
+    "round": 3,
+    "date": "2026-10-08",
+    "revisable": true,
+    "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/agent-decisions-round3-decision.md",
+    "note": "Decyzje agenta z upoważnienia właściciela; odbiór wydania nadal w G8 (release_blocked)."
+  }
 }

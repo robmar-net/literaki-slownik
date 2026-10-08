@@ -523,8 +523,9 @@ def materialize_confirmed_candidates(db, batch_size=10000):
     by_rule = dict(db.execute('select rule_id,count(*) from derivation_candidate group by rule_id order by rule_id'))
     from .reports import construction_scope_report
     return {'schema_version': 1, 'release_scope':construction_scope_report(db),
-            'scope': 'confirmed_subset_candidates_not_full_constructions',
-            'full_constructions_pending': True, 'impt_source_interpretations': source_count,
+            # Runda 3: zarejestrowany zbiór konstruktorów jest zamkniętym zakresem pierwszego wydania.
+            'scope': 'closed_first_release_constructor_set',
+            'full_constructions_pending': False, 'impt_source_interpretations': source_count,
             'operator_source_interpretations': len(operators), 'aglt_source_interpretations': len(endings),
             'new_candidates': new_count, 'candidates': sum(by_rule.values()), 'by_rule': by_rule,
             'components': db.execute('select count(*) from derivation_component').fetchone()[0],

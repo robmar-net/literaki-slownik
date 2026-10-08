@@ -13,11 +13,14 @@ from .canonical import dumps
 def coverage_report(db):
     """Rozliczenie obserwowanych klas i ocen; inwentaryzacja nie jest odbiorem."""
     from .sgjp import tag_size
-    from .policy import CONFIRMED_CONSTRUCTOR_RULES
+    from .policy import CONFIRMED_CONSTRUCTOR_RULES, CLASS_MATRIX
     source={}
     for tag,n in db.execute('select tag,count(*) from interpretation group by tag order by tag'):
-        item=source.setdefault(tag.split(':',1)[0],{'compact_interpretations':0,
-            'expanded_interpretations':0,'raw_tags':0,'semantic_qualification':'PENDING_FULL_MATRIX'})
+        cls=tag.split(':',1)[0]
+        item=source.setdefault(cls,{'compact_interpretations':0,
+            'expanded_interpretations':0,'raw_tags':0,
+            'semantic_qualification':'CLOSED' if cls in CLASS_MATRIX else 'UNKNOWN_CLASS',
+            'matrix_behavior':CLASS_MATRIX.get(cls)})
         item['compact_interpretations']+=n
         item['expanded_interpretations']+=n*tag_size(tag)
         item['raw_tags']+=1
@@ -49,8 +52,15 @@ def coverage_report(db):
             'unassessed_source_expansions':expanded_total-covered,
             'coverage':'COMPLETE_TECHNICAL_NOT_QUALIFICATION' if covered==expanded_total
                        else 'PARTIAL_MISSING_ASSESSMENTS'}
-    return {'schema_version':1,'status':'INCOMPLETE','scope':'observed_class_inventory_not_semantic_closure',
-        'full_qualification_pending':True,
+    # Runda 3: zamknięta macierz klas; odbiór nadal wymaga verify (K1–K10).
+    population_complete=(stored and bool(source) and all(x['semantic_qualification']=='CLOSED' for x in source.values())
+        and all(x['coverage']=='COMPLETE_TECHNICAL_NOT_QUALIFICATION' for x in source_assessment_coverage.values())
+        and not set(actual)-CONFIRMED_CONSTRUCTOR_RULES)
+    unresolved=any(c[s]['unresolved'] for c in assessed['variants'].values() for s in ('analysis_membership','word_membership')) if stored else True
+    complete=population_complete and not unresolved
+    return {'schema_version':1,'status':'COMPLETE' if complete else 'INCOMPLETE',
+        'scope':'closed_class_matrix_and_assessments' if complete else 'observed_class_inventory_not_semantic_closure',
+        'full_qualification_pending':not complete,
         'assessment_storage':'PERSISTED_DIAGNOSTIC' if stored else 'LEGACY_IMPORT_NO_ASSESSMENTS',
         'source_rows':db.execute('select count(*) from sgjp_record').fetchone()[0],
         'source_compact_interpretations':sum(x['compact_interpretations'] for x in source.values()),
@@ -59,7 +69,7 @@ def coverage_report(db):
         'unregistered_constructor_classes':sorted(set(actual)-CONFIRMED_CONSTRUCTOR_RULES),
         'assessments':assessed['variants'],
         'source_assessment_coverage':source_assessment_coverage,
-        'source_semantic_population_complete':False,
+        'source_semantic_population_complete':population_complete,
         'notice':'Dokumentowane użycia/pozostałość nie mnożą źródłowych rekordów. Liczebność klasy i dobór próby nie dowodzą jej pełnej kwalifikacji.'}
 
 
@@ -104,7 +114,7 @@ def canonical_index(run_dir):
             inputs['manifest']['configurations'].items())},
     }
     return {'schema_version':1,'scope':'diagnostic_content_index_not_release_verification',
-            'status':'INCOMPLETE','files':files,'missing':missing,'provenance':provenance,
+            'status':'INCOMPLETE' if missing else 'COMPLETE','files':files,'missing':missing,'provenance':provenance,
             'excluded':['manifest.json','reports/performance.json','build.sqlite',
                         'review','verification','logs','local_paths','timestamps']}
 
@@ -207,7 +217,7 @@ def unresolved_report(db):
         if processed != decisions or any(v['analyses'] != expected for v in variants.values()):
             raise GeneratorError('Brak analiz, powodów lub wariantów w raporcie niewiadomych', 4)
         return {'schema_version': 1, 'scope': 'all_persisted_assessments_not_full_release',
-                'full_qualification_pending': True, 'variants': variants,
+                'full_qualification_pending': any(c[s]['unresolved'] for c in variants.values() for s in ('analysis_membership','word_membership')), 'variants': variants,
                 'rules': [{'variant': v, 'layer': layer, 'rule_id': rule, **counts}
                           for (v, layer, rule), counts in sorted(rules.items())]}
     except GeneratorError:
@@ -428,7 +438,7 @@ def persisted_filter_impact(db):
         report['semantic_analysis_kinds']=expected['semantic_analysis_kinds']
         variants[variant] = report
     return {'schema_version':1,'scope':'all_persisted_assessments_not_full_release',
-            'full_qualification_pending':True,'order_basis':'lexicographic_rule_id_diagnostic_not_linguistic_priority',
+            'full_qualification_pending':any(c[s]['unresolved'] for c in coverage['variants'].values() for s in ('analysis_membership','word_membership')),'order_basis':'lexicographic_rule_id_diagnostic_not_linguistic_priority',
             'variants':variants}
 
 
@@ -438,7 +448,7 @@ def qualifier_coverage(fields):
     Wejście: unikalne pary (surowe pole kwalifikatorów, liczba interpretacji).
     Liczniki etykiet mogą się nakładać; mianownik rekordów liczymy raz po polu.
     """
-    from .policy import approved_qualifier_checks, VERSION, UNEXPLAINED_FIRST_RELEASE_LABELS, UNEXPLAINED_ACCENT_LABELS
+    from .policy import approved_qualifier_checks, VERSION, UNEXPLAINED_FIRST_RELEASE_LABELS, UNEXPLAINED_ACCENT_LABELS, _label_has_condition
     waived_labels = UNEXPLAINED_FIRST_RELEASE_LABELS | UNEXPLAINED_ACCENT_LABELS
 
     inventory, counts = {}, Counter()
@@ -459,7 +469,7 @@ def qualifier_coverage(fields):
     for label, count in sorted(counts.items()):
         checks = {v: approved_qualifier_checks(label, v) for v in VARIANTS}
         conditions = {v: assessment(value) for v, value in checks.items()}
-        has_condition = any(checks.values())
+        has_condition = _label_has_condition(label)
         if has_condition:
             mapped.add(label)
         waived = label in waived_labels

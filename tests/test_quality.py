@@ -213,7 +213,7 @@ class WordQualityTests(unittest.TestCase):
             self.assertEqual(len(co['analyses']),2)  # Rozwinięcia jednego ID nie są homonimami.
             self.assertEqual(set(co['membership']),{'broad','standard'})
             dar=next(x for x in sample['items'] if x['game_key']=='dar')
-            self.assertEqual(dar['membership']['broad']['status'],'unresolved')
+            self.assertEqual(dar['membership']['broad']['status'],'accept')
             self.assertEqual(dar['membership']['standard']['status'],'reject')
             derived=next(x for x in sample['items'] if x['game_key']=='dajże')
             self.assertTrue(derived['analyses'][0]['candidate']['components'])
