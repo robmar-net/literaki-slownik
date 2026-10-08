@@ -29,3 +29,6 @@ Krążąca informacja, że WSJP jest na licencji CC BY-SA 4.0, jest błędna. To
 2. **Ręczny, ograniczony przegląd:** najczęstsze w KWJP słowa z tej kategorii, np. pierwsze 100–200, sprawdzone pojedynczo w WSJP. Każda decyzja z cytatem i linkiem, bez zapisywania treści WSJP.
 3. **Inne źródło z otwartą licencją,** np. Wikisłownik (CC BY-SA), dziś odłożony. Wymaga audytu jakości i warunków.
 4. **Znane ograniczenie pierwszego wydania:** opis w `known_limitations` i na wiki.
+
+## Decyzja właściciela (2026-10-08)
+„Utrzymajmy obecny tryb”: WSJP pozostaje pomocniczym odczytem pojedynczych haseł przy konkretnej decyzji, z cytatem i linkiem. Nie jest źródłem hurtowym i nie kontaktujemy się z IJP PAN. Luka „pospolite homonimy nazw własnych” trafia do znanych ograniczeń pierwszego wydania (`known_limitations`, wiki).
