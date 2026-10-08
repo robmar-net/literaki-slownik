@@ -223,7 +223,7 @@ def unresolved_report(db):
     except GeneratorError:
         raise
     except (sqlite3.Error, KeyError, TypeError, ValueError) as error:
-        raise GeneratorError('Nie można odczytać pełnych ocen dla raportu niewiadomych', 4) from error
+        raise GeneratorError(f'Nie można odczytać pełnych ocen dla raportu niewiadomych ({type(error).__name__}: {error})', 4) from error
 
 
 def logical_content_report(db):

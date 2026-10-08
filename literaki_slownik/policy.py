@@ -1,10 +1,10 @@
-"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v24)."""
+"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v25)."""
 from functools import lru_cache
 import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'approved-conditions-v24'
+VERSION = 'approved-conditions-v25'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -363,14 +363,21 @@ def _label_has_condition(label):
     return any(_known_qualifier_checks(label, v) for v in ('broad', 'standard'))
 
 
-def approved_qualifier_checks(qualifiers, variant):
+def approved_qualifier_checks(qualifiers, variant, fulfilled=()):
     """Zatwierdzone warunki kwalifikatorów; inne warstwy nadal osobno.
 
     Etykieta bez znanego warunku daje unresolved: po aktywacji polityki (runda 3)
     nic jej już nie maskuje, a nowa etykieta źródła nie może przejść po cichu.
+    Wyjątek: wymaganie składnika, które potwierdzona konstrukcja deklaruje jako
+    spełnione (np. `ń` pisane łącznie z przyimkiem w `doń`).
     """
-    unknown = sorted(label for label in set(qualifiers.split('|')) - {''} if not _label_has_condition(label))
+    labels = set(qualifiers.split('|')) - {''}
+    met = sorted(labels & set(fulfilled))
+    unknown = sorted(label for label in labels - set(met) if not _label_has_condition(label))
     return (_known_qualifier_checks(qualifiers, variant)
+            + ([{'rule_id': 'linguistic-fulfilled-component-requirement-v1', 'status': 'accept', 'fulfilled_labels': met,
+                 'message': 'Wymaganie składnika spełnione przez potwierdzoną konstrukcję; inne warunki osobno.',
+                 'evidence': ['config/generator/constructions.json', 'docs/generator/konstrukcje.md']}] if met else [])
             + ([{'rule_id': 'linguistic-unknown-qualifier-v1', 'status': 'unresolved', 'unknown_labels': unknown,
                  'message': 'Etykieta kwalifikatora bez zatwierdzonego warunku wymaga oceny.',
                  'evidence': ['config/generator/qualifiers.json']}] if unknown else []))

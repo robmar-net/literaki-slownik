@@ -344,3 +344,8 @@ Standardy: AGENTS.md, .maister/docs/INDEX.md; brak osobnych plików standardów.
 - `coverage.json`: pending puste, 3 wpisy confirmed, `agent_decisions`; nowy pin w `sources.json`.
 - Testy: 6 nowych, około 35 asercji sprzed aktywacji odwróconych po sprawdzeniu każdej, fikstura nieukończona z prawdziwym unresolved. Wynik 265/265 + audit 5/5. Mutacje 6/6 czerwone.
 - Następny krok: pełny build na zacommitowanym kodzie (pomiar list, około 8 h).
+
+## 2026-10-08 — build v24 bez list; poprawka v25
+- Build `lists-v24-20261008-022124-a`: 3 h 51 min, rc=4. Etap decisions `pending`: 114 ocen (57 analiz × 2 warianty) unresolved, wszystkie przez `linguistic-unknown-qualifier-v1` w konstrukcjach przyimek+ń (`doń`, `nań`, `zań`, `weń`…). Konstrukcja dziedziczy etykietę `pisane_łącznie_z_przyimkiem` po `ń`, choć deklaruje ją w `fulfilled_component_requirements`. Błąd rundy 3.
+- Poprawka: `approved_qualifier_checks(..., fulfilled)` daje jawne `linguistic-fulfilled-component-requirement-v1` (accept) dla wymagań spełnionych przez potwierdzoną konstrukcję. Samodzielne `ń` nadal: nieznana etykieta + odmowa w grze. Polityka `approved-conditions-v25`. Test na styku konstruktor→ocena; mutacja czerwona. Suita 266/266, audit 5/5.
+- Etap reports padł na raporcie niewiadomych z ukrytym błędem SQLite. Ten sam raport na tej samej bazie w osobnym procesie przeszedł („report ok”). W chwili diagnozy dysk miał 5,8 GiB wolnego (przed buildem 167 GiB): cache kompilacji Go z innych sesji urósł do 124 GB, a sortowanie 34 mln wierszy potrzebuje plików tymczasowych. Wyczyszczono `go clean -cache` (174 GiB wolne). Komunikat błędu zawiera teraz typ i treść przyczyny.

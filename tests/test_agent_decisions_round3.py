@@ -33,6 +33,27 @@ class AgentDecisionsRound3Tests(unittest.TestCase):
         self.assertFalse(any(c['status'] == 'unresolved' for v in ('broad', 'standard')
                              for c in a['membership'][v]['checks']))
 
+    def test_construction_fulfilled_requirement_is_not_unknown(self):
+        # Build v24: 57 analiz przyimek+ń zostało unresolved przez odziedziczoną etykietę składnika.
+        from literaki_slownik.constructions import preposition_n_candidates
+        prep = dict(source('prep:gen', 'do'), lemma_id='do:P')
+        pronoun = dict(source('ppron3:sg:gen:m1.m2.m3:ter:nakc:praep', 'ń', 'pisane_łącznie_z_przyimkiem'),
+                       lemma_id='on:S')
+        candidates = preposition_n_candidates(prep, pronoun)
+        self.assertEqual(len(candidates), 3)
+        for c in candidates:
+            components = [i['interpretation'] for i in c['components']]
+            a = assess_diagnostic(c['original'], c['qualifiers'], [c['linguistic_evidence']], components, c)
+            for variant in ('broad', 'standard'):
+                checks = a['language'][variant]['checks']
+                self.assertNotIn('linguistic-unknown-qualifier-v1', [x['rule_id'] for x in checks])
+                self.assertIn('linguistic-fulfilled-component-requirement-v1', [x['rule_id'] for x in checks])
+                self.assertEqual(a['membership'][variant]['status'], 'accept', c['expanded_tag'])
+        # Samodzielne ń: etykieta nadal bez warunku, a gra odrzuca segment.
+        alone = assess_diagnostic('ń', 'pisane_łącznie_z_przyimkiem', source_analyses=[pronoun])
+        self.assertEqual(alone['membership']['broad']['status'], 'reject')
+        self.assertIn('linguistic-unknown-qualifier-v1', [x['rule_id'] for x in alone['language']['broad']['checks']])
+
     def test_unknown_qualifier_label_stays_unresolved(self):
         checks = approved_qualifier_checks('archit.,hist.|nowa_etykieta', 'broad')
         unknown = [c for c in checks if c['rule_id'] == 'linguistic-unknown-qualifier-v1']

@@ -35,7 +35,7 @@ def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyse
     game=[check for check in game if in_scope(check)]
     game+=resident_use_checks(lexical_use_review)
     return assess_analysis(original,
-        language={v:pending+approved_qualifier_checks(qualifiers,v)+standard_age_baseline_checks(qualifiers,v)+list(additional_checks)
+        language={v:pending+approved_qualifier_checks(qualifiers,v,candidate.get('fulfilled_component_requirements',()) if candidate else ())+standard_age_baseline_checks(qualifiers,v)+list(additional_checks)
                   +[check for source in source_analyses for check in orthography_checks(source,v) if in_scope(check)]
                   +construction_orthography_checks(candidate,v)
                   +lexical_use_checks(lexical_use_review,v)+resident_use_checks(lexical_use_review,v) for v in VARIANTS},
@@ -59,7 +59,7 @@ def lexical_use_checks(review, variant, *, policy_version=POLICY_VERSION):
         raise GeneratorError('Nieznany wariant słownika',2)
     if not review or 'lexical_proof' not in review:return []
     legacy = policy_version in {f'diagnostic-approved-conditions-v{v}' for v in range(16,21)}
-    if policy_version not in {POLICY_VERSION, *(f'diagnostic-approved-conditions-v{v}' for v in (21, 22, 23))} and not legacy:
+    if policy_version not in {POLICY_VERSION, 'approved-conditions-v24', *(f'diagnostic-approved-conditions-v{v}' for v in (21, 22, 23))} and not legacy:
         raise GeneratorError('Nieznana wersja dowodu leksykalnego użycia',4)
     message = ('Dodatni dowód leksykalny BROAD dokładnie udokumentowanego użycia; inne warunki osobno.'
                if variant=='broad' else 'Dowód BROAD nie rozstrzyga aktualnej kwalifikacji STANDARD.') if legacy else (
