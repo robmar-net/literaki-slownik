@@ -103,7 +103,7 @@ def build(manifest_path, run_dir, batch_size=10000):
                            (artifact['source_id'], artifact['kind'], dumps(artifact)))
             db.commit()
             for stage, predicate, importer in [
-                ('import_sgjp', lambda a: a['kind'] == 'sgjp_tab', import_sgjp),
+                ('import_sgjp', lambda a: a['kind'] in {'sgjp_tab', 'lexical_supplement'}, import_sgjp),
                 ('import_kwjp', lambda a: a['kind'].startswith('kwjp_'), import_kwjp),
             ]:
                 start = time.monotonic()

@@ -1,10 +1,10 @@
-"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v25)."""
+"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v26)."""
 from functools import lru_cache
 import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'approved-conditions-v25'
+VERSION = 'approved-conditions-v26'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -59,7 +59,23 @@ CLASS_MATRIX = {
                     'word'),
     **dict.fromkeys(BOUND_FORM_CLASSES, 'bound'),
     'brev': 'abbreviation',
+    # Runda 4: zaimek zwrotny z uzupełnienia eksportu (config/generator/sgjp-supplement.tab).
+    'siebie': 'word',
 }
+ROUND4_DECISION = '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md'
+# Runda 4 (decyzja właściciela 2026-10-08): skrótowce i skróty zapisane w SGJP jako rzeczowniki
+# odrzucamy jak brev. Zamknięta lista z przypiętego SGJP: lematy bez samogłoski oraz
+# bliźniaki form brev, po ręcznym oddzieleniu zwykłych słów (dom, ul, sen, gen, kat, cal…).
+ABBREVIATION_NOUN_LEMMAS = frozenset({
+    'abp', 'bhp', 'bmw', 'bp', 'ckm', 'dr', 'ftp', 'ha:S', 'kb', 'kbk', 'kbks', 'km', 'kmdr', 'kmdt',
+    'lkm', 'm-c', 'mgr', 'mjr', 'nr', 'pkt', 'ppłk', 'płk', 'r-k', 'rh', 'rkm', 'scs', 'sms', 'tv',
+    'vw', 'wc', 'wf', 'www'})
+# Runda 4: wyjątki R1 z przeglądu według frekwencji KWJP (nie-mieszkańcy).
+NON_RESIDENT_EXCEPTIONS_ROUND4 = frozenset({'powodzianin', 'targowiczanin'})
+NON_RESIDENT_FEMININE_EXCEPTIONS = frozenset({'sielanka', 'przytulanka', 'kijanka', 'markietanka'})
+# Runda 4: współczesne użycie w tekstach nieliterackich KWJP (fakt + publicystyka, orth_lc)
+# znosi odmowę STANDARD za etykietę dawności. Próg zamrożony przed ponownym benchmarkiem.
+CONTEMPORARY_USE_MIN_NONFICTION = 30
 CONFIRMED_CONSTRUCTOR_RULES = frozenset({
     'documented-spelling-variant-v1', 'impt-single-particle-v1', 'impt-double-particle-v1', 'by-aglt-nwok-v1', 'preposition-n-source-v1',
     'mobile-by-host-aglt-v1', 'mobile-source-host-aglt-v1', 'mobile-host-by-sequence-v1', 'personal-host-aglt-v1',
@@ -172,11 +188,12 @@ def resident_screen_checks(source):
         return []
     parts=source['raw_tag'].split(':')
     if base in RESIDENT_SCREEN_MASCULINE:
-        if base in NON_RESIDENT_EXCEPTIONS:return []
+        if base in NON_RESIDENT_EXCEPTIONS or base in NON_RESIDENT_EXCEPTIONS_ROUND4:return []
         if not (parts[0]=='depr' or (parts[0]=='subst' and 'm1' in (parts[-1],parts[3] if len(parts)>3 else ''))):
             return []
     elif base in RESIDENT_SCREEN_FEMININE:
-        if base[:-2]+'in' in NON_RESIDENT_EXCEPTIONS:return []
+        if (base[:-2]+'in' in NON_RESIDENT_EXCEPTIONS or base[:-2]+'in' in NON_RESIDENT_EXCEPTIONS_ROUND4
+                or base in NON_RESIDENT_FEMININE_EXCEPTIONS):return []
         if not (parts[0]=='subst' and parts[-1]=='f'):return []
     else:
         return []
@@ -237,6 +254,15 @@ def source_game_checks(source, candidate=None):
                            'message':'Udokumentowany wyjątek byle + końcówka osobowa; pozostałe kryteria osobno.' if permitted else
                                      'Ta źródłowa konstrukcja mobilnej końcówki lub trybu przypuszczającego z nieczasownikowym hostem jest wyłączona przez zachowane reguły gry; homonimy osobno.',
                            'evidence':['config/generator/constructions.json','docs/generator/konstrukcje.md']})
+    elif pos == 'praet' and source['raw_tag'].split(':')[-1] == 'agl':
+        result.append({'rule_id':'game-agl-stem-v1', 'status':'reject',
+                       'message':'Temat czasu przeszłego dla końcówki (mogł-em) nie jest samodzielnym słowem; formy z końcówką osobno.',
+                       'evidence':[ROUND4_DECISION, 'https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf']})
+    elif pos in {'subst', 'depr'} and source.get('lemma_id') in ABBREVIATION_NOUN_LEMMAS:
+        result.append({'rule_id':'game-abbreviation-noun-v1', 'status':'reject',
+                       'source_lemma_id':source['lemma_id'],
+                       'message':'Skrót lub skrótowiec zapisany w SGJP jako rzeczownik; zasady gry wykluczają skróty.',
+                       'evidence':[ROUND4_DECISION, 'https://www.kurnik.pl/literaki/zasady.phtml']})
     elif pos == 'brev':
         result.append({'rule_id':'game-abbreviation-v1', 'status':'reject',
                        'message':'Źródłowa analiza jest skrótem; nie utożsamiamy skrótu ze skrótowcem rzeczownikowym.',
@@ -1031,6 +1057,22 @@ def history_checks(qualifiers, variant):
                            'evidence': ['config/generator/policy.json',
                                         '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md']})
     return result
+
+
+def contemporary_use_override(checks, frequency):
+    """STANDARD: odmowa za dawność ustępuje udokumentowanemu współczesnemu użyciu formy.
+
+    Dowodem jest frekwencja formy w tekstach nieliterackich KWJP (bez beletrystyki,
+    która stylizuje). Inne odmowy zostają bez zmian.
+    """
+    if frequency is None or frequency < CONTEMPORARY_USE_MIN_NONFICTION:
+        return checks
+    return [{'rule_id':'linguistic-contemporary-use-kwjp-v1', 'status':'accept', 'replaces':c['rule_id'],
+             'source_label':c.get('source_label'), 'nonfiction_frequency':frequency,
+             'threshold':CONTEMPORARY_USE_MIN_NONFICTION,
+             'message':'Forma ma współczesne użycie w tekstach nieliterackich KWJP; etykieta dawności nie wyklucza jej ze STANDARD.',
+             'evidence':[ROUND4_DECISION, 'https://kwjp.pl/']}
+            if c['rule_id']=='linguistic-historical-form-v1' and c['status']=='reject' else c for c in checks]
 
 
 def standard_age_baseline_checks(qualifiers, variant):

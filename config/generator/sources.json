@@ -35,6 +35,38 @@
       }
     },
     {
+      "source_id": "sgjp-supplement-v1",
+      "kind": "lexical_supplement",
+      "role": "lexical",
+      "origin": "project",
+      "status": "ALLOWED",
+      "path": "../../config/generator/sgjp-supplement.tab",
+      "sha256": "6bd452e763d3f5fa9ba4d003edcbe764a23dc471ba01d3b2620ffb77a2fa0b61",
+      "version": "literaki-slownik.sgjp-supplement-v1",
+      "url": "https://github.com/robmar-net/literaki-slownik/blob/main/config/generator/sgjp-supplement.tab",
+      "retrieved_at": "2026-10-08T00:00:00Z",
+      "authors": "Projekt literaki-slownik",
+      "license": "BSD-2-Clause",
+      "license_scope": "Własne uzupełnienie: 4 formy zaimka zwrotnego w tagsecie SGJP.",
+      "used_for": "generator: uzupełnienie leksemu brakującego w eksporcie SGJP",
+      "attribution": "Uzupełnienie eksportu SGJP (zaimek zwrotny siebie, partykuła się), projekt literaki-slownik, BSD-2-Clause.",
+      "dependencies": "sgjp-20260823 (tagset i opis SGJP); KWJP jako dowód istnienia lematów",
+      "evidence": [
+        {
+          "path": "../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md",
+          "sha256": "5125da07b90143f284175aeacc17729246a1879cd154b521625e887fcda0604a"
+        }
+      ],
+      "expected_counts": {
+        "records": 4,
+        "interpretations": 4,
+        "duplicates": 0,
+        "expanded_alternatives": 6,
+        "lexemes": 2,
+        "original_forms": 4
+      }
+    },
+    {
       "source_id": "KWJP100-kwjp100-slowa-lemma-all",
       "kind": "kwjp_lemma",
       "role": "corpus_evidence",
@@ -785,7 +817,7 @@
     },
     "coverage": {
       "path": "../../config/generator/coverage.json",
-      "sha256": "0c6796a8e018549112ed84258a19f6f30c36f2e1100f8c82c52aebf07160ecca"
+      "sha256": "dc020bbcf1c6e96fc22e579a59fee99527f065704c7c23d9fdc3d87fc4335de2"
     },
     "qualifiers": {
       "path": "../../config/generator/qualifiers.json",

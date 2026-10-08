@@ -14,6 +14,8 @@ class GeneratorError(Exception):
 
 
 KINDS = {'sgjp_tab': ('lexical', 'SGJP'),
+         # Runda 4: jawne uzupełnienie eksportu SGJP (format SGJP, plik w repo, z dowodami).
+         'lexical_supplement': ('lexical', 'project'),
          'kwjp_lemma': ('corpus_evidence', 'KWJP'),
          'kwjp_orth': ('corpus_evidence', 'KWJP'),
          'kwjp_orth_lc': ('corpus_evidence', 'KWJP'),
@@ -67,7 +69,7 @@ def inspect_sources(manifest_path):
                 raise GeneratorError('Artefakt nie jest ALLOWED', 3, sid)
             counts = artifact.get('expected_counts', {})
             metrics = ({'records', 'interpretations', 'duplicates', 'expanded_alternatives',
-                        'lexemes', 'original_forms'} if artifact['kind'] == 'sgjp_tab'
+                        'lexemes', 'original_forms'} if artifact['kind'] in {'sgjp_tab', 'lexical_supplement'}
                        else {'records', 'sum_freq'})
             if (not isinstance(counts, dict) or set(counts) - metrics
                     or any(type(value) is not int or value < 0 for value in counts.values())):
@@ -85,12 +87,14 @@ def inspect_sources(manifest_path):
         for item in configurations.values():
             checked_file(path.parent, item)
         if mode == 'production':
-            if sum(a['kind'] == 'sgjp_tab' for a in artifacts) != 1 or len(artifacts) != 14:
-                raise GeneratorError('Pełny manifest wymaga jednego SGJP i 13 list KWJP', 3)
+            supplements = sum(a['kind'] == 'lexical_supplement' for a in artifacts)
+            if (sum(a['kind'] == 'sgjp_tab' for a in artifacts) != 1 or supplements > 1
+                    or len(artifacts) != 14 + supplements):
+                raise GeneratorError('Pełny manifest wymaga jednego SGJP, 13 list KWJP i najwyżej jednego uzupełnienia', 3)
             slots = {(kind, genre) for kind in ('kwjp_lemma', 'kwjp_orth', 'kwjp_orth_lc')
                      for genre in ('all', 'fakt', 'fikcja', 'publicystyka')}
             slots.add(('kwjp_bigram', 'all'))
-            actual = {(a['kind'], a.get('genre')) for a in artifacts if a['kind'] != 'sgjp_tab'}
+            actual = {(a['kind'], a.get('genre')) for a in artifacts if a['kind'] not in {'sgjp_tab', 'lexical_supplement'}}
             if actual != slots:
                 raise GeneratorError('Brak odrębnej wymaganej listy KWJP lub powtórzony gatunek', 3)
             if any(not a.get('expected_counts') for a in artifacts):

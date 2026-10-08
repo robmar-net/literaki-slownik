@@ -16,7 +16,8 @@ def source(tag, original='kot', qualifiers=''):
 
 class AgentDecisionsRound3Tests(unittest.TestCase):
     def test_matrix_covers_exactly_observed_classes(self):
-        self.assertEqual(sorted(CLASS_MATRIX), sorted(OBSERVED))
+        # Runda 4: klasa siebie pochodzi z uzupełnienia eksportu (sgjp-supplement.tab).
+        self.assertEqual(sorted(CLASS_MATRIX), sorted(OBSERVED + ['siebie']))
         self.assertEqual(set(CLASS_MATRIX.values()), {'word', 'bound', 'abbreviation'})
 
     def test_matrix_behavior_matches_game_checks(self):

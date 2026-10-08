@@ -2,7 +2,7 @@
 from .inputs import GeneratorError
 from .policy import (assess_profile, spelling_checks, release_scope_checks,
                      approved_qualifier_checks, orthography_checks, construction_orthography_checks,
-                     source_game_checks, standard_age_baseline_checks, resident_use_checks, RESIDENT_RELATION_CONDITIONS, VERSION as POLICY_VERSION)
+                     source_game_checks, standard_age_baseline_checks, contemporary_use_override, resident_use_checks, RESIDENT_RELATION_CONDITIONS, VERSION as POLICY_VERSION)
 
 STATUSES = frozenset({'accept', 'reject', 'unresolved'})
 VARIANTS = ('broad', 'standard')
@@ -16,7 +16,7 @@ DOCUMENTARY_RULE_EVIDENCE = {
 
 
 def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyses=(), candidate=None,
-                      *, documented_condition_ids=None, lexical_use_review=None):
+                      *, documented_condition_ids=None, lexical_use_review=None, contemporary_frequency=None):
     """Wspólna ocena explain i zapisu; nie aktywuje nierozstrzygniętej polityki."""
     # Runda 3: polityka aktywna; zamknięta macierz klas i warunki gry z opublikowanych zasad.
     pending=[{'rule_id':'linguistic-policy-active-v1','status':'accept',
@@ -35,10 +35,11 @@ def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyse
     game=[check for check in game if in_scope(check)]
     game+=resident_use_checks(lexical_use_review)
     return assess_analysis(original,
-        language={v:pending+approved_qualifier_checks(qualifiers,v,candidate.get('fulfilled_component_requirements',()) if candidate else ())+standard_age_baseline_checks(qualifiers,v)+list(additional_checks)
+        language={v:(lambda checks: contemporary_use_override(checks,contemporary_frequency) if v=='standard' else checks)(
+                  pending+approved_qualifier_checks(qualifiers,v,candidate.get('fulfilled_component_requirements',()) if candidate else ())+standard_age_baseline_checks(qualifiers,v)+list(additional_checks)
                   +[check for source in source_analyses for check in orthography_checks(source,v) if in_scope(check)]
                   +construction_orthography_checks(candidate,v)
-                  +lexical_use_checks(lexical_use_review,v)+resident_use_checks(lexical_use_review,v) for v in VARIANTS},
+                  +lexical_use_checks(lexical_use_review,v)+resident_use_checks(lexical_use_review,v)) for v in VARIANTS},
         scope_checks=release_scope_checks(candidate),game_checks=game)
 
 
@@ -59,7 +60,7 @@ def lexical_use_checks(review, variant, *, policy_version=POLICY_VERSION):
         raise GeneratorError('Nieznany wariant słownika',2)
     if not review or 'lexical_proof' not in review:return []
     legacy = policy_version in {f'diagnostic-approved-conditions-v{v}' for v in range(16,21)}
-    if policy_version not in {POLICY_VERSION, 'approved-conditions-v24', *(f'diagnostic-approved-conditions-v{v}' for v in (21, 22, 23))} and not legacy:
+    if policy_version not in {POLICY_VERSION, 'approved-conditions-v24', 'approved-conditions-v25', *(f'diagnostic-approved-conditions-v{v}' for v in (21, 22, 23))} and not legacy:
         raise GeneratorError('Nieznana wersja dowodu leksykalnego użycia',4)
     message = ('Dodatni dowód leksykalny BROAD dokładnie udokumentowanego użycia; inne warunki osobno.'
                if variant=='broad' else 'Dowód BROAD nie rozstrzyga aktualnej kwalifikacji STANDARD.') if legacy else (
@@ -294,6 +295,13 @@ def materialize_assessments(db, batch_size=10000, *, use_reviews=()):
                    for sid,metadata in db.execute('select source_id,metadata from source_artifact')}
     if expected_marker and marker is None:
         db.execute('insert into source_artifact values (?,?,?)',(USE_REVIEW_ID,*expected_marker))
+    # Runda 4: współczesne użycie formy w tekstach nieliterackich KWJP (fakt + publicystyka).
+    nonfiction_sources=[sid for sid,kind,metadata in db.execute('select source_id,kind,metadata from source_artifact')
+                        if kind=='kwjp_orth_lc' and json.loads(metadata).get('genre') in {'fakt','publicystyka'}]
+    nonfiction={}
+    for sid in nonfiction_sources:
+        for form,freq in db.execute('select unit_1,freq from corpus_evidence where source_id=?',(sid,)):
+            nonfiction[form]=nonfiction.get(form,0)+freq
     query='''select i.id,i.source_id,i.first_row,f.original,l.lemma_id,i.tag,i.names,i.qualifiers
         from interpretation i join surface_form f on f.id=i.form_id join lexeme l on l.id=i.lexeme_id
         order by i.source_id,i.first_row'''
@@ -304,12 +312,14 @@ def materialize_assessments(db, batch_size=10000, *, use_reviews=()):
         for tag in expand_tag(source['raw_tag']):
             tag_count+=1
             key=hashlib.sha256(dumps(['source',source,tag]).encode()).hexdigest()
-            assessed=assess_diagnostic(source['original'],source['qualifiers'],source_analyses=[dict(source,raw_tag=tag,source_sha256=source_hashes[source['source_id']])])
+            current=nonfiction.get(source['original'].lower())
+            assessed=assess_diagnostic(source['original'],source['qualifiers'],source_analyses=[dict(source,raw_tag=tag,source_sha256=source_hashes[source['source_id']])],
+                                       contemporary_frequency=current)
             if row[0] in reviewed:
                 assessed=assess_diagnostic(source['original'],source['qualifiers'],
                     additional_checks=[remainder_exhausted_check(reviewed[row[0]])],
                     source_analyses=[dict(source,raw_tag=tag,source_sha256=source_hashes[source['source_id']])],
-                    documented_condition_ids=[])
+                    documented_condition_ids=[],contemporary_frequency=current)
                 assessed['semantic_trace']={'kind':'unresolved_remainder','coverage':'incomplete',
                     'source':reviewed[row[0]][0]['source'],'documented_use_ids':[r['use_id'] for r in reviewed[row[0]]],
                     'message':'Nierozpoznane możliwości; dowody użyć nie zamykają pełnej kwalifikacji.'}
@@ -319,14 +329,16 @@ def materialize_assessments(db, batch_size=10000, *, use_reviews=()):
                     use=assess_diagnostic(source['original'],source['qualifiers'],
                         additional_checks=[use_closure_check(review)],
                         source_analyses=[dict(source,raw_tag=tag,source_sha256=source_hashes[source['source_id']])],
-                        documented_condition_ids=review.get('documented_conditions',[]),lexical_use_review=review)
+                        documented_condition_ids=review.get('documented_conditions',[]),lexical_use_review=review,
+                        contemporary_frequency=current)
                     use['semantic_trace']={'kind':'documented_use',**review}
                     save(use_key,row[0],None,tag,use);use_count+=1;source_count+=1
             save(key,row[0],None,tag,assessed);source_count+=1
     for ckey,payload in db.execute('select candidate_key,payload from derivation_candidate order by candidate_key'):
         candidate=json.loads(payload);proof=candidate.get('linguistic_evidence')
         components=[c['interpretation'] for c in candidate['components'] if c['kind']=='source_interpretation']
-        assessed=assess_diagnostic(candidate['original'],candidate['qualifiers'],[proof] if proof else [],components,candidate)
+        assessed=assess_diagnostic(candidate['original'],candidate['qualifiers'],[proof] if proof else [],components,candidate,
+                                   contemporary_frequency=nonfiction.get(candidate['original'].lower()))
         key=hashlib.sha256(dumps(['construction',ckey]).encode()).hexdigest()
         save(key,None,ckey,candidate['expanded_tag'],assessed);candidate_count+=1
     flush()

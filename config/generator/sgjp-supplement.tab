@@ -1,0 +1,11 @@
+#!DICT-ID literaki-slownik.sgjp-supplement-v1
+#<COPYRIGHT>
+# Uzupełnienie przypiętego eksportu SGJP sgjp-20260823 (pl.sgjp.sgjp-2026.08.24).
+# Zaimek zwrotny siebie i partykuła się: brak w eksporcie TSV, obecne w opisie SGJP
+# i w KWJP (lematy siebie/się). Tagi według tagsetu SGJP/NKJP. Własne dane projektu, BSD-2-Clause.
+# Decyzja: .maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md
+#</COPYRIGHT>
+się	się	part		
+siebie	siebie	siebie:gen.acc		
+sobie	siebie	siebie:dat.loc		
+sobą	siebie	siebie:inst		

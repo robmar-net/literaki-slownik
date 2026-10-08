@@ -41,7 +41,8 @@ def expand_tag(tag):
 def rows(path):
     number = 0
     try:
-        with gzip.open(path, 'rt', encoding='utf-8', errors='strict', newline='') as stream:
+        opener = gzip.open if str(path).endswith('.gz') else open
+        with opener(path, 'rt', encoding='utf-8', errors='strict', newline='') as stream:
             for line in stream:
                 if line.rstrip('\r\n') == '#</COPYRIGHT>':
                     break
