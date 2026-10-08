@@ -90,14 +90,19 @@
     },
     {
       "id": "zds",
-      "inspected_sections": "1–5,appendixA,last_changes",
+      "url": "https://sjp.pl/sl/dp.phtml",
+      "path": "tmp/zds/dp-2026-10-08.html",
+      "sha256": "b6e698e3be36261d67b175e380d7ae4d716f7c5e0837dda3ff7c0588a252f2bf",
+      "version": "ZDS 01/2026 (odczyt 2026-10-08)",
+      "role": "game_rule_specification",
+      "adopted_sections": "§1 wyjątki, §4 dopuszczalne formy, §5 pisownia łączna",
+      "not_adopted_sections": "§2 dozwolone źródła, §3 warunek źródła (frekwencja korpusowa), Dodatek A (m.in. część SGJP z SJPDor)",
       "not_used_for": [
         "lexical_inputs",
         "benchmark",
         "automatic_rule_update"
       ],
-      "role": "explicitly_requested_readonly_game_rule_reference",
-      "url": "https://sjp.pl/sl/dp.phtml"
+      "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/zds-game-rules-decision.md"
     },
     {
       "id": "sgjp_qualifier_ui",
