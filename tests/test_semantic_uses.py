@@ -82,7 +82,8 @@ class SemanticUsesTests(unittest.TestCase):
             self.assertEqual(sum(r.get('semantic_trace',{}).get('kind')=='documented_use' for r in rows),2)
             remainder=[r for r in rows if r.get('semantic_trace',{}).get('kind')=='unresolved_remainder']
             self.assertEqual(len(remainder),1)
-            self.assertEqual(remainder[0]['assessment']['membership']['status'],'unresolved')
+            self.assertEqual(remainder[0]['assessment']['membership']['status'],'reject')
+            self.assertTrue(any(c['rule_id']=='semantic-remainder-exhausted-v1' for c in remainder[0]['assessment']['language']['checks']))
             self.assertEqual(db.execute('select count(*) from sgjp_record').fetchone()[0],2)
             before=logical_content_report(db)
             self.assertEqual(materialize_assessments(db,use_reviews=list(reversed(reviews)))['new_analyses'],0)

@@ -31,7 +31,10 @@
     "compound_qualifier_conjunction_user_approved",
     "rjp_literal_resident_examples_capital_user_approved",
     "adjp_graphic_word_provisional_user_approved",
-    "by_single_word_sgjp_user_approved"
+    "by_single_word_sgjp_user_approved",
+    "frag_graphic_word_provisional_user_approved",
+    "documented_uses_exhaust_reviewed_ids_user_approved",
+    "resident_screen_class_capital_with_76_exceptions_user_approved"
   ],
   "full_source_compact_interpretations": 7458520,
   "observed_combinations": {

@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from literaki_slownik.canonical import dumps  # noqa: E402
-from literaki_slownik.decisions import (assess_diagnostic, checked_use_reviews,  # noqa: E402
+from literaki_slownik.decisions import (assess_diagnostic, checked_use_reviews, remainder_exhausted_check, use_closure_check,  # noqa: E402
                                         VARIANTS)
 from literaki_slownik.policy import (VERSION as POLICY_VERSION,  # noqa: E402
                                      MANDATORY_CAPITAL_2026_LEMMAS, RESIDENT_RELATION_SOURCES)
@@ -45,7 +45,11 @@ RJP_JOINED_BY = frozenset({'aby', 'ażeby', 'byleby', 'chociażby', 'choćby', '
 CODED_BY = frozenset({'jeśliby', 'jeżeliby'})
 # Runda 1 decyzji właściciela (2026-10-08, owner-decisions-round1-decision.md):
 # kategorie rozstrzygnięte regułą polityki v22 nie są już niewiadomą.
-OWNER_RESOLVED = frozenset({'adjp', 'conjunction_by_outside_rjp_list', 'qualifier_registry_semantics'})
+OWNER_RESOLVED = frozenset({'adjp', 'conjunction_by_outside_rjp_list', 'qualifier_registry_semantics',
+                            # Runda 2: frag dopuszczone warunkowo; pozostałość użyć ocenia reguła odmowy.
+                            'frag', 'documented_use_remainder',
+                            # R1: przesiew rozstrzyga reguła game-resident-screen-capital-2026-v1 z wyjątkami.
+                            'resident_screen_anin'})
 # Bawarka (kulin., napój) nie jest nazwą mieszkanki; decyzja R2.
 NOT_RESIDENT = frozenset({'bawarka'})
 BY_CLASSES = frozenset({'comp', 'conj', 'part', 'qub', 'adv'})
@@ -223,14 +227,13 @@ def main():
                         'expanded_tag': tag, 'names': source['names'], 'qualifiers': source['qualifiers']}
             if row[0] in reviewed:
                 assessed = assess_diagnostic(source['original'], source['qualifiers'],
+                                             additional_checks=[remainder_exhausted_check(reviewed[row[0]])],
                                              source_analyses=[analysis_source], documented_condition_ids=[])
                 record(assessed, source, tag, cls, True, row[0], dict(identity, kind='remainder'))
                 totals['remainder_analyses'] += 1
                 for review in reviewed[row[0]]:
                     use = assess_diagnostic(source['original'], source['qualifiers'],
-                        additional_checks=[{'rule_id': 'semantic-use-qualification-pending-v1', 'status': 'unresolved',
-                                            'message': 'Udokumentowane użycie wymaga osobnego domknięcia warunków.',
-                                            'evidence': review['evidence']}],
+                        additional_checks=[use_closure_check(review)],
                         source_analyses=[analysis_source],
                         documented_condition_ids=review.get('documented_conditions', []), lexical_use_review=review)
                     record(use, source, tag, cls, False, row[0], dict(identity, kind='documented_use', use_id=review['use_id']))

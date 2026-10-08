@@ -43,8 +43,9 @@ class AdditionalPhraseUsesTests(unittest.TestCase):
                 c=next(c for c in use['assessment']['language']['checks'] if c['rule_id']==RULE)
                 self.assertEqual(c['status'],'accept')
                 self.assertFalse(any(c['rule_id']==RULE for c in rest['assessment']['language']['checks']))
-                self.assertEqual(rest['assessment']['membership']['status'],
-                    'reject' if word=='kroćset' and variant=='standard' else 'unresolved')
+                # Runda 2: sprawdzone użycia wyczerpują ID, pozostałość odpada.
+                self.assertEqual(rest['assessment']['membership']['status'],'reject')
+                self.assertTrue(any(c['rule_id']=='semantic-remainder-exhausted-v1' for c in rest['assessment']['language']['checks']))
         self.assertEqual(materialize_assessments(db,use_reviews=list(reversed(reviews)))['new_analyses'],0)
         self.assertFalse(db.execute('pragma foreign_key_check').fetchall())
 

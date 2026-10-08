@@ -3,7 +3,7 @@ import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'diagnostic-approved-conditions-v22'
+VERSION = 'diagnostic-approved-conditions-v23'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -58,8 +58,9 @@ CONFIRMED_CONSTRUCTOR_RULES = frozenset({
 MANDATORY_CAPITAL_2026_LEMMAS = frozenset({'warszawianin','warszawiak','krakowiak:Sm1',
     'krakowianin','krakus','kresowianin','rzymianin','sądeczanin','zatorzanin'})
 
-# Decyzja warunkowa właściciela (runda 1): wycofanie to zmiana na 'reject' i nowy build.
+# Decyzje warunkowe właściciela (runda 1: adjp, runda 2: frag): wycofanie to 'reject' i nowy build.
 ADJP_GAME_STATUS = 'accept'
+FRAG_GAME_STATUS = 'accept'
 
 
 RESIDENT_RELATION_SOURCES = {6309663: ('warszawiance', 'subst:sg:dat.loc:f'),
@@ -148,6 +149,32 @@ def mandatory_capital_checks(source):
                          'https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43']}]
 
 
+def resident_screen_checks(source):
+    """R1 (runda 2): zamknięty przesiew -anin/-anka jako nazwy mieszkańców, poza wyjątkami."""
+    from .resident_screen import (RESIDENT_SCREEN_MASCULINE, RESIDENT_SCREEN_FEMININE,
+                                  NON_RESIDENT_EXCEPTIONS)
+    base=source.get('lemma_id','').split(':',1)[0]
+    original=source.get('original','')
+    if not original.islower() or source.get('lemma_id') in MANDATORY_CAPITAL_2026_LEMMAS:
+        return []
+    parts=source['raw_tag'].split(':')
+    if base in RESIDENT_SCREEN_MASCULINE:
+        if base in NON_RESIDENT_EXCEPTIONS:return []
+        if not (parts[0]=='depr' or (parts[0]=='subst' and 'm1' in (parts[-1],parts[3] if len(parts)>3 else ''))):
+            return []
+    elif base in RESIDENT_SCREEN_FEMININE:
+        if base[:-2]+'in' in NON_RESIDENT_EXCEPTIONS:return []
+        if not (parts[0]=='subst' and parts[-1]=='f'):return []
+    else:
+        return []
+    return [{'rule_id':'game-resident-screen-capital-2026-v1','status':'reject',
+             'source_lemma_id':source['lemma_id'],'norm_effective_from':'2026-01-01',
+             'message':'Przesiew -anin/-anka: nazwa mieszkańca wymaga wielkiej litery według normy 2026 (decyzja klasowa właściciela); wyjątki nie-mieszkańców osobno, inne homonimy osobno.',
+             'evidence':['.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/owner-decisions-round2-decision.md',
+                         '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/r1-non-resident-exceptions.md',
+                         'https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43']}]
+
+
 def source_game_checks(source, candidate=None):
     """Ocena klas zapisu; kandydat pochodzi wyłącznie z zamkniętego konstruktora.
 
@@ -209,6 +236,15 @@ def source_game_checks(source, candidate=None):
                                  if ADJP_GAME_STATUS=='accept' else
                                  'Forma przyimkowa wycofana decyzją właściciela jako niesamodzielny wyraz w grze.',
                        'evidence':['.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/owner-decisions-round1-decision.md', 'https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf']})
+    elif pos == 'frag':
+        result.append({'rule_id':'game-frag-graphic-word-v1', 'status':FRAG_GAME_STATUS,
+                       'provisional':True, 'source_class':pos,
+                       'message':'Fragment frazy (na wznak, za bezcen) jest osobnym wyrazem graficznym; '
+                                 'dopuszczony warunkowo decyzją właściciela, oznaczony do ewentualnego wycofania.'
+                                 if FRAG_GAME_STATUS=='accept' else
+                                 'Fragment frazy wycofany decyzją właściciela jako niesamodzielny wyraz w grze.',
+                       'evidence':['.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/owner-decisions-round2-decision.md',
+                                   'https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf']})
     elif pos in BOUND_FORM_CLASSES or 'pisane_łącznie_z_przyimkiem' in source['qualifiers'].split('|'):
         result.append({'rule_id':'game-dependent-segment-v1', 'status':'reject',
                        'source_class':pos,
@@ -216,6 +252,7 @@ def source_game_checks(source, candidate=None):
                        'evidence':['config/generator/categories.json', 'docs/generator/konstrukcje.md']})
     if candidate is None:
         result+=mandatory_capital_checks(source)
+        result+=resident_screen_checks(source)
         result+=documented_name_checks(source)
     return result
 
@@ -244,7 +281,7 @@ def orthography_checks(source, variant):
     """Ocena konkretnej źródłowej analizy; nie ogólna reguła końcowych liter."""
     if variant not in {'broad','standard'}:
         raise GeneratorError('Wariant musi być broad lub standard', 2)
-    capital=mandatory_capital_checks(source)
+    capital=mandatory_capital_checks(source) or resident_screen_checks(source)
     if capital and source['original'].islower():
         return [{**capital[0],'rule_id':'orthography-2026-resident-capital-v1',
                  'status':'reject' if variant=='standard' else 'accept',

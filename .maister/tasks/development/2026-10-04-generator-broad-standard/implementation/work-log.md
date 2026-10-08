@@ -313,3 +313,20 @@ Standardy: AGENTS.md, .maister/docs/INDEX.md; brak osobnych plików standardów.
 - Testy: nowe 5 (red ImportError → green); pełna suita 252/252 + audit 5/5. Mutacje 4/4 czerwone, plik przywrócony.
 - Pomiar sondą (486 s, readonly): słowa zależne BROAD 46 802 → 39 172, STANDARD 46 406 → 39 064, unia 46 877 → 39 245. Pozostały R1, F, U/P.
 - G3/G4 nie zaznaczone: kolejne rundy (F, U/P, R1, pending macierzy klas).
+
+## 2026-10-08 — G3/G4 runda 2 decyzji właściciela
+
+- Decyzje:
+  - frag: dopuścić z oznaczeniem;
+  - U/P: sprawdzone użycia wyczerpują ID;
+  - R1: przesiew jako mieszkańcy z listą 76 wyjątków (lista przygotowana ręcznie z 2 103 lematów i zaakceptowana).
+- Szczegóły: `analysis/evidence/owner-decisions-round2-decision.md`, `r1-non-resident-exceptions.md`.
+- Polityka v23:
+  - `game-frag-graphic-word-v1` (provisional, `FRAG_GAME_STATUS`);
+  - `semantic-remainder-exhausted-v1` (reject);
+  - `semantic-use-qualification-closed-v1` (accept);
+  - `game-resident-screen-capital-2026-v1` z zamkniętą listą `literaki_slownik/resident_screen.py`;
+  - `scripts/probe_resident_toponyms.py`.
+- Testy: 7 nowych (red → green), 4 odwrócone asercje pozostałości. 259/259 + audit 5/5. Mutacje 10/10 czerwone.
+- Pomiar sondą (581 s, readonly): słowa zależne od kategorii merytorycznej BROAD 39 172 → 0, STANDARD 39 064 → 0. Bilans odmowy + czyste = 5 056 983 w obu wariantach.
+- G3/G4 nadal niezaznaczone: pending `full_category_and_orthography_matrix` i `documented_game_conditions_without_sjp_editorial_source_policy`, aktywacja placeholderów, nowy pełny build.

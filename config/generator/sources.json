@@ -785,7 +785,7 @@
     },
     "coverage": {
       "path": "../../config/generator/coverage.json",
-      "sha256": "76be3e6b9a6944ac3956136ba5354f8af83b8ee459595109d18a041d08ccccc0"
+      "sha256": "7692899c76891c191d5001a18e01a5c8c4d060653127ab24b5490ba113075360"
     },
     "qualifiers": {
       "path": "../../config/generator/qualifiers.json",

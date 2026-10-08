@@ -59,7 +59,8 @@ class ResidentUsesTests(unittest.TestCase):
                 self.assertEqual(use['assessment']['game']['status'],'reject')
                 self.assertEqual(use['assessment']['membership']['status'],'reject')
                 self.assertEqual(use['assessment']['language']['status'],'unresolved' if v=='broad' else 'reject')
-                self.assertEqual(rest['assessment']['membership']['status'],'unresolved')
+                self.assertEqual(rest['assessment']['membership']['status'],'reject')
+                self.assertTrue(any(c['rule_id']=='semantic-remainder-exhausted-v1' for c in rest['assessment']['language']['checks']))
                 self.assertFalse(any(c['rule_id']==GAME for c in rest['assessment']['game']['checks']))
                 self.assertTrue(any(r['interpretation_id']==12 and
                                     r['assessment']['membership']['status']=='unresolved' for r in rows))
@@ -92,7 +93,8 @@ class ResidentUsesTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);db,reviews=self.fixture(root);materialize_assessments(db,use_reviews=reviews)
             result=explain(root,'warszawiance',variant='standard')
-            self.assertEqual(result['source_aggregation']['status'],'unresolved')
+            # Użycie (wielka litera) i wyczerpana pozostałość: słowo odrzucone.
+            self.assertEqual(result['source_aggregation']['status'],'reject')
             text=format_explanation(result)
             self.assertIn(GAME,text);self.assertIn('sgjp-relation-warszawianka-',text)
             sample=sample_persisted_analyses(db,json.loads(Path('config/generator/quality.json').read_text()))

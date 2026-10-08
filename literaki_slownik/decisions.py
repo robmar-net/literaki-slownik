@@ -56,7 +56,7 @@ def lexical_use_checks(review, variant, *, policy_version=POLICY_VERSION):
         raise GeneratorError('Nieznany wariant słownika',2)
     if not review or 'lexical_proof' not in review:return []
     legacy = policy_version in {f'diagnostic-approved-conditions-v{v}' for v in range(16,21)}
-    if policy_version not in {POLICY_VERSION, 'diagnostic-approved-conditions-v21'} and not legacy:
+    if policy_version not in {POLICY_VERSION, 'diagnostic-approved-conditions-v21', 'diagnostic-approved-conditions-v22'} and not legacy:
         raise GeneratorError('Nieznana wersja dowodu leksykalnego użycia',4)
     message = ('Dodatni dowód leksykalny BROAD dokładnie udokumentowanego użycia; inne warunki osobno.'
                if variant=='broad' else 'Dowód BROAD nie rozstrzyga aktualnej kwalifikacji STANDARD.') if legacy else (
@@ -67,6 +67,22 @@ def lexical_use_checks(review, variant, *, policy_version=POLICY_VERSION):
 
 
 USE_REVIEW_ID = 'own-semantic-use-review-v1'
+ROUND2_DECISION = '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/owner-decisions-round2-decision.md'
+
+
+def use_closure_check(review):
+    """Runda 2: warunki udokumentowanego użycia domknięte; gra, wiek i pisownia osobno."""
+    return {'rule_id':'semantic-use-qualification-closed-v1','status':'accept',
+            'message':'Udokumentowane użycie ma domknięte warunki (decyzja właściciela); pozostałe oceny osobno.',
+            'evidence':[*review['evidence'],ROUND2_DECISION]}
+
+
+def remainder_exhausted_check(reviews):
+    """Runda 2: sprawdzone użycia wyczerpują pełne ID, więc pozostałość nie jest osobnym znaczeniem."""
+    return {'rule_id':'semantic-remainder-exhausted-v1','status':'reject',
+            'documented_use_ids':[r['use_id'] for r in reviews],
+            'message':'Sprawdzone użycia wyczerpują to ID (decyzja właściciela); pozostałość nie daje osobnej analizy.',
+            'evidence':[ROUND2_DECISION]}
 
 
 def checked_use_reviews(db, reviews):
@@ -288,6 +304,7 @@ def materialize_assessments(db, batch_size=10000, *, use_reviews=()):
             assessed=assess_diagnostic(source['original'],source['qualifiers'],source_analyses=[dict(source,raw_tag=tag,source_sha256=source_hashes[source['source_id']])])
             if row[0] in reviewed:
                 assessed=assess_diagnostic(source['original'],source['qualifiers'],
+                    additional_checks=[remainder_exhausted_check(reviewed[row[0]])],
                     source_analyses=[dict(source,raw_tag=tag,source_sha256=source_hashes[source['source_id']])],
                     documented_condition_ids=[])
                 assessed['semantic_trace']={'kind':'unresolved_remainder','coverage':'incomplete',
@@ -297,9 +314,7 @@ def materialize_assessments(db, batch_size=10000, *, use_reviews=()):
                 for review in reviewed[row[0]]:
                     use_key=hashlib.sha256(dumps(['documented_use',source,tag,review]).encode()).hexdigest()
                     use=assess_diagnostic(source['original'],source['qualifiers'],
-                        additional_checks=[{'rule_id':'semantic-use-qualification-pending-v1','status':'unresolved',
-                        'message':'Udokumentowane użycie wymaga osobnego domknięcia warunków.',
-                        'evidence':review['evidence']}],
+                        additional_checks=[use_closure_check(review)],
                         source_analyses=[dict(source,raw_tag=tag,source_sha256=source_hashes[source['source_id']])],
                         documented_condition_ids=review.get('documented_conditions',[]),lexical_use_review=review)
                     use['semantic_trace']={'kind':'documented_use',**review}
