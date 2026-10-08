@@ -73,7 +73,13 @@ Porównano zamrożone listy BROAD i STANDARD z buildu `lists-v25-20261008-071320
 | forma niepoprawna (SGJP) | 65 | branzlowali |
 | skrót (`brev`) | 5 | mm, oo, ko |
 
-Zasady Kurnika wykluczają wielką literę i skróty, więc te odmowy są zgodne z regułami gry. SJP growy przyjmuje część takich słów małą literą jako pospolite, np. `ewa` czy `włoch`. Wyjątek stanowi przesiew mieszkańców: `sielanka` (idylla) i `powodzianin` (ofiara powodzi) to błędy listy wyjątków R1.
+Zasady Kurnika wykluczają wielką literę i skróty, więc te odmowy są zgodne z regułami gry. SJP.pl też oznacza nazwy własne jako niedopuszczalne w grach (sprawdzono 2026-10-08: `Kraków`, `Ewa`, `Janusz`, `Europa`, `Włoch`). Dopuszcza jednak osobne hasła pospolite o tym samym zapisie, których SGJP nie ma:
+- `kraków` od `krak` (WSWO, WSJP);
+- `janusz` potocznie (WSJP 2025);
+- `ewa` (USJP PWN);
+- `mm` jako wykrzyknik i `włoch` (OSPS).
+
+To luka źródła, a nie różnica reguł. Kategoria liczy do 8,5 tys. słów i jest kandydatem do osobnego przeglądu. Wyjątek stanowi przesiew mieszkańców: `sielanka` (idylla) i `powodzianin` (ofiara powodzi) to błędy listy wyjątków R1.
 
 ## STANDARD względem SJP (99 033 słów w SJP i BROAD, poza STANDARD)
 - 95 239 odpada przez `linguistic-historical-form-v1`, czyli kwalifikatory SGJP `daw.` i `przest.`.
