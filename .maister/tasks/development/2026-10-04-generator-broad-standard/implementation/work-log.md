@@ -360,3 +360,10 @@ Standardy: AGENTS.md, .maister/docs/INDEX.md; brak osobnych plików standardów.
 - Etap `reports`: krok `quality-words` trwa od 23:47. Ponad 40 warstw próbki skanuje pełne tabele i za każdym razem liczy widok z funkcjami Pythona. Do optymalizacji przed drugim buildem (G8).
 - Dysk: wolne spadło do 56 GiB przez pracę poza projektem. Usunięto przerwany v26 i nieudany v24.
 - v27 zakończony 2026-10-09 04:28: wszystkie etapy `complete`, coverage COMPLETE, 13,5 h (krok `quality-words` w starej, wolnej wersji). Benchmark: `analysis/evidence/sjp-benchmark-v27.md`. Wiki zaktualizowana.
+
+## 2026-10-09: v28 przerwany, poprawka raportu, ograniczenia G8
+- v28: listy gotowe (BROAD 3 479 364, STANDARD 3 090 424, po −463 względem v27). Marki wypadły, `polonez`/`syrena`/`tesla` zostały.
+- Raporty nieukończone: `coverage_report` drugi raz liczył raport niewiadomych (~40 GB pliku tymczasowego). Przy dysku zapchanym przez cache Go (CI) spadło do 4 GiB, build zatrzymany ręcznie. Poprawka: `56b81cd`.
+- Próbki jakości po przyspieszeniu: 41 min zamiast 2,6 h.
+- `release.json`: 6 wpisów `known_limitations` (3 reguły × 2 warianty, 0 słów zmienionych) i 3 opisy luk. Dowód: `analysis/evidence/known-limitations-g8.md`.
+- Następny: build v29-a (do wydania) i v29-b (kontrolny, K8).

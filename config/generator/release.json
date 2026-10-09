@@ -63,7 +63,71 @@
   },
   "limitations": [
     "Brak NKJP: źródło zablokowane (N1); KWJP nie jest filtrem dopuszczalności.",
-    "Pakiet nie jest wdrożony do gry i nie zmienia reguł gry."
+    "Pakiet nie jest wdrożony do gry i nie zmienia reguł gry.",
+    "Brak przymiotników przedrostkowych spoza SGJP (np. antydumpingowy).",
+    "Pospolite homonimy nazw własnych (np. janusz, kraków) są poza listą tylko wtedy, gdy SGJP nie podaje znaczenia pospolitego; WSJP nie jest dostępny hurtowo.",
+    "Marki zapisane małą literą odrzucamy według zamkniętej listy; hasła o mieszanym znaczeniu (np. polonez, syrena) zostają."
   ],
-  "known_limitations": []
+  "known_limitations": [
+    {
+      "variant": "broad",
+      "layer": "game",
+      "rule_id": "game-proper-name-class-v1",
+      "description": "SGJP daje analizie oznaczenie nazwy własnej i pospolitej; analiza odrzucona inną regułą, słowo rozstrzygają inne analizy.",
+      "no_impact_evidence": {
+        "path": "../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/known-limitations-g8.md",
+        "sha256": "a0f27aeef6e863f716505c58b61454c43164e932e54495480a6c61c76f326d69"
+      }
+    },
+    {
+      "variant": "broad",
+      "layer": "language",
+      "rule_id": "linguistic-unknown-qualifier-v1",
+      "description": "Kwalifikator bez zatwierdzonego warunku; analiza odrzucona inną regułą.",
+      "no_impact_evidence": {
+        "path": "../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/known-limitations-g8.md",
+        "sha256": "a0f27aeef6e863f716505c58b61454c43164e932e54495480a6c61c76f326d69"
+      }
+    },
+    {
+      "variant": "broad",
+      "layer": "language",
+      "rule_id": "preposition-n-whole-form-proof-v1",
+      "description": "Forma przyimek+ń spoza wyliczenia §9.1 SGJP; analiza odrzucona inną regułą.",
+      "no_impact_evidence": {
+        "path": "../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/known-limitations-g8.md",
+        "sha256": "a0f27aeef6e863f716505c58b61454c43164e932e54495480a6c61c76f326d69"
+      }
+    },
+    {
+      "variant": "standard",
+      "layer": "game",
+      "rule_id": "game-proper-name-class-v1",
+      "description": "SGJP daje analizie oznaczenie nazwy własnej i pospolitej; analiza odrzucona inną regułą, słowo rozstrzygają inne analizy.",
+      "no_impact_evidence": {
+        "path": "../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/known-limitations-g8.md",
+        "sha256": "a0f27aeef6e863f716505c58b61454c43164e932e54495480a6c61c76f326d69"
+      }
+    },
+    {
+      "variant": "standard",
+      "layer": "language",
+      "rule_id": "linguistic-unknown-qualifier-v1",
+      "description": "Kwalifikator bez zatwierdzonego warunku; analiza odrzucona inną regułą.",
+      "no_impact_evidence": {
+        "path": "../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/known-limitations-g8.md",
+        "sha256": "a0f27aeef6e863f716505c58b61454c43164e932e54495480a6c61c76f326d69"
+      }
+    },
+    {
+      "variant": "standard",
+      "layer": "language",
+      "rule_id": "preposition-n-whole-form-proof-v1",
+      "description": "Forma przyimek+ń spoza wyliczenia §9.1 SGJP; analiza odrzucona inną regułą.",
+      "no_impact_evidence": {
+        "path": "../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/known-limitations-g8.md",
+        "sha256": "a0f27aeef6e863f716505c58b61454c43164e932e54495480a6c61c76f326d69"
+      }
+    }
+  ]
 }

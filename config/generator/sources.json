@@ -845,7 +845,7 @@
     },
     "release": {
       "path": "release.json",
-      "sha256": "b4da009df2ea409e43a07d5d726c0c83128a8ffe851a96832c009497cfaee3d2"
+      "sha256": "1f19bffa550fbb8b17db95e3e648f50c67e5ef377d041a2c08ddd87b0f5a0b8e"
     }
   },
   "unavailable": [
