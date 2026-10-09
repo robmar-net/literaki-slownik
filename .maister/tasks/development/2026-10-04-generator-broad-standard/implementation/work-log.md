@@ -351,6 +351,11 @@ Standardy: AGENTS.md, .maister/docs/INDEX.md; brak osobnych plików standardów.
 - Etap reports padł na raporcie niewiadomych z ukrytym błędem SQLite. Ten sam raport na tej samej bazie w osobnym procesie przeszedł („report ok”). W chwili diagnozy dysk miał 5,8 GiB wolnego (przed buildem 167 GiB): cache kompilacji Go z innych sesji urósł do 124 GB, a sortowanie 34 mln wierszy potrzebuje plików tymczasowych. Wyczyszczono `go clean -cache` (174 GiB wolne). Komunikat błędu zawiera teraz typ i treść przyczyny.
 
 ## 2026-10-08 — build v25 z listami; benchmark SJP.pl
-- Build `lists-v25-20261008-071320-a`: wszystkie etapy przeszły, listy BROAD 3 469 938, STANDARD 3 081 120. Liczby zgadzają się co do sztuki z sondą po rundzie 2.
+- Build `lists-v25-20261008-071320-a`: etapy do `decisions` i `links` przeszły, listy BROAD 3 469 938, STANDARD 3 081 120. **Sprostowanie (2026-10-09):** etap `reports` nie skończył się. Krok `quality-words` trwał ponad 2 h, gdy o 15:00 `pkill` zatrzymujący v26 zabił też v25. Liczby zgadzają się co do sztuki z sondą po rundzie 2.
 - Na prośbę właściciela przed eksportem porównano listy z SJP.pl `20260820` (lista gry, zrzut z DAWG): `scripts/benchmark_sjp.py`, raport `analysis/evidence/sjp-benchmark-v25.md`. Listy pozostały niezmienione.
 - Znalezione do decyzji: brak `się`/`siebie` w eksporcie SGJP, 189 tematów `agl`, skróty jako rzeczowniki, błędy wyjątków R1 (`sielanka`, `powodzianin`), częste słowa z etykietą `daw.` odrzucane w STANDARD.
+
+## 2026-10-08/09 — runda 5 i build v27
+- v27 (`lists-v27-20261008-150154-a`): listy BROAD 3 479 827 (+9 889 wobec v25), STANDARD 3 090 887 (+9 767). Efekty rund 4 i 5 widoczne w próbce słów.
+- Etap `reports`: krok `quality-words` trwa od 23:47. Ponad 40 warstw próbki skanuje pełne tabele i za każdym razem liczy widok z funkcjami Pythona. Do optymalizacji przed drugim buildem (G8).
+- Dysk: wolne spadło do 56 GiB przez pracę poza projektem. Usunięto przerwany v26 i nieudany v24.
