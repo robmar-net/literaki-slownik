@@ -176,7 +176,8 @@ def build(manifest_path, run_dir, batch_size=10000):
             stage = 'reports'
             start = time.monotonic()
             set_stage(run, stage, 'running')
-            write_json(run / 'reports/unresolved.json', unresolved_report(db))
+            unresolved = unresolved_report(db)
+            write_json(run / 'reports/unresolved.json', unresolved)
             performance['diagnostic_unresolved'] = {'seconds': time.monotonic() - start}
             start = time.monotonic()
             write_json(run / 'reports/filter-impact.json', persisted_filter_impact(db))
@@ -187,7 +188,7 @@ def build(manifest_path, run_dir, batch_size=10000):
                 from .quality import sample_persisted_analyses, sample_corpus_links
                 start=time.monotonic()
                 config=load_json(checked_file(Path(manifest_path).resolve().parent,quality_reference))
-                write_json(run/'reports/quality-analyses.json',sample_persisted_analyses(db,config))
+                write_json(run/'reports/quality-analyses.json',sample_persisted_analyses(db,config,unresolved))
                 performance['diagnostic_quality_analyses']={'seconds':time.monotonic()-start}
                 start=time.monotonic()
                 write_json(run/'reports/quality-links.json',sample_corpus_links(db,config))
@@ -197,7 +198,7 @@ def build(manifest_path, run_dir, batch_size=10000):
                     from .quality import sample_word_analyses
                     definitions=load_json(checked_file(Path(manifest_path).resolve().parent,words_reference))
                     start=time.monotonic()
-                    write_json(run/'reports/quality-words.json',sample_word_analyses(db,config,definitions))
+                    write_json(run/'reports/quality-words.json',sample_word_analyses(db,config,definitions,unresolved))
                     performance['diagnostic_quality_words']={'seconds':time.monotonic()-start}
             start = time.monotonic()
             write_json(run / 'reports/logical-content.json', logical_content_report(db))

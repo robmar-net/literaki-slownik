@@ -193,6 +193,26 @@ class WordQualityTests(unittest.TestCase):
         import_sgjp(db,{'source_id':'fixture','resolved_path':str(path)},10000);materialize_confirmed_candidates(db);materialize_assessments(db)
         return db
 
+    def test_word_strata_equal_original_queries(self):
+        """Szybkie tabele tymczasowe muszą dać te same warstwy co pierwotne pełne zapytania."""
+        from literaki_slownik.quality import sample_word_analyses
+        from literaki_slownik.canonical import load_json
+        from pathlib import Path
+        import tempfile
+        with tempfile.TemporaryDirectory() as folder:
+            db=self.fixture(Path(folder))
+            sample=sample_word_analyses(db,load_json('config/generator/quality.json'),load_json('config/generator/quality-words.json'))
+            count=lambda sql,args=(): db.execute('select count(*) from ('+sql+')',args).fetchone()[0]
+            classes={r[0] for r in db.execute("select distinct case when instr(expanded_tag,':')>0 then substr(expanded_tag,1,instr(expanded_tag,':')-1) else expanded_tag end from analysis where interpretation_id is not null")}|{'praet','winien'}
+            expected={'word:source_class:'+pos:count("select distinct game_key from analysis where interpretation_id is not null and (expanded_tag=? or expanded_tag like ?)",(pos,pos+':%')) for pos in classes}
+            for variant in ('broad','standard'):
+                join="select a.game_key from analysis a join variant_decision d on d.analysis_key=a.analysis_key where d.variant=? group by a.game_key having "
+                expected['word:unresolved:'+variant]=count(join+"max(d.membership_status='accept')=0 and max(d.membership_status='unresolved')=1",(variant,))
+                expected['word:filter_changed:'+variant]=count(join+"min(d.membership_status='reject')=1",(variant,))
+            self.assertGreater(expected['word:filter_changed:standard'],0)
+            for name,population in expected.items():
+                self.assertEqual(sample['strata'][name]['population'],population,name)
+
     def test_required_word_strata_complete_analyses_and_both_variants(self):
         from literaki_slownik.quality import sample_word_analyses
         from literaki_slownik.canonical import load_json

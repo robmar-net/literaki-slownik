@@ -110,14 +110,15 @@ def review_template(sample, *, canonical_index_sha256, evidence_sha256):
     }
 
 
-def sample_persisted_analyses(db, config):
+def sample_persisted_analyses(db, config, coverage=None):
     """Diagnostyczne warstwy ocen; pełne źródło i obie oceny wybranej analizy.
 
     Przegląd pozostaje UNREVIEWED. Te warstwy uzupełniają, a nie zastępują
     wymagane warstwy słowne i linków pełnego quality-v1.
     """
     from .reports import unresolved_report
-    coverage=unresolved_report(db)
+    if coverage is None:  # build podaje gotowy raport, żeby nie skanować bazy drugi raz
+        coverage=unresolved_report(db)
     join='''from analysis a join variant_decision d on d.analysis_key=a.analysis_key
         join decision_payload p on p.assessment_key=d.assessment_key'''
     kind="coalesce(json_extract(p.assessment,'$.semantic_trace.kind'),case when a.candidate_key is null then 'source_expansion' else 'construction' end)"
@@ -241,11 +242,13 @@ def _analysis_item(db,key):
         'expanded_tag':tag,'original':original,'game_key':game_key,'policy_version':version,'assessments':assessments}
 
 
-def sample_word_analyses(db, config, definitions):
+def sample_word_analyses(db, config, definitions, coverage=None):
     """Warstwy słowne, wszystkie analizy i oba warianty; bez verdictu.
 
     Przynależność do warstwy służy doborowi przeglądu, nie rozstrzyga znaczeń.
     Specjalistyczność ograniczona do udokumentowanych etykiet tematycznych.
+    Wydajność: cechy słów, klasy i warianty liczymy jednym przejściem do tabel
+    tymczasowych; warstwy czytają z nich w tej samej kolejności kluczy.
     """
     from functools import lru_cache
     from .reports import unresolved_report
@@ -260,7 +263,8 @@ def sample_word_analyses(db, config, definitions):
             or any(not isinstance(v,str) or not v for v in definitions['specialist_topics'])
             or len(set(definitions['specialist_topics']))!=len(definitions['specialist_topics'])):
         raise GeneratorError('Nieobsługiwane definicje warstw słownych',2)
-    coverage=unresolved_report(db)
+    if coverage is None:  # build podaje gotowy raport, żeby nie skanować bazy drugi raz
+        coverage=unresolved_report(db)
     topics=frozenset(definitions['specialist_topics'])
     @lru_cache(maxsize=4096)
     def history(q):return int(bool(set(q.split('|'))&HISTORICAL_LABELS))
@@ -272,7 +276,8 @@ def sample_word_analyses(db, config, definitions):
     def common(n):return int(not n or 'nazwa_pospolita' in n.split('|'))
     for name,fn in [('quality_history',history),('quality_specialist',specialist),('quality_proper',proper),('quality_common',common)]:
         db.create_function(name,1,fn,deterministic=True)
-    db.execute('''create temp view if not exists quality_word_features as
+    db.execute('drop table if exists temp.quality_word_features')
+    db.execute('''create temp table quality_word_features as
         select a.game_key,min(a.length) as length,
         count(distinct json_array(coalesce(i.source_id,json_extract(c.payload,'$.components[0].interpretation.source_id')),coalesce(l.lemma_id,c.lemma_id))) as lexemes,
         max(quality_history(coalesce(i.qualifiers,c.qualifiers))) as historical,
@@ -284,23 +289,40 @@ def sample_word_analyses(db, config, definitions):
         group by a.game_key''')
     key="json_array('word',game_key)"
     strata={}
+    cursors=[]
+    def stream(sql,args=()):
+        cursor=db.execute(sql,args);cursors.append(cursor)
+        return (row[0] for row in cursor)
     for name,condition in [('short','length between 2 and 3'),('homonyms','lexemes>1'),
         ('history','historical=1'),('specialist','specialist=1'),('proper_common','proper=1 and common=1')]:
-        strata['word:'+name]=(row[0] for row in db.execute('select '+key+' as key from quality_word_features where '+condition+' order by key'))
-    source_classes={row[0] for row in db.execute("select distinct case when instr(expanded_tag,':')>0 then substr(expanded_tag,1,instr(expanded_tag,':')-1) else expanded_tag end from analysis where interpretation_id is not null")} | {'praet','winien'}
+        strata['word:'+name]=stream('select '+key+' as key from quality_word_features where '+condition+' order by key')
+    db.execute('drop table if exists temp.quality_word_classes')
+    db.execute('''create temp table quality_word_classes as select distinct
+        case when instr(expanded_tag,':')>0 then substr(expanded_tag,1,instr(expanded_tag,':')-1) else expanded_tag end as pos,
+        json_array('word',game_key) as key from analysis where interpretation_id is not null''')
+    db.execute('create index temp.quality_word_classes_pos on quality_word_classes(pos,key)')
+    source_classes={row[0] for row in db.execute('select distinct pos from quality_word_classes')} | {'praet','winien'}
     for pos in sorted(source_classes):
-        strata['word:source_class:'+pos]=(row[0] for row in db.execute("select distinct json_array('word',game_key) as key from analysis where interpretation_id is not null and (expanded_tag=? or expanded_tag like ?) order by key",(pos,pos+':%')))
+        strata['word:source_class:'+pos]=stream('select key from quality_word_classes where pos=? order by key',(pos,))
     known=set(CONFIRMED_CONSTRUCTOR_RULES)
     actual={row[0] for row in db.execute('select distinct rule_id from derivation_candidate')}
     if actual-known:raise GeneratorError('Nieznana klasa konstrukcji w próbce słów',4)
     for rule in sorted(known):
-        strata['word:construction:'+rule]=(row[0] for row in db.execute("select distinct json_array('word',game_key) as key from derivation_candidate where rule_id=? order by key",(rule,)))
+        strata['word:construction:'+rule]=stream("select distinct json_array('word',game_key) as key from derivation_candidate where rule_id=? order by key",(rule,))
+    db.execute('drop table if exists temp.quality_word_variants')
+    db.execute('''create temp table quality_word_variants as select d.variant,json_array('word',a.game_key) as key,
+        max(d.membership_status='accept')=0 and max(d.membership_status='unresolved')=1 as unresolved,
+        min(d.membership_status='reject')=1 as filter_changed
+        from analysis a join variant_decision d on d.analysis_key=a.analysis_key group by d.variant,a.game_key''')
     for variant in ('broad','standard'):
-        join='''from analysis a join variant_decision d on d.analysis_key=a.analysis_key where d.variant=? group by a.game_key'''
-        for name,condition in [('unresolved',"max(d.membership_status='accept')=0 and max(d.membership_status='unresolved')=1"),
-            ('filter_changed',"min(d.membership_status='reject')=1")]:
-            strata['word:'+name+':'+variant]=(row[0] for row in db.execute("select json_array('word',a.game_key) as key "+join+' having '+condition+' order by key',(variant,)))
+        for name in ('unresolved','filter_changed'):
+            strata['word:'+name+':'+variant]=stream(
+                'select key from quality_word_variants where variant=? and '+name+'=1 order by key',(variant,))
     sample=sample_strata(strata,config)
+    for cursor in cursors:
+        cursor.close()
+    for table in ('quality_word_features','quality_word_classes','quality_word_variants'):
+        db.execute('drop table if exists temp.'+table)
     selected=sorted({x['key'] for stratum in sample['strata'].values() for x in stratum['selected']})
     items=[]
     for selected_key in selected:
