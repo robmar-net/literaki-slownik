@@ -359,3 +359,4 @@ Standardy: AGENTS.md, .maister/docs/INDEX.md; brak osobnych plików standardów.
 - v27 (`lists-v27-20261008-150154-a`): listy BROAD 3 479 827 (+9 889 wobec v25), STANDARD 3 090 887 (+9 767). Efekty rund 4 i 5 widoczne w próbce słów.
 - Etap `reports`: krok `quality-words` trwa od 23:47. Ponad 40 warstw próbki skanuje pełne tabele i za każdym razem liczy widok z funkcjami Pythona. Do optymalizacji przed drugim buildem (G8).
 - Dysk: wolne spadło do 56 GiB przez pracę poza projektem. Usunięto przerwany v26 i nieudany v24.
+- v27 zakończony 2026-10-09 04:28: wszystkie etapy `complete`, coverage COMPLETE, 13,5 h (krok `quality-words` w starej, wolnej wersji). Benchmark: `analysis/evidence/sjp-benchmark-v27.md`. Wiki zaktualizowana.
