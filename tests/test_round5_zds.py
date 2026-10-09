@@ -34,6 +34,14 @@ class Round5Tests(unittest.TestCase):
         self.assertEqual(assessment(source_game_checks(source('desant', 'subst:sg:nom:m3',
                                                               names='nazwa_pospolita')))['status'], 'accept')
 
+    def test_brand_names_rejected_mixed_meaning_lemmas_kept(self):
+        for lemma in ('toyota', 'ford', 'warszawa', 'facebook', 'volkswagen'):
+            s = source(lemma, 'subst:sg:nom:f', names='nazwa_pospolita')
+            self.assertEqual(assessment(source_game_checks(s))['status'], 'reject', lemma)
+        for lemma in ('polonez', 'syrena', 'jaguar', 'tesla', 'maluch'):
+            s = source(lemma, 'subst:sg:nom:m3', names='nazwa_pospolita')
+            self.assertEqual(assessment(source_game_checks(s))['status'], 'accept', lemma)
+
     def test_bodaj_takes_verbal_endings_other_hosts_still_rejected(self):
         em = source('em', 'aglt:sg:pri:imperf:wok', 'być')
         bodajem = mobile_aglt_candidates(source('bodaj', 'part'), em)

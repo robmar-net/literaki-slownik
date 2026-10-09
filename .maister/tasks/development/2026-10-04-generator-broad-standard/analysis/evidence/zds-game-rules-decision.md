@@ -30,5 +30,12 @@ Reguły: `game-zds-named-exclusion-v1` (desa, spodeń i inne przykłady ZDS), `a
 
 Przy okazji poprawiono błąd z rundy 4: `explain` liczył ocenę bez frekwencji KWJP, więc dla `wraz` pokazywał w STANDARD odmowę.
 
+## Runda 6 (v28): marki
+ZDS §1 (01/2026): nazwy produktów i marek są niedopuszczalne, od 2026 pisze się je wielką literą. SGJP zapisuje część marek małą literą jako `nazwa_pospolita`, np. `toyota`, `ford`, `warszawa` (samochód).
+
+- Reguła `game-brand-name-v1`, zamknięta lista `BRAND_PRODUCT_LEMMAS` w `policy.py` (66 lematów).
+- Pomijamy hasła, które łączą markę ze zwykłym znaczeniem: `polonez`, `syrena`, `jaguar`, `żuk`, `tesla`, `maluch`, `allegro`, `biedronka`, `mini`, `trabant`, `jeep`, `lotto`.
+- Kryterium automatyczne („w tekstach zwykle wielką literą”) odrzucono, bo łapie zwykłe słowa (`bóg`, `polak`, `francuz`).
+
 ## Wycofanie
 Zmiana tego dokumentu i wpisu `zds` w `evidence.json`, potem nowy build.

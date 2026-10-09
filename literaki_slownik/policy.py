@@ -1,10 +1,10 @@
-"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v27)."""
+"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v28)."""
 from functools import lru_cache
 import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'approved-conditions-v27'
+VERSION = 'approved-conditions-v28'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -74,6 +74,14 @@ ABBREVIATION_NOUN_LEMMAS = frozenset({
 ZDS_DECISION = '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/zds-game-rules-decision.md'
 ZDS_NAMED_EXCLUSIONS = frozenset({'desa', 'pewex', 'cezal', 'com', 'edu', 'org', 'doc', 'rar', 'gamescom',
                                   'spodeń', 'pozań', 'zzań'})
+# Runda 6: marki i produkty zapisane w SGJP małą literą jako nazwa_pospolita. ZDS §1 (01/2026):
+# niedopuszczalne, od 2026 pisane wielką literą. Zamknięta lista ręczna; pomijamy hasła, które
+# łączą markę ze zwykłym znaczeniem (polonez, syrena, jaguar, żuk, tesla, maluch, allegro…).
+BRAND_PRODUCT_LEMMAS = frozenset('''adidas airbus audi autosan bentley boeing bugatti burberry cadillac chevrolet
+    chrysler citroen coca corolla daimler dodge dolby empik facebook ferrari fiat ford harley honda hummer hyundai
+    ikarus iphone jelcz kamaz kodak lamborghini lego lexus mazda mercedes mitsubishi moskwicz multikino neoplan
+    nissan nutella opel panasonic pepsi peugeot plymouth porsche renault rolex saab skoda solaris sony subaru suzuki
+    tipo toyota twingo ursus volkswagen volvo warszawa wartburg wołga yamaha'''.split())
 # Runda 4: wyjątki R1 z przeglądu według frekwencji KWJP (nie-mieszkańcy).
 NON_RESIDENT_EXCEPTIONS_ROUND4 = frozenset({'powodzianin', 'targowiczanin'})
 NON_RESIDENT_FEMININE_EXCEPTIONS = frozenset({'sielanka', 'przytulanka', 'kijanka', 'markietanka'})
@@ -274,6 +282,10 @@ def source_game_checks(source, candidate=None):
                        'source_lemma_id':source['lemma_id'],
                        'message':'Skrót lub skrótowiec zapisany w SGJP jako rzeczownik; zasady gry wykluczają skróty.',
                        'evidence':[ROUND4_DECISION, 'https://www.kurnik.pl/literaki/zasady.phtml']})
+    elif pos in {'subst', 'depr'} and source.get('lemma_id','').split(':',1)[0] in BRAND_PRODUCT_LEMMAS:
+        result.append({'rule_id':'game-brand-name-v1', 'status':'reject', 'source_lemma_id':source['lemma_id'],
+                       'message':'Nazwa marki lub produktu: ZDS §1 jej nie dopuszcza, od 2026 pisze się ją wielką literą.',
+                       'evidence':[ZDS_DECISION, 'https://sjp.pl/sl/dp.phtml']})
     elif pos == 'brev':
         result.append({'rule_id':'game-abbreviation-v1', 'status':'reject',
                        'message':'Źródłowa analiza jest skrótem; nie utożsamiamy skrótu ze skrótowcem rzeczownikowym.',
