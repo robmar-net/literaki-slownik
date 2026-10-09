@@ -10,8 +10,11 @@ from .inputs import GeneratorError
 from .canonical import dumps
 
 
-def coverage_report(db):
-    """Rozliczenie obserwowanych klas i ocen; inwentaryzacja nie jest odbiorem."""
+def coverage_report(db, unresolved=None):
+    """Rozliczenie obserwowanych klas i ocen; inwentaryzacja nie jest odbiorem.
+
+    Build podaje gotowy raport niewiadomych: drugie liczenie to ~50 min i ~40 GB pliku tymczasowego.
+    """
     from .sgjp import tag_size
     from .policy import CONFIRMED_CONSTRUCTOR_RULES, CLASS_MATRIX
     source={}
@@ -38,7 +41,7 @@ def coverage_report(db):
         'registered':rule in CONFIRMED_CONSTRUCTOR_RULES}
         for rule in sorted(set(actual)|CONFIRMED_CONSTRUCTOR_RULES)}
     stored=assessment_tables<=tables
-    assessed=(unresolved_report(db) if stored else
+    assessed=((unresolved if unresolved is not None else unresolved_report(db)) if stored else
               {'variants':{v:{'analyses':0,'semantic_analysis_kinds':{}} for v in VARIANTS}})
     expanded_total=sum(x['expanded_interpretations'] for x in source.values())
     source_assessment_coverage={}

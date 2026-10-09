@@ -40,6 +40,8 @@ class LogicalContentTests(unittest.TestCase):
                 self.assertTrue(report['source_semantic_population_complete'])
                 self.assertEqual(report['constructor_classes']['preposition-n-source-v1']['coverage'],'EMPTY_NOT_COVERAGE')
                 self.assertEqual(report,coverage_report(db))
+                from literaki_slownik.reports import unresolved_report
+                self.assertEqual(report,coverage_report(db,unresolved_report(db)))
             finally:owner.doCleanups()
         with tempfile.TemporaryDirectory() as directory:
             first,second=self.build_pair(Path(directory))

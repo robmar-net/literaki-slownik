@@ -204,7 +204,7 @@ def build(manifest_path, run_dir, batch_size=10000):
             write_json(run / 'reports/logical-content.json', logical_content_report(db))
             performance['diagnostic_logical_content'] = {'seconds': time.monotonic() - start}
             start = time.monotonic()
-            coverage = coverage_report(db)
+            coverage = coverage_report(db, unresolved)
             write_json(run / 'reports/coverage.json', coverage)
             performance['diagnostic_coverage'] = {'seconds': time.monotonic() - start}
             set_stage(run, stage, 'complete' if coverage['status'] == 'COMPLETE' else 'pending')
