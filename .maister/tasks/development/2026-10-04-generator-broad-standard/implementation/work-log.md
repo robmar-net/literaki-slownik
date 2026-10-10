@@ -372,3 +372,10 @@ Standardy: AGENTS.md, .maister/docs/INDEX.md; brak osobnych plików standardów.
 - v29-a przerwany w raportach przy 5 GiB wolnego. Przyczyna: `unresolved_report` i `persisted_filter_impact` sortowały 35 mln wierszy z tekstem powodów (~6,6 kB), choć różnych powodów jest 15 492. Plik tymczasowy ~150 GB. Raport niewiadomych liczył się 3 razy.
 - Poprawka: sortujemy same klucze, każdy payload sprawdzamy raz, raport niewiadomych liczony raz.
 - Równoważność na bazie v28: oba raporty identyczne ze starymi. Czas: niewiadome 64 min (było 49 min, ale bez pliku 150 GB), wpływ filtrów 41 min (było 2,2 h).
+
+## 2026-10-10: v29-a gotowy, przegląd K9, runda 7
+- v29-a: wszystkie etapy complete, coverage COMPLETE, 9,7 h. Listy = v28.
+- Przegląd 1 876 pozycji (8 agentów): 0 błędów w słowach i analizach, 2 w powiązaniach (`nienaprawialny`, `nienajlepszy`: AMBIGUOUS przy jednym leksemie), 26 unknown.
+- Z unknown `ali`/`sek`: wyjątek współczesnego użycia liczył `orth_lc`. 394 słowa STANDARD wchodziły dzięki nazwom własnym. Runda 7: liczymy tylko zapis małymi literami.
+- Poprawka powiązań: konstrukcja liczy się raz, nie raz na tag. Wspólne zapytanie `structure_counts_sql` dla bramki links i próbki jakości.
+- v29-a/b nieważne dla odbioru (zmiana kodu). Następny: v30-a i v30-b.

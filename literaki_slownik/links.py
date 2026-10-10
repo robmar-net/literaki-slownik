@@ -58,6 +58,7 @@ def _lemma_index(db):
 def candidates(db, kind, unit_1, pos=None, unit_2=None, allowed_pos=SHARED_POS):
     unit = unicodedata.normalize('NFC', unit_1)
     found = []
+    structures = set()  # Konstrukcja liczy się raz bez względu na liczbę tagów, jak forma źródłowa.
     unmatched = 'NO_STRUCTURAL_CANDIDATE'
     if kind == 'kwjp_lemma':
         method = 'NFC_LEMMA_POS'
@@ -81,10 +82,11 @@ def candidates(db, kind, unit_1, pos=None, unit_2=None, allowed_pos=SHARED_POS):
                  for row in db.execute(f'select id,original from surface_form where {column}=? order by original', (unit,))]
         if db.execute("select 1 from sqlite_master where name='derivation_candidate'").fetchone():
             lookup = unicodedata.normalize('NFC', unit.lower())
-            for candidate_key, original in db.execute('''select candidate_key,original
+            for candidate_key, original, rule_id, lemma_id in db.execute('''select candidate_key,original,rule_id,lemma_id
                     from derivation_candidate where game_key=? order by original,candidate_key''', (lookup,)):
                 if kind == 'kwjp_orth_lc' or unicodedata.normalize('NFC', original) == unit:
                     found.append({'candidate_key': candidate_key, 'original': original})
+                    structures.add(('D', rule_id, original, lemma_id))
     elif kind == 'kwjp_bigram':
         if unit_2 is None:
             raise ValueError('Bigram wymaga dwóch segmentów')
@@ -97,11 +99,14 @@ def candidates(db, kind, unit_1, pos=None, unit_2=None, allowed_pos=SHARED_POS):
         return {'method': method, 'status': 'UNMATCHED', 'candidates': [],
                 'sense_identity_confirmed': False, 'unmatched_reason': unmatched,
                 'reason': UNMATCHED_REASONS[unmatched]}
-    if len(found) > 1:
+    structures |= {('F', c['form_id']) for c in found if 'form_id' in c}
+    structures |= {('L', c['lexeme_id']) for c in found if 'lexeme_id' in c}
+    ambiguous = len(structures) > 1
+    if ambiguous:
         reason = 'Wielu kandydatów strukturalnych; nie wybieramy sensu ani nie dzielimy F.'
     else:
         reason = 'Jeden kandydat strukturalny; bez potwierdzenia sensu i dopuszczalności.'
-    return {'method': method, 'status': 'AMBIGUOUS' if len(found) > 1 else 'EXACT_CANDIDATE',
+    return {'method': method, 'status': 'AMBIGUOUS' if ambiguous else 'EXACT_CANDIDATE',
             'candidates': found, 'sense_identity_confirmed': False, 'reason': reason}
 
 
@@ -208,6 +213,14 @@ def link_report(db, unavailable=(), details=False, pos_map_version=DEFAULT_POS_M
     return report
 
 
+def structure_counts_sql(derived):
+    """Liczba struktur na jednostkę: leksem, forma, konstrukcja bez względu na tag (jak w candidates)."""
+    return ('select c.evidence_id,count(distinct c.lexeme_id)+count(distinct c.form_id)'
+            + ('+count(distinct d.rule_id||char(31)||d.original||char(31)||d.lemma_id) as n from evidence_candidate c'
+               ' left join derivation_candidate d on d.candidate_key=c.candidate_key' if derived else
+               ' as n from evidence_candidate c') + ' group by c.evidence_id')
+
+
 def _has_table(db, name):
     return bool(db.execute("select 1 from sqlite_master where type='table' and name=?", (name,)).fetchone())
 
@@ -291,7 +304,7 @@ def verify_link_completeness(db, allowed_pos=SHARED_POS):
         where not exists (select 1 from evidence_link l where l.evidence_id=e.id)''').fetchone()[0]
     inconsistent = db.execute('''select count(*) from evidence_link l
         join corpus_evidence e on e.id=l.evidence_id join source_artifact s on s.source_id=e.source_id
-        left join (select evidence_id,count(*) as n from evidence_candidate group by evidence_id) c on c.evidence_id=l.evidence_id
+        left join (''' + structure_counts_sql(derived) + ''') c on c.evidence_id=l.evidence_id
         where case when s.kind='kwjp_bigram' then l.status!='NOT_APPLICABLE' or coalesce(c.n,0)!=0
               when coalesce(c.n,0)=0 then l.status!='UNMATCHED'
               when c.n=1 then l.status!='EXACT_CANDIDATE' else l.status!='AMBIGUOUS' end''').fetchone()[0]

@@ -1,10 +1,10 @@
-"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v28)."""
+"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v29)."""
 from functools import lru_cache
 import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'approved-conditions-v28'
+VERSION = 'approved-conditions-v29'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -63,6 +63,7 @@ CLASS_MATRIX = {
     'siebie': 'word',
 }
 ROUND4_DECISION = '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md'
+ROUND7_DECISION = '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round7-contemporary-use-lowercase-decision.md'
 # Runda 4 (decyzja właściciela 2026-10-08): skrótowce i skróty zapisane w SGJP jako rzeczowniki
 # odrzucamy jak brev. Zamknięta lista z przypiętego SGJP: lematy bez samogłoski oraz
 # bliźniaki form brev, po ręcznym oddzieleniu zwykłych słów (dom, ul, sen, gen, kat, cal…).
@@ -1086,15 +1087,16 @@ def contemporary_use_override(checks, frequency):
     """STANDARD: odmowa za dawność ustępuje udokumentowanemu współczesnemu użyciu formy.
 
     Dowodem jest frekwencja formy w tekstach nieliterackich KWJP (bez beletrystyki,
-    która stylizuje). Inne odmowy zostają bez zmian.
+    która stylizuje), tylko w zapisie małymi literami (runda 7): „Wałęsa” nie dowodzi „wałęsa”.
+    Inne odmowy zostają bez zmian.
     """
     if frequency is None or frequency < CONTEMPORARY_USE_MIN_NONFICTION:
         return checks
-    return [{'rule_id':'linguistic-contemporary-use-kwjp-v1', 'status':'accept', 'replaces':c['rule_id'],
+    return [{'rule_id':'linguistic-contemporary-use-kwjp-v2', 'status':'accept', 'replaces':c['rule_id'],
              'source_label':c.get('source_label'), 'nonfiction_frequency':frequency,
              'threshold':CONTEMPORARY_USE_MIN_NONFICTION,
-             'message':'Forma ma współczesne użycie w tekstach nieliterackich KWJP; etykieta dawności nie wyklucza jej ze STANDARD.',
-             'evidence':[ROUND4_DECISION, 'https://kwjp.pl/']}
+             'message':'Forma pisana małymi literami ma współczesne użycie w tekstach nieliterackich KWJP; etykieta dawności nie wyklucza jej ze STANDARD.',
+             'evidence':[ROUND4_DECISION, ROUND7_DECISION, 'https://kwjp.pl/']}
             if c['rule_id']=='linguistic-historical-form-v1' and c['status']=='reject' else c for c in checks]
 
 

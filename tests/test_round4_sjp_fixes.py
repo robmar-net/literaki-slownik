@@ -71,7 +71,7 @@ class Round4Tests(unittest.TestCase):
         below = assess_diagnostic('wraz', 'daw.', source_analyses=wraz,
                                   contemporary_frequency=CONTEMPORARY_USE_MIN_NONFICTION - 1)
         self.assertEqual(at['membership']['standard']['status'], 'accept')
-        self.assertIn('linguistic-contemporary-use-kwjp-v1', [c['rule_id'] for c in at['language']['standard']['checks']])
+        self.assertIn('linguistic-contemporary-use-kwjp-v2', [c['rule_id'] for c in at['language']['standard']['checks']])
         self.assertEqual(below['membership']['standard']['status'], 'reject')
         self.assertEqual(at['membership']['broad']['status'], 'accept')
         # Inne odmowy (np. wielka litera) zostają.
@@ -88,9 +88,11 @@ class Round4Tests(unittest.TestCase):
             corpus = directory / 'lc-publicystyka.csv.gz'
             with gzip.open(corpus, 'wt', encoding='utf-8') as stream:
                 stream.write(',freq,ipm,ARF,DP,DP_norm,1-DP,total_freq\n'
-                             f'wraz,{CONTEMPORARY_USE_MIN_NONFICTION},1,1,0,0,1,30\nniewiasta,5,1,1,0,0,1,5\n')
+                             f'wraz,{CONTEMPORARY_USE_MIN_NONFICTION},1,1,0,0,1,30\nniewiasta,5,1,1,0,0,1,5\n'
+                             # Runda 7: zapis wielką literą (nazwy, początek zdania) się nie liczy.
+                             'Niewiasta,400,1,1,0,0,1,400\n')
             base = manifest['artifacts'][1]
-            manifest['artifacts'].append(dict(base, source_id='lc-publicystyka', kind='kwjp_orth_lc',
+            manifest['artifacts'].append(dict(base, source_id='lc-publicystyka', kind='kwjp_orth',
                                               path=corpus.name, genre='publicystyka',
                                               sha256=hashlib.sha256(corpus.read_bytes()).hexdigest()))
             supplement = directory / 'supplement.tab'

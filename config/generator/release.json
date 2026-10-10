@@ -66,7 +66,8 @@
     "Pakiet nie jest wdrożony do gry i nie zmienia reguł gry.",
     "Brak przymiotników przedrostkowych spoza SGJP (np. antydumpingowy).",
     "Pospolite homonimy nazw własnych (np. janusz, kraków) są poza listą tylko wtedy, gdy SGJP nie podaje znaczenia pospolitego; WSJP nie jest dostępny hurtowo.",
-    "Marki zapisane małą literą odrzucamy według zamkniętej listy; hasła o mieszanym znaczeniu (np. polonez, syrena) zostają."
+    "Marki zapisane małą literą odrzucamy według zamkniętej listy; hasła o mieszanym znaczeniu (np. polonez, syrena) zostają.",
+    "Wyjątek współczesnego użycia w STANDARD liczy formę, nie znaczenie: skrót z kropką może go zawyżyć (np. sek)."
   ],
   "known_limitations": [
     {

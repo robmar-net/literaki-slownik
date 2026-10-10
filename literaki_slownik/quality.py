@@ -167,7 +167,8 @@ def sample_corpus_links(db, config):
     # Zachowanie historycznej bazy linków bez candidate_key, bez migracji.
     derived='candidate_key' in {r[1] for r in db.execute('pragma table_info(evidence_candidate)')}
     # Dwa uporządkowane strumienie zamiast pięciu milionów skanów krawędzi.
-    count_rows=iter(db.execute('select evidence_id,count(*) from evidence_candidate group by evidence_id order by evidence_id'))
+    from .links import structure_counts_sql
+    count_rows=iter(db.execute(structure_counts_sql(derived)+' order by c.evidence_id'))
     current=next(count_rows,None)
     for evidence_id,status in db.execute('select evidence_id,status from evidence_link order by evidence_id'):
         if current and current[0]<evidence_id:

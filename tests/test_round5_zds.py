@@ -79,7 +79,7 @@ class Round5Tests(unittest.TestCase):
             corpus = directory / 'lc-fakt.csv.gz'
             with gzip.open(corpus, 'wt', encoding='utf-8') as stream:
                 stream.write(',freq,ipm,ARF,DP,DP_norm,1-DP,total_freq\nwraz,40,1,1,0,0,1,40\n')
-            manifest['artifacts'].append(dict(manifest['artifacts'][1], source_id='lc-fakt', kind='kwjp_orth_lc',
+            manifest['artifacts'].append(dict(manifest['artifacts'][1], source_id='lc-fakt', kind='kwjp_orth',
                                               path=corpus.name, genre='fakt',
                                               sha256=hashlib.sha256(corpus.read_bytes()).hexdigest()))
             rewrite(manifest_path, manifest)

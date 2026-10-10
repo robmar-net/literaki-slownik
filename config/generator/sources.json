@@ -817,7 +817,7 @@
     },
     "coverage": {
       "path": "../../config/generator/coverage.json",
-      "sha256": "4c3039774a05636d313e7aecb8a5e44baecdef2f9303edce807dfae8f5a909cb"
+      "sha256": "66044206ad5de8b9c57d23f87b6226bfaf4febfab09de612b89b70b5e9a1466e"
     },
     "qualifiers": {
       "path": "../../config/generator/qualifiers.json",
@@ -845,7 +845,7 @@
     },
     "release": {
       "path": "release.json",
-      "sha256": "1f19bffa550fbb8b17db95e3e648f50c67e5ef377d041a2c08ddd87b0f5a0b8e"
+      "sha256": "ce42048c7e2b988ac12e8b56dab935d36fc35e8ff72d1017651efb8e98d8f207"
     }
   },
   "unavailable": [

@@ -40,7 +40,8 @@
     "closed_first_release_constructor_set_agent_decided",
     "round4_sjp_benchmark_fixes_user_approved",
     "round5_zds_game_rules_user_approved",
-    "round6_brand_names_agent_decided"
+    "round6_brand_names_agent_decided",
+    "round7_contemporary_use_lowercase_agent_decided"
   ],
   "full_source_compact_interpretations": 7458520,
   "observed_combinations": {
