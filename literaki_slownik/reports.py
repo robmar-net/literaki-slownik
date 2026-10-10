@@ -127,14 +127,15 @@ def unresolved_report(db):
 
     Słowo agregujemy po spójnych analizach. Nie liczymy wspólnego payloadu
     jako pojedynczej analizy ani nie powielamy powodów z membership.
-    Pamięć: ograniczony cache powodów i zbiór reguł jednego słowa.
+    Pamięć: skrót każdego payloadu liczony raz i zbiór reguł jednego słowa.
+    Sortujemy same klucze: sortowanie z tekstem powodów (35 mln × ~6,6 kB)
+    potrzebowało ~150 GB pliku tymczasowego.
     """
     from .decisions import checked_persisted_use_coverage
     checked_persisted_use_coverage(db)
     layers = ('language', 'game', 'profile', 'release_scope')
     statuses = ('accept', 'reject', 'unresolved')
 
-    @lru_cache(maxsize=256)
     def checked_payload(key, text):
         if not isinstance(text, str):
             raise GeneratorError('Nieprawidłowy zapis powodów oceny', 4)
@@ -150,6 +151,22 @@ def unresolved_report(db):
         if combined['status'] != value['membership']['status']:
             raise GeneratorError('Niespójna kwalifikacja całej analizy', 4)
         return value
+
+    summaries = {}
+
+    def payload_summary(key):
+        summary = summaries.get(key)
+        if summary is None:
+            row = db.execute('select assessment from decision_payload where assessment_key=?', (key,)).fetchone()
+            if row is None:
+                raise GeneratorError('Brak analiz, powodów lub wariantów w raporcie niewiadomych', 4)
+            value = checked_payload(key, row[0])
+            summary = (tuple(value[layer]['status'] for layer in (*layers, 'membership')),
+                       value.get('semantic_trace', {}).get('kind'),
+                       frozenset((layer, check['rule_id']) for layer in layers
+                                 for check in value[layer]['checks'] if check['status'] == 'unresolved'))
+            summaries[key] = summary
+        return summary
 
     variants = {v: {'analyses': 0, 'analysis_membership': dict.fromkeys(statuses, 0),
                     'word_keys': 0, 'word_membership': dict.fromkeys(statuses, 0),
@@ -179,18 +196,17 @@ def unresolved_report(db):
             raise GeneratorError('Niepełne pokrycie wariantów w raporcie niewiadomych', 4)
         has_candidate='candidate_key' in {r[1] for r in db.execute('pragma table_info(analysis)')}
         query = '''select a.game_key,d.variant,d.language_status,d.game_status,
-            d.profile_status,d.scope_status,d.membership_status,p.assessment_key,p.assessment
+            d.profile_status,d.scope_status,d.membership_status,d.assessment_key
             ,'''+('a.candidate_key' if has_candidate else 'null')+'''
             from analysis a join variant_decision d on d.analysis_key=a.analysis_key
-            join decision_payload p on p.assessment_key=d.assessment_key
             order by a.game_key,d.variant,a.analysis_key'''
         processed = 0
-        for key, variant, language, game, profile, scope, membership, payload_key, text, candidate_key in db.execute(query):
+        for key, variant, language, game, profile, scope, membership, payload_key, candidate_key in db.execute(query):
             if variant not in variants or membership not in statuses:
                 raise GeneratorError('Nieznany wariant lub status zapisanej oceny', 4)
-            value = checked_payload(payload_key, text)
+            statuses_of_payload, trace_kind, payload_unknowns = payload_summary(payload_key)
             stored = (language, game, profile, scope, membership)
-            if stored != tuple(value[layer]['status'] for layer in (*layers, 'membership')):
+            if stored != statuses_of_payload:
                 raise GeneratorError('Statusy bazy różnią się od zapisanych powodów', 4)
             if group != (key, variant):
                 finish_group()
@@ -199,13 +215,12 @@ def unresolved_report(db):
             group_states.add(membership)
             total = variants[variant]
             total['analyses'] += 1
-            kind=value.get('semantic_trace',{}).get('kind','construction' if candidate_key else 'source_expansion')
+            kind=trace_kind if trace_kind is not None else 'construction' if candidate_key else 'source_expansion'
             if kind not in {'source_expansion','construction','documented_use','unresolved_remainder'}:
                 raise GeneratorError('Nieznany rodzaj analizy semantycznej',4)
             total['semantic_analysis_kinds'][kind]=total['semantic_analysis_kinds'].get(kind,0)+1
             total['analysis_membership'][membership] += 1
-            unknowns = {(variant, layer, check['rule_id']) for layer in layers
-                        for check in value[layer]['checks'] if check['status'] == 'unresolved'}
+            unknowns = {(variant, layer, rule) for layer, rule in payload_unknowns}
             total['analyses_with_unresolved_checks'] += bool(unknowns)
             total['rejected_analyses_with_unresolved_checks'] += bool(unknowns) and membership == 'reject'
             for rule in unknowns:
@@ -389,14 +404,16 @@ def filter_impact(groups, variant, rule_order):
     }
 
 
-def persisted_filter_impact(db):
+def persisted_filter_impact(db, coverage=None):
     """Wszystkie utrwalone oceny, jawna diagnostyczna kolejność ID reguł.
 
     Przed liczeniem wymagamy spójnego pokrycia obu wariantów i powodów.
     Kolejność nie jest pierwszeństwem reguł językowych; unknown nie odrzuca.
-    Pamięć ograniczona do jednej grupy słowa i cache 256 powodów.
+    Pamięć: jedna grupa słowa i członkostwo każdego payloadu (~15 tys.).
+    Sortujemy same klucze, tekst powodów pobieramy po kluczu (jak w unresolved_report).
     """
-    coverage = unresolved_report(db)
+    if coverage is None:  # build podaje gotowy raport
+        coverage = unresolved_report(db)
     @lru_cache(maxsize=256)
     def payload(encoded):
         value = json.loads(encoded)
@@ -411,17 +428,26 @@ def persisted_filter_impact(db):
         for encoded, in db.execute('''select distinct p.assessment from decision_payload p
                 join variant_decision d on d.assessment_key=p.assessment_key where d.variant=?''', (variant,)):
             rules.update(c['rule_id'] for c in payload(encoded)['membership']['checks'])
+        memberships = {}
+        def membership(payload_key):
+            value = memberships.get(payload_key)
+            if value is None:
+                row = db.execute('select assessment from decision_payload where assessment_key=?',
+                                 (payload_key,)).fetchone()
+                if row is None:
+                    raise GeneratorError('Niezgodne pokrycie raportów zapisanych ocen',4)
+                value = memberships[payload_key] = payload(row[0])['membership']
+            return value
         def groups():
             current, items = None, []
-            for key, encoded in db.execute('''select a.game_key,p.assessment
+            for key, payload_key in db.execute('''select a.game_key,d.assessment_key
                     from analysis a join variant_decision d on d.analysis_key=a.analysis_key
-                    join decision_payload p on p.assessment_key=d.assessment_key
                     where d.variant=? order by a.game_key,a.analysis_key''', (variant,)):
                 if current is not None and key != current:
                     yield {'key':current,'analyses':items}
                     items = []
                 current = key
-                items.append({'game_key':key,'membership':{variant:payload(encoded)['membership']}})
+                items.append({'game_key':key,'membership':{variant:membership(payload_key)}})
             if current is not None:
                 yield {'key':current,'analyses':items}
         if rules:

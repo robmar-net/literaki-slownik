@@ -180,7 +180,7 @@ def build(manifest_path, run_dir, batch_size=10000):
             write_json(run / 'reports/unresolved.json', unresolved)
             performance['diagnostic_unresolved'] = {'seconds': time.monotonic() - start}
             start = time.monotonic()
-            write_json(run / 'reports/filter-impact.json', persisted_filter_impact(db))
+            write_json(run / 'reports/filter-impact.json', persisted_filter_impact(db, unresolved))
             performance['diagnostic_filter_impact'] = {'seconds': time.monotonic() - start}
             quality_reference=inputs['manifest']['configurations'].get('quality')
             if quality_reference:

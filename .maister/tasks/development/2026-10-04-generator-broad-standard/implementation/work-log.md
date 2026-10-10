@@ -367,3 +367,8 @@ Standardy: AGENTS.md, .maister/docs/INDEX.md; brak osobnych plików standardów.
 - Próbki jakości po przyspieszeniu: 41 min zamiast 2,6 h.
 - `release.json`: 6 wpisów `known_limitations` (3 reguły × 2 warianty, 0 słów zmienionych) i 3 opisy luk. Dowód: `analysis/evidence/known-limitations-g8.md`.
 - Następny: build v29-a (do wydania) i v29-b (kontrolny, K8).
+
+## 2026-10-10: v29 przerwany, raporty bez sortowania tekstów
+- v29-a przerwany w raportach przy 5 GiB wolnego. Przyczyna: `unresolved_report` i `persisted_filter_impact` sortowały 35 mln wierszy z tekstem powodów (~6,6 kB), choć różnych powodów jest 15 492. Plik tymczasowy ~150 GB. Raport niewiadomych liczył się 3 razy.
+- Poprawka: sortujemy same klucze, każdy payload sprawdzamy raz, raport niewiadomych liczony raz.
+- Równoważność na bazie v28: oba raporty identyczne ze starymi. Czas: niewiadome 64 min (było 49 min, ale bez pliku 150 GB), wpływ filtrów 41 min (było 2,2 h).

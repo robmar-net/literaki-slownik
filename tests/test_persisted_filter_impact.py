@@ -18,11 +18,14 @@ class PersistedFilterImpactTests(unittest.TestCase):
             self.assertEqual(report['rule_order'], sorted(report['rule_order']))
         self.assertEqual(db.total_changes,before)
         self.assertEqual(result,persisted_filter_impact(db))
+        from literaki_slownik.reports import unresolved_report
+        self.assertEqual(result,persisted_filter_impact(db,unresolved_report(db)))
         self.assertTrue(result['full_qualification_pending'])
 
     def test_incomplete_or_corrupt_persisted_population_refused(self):
         for sql in ("delete from variant_decision where variant='broad'",
                     "update decision_payload set assessment='{}'",
+                    "delete from decision_payload",
                     "update variant_decision set membership_status='accept' where analysis_key='b1'"):
             helper=fixtures.UnknownReportTest();db=helper.database();self.addCleanup(helper.doCleanups)
             db.execute(sql)
