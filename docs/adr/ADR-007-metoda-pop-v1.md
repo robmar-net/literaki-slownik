@@ -1,6 +1,6 @@
 # ADR-007: Metoda `pop-v1` dla list POP i POP0
 
-**Status:** zaakceptowana 2026-10-11 (decyzje agenta z upoważnienia właściciela, odwracalne). Rewizja 2 z 2026-10-11 po przeglądzie próbek (D3, D5, D6, D8; sekcja „Rewizja 2”).
+**Status:** zaakceptowana 2026-10-11 (decyzje agenta z upoważnienia właściciela, odwracalne). Rewizje 2 i 3 z 2026-10-11 po przeglądach próbek (D3, D5, D6, D8).
 Właściciel, 2026-10-11: „podnieść oba limity; POP mocno, POP0 trochę; decyzje podejmij sam”.
 
 ## Kontekst
@@ -70,6 +70,13 @@ Wynik (v29): `polski` 72, `wrocławski` 3 101, `sierota` 7 066, `kot` 1 460 (POP
 POP 59 914 leksemów (45 056 jednostek, 1 285 591 form, 98,6% `kwjp-standard`); POP0 19 991 (11 633 jednostki, 444 195 form).
 Wycofanie NKJP: D3 = sama KWJP (log-ipm albo F), bez D4.
 Zostaje jako ograniczenie: grupa homonimów wciąga rzadki leksem (`targan` z `targać`).
+
+## Rewizja 3 (2026-10-11, po drugim przeglądzie próbek)
+Przegląd rew. 2: 404 trafne, 4 błędne, 2 niepewne. Wada: grupa homonimów wciąga rzadki leksem przez jeden wspólny zapis (`kią` z `kia` przez `kto`, `pozytywnieć` przez `pozytywniej`, `targan` przez `targać`).
+
+D5: `prune-weak-members`. Ranga i progi grup bez zmian. Członek grupy zostaje na liście, gdy jego **własne** jednoznaczne dane (KWJP EXACT, NKJP z jednym właścicielem) dają rangę w granicy tej listy. Wyjątki: najsilniejszy członek jednostki zawsze zostaje; członkowie bez własnych danych liczą się razem (jak `zamek`, `rok`, `dzień`). Formy wspólne z zostającym członkiem zostają.
+
+Wynik (v29): POP 51 805 leksemów (45 056 jednostek, 1 219 614 form, 97,35% `kwjp-standard`); POP0 13 181 leksemów (11 633 jednostki, 380 489 form, 92,88%). Usunięci członkowie: 8 109 z POP, 6 810 z POP0 (np. `jadło`, `zeszyć`, `mamić`; znane `niebyt`, `mailowy`, `mem` spadają do POP). `kot` w POP0. Limity D6 (60 000 / 20 000) liczą leksemy jednostek przed przycięciem; nie podnosimy ich.
 
 ## Rewizja
 Decyzje są odwracalne. Wracamy do nich, gdy:

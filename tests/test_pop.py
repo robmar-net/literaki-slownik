@@ -17,7 +17,7 @@ from literaki_slownik.pop import (CLEANING_RULES, build_package, build_pop, chec
                                   form_owners, forms_for, kwjp_measures, load_config, load_constructions,
                                   load_form_classes, load_forms, load_forms_accepted, load_kwjp, load_kwjp_lists,
                                   load_lexemes, load_sources,
-                                  measure, member_ranks, nkjp_collisions, nkjp_form_status, nkjp_lexeme_ranks,
+                                  measure, measure_floors, member_ranks, member_units, prune_members, nkjp_collisions, nkjp_form_status, nkjp_lexeme_ranks,
                                   percentiles, rank_units, read_nkjp, read_standard, spearman, tag_classes,
                                   threshold, top_overlap, units)
 from tests.pop_helpers import (NKJP_POP_1GRAMS, gz_write, kwjp_lemma_sources, pop_config, pop_fixture,
@@ -710,6 +710,125 @@ class PopRankingTests(unittest.TestCase):
         self.assertEqual(cut['units'], (('a',), ('b',)))
 
 
+def _kwjp_row(freq, row):
+    return {'F': freq, 'ARF': float(freq), '1-DP': 0.5, 'row': row, 'row_F': freq, 'rows': 1, 'genres': (),
+            'status': 'EXACT_CANDIDATE'}
+
+
+class PopPruneTests(unittest.TestCase):
+    """D5 `prune-weak-members` (iteracja 3): członek grupy zostaje na liście tylko z własną rangą w progu.
+
+    Dane syntetyczne, wzór `kią`: grupa {ki, kia, kto} przez formy wspólne `kim` i `kie`. Rangi jednostek
+    (log-ipm 0,5/0,5): grupa 1, dom 2, zamek 3, pies 4, rzadki 5. Progi: POP0 = 4 leksemy (grupa + dom),
+    POP = 7 (do psa). Własne miary: kto nad domem; kia (tylko NKJP `kią`, KWJP dolna granica) pod domem,
+    nad psem (ranga 4 = próg POP); ki (KWJP 50, NKJP `ki` 300) pod psem. Zamek: żaden członek nie ma własnego dowodu.
+    """
+    D3 = {'source': 'kwjp+nkjp', 'field': 'log-ipm', 'weight': 0.5}
+
+    def setUp(self):
+        k = lambda name: (S, name)
+        self.k = k
+        self.kwjp = {'lexemes': {k('kto'): _kwjp_row(1000, 1), k('ki'): _kwjp_row(50, 2), k('dom'): _kwjp_row(500, 3),
+                                 k('pies'): _kwjp_row(100, 4), k('rzadki'): _kwjp_row(6, 5)},
+                     'groups': {(k('zamek:a'), k('zamek:b')): dict(_kwjp_row(300, 6), status='AMBIGUOUS')},
+                     'mass': {'total': 2000}}
+        self.owners = {'kto': (k('kto'),), 'kim': (k('kia'), k('kto')), 'kie': (k('ki'), k('kia')),
+                       'kią': (k('kia'),), 'ki': (k('ki'),), 'zamek': (k('zamek:a'), k('zamek:b')),
+                       'dom': (k('dom'),), 'pies': (k('pies'),), 'rzadki': (k('rzadki'),),
+                       'kiach': (k('Kia'), k('kia'))}
+        forms = {'kto': 9000, 'kim': 3000, 'kie': 5, 'kią': 20000, 'ki': 300, 'zamek': 2000, 'dom': 5000,
+                 'pies': 800, 'rzadki': 10}
+        self.nkjp = {'forms': forms, 'total': 100000, 'matched': sum(forms.values())}
+        self.relevant = frozenset(k(n) for n in ('kto', 'kia', 'ki', 'dom', 'pies', 'rzadki', 'zamek:a',
+                                                 'zamek:b', 'Kia'))
+        self.eligible = self.relevant - {k('Kia')}
+
+    def run_lists(self, nkjp=None):
+        nkjp = nkjp or self.nkjp
+        result = units(self.kwjp, 'e', self.relevant, nkjp, self.owners, eligible=self.eligible)
+        result['units'] = {key: u for key, u in result['units'].items() if key != (self.k('Kia'),)}
+        found = measure(result, self.D3, 'lower-bound-absent')['units']
+        ranks = rank_units(found)
+        cuts = {name: threshold(ranks, result, {'by': 'count', 'value': limit}, values=found)
+                for name, limit in (('pop0', 4), ('pop', 7))}
+        members = member_units(result, self.kwjp, self.eligible, nkjp, self.owners)
+        measured = measure(members, self.D3, 'lower-bound-absent', floors=measure_floors(result, self.D3))['units']
+        return result, found, ranks, cuts, members, measured, prune_members(members, measured, found, cuts)
+
+    def test_rare_member_pulled_in_by_shared_form_leaves_pop0_but_stays_in_pop_by_own_rank(self):
+        k = self.k
+        result, found, ranks, cuts, members, measured, pruned = self.run_lists()
+        group = (k('ki'), k('kia'), k('kto'))
+        self.assertEqual(ranks[group], 1)
+        self.assertEqual(set(cuts['pop0']['units']), {group, (k('dom'),)})
+        self.assertEqual(cuts['pop']['rank'], 4)
+        kept = {name: pruned['lists'][name]['kept'] for name in ('pop0', 'pop')}
+        self.assertEqual(kept['pop0'], {k('kto'), k('dom')})
+        self.assertEqual(kept['pop'], {k('kto'), k('kia'), k('dom'), k('pies'), k('zamek:a'), k('zamek:b')})
+        self.assertEqual(pruned['lists']['pop0']['pruned'], (k('ki'), k('kia')))
+        self.assertEqual(pruned['lists']['pop']['pruned'], (k('ki'),))
+        own = pruned['members']
+        self.assertEqual((own[(k('kto'),)]['rank'], own[(k('kia'),)]['rank'], own[(k('ki'),)]['rank']), (2, 4, 5))
+        # kia: KWJP nieobecne = dolna granica (D8), NKJP z własnej formy `kią`; formy wspólne poza miarą.
+        self.assertEqual(measured[(k('kia'),)]['flags'], ('bound:kwjp',))
+        self.assertEqual(members['units'][(k('kia'),)]['nkjp']['status'], 'OBSERVED')
+        self.assertEqual(members['nkjp_f'][(k('kia'),)], 20000)
+        # POP0 ⊆ POP także po przycięciu.
+        self.assertTrue(kept['pop0'] <= kept['pop'])
+
+    def test_group_without_own_evidence_stays_whole_and_f_is_never_copied(self):
+        k = self.k
+        result, found, ranks, cuts, members, measured, pruned = self.run_lists()
+        zamek = (k('zamek:a'), k('zamek:b'))
+        # Żaden członek nie ma własnego dowodu: podjednostka = cała grupa, ta sama miara co jednostka.
+        self.assertIn(zamek, members['units'])
+        self.assertEqual(measured[zamek]['value'], found[zamek]['value'])
+        self.assertTrue(set(zamek) <= pruned['lists']['pop']['kept'])
+        # F grupy KWJP raz; członkowie z własnym wierszem dostają tylko swój wiersz (kto 1000, ki 50).
+        self.assertEqual(members['units'][zamek]['kwjp']['F'], 300)
+        self.assertEqual(members['units'][(k('kto'),)]['kwjp']['F'], 1000)
+        self.assertEqual(members['units'][(k('ki'),)]['kwjp']['F'], 50)
+        self.assertEqual(members['units'][(k('kia'),)]['kwjp']['status'], 'ABSENT_OR_BELOW_PUBLICATION_THRESHOLD')
+        group = (k('ki'), k('kia'), k('kto'))
+        sub_f = sum(u['kwjp']['F'] or 0 for key, u in members['units'].items() if u['unit'] == group)
+        self.assertEqual(sub_f, result['units'][group]['kwjp']['F'])
+        # NKJP: tylko formy jednego właściciela; `kim` i `kie` (wspólne) nie trafiają do nikogo.
+        self.assertEqual(sum(v for key, v in members['nkjp_f'].items() if members['units'][key]['unit'] == group),
+                         9000 + 20000 + 300)
+        # Jednostki jednoczłonowe nie mają podjednostek; rangi jednostek bez zmian.
+        self.assertNotIn((k('dom'),), members['units'])
+        self.assertEqual(ranks, rank_units(measure(result, self.D3, 'lower-bound-absent')['units']))
+
+    def test_strongest_member_stays_when_no_member_reaches_the_threshold_alone(self):
+        # Wzór `jedyny:A`/`jedyny:S`: masa grupy jest w formach wspólnych, więc żaden członek sam nie
+        # dochodzi do progu POP0. Jednostka nie może wejść na listę pusta: zostaje najmocniejszy członek.
+        k = self.k
+        self.kwjp['lexemes'][k('kto')] = _kwjp_row(10, 1)
+        nkjp = dict(self.nkjp, forms=dict(self.nkjp['forms'], kto=50))
+        result, found, ranks, cuts, members, measured, pruned = self.run_lists(nkjp)
+        group = (k('ki'), k('kia'), k('kto'))
+        self.assertEqual(set(cuts['pop0']['units']), {group, (k('dom'),)})
+        self.assertEqual(cuts['pop0']['rank'], 2)
+        own = {m: pruned['members'][(m,)]['rank'] for m in group}
+        self.assertTrue(all(rank > 2 for rank in own.values()), own)
+        self.assertEqual(min(own, key=own.get), k('kia'))
+        self.assertEqual(pruned['lists']['pop0']['kept'], {k('kia'), k('dom')})
+        self.assertEqual(pruned['lists']['pop0']['pruned'], (k('ki'), k('kto')))
+        self.assertEqual(pruned['lists']['pop0']['heads'], 1)
+
+    def test_nkjp_form_shared_with_proper_name_gives_member_no_nkjp(self):
+        k = self.k
+        nkjp = dict(self.nkjp, forms=dict(self.nkjp['forms'], kiach=7), matched=self.nkjp['matched'] + 7)
+        result, found, ranks, cuts, members, measured, pruned = self.run_lists(nkjp)
+        kia = members['units'][(k('kia'),)]
+        self.assertEqual(kia['nkjp']['status'], 'PROPER_SHARED')
+        self.assertNotIn((k('kia'),), members['nkjp_f'])
+        # Bez KWJP i bez wiarygodnego NKJP: brak własnej miary, więc poza obiema listami.
+        self.assertEqual(measured[(k('kia'),)]['status'], 'NO_DATA')
+        self.assertIsNone(pruned['members'][(k('kia'),)]['rank'])
+        self.assertNotIn(k('kia'), pruned['lists']['pop']['kept'])
+
+
 class PopConfigTests(unittest.TestCase):
     """`pop.json` i `load_config` (B3, C3, ADR-007): zamknięte klucze, opcje, typy i zakresy."""
     ROOT = Path(__file__).resolve().parent.parent
@@ -746,7 +865,7 @@ class PopConfigTests(unittest.TestCase):
         self.assertEqual(config['d2'], {'classes': [], 'constructions': 'yes', 'membership': 'i'})
         self.assertEqual(config['d3'], {'source': 'kwjp+nkjp', 'field': 'log-ipm', 'weight': 0.5})
         self.assertEqual(config['d4'], 'strip-edges-keep-dot')
-        self.assertEqual(config['d5'], 'e-common')
+        self.assertEqual(config['d5'], {'groups': 'e-common', 'members': 'prune-weak-members'})
         self.assertEqual(config['d6'], {'pop': {'by': 'count', 'value': 60000},
                                         'pop0': {'by': 'count', 'value': 20000}})
         self.assertEqual((config['d7'], config['d8']), ('accepted', 'lower-bound-absent'))
@@ -767,6 +886,8 @@ class PopConfigTests(unittest.TestCase):
             'brak d7': lambda c: c.pop('d7'),
             'klucz w d2': lambda c: c['d2'].update(extra=1),
             'klucz w d3': lambda c: c['d3'].update(extra=1),
+            'klucz w d5': lambda c: c['d5'].update(extra=1),
+            'brak d5 members': lambda c: c['d5'].pop('members'),
             'waga przy samej KWJP': lambda c: c['d3'].update(source='kwjp'),
             'klucz w d6': lambda c: c['d6'].update(pop1={'by': 'count', 'value': 1}),
             'klucz w d6.pop': lambda c: c['d6']['pop'].update(denominator='kwjp-all'),
@@ -794,6 +915,9 @@ class PopConfigTests(unittest.TestCase):
             'd4': lambda c: c.update(d4='strip-all'),
             'd4 brak przy NKJP': lambda c: c.update(d4=None),
             'd5': lambda c: c.update(d5='f'),
+            'd5 groups': lambda c: c['d5'].update(groups='f'),
+            'd5 members': lambda c: c['d5'].update(members='prune'),
+            'd5 jako tekst': lambda c: c.update(d5='e-common'),
             'd6 by': lambda c: c['d6']['pop'].update(by='lexemes'),
             'd7': lambda c: c.update(d7='corrected'),
             'd8': lambda c: c.update(d8='zero'),
@@ -845,8 +969,9 @@ class PopConfigTests(unittest.TestCase):
             'd3 waga 0,75': lambda c: c['d3'].update(weight=0.75),
             'd3 sama KWJP ARF': lambda c: c.update(d3={'source': 'kwjp', 'field': 'ARF'}, d4=None),
             'd4 inna reguła': lambda c: c.update(d4='strip-edges'),
-            'd5 d': lambda c: c.update(d5='d'),
-            'd5 e dosłowne': lambda c: c.update(d5='e'),
+            'd5 d': lambda c: c['d5'].update(groups='d'),
+            'd5 e dosłowne': lambda c: c['d5'].update(groups='e'),
+            'd5 bez przycinania': lambda c: c['d5'].update(members='all'),
             'd6 przez pokrycie': lambda c: c.update(d6={
                 'pop': {'by': 'coverage', 'value': 0.98, 'denominator': 'kwjp-standard'},
                 'pop0': {'by': 'coverage', 'value': 0.9, 'denominator': 'kwjp-standard'}}),
@@ -944,7 +1069,9 @@ class PopBuildTests(unittest.TestCase):
         self.assertTrue(set(result['pop0']) < set(result['pop']) <= self.standard)
         self.assertEqual([r['unit'] for r in result['units'] if r['list'] == 'POP0'],
                          [_lexeme('polski'), _lexeme('kot'), _lexeme('lato', 'rok:S1', 'rok:S2'), _lexeme('duży')])
-        self.assertEqual(result['thresholds']['pop0']['lexemes'], 6)
+        # 6 leksemów w jednostkach POP0; `lato` przycięte (prune-weak-members), więc na liście 5.
+        self.assertEqual(result['thresholds']['pop0']['pruning']['before']['lexemes'], 6)
+        self.assertEqual(result['thresholds']['pop0']['lexemes'], 5)
         # Próg 9: grupa zamek (2 leksemy, ranga 7) się nie mieści, więc nie wchodzi żaden członek;
         # lista kończy się przed nią (8 leksemów), `ul` (ranga 8) też poza.
         self.assertEqual((result['thresholds']['pop']['lexemes'], result['thresholds']['pop']['rank']), (8, 6))
@@ -965,6 +1092,35 @@ class PopBuildTests(unittest.TestCase):
             report = result['thresholds'][name]
             self.assertEqual(set(report['coverage']), {'kwjp-standard', 'kwjp-all'})
             self.assertEqual(report['forms'], len(result[name]))
+
+    def test_weak_member_of_listed_group_is_pruned_and_takes_only_its_own_forms(self):
+        result = self.result
+        lato, rok1, rok2 = (S, 'lato'), (S, 'rok:S1'), (S, 'rok:S2')
+        row = self.row(result, 'lato', 'rok:S1', 'rok:S2')
+        # Ranga i lista jednostki bez zmian (grupa nie jest dzielona ani przeliczana).
+        self.assertEqual((row['rank'], row['list']), (3, 'POP0'))
+        # `lato`: własne KWJP 20 (EXACT), wspólne `lata` poza miarą → ranga 5, pod progiem POP0 (4), w POP (6).
+        # rok:S1+rok:S2: bez własnych dowodów, wspólny wiersz KWJP `rok` → jedna podjednostka, ranga 1.
+        self.assertEqual(row['members_in'], {'POP': [lato, rok1, rok2], 'POP0': [rok1, rok2]})
+        self.assertEqual(row['member_ranks'], {f'lato@{S}': 5, f'rok:S1@{S}': 1, f'rok:S2@{S}': 1})
+        self.assertNotIn('lato', result['pop0'])
+        self.assertIn('lato', result['pop'])
+        self.assertIn('lata', result['pop0'])  # forma wspólna z rok:S1 zostaje
+        self.assertIn('rok', result['pop0'])
+        pop0, pop = result['thresholds']['pop0'], result['thresholds']['pop']
+        self.assertEqual(pop0['pruning']['rule'], 'prune-weak-members')
+        self.assertEqual((pop0['pruning']['pruned_members'], pop['pruning']['pruned_members']), (1, 0))
+        self.assertEqual(pop0['pruning']['examples'], [{'member': f'lato@{S}', 'unit_rank': 3, 'own_rank': 5,
+                                                        'unit_size': 3}])
+        self.assertEqual(pop0['forms'], len(result['pop0']))
+        self.assertGreater(pop0['pruning']['before']['forms'], pop0['forms'])
+        self.assertLessEqual(pop0['coverage']['kwjp-standard']['covered'],
+                             pop0['pruning']['before']['coverage']['kwjp-standard']['covered'])
+        # Jednostka jednoczłonowa: lista = członek, bez rang członków.
+        duzy = self.row(result, 'duży')
+        self.assertEqual(duzy['members_in'], {'POP': [(S, 'duży')], 'POP0': [(S, 'duży')]})
+        self.assertNotIn('member_ranks', duzy)
+        self.assertEqual(self.row(result, 'kumpel')['members_in'], {})
 
     def test_proper_name_has_no_rank_and_its_form_enters_through_common_lexeme(self):
         result = self.result
@@ -1053,7 +1209,7 @@ class PopBuildTests(unittest.TestCase):
         good = pop_config(self.directory, 9, 6)
         code, answer = cli(f['sources'], good, output='package')
         self.assertEqual((code, answer['status'], answer['command']), (0, 'ok', 'pop'), answer)
-        self.assertEqual(answer['result']['thresholds']['pop0']['lexemes'], 6)
+        self.assertEqual(answer['result']['thresholds']['pop0']['lexemes'], 5)
         self.assertEqual(answer['result']['must_include_pop0'], {'kot': 2})
         self.assertEqual(answer['result']['output_dir'], str((self.directory / 'package').resolve()))
         self.assertTrue((self.directory / 'package/SHA256SUMS').is_file())
@@ -1251,6 +1407,9 @@ class PopPackageTests(unittest.TestCase):
         self.assertIn(f'zamek:a@{S}', selected('grupy-homonimow'))
         self.assertIn(f'kot@{S}', selected('pop0-granica-wewnatrz'))
         self.assertIn(f'zamek:b@{S}', selected('pop0-granica-zewnatrz'))
+        # Członek przycięty z POP0 nie jest próbką z wnętrza POP0; w POP zostaje.
+        self.assertNotIn(f'lato@{S}', selected('pop0-granica-wewnatrz'))
+        self.assertIn(f'lato@{S}', selected('pop-granica-wewnatrz'))
         template = json.loads(self.read('reports/review-template.json'))
         self.assertEqual(template['status'], 'UNREVIEWED')
         self.assertEqual(template['canonical_index_sha256'], sha256(self.package / 'reports/units.json'))
@@ -1259,6 +1418,23 @@ class PopPackageTests(unittest.TestCase):
                          {name: sha256(self.package / name)
                           for name in ('POP.txt.gz', 'POP0.txt.gz', 'reports/thresholds.json')})
         self.assertTrue(template['items'] and all(i['assessment'] is None for i in template['items']))
+
+    def test_package_rows_carry_member_lists_and_thresholds_report_pruning(self):
+        rows = json.loads(self.read('reports/units.json'))['units']
+        rok, = [row for row in rows if f'lato@{S}' in row['members']]
+        self.assertEqual(rok['members_in'], {'POP': [f'lato@{S}', f'rok:S1@{S}', f'rok:S2@{S}'],
+                                             'POP0': [f'rok:S1@{S}', f'rok:S2@{S}']})
+        self.assertEqual(rok['member_ranks'], {f'lato@{S}': 5, f'rok:S1@{S}': 1, f'rok:S2@{S}': 1})
+        for row in rows:
+            listed = row['members_in']
+            self.assertTrue(set(listed.get('POP0', ())) <= set(listed.get('POP', ())) <= set(row['members']))
+            self.assertEqual(bool(listed), row['list'] is not None)
+        thresholds = json.loads(self.read('reports/thresholds.json'))['thresholds']
+        self.assertEqual(thresholds['pop0']['pruning']['pruned_members'], 1)
+        self.assertEqual(thresholds['pop0']['pruning']['examples'][0]['member'], f'lato@{S}')
+        words = gzip.decompress((self.package / 'POP0.txt.gz').read_bytes()).decode('utf-8').split()
+        self.assertNotIn('lato', words)
+        self.assertEqual(thresholds['pop0']['forms'], len(words))
 
     def test_ul_dot_mass_stays_out_of_ul_in_package(self):
         # D4 w pakiecie: `ul` ma rangę NKJP z własnych 12, nie z 9 182 736 `ul.`; `ul.` nie ma wiersza.

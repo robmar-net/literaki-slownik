@@ -13,7 +13,10 @@
     "weight": 0.5
   },
   "d4": "strip-edges-keep-dot",
-  "d5": "e-common",
+  "d5": {
+    "groups": "e-common",
+    "members": "prune-weak-members"
+  },
   "d6": {
     "pop": {
       "by": "count",

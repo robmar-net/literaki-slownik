@@ -43,7 +43,8 @@ class ExplainPopTests(unittest.TestCase):
     def test_reasons_for_each_case(self):
         cases = [('kot', 'pop0', 'IN_POP0'), ('fajny', 'pop', 'IN_POP'), ('fajny', 'pop0', 'BELOW_THRESHOLD'),
                  ('zamek', 'pop', 'BELOW_THRESHOLD'), ('kumpel', 'pop', 'NO_DATA'),
-                 ('xyzzy', 'pop', 'NOT_IN_STANDARD'), ('Polska', 'pop0', 'IN_POP0')]
+                 ('xyzzy', 'pop', 'NOT_IN_STANDARD'), ('Polska', 'pop0', 'IN_POP0'),
+                 ('lato', 'pop0', 'PRUNED_WEAK_MEMBER'), ('lato', 'pop', 'IN_POP')]
         for word, variant, reason in cases:
             with self.subTest(word=word, variant=variant):
                 value = self.explain(word, variant)
@@ -59,6 +60,19 @@ class ExplainPopTests(unittest.TestCase):
         self.assertTrue(value['in_standard'])
         self.assertEqual(value['reason'], 'PROPER_NAME_ONLY')
         self.assertEqual(value['lexemes'], [{'lexeme': 'odra@synthetic', 'proper_name': True, 'unit': None}])
+
+    def test_pruned_member_explains_own_rank_and_unit_in_list(self):
+        # `lato`: jednostka lato+rok jest w POP0, ale własna ranga `lato` (5) jest pod progiem POP0 (4).
+        value = self.explain('lato', 'pop0')
+        self.assertEqual(value['reason'], 'PRUNED_WEAK_MEMBER')
+        unit, = value['units']
+        self.assertEqual(unit['list'], 'POP0')
+        self.assertNotIn('lato@synthetic', unit['members_in']['POP0'])
+        self.assertEqual(unit['member_ranks']['lato@synthetic'], 5)
+        text = format_pop_explanation(value)
+        self.assertIn('PRUNED_WEAK_MEMBER', text)
+        self.assertIn('członkowie w POP0: rok:S1@synthetic, rok:S2@synthetic', text)
+        self.assertIn('lato@synthetic 5', text)
 
     def test_construction_form_reports_component_lexeme(self):
         # Forma konstrukcji nie ma własnej interpretacji: leksem przychodzi przez składnik (jak `pop`).

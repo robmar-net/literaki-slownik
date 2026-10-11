@@ -279,7 +279,10 @@ def format_explanation(value):
 
 # --- POP i POP0 (C16): osobna ścieżka; `decisions.VARIANTS` się nie zmienia ---
 POP_VARIANTS = ('pop', 'pop0')
-POP_REASONS = ('IN_POP0', 'IN_POP', 'BELOW_THRESHOLD', 'NO_DATA', 'PROPER_NAME_ONLY', 'NOT_IN_STANDARD')
+POP_REASONS = ('IN_POP0', 'IN_POP', 'PRUNED_WEAK_MEMBER', 'BELOW_THRESHOLD', 'NO_DATA', 'PROPER_NAME_ONLY',
+               'NOT_IN_STANDARD')
+# Jednostka w liście (`list` wiersza) obejmuje listy: POP0 ⊆ POP.
+_POP_UNIT_LISTS = {'POP': ('pop',), 'POP0': ('pop', 'pop0')}
 _POP_LIST_FILES = {'pop': 'POP.txt.gz', 'pop0': 'POP0.txt.gz'}
 _POP_REPORTS = ('reports/units.json', 'reports/thresholds.json')
 
@@ -367,10 +370,17 @@ def explain_pop(pop_dir, run_dir, word, variant):
             if hit:
                 owner.update((label, len(rows)) for label in hit)
                 rows.append(row)
+        # D5 `prune-weak-members`: jednostka jest w liście, ale leksem słowa nie (za słabe własne dowody).
+        pruned = any(variant in _POP_UNIT_LISTS.get(rows[owner[label]]['list'], ())
+                     and 'members_in' in rows[owner[label]]
+                     and label not in rows[owner[label]]['members_in'][variant.upper()]
+                     for label in owner)
         if lists[variant]:
             reason = 'IN_' + variant.upper()
         elif not in_standard:
             reason = 'NOT_IN_STANDARD'
+        elif pruned:
+            reason = 'PRUNED_WEAK_MEMBER'
         elif any(row['rank'] is not None for row in rows):
             reason = 'BELOW_THRESHOLD'
         elif lexemes and not rows and all(lexemes.values()):
@@ -395,6 +405,8 @@ def explain_pop(pop_dir, run_dir, word, variant):
 
 def format_pop_explanation(value):
     reasons = {'IN_POP0': 'w POP0', 'IN_POP': 'w POP',
+               'PRUNED_WEAK_MEMBER': 'jednostka w liście, ale własne dowody leksemu dają rangę poniżej progu '
+                                     '(D5 prune-weak-members)',
                'BELOW_THRESHOLD': 'poniżej progu listy', 'NO_DATA': 'brak danych o użyciu leksemu',
                'PROPER_NAME_ONLY': 'tylko nazwy własne; poza rankingiem (D9)',
                'NOT_IN_STANDARD': 'poza STANDARD; POP ⊆ STANDARD'}
@@ -420,4 +432,9 @@ def format_pop_explanation(value):
         if 'nkjp_status' in row:
             lines.append(f"  NKJP: {row['nkjp_status']}, ranga {row['nkjp_rank']}, percentyl {row['nkjp_percentile']}")
         lines.append(f"  flagi: {', '.join(row['flags']) or 'brak'}")
+        for name, members in sorted((row.get('members_in') or {}).items()):
+            lines.append(f"  członkowie w {name}: {', '.join(members) or 'brak'}")
+        if row.get('member_ranks'):
+            lines.append('  własne rangi członków: '
+                         + ', '.join(f"{m} {r if r is not None else 'brak'}" for m, r in sorted(row['member_ranks'].items())))
     return '\n'.join(lines)

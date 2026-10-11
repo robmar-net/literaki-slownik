@@ -722,7 +722,24 @@ def _log_ipm(count, total):
     return math.log10(count / total * 1e6) if count and total else None
 
 
-def measure(result, d3, d8='available-only'):
+def _log_ipm_sources(result):
+    """log-ipm jednostek per źródło (KWJP: F i suma listy `all`; NKJP: `nkjp_f` i suma pliku); bez braków."""
+    kwjp_total = result['mass']['kwjp']['total']
+    nkjp_total = (result['mass'].get('nkjp') or {}).get('total')
+    nkjp_f = result.get('nkjp_f') or {}
+    per_source = {'kwjp': {k: _log_ipm(_kwjp_value(u['kwjp'], 'F'), kwjp_total) for k, u in result['units'].items()},
+                  'nkjp': {k: _log_ipm(nkjp_f.get(k), nkjp_total) for k in result['units']}}
+    return {name: {k: v for k, v in values.items() if v is not None} for name, values in per_source.items()}
+
+
+def measure_floors(result, d3):
+    """Dolne granice D8 (najmniejszy log-ipm każdego źródła) populacji jednostek; `None` poza KWJP+NKJP log-ipm."""
+    if not isinstance(d3, dict) or d3.get('source') != 'kwjp+nkjp' or d3.get('field') != 'log-ipm':
+        return None
+    return {name: min(values.values()) if values else None for name, values in _log_ipm_sources(result).items()}
+
+
+def measure(result, d3, d8='available-only', floors=None):
     """Miara jednostki wg D3; brak częściowy wg D8b. Wynik: wartość, status, flagi (C5, C6).
 
     `kwjp`: sama KWJP, pole F / ARF / 1-DP / liczba gatunków z obecnością / log-ipm.
@@ -735,6 +752,8 @@ def measure(result, d3, d8='available-only'):
     jednostka bez wartości; `lower-bound-absent` — źródło prawdziwie nieobecne (KWJP poniżej progu
     publikacji, brak w liście NKJP) dostaje tę dolną granicę z flagą `bound:<źródło>`, a źródło
     niewiarygodne (`PROPER_SHARED`, `UNMATCHED`) jest pomijane jak w `available-only`. Brak pełny = `NO_DATA`. Wartość log-ipm łączy F NKJP: tylko do rangi (C14).
+    `floors` (wynik `measure_floors` innej populacji): dolne granice z tej populacji zamiast własnych;
+    tak członkowie grup (`member_units`) dostają tę samą skalę co jednostki rankingu. Tylko log-ipm.
     """
     _exact(d3, {'source', 'field'} | ({'weight'} if d3.get('source') == 'kwjp+nkjp' else set())
            if isinstance(d3, dict) else set(), 'D3')
@@ -753,15 +772,12 @@ def measure(result, d3, d8='available-only'):
                           if value is not None else {'value': None, 'status': 'NO_DATA', 'flags': ()})
         return {'units': found, 'missing': _missing(found, result, None)}
     weight = _number(d3['weight'], 0, 1, 'D3 weight')
+    if floors is not None and field != 'log-ipm':
+        raise ValueError('Obce dolne granice tylko dla log-ipm')
     if field == 'log-ipm':
-        nkjp_total = (result['mass'].get('nkjp') or {}).get('total')
-        nkjp_f = result.get('nkjp_f') or {}
-        per_source = {'kwjp': {k: _log_ipm(_kwjp_value(u['kwjp'], 'F'), kwjp_total)
-                               for k, u in result['units'].items()},
-                      'nkjp': {k: _log_ipm(nkjp_f.get(k), nkjp_total) for k in result['units']}}
-        per_source = {name: {k: v for k, v in values.items() if v is not None}
-                      for name, values in per_source.items()}
-        floors = {name: min(values.values()) if values else None for name, values in per_source.items()}
+        per_source = _log_ipm_sources(result)
+        if floors is None:
+            floors = {name: min(values.values()) if values else None for name, values in per_source.items()}
         source_value = lambda name, key, unit: per_source[name].get(key)
     else:
         kwjp_pct = percentiles(rank_units({k: {'value': _kwjp_value(u['kwjp'], field)}
@@ -923,6 +939,147 @@ def threshold(ranks, result, d6, kwjp=None, relevant=None, values=None):
             'coverage': _coverage(d6['denominator'], covered, total)}
 
 
+# --- D5 `prune-weak-members`: członkowie grup homonimów na listach (iteracja 3, rew. 3 ADR-007) ---
+# Ranking i progi liczą jednostki (grupa wchodzi w całości albo wcale; F grupy nie jest dzielone ani kopiowane).
+# Na listę trafia jednak tylko członek, którego WŁASNE jednoznaczne dowody (widok D5c) dają rangę w progu.
+# Powód: forma wspólna z częstym leksemem wciągała rzadki leksem do POP0 (`kią` przez grupę `kto`).
+D5_MEMBERS = ('all', 'prune-weak-members')
+
+
+def member_units(result, kwjp, eligible, nkjp=None, owners=None):
+    """Członkowie jednostek wieloczłonowych z własnymi dowodami (widok D5c), do `prune-weak-members`.
+
+    Własny dowód leksemu: wiersz EXACT KWJP albo forma NKJP jednego właściciela. Forma NKJP wspólna
+    z leksemem spoza `eligible` (nazwa własna) daje członkowi status `PROPER_SHARED`, jak `units` jednostce:
+    jego NKJP nie wchodzi do miary. Formy i wiersze wspólne z innym członkiem nie są niczyje.
+    Wyjątek: członkowie bez własnego dowodu, połączeni wierszem AMBIGUOUS KWJP albo formą NKJP, w których
+    żaden kandydat nie ma własnego dowodu, tworzą jedną podjednostkę z masą tych wierszy i form
+    (`rok:S1`+`rok:S2` w grupie z `lato`). Grupa bez żadnego własnego dowodu (`zamek:a`+`zamek:b`)
+    jest więc jedną podjednostką równą jednostce. F nigdy nie jest kopiowane ani dzielone.
+
+    Wynik ma kształt wyniku `units` (dla `measure`): klucz podjednostki = posortowana krotka członków,
+    pole `unit` = jej jednostka. `eligible` jak w `units('e', …)`.
+    """
+    if nkjp is not None and owners is None:
+        raise ValueError('NKJP wymaga właścicieli form (form_owners)')
+    eligible = frozenset(eligible)
+    lexemes, groups = kwjp['lexemes'], kwjp['groups']
+    unit_of = {m: key for key, unit in result['units'].items() if len(unit['members']) > 1 for m in unit['members']}
+    own_nkjp, shared, proper, seen = defaultdict(int), [], set(), set()
+    if nkjp is not None:
+        for form, count in sorted(nkjp['forms'].items()):
+            found = owners[form]
+            touched = [m for m in found if m in unit_of]
+            if not touched:
+                continue
+            if len(found) == 1:
+                own_nkjp[found[0]] += count
+                continue
+            seen.update(touched)
+            if eligible.issuperset(found):
+                shared.append((tuple(found), count))
+            else:
+                proper.update(touched)
+    in_group = defaultdict(list)
+    joined_groups = []
+    for group in groups:
+        touched = [k for k in group if k in unit_of]
+        for key in touched:
+            in_group[key].append(group)
+        if touched and eligible.issuperset(group) and len(touched) == len(group):
+            joined_groups.append(group)
+    evidence = {m for m in unit_of if m in lexemes or (own_nkjp.get(m) and m not in proper)}
+    found = _Groups()
+    for member in unit_of:
+        found.find(member)
+    for members in [*joined_groups, *(members for members, _ in shared)]:
+        if evidence.isdisjoint(members):
+            found.union(list(members))
+    parts = defaultdict(list)
+    for member in unit_of:
+        parts[found.find(member)].append(member)
+    sub_of = {}
+    for members in parts.values():
+        key = tuple(sorted(members))
+        sub_of.update((m, key) for m in key)
+    inside = lambda members: len({sub_of[m] for m in members}) == 1
+    sub_groups, sub_shared = defaultdict(list), defaultdict(int)
+    for group in joined_groups:
+        if inside(group):
+            sub_groups[sub_of[group[0]]].append(group)
+    for members, count in shared:
+        if inside(members):
+            sub_shared[sub_of[members[0]]] += count
+    out, nkjp_f = {}, {}
+    for key in sorted(set(sub_of.values())):
+        mine = sorted(sub_groups.get(key, ()))
+        item = _kwjp_entry([lexemes[m] for m in key if m in lexemes] + [groups[g] for g in mine])
+        if item is not None:
+            kwjp_item = {'status': 'OBSERVED', **item, 'ambiguous': bool(mine)}
+        else:
+            kwjp_item = _kwjp_missing('UNMATCHED' if any(m in in_group for m in key) else KWJP_ABSENT)
+        if nkjp is None:
+            nkjp_item = {'status': 'NOT_APPLICABLE', 'rank': None, 'percentile': None, 'ambiguous': False}
+        elif proper.intersection(key):
+            nkjp_item = {'status': NKJP_PROPER_SHARED, 'rank': None, 'percentile': None, 'ambiguous': False}
+        else:
+            mass = sum(own_nkjp.get(m, 0) for m in key) + sub_shared.get(key, 0)
+            if mass:
+                nkjp_f[key] = mass
+            status = 'OBSERVED' if mass else 'UNMATCHED' if seen.intersection(key) else NKJP_ABSENT
+            nkjp_item = {'status': status, 'rank': None, 'percentile': None,
+                         'ambiguous': bool(mass and sub_shared.get(key))}
+        out[key] = {'members': key, 'size': len(key), 'unit': unit_of[key[0]], 'kwjp': kwjp_item,
+                    'nkjp': nkjp_item, 'evidence': not evidence.isdisjoint(key)}
+    mass = {'kwjp': {'total': result['mass']['kwjp']['total']}}
+    if nkjp is not None:
+        mass['nkjp'] = {'total': result['mass']['nkjp']['total']}
+    return {'units': out, 'mass': mass, 'nkjp_f': nkjp_f}
+
+
+def prune_members(members, measured, values, cuts):
+    """D5 `prune-weak-members`: członkowie jednostek z list, które zostają na każdej liście.
+
+    `members` = wynik `member_units`, `measured` = `measure` na nim z dolnymi granicami jednostek
+    (`measure_floors`), `values` = miary jednostek, `cuts` = nazwa listy → wynik `threshold`.
+    Własna ranga podjednostki = 1 + liczba jednostek rankingu o większej mierze (ta sama populacja;
+    remis z ostatnim blokiem listy mieści się, jak w progu). Członek zostaje, gdy własna ranga ≤ ranga
+    progu listy. Bez własnej miary → poza listą. Wyjątki: podjednostka równa jednostce (żaden członek nie ma
+    własnego dowodu) zostaje zawsze; najmocniejsza podjednostka (najlepsza własna ranga, z remisami) zostaje
+    zawsze, bo jednostka weszła na listę cała i nie może być pusta (`jedyny:A`/`jedyny:S`: masa w formach
+    wspólnych). Członek przycięty nie wnosi form; formy wspólne z członkiem, który zostaje, zostają przez
+    niego. POP0 ⊆ POP, bo próg POP0 ≤ próg POP, a najmocniejsza podjednostka jest ta sama.
+    Wynik `lists[nazwa]`: `kept`, `pruned`, `heads` = liczba jednostek, w których najmocniejsza
+    podjednostka jest pod progiem i zostaje tylko z tego wyjątku.
+    """
+    from bisect import bisect_left
+    ordered = sorted(-item['value'] for item in values.values() if item['value'] is not None)
+    own = {}
+    for key, sub in members['units'].items():
+        value = measured[key]['value']
+        own[key] = {'unit': sub['unit'], 'rank': None if value is None else bisect_left(ordered, -value) + 1}
+    subs_of = defaultdict(list)
+    for key, sub in members['units'].items():
+        subs_of[sub['unit']].append(key)
+    lists = {}
+    for name, cut in cuts.items():
+        pruned, heads = set(), 0
+        for unit in cut['units']:
+            parts = subs_of.get(unit, ())
+            if len(parts) == 1:  # podjednostka = jednostka: żaden członek nie ma własnego dowodu
+                continue
+            best = min((own[key]['rank'] for key in parts if own[key]['rank'] is not None), default=None)
+            if best is None:  # żadnej własnej miary: jak brak własnych dowodów
+                continue
+            heads += best > cut['rank']
+            for key in parts:
+                rank = own[key]['rank']
+                if rank != best and (rank is None or rank > cut['rank']):
+                    pruned.update(key)
+        lists[name] = {'kept': frozenset(cut['members'] - pruned), 'pruned': tuple(sorted(pruned)), 'heads': heads}
+    return {'members': own, 'lists': lists}
+
+
 def tag_classes(tag):
     """Klasy D2a etykiety: wołacz (sam `voc`), rozkaźnik, imiesłowy, os. 1/2; pusta = poza klasami."""
     fields = tag.split(':')
@@ -1039,14 +1196,15 @@ def top_overlap(ranks_a, ranks_b, n):
 METHODS = {'pop-v1': 'docs/adr/ADR-007-metoda-pop-v1.md'}
 CONFIG_KEYS = {'version', 'adr', 'd1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'proper_names_in_ranking',
                'must_include_pop0', 'sampling'}
-# D5 w konfiguracji: opcje `units` plus `e-common` = `e` z `eligible` = leksemy bez nazw własnych.
+# D5 w konfiguracji: `groups` = opcje `units` plus `e-common` (`e` z `eligible` = leksemy bez nazw własnych);
+# `members` = członkowie jednostek na listach: `all` albo `prune-weak-members` (iteracja 3).
 D5_CONFIG = D5_OPTIONS + ('e-common',)
 D7_OPTIONS = ('accepted',)
 SAMPLING_VERSION = 'pop-quality-v1'
 D6_MAX = 10 ** 7
 # Wartości ADR-007 (C3). D3 i D4 idą parami: KWJP+NKJP z regułą D4 albo sama KWJP bez D4.
 ADR_007 = {'d1': 'kwjp-standard', 'd2': {'classes': [], 'constructions': 'yes', 'membership': 'i'},
-           'd5': 'e-common', 'd7': 'accepted', 'd8': 'lower-bound-absent', 'proper_names_in_ranking': False}
+           'd5': {'groups': 'e-common', 'members': 'prune-weak-members'}, 'd7': 'accepted', 'd8': 'lower-bound-absent', 'proper_names_in_ranking': False}
 # D8 `lower-bound-absent` także przy wycofaniu NKJP: przy jednym źródle D8 nie działa (brak = NO_DATA),
 # więc jedna wartość w każdej konfiguracji ADR-007.
 # Poprawka po przeglądzie próbek: log-ipm zamiast średniej percentyli (KWJP+NKJP, waga 0,5).
@@ -1078,6 +1236,12 @@ def _config_d3_d4(d3, d4):
         _option(d4, CLEANING_RULES, 'D4')
 
 
+def _config_d5(d5):
+    _exact(d5, {'groups', 'members'}, 'D5')
+    _option(d5['groups'], D5_CONFIG, 'D5 groups')
+    _option(d5['members'], D5_MEMBERS, 'D5 members')
+
+
 def _config_d6(d6):
     _exact(d6, {'pop', 'pop0'}, 'D6')
     limits = {}
@@ -1104,7 +1268,7 @@ def _validate_config(config):
     _option(config['d1'], D1_OPTIONS, 'D1')
     _config_d2(config['d2'])
     _config_d3_d4(config['d3'], config['d4'])
-    _option(config['d5'], D5_CONFIG, 'D5')
+    _config_d5(config['d5'])
     _config_d6(config['d6'])
     _option(config['d7'], D7_OPTIONS, 'D7')
     _option(config['d8'], D8_PARTIAL, 'D8b')
@@ -1208,13 +1372,45 @@ def _demote_without_nkjp(text):
     return '\n'.join(lines).strip('\n')
 
 
-def _unit_row(key, unit, found, rank, percentile, kwjp_pct, place):
+PRUNING_EXAMPLES = 20
+
+
+def _pruning_report(rule, cut, ranks, pruned, name, before):
+    """Przycinanie członków listy (D5 `members`): liczby przed przycięciem i 20 przykładów wg rangi grupy."""
+    out = {'rule': rule, 'pruned_members': 0, 'units_with_pruned': 0, 'units_kept_by_strongest_member': 0,
+           'before': before, 'examples': []}
+    if pruned is None:
+        return out
+    out['units_kept_by_strongest_member'] = pruned['lists'][name]['heads']
+    gone = set(pruned['lists'][name]['pruned'])
+    if not gone:
+        return out
+    examples, hit = [], 0
+    own = {m: item['rank'] for key, item in pruned['members'].items() for m in key}
+    for unit in sorted(cut['units'], key=lambda u: ranks[u]):
+        lost = sorted(gone.intersection(unit))
+        if not lost:
+            continue
+        hit += 1
+        examples += [{'member': _label(m), 'unit_rank': ranks[unit], 'own_rank': own[m], 'unit_size': len(unit)}
+                     for m in lost]
+    out.update(pruned_members=len(gone), units_with_pruned=hit, examples=examples[:PRUNING_EXAMPLES])
+    return out
+
+
+def _unit_row(key, unit, found, rank, percentile, kwjp_pct, place, kept, own_ranks):
     # `value` zostaje w pamięci (testy, diagnostyka); pakiet dostaje tylko `rank` i `percentile` (C14).
+    # `members_in`: członkowie jednostki na każdej liście, w której jest jednostka (D5 `members`);
+    # `member_ranks`: etykieta członka → własna ranga, dla jednostki wieloczłonowej z listy (`prune-weak-members`).
+    listed = {'POP': ('pop',), 'POP0': ('pop', 'pop0')}.get(place, ())
     row = {'unit': key, 'size': unit['size'], 'rank': rank, 'percentile': percentile, 'value': found['value'],
            'status': found['status'],
            'flags': list(found['flags']), 'confidence': unit['confidence'], 'list': place,
+           'members_in': {name.upper(): [m for m in key if m in kept[name]] for name in listed},
            'kwjp': {'status': unit['kwjp']['status'], 'percentile': kwjp_pct.get(key),
                     'ambiguous': unit['kwjp']['ambiguous']}}
+    if listed and len(key) > 1 and own_ranks:
+        row['member_ranks'] = {_label(m): own_ranks[m] for m in key}
     if unit['nkjp']['status'] != 'NOT_APPLICABLE':
         row['nkjp'] = {k: unit['nkjp'][k] for k in ('status', 'rank', 'percentile', 'ambiguous')}
     return row
@@ -1234,24 +1430,34 @@ def build_pop(sources, config, run_dir=None, release_dir=None):
     data = _lexicon(paths, sources, with_nkjp)
     kwjp, relevant, proper = data['kwjp'], data['relevant'], data['proper']
     nkjp = read_nkjp(paths['nkjp'], config['d4'], data['owners']) if with_nkjp else None
-    result = units(kwjp, 'e', relevant, nkjp, data['owners'], eligible=relevant - proper)
+    eligible = relevant - proper
+    result = units(kwjp, 'e', relevant, nkjp, data['owners'], eligible=eligible)
     rule_id = nkjp['rule_id'] if with_nkjp else None
-    del nkjp, data['owners']
     # D9: jednostka z samych nazw własnych nie ma rangi i nie liczy się do progu.
     proper_units = sum(1 for unit in result['units'].values() if proper.issuperset(unit['members']))
     result['units'] = {k: u for k, u in result['units'].items() if not proper.issuperset(u['members'])}
+    pruning = config['d5']['members'] == 'prune-weak-members'
+    members = member_units(result, kwjp, eligible, nkjp, data['owners']) if pruning else None
+    del nkjp, data['owners']
     found = measure(result, config['d3'], config['d8'])
     ranks = rank_units(found['units'])
     cuts = {name: threshold(ranks, result, config['d6'][name], kwjp, relevant, found['units']) for name in LISTS}
-    lists = {name: forms_for(cuts[name]['members'], config['d2'], {'i': data['forms']}, data['constructions'])
-             for name in LISTS}
+    if pruning:
+        own = measure(members, config['d3'], config['d8'], floors=measure_floors(result, config['d3']))['units']
+        pruned = prune_members(members, own, found['units'], cuts)
+        kept = {name: pruned['lists'][name]['kept'] for name in LISTS}
+    else:
+        pruned, kept = None, {name: cuts[name]['members'] for name in LISTS}
+    forms_of = lambda chosen: forms_for(chosen, config['d2'], {'i': data['forms']}, data['constructions'])
+    lists = {name: forms_of(kept[name]) for name in LISTS}
+    before = {name: forms_of(cuts[name]['members']) for name in LISTS} if pruning else lists
     pop, pop0 = lists['pop']['forms'], lists['pop0']['forms']
     included, ranked_members = {}, member_ranks(ranks, result)
     for word in config['must_include_pop0']:
         key = _game_key(word)
         if key not in pop0:
             raise GeneratorError(f'Słowo z must_include_pop0 poza POP0: {word}', 4)
-        owners = [m for m in cuts['pop0']['members'] if key in data['forms'].get(m, ())
+        owners = [m for m in kept['pop0'] if key in data['forms'].get(m, ())
                   or key in data['constructions']['forms'].get(m, ())]
         included[word] = min(ranked_members[m] for m in owners)
     if not (pop0 <= pop <= data['standard']):
@@ -1264,17 +1470,23 @@ def build_pop(sources, config, run_dir=None, release_dir=None):
         place.update((unit, name.upper()) for unit in cuts[name]['units'])
     kwjp_pct = percentiles(rank_units({k: {'value': _kwjp_value(u['kwjp'], 'F')} for k, u in result['units'].items()}))
     combined_pct = percentiles(ranks)
+    own_ranks = ({m: item['rank'] for item_key, item in pruned['members'].items() for m in item_key}
+                 if pruning else {})
     rows = [_unit_row(key, unit, found['units'][key], ranks.get(key), combined_pct.get(key), kwjp_pct,
-                      place.get(key)) for key, unit in result['units'].items()]
+                      place.get(key), kept, own_ranks) for key, unit in result['units'].items()]
     rows.sort(key=lambda r: (r['rank'] is None, r['rank'] or 0, r['unit']))
-    thresholds = {name: {'limit': config['d6'][name]['value'], 'rank': cuts[name]['rank'],
-                         'units': len(cuts[name]['units']), 'lexemes': cuts[name]['lexemes'],
-                         'reached': cuts[name]['reached'], 'next_block': cuts[name].get('next_block'),
-                         'forms': len(lists[name]['forms']),
-                         'construction_forms': lists[name]['constructions'],
-                         'coverage': {d1: coverage(cuts[name]['members'], kwjp, d1, relevant)
-                                      for d1 in REPORT_DENOMINATORS}}
-                  for name in LISTS}
+    report = lambda chosen, forms: {'lexemes': len(relevant.intersection(chosen)), 'forms': len(forms['forms']),
+                                    'construction_forms': forms['constructions'],
+                                    'coverage': {d1: coverage(chosen, kwjp, d1, relevant)
+                                                 for d1 in REPORT_DENOMINATORS}}
+    thresholds = {}
+    for name in LISTS:
+        cut = cuts[name]
+        thresholds[name] = {'limit': config['d6'][name]['value'], 'rank': cut['rank'], 'units': len(cut['units']),
+                            'reached': cut['reached'], 'next_block': cut.get('next_block'),
+                            **report(kept[name], lists[name]),
+                            'pruning': _pruning_report(config['d5']['members'], cut, ranks, pruned, name,
+                                                       report(cut['members'], before[name]))}
     missing = found['missing']
     if not with_nkjp:
         statuses = defaultdict(int)
@@ -1290,7 +1502,7 @@ def build_pop(sources, config, run_dir=None, release_dir=None):
     # Dane tylko do zapisu pakietu (grupa 12): próbki, atrybucje, klasy POS członków POP.
     package = {'sampling': config['sampling'], 'base_package_id': sources['base']['package_id'],
                'base_attributions': _base_attributions(paths),
-               'pos': {_label(m): data['pos'][m] for m in sorted(cuts['pop']['members'])}}
+               'pos': {_label(m): data['pos'][m] for m in sorted(kept['pop'])}}
     answer['package'] = package
     if with_nkjp:
         inputs['nkjp_sha256'] = paths['nkjp_sha256']
@@ -1343,8 +1555,12 @@ def _package_row(row):
     """
     out = {'members': [_label(m) for m in row['unit']], 'size': row['size'], 'rank': row['rank'],
            'percentile': row['percentile'], 'status': row['status'], 'flags': list(row['flags']),
-           'confidence': row['confidence'], 'list': row['list'], 'kwjp_status': row['kwjp']['status'],
+           'confidence': row['confidence'], 'list': row['list'],
+           'members_in': {name: [_label(m) for m in found] for name, found in row['members_in'].items()},
+           'kwjp_status': row['kwjp']['status'],
            'kwjp_percentile': row['kwjp']['percentile'], 'kwjp_ambiguous': row['kwjp']['ambiguous']}
+    if 'member_ranks' in row:
+        out['member_ranks'] = dict(row['member_ranks'])
     if 'nkjp' in row:
         nkjp = row['nkjp']
         out.update(zip(NKJP_REPORT_KEYS, (nkjp['rank'], nkjp['percentile'], nkjp['status'])))
@@ -1357,13 +1573,15 @@ def _strata(result, rows):
     """Warstwy `pop-quality-v1` (C17); klucze to leksemy (`lemma_id@source_id`) albo formy."""
     ranked = [row for row in rows if row['rank'] is not None]  # wiersze są w kolejności rang
 
-    def members(selected):
-        return sorted({m for row in selected for m in row['members']})
+    def members(selected, listed=None):
+        return sorted({m for row in selected for m in (row['members'] if listed is None
+                                                       else row['members_in'][listed])})
 
     strata = {}
     for name in LISTS:
         position = result['thresholds'][name]['units']
-        strata[f'{name}-granica-wewnatrz'] = members(ranked[max(0, position - SAMPLE_WINDOW):position])
+        # Wnętrze listy: tylko członkowie na liście (przycięci członkowie nie są próbką z wnętrza).
+        strata[f'{name}-granica-wewnatrz'] = members(ranked[max(0, position - SAMPLE_WINDOW):position], name.upper())
         strata[f'{name}-granica-zewnatrz'] = members(ranked[position:position + SAMPLE_WINDOW])
     strata['braki-danych'] = members(row for row in rows if row['status'] != 'MEASURED'
                                      or any(f.startswith(('single_source:', 'bound:')) for f in row['flags']))
@@ -1422,7 +1640,12 @@ def _limitations(result):
              '- Pełna odmiana: leksem z POP wnosi każdą swoją formę ze STANDARD, także rzadkie '
              '(wołacz, imiesłowy).',
              '- Grupy homonimów `e-common` łączą też zwykłe homonimy (np. `nie`, `on`, `jeść`). '
-             'Grupa wchodzi w całości albo wcale; jej F nie jest dzielone ani kopiowane.',
+             'Ranga i próg liczą grupę w całości; jej F nie jest dzielone ani kopiowane.',
+             '- Członek grupy jest na liście tylko wtedy, gdy jego własne jednoznaczne dowody (wiersz EXACT KWJP, '
+             'forma jednego leksemu) dają rangę w progu tej listy (`prune-weak-members`). Przycięty członek '
+             'nie wnosi form; forma wspólna z członkiem na liście zostaje. Najmocniejszy członek zostaje zawsze, '
+             'a grupa bez żadnych własnych dowodów (np. `zamek`) wchodzi w całości. '
+             'Liczby i przykłady: `thresholds.json`, `pruning`.',
              f'- Luka potoczna (D7): miara pochodzi z tekstów pisanych ({corpora}). '
              'Nie ma listy mowy potocznej ani slangu internetowego.',
              '- Nazwy własne poza rankingiem (D9): ich formy wchodzą tylko przez zwykły leksem o tej samej formie.',
