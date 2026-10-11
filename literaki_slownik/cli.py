@@ -27,7 +27,9 @@ def main(argv=None):
         explainer = sub.add_parser('explain', help='Wyjaśnij źródłowe analizy i niewiadome (diagnostyka)')
         explainer.add_argument('--run-dir', required=True, help='Katalog przebiegu do odczytu')
         explainer.add_argument('--word', required=True, help='Słowo do wyszukania przez NFC/lower')
-        explainer.add_argument('--variant', choices=('broad', 'standard'), default='standard', help='Wariant słownika')
+        explainer.add_argument('--variant', choices=('broad', 'standard', 'pop', 'pop0'), default='standard',
+                               help='Wariant słownika; pop i pop0 wymagają --pop-dir')
+        explainer.add_argument('--pop-dir', help='Pakiet POP (wymagany przy --variant pop|pop0)')
         explainer.add_argument('--json', action='store_true', help='Wszystkie analizy w JSON')
         verifier = sub.add_parser('verify', help='Odbiór K1–K10 z drugim build i przeglądem')
         verifier.add_argument('--run-dir', required=True, help='Przebieg do odbioru')
@@ -53,8 +55,14 @@ def main(argv=None):
             from .build import build
             result['result'] = build(args.manifest, args.run_dir)
         elif args.command == 'explain':
-            from .explain import explain
-            result['result'] = explain(args.run_dir, args.word, args.variant)
+            if args.variant in ('pop', 'pop0'):
+                if not args.pop_dir:
+                    raise GeneratorError('Wariant pop/pop0 wymaga --pop-dir', 2)
+                from .explain import explain_pop
+                result['result'] = explain_pop(args.pop_dir, args.run_dir, args.word, args.variant)
+            else:
+                from .explain import explain
+                result['result'] = explain(args.run_dir, args.word, args.variant)
         elif args.command == 'verify':
             from .verify import verify
             report = verify(args.run_dir, args.peer_run, args.review)
@@ -93,7 +101,10 @@ def _finish(argv, command, result, code):
         from .verify import format_verification
         print(format_verification(result['result']))
     elif result['status'] == 'ok':
-        if command == 'explain':
+        if command == 'explain' and 'reason' in result['result']:
+            from .explain import format_pop_explanation
+            print(format_pop_explanation(result['result']))
+        elif command == 'explain':
             from .explain import format_explanation
             print(format_explanation(result['result']))
         elif command == 'pop':

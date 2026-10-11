@@ -334,17 +334,17 @@ Zasady dla każdej grupy:
 **Files to Modify:** literaki_slownik/explain.py, literaki_slownik/cli.py, tests/test_explain_pop.py
 **Estimated Steps:** 5
 
-- [ ] 13.0 Wyjaśnienie słowa w POP/POP0 (C16)
-  - [ ] 13.1 Napisz 5 testów w `tests/test_explain_pop.py` (pakiet z `pop_package`)
+- [x] 13.0 Wyjaśnienie słowa w POP/POP0 (C16)
+  - [x] 13.1 Napisz 5 testów w `tests/test_explain_pop.py` (pakiet z `pop_package`)
     - każdy powód: `IN_POP0`, `IN_POP`, `BELOW_THRESHOLD`, `NO_DATA`, `PROPER_NAME_ONLY`, `NOT_IN_STANDARD`
     - wynik: czy w STANDARD, leksemy, per jednostka ranga, miara, statusy, flagi, próg; bez liczb NKJP
     - piny pakietu ≠ run-dir (hash bazy, release-manifest) → kod 3
     - hash bazy przed = po; `decisions.VARIANTS` bez zmian
     - CLI `explain --variant pop0 --pop-dir … --word kot` (tekst i `--json`); `--variant pop` bez `--pop-dir` → kod 2
-  - [ ] 13.2 `explain_pop(pop_dir, run_dir, word, variant)` w `explain.py`: piny z `release-manifest.json` pakietu; leksemy słowa z bazy ro; wiersze z `reports/units.json` i `thresholds.json`
-  - [ ] 13.3 Format tekstowy obok `format_explanation`
-  - [ ] 13.4 CLI: `choices` + `pop`, `pop0`; `--pop-dir`; brak przy POP → 2
-  - [ ] 13.5 Uruchom tylko testy z 13.1
+  - [x] 13.2 `explain_pop(pop_dir, run_dir, word, variant)` w `explain.py`: piny z `release-manifest.json` pakietu; leksemy słowa z bazy ro; wiersze z `reports/units.json` i `thresholds.json`
+  - [x] 13.3 Format tekstowy obok `format_explanation`
+  - [x] 13.4 CLI: `choices` + `pop`, `pop0`; `--pop-dir`; brak przy POP → 2
+  - [x] 13.5 Uruchom tylko testy z 13.1
 
 **Acceptance Criteria:**
 - 5 testów z 13.1 przechodzi; `explain` LL-PL bez zmian
@@ -354,8 +354,8 @@ Zasady dla każdej grupy:
 **Files to Modify:** scripts/check_pop_package.py, tests/test_check_pop_package.py
 **Estimated Steps:** 6
 
-- [ ] 14.0 Niezależna kontrola pakietu i przeglądu (D-3, D-5)
-  - [ ] 14.1 Napisz 7 testów w `tests/test_check_pop_package.py` (pakiet z `pop_package`)
+- [x] 14.0 Niezależna kontrola pakietu i przeglądu (D-3, D-5)
+  - [x] 14.1 Napisz 7 testów w `tests/test_check_pop_package.py` (pakiet z `pop_package`)
     - poprawny pakiet → 0
     - zmieniony, brakujący albo dodatkowy plik → 4
     - słowo POP0 spoza POP, słowo POP spoza STANDARD, brak `kot` w POP0 → 4
@@ -363,11 +363,11 @@ Zasady dla każdej grupy:
     - przegląd: `UNREVIEWED`, pozycja bez oceny, inny `sample_sha256`, inny hash `SHA256SUMS` → 4; `REVIEWED` kompletny → 0
     - zły argument → 2; hash `--standard` ≠ pin w manifeście → 3
     - skrypt nie importuje `pop` ani `literaki_slownik` (skan AST)
-  - [ ] 14.2 `SHA256SUMS` i hashe wyjść manifestu; zbiór plików dokładnie jak w `SHA256SUMS`
-  - [ ] 14.3 Podzbiory na plikach (gzip), `--standard` z pinem, `must_include_pop0` z manifestu
-  - [ ] 14.4 Skan NKJP: klucze JSON w `reports/`, nazwy plików
-  - [ ] 14.5 `--review <plik>`: status, każda ocena, `sample_sha256` = hash `reports/sample.json`, hash `SHA256SUMS`. Tylko stdlib; `main()` zwraca kod
-  - [ ] 14.6 Uruchom tylko testy z 14.1
+  - [x] 14.2 `SHA256SUMS` i hashe wyjść manifestu; zbiór plików dokładnie jak w `SHA256SUMS`
+  - [x] 14.3 Podzbiory na plikach (gzip), `--standard` z pinem, `must_include_pop0` z manifestu
+  - [x] 14.4 Skan NKJP: klucze JSON w `reports/`, nazwy plików
+  - [x] 14.5 `--review <plik>`: status, każda ocena, `sample_sha256` = hash `reports/sample.json`, hash `SHA256SUMS`. Tylko stdlib; `main()` zwraca kod
+  - [x] 14.6 Uruchom tylko testy z 14.1
 
 **Acceptance Criteria:**
 - 7 testów z 14.1 przechodzi; skrypt tylko na stdlib

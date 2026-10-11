@@ -1,5 +1,6 @@
 """Diagnostyczne explain pełnego importu; nie nadaje końcowej kwalifikacji."""
 from pathlib import Path
+import gzip
 import json
 import hashlib
 import sqlite3
@@ -273,4 +274,139 @@ def format_explanation(value):
         lines.append(f"  {item['source_id']}: {item['status']} — {item['reason']}")
     for diagnostic in value['diagnostics']:
         lines.append(diagnostic['message'])
+    return '\n'.join(lines)
+
+
+# --- POP i POP0 (C16): osobna ścieżka; `decisions.VARIANTS` się nie zmienia ---
+POP_VARIANTS = ('pop', 'pop0')
+POP_REASONS = ('IN_POP0', 'IN_POP', 'BELOW_THRESHOLD', 'NO_DATA', 'PROPER_NAME_ONLY', 'NOT_IN_STANDARD')
+_POP_LIST_FILES = {'pop': 'POP.txt.gz', 'pop0': 'POP0.txt.gz'}
+_POP_REPORTS = ('reports/units.json', 'reports/thresholds.json')
+
+
+def _pop_file(package, files, name):
+    """Plik pakietu sprawdzony hashem z jego `release-manifest.json`; zwraca bajty (jeden odczyt)."""
+    expected = (files.get(name) or {}).get('sha256')
+    path = package / name
+    if not expected or not path.is_file():
+        raise GeneratorError(f'Brak pliku pakietu POP: {name}', 3, str(path))
+    data = path.read_bytes()
+    if hashlib.sha256(data).hexdigest() != expected:
+        raise GeneratorError(f'Niezgodny SHA256 pliku pakietu POP: {name}', 3, str(path))
+    return data
+
+
+def _pop_pins(package, run, manifest):
+    """Piny pakietu POP wobec przebiegu: baza i pakiet LL-PL z manifestu FROZEN, STANDARD z pliku. Inaczej kod 3."""
+    run_manifest = load_json(run / 'manifest.json')
+    if run_manifest.get('readiness') != 'FROZEN':
+        raise GeneratorError('Przebieg nie jest FROZEN', 3, str(run))
+    inputs = manifest.get('inputs') or {}
+    recorded = {'database_sha256': (run_manifest.get('verification') or {}).get('database_sha256'),
+                'release_manifest_sha256': (run_manifest.get('export') or {}).get('release_manifest_sha256')}
+    for field, value in recorded.items():
+        if not value or inputs.get(field) != value:
+            raise GeneratorError(f'Pin pakietu POP {field} ≠ przebieg', 3, str(package))
+    standard = (run / 'lists/standard.txt').read_bytes()
+    if inputs.get('standard_sha256') != hashlib.sha256(standard).hexdigest():
+        raise GeneratorError('Pin pakietu POP standard_sha256 ≠ przebieg', 3, str(package))
+    return standard
+
+
+def _word_lexemes(db, key):
+    """Leksemy formy (bezpośrednie interpretacje): etykieta `lemma_id@source_id` i nazwa własna (D9, jak `pop`)."""
+    from .pop import COMMON_NAME
+    found = {}
+    for lexeme_id, source_id, lemma_id in db.execute('''select distinct l.id,l.source_id,l.lemma_id
+            from interpretation i join surface_form f on f.id=i.form_id join lexeme l on l.id=i.lexeme_id
+            where f.game_key=?''', (key,)):
+        names = set()
+        for (value,) in db.execute('select distinct names from interpretation where lexeme_id=?', (lexeme_id,)):
+            names |= {t.strip() for t in value.split('|') if t.strip()}
+        found[f'{lemma_id}@{source_id}'] = bool(names - {COMMON_NAME})
+    return found
+
+
+def explain_pop(pop_dir, run_dir, word, variant):
+    """Dlaczego słowo jest (albo nie) w POP/POP0. Tylko odczyt; NKJP wyłącznie jako ranga i percentyl (C14).
+
+    Kody: 2 argumenty, 3 piny pakietu ≠ przebieg albo hash pliku pakietu, 4 odczyt.
+    """
+    if variant not in POP_VARIANTS or not isinstance(word, str) or not word:
+        raise GeneratorError('Wymagane niepuste słowo i wariant pop/pop0', 2)
+    package, run = Path(pop_dir), Path(run_dir)
+    try:
+        manifest = load_json(package / 'release-manifest.json')
+        if not isinstance(manifest, dict) or manifest.get('kind') != 'literaki-pop-manifest':
+            raise GeneratorError('Katalog nie jest pakietem POP', 3, str(package))
+        standard = _pop_pins(package, run, manifest)
+        files = manifest.get('files') or {}
+        query = assess_profile(word)
+        key = query['game_key']
+        in_standard = key.encode('utf-8') in set(standard.split(b'\n'))
+        del standard
+        lists = {}
+        for name, filename in _POP_LIST_FILES.items():
+            text = gzip.decompress(_pop_file(package, files, filename)).decode('utf-8')
+            lists[name] = key in set(text.split('\n'))
+        thresholds = json.loads(_pop_file(package, files, 'reports/thresholds.json'))
+        with connect(run / 'build.sqlite', readonly=True) as db:
+            lexemes = _word_lexemes(db, key)
+        rows, owner = [], {}
+        for row in json.loads(_pop_file(package, files, 'reports/units.json'))['units']:
+            hit = lexemes.keys() & set(row['members'])
+            if hit:
+                owner.update((label, len(rows)) for label in hit)
+                rows.append(row)
+        if lists[variant]:
+            reason = 'IN_' + variant.upper()
+        elif not in_standard:
+            reason = 'NOT_IN_STANDARD'
+        elif any(row['rank'] is not None for row in rows):
+            reason = 'BELOW_THRESHOLD'
+        elif lexemes and not rows and all(lexemes.values()):
+            reason = 'PROPER_NAME_ONLY'
+        else:
+            reason = 'NO_DATA'
+        cut = thresholds['thresholds'][variant]
+        return {'query': {'word': word, 'nfc': query['nfc'], 'game_key': key}, 'variant': variant,
+                'method': manifest.get('method'), 'reason': reason, 'in_list': lists[variant],
+                'in_standard': in_standard, 'lists': lists,
+                'lexemes': [{'lexeme': label, 'proper_name': proper, 'unit': owner.get(label)}
+                            for label, proper in sorted(lexemes.items())],
+                'units': rows,
+                'threshold': {k: cut.get(k) for k in ('limit', 'rank', 'units', 'lexemes', 'forms', 'reached')},
+                'package': {'release_manifest_sha256': hashlib.sha256((package / 'release-manifest.json').read_bytes()).hexdigest(),
+                            'inputs': manifest.get('inputs')}}
+    except GeneratorError:
+        raise
+    except (OSError, sqlite3.Error, ValueError, KeyError, TypeError, AttributeError) as error:
+        raise GeneratorError(f'Nie można odczytać explain POP: {error}', 4, str(package)) from error
+
+
+def format_pop_explanation(value):
+    reasons = {'IN_POP0': 'w POP0', 'IN_POP': 'w POP',
+               'BELOW_THRESHOLD': 'poniżej progu listy', 'NO_DATA': 'brak danych o użyciu leksemu',
+               'PROPER_NAME_ONLY': 'tylko nazwy własne; poza rankingiem (D9)',
+               'NOT_IN_STANDARD': 'poza STANDARD; POP ⊆ STANDARD'}
+    name = value['variant'].upper()
+    cut = value['threshold']
+    lines = [f"Słowo: {value['query']['word']} · klucz: {value['query']['game_key']} · lista: {name}",
+             f"Powód: {value['reason']} — {reasons[value['reason']]}",
+             f"STANDARD: {'tak' if value['in_standard'] else 'nie'} · POP: {'tak' if value['lists']['pop'] else 'nie'}"
+             f" · POP0: {'tak' if value['lists']['pop0'] else 'nie'}",
+             f"Próg {name}: ranga {cut['rank']} (limit {cut['limit']}, jednostek {cut['units']})",
+             f"Leksemy: {len(value['lexemes'])}"]
+    for item in value['lexemes']:
+        unit = 'brak jednostki' if item['unit'] is None else f"jednostka {item['unit'] + 1}"
+        lines.append(f"  {item['lexeme']}{' · nazwa własna' if item['proper_name'] else ''} · {unit}")
+    for number, row in enumerate(value['units'], 1):
+        lines.append(f"\nJednostka {number}: {', '.join(row['members'])}")
+        lines.append(f"  ranga: {row['rank'] if row['rank'] is not None else 'brak'} · miara: {row['value']}"
+                     f" · status: {row['status']} · lista: {row['list'] or 'brak'} · pewność: {row['confidence']}")
+        lines.append(f"  KWJP: {row['kwjp_status']}, percentyl {row['kwjp_percentile']}"
+                     + (' · niejednoznaczne' if row['kwjp_ambiguous'] else ''))
+        if 'nkjp_status' in row:
+            lines.append(f"  NKJP: {row['nkjp_status']}, ranga {row['nkjp_rank']}, percentyl {row['nkjp_percentile']}")
+        lines.append(f"  flagi: {', '.join(row['flags']) or 'brak'}")
     return '\n'.join(lines)

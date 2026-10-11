@@ -62,3 +62,11 @@
 **Tests**: test_pop 51 OK. **Files**: pop.py (pakiet BUILT pod sekcją konfiguracji), cli.py, pop_helpers.py (pop_package), test_pop.py.
 **Próba v29**: 145 s, 3,2 GB; POP = sonda; POP0 457 409 form; 14 warstw × 30 = 420 próbek; units.json 62 MB. Katalog próby usunięty.
 **Kontrakt dla 13/14**: units.json wiersze płaskie (members lemma_id@source_id), sample.json bez \n (sha = sample_sha256), warstwa rozbieznosc-korpusow, manifest bez nkjp przy samej KWJP. Daty NKJP „2012–2014” pominięte (brak źródła).
+
+## 2026-10-11T14:56:45Z - Group 14 Complete
+**Tests**: test_check_pop_package 7 OK. **Files**: scripts/check_pop_package.py (stdlib, bez importu pop), tests/test_check_pop_package.py.
+**Dla 16**: przegląd musi mieć sha256sums_sha256 i affects_lists_or_links=false w każdej pozycji; pole uzasadnienia source_justification.
+
+## 2026-10-11T14:56:57Z - Group 13 Complete
+**Tests**: test_explain_pop + test_explain 34 OK. **Files**: explain.py (explain_pop, format_pop_explanation), cli.py (--variant pop|pop0, --pop-dir), tests/test_explain_pop.py.
+**Luka do 15**: formy konstrukcji bez leksemu w explain_pop (NO_DATA zamiast BELOW_THRESHOLD) — doprowadzić leksem przez derivation_candidate po game_key.

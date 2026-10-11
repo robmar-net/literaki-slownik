@@ -207,26 +207,26 @@ ul.subs { margin:2px 0 0 22px; color:var(--dim); }
 <li data-step="12.7" class="step done"><b>12.7</b> Staging obok celu → <code>export.rename_noreplace</code>; pliki 0444; cel istnieje → 4. <code>cli pop</code> zapisuje pakiet i wypisuje ścieżkę oraz liczby</li>
 <li data-step="12.8" class="step done"><b>12.8</b> Uruchom tylko testy z 12.1</li>
 </ul><div class="acc"><b>Kryteria:</b><ul><li>7 testów z 12.1 przechodzi</li><li>pakiet fikstury powtarzalny bajtowo, bez liczb NKJP</li></ul></div></div></section>
-<section data-group="13" class="group todo" id="g13"><div class="card">
+<section data-group="13" class="group done" id="g13"><div class="card">
 <div class="ghead"><h3>Grupa 13: <code>explain_pop</code></h3><span class="badge g-badge"></span></div>
 <p class="dim">Wyjaśnienie słowa w POP/POP0 (C16) · zależy od: <b>12</b> · kroków: 5</p>
 <div class="chips"><code>literaki_slownik/explain.py</code> <code>literaki_slownik/cli.py</code> <code>tests/test_explain_pop.py</code> </div><ul class="steps">
-<li data-step="13.1" class="step todo"><b>13.1</b> Napisz 5 testów w <code>tests/test_explain_pop.py</code> (pakiet z <code>pop_package</code>)<ul class="subs"><li>każdy powód: <code>IN_POP0</code>, <code>IN_POP</code>, <code>BELOW_THRESHOLD</code>, <code>NO_DATA</code>, <code>PROPER_NAME_ONLY</code>, <code>NOT_IN_STANDARD</code></li><li>wynik: czy w STANDARD, leksemy, per jednostka ranga, miara, statusy, flagi, próg; bez liczb NKJP</li><li>piny pakietu ≠ run-dir (hash bazy, release-manifest) → kod 3</li><li>hash bazy przed = po; <code>decisions.VARIANTS</code> bez zmian</li><li>CLI <code>explain --variant pop0 --pop-dir … --word kot</code> (tekst i <code>--json</code>); <code>--variant pop</code> bez <code>--pop-dir</code> → kod 2</li></ul></li>
-<li data-step="13.2" class="step todo"><b>13.2</b> <code>explain_pop(pop_dir, run_dir, word, variant)</code> w <code>explain.py</code>: piny z <code>release-manifest.json</code> pakietu; leksemy słowa z bazy ro; wiersze z <code>reports/units.json</code> i <code>thresholds.json</code></li>
-<li data-step="13.3" class="step todo"><b>13.3</b> Format tekstowy obok <code>format_explanation</code></li>
-<li data-step="13.4" class="step todo"><b>13.4</b> CLI: <code>choices</code> + <code>pop</code>, <code>pop0</code>; <code>--pop-dir</code>; brak przy POP → 2</li>
-<li data-step="13.5" class="step todo"><b>13.5</b> Uruchom tylko testy z 13.1</li>
+<li data-step="13.1" class="step done"><b>13.1</b> Napisz 5 testów w <code>tests/test_explain_pop.py</code> (pakiet z <code>pop_package</code>)<ul class="subs"><li>każdy powód: <code>IN_POP0</code>, <code>IN_POP</code>, <code>BELOW_THRESHOLD</code>, <code>NO_DATA</code>, <code>PROPER_NAME_ONLY</code>, <code>NOT_IN_STANDARD</code></li><li>wynik: czy w STANDARD, leksemy, per jednostka ranga, miara, statusy, flagi, próg; bez liczb NKJP</li><li>piny pakietu ≠ run-dir (hash bazy, release-manifest) → kod 3</li><li>hash bazy przed = po; <code>decisions.VARIANTS</code> bez zmian</li><li>CLI <code>explain --variant pop0 --pop-dir … --word kot</code> (tekst i <code>--json</code>); <code>--variant pop</code> bez <code>--pop-dir</code> → kod 2</li></ul></li>
+<li data-step="13.2" class="step done"><b>13.2</b> <code>explain_pop(pop_dir, run_dir, word, variant)</code> w <code>explain.py</code>: piny z <code>release-manifest.json</code> pakietu; leksemy słowa z bazy ro; wiersze z <code>reports/units.json</code> i <code>thresholds.json</code></li>
+<li data-step="13.3" class="step done"><b>13.3</b> Format tekstowy obok <code>format_explanation</code></li>
+<li data-step="13.4" class="step done"><b>13.4</b> CLI: <code>choices</code> + <code>pop</code>, <code>pop0</code>; <code>--pop-dir</code>; brak przy POP → 2</li>
+<li data-step="13.5" class="step done"><b>13.5</b> Uruchom tylko testy z 13.1</li>
 </ul><div class="acc"><b>Kryteria:</b><ul><li>5 testów z 13.1 przechodzi; <code>explain</code> LL-PL bez zmian</li></ul></div></div></section>
-<section data-group="14" class="group todo" id="g14"><div class="card">
+<section data-group="14" class="group done" id="g14"><div class="card">
 <div class="ghead"><h3>Grupa 14: <code>scripts/check_pop_package.py</code></h3><span class="badge g-badge"></span></div>
 <p class="dim">Niezależna kontrola pakietu i przeglądu (D-3, D-5) · zależy od: <b>12</b> · kroków: 6</p>
 <div class="chips"><code>scripts/check_pop_package.py</code> <code>tests/test_check_pop_package.py</code> </div><ul class="steps">
-<li data-step="14.1" class="step todo"><b>14.1</b> Napisz 7 testów w <code>tests/test_check_pop_package.py</code> (pakiet z <code>pop_package</code>)<ul class="subs"><li>poprawny pakiet → 0</li><li>zmieniony, brakujący albo dodatkowy plik → 4</li><li>słowo POP0 spoza POP, słowo POP spoza STANDARD, brak <code>kot</code> w POP0 → 4</li><li>klucz <code>nkjp*</code> spoza listy dozwolonej albo plik surowego NKJP → 4</li><li>przegląd: <code>UNREVIEWED</code>, pozycja bez oceny, inny <code>sample_sha256</code>, inny hash <code>SHA256SUMS</code> → 4; <code>REVIEWED</code> kompletny → 0</li><li>zły argument → 2; hash <code>--standard</code> ≠ pin w manifeście → 3</li><li>skrypt nie importuje <code>pop</code> ani <code>literaki_slownik</code> (skan AST)</li></ul></li>
-<li data-step="14.2" class="step todo"><b>14.2</b> <code>SHA256SUMS</code> i hashe wyjść manifestu; zbiór plików dokładnie jak w <code>SHA256SUMS</code></li>
-<li data-step="14.3" class="step todo"><b>14.3</b> Podzbiory na plikach (gzip), <code>--standard</code> z pinem, <code>must_include_pop0</code> z manifestu</li>
-<li data-step="14.4" class="step todo"><b>14.4</b> Skan NKJP: klucze JSON w <code>reports/</code>, nazwy plików</li>
-<li data-step="14.5" class="step todo"><b>14.5</b> <code>--review &lt;plik&gt;</code>: status, każda ocena, <code>sample_sha256</code> = hash <code>reports/sample.json</code>, hash <code>SHA256SUMS</code>. Tylko stdlib; <code>main()</code> zwraca kod</li>
-<li data-step="14.6" class="step todo"><b>14.6</b> Uruchom tylko testy z 14.1</li>
+<li data-step="14.1" class="step done"><b>14.1</b> Napisz 7 testów w <code>tests/test_check_pop_package.py</code> (pakiet z <code>pop_package</code>)<ul class="subs"><li>poprawny pakiet → 0</li><li>zmieniony, brakujący albo dodatkowy plik → 4</li><li>słowo POP0 spoza POP, słowo POP spoza STANDARD, brak <code>kot</code> w POP0 → 4</li><li>klucz <code>nkjp*</code> spoza listy dozwolonej albo plik surowego NKJP → 4</li><li>przegląd: <code>UNREVIEWED</code>, pozycja bez oceny, inny <code>sample_sha256</code>, inny hash <code>SHA256SUMS</code> → 4; <code>REVIEWED</code> kompletny → 0</li><li>zły argument → 2; hash <code>--standard</code> ≠ pin w manifeście → 3</li><li>skrypt nie importuje <code>pop</code> ani <code>literaki_slownik</code> (skan AST)</li></ul></li>
+<li data-step="14.2" class="step done"><b>14.2</b> <code>SHA256SUMS</code> i hashe wyjść manifestu; zbiór plików dokładnie jak w <code>SHA256SUMS</code></li>
+<li data-step="14.3" class="step done"><b>14.3</b> Podzbiory na plikach (gzip), <code>--standard</code> z pinem, <code>must_include_pop0</code> z manifestu</li>
+<li data-step="14.4" class="step done"><b>14.4</b> Skan NKJP: klucze JSON w <code>reports/</code>, nazwy plików</li>
+<li data-step="14.5" class="step done"><b>14.5</b> <code>--review &lt;plik&gt;</code>: status, każda ocena, <code>sample_sha256</code> = hash <code>reports/sample.json</code>, hash <code>SHA256SUMS</code>. Tylko stdlib; <code>main()</code> zwraca kod</li>
+<li data-step="14.6" class="step done"><b>14.6</b> Uruchom tylko testy z 14.1</li>
 </ul><div class="acc"><b>Kryteria:</b><ul><li>7 testów z 14.1 przechodzi; skrypt tylko na stdlib</li></ul></div></div></section>
 <section data-group="15" class="group todo" id="g15"><div class="card">
 <div class="ghead"><h3>Grupa 15: Przegląd testów i luki</h3><span class="badge g-badge"></span></div>
