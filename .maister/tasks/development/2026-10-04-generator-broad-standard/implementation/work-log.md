@@ -379,3 +379,8 @@ Standardy: AGENTS.md, .maister/docs/INDEX.md; brak osobnych plików standardów.
 - Z unknown `ali`/`sek`: wyjątek współczesnego użycia liczył `orth_lc`. 394 słowa STANDARD wchodziły dzięki nazwom własnym. Runda 7: liczymy tylko zapis małymi literami.
 - Poprawka powiązań: konstrukcja liczy się raz, nie raz na tag. Wspólne zapytanie `structure_counts_sql` dla bramki links i próbki jakości.
 - v29-a/b nieważne dla odbioru (zmiana kodu). Następny: v30-a i v30-b.
+
+## 2026-10-11: v30-a i v30-b (polityka v29)
+- Oba buildy równolegle, 12,6 h, wszystkie etapy complete, coverage COMPLETE. 15 plików kanonicznych i logical-content identyczne (K8).
+- BROAD 3 479 364 (bez zmian), STANDARD 3 090 194 (−230). Porównanie z SJP.pl: `sjp-benchmark-v29.md`.
+- Próbki v30: 1 870 z 1 876 pozycji identycznych z v29 (oceny przeniesione), 6 nowych przejrzanych, 0 blokujących.

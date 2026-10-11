@@ -10,7 +10,9 @@ Pomiar na v29-a (STANDARD):
 - 2 695 słów przyjętych dzięki wyjątkowi;
 - 394 z nich mają ≥30 wystąpień tylko z wielką literą, a w zapisie małymi literami mniej niż 30. Odpadają.
 
-Przykłady: `wałęsa`, `nowak`, `amerykanie`, `żyda`, `węgry`, `kielce`, `bogdan`, `ali`. Teksty mówią tu o Wałęsie, Nowaku, Amerykanach, a nie o dawnych formach pospolitych.
+Przykłady: `nowak`, `amerykanie`, `żyda`, `węgry`, `kielce`, `bogdan`, `ali`. Teksty mówią tu o Nowaku, Amerykanach, Węgrzech, a nie o dawnych formach pospolitych.
+
+W v30 ze STANDARD odpadło 230 słów. Pozostałe ze 394 mają inną, przyjętą analizę, np. `wałęsa` jako forma czasownika „wałęsać się”.
 
 Zostają słowa naprawdę współczesne (zapis małymi literami, prasa i literatura faktu): `wraz` 13 088, `ponoć` 1 367, `niewiasta` 57. `toć` ma 23, więc odpada.
 
