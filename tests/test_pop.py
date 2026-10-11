@@ -1,0 +1,597 @@
+"""POP/POP0: manifest źródeł, piny podstawy LL-PL, wejścia (A1, C2) i dane z bazy (A6, A8, A9)."""
+import json
+import shutil
+import tempfile
+import unittest
+from pathlib import Path
+from literaki_slownik.canonical import load_json, sha256, write_json
+from literaki_slownik.inputs import GeneratorError
+from literaki_slownik.database import connect
+from literaki_slownik.pop import (CLEANING_RULES, check_inputs, coverage, database_sha256, form_owners,
+                                  forms_for, kwjp_measures, load_constructions, load_form_classes, load_forms,
+                                  load_forms_accepted, load_kwjp, load_kwjp_lists, load_lexemes, load_sources,
+                                  measure, member_ranks, nkjp_collisions, nkjp_form_status, nkjp_lexeme_ranks,
+                                  percentiles, rank_units, read_nkjp, read_standard, spearman, tag_classes,
+                                  threshold, top_overlap, units)
+from tests.pop_helpers import gz_write, kwjp_lemma_sources, pop_fixture, write_pop_sources
+
+
+class PopSourcesTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = tempfile.TemporaryDirectory()
+        cls.fixture = pop_fixture(Path(cls.tmp.name) / 'pop')
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.tmp.cleanup()
+
+    def setUp(self):
+        self.work = tempfile.TemporaryDirectory()
+        self.directory = Path(self.work.name)
+
+    def tearDown(self):
+        self.work.cleanup()
+
+    def sources(self, **overrides):
+        f = self.fixture
+        return write_pop_sources(self.directory / 'pop-sources.json', f['run'], f['release'], f['nkjp'], **overrides)
+
+    def code(self, call, *args):
+        with self.assertRaises(GeneratorError) as raised:
+            call(*args)
+        return raised.exception.code, str(raised.exception)
+
+    def test_valid_manifest_returns_paths_and_database_hash(self):
+        f = self.fixture
+        sources = load_sources(self.sources())
+        result = check_inputs(sources, f['run'], f['release'])
+        self.assertEqual(result['database_sha256'], sha256(f['run'] / 'build.sqlite'))
+        self.assertEqual(result['database_sha256'], database_sha256(f['run'] / 'build.sqlite'))
+        self.assertEqual(Path(result['database']), (f['run'] / 'build.sqlite').resolve())
+        self.assertEqual(Path(result['standard']), (f['run'] / 'lists/standard.txt').resolve())
+        self.assertEqual(Path(result['nkjp']), f['nkjp'].resolve())
+        self.assertEqual(result['release_manifest_sha256'], sha256(f['release'] / 'release-manifest.json'))
+        standard = read_standard(result['standard'])
+        self.assertIsInstance(standard, frozenset)
+        self.assertTrue({'rok', 'lata', 'polska', 'ul'} <= standard)
+        # Bez --run-dir i --release-dir ścieżki pochodzą z manifestu POP.
+        self.assertEqual(check_inputs(sources)['database_sha256'], result['database_sha256'])
+
+    def test_wrong_database_pin_is_code_3(self):
+        f = self.fixture
+        sources = load_sources(self.sources(database_sha256='0' * 64))
+        self.assertEqual(self.code(check_inputs, sources, f['run'], f['release'])[0], 3)
+
+    def test_run_export_hash_differs_from_release_manifest_is_code_3(self):
+        f = self.fixture
+        release = self.directory / 'release'
+        shutil.copytree(f['release'], release)
+        target = release / 'release-manifest.json'
+        target.chmod(0o644)
+        data = load_json(target)
+        data['package_id'] = 'LL-PL-INNY'
+        write_json(target, data)
+        sources = load_sources(self.sources(release_manifest_sha256=sha256(target)))
+        code, message = self.code(check_inputs, sources, f['run'], release)
+        self.assertEqual(code, 3)
+        self.assertIn('export', message)
+        # Pin zgodny z przebiegiem, ale inny plik w --release-dir: też kod 3.
+        sources = load_sources(self.sources())
+        self.assertEqual(self.code(check_inputs, sources, f['run'], release)[0], 3)
+
+    def test_wrong_standard_or_nkjp_hash_is_code_3(self):
+        f = self.fixture
+        for override in ({'standard_sha256': 'f' * 64}, {'nkjp_sha256': 'e' * 64}):
+            sources = load_sources(self.sources(**override))
+            self.assertEqual(self.code(check_inputs, sources, f['run'], f['release'])[0], 3, override)
+
+    def test_run_not_frozen_is_code_5(self):
+        f = self.fixture
+        run = self.directory / 'run'
+        shutil.copytree(f['run'], run)
+        manifest = load_json(run / 'manifest.json')
+        manifest['readiness'] = 'VERIFIED'
+        write_json(run / 'manifest.json', manifest)
+        sources = load_sources(self.sources())
+        self.assertEqual(self.code(check_inputs, sources, run, f['release'])[0], 5)
+
+    def test_foreign_input_or_unknown_key_is_code_2(self):
+        path = self.sources()
+        manifest = json.loads(path.read_text(encoding='utf-8'))
+        sjp = dict(manifest['inputs'][1], source_id='sjp', kind='sjp')
+        cases = [
+            {**manifest, 'inputs': manifest['inputs'] + [sjp]},
+            {**manifest, 'extra': True},
+            {**manifest, 'base': {**manifest['base'], 'extra': 1}},
+            {**manifest, 'inputs': [dict(manifest['inputs'][0], extra='x'), manifest['inputs'][1]]},
+            {**manifest, 'inputs': manifest['inputs'][:1]},
+            {**manifest, 'version': 'pop-sources-v0'},
+        ]
+        for case in cases:
+            path.write_text(json.dumps(case, ensure_ascii=False), encoding='utf-8')
+            self.assertEqual(self.code(load_sources, path)[0], 2, case)
+
+
+S = 'synthetic'
+
+
+class PopDatabaseTests(unittest.TestCase):
+    """Leksemy, formy i KWJP z bazy tylko do odczytu."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = tempfile.TemporaryDirectory()
+        cls.fixture = pop_fixture(Path(cls.tmp.name) / 'pop')
+        cls.database = cls.fixture['database']
+        cls.standard = read_standard(cls.fixture['run'] / 'lists/standard.txt')
+        cls.lemma_sources = {g: s for s, g in kwjp_lemma_sources(cls.fixture['run']).items()}
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.tmp.cleanup()
+
+    def measures(self):
+        with connect(self.database, readonly=True) as db:
+            lexemes = load_lexemes(db)
+            rows, genres = load_kwjp_lists(db, self.lemma_sources, lexemes)
+        return kwjp_measures(rows, genres)
+
+    def test_lexeme_key_is_source_and_lemma_id(self):
+        with connect(self.database, readonly=True) as db:
+            lexemes = load_lexemes(db)
+            ids = dict(db.execute('select lemma_id,id from lexeme'))
+        self.assertEqual(lexemes[ids['rok:S1']]['key'], (S, 'rok:S1'))
+        self.assertEqual(lexemes[ids['lato']]['pos'], ('subst',))
+        self.assertTrue(lexemes[ids['Polska']]['proper'])
+        self.assertFalse(lexemes[ids['polski']]['proper'])
+        result = self.measures()
+        self.assertIn((S, 'lato'), result['lexemes'])
+        self.assertTrue(all(isinstance(k, tuple) and len(k) == 2 and all(isinstance(p, str) for p in k)
+                            for k in result['lexemes']))
+        self.assertEqual(result['lexemes'][(S, 'lato')]['F'], 20)
+
+    def test_several_rows_of_one_lexeme_sum_f_and_take_rest_from_max_f_row(self):
+        bac = self.measures()['lexemes'][(S, 'bać')]
+        # 10 + 30 + 30; remis 30/30 rozstrzyga klucz wiersza (fin, wiersz 11).
+        self.assertEqual(bac['F'], 70)
+        self.assertEqual((bac['ARF'], bac['1-DP'], bac['row']), ('3', '0.8', 11))
+        self.assertEqual(bac['rows'], 3)
+        # Gatunki z wiersza fin; publicystyka ma tylko praet. F gatunków nie wchodzi do sumy.
+        self.assertEqual(bac['genres'], ('fakt', 'fikcja'))
+        self.assertEqual(self.measures()['mass'], {'total': 393, 'EXACT_CANDIDATE': 265, 'AMBIGUOUS': 120,
+                                                   'UNMATCHED': 8})
+
+    def test_ambiguous_zamek_is_a_group_without_member_f(self):
+        result = self.measures()
+        group = ((S, 'zamek:a'), (S, 'zamek:b'))
+        self.assertEqual(result['groups'][group]['F'], 30)
+        self.assertEqual(result['groups'][group]['status'], 'AMBIGUOUS')
+        self.assertNotIn((S, 'zamek:a'), result['lexemes'])
+        self.assertNotIn((S, 'zamek:b'), result['lexemes'])
+        rok = result['groups'][((S, 'rok:S1'), (S, 'rok:S2'))]
+        self.assertEqual((rok['F'], rok['genres']), (90, ('fikcja',)))
+        self.assertNotIn((S, 'rok:S1'), result['lexemes'])
+
+    def test_lexeme_forms_come_only_from_standard_keys(self):
+        with connect(self.database, readonly=True) as db:
+            forms = load_forms(db, self.standard)
+            accepted = load_forms_accepted(db, self.standard)
+        self.assertEqual(forms[(S, 'rok:S1')], frozenset({'rok', 'lata'}))
+        self.assertEqual(forms[(S, 'lato')], frozenset({'lato', 'lata'}))
+        self.assertEqual(forms[(S, 'Polska')], frozenset({'polska'}))
+        self.assertNotIn((S, 'kotek'), forms)
+        self.assertTrue(all(f <= self.standard for f in forms.values()))
+        # Reguła (ii): analiza przyjęta w STANDARD; zawsze zawarta w regule (i).
+        self.assertNotIn((S, 'kotek'), accepted)
+        self.assertTrue(all(accepted[k] <= forms[k] for k in accepted))
+        self.assertEqual(accepted[(S, 'bać')], frozenset({'boi', 'bał', 'bojąc'}))
+
+    def test_construction_form_goes_to_component_lexeme(self):
+        with connect(self.database, readonly=True) as db:
+            result = load_constructions(db, self.standard)
+        self.assertEqual(result['forms'][(S, 'duży')], frozenset({'nieduży'}))
+        self.assertEqual(result['forms'][(S, 'polski')], frozenset({'niepolska', 'niepolski'}))
+        self.assertEqual(result['counts'], {'one': 4, 'none': 0, 'several': 0})
+        self.assertEqual(result['only_constructions'], 4)
+
+    def test_colloquial_is_pot_in_any_interpretation(self):
+        with connect(self.database, readonly=True) as db:
+            lexemes = {v['key']: v for v in load_lexemes(db).values()}
+        self.assertTrue(lexemes[(S, 'fajny')]['colloquial'])
+        self.assertTrue(lexemes[(S, 'kumpel')]['colloquial'])
+        self.assertFalse(lexemes[(S, 'duży')]['colloquial'])
+        self.assertEqual(lexemes[(S, 'kumpel')]['qualifiers'], ('pot.',))
+
+    def test_database_hash_unchanged_and_queries_bounded(self):
+        before = database_sha256(self.database)
+        with connect(self.database, readonly=True) as db:
+            lexemes = load_lexemes(db)
+            load_kwjp(db, self.lemma_sources['all'], lexemes)
+            load_forms(db, self.standard)
+            load_forms_accepted(db, self.standard)
+            load_constructions(db, self.standard)
+        self.assertEqual(database_sha256(self.database), before)
+        source = (Path(__file__).resolve().parent.parent / 'literaki_slownik/pop.py').read_text(encoding='utf-8')
+        self.assertNotIn('left join evidence_candidate', source.lower())
+        self.assertNotIn('order by', source.lower())
+
+
+class PopNkjpTests(unittest.TestCase):
+    """NKJP 1grams: czytanie, reguły czyszczenia D4, kolizje i jednoznaczność form (A10, C7, C8, C14)."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = tempfile.TemporaryDirectory()
+        cls.fixture = pop_fixture(Path(cls.tmp.name) / 'pop')
+        with connect(cls.fixture['database'], readonly=True) as db:
+            cls.owners = form_owners(db)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.tmp.cleanup()
+
+    def read(self, rule, keys=None):
+        return read_nkjp(self.fixture['nkjp'], rule, self.owners if keys is None else keys)
+
+    def test_parser_streams_nfc_lowercase_and_sums_by_game_key(self):
+        result = self.read('full-nfc')
+        # Polska (15) i polska (40) to jeden klucz gry; suma całości liczona ze wszystkich wierszy.
+        self.assertEqual(result['forms']['polska'], 55)
+        self.assertEqual(result['total'], 199)
+        self.assertEqual(result['lines'], 9)
+        self.assertEqual(result['matched'], 55 + 10 + 25 + 20 + 8 + 1)
+        # W pamięci tylko klucze form SGJP: `ul.` i `ok.` nie są formami.
+        self.assertNotIn('ul.', result['forms'])
+        self.assertTrue(set(result['forms']) <= set(self.owners))
+        path = gz_write(Path(self.tmp.name) / 'nfd.gz', '      3 DUZ\u0307Y\n      2 duży\n')
+        self.assertEqual(read_nkjp(path, 'full-nfc', self.owners)['forms'], {'duży': 5})
+        broken = gz_write(Path(self.tmp.name) / 'broken.gz', '      3 duży\nduży 3\n')
+        with self.assertRaises(GeneratorError) as raised:
+            read_nkjp(broken, 'full-nfc', self.owners)
+        self.assertEqual((raised.exception.code, raised.exception.row), (4, 2))
+        with self.assertRaises(GeneratorError) as raised:
+            read_nkjp(self.fixture['nkjp'], 'strip-all', self.owners)
+        self.assertEqual(raised.exception.code, 2)
+
+    def test_three_cleaning_rules_with_versioned_ids(self):
+        keys = set(self.owners) | {'ok'}
+        self.assertEqual(set(CLEANING_RULES), {'full-nfc', 'strip-edges', 'strip-edges-keep-dot'})
+        found = {rule: self.read(rule, keys) for rule in CLEANING_RULES}
+        for rule, result in found.items():
+            self.assertEqual(result['rule'], rule)
+            self.assertRegex(result['rule_id'], r'^nkjp-clean-[a-z-]+-v[0-9]+$')
+            self.assertEqual(result['total'], 199)
+        self.assertEqual(len({r['rule_id'] for r in found.values()}), 3)
+        self.assertEqual(found['full-nfc']['forms']['ul'], 10)
+        self.assertNotIn('ok', found['full-nfc']['forms'])
+        self.assertEqual(found['strip-edges']['forms']['ul'], 60)
+        self.assertEqual(found['strip-edges']['forms']['ok'], 30)
+        self.assertEqual(found['strip-edges-keep-dot']['forms']['ul'], 10)
+        self.assertNotIn('ok', found['strip-edges-keep-dot']['forms'])
+
+    def test_collision_list_gives_mass_of_both_sides(self):
+        keys = set(self.owners) | {'ok'}
+        collisions = nkjp_collisions(self.read('strip-edges', keys))
+        self.assertEqual(collisions, [
+            {'key': 'ul', 'kept': 10, 'merged': 50, 'sources': [('ul.', 50)]},
+            {'key': 'ok', 'kept': 0, 'merged': 30, 'sources': [('ok.', 30)]},
+        ])
+        self.assertEqual(nkjp_collisions(self.read('strip-edges', keys), top=1), collisions[:1])
+        self.assertEqual(nkjp_collisions(self.read('full-nfc', keys)), [])
+        self.assertEqual(nkjp_collisions(self.read('strip-edges-keep-dot', keys)), [])
+
+    def test_polska_shared_with_proper_name_gives_no_f_to_polski(self):
+        self.assertEqual(self.owners['polska'], ((S, 'Polska'), (S, 'polski')))
+        self.assertEqual(self.owners['polski'], ((S, 'polski'),))
+        ranks = nkjp_lexeme_ranks(self.read('full-nfc'), self.owners)
+        # 55 wystąpień `polska` nie trafia ani do nazwy własnej, ani do przymiotnika.
+        for key in ((S, 'Polska'), (S, 'polski')):
+            self.assertNotEqual(ranks['lexemes'][key]['status'], 'OBSERVED', key)
+            self.assertIsNone(ranks['lexemes'][key]['rank'])
+        self.assertEqual(ranks['mass']['shared'], 55 + 25 + 20)
+
+    def test_lata_of_rok_and_lato_gives_f_to_nobody(self):
+        self.assertEqual(self.owners['lata'], ((S, 'lato'), (S, 'rok:S1')))
+        ranks = nkjp_lexeme_ranks(self.read('full-nfc'), self.owners)
+        for key in ((S, 'lato'), (S, 'rok:S1'), (S, 'rok:S2')):
+            self.assertNotEqual(ranks['lexemes'][key]['status'], 'OBSERVED', key)
+        # Tylko formy jednoznaczne: ul (10), duży (8), fajny (1). Każdy ma jedną formę i dostaje rangę.
+        observed = {k: (v['rank'], v['percentile']) for k, v in ranks['lexemes'].items() if v['status'] == 'OBSERVED'}
+        self.assertEqual(observed, {(S, 'ul'): (1, 100.0), (S, 'duży'): (2, 66.6667), (S, 'fajny'): (3, 33.3333)})
+        # C14: na wyjściu tylko ranga i percentyl, bez liczby NKJP leksemu.
+        for value in ranks['lexemes'].values():
+            self.assertEqual(set(value), {'status', 'rank', 'percentile'})
+
+    def test_form_without_nkjp_row_is_not_in_published_list_never_zero(self):
+        nkjp = self.read('full-nfc')
+        self.assertEqual(nkjp_form_status(nkjp, 'kumpel'), 'NOT_IN_PUBLISHED_LIST')
+        self.assertEqual(nkjp_form_status(nkjp, 'duży'), 'OBSERVED')
+        ranks = nkjp_lexeme_ranks(nkjp, self.owners)
+        self.assertEqual(ranks['lexemes'][(S, 'kumpel')],
+                         {'status': 'NOT_IN_PUBLISHED_LIST', 'rank': None, 'percentile': None})
+        self.assertNotIn(0, [v['rank'] for v in ranks['lexemes'].values()])
+        # Każdy leksem SGJP ma status, także bez żadnej formy w NKJP.
+        everyone = {key for keys in self.owners.values() for key in keys}
+        self.assertEqual(set(ranks['lexemes']), everyone)
+
+
+def _unit(*names):
+    return tuple((S, name) for name in names)
+
+
+KWJP_ONLY = {'source': 'kwjp', 'field': 'F'}
+
+
+class PopRankingTests(unittest.TestCase):
+    """Jednostki D5, miary D3/D8, rangi, pokrycie D1, progi D6, formy D2, Spearman (C5–C9, C14)."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = tempfile.TemporaryDirectory()
+        cls.fixture = pop_fixture(Path(cls.tmp.name) / 'pop')
+        standard = read_standard(cls.fixture['run'] / 'lists/standard.txt')
+        lemma_sources = {g: s for s, g in kwjp_lemma_sources(cls.fixture['run']).items()}
+        with connect(cls.fixture['database'], readonly=True) as db:
+            lexemes = load_lexemes(db)
+            rows, genres = load_kwjp_lists(db, lemma_sources, lexemes)
+            cls.owners = form_owners(db, lexemes)
+            cls.forms = load_forms(db, standard, lexemes)
+            cls.accepted = load_forms_accepted(db, standard, lexemes)
+            cls.constructions = load_constructions(db, standard, lexemes)
+            cls.classes = load_form_classes(db, standard, lexemes)
+        cls.kwjp = kwjp_measures(rows, genres)
+        cls.relevant = frozenset(cls.forms)
+        cls.nkjp = read_nkjp(cls.fixture['nkjp'], 'full-nfc', cls.owners)
+        # `kotek`: tylko NKJP (brak w KWJP), żeby był brak częściowy w obie strony.
+        cls.nkjp_plus = dict(cls.nkjp, forms=dict(cls.nkjp['forms'], kotek=3), matched=cls.nkjp['matched'] + 3)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.tmp.cleanup()
+
+    def units(self, d5, nkjp=None, relevant=None):
+        return units(self.kwjp, d5, relevant or self.relevant, nkjp if nkjp is not None else self.nkjp,
+                     self.owners)
+
+    def test_rank_is_deterministic_minus_measure_then_unit_key(self):
+        measured = {('b',): {'value': 5}, ('c',): {'value': 9}, ('a',): {'value': 5}, ('d',): {'value': None}}
+        ranks = rank_units(measured)
+        self.assertEqual(list(ranks.items()), [(('c',), 1), (('a',), 2), (('b',), 3)])
+        self.assertEqual(rank_units(dict(reversed(list(measured.items())))), ranks)
+        # D5d: dwie jednostki z F = 110; remis rozstrzyga klucz jednostki (krotka kluczy członków).
+        result = self.units('d')
+        found = measure(result, KWJP_ONLY)
+        polska, rok = _unit('Polska', 'polski'), _unit('lato', 'rok:S1', 'rok:S2')
+        self.assertEqual((found['units'][polska]['value'], found['units'][rok]['value']), (110, 110))
+        self.assertEqual((rank_units(found['units'])[polska], rank_units(found['units'])[rok]), (1, 2))
+        self.assertNotIn(0, rank_units(found['units']).values())
+
+    def test_percentiles_on_small_example(self):
+        self.assertEqual(percentiles({('a',): 1, ('b',): 2, ('c',): 3, ('d',): 4}),
+                         {('a',): 100.0, ('b',): 75.0, ('c',): 50.0, ('d',): 25.0})
+        self.assertEqual(percentiles({}), {})
+        # NKJP leksemu tylko jako ranga i percentyl (C14), także w jednostkach.
+        result = self.units('c')
+        observed = {k: (v['nkjp']['rank'], v['nkjp']['percentile'])
+                    for k, v in result['units'].items() if v['nkjp']['status'] == 'OBSERVED'}
+        self.assertEqual(observed, {_unit('ul'): (1, 100.0), _unit('duży'): (2, 66.6667),
+                                    _unit('fajny'): (3, 33.3333)})
+        for value in result['units'].values():
+            self.assertEqual(set(value['nkjp']), {'status', 'rank', 'percentile', 'ambiguous'})
+
+    def test_missing_data_separate_statuses_never_zero_and_three_partial_rules(self):
+        # `kotek` nie ma formy w STANDARD fikstury; dołączony jawnie jako leksem z formą.
+        result = self.units('c', self.nkjp_plus, self.relevant | {(S, 'kotek')})
+        kumpel, bac, kotek = result['units'][_unit('kumpel')], result['units'][_unit('bać')], \
+            result['units'][_unit('kotek')]
+        self.assertEqual((kumpel['kwjp']['status'], kumpel['nkjp']['status']),
+                         ('ABSENT_OR_BELOW_PUBLICATION_THRESHOLD', 'NOT_IN_PUBLISHED_LIST'))
+        self.assertIsNone(kumpel['kwjp']['F'])
+        self.assertEqual((bac['kwjp']['status'], bac['nkjp']['status']), ('OBSERVED', 'NOT_IN_PUBLISHED_LIST'))
+        self.assertEqual((kotek['kwjp']['status'], kotek['nkjp']['status'], kotek['confidence']),
+                         ('ABSENT_OR_BELOW_PUBLICATION_THRESHOLD', 'OBSERVED', 'NKJP_ONLY'))
+        # Grupa `rok` pod D5c: KWJP zna wiersz, ale nie daje F członkom.
+        self.assertEqual(result['units'][_unit('rok:S2')]['kwjp']['status'], 'UNMATCHED')
+        only = measure(result, KWJP_ONLY)
+        self.assertEqual(only['units'][_unit('kotek')], {'value': None, 'status': 'NO_DATA', 'flags': ()})
+        self.assertIsNone(only['missing']['partial'])
+        both = {'source': 'kwjp+nkjp', 'field': 'F', 'weight': 0.5}
+        rules = {rule: measure(result, both, rule) for rule in ('available-only', 'lower-bound', 'exclude')}
+        kwjp_pct = percentiles(rank_units({k: {'value': v['kwjp']['F']} for k, v in result['units'].items()}))
+        floor = round(100 / (3 + 1 + 1), 4)  # 4 leksemy z rangą NKJP; dolna granica = poniżej ostatniego
+        self.assertEqual(rules['available-only']['units'][_unit('bać')],
+                         {'value': kwjp_pct[_unit('bać')], 'status': 'MEASURED', 'flags': ('single_source:kwjp',)})
+        self.assertEqual(rules['lower-bound']['units'][_unit('bać')],
+                         {'value': round(0.5 * kwjp_pct[_unit('bać')] + 0.5 * floor, 6), 'status': 'MEASURED',
+                          'flags': ('lower_bound:nkjp',)})
+        self.assertEqual(rules['exclude']['units'][_unit('bać')],
+                         {'value': None, 'status': 'EXCLUDED_PARTIAL', 'flags': ()})
+        self.assertEqual(rules['exclude']['units'][_unit('kumpel')]['status'], 'NO_DATA')
+        for rule, found in rules.items():
+            self.assertNotIn(0, [v['value'] for v in found['units'].values()], rule)
+            self.assertEqual(found['missing']['full'], rules['exclude']['missing']['full'])
+            self.assertGreater(found['missing']['partial'], 0)
+        statuses = rules['exclude']['missing']['statuses']
+        self.assertEqual(statuses['ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/NOT_IN_PUBLISHED_LIST'], 1)  # kumpel
+        self.assertEqual(sum(statuses.values()), len(result['units']))
+        with self.assertRaises(GeneratorError) as raised:
+            measure(result, both, 'zero')
+        self.assertEqual(raised.exception.code, 2)
+
+    def test_d5_options_attribute_mass_and_homonym_group_is_one_unit(self):
+        found = {d5: self.units(d5) for d5 in 'abcd'}
+        mass = {d5: (r['mass']['kwjp']['attributed'], r['mass']['nkjp']['attributed'], r['mass']['nkjp']['copied'])
+                for d5, r in found.items()}
+        # NKJP dopasowane 119: wspólne polska 55, lata 25, rok 20; jednoznaczne ul 10, duży 8, fajny 1.
+        self.assertEqual(mass, {'a': (265, 19, 0), 'b': (385, 119, 100), 'c': (265, 19, 0), 'd': (385, 119, 0)})
+        self.assertEqual(found['d']['mass']['nkjp']['unattributed'], 0)
+        self.assertEqual(found['c']['mass']['nkjp']['unattributed'], 100)
+        self.assertEqual(found['d']['mass']['kwjp']['unattributed'], 8)  # kwiat: UNMATCHED w KWJP
+        # a: leksem z dowolną formą wspólną nie dostaje F; c: zostaje F form jednoznacznych.
+        self.assertEqual(found['a']['units'][_unit('polski')]['nkjp']['status'], 'UNMATCHED')
+        # `polski` (jednoznaczna) po `polska` (wspólna) w kolejności kluczy: c ją liczy, a nie.
+        extra = dict(self.nkjp, forms=dict(self.nkjp['forms'], polski=7), matched=self.nkjp['matched'] + 7)
+        self.assertEqual(self.units('c', extra)['units'][_unit('polski')]['nkjp']['status'], 'OBSERVED')
+        self.assertEqual(self.units('a', extra)['units'][_unit('polski')]['nkjp']['status'], 'UNMATCHED')
+        self.assertEqual(found['b']['units'][_unit('rok:S1')]['kwjp'],
+                         {**found['b']['units'][_unit('rok:S1')]['kwjp'], 'F': 90, 'ambiguous': True})
+        d = found['d']['units']
+        rok, zamek = _unit('lato', 'rok:S1', 'rok:S2'), _unit('zamek:a', 'zamek:b')
+        self.assertEqual((d[rok]['kwjp']['F'], d[rok]['kwjp']['status'], d[rok]['confidence']),
+                         (110, 'OBSERVED', 'AMBIGUOUS'))
+        self.assertEqual(d[zamek]['kwjp']['F'], 30)
+        self.assertEqual(d[rok]['size'], 3)
+        members = [m for key in d for m in d[key]['members']]
+        self.assertEqual(len(members), len(set(members)))  # każdy leksem w jednej jednostce
+        self.assertTrue(self.relevant <= set(members))
+        ranks = rank_units(measure(found['d'], KWJP_ONLY)['units'])
+        by_member = member_ranks(ranks, found['d'])
+        self.assertEqual({by_member[k] for k in rok}, {ranks[rok]})
+        # Próg 4 leksemów: Polska+polski (2) wchodzi, grupa rok (3) nie mieści się — w całości albo wcale.
+        cut = threshold(ranks, found['d'], {'by': 'count', 'value': 4})
+        self.assertEqual((cut['units'], cut['lexemes'], cut['rank']), ((_unit('Polska', 'polski'),), 2, 1))
+        self.assertTrue(set(rok).isdisjoint(cut['members']))
+        cut = threshold(ranks, found['d'], {'by': 'count', 'value': 5})
+        self.assertTrue(set(rok) <= cut['members'])
+
+    def test_d5e_groups_only_owner_sets_of_eligible_lexemes(self):
+        polska, rok = _unit('Polska', 'polski'), _unit('lato', 'rok:S1', 'rok:S2')
+        # Dosłownie (eligible = relevant): `Polska` ma formę `polska` w STANDARD, więc łączy się z `polski`.
+        literal = self.units('e')['units']
+        self.assertIn(polska, literal)
+        self.assertEqual(literal[rok]['kwjp']['F'], 110)
+        # Bez nazw własnych: `polska` nieprzypisana, `polski` bez F z NKJP; rok/lato dalej jedną grupą.
+        common = self.relevant - {(S, 'Polska')}
+        found = units(self.kwjp, 'e', self.relevant, self.nkjp, self.owners, eligible=common)
+        self.assertNotIn(polska, found['units'])
+        self.assertEqual(found['units'][_unit('polski')]['nkjp']['status'], 'UNMATCHED')
+        self.assertEqual(found['units'][_unit('Polska')]['kwjp']['F'], 60)
+        self.assertEqual(found['units'][rok]['kwjp']['F'], 110)
+        self.assertEqual(found['units'][rok]['nkjp']['status'], 'OBSERVED')
+        self.assertEqual((found['mass']['nkjp']['attributed'], found['mass']['nkjp']['unattributed']), (64, 55))
+        self.assertEqual(found['groups'], {'count': 2, 'largest': 3})  # rok/lato i zamek
+        # Łańcuch przez nazwę własną: forma wspólna `Polska`+`duży` łączy w D5d, w D5e nie.
+        owners = dict(self.owners, xy=((S, 'Polska'), (S, 'duży')))
+        nkjp = dict(self.nkjp, forms=dict(self.nkjp['forms'], xy=5), matched=self.nkjp['matched'] + 5)
+        chained = units(self.kwjp, 'd', self.relevant, nkjp, owners)['units']
+        self.assertIn(_unit('Polska', 'duży', 'polski'), chained)
+        split = units(self.kwjp, 'e', self.relevant, nkjp, owners, eligible=common)['units']
+        self.assertTrue({_unit('Polska'), _unit('polski'), _unit('duży')} <= set(split))
+        with self.assertRaises(ValueError):
+            units(self.kwjp, 'd', self.relevant, self.nkjp, self.owners, eligible=common)
+
+    def test_coverage_in_three_denominators(self):
+        everyone = {m for u in self.units('d')['units'].values() for m in u['members']}
+        full = {d1: coverage(everyone, self.kwjp, d1, self.relevant) for d1 in ('kwjp-all', 'kwjp-exact',
+                                                                                  'kwjp-standard')}
+        self.assertEqual({k: (v['covered'], v['total']) for k, v in full.items()},
+                         {'kwjp-all': (385, 393), 'kwjp-exact': (265, 265), 'kwjp-standard': (385, 385)})
+        self.assertEqual(full['kwjp-standard']['coverage'], 1.0)
+        part = {d1: coverage({(S, 'bać'), (S, 'duży'), (S, 'rok:S1')}, self.kwjp, d1, self.relevant)
+                for d1 in ('kwjp-all', 'kwjp-exact', 'kwjp-standard')}
+        # Grupa rok bez rok:S2 nie jest pokryta.
+        self.assertEqual({k: v['covered'] for k, v in part.items()},
+                         {'kwjp-all': 110, 'kwjp-exact': 110, 'kwjp-standard': 110})
+        self.assertEqual(part['kwjp-all']['coverage'], round(110 / 393, 6))
+        with self.assertRaises(GeneratorError):
+            coverage(everyone, self.kwjp, 'nkjp-all', self.relevant)
+
+    def test_threshold_by_unit_count_and_by_coverage_target(self):
+        result = self.units('c')
+        ranks = rank_units(measure(result, KWJP_ONLY)['units'])
+        self.assertEqual(list(ranks)[:4], [_unit('bać'), _unit('Polska'), _unit('polski'), _unit('duży')])
+        cut = threshold(ranks, result, {'by': 'count', 'value': 3})
+        self.assertEqual((cut['units'], cut['lexemes'], cut['rank'], cut['reached']),
+                         ((_unit('bać'), _unit('Polska'), _unit('polski')), 3, 3, True))
+        target = {'by': 'coverage', 'value': 0.5, 'denominator': 'kwjp-exact'}
+        cut = threshold(ranks, result, target, self.kwjp, self.relevant)
+        # 70/265 < 0,5; 130/265 < 0,5; 180/265 ≥ 0,5.
+        self.assertEqual((cut['rank'], cut['coverage']['covered'], cut['reached']), (3, 180, True))
+        cut = threshold(ranks, result, {'by': 'coverage', 'value': 1.0, 'denominator': 'kwjp-all'},
+                        self.kwjp, self.relevant)
+        self.assertFalse(cut['reached'])
+        self.assertEqual(len(cut['units']), len(ranks))
+        for bad in ({'by': 'count', 'value': 0}, {'by': 'count', 'value': True},
+                    {'by': 'coverage', 'value': 1.5, 'denominator': 'kwjp-all'}, {'by': 'rank', 'value': 3}):
+            with self.assertRaises(GeneratorError) as raised:
+                threshold(ranks, result, bad, self.kwjp, self.relevant)
+            self.assertEqual(raised.exception.code, 2, bad)
+
+    def test_forms_by_tag_classes_constructions_and_membership_rule(self):
+        self.assertEqual(tag_classes('subst:sg:voc:m1'), frozenset({'voc'}))
+        self.assertEqual(tag_classes('subst:sg:nom.voc:m1'), frozenset())
+        self.assertEqual(tag_classes('impt:sg:sec:imperf'), frozenset({'impt', 'person-1-2'}))
+        self.assertEqual(tag_classes('pact:sg:nom:m1:imperf:aff'), frozenset({'participle'}))
+        self.assertEqual(tag_classes('fin:sg:pri:imperf'), frozenset({'person-1-2'}))
+        self.assertEqual(tag_classes('fin:sg:ter:imperf'), frozenset())
+        self.assertEqual(self.classes[(S, 'bać')], {'bojąc': frozenset({frozenset({'participle'})})})
+        rules = {'i': self.forms, 'ii': self.accepted}
+        full = {'classes': (), 'constructions': 'no', 'membership': 'i'}
+        bac = _unit('bać')
+        self.assertEqual(forms_for(bac, full, rules, self.constructions, self.classes)['forms'],
+                         frozenset({'boi', 'bał', 'bojąc'}))
+        cut = forms_for(bac, dict(full, classes=('participle', 'voc')), rules, self.constructions, self.classes)
+        self.assertEqual((cut['forms'], cut['removed']), (frozenset({'boi', 'bał'}), {'participle': 1}))
+        polski = _unit('Polska', 'polski')
+        self.assertEqual(forms_for(polski, full, rules)['forms'], frozenset({'polska', 'polski'}))
+        built = forms_for(polski, dict(full, constructions='yes'), rules, self.constructions, self.classes)
+        self.assertEqual(built['forms'], frozenset({'polska', 'polski', 'niepolska', 'niepolski'}))
+        self.assertEqual(built['constructions'], 2)
+        # Forma z jedną analizą spoza klas zostaje (wołacz = mianownik).
+        mixed = {(S, 'x'): {'kocie': frozenset({frozenset({'voc'})})}}
+        both = {'i': {(S, 'x'): frozenset({'kocie', 'kot'})}}
+        self.assertEqual(forms_for(_unit('x'), dict(full, classes=('voc',)), both, None, mixed)['forms'],
+                         frozenset({'kot'}))
+        for bad in (dict(full, classes=('dual',)), dict(full, constructions='maybe'),
+                    dict(full, membership='iii')):
+            with self.assertRaises(GeneratorError) as raised:
+                forms_for(bac, bad, rules, self.constructions, self.classes)
+            self.assertEqual(raised.exception.code, 2, bad)
+
+    def test_spearman_top_overlap_and_weighted_combination_from_ranks_only(self):
+        a = {('a',): 1, ('b',): 2, ('c',): 3, ('d',): 4}
+        self.assertEqual(spearman(a, a), {'n': 4, 'rho': 1.0})
+        self.assertEqual(spearman(a, {k: 5 - r for k, r in a.items()}), {'n': 4, 'rho': -1.0})
+        self.assertEqual(spearman(a, {('a',): 1, ('z',): 2}), {'n': 1, 'rho': None})
+        self.assertEqual(top_overlap(a, {('b',): 1, ('a',): 2, ('z',): 3, ('c',): 4}, 2),
+                         {'n': 2, 'overlap': 2, 'share': 1.0})
+        self.assertEqual(top_overlap(a, {('z',): 1, ('a',): 2}, 2)['overlap'], 1)
+        result = self.units('d')
+        kwjp_pct = percentiles(rank_units(measure(result, KWJP_ONLY)['units']))
+        nkjp_pct = {k: v['nkjp']['percentile'] for k, v in result['units'].items() if v['nkjp']['rank']}
+        both = sorted(set(kwjp_pct) & set(nkjp_pct))
+        self.assertTrue(both)
+        for weight in (1.0, 0.25, 0.0):
+            found = measure(result, {'source': 'kwjp+nkjp', 'field': 'F', 'weight': weight}, 'exclude')
+            for key in both:
+                self.assertEqual(found['units'][key]['value'],
+                                 round(weight * kwjp_pct[key] + (1 - weight) * nkjp_pct[key], 6))
+                self.assertTrue(0 < found['units'][key]['value'] <= 100)
+        # Pole miary KWJP: ARF i liczba gatunków z obecnością.
+        arf = measure(result, {'source': 'kwjp', 'field': 'ARF'})['units']
+        self.assertEqual(arf[_unit('bać')]['value'], 3.0)
+        genres = measure(result, {'source': 'kwjp', 'field': 'genres'})['units']
+        self.assertEqual(genres[_unit('bać')]['value'], 2)
+        for bad in ({'source': 'kwjp+nkjp', 'field': 'F', 'weight': 1.5}, {'source': 'kwjp', 'field': 'ipm'},
+                    {'source': 'nkjp', 'field': 'F'}, {'source': 'kwjp+nkjp', 'field': 'F'}):
+            with self.assertRaises(GeneratorError) as raised:
+                measure(result, bad)
+            self.assertEqual(raised.exception.code, 2, bad)
+
+
+class RepositoryPopSourcesTests(unittest.TestCase):
+    def test_repository_manifest_is_valid_and_pinned(self):
+        root = Path(__file__).resolve().parent.parent
+        sources = load_sources(root / 'config/generator/pop-sources.json')
+        self.assertEqual(sources['version'], 'pop-sources-v1')
+        self.assertEqual(sources['base']['database_sha256'][:8], '85b23ca5')
+        self.assertEqual(sources['base']['release_manifest_sha256'][:8], '54705743')
+        self.assertEqual(sources['base']['standard_sha256'][:8], 'a432c7c5')
+        nkjp = [i for i in sources['inputs'] if i['kind'] == 'nkjp_1gram'][0]
+        self.assertEqual(nkjp['sha256'], '73af49094621b2f86b594beba783c14aee8c8212f1aff3d61f281ab5d99e3dc9')
+        self.assertEqual(sorted(i['kind'] for i in sources['inputs']), ['kwjp', 'nkjp_1gram'])
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -43,28 +43,28 @@ Zasady dla każdej grupy:
 **Files to Modify:** config/generator/pop-sources.json, literaki_slownik/pop.py, tests/pop_helpers.py, tests/test_pop.py
 **Estimated Steps:** 5
 
-- [ ] 1.0 Manifest POP i sprawdzanie pinów (A1, część C2)
-  - [ ] 1.1 Napisz 6 testów w `tests/test_pop.py`
+- [x] 1.0 Manifest POP i sprawdzanie pinów (A1, część C2)
+  - [x] 1.1 Napisz 6 testów w `tests/test_pop.py`
     - poprawny manifest na fiksturze: zwraca ścieżki i hash bazy
     - zły pin bazy → kod 3
     - `run-dir/manifest.json` `export.release_manifest_sha256` ≠ hash `--release-dir/release-manifest.json` → kod 3
     - zły hash `lists/standard.txt` albo NKJP → kod 3
     - przebieg bez `readiness: FROZEN` → kod 5
     - wejście inne niż KWJP/NKJP (np. `sjp`) albo nieznany klucz → kod 2
-  - [ ] 1.2 Fikstura `tests/pop_helpers.py`
+  - [x] 1.2 Fikstura `tests/pop_helpers.py`
     - przebieg FROZEN i pakiet z `release_helpers` (`complete_pair` + verify/export z `allow_test_fixture`, wzór `tests/test_export.py`)
     - własne SGJP i KWJP (wzór `tests/test_build.py` `manifest`): `zamek:a/b`, `rok` z dwoma leksemami, `lata`/`lato`, `Polska` (nazwa własna) i `polski`, interpretacja z `pot.`, konstrukcja (`nie-` + przymiotnik), `ul`
     - mały `1grams.gz` (wzór `tests/test_kwjp.py`) z `ul.`, `ul`, `ok.`, `polska`, `lata`
     - `pop-sources.json` przypięty do fikstury
-  - [ ] 1.3 `config/generator/pop-sources.json`
+  - [x] 1.3 `config/generator/pop-sources.json`
     - `version: pop-sources-v1`; pełne hashe: baza (z `manifest.json` przebiegu), `release-manifest.json` v29, `lists/standard.txt`, `cache/nkjp/1grams.gz`
     - wejścia tylko `kwjp` (z bazy) i `nkjp_1gram`; ścieżka pakietu LL-PL v29
-  - [ ] 1.4 `literaki_slownik/pop.py`
+  - [x] 1.4 `literaki_slownik/pop.py`
     - `load_sources(path)`: ścisły walidator kluczy i rodzajów wejść (kod 2)
     - `check_inputs(sources, run_dir, release_dir)`: FROZEN (5), piny (3); reuse `inputs.checked_file`, `canonical.sha256`
     - `database_sha256(path)`: strumień po 1 MB
     - `read_standard(path)` → `frozenset` kluczy
-  - [ ] 1.5 Uruchom tylko testy z 1.1
+  - [x] 1.5 Uruchom tylko testy z 1.1
 
 **Acceptance Criteria:**
 - 6 testów z 1.1 przechodzi
@@ -75,8 +75,8 @@ Zasady dla każdej grupy:
 **Files to Modify:** literaki_slownik/pop.py, tests/pop_helpers.py, tests/test_pop.py
 **Estimated Steps:** 7
 
-- [ ] 2.0 Dane leksemów i form z bazy tylko do odczytu (A6, A8, A9)
-  - [ ] 2.1 Napisz 7 testów
+- [x] 2.0 Dane leksemów i form z bazy tylko do odczytu (A6, A8, A9)
+  - [x] 2.1 Napisz 7 testów
     - klucz leksemu to `(source_id, lemma_id)`, nie `lexeme.id`
     - kilka wierszy KWJP jednego leksemu: F sumowane; ARF, 1-DP i gatunki z wiersza o największym F (remis: klucz wiersza)
     - wiersz AMBIGUOUS `zamek` daje grupę `zamek:a/b`; F przy grupie, członkowie bez własnego F
@@ -84,16 +84,16 @@ Zasady dla każdej grupy:
     - forma konstrukcji trafia do leksemu składnika przez `derivation_candidate.lemma_id` + `source_id`
     - leksem potoczny = `pot.` w dowolnej interpretacji
     - hash bazy przed = po (wzór `tests/test_explain.py:22`)
-  - [ ] 2.2 `load_kwjp(db, source_id)`
+  - [x] 2.2 `load_kwjp(db, source_id)`
     - zakres `evidence_id` per `source_id`, potem `evidence_link` i `evidence_candidate` w tym zakresie; łączenie w Pythonie
     - lemma-all i gatunki (fikcja, fakt, publicystyka); statusy EXACT/AMBIGUOUS/UNMATCHED; miary z `kwjp.METRICS`
-  - [ ] 2.3 `load_lexemes(db)`: `lexeme.id` → klucz, źródło, POS, kwalifikatory (`pot.`), nazwa własna
-  - [ ] 2.4 `load_forms(db, standard)`: leksem → `game_key` przez `interpretation` → `surface_form`
+  - [x] 2.3 `load_lexemes(db)`: `lexeme.id` → klucz, źródło, POS, kwalifikatory (`pot.`), nazwa własna
+  - [x] 2.4 `load_forms(db, standard)`: leksem → `game_key` przez `interpretation` → `surface_form`
     - reguła (i): forma ∈ STANDARD i jest formą leksemu
     - reguła (ii): analiza tego leksemu przyjęta w STANDARD (`analysis` + `variant_decision`); osobna funkcja, żeby zmierzyć jej czas
-  - [ ] 2.5 `load_constructions(db, standard)`: `derivation_candidate` bez `interpretation_id` → leksem składnika; liczniki: jeden / żaden / kilka (A9)
-  - [ ] 2.6 `kwjp_measures(rows)`: agregacja wierszy leksemu wg reguł wspólnych; grupy homonimów jako osobne jednostki; nigdy suma ARF/1-DP ani korpusu z podkorpusami
-  - [ ] 2.7 Uruchom tylko testy z 2.1
+  - [x] 2.5 `load_constructions(db, standard)`: `derivation_candidate` bez `interpretation_id` → leksem składnika; liczniki: jeden / żaden / kilka (A9)
+  - [x] 2.6 `kwjp_measures(rows)`: agregacja wierszy leksemu wg reguł wspólnych; grupy homonimów jako osobne jednostki; nigdy suma ARF/1-DP ani korpusu z podkorpusami
+  - [x] 2.7 Uruchom tylko testy z 2.1
 
 **Acceptance Criteria:**
 - 7 testów z 2.1 przechodzi
@@ -104,19 +104,19 @@ Zasady dla każdej grupy:
 **Files to Modify:** literaki_slownik/pop.py, tests/test_pop.py
 **Estimated Steps:** 6
 
-- [ ] 3.0 NKJP jako ranga leksemu bez kopiowania F (A10, D4, D5)
-  - [ ] 3.1 Napisz 6 testów
+- [x] 3.0 NKJP jako ranga leksemu bez kopiowania F (A10, D4, D5)
+  - [x] 3.1 Napisz 6 testów
     - parser `r" *([0-9]+) (.+)\n"` na małym gz; NFC, małe litery, suma po `game_key`
     - trzy reguły czyszczenia: `full-nfc`, `strip-edges`, `strip-edges-keep-dot`; `ul.` i `ok.` w każdej
     - lista kolizji (`ul.`→`ul`, `ok.`→`ok`) z masą obu stron
     - `polska` nie jest jednoznaczna (nazwa własna + przymiotnik) i nie daje F `polski`
     - `lata` (`rok` i `lato`) nie daje F żadnemu leksemowi
     - forma bez wiersza NKJP ma status `NOT_IN_PUBLISHED_LIST`, nigdy 0
-  - [ ] 3.2 `read_nkjp(path, rule)`: strumień gzip, identyfikator reguły z wersją; suma całości w strumieniu; w pamięci tylko klucze form SGJP
-  - [ ] 3.3 `nkjp_collisions(...)`: napisy scalane przez regułę, top wg masy
-  - [ ] 3.4 `form_owners(db)`: `game_key` → klucze leksemów wśród wszystkich leksemów SGJP (`sgjp-20260823`, `sgjp-supplement-v1`, z nazwami własnymi i analizami odrzuconymi); zbiorczo
-  - [ ] 3.5 `nkjp_lexeme_ranks(...)`: F tylko z formy jednoznacznej; na wyjściu ranga i percentyl, także dla leksemu z jedną formą
-  - [ ] 3.6 Uruchom tylko testy z 3.1
+  - [x] 3.2 `read_nkjp(path, rule)`: strumień gzip, identyfikator reguły z wersją; suma całości w strumieniu; w pamięci tylko klucze form SGJP
+  - [x] 3.3 `nkjp_collisions(...)`: napisy scalane przez regułę, top wg masy
+  - [x] 3.4 `form_owners(db)`: `game_key` → klucze leksemów wśród wszystkich leksemów SGJP (`sgjp-20260823`, `sgjp-supplement-v1`, z nazwami własnymi i analizami odrzuconymi); zbiorczo
+  - [x] 3.5 `nkjp_lexeme_ranks(...)`: F tylko z formy jednoznacznej; na wyjściu ranga i percentyl, także dla leksemu z jedną formą
+  - [x] 3.6 Uruchom tylko testy z 3.1
 
 **Acceptance Criteria:**
 - 6 testów z 3.1 przechodzi
@@ -127,8 +127,8 @@ Zasady dla każdej grupy:
 **Files to Modify:** literaki_slownik/pop.py, tests/test_pop.py
 **Estimated Steps:** 7
 
-- [ ] 4.0 Wspólne funkcje rankingu dla pomiaru i `pop`
-  - [ ] 4.1 Napisz 8 testów
+- [x] 4.0 Wspólne funkcje rankingu dla pomiaru i `pop`
+  - [x] 4.1 Napisz 8 testów
     - ranga deterministyczna, klucz `(-miara, klucz jednostki)`, remis rozstrzyga klucz
     - percentyle na małym przykładzie
     - brak pełny i częściowy: osobne statusy KWJP i NKJP, nigdy ranga 0; trzy reguły D8b
@@ -137,12 +137,12 @@ Zasady dla każdej grupy:
     - próg po liczbie jednostek i po celu pokrycia (D6)
     - filtr klas znaczników D2a (wołacz, rozkaźnik, imiesłowy, os. 1/2)
     - Spearman i nakładanie top-N; kombinacja KWJP+NKJP tylko z rang/percentyli, z wagą
-  - [ ] 4.2 `units(..., d5)`: jednostki dla opcji D5 a–d
-  - [ ] 4.3 `measure(..., d3, d8)`: sama KWJP (F, ARF, 1-DP, gatunki) albo KWJP+NKJP z wagą; reguła braku częściowego
-  - [ ] 4.4 `rank_units`, `percentiles`, `coverage(..., d1)`, `threshold(..., d6)`
-  - [ ] 4.5 `forms_for(units, d2)`: klasy znaczników, konstrukcje tak/nie, reguła przynależności (i)/(ii)
-  - [ ] 4.6 `spearman`, `top_overlap`
-  - [ ] 4.7 Uruchom tylko testy z 4.1
+  - [x] 4.2 `units(..., d5)`: jednostki dla opcji D5 a–d
+  - [x] 4.3 `measure(..., d3, d8)`: sama KWJP (F, ARF, 1-DP, gatunki) albo KWJP+NKJP z wagą; reguła braku częściowego
+  - [x] 4.4 `rank_units`, `percentiles`, `coverage(..., d1)`, `threshold(..., d6)`
+  - [x] 4.5 `forms_for(units, d2)`: klasy znaczników, konstrukcje tak/nie, reguła przynależności (i)/(ii)
+  - [x] 4.6 `spearman`, `top_overlap`
+  - [x] 4.7 Uruchom tylko testy z 4.1
 
 **Acceptance Criteria:**
 - 8 testów z 4.1 przechodzi
@@ -153,13 +153,13 @@ Zasady dla każdej grupy:
 **Files to Modify:** literaki_slownik/quality.py, tests/test_pop_quality.py
 **Estimated Steps:** 3
 
-- [ ] 5.0 Druga zamknięta konfiguracja w `quality._config` (A7, C17)
-  - [ ] 5.1 Napisz 3 testy w `tests/test_pop_quality.py`
+- [x] 5.0 Druga zamknięta konfiguracja w `quality._config` (A7, C17)
+  - [x] 5.1 Napisz 3 testy w `tests/test_pop_quality.py`
     - `pop-quality-v1` (seed `literaki-slownik-pop-v1`, 30, `ENCODING`) przyjęte; dwa wywołania `sample_strata` równe
     - inna wartość (wersja, seed, rozmiar, kodowanie, `bool` jako rozmiar) → kod 2
     - mieszanka: wersja `quality-v1` z seedem POP → kod 2
-  - [ ] 5.2 `_config`: zamknięta mapa `wersja → seed` z dwiema parami; reszta warunków bez zmian
-  - [ ] 5.3 Uruchom testy z 5.1 i `tests.test_quality` (plik bez zmian)
+  - [x] 5.2 `_config`: zamknięta mapa `wersja → seed` z dwiema parami; reszta warunków bez zmian
+  - [x] 5.3 Uruchom testy z 5.1 i `tests.test_quality` (plik bez zmian)
 
 **Acceptance Criteria:**
 - 3 nowe testy i wszystkie `tests.test_quality` przechodzą
@@ -169,24 +169,24 @@ Zasady dla każdej grupy:
 **Files to Modify:** scripts/measure_pop.py, tests/test_measure_pop.py
 **Estimated Steps:** 7
 
-- [ ] 6.0 Pomiar tylko do odczytu z raportem dla właściciela (A1–A10)
-  - [ ] 6.1 Napisz 6 testów dymnych na fiksturze
+- [x] 6.0 Pomiar tylko do odczytu z raportem dla właściciela (A1–A10)
+  - [x] 6.1 Napisz 6 testów dymnych na fiksturze
     - dwa przebiegi do dwóch katalogów → `measure.json` równy bajtowo
     - istniejący katalog wyjściowy → kod 4
     - zły pin → kod 3, nic nie zapisane
     - hash bazy przed = po
     - `report.md` ma sekcje D1–D8, A9 i próbki
     - `report.md` nie ma liczb NKJP per forma (skan: tylko rangi/percentyle)
-  - [ ] 6.2 Argumenty: `--sources`, `--run-dir`, `--release-dir`, `--output-dir`; `main()` zwraca kod, `GeneratorError` → kod i komunikat; bez `SystemExit` w funkcjach
-  - [ ] 6.3 Przepływ: `check_inputs` → hash bazy → grupy 2–3 → opcje D1–D8 (grupa 4) → próbki `pop-quality-v1` → hash bazy; różnica → kod 5, nic nie zapisane
+  - [x] 6.2 Argumenty: `--sources`, `--run-dir`, `--release-dir`, `--output-dir`; `main()` zwraca kod, `GeneratorError` → kod i komunikat; bez `SystemExit` w funkcjach
+  - [x] 6.3 Przepływ: `check_inputs` → hash bazy → grupy 2–3 → opcje D1–D8 (grupa 4) → próbki `pop-quality-v1` → hash bazy; różnica → kod 5, nic nie zapisane
     - warstwy próbek: granica POP wewn./zewn. i POP0 wewn./zewn. przy kandydatach D6, braki danych, rozbieżność KWJP–NKJP, grupy homonimów, części mowy, krótkie/długie słowa
-  - [ ] 6.4 `measure.json`: kanoniczny, `code_identity`, hash `pop-sources.json` i listy opcji, bez czasów i ścieżek; liczby NKJP per forma tylko tu. Czasy (A9, D2c) w osobnym `timing.json`
-  - [ ] 6.5 `report.md` po polsku
+  - [x] 6.4 `measure.json`: kanoniczny, `code_identity`, hash `pop-sources.json` i listy opcji, bez czasów i ścieżek; liczby NKJP per forma tylko tu. Czasy (A9, D2c) w osobnym `timing.json`
+  - [x] 6.5 `report.md` po polsku
     - TL;DR; tabela na każdą D1–D8: opcja, leksemy, formy STANDARD, pokrycie, przykłady oznaczone „ilustracja”; zalecenie przy każdej
     - D5: top 50 AMBIGUOUS wg F i ich los w każdej opcji (`rok`, `raz`, `dzień`, `lata`/`lato`, `polska`/`polski`)
     - A6 luka potoczna; A9 formy konstrukcji i czas obu reguł; próbki graniczne
-  - [ ] 6.6 Zapis do stagingu obok celu, potem `export.rename_noreplace`
-  - [ ] 6.7 Uruchom tylko testy z 6.1
+  - [x] 6.6 Zapis do stagingu obok celu, potem `export.rename_noreplace`
+  - [x] 6.7 Uruchom tylko testy z 6.1
 
 **Acceptance Criteria:**
 - 6 testów z 6.1 przechodzi
@@ -197,13 +197,13 @@ Zasady dla każdej grupy:
 **Files to Modify:** data/work/pop-measure-<stempel>/ (poza gitem), .maister/tasks/development/2026-10-11-slowniki-pop-pop0/analysis/pop-measure-report.md
 **Estimated Steps:** 6
 
-- [ ] 7.0 Prawdziwy pomiar i pytanie do właściciela (kryteria etapu A)
-  - [ ] 7.1 Przed: `df` (miejsce na dysku); zapisz hashe `manifest.json`, `lists/`, `reports/` przebiegu i `release-manifest.json` v29
-  - [ ] 7.2 Dwa przebiegi do dwóch katalogów `data/work/pop-measure-<stempel>-a|b`; `cmp` obu `measure.json`; zapisz czas i RSS
-  - [ ] 7.3 Hash bazy = pin `85b23ca5…`; hashe z 7.1 bez zmian
-  - [ ] 7.4 Agent wstępnie ocenia próbki graniczne; ocena w raporcie, osobno od ilustracji
-  - [ ] 7.5 Kopia raportu do `analysis/pop-measure-report.md` bez liczb NKJP per forma; commit i push repo
-  - [ ] 7.6 **STOP.** Pytanie do właściciela (B1): dla każdej D1–D8 opcje, liczby, przykłady, zalecenie. Nie zaczynaj grupy 8 bez odpowiedzi
+- [x] 7.0 Prawdziwy pomiar i pytanie do właściciela (kryteria etapu A)
+  - [x] 7.1 Przed: `df` (miejsce na dysku); zapisz hashe `manifest.json`, `lists/`, `reports/` przebiegu i `release-manifest.json` v29
+  - [x] 7.2 Dwa przebiegi do dwóch katalogów `data/work/pop-measure-<stempel>-a|b`; `cmp` obu `measure.json`; zapisz czas i RSS
+  - [x] 7.3 Hash bazy = pin `85b23ca5…`; hashe z 7.1 bez zmian
+  - [x] 7.4 Agent wstępnie ocenia próbki graniczne; ocena w raporcie, osobno od ilustracji
+  - [x] 7.5 Kopia raportu do `analysis/pop-measure-report.md` bez liczb NKJP per forma; commit i push repo
+  - [x] 7.6 **STOP.** Pytanie do właściciela (B1): dla każdej D1–D8 opcje, liczby, przykłady, zalecenie. Nie zaczynaj grupy 8 bez odpowiedzi
 
 **Acceptance Criteria:**
 - dwa `measure.json` równe bajtowo; hash bazy bez zmian

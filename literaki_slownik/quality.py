@@ -8,13 +8,17 @@ from .canonical import dumps
 from .inputs import GeneratorError
 
 ENCODING = 'canonical JSON array [seed,stratum,key], UTF-8'
+# Zamknięta mapa wersja → seed; pop-quality-v1 służy próbkom POP (C17).
+SEEDS = {'quality-v1': 'literaki-slownik-g1-v1',
+         'pop-quality-v1': 'literaki-slownik-pop-v1'}
 
 
 def _config(config):
     if (not isinstance(config, dict)
             or set(config) != {'version', 'seed', 'size_per_stratum', 'encoding'}
-            or config['version'] != 'quality-v1'
-            or config['seed'] != 'literaki-slownik-g1-v1'
+            or not isinstance(config['version'], str)
+            or config['version'] not in SEEDS
+            or config['seed'] != SEEDS[config['version']]
             or type(config['size_per_stratum']) is not int
             or config['size_per_stratum'] != 30
             or config['encoding'] != ENCODING):
