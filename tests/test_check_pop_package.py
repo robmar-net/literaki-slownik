@@ -143,9 +143,9 @@ class CheckPopPackageTests(unittest.TestCase):
 
     def test_subsets_and_must_include(self):
         def pop0_outside_pop(p):
-            # `fajny` jest w STANDARD fikstury, ale poza POP.
-            self.assertNotIn('fajny', _words(p / 'POP.txt.gz'))
-            _rewrite(p / 'POP0.txt.gz', _gz(sorted({*_words(p / 'POP0.txt.gz'), 'fajny'})))
+            # `ul` jest w STANDARD fikstury, ale poza POP.
+            self.assertNotIn('ul', _words(p / 'POP.txt.gz'))
+            _rewrite(p / 'POP0.txt.gz', _gz(sorted({*_words(p / 'POP0.txt.gz'), 'ul'})))
 
         def pop_outside_standard(p):
             words = _words(p / 'POP.txt.gz')
@@ -169,13 +169,20 @@ class CheckPopPackageTests(unittest.TestCase):
         def bad_key(p):
             path = p / 'reports/units.json'
             units = json.loads(path.read_text(encoding='utf-8'))
-            units['units'][0]['nkjp_freq'] = 7340919
+            units['units'][0]['nkjp_freq'] = 97340919
             _rewrite(path, json.dumps(units, ensure_ascii=False).encode('utf-8'))
 
         def raw_file(p):
-            _rewrite(p / 'reports/1grams.gz', _gz(['7340919 kot']))
+            _rewrite(p / 'reports/1grams.gz', _gz(['97340919 kot']))
 
-        for name, mutate, reason in (('key', bad_key, 'nkjp_freq'), ('file', raw_file, '1grams')):
+        def raw_value(p):
+            path = p / 'reports/units.json'
+            units = json.loads(path.read_text(encoding='utf-8'))
+            units['units'][0]['value'] = 6.123456
+            _rewrite(path, json.dumps(units, ensure_ascii=False).encode('utf-8'))
+
+        for name, mutate, reason in (('key', bad_key, 'nkjp_freq'), ('file', raw_file, '1grams'),
+                                     ('value', raw_value, 'value')):
             with self.subTest(name):
                 package = self.copy()
                 mutate(package)

@@ -5,6 +5,7 @@ Krok tylko do odczytu. Wejścia to KWJP (z zamrożonej bazy) i NKJP 1grams (ADR-
 from collections import defaultdict
 import gzip
 import json
+import math
 from pathlib import Path
 import re
 import unicodedata
@@ -472,13 +473,18 @@ D2_CLASSES = ('voc', 'impt', 'participle', 'person-1-2')
 D2_CONSTRUCTIONS = ('yes', 'no')
 D2_MEMBERSHIP = ('i', 'ii')
 D3_SOURCES = ('kwjp', 'kwjp+nkjp')
-D3_FIELDS = ('F', 'ARF', '1-DP', 'genres')
+D3_FIELDS = ('F', 'ARF', '1-DP', 'genres', 'log-ipm')
 D5_OPTIONS = ('a', 'b', 'c', 'd', 'e')
 D6_BY = ('count', 'coverage')
-D8_PARTIAL = ('available-only', 'lower-bound', 'exclude')
+D8_PARTIAL = ('available-only', 'lower-bound', 'exclude', 'lower-bound-absent')
+# `lower-bound-absent`: źródło prawdziwie nieobecne dostaje dolną granicę; niewiarygodne jest pomijane.
+ABSENT_STATUSES = {'kwjp': 'ABSENT_OR_BELOW_PUBLICATION_THRESHOLD', 'nkjp': 'NOT_IN_PUBLISHED_LIST'}
 PARTICIPLES = frozenset({'pact', 'ppas', 'pcon', 'pant'})
 KWJP_ABSENT = 'ABSENT_OR_BELOW_PUBLICATION_THRESHOLD'
 NKJP_ABSENT = 'NOT_IN_PUBLISHED_LIST'
+# D5e z `eligible`: forma NKJP jednostki należy też do leksemu spoza `eligible` (nazwa własna, skrót),
+# więc jej masa zostaje nieprzypisana i NKJP zaniża jednostkę. Jednostka bez NKJP w mierze.
+NKJP_PROPER_SHARED = 'PROPER_SHARED'
 
 
 def _option(value, allowed, what):
@@ -543,7 +549,10 @@ def units(kwjp, d5, relevant, nkjp=None, owners=None, eligible=None):
     `e` — jak `d`, ale łączy tylko zbiory, w których każdy właściciel należy do `eligible`
     (domyślnie `relevant`); zbiór z innym leksemem (nazwa własna, skrót) nie tworzy grupy,
     a jego F zostaje nieprzypisane jak w `c`.
-    NKJP na wyjściu tylko jako status, ranga i percentyl wśród jednostek (bez F).
+    `e` z jawnym `eligible`: jednostka, której forma NKJP ma takiego obcego właściciela, dostaje status NKJP
+    `PROPER_SHARED` i nie ma rangi NKJP (np. `polski` przez `polska`/`Polska`); jej masa nie jest przypisana.
+    NKJP na wyjściu tylko jako status, ranga i percentyl wśród jednostek (bez F). F NKJP jednostek z rangą
+    zostaje wewnętrznie w `nkjp_f` dla miary `log-ipm`; nigdy nie trafia do raportów (C14).
     """
     _option(d5, D5_OPTIONS, 'D5')
     if nkjp is not None and owners is None:
@@ -559,6 +568,7 @@ def units(kwjp, d5, relevant, nkjp=None, owners=None, eligible=None):
         observed = [(owners[key], count) for key, count in sorted(nkjp['forms'].items())]
     if eligible is not None and d5 != 'e':
         raise ValueError('eligible tylko dla D5e')
+    proper_rule = eligible is not None
     eligible = relevant if eligible is None else relevant.intersection(eligible)
     joined = (lambda members: True) if d5 == 'd' else (lambda members: eligible.issuperset(members))
     grouped = d5 in ('d', 'e')
@@ -639,12 +649,19 @@ def units(kwjp, d5, relevant, nkjp=None, owners=None, eligible=None):
                         nkjp_attributed += count
                         nkjp_copied += count * (len(reached) - 1)
     else:
+        proper_shared, proper_mass = set(), 0
+        if proper_rule:
+            for members, _ in observed:
+                if len(members) > 1 and not joined(members):
+                    proper_shared.update(unit_of[k] for k in members if k in unit_of and eligible.intersection(unit_of[k]))
         for members, count in observed:
             if len(members) > 1 and not joined(members):
                 shared_seen.update(members)
                 continue
             unit = unit_of.get(members[0])
-            if unit is not None:
+            if unit in proper_shared:
+                proper_mass += count
+            elif unit is not None:
                 nkjp_mass[unit] += count
                 nkjp_attributed += count
                 if len(members) > 1:
@@ -656,6 +673,8 @@ def units(kwjp, d5, relevant, nkjp=None, owners=None, eligible=None):
         members = unit if grouped else tuple(sorted(members_of[unit]))
         if nkjp is None:
             nkjp_unit = {'status': 'NOT_APPLICABLE', 'rank': None, 'percentile': None, 'ambiguous': False}
+        elif grouped and unit in proper_shared:
+            nkjp_unit = {'status': NKJP_PROPER_SHARED, 'rank': None, 'percentile': None, 'ambiguous': False}
         elif unit in position:
             nkjp_unit = {'status': 'OBSERVED', 'rank': position[unit],
                          'percentile': _percentile(position[unit], len(ranked)),
@@ -674,8 +693,12 @@ def units(kwjp, d5, relevant, nkjp=None, owners=None, eligible=None):
     if nkjp is not None:
         mass['nkjp'] = {'total': nkjp['total'], 'matched': nkjp['matched'], 'attributed': nkjp_attributed,
                         'copied': nkjp_copied, 'unattributed': nkjp['matched'] - nkjp_attributed}
+        if grouped and proper_rule:
+            mass['nkjp']['proper_shared'] = {'units': len(proper_shared), 'mass': proper_mass}
     return {'option': d5, 'units': result, 'mass': mass,
-            'groups': {'count': sum(1 for size in sizes if size > 1), 'largest': sizes[0] if sizes else None}}
+            'groups': {'count': sum(1 for size in sizes if size > 1), 'largest': sizes[0] if sizes else None},
+            # Tylko wewnętrznie, do `log-ipm` (C14): F NKJP jednostek z rangą.
+            'nkjp_f': {unit: nkjp_mass[unit] for unit in ranked}}
 
 
 def _kwjp_value(item, field):
@@ -694,13 +717,24 @@ def _missing(found, result, partial):
             'statuses': dict(sorted(pairs.items()))}
 
 
+def _log_ipm(count, total):
+    """log10 liczby na milion tokenów źródła; brak danych = `None`."""
+    return math.log10(count / total * 1e6) if count and total else None
+
+
 def measure(result, d3, d8='available-only'):
     """Miara jednostki wg D3; brak częściowy wg D8b. Wynik: wartość, status, flagi (C5, C6).
 
-    `kwjp`: sama KWJP, pole F / ARF / 1-DP / liczba gatunków z obecnością.
-    `kwjp+nkjp`: tylko z percentyli, `weight × KWJP + (1 − weight) × NKJP`. Brak częściowy:
-    `available-only` — percentyl dostępnego źródła; `lower-bound` — brakujące źródło tuż pod ostatnią
-    obserwowaną rangą, z flagą; `exclude` — jednostka bez wartości. Brak pełny = `NO_DATA`.
+    `kwjp`: sama KWJP, pole F / ARF / 1-DP / liczba gatunków z obecnością / log-ipm.
+    `kwjp+nkjp`, pola F, ARF, 1-DP, gatunki: z percentyli, `weight × KWJP + (1 − weight) × NKJP`.
+    `kwjp+nkjp`, pole `log-ipm`: per źródło `log10(F / suma źródła × 10⁶)` (KWJP: masa listy `all`,
+    NKJP: wszystkie tokeny pliku), potem `weight × KWJP + (1 − weight) × NKJP`. Percentyle z różnych
+    populacji zaniżały słowa o rozbieżnych korpusach; log-ipm porównuje częstości w jednej skali.
+    Brak częściowy: `available-only` — wartość dostępnego źródła z flagą; `lower-bound` — brakujące źródło
+    tuż pod ostatnią obserwowaną rangą (log-ipm: najmniejsza obserwowana wartość), z flagą; `exclude` —
+    jednostka bez wartości; `lower-bound-absent` — źródło prawdziwie nieobecne (KWJP poniżej progu
+    publikacji, brak w liście NKJP) dostaje tę dolną granicę z flagą `bound:<źródło>`, a źródło
+    niewiarygodne (`PROPER_SHARED`, `UNMATCHED`) jest pomijane jak w `available-only`. Brak pełny = `NO_DATA`. Wartość log-ipm łączy F NKJP: tylko do rangi (C14).
     """
     _exact(d3, {'source', 'field'} | ({'weight'} if d3.get('source') == 'kwjp+nkjp' else set())
            if isinstance(d3, dict) else set(), 'D3')
@@ -708,22 +742,38 @@ def measure(result, d3, d8='available-only'):
     field = _option(d3['field'], D3_FIELDS, 'D3 field')
     _option(d8, D8_PARTIAL, 'D8b')
     found = {}
+    kwjp_total = result['mass']['kwjp']['total']
     if source == 'kwjp':
         for key, unit in result['units'].items():
-            value = _kwjp_value(unit['kwjp'], field)
+            value = _kwjp_value(unit['kwjp'], 'F' if field == 'log-ipm' else field)
+            if field == 'log-ipm' and value is not None:
+                value = round(_log_ipm(value, kwjp_total), 9)
             found[key] = ({'value': value, 'status': 'MEASURED',
                            'flags': ('ambiguous',) if unit['kwjp']['ambiguous'] else ()}
                           if value is not None else {'value': None, 'status': 'NO_DATA', 'flags': ()})
         return {'units': found, 'missing': _missing(found, result, None)}
     weight = _number(d3['weight'], 0, 1, 'D3 weight')
-    kwjp_pct = percentiles(rank_units({k: {'value': _kwjp_value(u['kwjp'], field)}
-                                       for k, u in result['units'].items()}))
-    nkjp_count = sum(1 for u in result['units'].values() if u['nkjp']['status'] == 'OBSERVED')
-    floors = {'kwjp': _percentile(len(kwjp_pct) + 1, len(kwjp_pct) + 1),
-              'nkjp': _percentile(nkjp_count + 1, nkjp_count + 1)}
+    if field == 'log-ipm':
+        nkjp_total = (result['mass'].get('nkjp') or {}).get('total')
+        nkjp_f = result.get('nkjp_f') or {}
+        per_source = {'kwjp': {k: _log_ipm(_kwjp_value(u['kwjp'], 'F'), kwjp_total)
+                               for k, u in result['units'].items()},
+                      'nkjp': {k: _log_ipm(nkjp_f.get(k), nkjp_total) for k in result['units']}}
+        per_source = {name: {k: v for k, v in values.items() if v is not None}
+                      for name, values in per_source.items()}
+        floors = {name: min(values.values()) if values else None for name, values in per_source.items()}
+        source_value = lambda name, key, unit: per_source[name].get(key)
+    else:
+        kwjp_pct = percentiles(rank_units({k: {'value': _kwjp_value(u['kwjp'], field)}
+                                           for k, u in result['units'].items()}))
+        nkjp_count = sum(1 for u in result['units'].values() if u['nkjp']['status'] == 'OBSERVED')
+        floors = {'kwjp': _percentile(len(kwjp_pct) + 1, len(kwjp_pct) + 1),
+                  'nkjp': _percentile(nkjp_count + 1, nkjp_count + 1)}
+        source_value = lambda name, key, unit: kwjp_pct.get(key) if name == 'kwjp' else unit['nkjp']['percentile']
+    digits = 9 if field == 'log-ipm' else 6
     partial = 0
     for key, unit in result['units'].items():
-        values = {'kwjp': kwjp_pct.get(key), 'nkjp': unit['nkjp']['percentile']}
+        values = {name: source_value(name, key, unit) for name in ('kwjp', 'nkjp')}
         missing = [name for name, value in values.items() if value is None]
         if len(missing) == 2:
             found[key] = {'value': None, 'status': 'NO_DATA', 'flags': ()}
@@ -731,16 +781,19 @@ def measure(result, d3, d8='available-only'):
         if missing:
             partial += 1
             gone, = missing
+            absent = unit[gone]['status'] == ABSENT_STATUSES[gone]
             if d8 == 'exclude':
                 found[key] = {'value': None, 'status': 'EXCLUDED_PARTIAL', 'flags': ()}
                 continue
-            if d8 == 'available-only':
+            if d8 == 'available-only' or (d8 == 'lower-bound-absent' and not absent):
                 kept = 'nkjp' if gone == 'kwjp' else 'kwjp'
-                found[key] = {'value': values[kept], 'status': 'MEASURED', 'flags': (f'single_source:{kept}',)}
+                found[key] = {'value': round(values[kept], digits), 'status': 'MEASURED',
+                              'flags': (f'single_source:{kept}',)}
                 continue
             values[gone] = floors[gone]
-        value = round(weight * values['kwjp'] + (1 - weight) * values['nkjp'], 6)
-        found[key] = {'value': value, 'status': 'MEASURED', 'flags': (f'lower_bound:{missing[0]}',) if missing else ()}
+        value = round(weight * values['kwjp'] + (1 - weight) * values['nkjp'], digits)
+        flag = 'bound' if d8 == 'lower-bound-absent' else 'lower_bound'
+        found[key] = {'value': value, 'status': 'MEASURED', 'flags': (f'{flag}:{missing[0]}',) if missing else ()}
     return {'units': found, 'missing': _missing(found, result, partial)}
 
 
@@ -797,10 +850,13 @@ def coverage(members, kwjp, d1, relevant=None):
     return _coverage(d1, covered, total)
 
 
-def threshold(ranks, result, d6, kwjp=None, relevant=None):
+def threshold(ranks, result, d6, kwjp=None, relevant=None, values=None):
     """Próg D6 jako prefiks rang: jednostka wchodzi w całości albo wcale.
 
     `count`: jednostki po kolei, dopóki suma leksemów (członków z formą w STANDARD) ≤ wartość.
+    Z `values` (jednostka → `{'value': …}`, wynik `measure`) blok jednostek o równej mierze wchodzi
+    w całości albo wcale: próg nigdy nie dzieli remisu alfabetycznie, więc lista może mieć mniej
+    leksemów niż wartość. `next_block` opisuje blok, który się nie zmieścił.
     `coverage`: do pierwszej jednostki, po której pokrycie w mianowniku D1 ≥ wartość.
     """
     if not isinstance(d6, dict):
@@ -821,35 +877,50 @@ def threshold(ranks, result, d6, kwjp=None, relevant=None):
             for key in group:
                 groups_of[key].append(group)
     chosen, members, size, covered, reached = [], set(), 0, 0, False
-    for key in sorted(ranks, key=lambda k: ranks[k]):
-        unit = result['units'][key]
-        if by == 'count':
-            if size + unit['size'] > limit:
+    order = sorted(ranks, key=lambda k: ranks[k])
+    if by == 'count':
+        start, blocked = 0, None
+        while start < len(order):
+            end = start + 1
+            if values is not None:
+                value = values[order[start]]['value']
+                while end < len(order) and values[order[end]]['value'] == value:
+                    end += 1
+            block = order[start:end]
+            block_size = sum(result['units'][key]['size'] for key in block)
+            if size + block_size > limit:
+                reached = True
+                blocked = {'units': len(block), 'lexemes': block_size, 'rank': ranks[block[0]]}
+                break
+            for key in block:
+                chosen.append(key)
+                members.update(result['units'][key]['members'])
+            size += block_size
+            start = end
+            if size == limit:
                 reached = True
                 break
+        return {'units': tuple(chosen), 'members': frozenset(members), 'lexemes': size,
+                'rank': ranks[chosen[-1]] if chosen else None, 'reached': reached, 'next_block': blocked}
+    for key in order:
+        unit = result['units'][key]
         chosen.append(key)
         size += unit['size']
         for member in unit['members']:
             if member in members:
                 continue
             members.add(member)
-            if by == 'coverage':
-                covered += lexeme_mass.get(member, 0)
-                for group in groups_of.get(member, ()):
-                    remaining[group] -= 1
-                    if not remaining[group]:
-                        covered += group_mass[group]
-        if by == 'count' and size == limit:
+            covered += lexeme_mass.get(member, 0)
+            for group in groups_of.get(member, ()):
+                remaining[group] -= 1
+                if not remaining[group]:
+                    covered += group_mass[group]
+        if total and covered / total >= limit:
             reached = True
             break
-        if by == 'coverage' and total and covered / total >= limit:
-            reached = True
-            break
-    found = {'units': tuple(chosen), 'members': frozenset(members), 'lexemes': size,
-             'rank': ranks[chosen[-1]] if chosen else None, 'reached': reached}
-    if by == 'coverage':
-        found['coverage'] = _coverage(d6['denominator'], covered, total)
-    return found
+    return {'units': tuple(chosen), 'members': frozenset(members), 'lexemes': size,
+            'rank': ranks[chosen[-1]] if chosen else None, 'reached': reached,
+            'coverage': _coverage(d6['denominator'], covered, total)}
 
 
 def tag_classes(tag):
@@ -962,7 +1033,7 @@ def top_overlap(ranks_a, ranks_b, n):
 # --- Konfiguracja metody `pop-v1` (B3, C3, ADR-007) ---
 # `config/generator/pop.json` zapisuje decyzje D1–D9. Każde naruszenie schematu = kod 2.
 # Schemat zna wszystkie opcje pomiaru; `load_config` przyjmuje tylko wartości ADR-007 (C3).
-# Jedyny wyjątek: wycofanie NKJP (ADR-006) = `d3 = {source: kwjp, field: F}` i `d4 = null`.
+# Jedyny wyjątek: wycofanie NKJP (ADR-006) = `d3 = {source: kwjp, field: log-ipm albo F}` i `d4 = null`.
 # `must_include_pop0`: słowa, których brak w POP0 zatrzymuje polecenie `pop` (kod 4).
 
 METHODS = {'pop-v1': 'docs/adr/ADR-007-metoda-pop-v1.md'}
@@ -975,8 +1046,13 @@ SAMPLING_VERSION = 'pop-quality-v1'
 D6_MAX = 10 ** 7
 # Wartości ADR-007 (C3). D3 i D4 idą parami: KWJP+NKJP z regułą D4 albo sama KWJP bez D4.
 ADR_007 = {'d1': 'kwjp-standard', 'd2': {'classes': [], 'constructions': 'yes', 'membership': 'i'},
-           'd5': 'e-common', 'd7': 'accepted', 'd8': 'available-only', 'proper_names_in_ranking': False}
-ADR_007_D3_D4 = (({'source': 'kwjp+nkjp', 'field': 'F', 'weight': 0.5}, 'strip-edges-keep-dot'),
+           'd5': 'e-common', 'd7': 'accepted', 'd8': 'lower-bound-absent', 'proper_names_in_ranking': False}
+# D8 `lower-bound-absent` także przy wycofaniu NKJP: przy jednym źródle D8 nie działa (brak = NO_DATA),
+# więc jedna wartość w każdej konfiguracji ADR-007.
+# Poprawka po przeglądzie próbek: log-ipm zamiast średniej percentyli (KWJP+NKJP, waga 0,5).
+# Sama KWJP: log-ipm i F dają tę samą kolejność.
+ADR_007_D3_D4 = (({'source': 'kwjp+nkjp', 'field': 'log-ipm', 'weight': 0.5}, 'strip-edges-keep-dot'),
+                 ({'source': 'kwjp', 'field': 'log-ipm'}, None),
                  ({'source': 'kwjp', 'field': 'F'}, None))
 
 
@@ -1051,7 +1127,8 @@ def _adr_007(config):
         if config[key] != value or type(config[key]) is not type(value):
             raise GeneratorError(f'pop.json: {key} spoza ADR-007 (oczekiwane {value!r})', 2)
     if not any(config['d3'] == d3 and config['d4'] == d4 for d3, d4 in ADR_007_D3_D4):
-        raise GeneratorError('pop.json: d3/d4 spoza ADR-007 (KWJP+NKJP F 0,5 z D4 albo sama KWJP F bez D4)', 2)
+        raise GeneratorError('pop.json: d3/d4 spoza ADR-007 (KWJP+NKJP log-ipm 0,5 z D4 albo sama KWJP '
+                             'log-ipm/F bez D4)', 2)
     if any(config['d6'][name]['by'] != 'count' for name in ('pop', 'pop0')):
         raise GeneratorError('pop.json: d6 tylko jako liczba leksemów (ADR-007)', 2)
 
@@ -1068,7 +1145,7 @@ def load_config(path):
 
 
 # --- Polecenie `pop`: listy POP i POP0 w pamięci (C1–C10, C14, C19) ---
-# Złożenie jak w `scripts/measure_pop.py` (D5 `e-common`); funkcje rankingu wyżej bez zmian (D-6).
+# Złożenie jak w `scripts/measure_pop.py` (D5 `e-common`); funkcje rankingu wyżej (poprawki ADR-007).
 # Ranking tylko z jednostek, w których jest zwykły leksem (D9). Zapis pakietu: grupa 12.
 
 LISTS = ('pop0', 'pop')
@@ -1131,8 +1208,10 @@ def _demote_without_nkjp(text):
     return '\n'.join(lines).strip('\n')
 
 
-def _unit_row(key, unit, found, rank, kwjp_pct, place):
-    row = {'unit': key, 'size': unit['size'], 'rank': rank, 'value': found['value'], 'status': found['status'],
+def _unit_row(key, unit, found, rank, percentile, kwjp_pct, place):
+    # `value` zostaje w pamięci (testy, diagnostyka); pakiet dostaje tylko `rank` i `percentile` (C14).
+    row = {'unit': key, 'size': unit['size'], 'rank': rank, 'percentile': percentile, 'value': found['value'],
+           'status': found['status'],
            'flags': list(found['flags']), 'confidence': unit['confidence'], 'list': place,
            'kwjp': {'status': unit['kwjp']['status'], 'percentile': kwjp_pct.get(key),
                     'ambiguous': unit['kwjp']['ambiguous']}}
@@ -1163,7 +1242,7 @@ def build_pop(sources, config, run_dir=None, release_dir=None):
     result['units'] = {k: u for k, u in result['units'].items() if not proper.issuperset(u['members'])}
     found = measure(result, config['d3'], config['d8'])
     ranks = rank_units(found['units'])
-    cuts = {name: threshold(ranks, result, config['d6'][name], kwjp, relevant) for name in LISTS}
+    cuts = {name: threshold(ranks, result, config['d6'][name], kwjp, relevant, found['units']) for name in LISTS}
     lists = {name: forms_for(cuts[name]['members'], config['d2'], {'i': data['forms']}, data['constructions'])
              for name in LISTS}
     pop, pop0 = lists['pop']['forms'], lists['pop0']['forms']
@@ -1184,12 +1263,14 @@ def build_pop(sources, config, run_dir=None, release_dir=None):
     for name in ('pop', 'pop0'):
         place.update((unit, name.upper()) for unit in cuts[name]['units'])
     kwjp_pct = percentiles(rank_units({k: {'value': _kwjp_value(u['kwjp'], 'F')} for k, u in result['units'].items()}))
-    rows = [_unit_row(key, unit, found['units'][key], ranks.get(key), kwjp_pct, place.get(key))
-            for key, unit in result['units'].items()]
+    combined_pct = percentiles(ranks)
+    rows = [_unit_row(key, unit, found['units'][key], ranks.get(key), combined_pct.get(key), kwjp_pct,
+                      place.get(key)) for key, unit in result['units'].items()]
     rows.sort(key=lambda r: (r['rank'] is None, r['rank'] or 0, r['unit']))
     thresholds = {name: {'limit': config['d6'][name]['value'], 'rank': cuts[name]['rank'],
                          'units': len(cuts[name]['units']), 'lexemes': cuts[name]['lexemes'],
-                         'reached': cuts[name]['reached'], 'forms': len(lists[name]['forms']),
+                         'reached': cuts[name]['reached'], 'next_block': cuts[name].get('next_block'),
+                         'forms': len(lists[name]['forms']),
                          'construction_forms': lists[name]['constructions'],
                          'coverage': {d1: coverage(cuts[name]['members'], kwjp, d1, relevant)
                                       for d1 in REPORT_DENOMINATORS}}
@@ -1256,9 +1337,12 @@ def _write_gzip(path, keys):
 
 
 def _package_row(row):
-    """Wiersz `reports/units.json`: ranga, miara, percentyle, statusy, flagi; NKJP bez F (C14)."""
+    """Wiersz `reports/units.json`: ranga i percentyl łączny, percentyle źródeł, statusy, flagi.
+
+    Bez wartości miary: log-ipm łączy F NKJP z sumą korpusu, więc pakiet ma tylko rangi i percentyle (C14).
+    """
     out = {'members': [_label(m) for m in row['unit']], 'size': row['size'], 'rank': row['rank'],
-           'value': row['value'], 'status': row['status'], 'flags': list(row['flags']),
+           'percentile': row['percentile'], 'status': row['status'], 'flags': list(row['flags']),
            'confidence': row['confidence'], 'list': row['list'], 'kwjp_status': row['kwjp']['status'],
            'kwjp_percentile': row['kwjp']['percentile'], 'kwjp_ambiguous': row['kwjp']['ambiguous']}
     if 'nkjp' in row:
@@ -1282,7 +1366,7 @@ def _strata(result, rows):
         strata[f'{name}-granica-wewnatrz'] = members(ranked[max(0, position - SAMPLE_WINDOW):position])
         strata[f'{name}-granica-zewnatrz'] = members(ranked[position:position + SAMPLE_WINDOW])
     strata['braki-danych'] = members(row for row in rows if row['status'] != 'MEASURED'
-                                     or any(f.startswith('single_source:') for f in row['flags']))
+                                     or any(f.startswith(('single_source:', 'bound:')) for f in row['flags']))
     # Bez NKJP warstwa jest pusta i zostaje jawnie (`EMPTY_NOT_COVERAGE`).
     strata['rozbieznosc-korpusow'] = members(
         row for row in rows if row['kwjp_percentile'] is not None and row.get('nkjp_percentile') is not None
@@ -1342,11 +1426,21 @@ def _limitations(result):
              f'- Luka potoczna (D7): miara pochodzi z tekstów pisanych ({corpora}). '
              'Nie ma listy mowy potocznej ani slangu internetowego.',
              '- Nazwy własne poza rankingiem (D9): ich formy wchodzą tylko przez zwykły leksem o tej samej formie.',
+             '- Próg nie dzieli bloku jednostek o równej mierze: blok wchodzi w całości albo wcale, '
+             'więc lista może mieć nieco mniej leksemów niż limit (`thresholds.json`, `next_block`).',
              '- KWJP dzieli formy przeszłe (`zrobił`+`em`). Brak w źródle to brak danych, nie zero: '
-             'status per źródło, nigdy ranga 0. Brak pełny = poza listami; częściowy = flaga `single_source`.']
+             'status per źródło, nigdy ranga 0. Brak pełny = poza listami.',
+             '- Brak w jednym źródle (D8 `lower-bound-absent`): słowo nieobecne w KWJP (poniżej progu publikacji) '
+             'albo w liście NKJP dostaje za to źródło najmniejszą zaobserwowaną miarę (flaga `bound:<źródło>`). '
+             'Źródło niewiarygodne (`PROPER_SHARED`, `UNMATCHED`) jest pomijane: miara z drugiego źródła '
+             '(flaga `single_source:<źródło>`).']
     if with_nkjp:
         lines += [f'- NKJP: zrównoważony podkorpus, starszy od KWJP; reguła czyszczenia `{result["nkjp_rule_id"]}`. '
-                  'Pakiet podaje NKJP tylko jako rangę, percentyl i status.']
+                  'Pakiet podaje NKJP tylko jako rangę, percentyl i status.',
+                  '- Miara: średnia log-ipm z KWJP i NKJP (log10 częstości na milion tokenów źródła). '
+                  'Pakiet podaje tylko rangę i percentyl łączny, bez wartości miary.',
+                  '- Gdy forma NKJP słowa należy też do nazwy własnej (np. `polska`), NKJP zaniżałby słowo: '
+                  'status `PROPER_SHARED`, miara z samej KWJP (flaga `single_source:kwjp`).']
     else:
         lines += ['- Miara tylko z KWJP F (wycofanie NKJP, ADR-006).']
     lines += ['- Wycofanie NKJP (sama KWJP) nadal wymaga pliku NKJP przypiętego w `pop-sources.json`: '

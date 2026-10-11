@@ -9,7 +9,7 @@
   },
   "d3": {
     "source": "kwjp+nkjp",
-    "field": "F",
+    "field": "log-ipm",
     "weight": 0.5
   },
   "d4": "strip-edges-keep-dot",
@@ -25,7 +25,7 @@
     }
   },
   "d7": "accepted",
-  "d8": "available-only",
+  "d8": "lower-bound-absent",
   "proper_names_in_ranking": false,
   "must_include_pop0": [
     "kot"

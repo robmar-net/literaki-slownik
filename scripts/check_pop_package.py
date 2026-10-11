@@ -12,6 +12,7 @@ w kodzie budowy nie ukryje się w kontroli. Sprawdza:
 - POP0 ⊆ POP ⊆ STANDARD na plikach; `--standard` musi mieć hash `inputs.standard_sha256`;
   słowa z `must_include_pop0` manifestu w POP0;
 - brak surowego NKJP: klucze JSON z `nkjp` tylko z listy dozwolonej, żadnych plików `nkjp`/`1gram`;
+  wiersze `reports/units.json` bez `value` (miara log-ipm łączy F NKJP; tylko ranga i percentyl);
 - z `--review`: status `REVIEWED`, hashe próbki, indeksu jednostek, dowodów i `SHA256SUMS`
   (`sha256sums_sha256`), każda pozycja szablonu oceniona, bez pozycji zmieniającej listy.
 Kody: 0 zgodne, 2 argumenty, 3 `--standard` ≠ pin manifestu, 4 naruszenia (lista na stderr).
@@ -158,6 +159,11 @@ def check_nkjp(pop_dir, manifest, failures):
         bad = sorted({k for k in json_keys(data) if 'nkjp' in str(k).lower() and k not in allowed})
         if bad:
             failures.append(f'{rel}: niedozwolone klucze NKJP {bad}')
+        if rel == 'reports/units.json' and isinstance(data, dict):
+            raw = [row for row in data.get('units') or [] if isinstance(row, dict) and 'value' in row]
+            if raw:
+                failures.append(f'{rel}: {len(raw)} jednostek z kluczem `value` (miara łączy F NKJP; '
+                                'tylko ranga i percentyl)')
 
 
 def check_lists(pop_dir, standard, words, failures):

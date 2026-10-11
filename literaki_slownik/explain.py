@@ -411,7 +411,9 @@ def format_pop_explanation(value):
         lines.append(f"  {item['lexeme']}{' · nazwa własna' if item['proper_name'] else ''} · {unit}")
     for number, row in enumerate(value['units'], 1):
         lines.append(f"\nJednostka {number}: {', '.join(row['members'])}")
-        lines.append(f"  ranga: {row['rank'] if row['rank'] is not None else 'brak'} · miara: {row['value']}"
+        # Pakiet podaje rangę i percentyl łączny (C14); starsze pakiety miały `value`.
+        measure = (f"percentyl {row['percentile']}" if 'percentile' in row else f"miara: {row.get('value')}")
+        lines.append(f"  ranga: {row['rank'] if row['rank'] is not None else 'brak'} · {measure}"
                      f" · status: {row['status']} · lista: {row['list'] or 'brak'} · pewność: {row['confidence']}")
         lines.append(f"  KWJP: {row['kwjp_status']}, percentyl {row['kwjp_percentile']}"
                      + (' · niejednoznaczne' if row['kwjp_ambiguous'] else ''))

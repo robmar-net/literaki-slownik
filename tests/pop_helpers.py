@@ -60,9 +60,11 @@ POP_KWJP_GENRES = {
 NKJP_1GRAMS = ('     50 ul.\n     10 ul\n     30 ok.\n     40 polska\n     15 Polska\n'
                '     25 lata\n     20 rok\n      8 duży\n      1 fajny\n')
 # NKJP polecenia `pop`: liczby o rzadkich ciągach cyfr, żeby skan pakietu (C14) wykrył każdy wyciek.
-# `ul.` ma dużą liczbę: gdyby skleił się z `ul`, `ul` byłoby pierwsze w NKJP. `polska` dzieli nazwa własna.
-NKJP_POP_1GRAMS = ('  7340919 kot\n  6182537 polski\n  5093746 lata\n  4718293 Polska\n      317 polska\n'
-                   '  9182736 ul.\n       12 ul\n  2837465 duży\n       41 fajny\n')
+# `ul.` ma dużą liczbę: gdyby skleił się z `ul`, `ul` byłoby pierwsze w NKJP. `polska` dzieli nazwa własna,
+# więc `polski` ma miarę z samej KWJP (PROPER_SHARED). Miara log-ipm (KWJP F 7 z 393): `kot` ma większość
+# tokenów NKJP, żeby był w POP0; `duży` tuż nad grupą `zamek` (próg 8 jej nie mieści).
+NKJP_POP_1GRAMS = (' 97340919 kot\n  6182537 polski\n  5093746 lata\n  4718293 Polska\n      317 polska\n'
+                   '  9182736 ul.\n       12 ul\n  7837465 duży\n       41 fajny\n')
 
 
 def gz_write(path, text):

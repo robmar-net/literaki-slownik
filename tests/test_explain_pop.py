@@ -41,8 +41,8 @@ class ExplainPopTests(unittest.TestCase):
         return explain_pop(package or self.package, self.run_dir, word, variant)
 
     def test_reasons_for_each_case(self):
-        cases = [('kot', 'pop0', 'IN_POP0'), ('duży', 'pop', 'IN_POP'), ('duży', 'pop0', 'BELOW_THRESHOLD'),
-                 ('fajny', 'pop', 'BELOW_THRESHOLD'), ('kumpel', 'pop', 'NO_DATA'),
+        cases = [('kot', 'pop0', 'IN_POP0'), ('fajny', 'pop', 'IN_POP'), ('fajny', 'pop0', 'BELOW_THRESHOLD'),
+                 ('zamek', 'pop', 'BELOW_THRESHOLD'), ('kumpel', 'pop', 'NO_DATA'),
                  ('xyzzy', 'pop', 'NOT_IN_STANDARD'), ('Polska', 'pop0', 'IN_POP0')]
         for word, variant, reason in cases:
             with self.subTest(word=word, variant=variant):
@@ -50,7 +50,7 @@ class ExplainPopTests(unittest.TestCase):
                 self.assertEqual(value['reason'], reason)
                 self.assertEqual(value['in_list'], reason.startswith('IN_'))
         self.assertFalse(self.explain('xyzzy', 'pop')['in_standard'])
-        self.assertEqual(self.explain('duży', 'pop0')['lists'], {'pop': True, 'pop0': False})
+        self.assertEqual(self.explain('fajny', 'pop0')['lists'], {'pop': True, 'pop0': False})
         # D9: leksem z nazwą własną nie ma jednostki ani rangi; forma jest w STANDARD.
         directory = Path(self.temp.name) / 'proper'
         with mock.patch.object(pop_helpers, 'POP_SGJP', pop_helpers.POP_SGJP + PROPER_SGJP):
@@ -62,12 +62,12 @@ class ExplainPopTests(unittest.TestCase):
 
     def test_construction_form_reports_component_lexeme(self):
         # Forma konstrukcji nie ma własnej interpretacji: leksem przychodzi przez składnik (jak `pop`).
-        below = self.explain('nieduży', 'pop0')
+        below = self.explain('niefajny', 'pop0')
         self.assertEqual(below['reason'], 'BELOW_THRESHOLD')
         self.assertTrue(below['in_standard'])
         self.assertEqual(below['lists'], {'pop': True, 'pop0': False})
-        self.assertEqual(below['lexemes'], [{'lexeme': 'duży@synthetic', 'proper_name': False, 'unit': 0}])
-        self.assertEqual(below['units'][0]['members'], ['duży@synthetic'])
+        self.assertEqual(below['lexemes'], [{'lexeme': 'fajny@synthetic', 'proper_name': False, 'unit': 0}])
+        self.assertEqual(below['units'][0]['members'], ['fajny@synthetic'])
         inside = self.explain('niepolski', 'pop0')
         self.assertEqual(inside['reason'], 'IN_POP0')
         self.assertEqual([item['lexeme'] for item in inside['lexemes']], ['polski@synthetic'])
@@ -78,7 +78,7 @@ class ExplainPopTests(unittest.TestCase):
         self.assertEqual(value['reason'], 'BELOW_THRESHOLD')
         unit, = value['units']
         self.assertEqual((unit['members'], unit['nkjp_status'], unit['nkjp_rank'], unit['rank']),
-                         (['ul@synthetic'], 'OBSERVED', 6, 8))
+                         (['ul@synthetic'], 'OBSERVED', 5, 8))
         self.assertEqual(self.explain('ul.', 'pop')['reason'], 'NOT_IN_STANDARD')
 
     def test_result_shows_lexemes_units_threshold_and_no_nkjp_counts(self):
@@ -89,13 +89,18 @@ class ExplainPopTests(unittest.TestCase):
                          {'rok:S1@synthetic', 'lato@synthetic'})
         unit, = value['units']
         self.assertEqual(unit['members'], ['lato@synthetic', 'rok:S1@synthetic', 'rok:S2@synthetic'])
-        self.assertEqual((unit['rank'], unit['status'], unit['list'], unit['nkjp_rank']), (2, 'MEASURED', 'POP0', 3))
-        for key in ('value', 'flags', 'confidence', 'kwjp_status', 'kwjp_percentile', 'nkjp_percentile', 'nkjp_status'):
+        self.assertEqual((unit['rank'], unit['status'], unit['list'], unit['nkjp_rank']), (3, 'MEASURED', 'POP0', 3))
+        for key in ('percentile', 'flags', 'confidence', 'kwjp_status', 'kwjp_percentile', 'nkjp_percentile',
+                    'nkjp_status'):
             self.assertIn(key, unit)
+        # C14: miara łączy F NKJP (log-ipm), więc explain podaje rangę i percentyl łączny, nie wartość.
+        self.assertNotIn('value', unit)
+        self.assertIn(f"percentyl {unit['percentile']}", format_pop_explanation(value))
+        self.assertNotIn('miara:', format_pop_explanation(value))
         self.assertEqual(value['threshold']['rank'], 4)
         self.assertEqual(value['threshold']['limit'], 6)
         zamek = self.explain('zamek', 'pop')
-        self.assertIn('single_source:kwjp', zamek['units'][0]['flags'])
+        self.assertIn('bound:nkjp', zamek['units'][0]['flags'])
         text = json.dumps(value, ensure_ascii=False) + format_pop_explanation(value) + format_pop_explanation(zamek)
         for count in NKJP_COUNTS:
             self.assertNotIn(count, text)

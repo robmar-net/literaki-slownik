@@ -74,3 +74,8 @@
 ## 2026-10-11T14:59:27Z - Group 15 Complete
 **Tests**: POP 77 OK; pełny zestaw 359 OK. **Files**: explain.py (_word_lexemes: leksem formy konstrukcji przez derivation_candidate), test_explain_pop.py (+3), test_check_pop_package.py (+1), test_pop.py (+1).
 **Luka z grupy 13 rozwiązana**. Wariant bez NKJP przechodzi kontrolę pakietu; ul. nie zawyża rangi ul.
+
+## 2026-10-11T15:24:06Z - Group 16, iteracja 2 (poprawka metody po przeglądzie)
+**Przegląd rew. 1** (data/work/pop-v1-20261011-165948-a): 402 correct / 13 incorrect / 5 unknown; 9 wad metody.
+**Zmiany** (ADR-007 rew. 2): PROPER_SHARED dla NKJP; D3 log-ipm; D8 lower-bound-absent; D6 bloki równej miary niedzielone; units.json bez surowej miary (percentyl).
+**v29 w pamięci**: POP 59 914 leks., 45 056 jedn., 1 285 591 form, 98,60%; POP0 19 991, 11 633 jedn., 444 195 form; kot 1 460. Testy 365 OK.

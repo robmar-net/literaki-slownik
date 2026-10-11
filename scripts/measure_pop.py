@@ -46,10 +46,12 @@ COUNTS = (5000, 10000, 20000, 40000, 80000)
 TARGETS = (0.8, 0.9, 0.95, 0.98)
 WINDOW = 500  # jednostek po każdej stronie granicy w próbkach
 D2_BASE = {'classes': [], 'constructions': 'yes', 'membership': 'i'}
-D3_BASE = {'source': 'kwjp+nkjp', 'field': 'F', 'weight': 0.5}
+# Bazowa miara ADR-007 po przeglądzie próbek: log-ipm; średnia percentyli F zostaje wariantem do porównań.
+D3_BASE = {'source': 'kwjp+nkjp', 'field': 'log-ipm', 'weight': 0.5}
+D3_PERCENTILE = {'source': 'kwjp+nkjp', 'field': 'F', 'weight': 0.5}
 BASE = {'d1': 'kwjp-standard', 'd2': D2_BASE, 'd3': D3_BASE, 'd4': 'strip-edges-keep-dot', 'd5': 'e-common',
         'd6': {'by': 'count', 'value': POP_REF}, 'd6_pop0': {'by': 'count', 'value': POP0_REF},
-        'd8': 'available-only'}
+        'd8': 'lower-bound-absent'}
 D2_VARIANTS = (
     ('pełna odmiana', D2_BASE),
     ('bez wołacza', dict(D2_BASE, classes=['voc'])),
@@ -61,9 +63,13 @@ D2_VARIANTS = (
     ('reguła (ii)', dict(D2_BASE, membership='ii')),
 )
 D3_VARIANTS = (
-    ('KWJP+NKJP F, waga 0,5', D3_BASE),
-    ('KWJP+NKJP F, waga 0,75', dict(D3_BASE, weight=0.75)),
-    ('KWJP+NKJP F, waga 0,25', dict(D3_BASE, weight=0.25)),
+    ('KWJP+NKJP log-ipm, waga 0,5', D3_BASE),
+    ('KWJP+NKJP log-ipm, waga 0,75', dict(D3_BASE, weight=0.75)),
+    ('KWJP+NKJP log-ipm, waga 0,25', dict(D3_BASE, weight=0.25)),
+    ('KWJP+NKJP percentyle F, waga 0,5', D3_PERCENTILE),
+    ('KWJP+NKJP percentyle F, waga 0,75', dict(D3_PERCENTILE, weight=0.75)),
+    ('KWJP+NKJP percentyle F, waga 0,25', dict(D3_PERCENTILE, weight=0.25)),
+    ('sama KWJP: log-ipm', {'source': 'kwjp', 'field': 'log-ipm'}),
     ('sama KWJP: F', {'source': 'kwjp', 'field': 'F'}),
     ('sama KWJP: ARF', {'source': 'kwjp', 'field': 'ARF'}),
     ('sama KWJP: 1-DP', {'source': 'kwjp', 'field': '1-DP'}),
@@ -77,7 +83,7 @@ D5_VARIANTS = (
     ('e-literal', 'e dosłowne: łączy tylko leksemy z formą w STANDARD'),
     ('e-common', 'e bez nazw własnych'),
 )
-D8_RULES = ('available-only', 'lower-bound', 'exclude')
+D8_RULES = ('lower-bound-absent', 'available-only', 'lower-bound', 'exclude')
 WORDS = ('nie', 'to', 'być', 'rok', 'raz', 'dzień', 'lata', 'lato', 'polska', 'polski', 'zamek')
 TOP_GROUPS = 50
 TOP_COLLISIONS = 15
@@ -132,10 +138,10 @@ def _peak_rss_mb():
 
 # --- Wybór i podsumowanie ---
 
-def _select(ctx, result, d3=D3_BASE, d8='available-only', d6=None):
+def _select(ctx, result, d3=D3_BASE, d8=BASE['d8'], d6=None):
     found = measure(result, d3, d8)
     ranks = rank_units(found['units'])
-    cut = threshold(ranks, result, d6 or BASE['d6'], ctx['kwjp'], ctx['relevant'])
+    cut = threshold(ranks, result, d6 or BASE['d6'], ctx['kwjp'], ctx['relevant'], found['units'])
     return found, ranks, cut
 
 
@@ -295,8 +301,9 @@ def _d3(ctx, base):
 
 
 def _d6(ctx, base):
-    result, ranks = base['result'], base['ranks']
-    counts = {str(n): _row(ctx, threshold(ranks, result, {'by': 'count', 'value': n})) for n in COUNTS}
+    result, ranks, values = base['result'], base['ranks'], base['found']['units']
+    counts = {str(n): _row(ctx, threshold(ranks, result, {'by': 'count', 'value': n}, values=values))
+              for n in COUNTS}
     targets = {}
     for target in TARGETS:
         d6 = {'by': 'coverage', 'value': target, 'denominator': BASE['d1']}
@@ -321,7 +328,7 @@ def _d7(ctx, base):
             candidates.append((item['nkjp']['rank'], unit))
     by_count = {}
     for n in COUNTS:
-        members = threshold(ranks, result, {'by': 'count', 'value': n})['members']
+        members = threshold(ranks, result, {'by': 'count', 'value': n}, values=base['found']['units'])['members']
         inside = len(colloquial & members)
         by_count[str(n)] = {'inside': inside, 'outside': len(colloquial) - inside}
     pop = base['cut']['members']
@@ -376,7 +383,7 @@ def _samples(ctx, base):
 
     strata = {}
     for name, d6 in (('pop', BASE['d6']), ('pop0', BASE['d6_pop0'])):
-        position = len(threshold(ranks, result, d6)['units'])
+        position = len(threshold(ranks, result, d6, values=found['units'])['units'])
         strata[f'{name}-granica-wewnatrz'] = keys(order[max(0, position - WINDOW):position])
         strata[f'{name}-granica-zewnatrz'] = keys(order[position:position + WINDOW])
     strata['braki-danych'] = keys(u for u, item in found['units'].items()
@@ -472,7 +479,7 @@ def render(data, timing):
            'Przykłady w tabelach to **ilustracja**, nie próba losowa. Próba losowa jest w sekcji „Próbki”.', '',
            '## TL;DR',
            f"- Baza bez zmian: hash przed = po (`{data['database']['sha256_before'][:12]}…`).",
-           f"- Wariant bazowy: D5 `{BASE['d5']}`, D3 KWJP+NKJP (F, waga 0,5), D4 `{BASE['d4']}`, "
+           f"- Wariant bazowy: D5 `{BASE['d5']}`, D3 KWJP+NKJP (log-ipm, waga 0,5), D4 `{BASE['d4']}`, "
            f"POP = {_n(POP_REF)} leksemów, POP0 = {_n(POP0_REF)}.",
            f"- POP bazowy: {_n(pop['lexemes'])} leksemów, {_n(pop['forms'])} form STANDARD, pokrycie "
            f"kwjp-all {_pct(pop['coverage']['kwjp-all'])}, kwjp-standard {_pct(pop['coverage']['kwjp-standard'])}.",
@@ -536,8 +543,9 @@ def render(data, timing):
     out += ['', 'Pewność dopasowania (jednostki wszystkie / w POP): ' + ', '.join(
         f"{name} {_n(conf['all'].get(name, 0))} / {_n(conf['pop'].get(name, 0))}"
         for name in sorted(set(conf['all']) | set(conf['pop']))) + '.', '',
-        '**Zalecenie D3:** KWJP+NKJP z percentyli, F, waga 0,5. Sama KWJP (F) zostaje ścieżką wycofania '
-        'NKJP (ADR-006); różnicę pokazują kolumny Spearman i Jaccard.', '']
+        '**Zalecenie D3:** KWJP+NKJP log-ipm (log10 częstości na milion tokenów źródła), waga 0,5. '
+        'Średnia percentyli z dwóch populacji zaniżała słowa o rozbieżnych korpusach. Sama KWJP zostaje '
+        'ścieżką wycofania NKJP (ADR-006); różnicę pokazują kolumny Spearman i Jaccard.', '']
 
     # D4
     out += ['## D4 — czyszczenie NKJP', '']
@@ -623,8 +631,10 @@ def render(data, timing):
     out += _table(['brak częściowy', 'leksemy', 'formy', *COV_HEAD, 'braki częściowe', 'POP Jaccard vs available-only'],
                   [[rule_name, _n(item['lexemes']), _n(item['forms']), *_cov(item), _n(item['missing']['partial']),
                     _pct(item['jaccard_available_only'])] for rule_name, item in d8['rules'].items()])
-    out += ['', '**Zalecenie D8:** brak pełny poza listą; brak częściowy `available-only` (percentyl dostępnego '
-                'źródła, z flagą). Wrażliwość pokazuje kolumna Jaccard.', '']
+    out += ['', '**Zalecenie D8:** brak pełny poza listą; brak częściowy `lower-bound-absent`: źródło '
+                'nieobecne dostaje najmniejszą zaobserwowaną miarę (flaga `bound`), źródło niewiarygodne '
+                '(`PROPER_SHARED`, `UNMATCHED`) jest pomijane (flaga `single_source`). Wrażliwość pokazuje '
+                'kolumna Jaccard.', '']
 
     # A9
     counts = a9['counts']
