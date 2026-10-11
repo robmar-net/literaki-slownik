@@ -32,7 +32,7 @@
       "files": [
         {
           "path": "../../ATTRIBUTIONS.md",
-          "sha256": "edc573804a2946ae31fd81fa21f892225af544c4ee869604d33510f0e98b300e"
+          "sha256": "ec4e4789eaf34cd9ca125a87941941be56ce6f4f69089d8014169db09a16df80"
         }
       ]
     },
@@ -47,7 +47,7 @@
         },
         {
           "path": "../../ATTRIBUTIONS.md",
-          "sha256": "edc573804a2946ae31fd81fa21f892225af544c4ee869604d33510f0e98b300e"
+          "sha256": "ec4e4789eaf34cd9ca125a87941941be56ce6f4f69089d8014169db09a16df80"
         }
       ]
     },
@@ -59,7 +59,7 @@
   },
   "attributions": {
     "path": "../../ATTRIBUTIONS.md",
-    "sha256": "edc573804a2946ae31fd81fa21f892225af544c4ee869604d33510f0e98b300e"
+    "sha256": "ec4e4789eaf34cd9ca125a87941941be56ce6f4f69089d8014169db09a16df80"
   },
   "limitations": [
     "Brak NKJP: źródło zablokowane (N1); KWJP nie jest filtrem dopuszczalności.",

@@ -33,7 +33,7 @@ Rejestr nie nadaje statusu rozstrzygniętego nieznanym regułom językowym.
 
 ## ADR-002 — harmonogram NKJP
 
-**Status:** zaakceptowana przez użytkownika (D2).
+**Status:** zaakceptowana przez użytkownika (D2). Część o warunkach NKJP zastąpiona 2026-10-11 przez [ADR-006](../../../../../../docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md).
 
 **Kontekst:** dokładny artefakt pozostaje BLOCKED z powodu nieustalonych warunków dla planowanego użycia.
 

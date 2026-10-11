@@ -11,6 +11,7 @@ Pierwsze prace dotyczą audytu źródeł do słowników języka polskiego: SGJP 
 - [Raport audytu — zatwierdzony](.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/research-report.md).
 - [Projekt pierwszego generatora — zatwierdzony](.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/high-level-design.md).
 - [Rejestr decyzji zakresu i architektury](.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/decision-log.md).
+- [ADR-006: NKJP jako źródło na licencji CC BY bez wersji](docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md).
 - [Raport końcowy i przekazanie do implementacji](.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/research-handoff.md).
 - [Odtwarzanie pomiarów i organizacja repozytorium](docs/odtwarzanie-audytu.md).
 - [Zasady współpracy](AGENTS.md).

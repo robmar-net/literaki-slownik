@@ -58,6 +58,20 @@ repozytorium, nie pełnych tekstów korpusu ani całej witryny. Operacje projekt
 parsowanie, powiązania strukturalne i obliczenia diagnostyczne; brak imputacji częstości,
 brak rozszerzania zasobu leksykalnego danymi KWJP.
 
+## NKJP — n-gramy ze zrównoważonego podkorpusu
+
+Dotyczy pakietów, które używają NKJP (POP, POP0). Pakiet LL-PL v29 go nie używa.
+
+- Zasób: „N-grams from the balanced subcorpus of the National Corpus of Polish”, plik `1grams.gz`
+  (SHA256 `73af49094621b2f86b594beba783c14aee8c8212f1aff3d61f281ab5d99e3dc9`), https://zil.ipipan.waw.pl/NKJPNGrams.
+- Twórca i udostępniający: Zespół Inżynierii Lingwistycznej IPI PAN. Korpus: Narodowy Korpus Języka Polskiego (NKJP).
+- Licencja: CC BY, wersja nieokreślona przez udostępniającego. Spełniamy wymagania wszystkich wersji
+  1.0–4.0; tekst wersji 4.0: https://creativecommons.org/licenses/by/4.0/. Udostępniający nie podał
+  informacji o prawach autorskich ani wyłączenia gwarancji.
+- Zmiany: zliczenia form oczyszczamy z doklejonej interpunkcji, łączymy z formami SGJP i przeliczamy
+  na miary popularności. Surowego pliku nie redystrybuujemy.
+- Autorzy NKJP i IPI PAN nie popierają tego projektu ani jego wyników. Decyzja: [ADR-006](docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md).
+
 ## Pozostałe materiały
 
 Oryginalne dokumenty zewnętrzne, cytaty i materiały dowodowe zachowują wskazane przy nich
