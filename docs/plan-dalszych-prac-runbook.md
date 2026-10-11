@@ -2,7 +2,7 @@
 
 ## TL;DR
 
-Stan na 2026-10-11: wydane LL-PL v29 (BROAD, STANDARD) i pop-v1 (POP, POP0). Projekt buduje niezależne polskie słowniki dla Literaki Lounge: najpierw bazę dopuszczalności BROAD/STANDARD, następnie warianty poświadczone, zasoby popularnych słów i specjalizacje tematyczne. SJP.pl będzie późniejszym punktem odniesienia, dopiero po zamrożeniu porównywanych kandydatów.
+Stan na 2026-10-11: wydane LL-PL v29 (BROAD, STANDARD) i pop-v2 (POP, POP0; pop-v1 wycofane). Projekt buduje niezależne polskie słowniki dla Literaki Lounge: najpierw bazę dopuszczalności BROAD/STANDARD, następnie warianty poświadczone, zasoby popularnych słów i specjalizacje tematyczne. SJP.pl będzie późniejszym punktem odniesienia, dopiero po zamrożeniu porównywanych kandydatów.
 
 Import oraz znaczna część mechaniki generatora działają. Nie istnieje jeszcze odebrane pełne wydanie. Najbliższa praca to domknięcie dowodów i mapowania językowego na zatwierdzonych wejściach; następnie pełna kwalifikacja, verify/export i dwa odtworzenia.
 
@@ -146,6 +146,22 @@ python3 -m literaki_slownik explain --run-dir data/work/import-20261004-1302 --w
 ```
 
 Wyjaśnienie bieżącego kodu i utrwalone historyczne oceny mogą mieć różne wersje. `present` nie oznacza `accept`; `unresolved` nie oznacza błędnego słowa. Kod wyjścia 0 diagnostyki nie oznacza odebranego wydania.
+
+### Porównanie z SJP.pl
+
+SJP.pl to tylko miara. Wynik nie jest wejściem budowy i nie dopisujemy z niego słów.
+
+1. Lista SJP.pl: zrzut słów z `lexicons/pl-sjp-20260820.dawg` repozytorium serwera (przejście `dawg.Open` + `ForEachEdge`, litery z `packs/pl.json`), jedno słowo w wierszu. Dziś: 3 240 471 słów, sha256 `2a593404…70b8`. Plik trzymaj poza repo.
+2. Benchmark (liczby do strony wiki `Porownanie-z-SJP.pl`):
+   ```sh
+   python3 scripts/benchmark_sjp.py <run> <sjp.txt> tmp/benchmark/sjp-v<NN>.json
+   ```
+3. Najczęstsze brakujące słowa (strona wiki `Brakujace-slowa-SJP.pl`):
+   ```sh
+   python3 scripts/sjp_missing_top.py <run> <sjp.txt> tmp/benchmark/sjp-missing-v<NN>.json 2000
+   python3 scripts/render_sjp_missing.py tmp/benchmark/sjp-missing-v<NN>.json > ../wiki-literaki-slownik/Brakujace-slowa-SJP.pl.md
+   ```
+   Kolejność: liczba wystąpień formy w KWJP (małe litery). Dla każdego słowa: lemat SGJP i reguła odrzucenia albo „brak w SGJP”. Czas: ok. 1 min. Skrypt wymusza indeks po słowie; bez tego SQLite skanuje wszystkie analizy dla każdego słowa (ponad 4 h).
 
 ### Nowy przebieg i awaria
 
