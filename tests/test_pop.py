@@ -1,20 +1,26 @@
 """POP/POP0: manifest źródeł, piny podstawy LL-PL, wejścia (A1, C2) i dane z bazy (A6, A8, A9)."""
 import json
 import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 from literaki_slownik.canonical import load_json, sha256, write_json
 from literaki_slownik.inputs import GeneratorError
 from literaki_slownik.database import connect
-from literaki_slownik.pop import (CLEANING_RULES, check_inputs, coverage, database_sha256, form_owners,
+from literaki_slownik import pop as pop_module
+from literaki_slownik.canonical import dumps
+from literaki_slownik.pop import (CLEANING_RULES, build_pop, check_inputs, coverage, database_sha256, form_owners,
                                   forms_for, kwjp_measures, load_config, load_constructions, load_form_classes,
                                   load_forms, load_forms_accepted, load_kwjp, load_kwjp_lists, load_lexemes,
                                   load_sources,
                                   measure, member_ranks, nkjp_collisions, nkjp_form_status, nkjp_lexeme_ranks,
                                   percentiles, rank_units, read_nkjp, read_standard, spearman, tag_classes,
                                   threshold, top_overlap, units)
-from tests.pop_helpers import gz_write, kwjp_lemma_sources, pop_fixture, write_pop_sources
+from tests.pop_helpers import (NKJP_POP_1GRAMS, gz_write, kwjp_lemma_sources, pop_config, pop_fixture,
+                               write_pop_sources)
 
 
 class PopSourcesTests(unittest.TestCase):
@@ -690,19 +696,45 @@ class PopConfigTests(unittest.TestCase):
         }
         for label, change in cases.items():
             self.assert_code_2(self.variant(change), label)
-        # Waga 1 jest w zakresie (0, 1].
-        load_config(self.write(self.variant(lambda c: c['d3'].update(weight=1))))
+        # Waga 1 jest w zakresie (0, 1], ale ADR-007 przyjmuje tylko 0,5 (C3).
+        self.assert_code_2(self.variant(lambda c: c['d3'].update(weight=1)), 'waga 1')
 
     def test_kwjp_only_rollback_is_always_accepted(self):
         def rollback(config):
             config['d3'] = {'source': 'kwjp', 'field': 'F'}
-        config = load_config(self.write(self.variant(rollback)))
-        self.assertEqual(config['d3'], {'source': 'kwjp', 'field': 'F'})
+        # Wycofanie NKJP zostawiające regułę D4 to błąd: bez NKJP nie ma czego czyścić (C3).
+        self.assert_code_2(self.variant(rollback), 'wycofanie z d4')
 
         def without_d4(config):
             rollback(config)
             config['d4'] = None
         self.assertIsNone(load_config(self.write(self.variant(without_d4)))['d4'])
+
+    def test_only_adr_007_values_pass_and_kwjp_only_needs_d4_null(self):
+        cases = {
+            'd1 kwjp-all': lambda c: c.update(d1='kwjp-all'),
+            'd2 klasy': lambda c: c['d2'].update(classes=['voc']),
+            'd2 bez konstrukcji': lambda c: c['d2'].update(constructions='no'),
+            'd2 reguła (ii)': lambda c: c['d2'].update(membership='ii'),
+            'd3 pole ARF': lambda c: c['d3'].update(field='ARF'),
+            'd3 waga 0,75': lambda c: c['d3'].update(weight=0.75),
+            'd3 sama KWJP ARF': lambda c: c.update(d3={'source': 'kwjp', 'field': 'ARF'}, d4=None),
+            'd4 inna reguła': lambda c: c.update(d4='strip-edges'),
+            'd5 d': lambda c: c.update(d5='d'),
+            'd5 e dosłowne': lambda c: c.update(d5='e'),
+            'd6 przez pokrycie': lambda c: c.update(d6={
+                'pop': {'by': 'coverage', 'value': 0.98, 'denominator': 'kwjp-standard'},
+                'pop0': {'by': 'coverage', 'value': 0.9, 'denominator': 'kwjp-standard'}}),
+            'd8 exclude': lambda c: c.update(d8='exclude'),
+            'd9 true': lambda c: c.update(proper_names_in_ranking=True),
+            'wycofanie z d4': lambda c: c.update(d3={'source': 'kwjp', 'field': 'F'}),
+        }
+        for label, change in cases.items():
+            self.assert_code_2(self.variant(change), label)
+        load_config(self.ROOT / 'config/generator/pop.json')
+        config = load_config(self.write(self.variant(lambda c: c.update(d3={'source': 'kwjp', 'field': 'F'},
+                                                                          d4=None))))
+        self.assertEqual((config['d3'], config['d4']), ({'source': 'kwjp', 'field': 'F'}, None))
 
     def test_sampling_other_than_pop_quality_v1_is_code_2(self):
         cases = {
@@ -727,6 +759,170 @@ class PopConfigTests(unittest.TestCase):
         }
         for label, change in cases.items():
             self.assert_code_2(self.variant(change), label)
+
+
+def _lexeme(*names):
+    return tuple(sorted((S, name) for name in names))
+
+
+class PopBuildTests(unittest.TestCase):
+    """Polecenie `pop`: listy POP i POP0 w pamięci (C1–C10, C14, C19).
+
+    Rangi fikstury (D3 0,5 KWJP + 0,5 NKJP): bać 1, lato+rok 2, polski 3, kot 4, duży 5, zamek 6,
+    fajny 7, ul 8; kumpel bez danych. Leksemy narastająco: 1, 4, 5, 6, 7, 9, 10, 11.
+    """
+    ROOT = Path(__file__).resolve().parent.parent
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = tempfile.TemporaryDirectory()
+        cls.fixture = pop_fixture(Path(cls.tmp.name) / 'pop', NKJP_POP_1GRAMS)
+        cls.standard = read_standard(cls.fixture['run'] / 'lists/standard.txt')
+        cls.result = build_pop(cls.fixture['sources'], pop_config(cls.tmp.name, 9, 6))
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.tmp.cleanup()
+
+    def setUp(self):
+        self.work = tempfile.TemporaryDirectory()
+        self.directory = Path(self.work.name)
+
+    def tearDown(self):
+        self.work.cleanup()
+
+    def build(self, pop=9, pop0=6, **changes):
+        return build_pop(self.fixture['sources'], pop_config(self.directory, pop, pop0, **changes))
+
+    def code(self, call, *args, **kwargs):
+        with self.assertRaises(GeneratorError) as raised:
+            call(*args, **kwargs)
+        return raised.exception.code
+
+    def row(self, result, *names):
+        unit = _lexeme(*names)
+        found = [r for r in result['units'] if r['unit'] == unit]
+        return found[0] if found else None
+
+    def test_pop0_in_pop_in_standard_and_homonym_group_whole_or_not_at_all(self):
+        result = self.result
+        self.assertEqual(result['pop'], sorted(result['pop']))
+        self.assertEqual(result['pop0'], sorted(result['pop0']))
+        self.assertTrue(set(result['pop0']) < set(result['pop']) <= self.standard)
+        self.assertEqual([r['unit'] for r in result['units'] if r['list'] == 'POP0'],
+                         [_lexeme('bać'), _lexeme('lato', 'rok:S1', 'rok:S2'), _lexeme('polski'), _lexeme('kot')])
+        self.assertEqual(result['thresholds']['pop0']['lexemes'], 6)
+        self.assertEqual((result['thresholds']['pop']['lexemes'], result['thresholds']['pop']['rank']), (9, 6))
+        zamek = self.row(result, 'zamek:a', 'zamek:b')
+        self.assertEqual((zamek['rank'], zamek['list'], zamek['size']), (6, 'POP', 2))
+        self.assertIn('zamek', result['pop'])
+        # Grupa ma jeden wiersz; członek nie ma własnego wiersza ani F.
+        self.assertIsNone(self.row(result, 'zamek:a'))
+        self.assertNotIn('F', zamek['kwjp'])
+        # Próg 8: grupa (2 leksemy) się nie mieści, więc nie wchodzi żaden członek.
+        smaller = self.build(8, 6)
+        self.assertEqual(smaller['thresholds']['pop']['lexemes'], 7)
+        self.assertIsNone(self.row(smaller, 'zamek:a', 'zamek:b')['list'])
+        self.assertNotIn('zamek', smaller['pop'])
+        for name in ('pop', 'pop0'):
+            report = result['thresholds'][name]
+            self.assertEqual(set(report['coverage']), {'kwjp-standard', 'kwjp-all'})
+            self.assertEqual(report['forms'], len(result[name]))
+
+    def test_proper_name_has_no_rank_and_its_form_enters_through_common_lexeme(self):
+        result = self.result
+        self.assertIsNone(self.row(result, 'Polska'))
+        self.assertFalse(any((S, 'Polska') in r['unit'] for r in result['units']))
+        self.assertEqual(result['proper_units'], 1)
+        self.assertEqual(self.row(result, 'polski')['list'], 'POP0')
+        self.assertIn('polska', result['pop0'])
+        # Lata: grupa lato+rok (wspólna forma NKJP), Polska nie łączy się z polski (D5 e-common).
+        self.assertTrue(self.row(result, 'lato', 'rok:S1', 'rok:S2')['nkjp']['ambiguous'])
+
+    def test_missing_data_full_is_out_partial_is_flagged_never_rank_zero(self):
+        result = self.result
+        kumpel = self.row(result, 'kumpel')
+        self.assertEqual((kumpel['status'], kumpel['rank'], kumpel['list'], kumpel['value']),
+                         ('NO_DATA', None, None, None))
+        self.assertEqual((kumpel['kwjp']['status'], kumpel['nkjp']['status']),
+                         ('ABSENT_OR_BELOW_PUBLICATION_THRESHOLD', 'NOT_IN_PUBLISHED_LIST'))
+        self.assertNotIn('kumpel', result['pop'])
+        bac = self.row(result, 'bać')
+        self.assertEqual((bac['status'], bac['flags'], bac['rank']), ('MEASURED', ['single_source:kwjp'], 1))
+        self.assertEqual(bac['nkjp']['status'], 'NOT_IN_PUBLISHED_LIST')
+        self.assertIsNone(bac['nkjp']['percentile'])
+        self.assertEqual(result['missing']['full'], 1)
+        for row in result['units']:
+            self.assertNotEqual(row['rank'], 0)
+            self.assertNotIn(0, (row['kwjp']['percentile'], row['nkjp']['percentile'], row['nkjp']['rank']))
+
+    def test_construction_form_enters_with_component_and_ul_dot_stays_apart(self):
+        result = self.result
+        self.assertEqual(self.row(result, 'duży')['list'], 'POP')
+        self.assertIn('nieduży', result['pop'])
+        self.assertNotIn('nieduży', result['pop0'])
+        self.assertTrue({'niepolska', 'niepolski'} <= set(result['pop0']))
+        # `ul.` (9 182 736) nie skleja się z `ul` (12): ul ma ostatnią rangę NKJP.
+        ul = self.row(result, 'ul')
+        self.assertEqual((ul['nkjp']['status'], ul['nkjp']['rank'], ul['rank']), ('OBSERVED', 6, 8))
+        self.assertEqual(result['nkjp_rule_id'], 'nkjp-clean-strip-edges-keep-dot-v1')
+        self.assertNotIn('ul.', result['pop'])
+
+    def test_word_missing_from_pop0_is_code_4(self):
+        for words in (['kumpel'], ['duży'], ['kot', 'pies']):
+            self.assertEqual(self.code(self.build, must_include_pop0=words), 4, words)
+        self.assertEqual(self.build(must_include_pop0=['kot', 'polska'])['must_include_pop0'],
+                         {'kot': 4, 'polska': 3})
+
+    def test_kwjp_only_does_not_open_nkjp_and_has_no_nkjp_fields(self):
+        refuse = mock.Mock(side_effect=AssertionError('NKJP otwarty'))
+        with mock.patch.object(pop_module, 'read_nkjp', refuse), mock.patch.object(pop_module.gzip, 'open', refuse):
+            result = self.build(11, 6, d3={'source': 'kwjp', 'field': 'F'}, d4=None, must_include_pop0=['rok'])
+        refuse.assert_not_called()
+        self.assertNotIn('nkjp', dumps(result).lower())
+        self.assertTrue(all('nkjp' not in row for row in result['units']))
+        # Sama KWJP F: bez NKJP `lata` nie łączy lato z rok. rok 90, bać 70, polski 50, duży 40;
+        # kot (F 7) poza POP0.
+        self.assertEqual([r['unit'] for r in result['units'] if r['list'] == 'POP0'],
+                         [_lexeme('rok:S1', 'rok:S2'), _lexeme('bać'), _lexeme('polski'), _lexeme('duży')])
+        self.assertEqual(self.code(self.build, 11, 6, d3={'source': 'kwjp', 'field': 'F'}, d4=None), 4)
+        self.assertTrue(set(result['pop0']) < set(result['pop']) <= self.standard)
+
+    def test_database_hash_unchanged_and_cli_codes(self):
+        f = self.fixture
+        before = sha256(f['database'])
+        result = self.build()
+        self.assertEqual((result['database_sha256'], sha256(f['database'])), (before, before))
+        changed = mock.Mock(side_effect=[before, 'f' * 64])
+        with mock.patch.object(pop_module, 'database_sha256', changed):
+            self.assertEqual(self.code(self.build), 5)
+        self.assertEqual(changed.call_count, 2)
+
+        def cli(sources, config, *extra):
+            output = self.directory / 'out'
+            done = subprocess.run([sys.executable, '-m', 'literaki_slownik', 'pop', '--manifest', str(sources),
+                                   '--config', str(config), '--output-dir', str(output), '--json', *extra],
+                                  cwd=self.ROOT, capture_output=True, text=True)
+            self.assertFalse(output.exists())
+            return done.returncode, json.loads(done.stdout)
+
+        good = pop_config(self.directory, 9, 6)
+        code, answer = cli(f['sources'], good)
+        self.assertEqual((code, answer['status'], answer['command']), (0, 'ok', 'pop'), answer)
+        self.assertEqual(answer['result']['thresholds']['pop0']['lexemes'], 6)
+        self.assertEqual(answer['result']['must_include_pop0'], {'kot': 4})
+        (self.directory / 'bad').mkdir()
+        bad = pop_config(self.directory / 'bad', 9, 6, d5='d')
+        self.assertEqual(cli(f['sources'], bad)[0], 2)
+        pin = write_pop_sources(self.directory / 'pin.json', f['run'], f['release'], f['nkjp'],
+                                database_sha256='0' * 64)
+        self.assertEqual(cli(pin, good)[0], 3)
+        run = self.directory / 'run'
+        shutil.copytree(f['run'], run)
+        manifest = load_json(run / 'manifest.json')
+        manifest['readiness'] = 'VERIFIED'
+        write_json(run / 'manifest.json', manifest)
+        self.assertEqual(cli(f['sources'], good, '--run-dir', str(run))[0], 5)
 
 
 class RepositoryPopSourcesTests(unittest.TestCase):

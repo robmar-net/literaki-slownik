@@ -59,6 +59,10 @@ POP_KWJP_GENRES = {
 # Format NKJP: ' *liczba napis\n' (wzór scripts/audit_nkjp.py).
 NKJP_1GRAMS = ('     50 ul.\n     10 ul\n     30 ok.\n     40 polska\n     15 Polska\n'
                '     25 lata\n     20 rok\n      8 duży\n      1 fajny\n')
+# NKJP polecenia `pop`: liczby o rzadkich ciągach cyfr, żeby skan pakietu (C14) wykrył każdy wyciek.
+# `ul.` ma dużą liczbę: gdyby skleił się z `ul`, `ul` byłoby pierwsze w NKJP. `polska` dzieli nazwa własna.
+NKJP_POP_1GRAMS = ('  7340919 kot\n  6182537 polski\n  5093746 lata\n  4718293 Polska\n      317 polska\n'
+                   '  9182736 ul.\n       12 ul\n  2837465 duży\n       41 fajny\n')
 
 
 def gz_write(path, text):
@@ -99,7 +103,17 @@ def kwjp_lemma_sources(run):
     return {a['source_id']: a['genre'] for a in artifacts if a['kind'] == 'kwjp_lemma'}
 
 
-def pop_fixture(directory):
+def pop_config(directory, pop, pop0, **changes):
+    """`pop.json` z repo z małymi progami fikstury; `changes` nadpisuje klucze najwyższego poziomu."""
+    config = load_json(Path(__file__).resolve().parent.parent / 'config/generator/pop.json')
+    config['d6'] = {'pop': {'by': 'count', 'value': pop}, 'pop0': {'by': 'count', 'value': pop0}}
+    config.update(changes)
+    path = Path(directory) / 'pop.json'
+    path.write_text(json.dumps(config, ensure_ascii=False), encoding='utf-8')
+    return path
+
+
+def pop_fixture(directory, nkjp_text=NKJP_1GRAMS):
     """Przebieg FROZEN, pakiet LL-PL, 1grams.gz i pop-sources.json fikstury."""
     directory = Path(directory)
     directory.mkdir(parents=True)
@@ -128,7 +142,7 @@ def pop_fixture(directory):
         raise AssertionError(f'Fikstura POP nie przeszła verify: {report}')
     release = directory / 'release'
     export(run, release, allow_test_fixture=True)
-    nkjp = gz_write(directory / '1grams.gz', NKJP_1GRAMS)
+    nkjp = gz_write(directory / '1grams.gz', nkjp_text)
     sources = write_pop_sources(directory / 'pop-sources.json', run, release, nkjp)
     return {'directory': directory, 'run': run, 'release': release, 'nkjp': nkjp,
             'sources': sources, 'database': run / 'build.sqlite'}

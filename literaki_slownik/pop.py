@@ -961,9 +961,9 @@ def top_overlap(ranks_a, ranks_b, n):
 
 # --- Konfiguracja metody `pop-v1` (B3, C3, ADR-007) ---
 # `config/generator/pop.json` zapisuje decyzje D1–D9. Każde naruszenie schematu = kod 2.
-# D3 = sama KWJP (`{source: kwjp, field}`) jest zawsze przyjmowane: to ścieżka wycofania NKJP (ADR-006);
-# wtedy D4 może być `null`. `proper_names_in_ranking` (D9) to bool; `pop-v1` zapisuje `false`.
-# `must_include_pop0`: słowa, których brak w POP0 zatrzyma polecenie `pop` (kontrola w grupie 11).
+# Schemat zna wszystkie opcje pomiaru; `load_config` przyjmuje tylko wartości ADR-007 (C3).
+# Jedyny wyjątek: wycofanie NKJP (ADR-006) = `d3 = {source: kwjp, field: F}` i `d4 = null`.
+# `must_include_pop0`: słowa, których brak w POP0 zatrzymuje polecenie `pop` (kod 4).
 
 METHODS = {'pop-v1': 'docs/adr/ADR-007-metoda-pop-v1.md'}
 CONFIG_KEYS = {'version', 'adr', 'd1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'proper_names_in_ranking',
@@ -973,6 +973,11 @@ D5_CONFIG = D5_OPTIONS + ('e-common',)
 D7_OPTIONS = ('accepted',)
 SAMPLING_VERSION = 'pop-quality-v1'
 D6_MAX = 10 ** 7
+# Wartości ADR-007 (C3). D3 i D4 idą parami: KWJP+NKJP z regułą D4 albo sama KWJP bez D4.
+ADR_007 = {'d1': 'kwjp-standard', 'd2': {'classes': [], 'constructions': 'yes', 'membership': 'i'},
+           'd5': 'e-common', 'd7': 'accepted', 'd8': 'available-only', 'proper_names_in_ranking': False}
+ADR_007_D3_D4 = (({'source': 'kwjp+nkjp', 'field': 'F', 'weight': 0.5}, 'strip-edges-keep-dot'),
+                 ({'source': 'kwjp', 'field': 'F'}, None))
 
 
 def _config_d2(d2):
@@ -1037,6 +1042,18 @@ def _validate_config(config):
     if not isinstance(sampling, dict) or sampling.get('version') != SAMPLING_VERSION:
         raise GeneratorError(f'pop.json: sampling musi być {SAMPLING_VERSION}', 2)
     sampling_config(sampling)
+    _adr_007(config)
+
+
+def _adr_007(config):
+    """Zawężenie do metody `pop-v1` (C3): inna wartość niż w ADR-007 = kod 2."""
+    for key, value in ADR_007.items():
+        if config[key] != value or type(config[key]) is not type(value):
+            raise GeneratorError(f'pop.json: {key} spoza ADR-007 (oczekiwane {value!r})', 2)
+    if not any(config['d3'] == d3 and config['d4'] == d4 for d3, d4 in ADR_007_D3_D4):
+        raise GeneratorError('pop.json: d3/d4 spoza ADR-007 (KWJP+NKJP F 0,5 z D4 albo sama KWJP F bez D4)', 2)
+    if any(config['d6'][name]['by'] != 'count' for name in ('pop', 'pop0')):
+        raise GeneratorError('pop.json: d6 tylko jako liczba leksemów (ADR-007)', 2)
 
 
 def load_config(path):
@@ -1048,3 +1065,117 @@ def load_config(path):
         raise GeneratorError(f'Nie można wczytać pop.json: {error}', 2, str(path)) from error
     _validate_config(config)
     return {**config, 'config_path': str(path), 'config_sha256': sha256(path)}
+
+
+# --- Polecenie `pop`: listy POP i POP0 w pamięci (C1–C10, C14, C19) ---
+# Złożenie jak w `scripts/measure_pop.py` (D5 `e-common`); funkcje rankingu wyżej bez zmian (D-6).
+# Ranking tylko z jednostek, w których jest zwykły leksem (D9). Zapis pakietu: grupa 12.
+
+LISTS = ('pop0', 'pop')
+REPORT_DENOMINATORS = ('kwjp-standard', 'kwjp-all')
+
+
+def _lexicon(paths, sources, with_nkjp):
+    """Dane z bazy tylko do odczytu: KWJP, formy reguły (i), konstrukcje, nazwy własne, właściciele form."""
+    from .database import connect
+    standard = read_standard(paths['standard'])
+    with connect(paths['database'], readonly=True) as db:
+        lexemes = load_lexemes(db)
+        rows, genres = load_kwjp_lists(db, _input(sources, 'kwjp')['lemma_sources'], lexemes)
+        owners = form_owners(db, lexemes) if with_nkjp else None
+        forms = load_forms(db, standard, lexemes)
+        constructions = load_constructions(db, standard, lexemes)
+    proper = frozenset(item['key'] for item in lexemes.values() if item['proper'])
+    return {'standard': standard, 'kwjp': kwjp_measures(rows, genres), 'owners': owners, 'forms': forms,
+            'constructions': constructions, 'proper': proper, 'relevant': frozenset(forms)}
+
+
+def _unit_row(key, unit, found, rank, kwjp_pct, place):
+    row = {'unit': key, 'size': unit['size'], 'rank': rank, 'value': found['value'], 'status': found['status'],
+           'flags': list(found['flags']), 'confidence': unit['confidence'], 'list': place,
+           'kwjp': {'status': unit['kwjp']['status'], 'percentile': kwjp_pct.get(key),
+                    'ambiguous': unit['kwjp']['ambiguous']}}
+    if unit['nkjp']['status'] != 'NOT_APPLICABLE':
+        row['nkjp'] = {k: unit['nkjp'][k] for k in ('status', 'rank', 'percentile', 'ambiguous')}
+    return row
+
+
+def build_pop(sources, config, run_dir=None, release_dir=None):
+    """Listy POP i POP0 wg `pop.json` (ADR-007), bez zapisu. Kody: 2 konfiguracja, 3 piny, 4 kontrola list,
+    5 przebieg nie FROZEN albo baza zmieniona w trakcie.
+
+    Wynik: posortowane klucze POP i POP0, wiersze jednostek (ranga, miara, percentyle, statusy, flagi,
+    lista), raport progów. NKJP tylko jako status, ranga i percentyl (C14); przy samej KWJP bez NKJP (C19).
+    """
+    config = load_config(config)
+    sources = load_sources(sources)
+    paths = check_inputs(sources, run_dir, release_dir)
+    with_nkjp = config['d3']['source'] == 'kwjp+nkjp'
+    data = _lexicon(paths, sources, with_nkjp)
+    kwjp, relevant, proper = data['kwjp'], data['relevant'], data['proper']
+    nkjp = read_nkjp(paths['nkjp'], config['d4'], data['owners']) if with_nkjp else None
+    result = units(kwjp, 'e', relevant, nkjp, data['owners'], eligible=relevant - proper)
+    rule_id = nkjp['rule_id'] if with_nkjp else None
+    del nkjp, data['owners']
+    # D9: jednostka z samych nazw własnych nie ma rangi i nie liczy się do progu.
+    proper_units = sum(1 for unit in result['units'].values() if proper.issuperset(unit['members']))
+    result['units'] = {k: u for k, u in result['units'].items() if not proper.issuperset(u['members'])}
+    found = measure(result, config['d3'], config['d8'])
+    ranks = rank_units(found['units'])
+    cuts = {name: threshold(ranks, result, config['d6'][name], kwjp, relevant) for name in LISTS}
+    lists = {name: forms_for(cuts[name]['members'], config['d2'], {'i': data['forms']}, data['constructions'])
+             for name in LISTS}
+    pop, pop0 = lists['pop']['forms'], lists['pop0']['forms']
+    included, ranked_members = {}, member_ranks(ranks, result)
+    for word in config['must_include_pop0']:
+        key = _game_key(word)
+        if key not in pop0:
+            raise GeneratorError(f'Słowo z must_include_pop0 poza POP0: {word}', 4)
+        owners = [m for m in cuts['pop0']['members'] if key in data['forms'].get(m, ())
+                  or key in data['constructions']['forms'].get(m, ())]
+        included[word] = min(ranked_members[m] for m in owners)
+    if not (pop0 <= pop <= data['standard']):
+        raise GeneratorError('Naruszone POP0 ⊆ POP ⊆ STANDARD', 4)
+    after = database_sha256(paths['database'])
+    if after != paths['database_sha256']:
+        raise GeneratorError('Baza zmieniła się w trakcie pop', 5, paths['database'])
+    place = {}
+    for name in ('pop', 'pop0'):
+        place.update((unit, name.upper()) for unit in cuts[name]['units'])
+    kwjp_pct = percentiles(rank_units({k: {'value': _kwjp_value(u['kwjp'], 'F')} for k, u in result['units'].items()}))
+    rows = [_unit_row(key, unit, found['units'][key], ranks.get(key), kwjp_pct, place.get(key))
+            for key, unit in result['units'].items()]
+    rows.sort(key=lambda r: (r['rank'] is None, r['rank'] or 0, r['unit']))
+    thresholds = {name: {'limit': config['d6'][name]['value'], 'rank': cuts[name]['rank'],
+                         'units': len(cuts[name]['units']), 'lexemes': cuts[name]['lexemes'],
+                         'reached': cuts[name]['reached'], 'forms': len(lists[name]['forms']),
+                         'construction_forms': lists[name]['constructions'],
+                         'coverage': {d1: coverage(cuts[name]['members'], kwjp, d1, relevant)
+                                      for d1 in REPORT_DENOMINATORS}}
+                  for name in LISTS}
+    missing = found['missing']
+    if not with_nkjp:
+        statuses = defaultdict(int)
+        for unit in result['units'].values():
+            statuses[unit['kwjp']['status']] += 1
+        missing = {**missing, 'statuses': dict(sorted(statuses.items()))}
+    inputs = {'database_sha256': paths['database_sha256'], 'release_manifest_sha256': paths['release_manifest_sha256'],
+              'standard_sha256': paths['standard_sha256'], 'sources_sha256': sources['manifest_sha256']}
+    answer = {'method': config['version'], 'adr': config['adr'], 'config_sha256': config['config_sha256'],
+              'database_sha256': after, 'inputs': inputs, 'pop': sorted(pop), 'pop0': sorted(pop0),
+              'units': rows, 'thresholds': thresholds, 'missing': missing, 'mass': result['mass'],
+              'groups': result['groups'], 'proper_units': proper_units, 'must_include_pop0': included}
+    if with_nkjp:
+        inputs['nkjp_sha256'] = paths['nkjp_sha256']
+        answer['nkjp_rule_id'] = rule_id
+    return answer
+
+
+def pop_summary(result):
+    """Podsumowanie wyniku `build_pop` dla CLI: bez list i wierszy jednostek."""
+    keep = ('method', 'config_sha256', 'database_sha256', 'nkjp_rule_id', 'thresholds', 'missing', 'groups',
+            'proper_units', 'must_include_pop0')
+    summary = {key: result[key] for key in keep if key in result}
+    summary['units'] = len(result['units'])
+    summary['ranked'] = sum(1 for row in result['units'] if row['rank'] is not None)
+    return summary

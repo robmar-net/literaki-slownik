@@ -38,6 +38,13 @@ def main(argv=None):
         exporter.add_argument('--run-dir', required=True, help='Przebieg VERIFIED')
         exporter.add_argument('--output-dir', required=True, help='Nowy, nieistniejący katalog pakietu')
         exporter.add_argument('--json', action='store_true', help='Odpowiedź JSON')
+        popper = sub.add_parser('pop', help='Listy POP i POP0 metodą pop-v1 (ADR-007)')
+        popper.add_argument('--manifest', required=True, help='Manifest źródeł POP (pop-sources.json)')
+        popper.add_argument('--config', required=True, help='Konfiguracja metody (pop.json)')
+        popper.add_argument('--run-dir', help='Przebieg FROZEN; domyślnie z manifestu')
+        popper.add_argument('--release-dir', help='Pakiet LL-PL; domyślnie z manifestu')
+        popper.add_argument('--output-dir', required=True, help='Nowy, nieistniejący katalog pakietu POP')
+        popper.add_argument('--json', action='store_true', help='Odpowiedź JSON')
         args = parser.parse_args(argv)
         if args.command == 'inspect-sources':
             checked = inspect_sources(args.manifest)
@@ -57,6 +64,9 @@ def main(argv=None):
                 blocked = [k for k, item in report['checks'].items() if item['status'] != 'pass']
                 print('Verify odmówił VERIFIED; blokady: ' + ', '.join(blocked), file=sys.stderr)
                 return _finish(argv, command, result, 5)
+        elif args.command == 'pop':
+            from .pop import build_pop, pop_summary
+            result['result'] = pop_summary(build_pop(args.manifest, args.config, args.run_dir, args.release_dir))
         elif args.command == 'export':
             from .export import export
             result['result'] = export(args.run_dir, args.output_dir)

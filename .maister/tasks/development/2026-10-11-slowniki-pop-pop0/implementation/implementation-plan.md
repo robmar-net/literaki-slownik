@@ -274,8 +274,8 @@ Zasady dla każdej grupy:
 **Files to Modify:** literaki_slownik/pop.py, literaki_slownik/cli.py, tests/pop_helpers.py, tests/test_pop.py
 **Estimated Steps:** 8
 
-- [ ] 11.0 Listy POP i POP0 w pamięci (C1–C10, C14, C15, C19)
-  - [ ] 11.1 Napisz 8 testów w `tests/test_pop.py`
+- [x] 11.0 Listy POP i POP0 w pamięci (C1–C10, C14, C15, C19)
+  - [x] 11.1 Napisz 8 testów w `tests/test_pop.py`
     - `load_config` zawężone: `d5 = d`, klasy D2, reguła (ii), `d1 = kwjp-all`, inna reguła D4, waga ≠ 0,5, `d6` przez `coverage`, D9 `true`, wycofanie z `d4` ≠ `null` → kod 2; `pop.json` z repo i wycofanie z `d4 = null` przechodzą
     - POP0 ⊆ POP ⊆ STANDARD; `zamek:a/b` wchodzi w całości albo wcale; F grupy nie trafia do członków
     - `Polska` bez rangi i poza progiem; forma `polska` wchodzi przez `polski`
@@ -284,19 +284,19 @@ Zasady dla każdej grupy:
     - brak słowa z `must_include_pop0` w POP0 → kod 4
     - sama KWJP (`d3 = {kwjp, F}`, `d4 = null`): `1grams.gz` nie jest otwierany; wynik bez pól NKJP (C19)
     - hash bazy przed = po; inny hash po (podmieniony `database_sha256`) → kod 5; CLI (subprocess) zły `pop.json` → 2, zły pin → 3, przebieg nie-FROZEN → 5
-  - [ ] 11.2 `tests/pop_helpers.py`: `pop_config(tmp, pop, pop0)` z małymi progami; NKJP fikstury z `kot` i liczbami o rzadkich ciągach cyfr (np. `7340919`) dla skanu C14; `kot` w POP0 przy progach fikstury
-  - [ ] 11.3 Zawęź `load_config` (C3): wartości ADR-007 jako stałe w sekcji konfiguracji; D3 = KWJP+NKJP F z wagą 0,5 albo sama KWJP F z `d4 = null`; D6 tylko `count`, POP0 < POP. Odwróć testy grupy 9: „waga 1 w zakresie” i wycofanie z `d4` ≠ `null`
-  - [ ] 11.4 `build_pop(sources, config, run_dir, release_dir)` pod sekcją konfiguracji
+  - [x] 11.2 `tests/pop_helpers.py`: `pop_config(tmp, pop, pop0)` z małymi progami; NKJP fikstury z `kot` i liczbami o rzadkich ciągach cyfr (np. `7340919`) dla skanu C14; `kot` w POP0 przy progach fikstury
+  - [x] 11.3 Zawęź `load_config` (C3): wartości ADR-007 jako stałe w sekcji konfiguracji; D3 = KWJP+NKJP F z wagą 0,5 albo sama KWJP F z `d4 = null`; D6 tylko `count`, POP0 < POP. Odwróć testy grupy 9: „waga 1 w zakresie” i wycofanie z `d4` ≠ `null`
+  - [x] 11.4 `build_pop(sources, config, run_dir, release_dir)` pod sekcją konfiguracji
     - `check_inputs` → hash bazy → `read_standard` → `load_lexemes`, `load_kwjp_lists`, `kwjp_measures`, `form_owners`, `load_forms` (reguła (i)), `load_constructions`
     - `read_nkjp(path, d4)` tylko przy KWJP+NKJP
     - `units(kwjp, 'e', relevant, nkjp, owners, eligible=relevant − proper)`; `relevant` = leksemy z formą w STANDARD
     - `measure(result, d3, d8)` → `rank_units` → `threshold` osobno dla `d6.pop` i `d6.pop0`
     - `must_include_pop0` w POP0 (brak → 4) → `forms_for(members, d2, forms, constructions)` → kontrola podzbiorów (→ 4) → hash bazy po (różny → 5)
     - funkcji rankingu nie zmieniać; wzór złożenia: `scripts/measure_pop.py`
-  - [ ] 11.5 Wynik w pamięci: posortowane klucze POP i POP0; wiersze jednostek (ranga, miara, percentyle KWJP/NKJP, statusy per źródło, flagi, członkowie); raport progów (ranga graniczna, jednostki, leksemy, formy, pokrycie `kwjp-standard` i `kwjp-all`)
-  - [ ] 11.6 Podkomenda `pop` w `cli.py` (C1): `--manifest`, `--config`, `--run-dir`, `--release-dir`, `--output-dir`, `--json`; leniwy import, `_finish`. W tej grupie liczy i wypisuje podsumowanie; zapis pakietu w grupie 12
-  - [ ] 11.7 Na v29 (bez zapisu): czas ≤ 10 min (C15); POP = sonda (45 229 jednostek, 1 328 263 formy, 98,5%); `kot` w POP0; wynik i czas do `work-log.md`. Kontrola D-6 z 10.3
-  - [ ] 11.8 Uruchom tylko testy z 11.1 i odwrócone testy grupy 9
+  - [x] 11.5 Wynik w pamięci: posortowane klucze POP i POP0; wiersze jednostek (ranga, miara, percentyle KWJP/NKJP, statusy per źródło, flagi, członkowie); raport progów (ranga graniczna, jednostki, leksemy, formy, pokrycie `kwjp-standard` i `kwjp-all`)
+  - [x] 11.6 Podkomenda `pop` w `cli.py` (C1): `--manifest`, `--config`, `--run-dir`, `--release-dir`, `--output-dir`, `--json`; leniwy import, `_finish`. W tej grupie liczy i wypisuje podsumowanie; zapis pakietu w grupie 12
+  - [x] 11.7 Na v29 (bez zapisu): czas ≤ 10 min (C15); POP = sonda (45 229 jednostek, 1 328 263 formy, 98,5%); `kot` w POP0; wynik i czas do `work-log.md`. Kontrola D-6 z 10.3
+  - [x] 11.8 Uruchom tylko testy z 11.1 i odwrócone testy grupy 9
 
 **Acceptance Criteria:**
 - 8 testów z 11.1 przechodzi
