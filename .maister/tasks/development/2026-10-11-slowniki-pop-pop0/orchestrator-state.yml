@@ -1,6 +1,6 @@
 orchestrator:
   started_phase: phase-1
-  completed_phases: [phase-1, phase-2, phase-5, phase-6, phase-7, phase-8, phase-10]
+  completed_phases: [phase-1, phase-2, phase-5, phase-6, phase-7, phase-8, phase-10, phase-11, phase-14]
   failed_phases: []
   auto_fix_attempts: {}
   options:
@@ -15,12 +15,12 @@ orchestrator:
     reality_check_enabled: true
     production_check_enabled: true
   created: 2026-10-11T10:36:22Z
-  updated: 2026-10-11T17:00:35Z
+  updated: 2026-10-11T18:04:10Z
   task_path: .maister/tasks/development/2026-10-11-slowniki-pop-pop0
 task:
   title: Słowniki słów popularnych POP i POP0
   description: "GitHub robmar-net/literaki-slownik#3. Dwa słowniki popularnych słów jako podzbiory STANDARD (LL-PL v29), źródła KWJP + NKJP (ADR-006). POP: szeroki, kandydat na słownik gry bez nieznanych słów i słownik botów. POP0: o rząd wielkości mniejszy, dla słabszych botów. Najpierw pomiary i decyzje właściciela (jednostka, miara, progi, słowa potoczne, akceptacja w grze), potem implementacja. Pisać po polsku, bardzo zwięźle i prosto."
-  status: in_progress
+  status: completed
   tags: [pop, pop0, kwjp, nkjp]
   issue: robmar-net/literaki-slownik#3
 task_context:
@@ -62,3 +62,7 @@ task_context:
     clarifications:
       summary: "Leksem z typowymi formami; rozmiar wg pokrycia tekstów; tylko korpusy; pomiar, decyzje, wydanie w jednym zadaniu."
       artifacts: [{path: analysis/clarifications.md, label: Doprecyzowania, html: null}]
+verification_context:
+  last_status: passed
+  reverify_count: 1
+  fixes_applied: [G1 warianty lematu, G2 straz czestych form, D8 asymetryczne, NKJP przestarzale i zdominowane, TERMS jak LL-PL, W1, W2, I4, I8, LIMITATIONS, SHA256SUMS wydania, dokumenty]

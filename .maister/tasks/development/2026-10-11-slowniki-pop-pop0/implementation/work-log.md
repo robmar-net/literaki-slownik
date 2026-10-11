@@ -98,3 +98,6 @@
 **Weryfikacja**: realność wykryła brak częstych słów (pies, przypadek, padł; raz poza POP0). pop-v1 oznaczone na GitHubie jako wycofane (pre-release), wiki „pop-v2 w przygotowaniu”.
 **Poprawki** (właściciel: wszystkie 1–6; licencja jak LL-PL; formy nijakie 1./2. os. zostają): warianty lematu razem; straż częstych form (małe litery, z danymi w liście lematów); D8 lower-bound-kwjp-absent; NKJP przestarzałe (≥100×) i zdominowane (z KWJP); TERMS jak LL-PL; W1 blokada wyjścia; W2 kody błędów; CRLF; must_include jako klucze gry; LIMITATIONS; spec/plan nota, INDEX.md.
 **v29 w pamięci**: POP 53 002 leks., 1 227 250 form, 98,60%; POP0 13 896, 388 509 form, 94,59%; straż 0 braków. Testy 390 OK.
+
+## 2026-10-11T18:04:10Z - Zadanie zamknięte
+pop-v2 wydane (POP 1 227 250 / 53 002; POP0 388 509 / 13 896), przegląd zatwierdzony, wiki zaktualizowane, #3 zamknięty. pop-v1 oznaczone jako wycofane.

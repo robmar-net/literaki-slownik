@@ -1,29 +1,37 @@
 # Weryfikacja implementacji POP/POP0
 
 ## TL;DR
-❌ **Nie zaliczona.** Mechanika działa (plan 102/102, testy 372 OK, pakiet odtwarzalny, atrybucje kompletne), ale treść `pop-v1` ma wadę High: przycinanie wariantów leksemu wyrzuca częste słowa (`pies`, `przypadek`, `padł`; `raz` poza POP0).
-Problemy: 1 krytyczny, 9 ostrzeżeń, ok. 20 informacyjnych. Wydanie `pop-v1` wycofane (pre-release + ostrzeżenie, wiki), właściciel: naprawić i wydać pop-v2.
+✅ **Zaliczona po poprawkach** (stan końcowy: wydanie `pop-v2`). Pierwsza weryfikacja (`pop-v1`) nie przeszła: w POP brakowało częstych słów. Po rew. 4 metody: kontrola częstych form 0 braków, testy 390 OK, dwa przebiegi identyczne, przegląd 416/423 trafnych, zatwierdzony przez właściciela.
+Pozostałe uwagi: informacyjne (pojedyncze słowa przy granicy, długie funkcje, podwójne zawężanie konfiguracji).
 
 ## Open Questions / Risks
-- Formy nijakie 1./2. osoby (`przeczytałobym`, `-łoś`): 42 214 w POP, 13 807 w POP0 — rzadkie; decyzja o klasie form.
-- Rozmiary po przycięciu: POP 51 805, POP0 13 181 leksemów; po naprawie G1 się zmienią.
+- Ponownie sprawdzono: testy, straż częstych form, kontrolę pakietu (D-3, D-5), przegląd próbek, odtwarzalność. Pięciu przeglądów (kod, pragmatyka, gotowość, realność, kompletność) nie uruchamiano drugi raz; ich znaleziska poprawiono punktowo (historia niżej).
+- Słowa potoczne bywają za nisko (D7); pojedyncze archaizmy przy granicy POP (`przestanek`, `strzeleński`, `jednonóż`); lemat `krocie` w KWJP inny niż w SGJP.
 
-## Wyniki
-| sprawdzenie | wynik | najważniejsze |
+## Historia poprawek i ponownej weryfikacji
+
+| znalezisko (pierwsza weryfikacja) | poprawka | wynik ponownego sprawdzenia |
 |---|---|---|
-| kompletność | ⚠️ | plan 102/102; spec i plan nie opisują rew. 2–3; INDEX.md bez ADR-006/007 |
-| testy | ✅ (z implementacji) | 372 OK |
-| przegląd kodu | ⚠️ 0/2/8 | W1 `pop --output-dir` wewnątrz przebiegu FROZEN nie jest odrzucany; W2 błędy SQLite/KeyError → traceback zamiast kodu 4 |
-| pragmatyczny | ⚠️ 0/3/4 | podwójne zawężanie konfiguracji; martwa gałąź `members: all`; spec nieaktualna |
-| gotowość wydania | ⚠️ GO z uwagami | „nie jest wydaniem” w LIMITATIONS; `SHA256SUMS` z plikami spoza zasobów |
-| realność | ❌ | G1 High: brak częstych słów; G2: próbka bez warstwy „częste poza listą”; G3 rzadkie formy `-łoby-`; G4 rozmiary; G6 zdanie o serwerze nieaktualne (#1836) |
-| licencja (właściciel) | do poprawy | `TERMS.md` POP: „wybór i układ CC BY 4.0” niezgodne z decyzją A → jak LL-PL |
+| G1 krytyczne: brak `pies`, `przypadek`, `padł`; `raz` poza POP0 | warianty lematu razem przy przycinaniu (`prune-weak-members-v2`) | wszystkie w POP0; 27 zwykłych słów sprawdzonych ręcznie: 27/27 |
+| G2: przegląd nie widział częstych słów poza listą | straż `frequent_guard` (20 000 / 5 000, zapis małymi literami, leksem z danymi w liście lematów) + warstwa `czeste-poza-lista` | straż 0 braków; warstwa: 3 formy, 1 sporna (`krocie`, pojedyncza) |
+| po drodze: `koronawirus`, `głównie`, `świetnie`, `siebie` | D8 `lower-bound-kwjp-absent`, NKJP przestarzałe (≥100×) i zdominowane (przy KWJP) | wszystkie w POP0 |
+| licencja: `TERMS.md` „wybór CC BY 4.0” poza decyzją A | warunki jak LL-PL (właściciel) | TERMS bez własnego wymogu |
+| W1: `pop` mógł pisać w zamrożonym przebiegu | blokada → kod 2 | test zielony |
+| W2: traceback zamiast kodu | `sqlite3.Error`/`KeyError`/`ValueError` → kod 4 | test zielony |
+| I4, I8: `must_include` nie jako klucz gry; CRLF w NKJP | walidacja → kod 2; regex → kod 4 | testy zielone |
+| LIMITATIONS: „nie jest wydaniem”, zdanie o SJP.pl | tekst poprawiony | w pakiecie pop-v2 |
+| `SHA256SUMS` wydania z plikami spoza zasobów | sumy wydania osobno od sum rozpakowanych list | `shasum -c` na pobranym wydaniu: OK |
+| spec, plan, INDEX.md nieaktualne | nota w spec i planie (ADR-007 rew. 4), linki w INDEX.md | — |
+| G3 rzadkie formy nijakie 1./2. os. | bez zmian (decyzja właściciela) | opisane w LIMITATIONS |
 
-## Do naprawy (pop-v2)
-1. **Krytyczne:** warianty jednego lematu liczyć razem przy przycinaniu (G1) + twarda kontrola: top-N form KWJP w STANDARD (bez nazw własnych) muszą być w POP/POP0 + warstwa przeglądu „częste poza listą” (G2).
-2. TERMS jak LL-PL (właściciel, 2026-10-11).
-3. W1 blokada wyjścia w przebiegu/pakiecie; W2 mapowanie błędów na kod 4.
-4. LIMITATIONS: bez „nie jest wydaniem”, aktualne zdanie o serwerze; `SHA256SUMS` wydania tylko dla zasobów (listy rozpakowane osobno).
-5. Spec rew. 4, plan, INDEX.md, work-log.
+## Wynik
+| sprawdzenie | wynik |
+|---|---|
+| plan | 102/102 kroków + pętla poprawek |
+| testy | 390 OK |
+| odtwarzalność | dwa przebiegi pop-v2 identyczne; LL-PL v29 bez zmian |
+| kontrola pakietu i przeglądu | `check_pop_package.py` = 0, `--review` = 0 |
+| przegląd próbek | 416 correct / 4 incorrect / 3 unknown (423) |
+| wydanie | [pop-v2](https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v2); pop-v1 oznaczone jako wycofane |
 
-Raporty: `completeness-check.md`, `code-review-report.md`, `pragmatic-review.md`, `production-readiness-report.md`, `reality-check.md`.
+Raporty pierwszej weryfikacji: `completeness-check.md`, `code-review-report.md`, `pragmatic-review.md`, `production-readiness-report.md`, `reality-check.md`. Odbiór: `pop-v2-acceptance.md`.
