@@ -1,37 +1,33 @@
 # Specyfikacja: słowniki POP i POP0 (#3)
 
-Rewizja 2 (2026-10-11), po audycie `verification/spec-audit.md` (M1–M6, m1–m14).
+Rewizja 3 (2026-10-11), bramka B5. Opcje wybrane w [ADR-007](../../../../../docs/adr/ADR-007-metoda-pop-v1.md) zamiast list opcji. Rew. 2: po audycie `verification/spec-audit.md`.
 
 ## TL;DR
-- POP i POP0 to dwie stałe listy popularnych słów. Obie są podzbiorami STANDARD z LL-PL v29: POP0 ⊆ POP ⊆ STANDARD.
-- Źródła: tylko KWJP (z zamrożonej bazy v29) i NKJP `1grams.gz`. Krok jest pochodny i tylko do odczytu.
-- Pięć etapów: A pomiar → B decyzje (ADR) → bramka „rewizja spec + plan C” → C polecenie `pop` → D odbiór → E wydanie `pop-v1` i wiki.
-- Metoda i progi (D1–D8) czekają na raport A. Raport mierzy pełne listy opcji, w tym grupę homonimów (`rok`, `dzień`).
-- Wydanie wymaga zatwierdzonego przeglądu próbek, sprawdzonego skryptem. Integracja z serwerem gry jest poza zakresem.
+- POP i POP0 to dwie stałe listy popularnych słów. POP0 ⊆ POP ⊆ STANDARD z LL-PL v29.
+- Metoda `pop-v1` jest wybrana (ADR-007, D1–D9) i zapisana w `config/generator/pop.json`.
+- POP = 60 000 leksemów, POP0 = 20 000, pełna odmiana. Miara: percentyle KWJP i NKJP, F, waga 0,5. Nazwy własne poza rankingiem.
+- Etapy A i B są zrobione (grupy 1–9). Zostają: C polecenie `pop` → D odbiór z przeglądem właściciela → E wydanie `pop-v1` i wiki.
+- Wydanie tylko po zatwierdzonym przeglądzie próbek, sprawdzonym skryptem. Integracja z serwerem gry jest poza zakresem.
 
 ## Key Decisions
-- Nowy moduł `literaki_slownik/pop.py` i podkomenda `pop`. LL-PL (`sources.json`, `inputs.py`, `decisions.VARIANTS`) zostaje nietknięty.
-- Własny manifest `config/generator/pop-sources.json` z pinami v29 (baza 85b23ca5…, release-manifest 54705743…, STANDARD a432c7c5…, NKJP 73af4909…) i ścieżką pakietu LL-PL v29.
-- Metoda w `config/generator/pop.json` ze ścisłym walidatorem: opcje D1–D8 z zamkniętej listy, liczby z typem i zakresem.
-- Wszystkie decyzje D1–D8 w jednym ADR-007, odwracalnym.
-- Klucz leksemu = `(source_id, lemma_id)`. `lexeme.id` to liczba z importu i nie jest stabilna.
-- Jednoznaczność formy NKJP liczona wobec wszystkich leksemów SGJP (oba źródła, nazwy własne, analizy odrzucone), nie tylko STANDARD.
-- Próbki: `quality._config` przyjmuje drugą zamkniętą konfigurację `pop-quality-v1`. Bez własnego samplera.
-- Hash bazy (14 s) liczony w każdym `pop`, przed i po. Wynik trafia do manifestu pakietu.
-- Pakiet ma status `BUILT`. Wydanie wymaga osobnego pliku `pop-v1-review.json` ze statusem `REVIEWED`, związanego hashami z pakietem. Sprawdza to `scripts/check_pop_package.py`.
-- `explain` dla POP to osobna ścieżka `explain_pop`. `pop` nie trafia do `VARIANTS`.
+- D1–D9 przyjęte w ADR-007 przez agenta z upoważnienia właściciela (2026-10-11: „podnieść oba limity; POP mocno, POP0 trochę; decyzje podejmij sam”). Odwracalne.
+- D2 = pełna odmiana. To zmiana wobec wcześniejszej odpowiedzi właściciela „typowe formy” (`analysis/clarifications.md`). Powód: bez czterech klas form jest o 45% mniej, a słownik stołu wymaga pełnej odmiany (§2.2).
+- `pop` przyjmuje tylko wartości ADR-007. Jedyny wyjątek: D3 = sama KWJP (F), ścieżka wycofania NKJP (ADR-006).
+- Nowy moduł `literaki_slownik/pop.py` i podkomenda `pop`. LL-PL (`sources.json`, `inputs.py`, `decisions.VARIANTS`) bez zmian.
+- Własny manifest `config/generator/pop-sources.json` z pinami v29 (baza 85b23ca5…, release-manifest 54705743…, STANDARD a432c7c5…, NKJP 73af4909…).
+- Klucz leksemu = `(source_id, lemma_id)`.
+- Pakiet ma status `BUILT`. Wydanie wymaga `pop-v1-review.json` ze statusem `REVIEWED`, związanego hashami z pakietem. Sprawdza to `scripts/check_pop_package.py`.
 - Pakiet nie ma pliku NKJP ani liczb NKJP per forma lub leksem. NKJP tylko jako ranga lub percentyl (ADR-006).
-- SJP.pl nie jest użyty w `pop-v1` ani jako miara. Wejścia to tylko KWJP i NKJP.
+- Podstawa D-6: `code_identity` pomiaru = `tree_sha256` 81a5f82a… (commit 7133fbe). Zmiana kodu rankingu w C → ponowny pomiar.
 
 ## Open Questions / Risks
-- D1–D8 nierozstrzygnięte do raportu A. Ryzyko: progi źle dobrane → boty grają nieznanymi słowami albo zbyt ubogo.
-- Cel „98–99% tekstu” jest nieosiągalny wobec wszystkich tokenów KWJP (sufit 93,5%). D1 musi wybrać mianownik.
-- Grupa homonimów jako jednostka (D5) sprawia, że POP „zna” oba leksemy `rok`. F nie jest kopiowane, ale skład jest szerszy. Decyduje właściciel.
-- POP jako słownik stołu z D2 = „formy typowe” stoi w napięciu ze spec v3 §2.2 (pełna odmiana). D2 dotyczy `pop-v1` dla botów. Opcję stołu rozstrzyga zadanie integracji z serwerem.
+- Liczby dla 60 000 pochodzą z sondy w dodatku raportu, nie z `measure.json`. Dla POP0 = 20 000 nie ma liczby z pomiaru. D-6 porównuje POP z sondą, POP0 zapisuje jako nowy wynik.
+- Pełna odmiana: bot zna każdą formę leksemu z POP, także rzadkie (wołacz, imiesłowy). Ocena w przeglądzie D-4.
+- `e-common` nadal łączy zwykłe homonimy (`nie`/`on`/`jeść`, największa grupa 22). POP „zna” oba leksemy `zamek`. F nie jest kopiowane.
+- Miara zależy od NKJP (ADR-006). Ścieżka wycofania (sama KWJP) musi działać bez NKJP (C19).
+- `kot` (ranga 9 128) musi być w POP0. Brak = błąd `pop` i powrót do D6.
 - Serwer gra na `pl-sjp-20260820`. Bot z POP ⊆ STANDARD przy stole SJP może zagrać słowo spoza SJP. Mówią o tym wiki i LIMITATIONS.
-- KWJP dzieli formy przeszłe (`zrobił`+`em`). Na poziomie form to brak, nie zero.
-- Reguła „analiza tego leksemu przyjęta w STANDARD” (D2) wymaga `analysis` (17,5 mln) i `variant_decision` (35 mln). Czas mierzy etap A.
-- Nowy plik `.py` i zmiana `quality.py` zmieniają `code_identity` (tree_sha256). Dotyczy tylko przyszłej weryfikacji LL-PL.
+- KWJP dzieli formy przeszłe (`zrobił`+`em`). To brak, nie zero.
 
 ## Cel
 Dać botom i ewentualnej opcji stołu dwie odtwarzalne listy słów znanych z tekstów, wybrane miarą z korpusów i przyjęte przez właściciela.
@@ -42,200 +38,195 @@ Dać botom i ewentualnej opcji stołu dwie odtwarzalne listy słów znanych z te
 - Jako właściciel chcę zapytać o słowo i usłyszeć, czemu jest albo go nie ma w POP/POP0.
 - Jako odwiedzający wiki chcę wiedzieć, czym są POP i POP0, ile mają słów i skąd je pobrać.
 
+## Metoda `pop-v1` (ADR-007)
+
+| # | decyzja | wybór | pole `pop.json` | liczba z raportu |
+|---|---|---|---|---|
+| D1 | mianownik pokrycia | `kwjp-standard`; raporty też `kwjp-all` | `d1` | sufit `kwjp-all` 91,1% |
+| D2 | formy | pełna odmiana, konstrukcje tak, reguła (i) | `d2` = `{classes: [], constructions: yes, membership: i}` | reguła (i) 10,5 s, (ii) 907 s |
+| D3 | miara | KWJP+NKJP z percentyli, F, waga 0,5 | `d3` | 98,3% przy 40 000; sama KWJP: Spearman 0,9705 |
+| D4 | czyszczenie NKJP | `strip-edges-keep-dot` (`nkjp-clean-strip-edges-keep-dot-v1`) | `d4` | 87,1% tokenów, 9,39% masy scalonej |
+| D5 | homonimy | `e-common`: grupa homonimów bez nazw własnych | `d5` | NKJP przypisane 72,6%, grupa ≤ 22 |
+| D6 | progi | POP 60 000, POP0 20 000 leksemów (liczba) | `d6` | 60 000 → 45 229 jednostek, 1 328 263 form, 98,5% |
+| D7 | luka potoczna | przyjęta, opis w LIMITATIONS | `d7` = `accepted` | 597 z 2 410 potocznych w POP 40 000 |
+| D8 | braki danych | pełny → poza listą; częściowy → `available-only` z flagą | `d8` | 128 504 jednostek bez danych |
+| D9 | nazwy własne | poza rankingiem; ich formy tylko przez zwykłe leksemy | `proper_names_in_ranking: false` | — |
+| — | warunek D6 | `kot` w POP0 | `must_include_pop0: ["kot"]` | ranga 9 128 |
+
+Ścieżka wycofania NKJP: `d3 = {source: kwjp, field: F}`, `d4 = null`.
+
+Reguły wspólne:
+- Agregacja wierszy KWJP jednego leksemu: F sumowane. Nigdy suma ARF/1-DP ani suma całości z podkorpusami (§8.1).
+- Grupa homonimów (`e-common`): union-find po grupach AMBIGUOUS KWJP i po zbiorach właścicieli form NKJP. Łączy tylko zbiory, w których każdy właściciel jest zwykłym leksemem z formą w STANDARD. F zostaje przy grupie; nie dzielimy go i nie kopiujemy.
+- Właściciele formy NKJP liczeni wobec wszystkich leksemów SGJP (`sgjp-20260823`, `sgjp-supplement-v1`, z nazwami własnymi i analizami odrzuconymi). Zbiór z nazwą własną nie tworzy grupy; jego F zostaje nieprzypisane.
+- Brak w KWJP = `ABSENT_OR_BELOW_PUBLICATION_THRESHOLD`, w NKJP = `NOT_IN_PUBLISHED_LIST`. Statusy osobno per źródło, nigdy ranga 0.
+
 ## Wymagania
 
-### Etap A — pomiar (tylko odczyt)
+### Etap A — pomiar (zrobione, grupy 1–7)
 | id | wymaganie |
 |---|---|
-| A1 | Skrypt `scripts/measure_pop.py` sprawdza piny z `pop-sources.json`, w tym hash bazy przed i po. Różnica = błąd. |
-| A2 | Wynik w nowym katalogu `data/work/pop-measure-<stempel>/`. Nic nie trafia do zamrożonego przebiegu ani pakietu v29. Katalog istnieje → kod 4. |
-| A3 | `measure.json` kanoniczny (`canonical.write_json`), bez czasów i ścieżek. Zawiera `code_identity` i hash `pop.json`/opcji. Dwa przebiegi dają te same bajty. |
-| A4 | Raport po polsku `report.md` dla właściciela, kopia w `analysis/pop-measure-report.md` zadania. Tabele, przykłady, zalecenie przy każdej decyzji. |
-| A5 | Raport pokazuje dla D1–D8 opcje z liczbami (tabela niżej). Każda opcja: liczba leksemów, liczba form STANDARD, pokrycie, przykłady. Dla D5: top 50 wierszy AMBIGUOUS wg F i ich los w każdej opcji. |
-| A6 | Luka potoczna: różnica rang NKJP–KWJP; leksem potoczny = token `pot.` w dowolnej interpretacji leksemu (`interpretation.qualifiers`); udział i przykłady przy kandydatach D6. |
-| A7 | Próbki graniczne: 30 na warstwę, `quality.sample_strata` z konfiguracją `pop-quality-v1` (C17). Agent wstępnie ocenia. Przykłady w tabelach raportu są oznaczone jako ilustracje, nie próba losowa. |
-| A8 | Wydajność: KWJP ładowany zbiorczo per `source_id` / zakres `evidence_id`; bez `LEFT JOIN evidence_candidate`; bez dużych sortowań w SQLite. |
-| A9 | Formy z konstrukcji: liczba form STANDARD tylko z `derivation_candidate` (305 107 kandydatów bez `interpretation_id`, np. `zróbże`, `nienajlepszy`); ile mapuje się na dokładnie jeden leksem składnika, ile na żaden lub kilka; czas obu reguł przynależności z D2. |
-| A10 | Miary NKJP w raporcie tylko jako rangi i percentyle, także dla leksemu z jedną formą (C14). Liczby NKJP per forma tylko w `measure.json` w katalogu roboczym, nie w kopii raportu w zadaniu. |
+| A1 | `scripts/measure_pop.py` sprawdza piny z `pop-sources.json` i hash bazy przed i po. |
+| A2 | Wynik w nowym `data/work/pop-measure-<stempel>/`; istniejący katalog → kod 4. |
+| A3 | `measure.json` kanoniczny, z `code_identity` i `options_sha256`; dwa przebiegi równe bajtowo (b = c). |
+| A4 | Raport `report.md`, kopia `analysis/pop-measure-report.md`, z dodatkiem o progach i decyzjach. |
+| A5 | Tabele opcji D1–D8 z liczbami i przykładami; dla D5 top 50 wierszy AMBIGUOUS. |
+| A6 | Luka potoczna: różnica percentyli NKJP–KWJP, kwalifikator `pot.`. |
+| A7 | Próbki graniczne `pop-quality-v1`, 30 na warstwę, ocena wstępna agenta. |
+| A8 | Wydajność: KWJP zbiorczo, bez dużych sortowań w SQLite (pomiar 261 s, RSS 3,6 GB). |
+| A9 | Formy konstrukcji (85 351) i czas reguł przynależności. |
+| A10 | NKJP w raporcie tylko jako rangi, percentyle i udziały (C14). |
 
-Co pomiar pokazuje dla każdej decyzji:
-
-| # | Decyzja | Opcje do zmierzenia |
-|---|---|---|
-| D1 | Mianownik pokrycia | wszystkie tokeny KWJP; masa EXACT; masa leksemów z formą w STANDARD |
-| D2 | Formy listy | (a) klasy znaczników: pełna odmiana vs wykluczenie (wołacz, rozkaźnik, imiesłowy, os. 1/2 i inne), udział masy i liczba form na klasę; (b) formy konstrukcji leksemu: tak/nie; (c) przynależność formy: „forma ∈ STANDARD i jest formą leksemu” vs „analiza tego leksemu przyjęta w STANDARD” (§2.2) |
-| D3 | Miara i wagi | miara KWJP: F, ARF, 1-DP, liczba gatunków z obecnością (fikcja, fakt, publicystyka), pewność dopasowania (EXACT / grupa AMBIGUOUS / tylko NKJP); sama KWJP; KWJP + NKJP jako rangi/percentyle, kilka wag; Spearman i nakładanie top-N; wrażliwość progu na wagi |
-| D4 | Czyszczenie NKJP | pełny napis NFC; zdjęcie interpunkcji z brzegów; zdjęcie bez kropki; lista kolizji (`ul.`→`ul`, `ok.`→`ok`) |
-| D5 | Homonimy | (a) brak F; (b) F z flagą niejednoznaczności; (c) tylko formy jednoznaczne; (d) grupa homonimów jako jednostka: F przy grupie, wszyscy członkowie dzielą rangę, grupa wchodzi w całości albo wcale. Masa i przykłady (`rok`, `raz`, `dzień`, `lata`/`lato`, `polska`/`polski`) |
-| D6 | Progi POP i POP0 | leksemy i formy dla 5k/10k/20k/40k/80k i dla celów pokrycia; próbki przy granicach |
-| D7 | Luka potoczna | akceptacja luki w `pop-v1`: tak / osobne zadanie. Miara: ile leksemów potocznych wypada przy kandydatach D6 |
-| D8 | Braki danych | (a) brak w obu źródłach: liczba i mapa na statusy §8.2; (b) brak częściowy: tylko dostępne źródło / dolna granica rangi z flagą / wykluczenie; wrażliwość progów D6 na regułę |
-
-Reguły wspólne dla opcji:
-- Agregacja wierszy KWJP jednego leksemu (10 510 leksemów ma kilka wierszy lemma): F sumowane; ARF, 1-DP i gatunki z wiersza o największym F (remis: klucz wiersza) albo tylko w raporcie. Nigdy suma ARF/1-DP ani suma całego korpusu z podkorpusami (§8.1).
-- Grupa homonimów = zbiór kandydatów jednego wiersza AMBIGUOUS KWJP. F zostaje przy grupie. Nie dzielimy go i nie kopiujemy na członków jako osobnych F.
-- Forma NKJP jest jednoznaczna, gdy jej `game_key` należy do dokładnie jednego leksemu wśród wszystkich leksemów SGJP (`sgjp-20260823`, `sgjp-supplement-v1`, z nazwami własnymi i analizami odrzuconymi). `polska` nie jest jednoznaczna, więc nie daje F przymiotnikowi `polski`.
-- Brak w KWJP = `ABSENT_OR_BELOW_PUBLICATION_THRESHOLD` (lista „all” ma próg F ≥ 5). Brak w NKJP = `NOT_IN_PUBLISHED_LIST` (lista ma też F = 1). Statusy osobno per źródło, nigdy ranga 0.
-
-### Etap B — decyzje właściciela
+### Etap B — decyzje (zrobione, grupy 8–10)
 | id | wymaganie |
 |---|---|
-| B1 | Właściciel wybiera D1–D8 po raporcie A. Pytanie zawiera opcje, liczby, przykłady i zalecenie. |
-| B2 | Decyzje zapisane w `docs/adr/ADR-007-metoda-pop-v1.md`: status, data, wybór per D, odrzucone opcje, warunek rewizji, ścieżka wycofania NKJP (D3 = sama KWJP). Odwracalne. Numer sprawdzony przed zapisem. |
-| B3 | Wartości wpisane do `config/generator/pop.json` (wersja `pop-v1`). ADR i konfiguracja wskazują się nawzajem. |
-| B4 | `ATTRIBUTIONS.md`: opis zmian NKJP zgodny z D4. |
-| B5 | Bramka B→C: rewizja spec (rew. 3) z wybranymi opcjami i plan etapu C. Bez niej C nie startuje. |
+| B1 | Decyzje D1–D9 po raporcie A; właściciel delegował je agentowi (2026-10-11). |
+| B2 | `docs/adr/ADR-007-metoda-pop-v1.md`: status, wybór, odrzucone opcje, rewizja, wycofanie NKJP. |
+| B3 | `config/generator/pop.json` (`pop-v1`) i `pop.load_config`; ADR i konfiguracja wskazują się nawzajem. |
+| B4 | `ATTRIBUTIONS.md`: zmiany NKJP wg D4. |
+| B5 | Bramka B→C: ta rewizja spec i plan C. Właściciel zatwierdza; bez tego grupa 11 nie startuje. |
 
 ### Etap C — polecenie `pop`
 | id | wymaganie |
 |---|---|
 | C1 | `python3 -m literaki_slownik pop --manifest config/generator/pop-sources.json --config config/generator/pop.json --run-dir <przebieg v29> --release-dir <pakiet LL-PL v29> --output-dir <nowy> [--json]`. Leniwy import, kody 2/3/4/5 jak reszta CLI. |
-| C2 | Walidator manifestu: `run-dir/manifest.json` ma `readiness: FROZEN` (inaczej kod 5) i `export.release_manifest_sha256` = pin. `--release-dir/release-manifest.json` ma ten sam hash. `run-dir/lists/standard.txt`, baza i NKJP zgodne z pinami. Niezgodność → kod 3. Manifest wymienia tylko wejścia KWJP i NKJP (oraz bazę/STANDARD); inne źródło → kod 2. |
-| C3 | Walidator konfiguracji: znane klucze; opcje D1–D8 z zamkniętej listy; liczby (progi, wagi, limity) z typem i zakresem; nieznany klucz, opcja lub zła liczba → kod 2. D3 = „sama KWJP” jest zawsze przyjmowane (wycofanie NKJP wg ADR-006). |
-| C4 | Baza tylko `mode=ro`. Hash bazy przed i po każdym `pop`; różnica → kod 5, nic nie trafia do `--output-dir`. Zero zapisów w run-dir i release-dir. |
-| C5 | Jednostka: leksem, klucz `(source_id, lemma_id)`, albo grupa homonimów wg D5. Ranga deterministyczna, klucz `(-miara, klucz jednostki)`. Miara wg D3 z rang/percentyli; agregacja wierszy KWJP wg reguł wspólnych; bez sumowania ARF/1-DP i całości z podkorpusami (§8.1). |
-| C6 | Brak danych ≠ 0. Każda jednostka ma status per źródło (§8.2: `OBSERVED`, `ABSENT_OR_BELOW_PUBLICATION_THRESHOLD`, `NOT_IN_PUBLISHED_LIST`, `UNMATCHED`, `NOT_APPLICABLE`, `UNAVAILABLE`). Brak pełny i częściowy wg D8. |
-| C7 | Homonimy wg D5. Nigdy nie kopiujemy ani nie dzielimy F jednej formy/lematu na kilka leksemów. Grupa dzieli rangę, nie F. |
-| C8 | NKJP: strumień gz, NFC, małe litery, reguła czyszczenia D4 z identyfikatorem wersji, agregacja po `game_key`. F trafia do leksemu tylko z formy jednoznacznej wobec wszystkich leksemów SGJP. |
-| C9 | Formy listy: formy jednostki z `lists/standard.txt` (sprawdzony hashem), zawężone wg D2 (klasy, konstrukcje, reguła przynależności). Forma konstrukcji należy do leksemu przez `derivation_candidate.lemma_id` i `source_id` składnika; wchodzi do POP tylko razem z tym leksemem. Wynik POP0 ⊆ POP ⊆ STANDARD, sprawdzany przed zapisem; naruszenie → kod 4. |
-| C10 | Progi POP i POP0 wg D6. Raport podaje wynikowy próg rangi, liczbę leksemów, liczbę form, pokrycie w każdym mianowniku z D1. |
-| C11 | Pakiet: `POP.txt.gz`, `POP0.txt.gz` (posortowane `game_key`, `\n`; gzip z `mtime=0`, pustą nazwą pliku, poziomem 9), `reports/` (pokrycie, rangi jednostek z miarami i statusami, wrażliwość wag, próbki, szablon przeglądu), `release-manifest.json`, `ATTRIBUTIONS.md`, `LIMITATIONS.md`, `TERMS.md`, `SHA256SUMS`. |
-| C12 | Manifest pakietu: `status: BUILT`; hashe wszystkich wejść, w tym zmierzony hash bazy; `code_identity`; hash konfiguracji; identyfikator ADR-007; wersja reguły NKJP; hashe wyjść. Bez czasów i ścieżek bezwzględnych. |
-| C13 | Zapis do stagingu, potem `export.rename_noreplace` na `--output-dir`; pliki 0444. Katalog istnieje → kod 4. |
-| C14 | Bez surowego NKJP i bez liczb NKJP per forma lub per leksem w pakiecie i w `explain`. NKJP tylko jako ranga/percentyl, także dla leksemu z jedną formą. |
-| C15 | Czas na prawdziwych danych: ≤ 10 min na tym Macu (odczyt 14 s + 2 × hash 14 s zmierzone w audycie). |
-| C16 | `explain --variant pop\|pop0 --pop-dir <pakiet> --run-dir <v29> --word <słowo>` przez osobną funkcję `explain_pop`; `choices` w CLI rozszerzone, `decisions.VARIANTS` bez zmian. Wynik: czy w STANDARD; leksemy słowa; per jednostka ranga, miary, statusy, próg; powód (`IN_POP0`, `IN_POP`, `BELOW_THRESHOLD`, `NO_DATA`, `FORM_NOT_TYPICAL`, `NOT_IN_STANDARD`). Piny pakietu ≠ run-dir → kod 3. |
-| C17 | Próbki: `quality._config` przyjmuje zamkniętą konfigurację `pop-quality-v1` (seed `literaki-slownik-pop-v1`, 30, to samo kodowanie) obok `quality-v1`; obie bez innych wartości. Konfiguracja w `pop.json` pod kluczem `sampling`. Warstwy: granica POP wewnątrz/na zewnątrz, granica POP0 wewnątrz/na zewnątrz, braki danych, rozbieżność KWJP–NKJP, grupy homonimów, części mowy, krótkie/długie słowa. `review_template` dostaje jako `canonical_index_sha256` hash raportu rang jednostek pakietu (indeks POP). |
-| C18 | `ATTRIBUTIONS.md`, `LIMITATIONS.md`, `TERMS.md` generowane z `pop-sources.json` i ADR-007. TERMS: warunki list (formy z SGJP, wybór miarą z KWJP i NKJP, CC BY wg ADR-006) i kodu (BSD-2-Clause). |
+| C2 | Wejścia przez `pop.check_inputs`: run-dir `FROZEN` (inaczej kod 5), piny release-manifestu, `standard.txt`, bazy i NKJP (niezgodność → kod 3). Inne źródło niż KWJP/NKJP → kod 2. |
+| C3 | Konfiguracja przez `pop.load_config`, zawężone do wartości ADR-007: D1, D2, D4, D5, D7, D8, D9 dokładnie jak w tabeli metody; D6 `count`, POP0 < POP; D3 = KWJP+NKJP F albo sama KWJP F z `d4 = null`. Inna wartość (np. `d5 = d`, reguła (ii), klasy D2) → kod 2. |
+| C4 | Baza tylko `mode=ro`. Hash bazy przed i po; różnica → kod 5, nic w `--output-dir`. Zero zapisów w run-dir i release-dir. |
+| C5 | Jednostki: `pop.units(..., 'e', relevant, nkjp, owners, eligible=relevant − nazwy własne)`. Ranking tylko ze zwykłych leksemów z formą w STANDARD (D9): nazwa własna nie ma rangi i nie liczy się do progu. Ranga: klucz `(-miara, klucz jednostki)` (`pop.rank_units`). |
+| C6 | Miara (`pop.measure`): `0,5 × percentyl KWJP F + 0,5 × percentyl NKJP`. Brak częściowy: percentyl dostępnego źródła, flaga `single_source:<źródło>`. Brak pełny: status `NO_DATA`, jednostka poza listami. Statusy per źródło wg §8.2. |
+| C7 | Grupa dzieli rangę, nie F. Nigdy nie kopiujemy ani nie dzielimy F jednej formy/lematu na kilka leksemów. |
+| C8 | NKJP: strumień gz, NFC, małe litery, reguła `nkjp-clean-strip-edges-keep-dot-v1`, agregacja po `game_key` (`pop.read_nkjp`). F trafia do jednostki tylko ze zbioru właścicieli, który `e-common` przypisuje. |
+| C9 | Formy: pełna odmiana. Formy leksemu z reguły (i) (`pop.load_forms`) plus formy konstrukcji (`pop.load_constructions`) jego składnika. Bez wykluczeń klas. Tylko klucze z `lists/standard.txt`. POP0 ⊆ POP ⊆ STANDARD sprawdzane przed zapisem; naruszenie → kod 4. |
+| C10 | Progi (`pop.threshold`): prefiks rang, jednostka w całości albo wcale; POP ≤ 60 000 leksemów, POP0 ≤ 20 000. Każde słowo z `must_include_pop0` (`kot`) musi być w POP0; brak → kod 4, nic nie zapisane. Raport progów: ranga graniczna, jednostki, leksemy, formy, pokrycie `kwjp-standard` i `kwjp-all`. |
+| C11 | Pakiet: `POP.txt.gz`, `POP0.txt.gz` (posortowane `game_key`, `\n`; gzip `mtime=0`, pusta nazwa, poziom 9), `reports/` (progi i pokrycie, rangi jednostek z miarami, statusami i flagami, próbki, szablon przeglądu), `release-manifest.json`, `ATTRIBUTIONS.md`, `LIMITATIONS.md`, `TERMS.md`, `SHA256SUMS`. |
+| C12 | Manifest pakietu: `status: BUILT`; hashe wejść, w tym zmierzony hash bazy; `code_identity`; hash `pop.json`; `ADR-007`; `must_include_pop0` (dla D-3); id reguły NKJP (albo brak przy samej KWJP); hashe wyjść. Bez czasów i ścieżek bezwzględnych. |
+| C13 | Zapis do stagingu, potem `export.rename_noreplace`; pliki 0444. Katalog istnieje → kod 4. |
+| C14 | Bez surowego NKJP i bez liczb NKJP per forma lub leksem w pakiecie i w `explain`. NKJP tylko jako ranga/percentyl. |
+| C15 | Czas na v29: ≤ 10 min na tym Macu (pomiar A z wszystkimi opcjami: 261 s). |
+| C16 | `explain --variant pop\|pop0 --pop-dir <pakiet> --run-dir <v29> --word <słowo>` przez `explain_pop`; `decisions.VARIANTS` bez zmian. Wynik: czy w STANDARD; leksemy słowa; per jednostka ranga, miara, statusy, flagi, próg. Powód: `IN_POP0`, `IN_POP`, `BELOW_THRESHOLD`, `NO_DATA`, `PROPER_NAME_ONLY`, `NOT_IN_STANDARD`. Piny pakietu ≠ run-dir → kod 3. |
+| C17 | Próbki: `quality` z `pop-quality-v1` (seed `literaki-slownik-pop-v1`, 30 na warstwę, z `pop.json` → `sampling`). Warstwy: granica POP wewnątrz/zewnątrz, granica POP0 wewnątrz/zewnątrz, braki danych, rozbieżność KWJP–NKJP, grupy homonimów, części mowy, krótkie/długie słowa. `review_template` dostaje hash raportu rang jednostek. |
+| C18 | `ATTRIBUTIONS.md`, `LIMITATIONS.md`, `TERMS.md` z `pop-sources.json` i ADR-007. TERMS: listy CC BY (formy z SGJP, wybór miarą z KWJP i NKJP wg ADR-006), kod BSD-2-Clause. |
+| C19 | Wycofanie NKJP: z `d3 = {kwjp, F}`, `d4 = null` polecenie `pop` nie czyta `1grams.gz`, a pakiet nie wymienia NKJP w atrybucjach ani w manifeście. |
 
 ### Etap D — odbiór
 | id | wymaganie |
 |---|---|
 | D-1 | Dwa niezależne przebiegi `pop` do dwóch katalogów. `SHA256SUMS` i wszystkie pliki równe bajtowo. |
-| D-2 | Hash bazy v29 przed i po obu przebiegach równy 85b23ca5…; release-manifest v29, `lists/`, `manifest.json` i `reports/` przebiegu bez zmian (hashe przed i po). |
-| D-3 | `scripts/check_pop_package.py --pop-dir <pakiet> [--review <plik>]`, bez importu `pop.py`: `SHA256SUMS` zgodne; POP0 ⊆ POP ⊆ STANDARD na plikach; brak surowego NKJP i liczb NKJP (skan pakietu). |
-| D-4 | Przegląd próbek: agent ocenia każdą pozycję, właściciel zatwierdza. Wynik `pop-v1-review.json` ze statusem `REVIEWED`, `sample_sha256` próbki i hashem `SHA256SUMS` pakietu. |
-| D-5 | `check_pop_package.py --review` zwraca 0 tylko, gdy przegląd ma status `REVIEWED`, każdą pozycję ocenioną, `sample_sha256` = próbka pakietu i hash `SHA256SUMS` = pakiet. Inaczej kod 4. |
-| D-6 | Liczby pakietu (leksemy, formy, pokrycie) = liczby raportu A dla wybranych opcji. Gdy `code_identity` w `measure.json` ≠ w manifeście pakietu, najpierw ponowny pomiar A na kodzie pakietu. |
-| D-7 | Wynik odbioru w `verification/pop-acceptance.md` zadania: hashe, liczby, wynik przeglądu, wynik D-3/D-5. |
+| D-2 | Hash bazy v29 przed i po obu przebiegach = 85b23ca5…; release-manifest v29, `lists/`, `manifest.json` i `reports/` przebiegu bez zmian. |
+| D-3 | `scripts/check_pop_package.py --pop-dir <pakiet> [--review <plik>]`, bez importu `pop.py`: `SHA256SUMS` zgodne; POP0 ⊆ POP ⊆ STANDARD na plikach; słowa z `must_include_pop0` manifestu (`kot`) w POP0; brak surowego NKJP i liczb NKJP. |
+| D-4 | Bramka przeglądu: agent ocenia każdą pozycję próbek, właściciel zatwierdza. Wynik `pop-v1-review.json`: status `REVIEWED`, `sample_sha256` próbki, hash `SHA256SUMS` pakietu. Bez zatwierdzenia właściciela nie ma etapu E. |
+| D-5 | `check_pop_package.py --review` zwraca 0 tylko przy `REVIEWED`, każdej pozycji ocenionej i zgodnych hashach. Inaczej kod 4. |
+| D-6 | Podstawa: `measure.json` z `data/work/pop-measure-20261011-154857-b`, `code_identity` = commit `db15d829…` (dirty), `tree_sha256` `81a5f82ae66f9457…` = pakiet z commitu 7133fbe. Grupa 9 dodała tylko sekcję konfiguracji. Gdy C zmieni kod rankingu (`pop.py` przed sekcją konfiguracji lub `database.py`), najpierw ponowny pomiar A na kodzie pakietu: liczby bazowe = raport A (POP 40 000: 902 062 form, 98,3%). Zawsze: POP pakietu = sonda z dodatku (45 229 jednostek, 1 328 263 formy, 98,5% `kwjp-standard`); liczby POP0 zapisane. |
+| D-7 | Wynik w `verification/pop-acceptance.md`: hashe, liczby, `code_identity`, wynik przeglądu, wynik D-3/D-5. |
 
 ### Etap E — wydanie i wiki
 | id | wymaganie |
 |---|---|
-| E1 | GitHub Release `pop-v1`: pliki pakietu z C11 i osobny asset `pop-v1-review.json`. Przed `gh release create` musi przejść `check_pop_package.py --review` (kod 0); inaczej brak wydania. Notatka: liczby, hashe, podstawa (LL-PL v29), ADR-007, ograniczenia. |
-| E2 | Atrybucja: SGJP i KWJP jak w LL-PL, NKJP wg ADR-006 (twórca, tytuł, URL, „CC BY, wersja nieokreślona”, zmiany, brak poparcia). |
-| E3 | `LIMITATIONS.md`: POP ⊆ LL-PL STANDARD, nie ⊆ SJP; miara użycia ≠ znajomość; luka potoczna; segmentacja KWJP; grupy homonimów (jeśli D5 = d). |
-| E4 | Wiki wg `docs/runbook-wiki.md`. Wstępne strony `Slownik-POP` i `Slownik-POP0` już są, bez tezy o „przeciętnym graczu” i bez przesądzania form. Etap E: liczby z pakietu, metoda z ADR-007, link do Release; usunąć „W przygotowaniu” w `Slownik-POP`, `Slownik-POP0`, `Home`, `_Sidebar`, `Slownik-STANDARD`; wiersz w `Historia-zmian`. Bez tez o znajomości słów bez przeglądu. |
-| E5 | Dokumenty: `docs/generator/cli.md` (polecenie `pop`, warianty `explain`), `docs/generator/jakosc.md` (kontrakt `pop-quality-v1`), `docs/runbook-wiki.md`, `docs/plan-dalszych-prac-runbook.md:51` (usunąć „NKJP BLOCKED”). |
-| E6 | Linki: `curl -fI` na każdy asset Release i na strony wiki zwraca 200. |
+| E1 | Bramka wydania: GitHub Release `pop-v1` tylko po `check_pop_package.py --review` = 0. Assety: pliki z C11 i `pop-v1-review.json`. Notatka: liczby, hashe, podstawa LL-PL v29, ADR-007, ograniczenia. |
+| E2 | Atrybucja: SGJP i KWJP jak w LL-PL, NKJP wg ADR-006 (twórca, tytuł, URL, „CC BY, wersja nieokreślona”, zmiany wg D4, brak poparcia). |
+| E3 | `LIMITATIONS.md`: POP ⊆ STANDARD, nie ⊆ SJP; miara użycia ≠ znajomość; pełna odmiana; luka potoczna (D7); nazwy własne poza rankingiem (D9); grupy homonimów `e-common`; segmentacja KWJP. |
+| E4 | Wiki wg `docs/runbook-wiki.md`: `Slownik-POP` i `Slownik-POP0` z liczbami z pakietu, metodą z ADR-007 i linkiem do Release; usunąć „W przygotowaniu” w `Slownik-POP`, `Slownik-POP0`, `Home`, `_Sidebar`, `Slownik-STANDARD`; wiersz w `Historia-zmian`. Bez tez o znajomości słów ponad przegląd. |
+| E5 | Dokumenty: `docs/generator/cli.md` (`pop`, `explain` dla POP), `docs/generator/jakosc.md` (`pop-quality-v1`), `docs/runbook-wiki.md`, `docs/plan-dalszych-prac-runbook.md:51` (usunąć „NKJP BLOCKED”). |
+| E6 | `curl -fI` na każdy asset Release i strony wiki zwraca 200. |
 
 ## Kryteria odbioru etapów
 | etap | gotowe, gdy |
 |---|---|
-| A | dwa przebiegi skryptu dają ten sam `measure.json`; hash bazy bez zmian; raport ma tabelę dla każdej z D1–D8, pomiar A9 i próbki |
-| B | ADR-007 zaakceptowany przez właściciela; `pop.json` przechodzi walidator; `ATTRIBUTIONS.md` zgodny z D4; spec rew. 3 i plan C gotowe (B5) |
-| C | testy `tests/test_pop.py` zielone; pełny zestaw testów zielony; `pop` na v29 ≤ 10 min |
+| A | zrobione: b = c bajtowo; hash bazy bez zmian; raport z D1–D8, A9, próbkami i dodatkiem |
+| B | ADR-007 zaakceptowany; `pop.json` przechodzi `load_config`; `ATTRIBUTIONS.md` wg D4; spec rew. 3 i plan C zatwierdzone przez właściciela |
+| C | `tests/test_pop.py` i pełny zestaw zielone; `pop` na v29 ≤ 10 min; `kot` w POP0 |
 | D | D-1…D-7 spełnione; właściciel zatwierdził przegląd |
-| E | Release `pop-v1` opublikowany po D-5; wiki wypchnięte; E6 zielone; commit i push repo |
+| E | Release `pop-v1` po D-5; wiki wypchnięte; E6 zielone; commit i push repo |
 
 ## Komponenty do ponownego użycia
 
 ### Istniejący kod
 | plik | co daje |
 |---|---|
-| `scripts/benchmark_sjp.py` | przepływ pomiaru nad zamrożonym przebiegiem (bez jego wad: czas w wyniku, `SystemExit`, nieatomowy zapis) |
-| `scripts/audit_nkjp.py` | parser `1grams.gz` (`r" *([0-9]+) (.+)\n"`) |
-| `literaki_slownik/database.py` `connect(readonly=True)` | połączenie ro, `game_key()`, `nfc()` |
+| `literaki_slownik/pop.py` (grupy 1–4, 9) | `load_sources`, `check_inputs`, `database_sha256`, `read_standard`, `load_lexemes`, `load_kwjp_lists`, `kwjp_measures`, `load_forms`, `load_constructions`, `read_nkjp`, `form_owners`, `nkjp_lexeme_ranks`, `units`, `measure`, `rank_units`, `percentiles`, `member_ranks`, `coverage`, `threshold`, `forms_for`, `load_config` |
+| `scripts/measure_pop.py` | ponowny pomiar dla D-6; wzór złożenia `e-common` z `eligible` |
+| `literaki_slownik/quality.py` | `sample_strata`, `review_template`, `sampling_digest`; `pop-quality-v1` (grupa 5) |
+| `literaki_slownik/database.py` | `connect(readonly=True)`, `game_key()`, `nfc()` |
 | `literaki_slownik/canonical.py` | `dumps`, `load_json`, `sha256`, `write_json` |
 | `literaki_slownik/inputs.py` | `checked_file`, `GeneratorError` |
 | `literaki_slownik/run.py` | `code_identity` |
 | `literaki_slownik/export.py` | `rename_noreplace`, `READ_ONLY`, `write_release_manifest` |
-| `literaki_slownik/quality.py` | `sample_strata`, `review_template`, `sampling_digest`; `_config` rozszerzony o `pop-quality-v1` |
 | `literaki_slownik/verify.py:468-520` | wzór `_markdown_attributions/limitations/terms` dla C18 |
-| `literaki_slownik/kwjp.py` | `METRICS` (freq, ARF, DP, 1-DP, total_freq) |
-| `literaki_slownik/decisions.py` | `nonfiction_frequencies` (jeśli D3 użyje gatunków) |
-| `literaki_slownik/explain.py` | dostęp ro do FROZEN, formatowanie; nowa funkcja `explain_pop` obok |
+| `literaki_slownik/explain.py` | dostęp ro do FROZEN, formatowanie; `explain_pop` obok |
 | `literaki_slownik/cli.py` | subparser, `_finish`, kody wyjścia |
-| `data/work/release-LL-PL-v29/` | `release-manifest.json` (pin, `--release-dir`); układ pakietu |
-| `tests/release_helpers.py`, `tests/helpers.py` | fikstura SGJP (`kot`, `zamek:a/b`), `complete_run`, `make_review` |
-| `tests/test_kwjp.py` | helper gz CSV — ten sam wzór dla małego `1grams.gz` |
+| `data/work/release-LL-PL-v29/` | `release-manifest.json` (pin); układ pakietu |
+| `tests/pop_helpers.py`, `tests/release_helpers.py`, `tests/helpers.py` | fikstura SGJP (`kot`, `zamek:a/b`), NKJP, `complete_run`, `make_review` |
 | `tests/test_explain.py:22,36` | wzór „hash bazy bez zmian po kroku ro” |
 
-### Nowe pliki i dlaczego
-| plik | dlaczego nowy |
+### Nowe i dlaczego
+| plik | dlaczego |
 |---|---|
-| `scripts/measure_pop.py` | brak pomiaru popularności; benchmark SJP mierzy co innego |
-| `scripts/check_pop_package.py` | niezależna kontrola pakietu i przeglądu (D-3, D-5); musi nie zależeć od `pop.py` |
-| `literaki_slownik/pop.py` | brak kodu popularności; jeden moduł funkcyjny jak reszta |
-| `config/generator/pop-sources.json` | `inputs.py` wymaga dokładnie 14 artefaktów LL-PL; NKJP zmieniłby tożsamość LL-PL |
-| `config/generator/pop.json` | `quality.json` jest zamknięty dla `quality-v1`; metoda POP potrzebuje własnych, wersjonowanych wartości |
-| `docs/adr/ADR-007-metoda-pop-v1.md` | zapis decyzji D1–D8 |
-| `tests/test_pop.py` | brak testów popularności |
+| polecenie `pop` w `pop.py` + `cli.py` | brak budowy pakietu; funkcje rankingu już są, brakuje złożenia, progów, zapisu i kontroli |
+| `explain_pop` w `explain.py` | `explain` zna tylko warianty LL-PL |
+| `scripts/check_pop_package.py` | niezależna kontrola pakietu i przeglądu (D-3, D-5); nie importuje `pop.py` |
+| testy w `tests/test_pop.py` i `tests/test_check_pop_package.py` | brak testów budowy i kontroli |
 
-Bez nowych klas, bez skali ciągłej `vocabulary_level`, bez losowego komponentu wiedzy, bez własnego samplera.
+Bez nowych klas, bez skali ciągłej, bez losowej wiedzy, bez własnego samplera. Kod niewybranych opcji zostaje w `pop.py` tylko dla pomiaru; `pop` go nie wywołuje.
 
 ## Podejście techniczne
-- Przepływ: piny i hash bazy → STANDARD z `lists/standard.txt` → KWJP per `source_id` z bazy ro → NKJP strumieniem → jednostki (leksem lub grupa) → miary → rangi → progi → formy → kontrola podzbiorów → hash bazy → pakiet.
-- Leksem ↔ formy: `evidence_candidate.lexeme_id` → `interpretation` → `surface_form.game_key`; konstrukcje przez `derivation_candidate.lemma_id` + `source_id` składnika → klucz leksemu. Tylko klucze STANDARD, reguła przynależności wg D2.
+- Przepływ `pop`: piny i hash bazy → `load_config` → STANDARD → leksemy, KWJP, właściciele form → NKJP (pomijane przy samej KWJP) → jednostki `e-common` bez nazw własnych → miara → rangi → progi → `kot` w POP0 → formy (reguła (i) + konstrukcje) → kontrola podzbiorów → hash bazy → staging → pakiet.
 - Sortowanie i agregacja w Pythonie, nie w SQLite temp.
-- Parametry zależne od D1–D8 są polami `pop.json`. Kod obsługuje opcje wybrane w ADR-007, opcje porównywane w raporcie i zawsze D3 = „sama KWJP”. Walidator odrzuca resztę.
-- Pomiar i `pop` dzielą funkcje ładowania danych z `pop.py` (skrypt importuje moduł). `code_identity` w obu wynikach pozwala to sprawdzić (D-6).
+- Nowy kod `pop` dopisany poniżej sekcji konfiguracji `pop.py`, żeby nie zmieniać kodu rankingu (D-6).
 
 ## Wskazówki do implementacji
 
 ### Testy
 - 2–8 testów na grupę kroków; weryfikacja grupy uruchamia tylko nowe testy.
-- Grupy: walidacja manifestu i konfiguracji; ranking, agregacja wierszy i podzbiory; NKJP (czyszczenie, kolizje, jednoznaczność) i homonimy; formy konstrukcji; determinizm i baza bez zmian; próbki `pop-quality-v1` i `check_pop_package.py`; `explain` dla POP; skrypt pomiaru (dym na fiksturze).
-- Kluczowe przypadki: POP0 ⊆ POP ⊆ STANDARD; dwa przebiegi równe bajtowo (z gzip); hash bazy bez zmian; brak ≠ 0 (pełny i częściowy, osobne statusy KWJP/NKJP); `zamek:a/b` bez kopiowania F; grupa homonimów wchodzi w całości; forma NKJP wspólna z nazwą własną nie daje F; forma konstrukcji wchodzi z leksemem składnika; `ul.`→`ul` wg D4; zła konfiguracja lub liczba spoza zakresu → kod 2; manifest z wejściem innym niż KWJP/NKJP → kod 2; zły pin → kod 3; nie-FROZEN → kod 5; istniejący katalog → kod 4; skan pakietu bez liczb NKJP (C14); D3 = sama KWJP przechodzi walidator; przegląd UNREVIEWED lub z innym hashem → kod 4.
-- `quality-v1` dalej przyjmowane bez zmian; testy `tests.test_quality` bez zmian, plus 1–2 testy na `pop-quality-v1`.
-- Testy LL-PL bez zmian (5 testów oczekuje NKJP w `unavailable`).
+- Kluczowe przypadki: POP0 ⊆ POP ⊆ STANDARD; dwa przebiegi równe bajtowo (z gzip); hash bazy bez zmian; brak ≠ 0 (pełny poza listą, częściowy z flagą `single_source`); `zamek:a/b` bez kopiowania F, grupa wchodzi w całości; nazwa własna bez rangi, jej forma wchodzi przez zwykły leksem; forma konstrukcji wchodzi z leksemem składnika; `ul.` nie skleja się z `ul`; brak `kot` w POP0 → kod 4; `pop.json` z opcją spoza ADR-007 → kod 2; sama KWJP przechodzi i nie czyta NKJP; zły pin → kod 3; nie-FROZEN → kod 5; istniejący katalog → kod 4; skan pakietu bez liczb NKJP; przegląd UNREVIEWED lub z innym hashem → kod 4; `explain_pop` z każdym powodem.
+- Testy grupy 9 przyjmujące opcje spoza ADR-007 odwrócić po zawężeniu (C3).
+- `quality-v1` i testy LL-PL bez zmian.
 - Polecenie: `python3 -m unittest discover -s tests -p 'test_*.py'`.
 
 ### Zgodność ze standardami
-- `AGENTS.md`: po polsku, zwięźle; decyzje o składzie słownika z właścicielem, z przykładami i alternatywami; wiki w tej samej pracy.
-- Spec v3 (`docs/literaki-niezalezne-slowniki-prompt-v3.md`): §2.1 (znajomość ⊆ dopuszczalność), §2.2 (odrzucona interpretacja nie wraca), §8.1 (bez kopiowania F, bez sumowania ARF/1-DP), §8.2 (statusy braków, wrażliwość), §9.1 (leksem, liczby leksemów i form), §9.4 (F, ARF, 1-DP, gatunki, pewność, rangi/percentyle, wagi, próbki), §13 (odtwarzalność, wyjaśnialność).
-- ADR-006: atrybucja NKJP, bez redystrybucji surowego pliku, wycofanie = pakiet bez NKJP.
+- `AGENTS.md`: po polsku, zwięźle; decyzje o składzie słownika z właścicielem (tu delegowane, zapisane w ADR-007); wiki w tej samej pracy.
+- Spec v3 (`docs/literaki-niezalezne-slowniki-prompt-v3.md`): §2.1, §2.2 (pełna odmiana dla stołu), §8.1, §8.2, §9.1, §9.4, §13.
+- ADR-006: atrybucja NKJP, bez surowego pliku, wycofanie = pakiet bez NKJP (C19).
+- ADR-007: metoda `pop-v1`; każda zmiana to nowa wersja w `pop.json`.
 - `docs/generator/publikacja.md`: BSD-2-Clause kod, CC BY 4.0 raporty; układ pakietu.
-- `docs/generator/jakosc.md`: kontrakt `sample_strata` i `review_template`, status UNREVIEWED do zatwierdzenia; jawna zmiana kontraktu dla `pop-quality-v1`.
-- `docs/literaki-prosty-jezyk-minimum-leksykalne-kierunki.md` §4–5: bez zewnętrznych list; bez przypisywania poziomów do wieku lub wykształcenia.
+- `docs/generator/jakosc.md`: `sample_strata`, `review_template`, UNREVIEWED do zatwierdzenia.
+- `docs/literaki-prosty-jezyk-minimum-leksykalne-kierunki.md` §4–5: bez list zewnętrznych; bez poziomów wg wieku lub wykształcenia.
 
 ## Ograniczenia (twarde)
 | ograniczenie | sprawdza |
 |---|---|
-| tylko KWJP i NKJP jako wejście | walidator manifestu (C2), test |
-| SJP.pl nieużywany w `pop-v1` | manifest POP, przegląd kodu |
+| tylko KWJP i NKJP jako wejście; SJP.pl nieużywany | C2, manifest POP |
 | bez list zewnętrznych (Jasnopis, Logios, Zgółkowa, Kurzowa, PSONI, OSPS, PoliMorf, Wikisłownik) | manifest POP |
-| brak danych ≠ 0 | test C6 |
-| bez kopiowania F między homonimami | test C7, C8 |
-| POP0 ⊆ POP ⊆ STANDARD | `pop` przed zapisem, D-3 |
+| tylko metoda ADR-007 (plus wycofanie NKJP) | C3, test |
+| brak danych ≠ 0 | C6, test |
+| bez kopiowania F między homonimami | C7, C8, test |
+| POP0 ⊆ POP ⊆ STANDARD; `kot` w POP0 | C9, C10, D-3 |
 | odtwarzalność bajtowa | D-1, test |
-| zamrożony przebieg i baza bez zmian | A1, C4, D-2, test |
-| atrybucja wg ADR-006 | C18, E2 |
+| zamrożony przebieg i baza bez zmian | C4, D-2, test |
 | bez surowego NKJP i liczb NKJP w pakiecie | C14, D-3, test |
-| wydanie tylko po zatwierdzonym przeglądzie | D-5, E1 |
+| wydanie tylko po zatwierdzonym przeglądzie | D-4, D-5, E1 |
 
 ## Poza zakresem
-- Integracja z `Literaki-server`, botami i opcją stołu (tam też rozstrzygnięcie §2.2 dla stołu).
+- Integracja z `Literaki-server`, botami i opcją stołu.
 - Nowy build LL-PL; zmiany `sources.json`, `inputs.py`, testów LL-PL.
-- Skala ciągła `vocabulary_level`, losowa wiedza botów, model FORM i HYBRID jako osobne listy.
-- Miara POP względem SJP.pl.
-- Słowniki tematyczne.
-- Ręczne dodatki słów potocznych.
+- Inne opcje D1–D9 w `pop` (np. typowe formy, reguła (ii), `d`); zmiana metody to nowa wersja i ADR.
+- Skala ciągła `vocabulary_level`, losowa wiedza botów, model FORM i HYBRID.
+- Miara POP względem SJP.pl; słowniki tematyczne; ręczne dodatki potoczne (D7: osobne zadanie).
 - Zmiana listy `familiar/` na serwerze.
 
 ## Kryteria sukcesu
 | miara | cel |
 |---|---|
-| podzbiory | POP0 ⊆ POP ⊆ STANDARD, 0 wyjątków |
+| podzbiory | POP0 ⊆ POP ⊆ STANDARD, 0 wyjątków; `kot` w POP0 |
+| rozmiar POP | ≤ 60 000 leksemów; = sonda: 45 229 jednostek, 1 328 263 formy, 98,5% `kwjp-standard` |
+| rozmiar POP0 | ≤ 20 000 leksemów; liczby zapisane w D-7 |
 | powtarzalność | 2 przebiegi, 100% plików równych bajtowo |
-| baza v29 | hash przed = po = 85b23ca5… w każdym `pop` i w D-2 |
+| baza v29 | hash przed = po = 85b23ca5… |
 | czas `pop` | ≤ 10 min |
-| rozmiar POP0 | ok. rząd wielkości mniejszy niż POP (wg D6) |
-| przegląd | 30 pozycji na warstwę, ocena agenta, zatwierdzenie właściciela, `check_pop_package.py --review` = 0 |
+| przegląd | 30 pozycji na warstwę, ocena agenta, zatwierdzenie właściciela, `--review` = 0 |
 | wydanie | Release `pop-v1` z SHA256SUMS, przeglądem i atrybucją NKJP |
-| wiki | strony POP/POP0 z liczbami, bez „W przygotowaniu”; Home, _Sidebar, Slownik-STANDARD, Historia-zmian |
+| wiki | strony POP/POP0 z liczbami, bez „W przygotowaniu” |
 
 ## Założenia
-- Zamrożony przebieg `data/work/lists-v30-20261010-165826-a` (FROZEN), pakiet `data/work/release-LL-PL-v29` i `cache/nkjp/1grams.gz` są lokalnie i zgodne z pinami (sprawdzone w audycie).
-- Kwalifikator „pot.” jest czytelny z `interpretation.qualifiers` (62 090 interpretacji, sprawdzone).
-- Numer ADR-007 jest wolny (dziś tylko ADR-006); sprawdzić przed zapisem.
+- Przebieg `data/work/lists-v30-20261010-165826-a` (FROZEN), pakiet `data/work/release-LL-PL-v29` i `cache/nkjp/1grams.gz` są lokalnie i zgodne z pinami (sprawdzone w grupie 1).
+- Kod rankingu w HEAD (487402c) = kod pomiaru (7133fbe); grupa 9 dodała tylko sekcję konfiguracji (sprawdzone `git diff`).

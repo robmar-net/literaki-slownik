@@ -48,3 +48,7 @@
 ## 2026-10-11T14:23:27Z - Group 9 Complete
 **Steps**: 9.1–9.5. **Tests**: test_pop 36 OK, całość 327 OK. **Files**: config/generator/pop.json, pop.py (load_config), test_pop.py.
 **Dla grupy 11**: D5 e-common = units('e', eligible=relevant−proper); d6 {pop, pop0} wprost do threshold(); must_include_pop0 ["kot"] do wymuszenia w pop.
+
+## 2026-10-11T14:33:34Z - Group 10 Complete (bramka B5)
+**Spec rew. 3** (47 wymagań) i **plan C–E** (grupy 11–17, 102 kroki). 10.4: właściciel zlecił 2026-10-11 „podejmij decyzje i wykonaj kolejne iteracje w ramach workflow maister” — kontynuacja bez osobnego zatrzymania; bramka przeglądu 16.8 zostaje.
+**D-6 podstawa**: tree_sha256 81a5f82ae66f9457… (measure b); nowy kod pop pod sekcją konfiguracji.

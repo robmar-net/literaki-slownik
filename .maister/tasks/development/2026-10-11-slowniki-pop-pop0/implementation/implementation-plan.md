@@ -1,32 +1,35 @@
 # Plan implementacji: słowniki POP i POP0 (#3)
 
-Podstawa: `implementation/spec.md` (rew. 2), `verification/spec-audit.md`.
+Podstawa: `implementation/spec.md` (rew. 3, 47 wymagań), `docs/adr/ADR-007-metoda-pop-v1.md`, `config/generator/pop.json`. Plan C, D, E rozpisany w grupie 10 (B5).
 
 ## TL;DR
-- 17 grup, 90 kroków. Etapy A (grupy 1–7) i B (8–10) są rozpisane w całości. C, D i E (11–17) to zarys, **do doprecyzowania po B5**.
-- Kolejność: piny → ładowanie KWJP/SGJP → NKJP → rangi i opcje → skrypt pomiaru → pomiar na v29 → **STOP: właściciel** → ADR-007 → `pop.json` → **STOP: bramka B5** → C → D (**STOP: przegląd**) → E.
-- Równolegle: grupa 5 (`quality.py`) z grupami 1–4; grupy 13 i 14 po 12. Reszta jest szeregowa, bo dzieli `pop.py` i `tests/test_pop.py`.
-- Testy: 2–8 na grupę z kodem, razem ok. 55–78.
+- 17 grup, 102 kroki. A (1–7) i B (8–9) zrobione. Grupa 10 czeka na zatwierdzenie właściciela (10.4).
+- Dalej: `pop` rdzeń (11) → pakiet (12) → `explain_pop` (13) ‖ skrypt kontroli (14) → przegląd testów (15) → odbiór na v29 (16, **STOP: przegląd**) → wydanie `pop-v1` i wiki (17).
+- `pop` przyjmuje tylko wartości ADR-007 i wycofanie NKJP. Nowy kod poniżej sekcji konfiguracji `pop.py`; kod rankingu bez zmian (D-6).
+- Testy: 45 są; C dodaje 27; przegląd do 10. Razem ok. 72–82.
 
 ## Key Decisions
-- Kod ładowania danych, rang i opcji jest w `literaki_slownik/pop.py`. Skrypt pomiaru go importuje, więc A i C liczą tym samym kodem (D-6).
-- Czasy reguł przynależności (A9) trafiają do osobnego `timing.json`. `measure.json` jest bez czasów, więc dwa przebiegi dają te same bajty (A3).
-- Testy `pop-quality-v1` są w nowym pliku `tests/test_pop_quality.py`. `tests/test_quality.py` zostaje bez zmian.
-- Fikstura POP (`tests/pop_helpers.py`) ma własne SGJP. `release_helpers.SGJP` i testy LL-PL się nie zmieniają.
-- Grupy bez kodu (7, 8, 10, 16, 17) nie mają testów. Zamiast nich mają kontrole: hashe, `cmp`, `curl -fI`.
+- Kod `pop` dopisany na końcu `pop.py`, pod sekcją konfiguracji. Funkcje rankingu (linie przed `# --- Konfiguracja`) i `database.py` bez zmian. Wtedy pomiar A jest podstawą D-6 bez ponownego liczenia.
+- Złożenie `pop` wg `scripts/measure_pop.py` (`_load`, `_d5_option('e-common')`, `_select`, `_forms`). Bez `load_forms_accepted` i `load_form_classes`: D2 nie ma klas ani reguły (ii).
+- `load_config` zawężone do ADR-007 (C3). Testy grupy 9, które przyjmują inne opcje (waga 1, wycofanie z `d4` ≠ `null`), odwrócone.
+- Raporty pakietu: `reports/thresholds.json`, `reports/units.json`, `reports/sample.json`, `reports/review-template.json`. „Indeks POP” = `reports/units.json`; jego hash idzie do `review_template` jako `canonical_index_sha256`.
+- Wypełniony przegląd `pop-v1-review.json` jest poza pakietem. Pakiet ma tylko szablon `UNREVIEWED`, więc `SHA256SUMS` się nie zmienia.
+- `check_pop_package.py` dostaje `--standard <lists/standard.txt>`. STANDARD nie jest w pakiecie; hash pliku sprawdzany z pinem w manifeście.
+- Kontrola „bez liczb NKJP”: klucze z `nkjp` w raportach tylko z listy dozwolonej (`nkjp_rank`, `nkjp_percentile`, `nkjp_status`); brak pliku z surowym NKJP.
+- Assety Release wg wzoru `llpl-v29`: listy `.txt.gz`, `pop-v1-pakiet.tar.gz`, `SHA256SUMS`, plus `pop-v1-review.json`.
 
 ## Open Questions / Risks
-- Bramki właściciela: po grupie 7 (D1–D8), po grupie 10 (B5) i w grupie 16 (przegląd). Wykonawca **zatrzymuje się** w każdej i nie zaczyna następnej grupy bez odpowiedzi.
-- Grupy 11–17 zależą od wyborów D1–D8. Ich kroki i testy przepisze grupa 10.
-- Liczby z audytu (14 s odczytu, 350 MB, 14 s hasha) mogły się zestarzeć. Grupa 7 mierzy je od nowa.
-- Druga reguła przynależności (D2c) czyta `analysis` (17,5 mln) i `variant_decision` (35 mln). Czas nieznany do grupy 7.
-- Grupy 2–4 dzielą `pop.py`, więc idą po kolei. To wydłuża etap A.
-- Nowy `pop.py` i zmiana `quality.py` zmieniają `code_identity`. Ma to znaczenie tylko dla przyszłej weryfikacji LL-PL.
+- Bramki właściciela: 10.4 (spec rew. 3 i ten plan) i 16.8 (przegląd próbek). Wykonawca zatrzymuje się w każdej.
+- Fikstura ma małe progi. Liczby 60 000/20 000 widać dopiero na v29 (11.7, 16.6).
+- Zmiana kodu rankingu w C → ponowny pomiar A (ok. 5 min, bez reguły (ii)) przed porównaniem D-6.
+- POP0 = 20 000 nie ma liczby z pomiaru. D-6 tylko ją zapisuje.
+- RSS ok. 3,6 GB na przebieg. Dwa przebiegi `pop` po kolei, nie równolegle.
+- `tar` assetu nie musi być bajtowo powtarzalny. Treść wiąże `SHA256SUMS` pakietu.
 
 ## Overview
-Total Steps: 90
+Total Steps: 102
 Task Groups: 17 (A: 1–7, B: 8–10, C: 11–15, D: 16, E: 17)
-Expected Tests: ok. 55–78 (A+B: 42, C: do 26, przegląd: do 10)
+Expected Tests: ok. 72–82 (A+B: 45 istniejących, C: 27 nowych, przegląd: do 10)
 
 Zasady dla każdej grupy:
 - Nigdy nie pisać do `data/work/lists-v30-20261010-165826-a` ani do `data/work/release-LL-PL-v29`. Baza tylko `mode=ro`.
@@ -252,152 +255,201 @@ Zasady dla każdej grupy:
 **Files to Modify:** .maister/tasks/development/2026-10-11-slowniki-pop-pop0/implementation/spec.md, .maister/tasks/development/2026-10-11-slowniki-pop-pop0/implementation/implementation-plan.md, .maister/tasks/development/2026-10-11-slowniki-pop-pop0/implementation/implementation-plan.html
 **Estimated Steps:** 4
 
-- [ ] 10.0 Bramka B→C (B5)
-  - [ ] 10.1 Spec rew. 3: wybrane opcje zamiast list; usunąć niewybrane ścieżki (zostaje D3 = sama KWJP)
-  - [ ] 10.2 Rozpisz grupy 11–17: kroki, testy, pliki
-  - [ ] 10.3 Zanotuj `code_identity` z `measure.json`; jeśli kod rankingu zmieni się w C, D-6 wymaga ponownego pomiaru
-  - [ ] 10.4 **STOP.** Właściciel zatwierdza spec rew. 3 i plan C. Bez tego grupa 11 nie startuje
+- [x] 10.0 Bramka B→C (B5)
+  - [x] 10.1 Spec rew. 3: wybrane opcje zamiast list; usunąć niewybrane ścieżki (zostaje D3 = sama KWJP)
+  - [x] 10.2 Rozpisz grupy 11–17: kroki, testy, pliki
+  - [x] 10.3 Zanotuj `code_identity` z `measure.json`; jeśli kod rankingu zmieni się w C, D-6 wymaga ponownego pomiaru
+    - podstawa: `data/work/pop-measure-20261011-154857-b/measure.json`, `tree_sha256` `81a5f82ae66f9457…` (commit `db15d829…`, dirty = kod z 7133fbe)
+    - nowy kod `pop` tylko poniżej sekcji konfiguracji `pop.py` (`# --- Konfiguracja metody`)
+    - kontrola: `git diff 7133fbe -- literaki_slownik/database.py` puste i `pop.py` do znacznika konfiguracji równy 7133fbe; inaczej ponowny pomiar A (16.2)
+  - [x] 10.4 **STOP.** Właściciel zatwierdza spec rew. 3 i plan C. Bez tego grupa 11 nie startuje
 
 **Acceptance Criteria:**
 - spec rew. 3 i plan C zatwierdzone przez właściciela
 
-### Etap C — polecenie `pop` (do doprecyzowania po B5)
+### Etap C — polecenie `pop`
 
 ### Task Group 11: Polecenie `pop` — rdzeń
 **Dependencies:** 10
-**Files to Modify:** literaki_slownik/pop.py, literaki_slownik/cli.py, tests/test_pop.py
-**Estimated Steps:** 5
+**Files to Modify:** literaki_slownik/pop.py, literaki_slownik/cli.py, tests/pop_helpers.py, tests/test_pop.py
+**Estimated Steps:** 8
 
-- [ ] 11.0 Budowa list POP i POP0 (C1–C10, C14, C15)
-  - [ ] 11.1 Napisz do 8 testów: POP0 ⊆ POP ⊆ STANDARD; naruszenie → 4; D5 bez kopiowania F; brak ≠ 0 (statusy KWJP/NKJP); forma konstrukcji z leksemem składnika; hash bazy po ≠ przed → 5 i pusty `--output-dir`; CLI kody 2/3/4/5 (subprocess)
-  - [ ] 11.2 `build_pop(...)`: przepływ ze spec na funkcjach grup 1–4 i `load_config`
-  - [ ] 11.3 Podkomenda `pop` w `cli.py`: leniwy import, `_finish`, `--json`
-  - [ ] 11.4 Czas na v29 ≤ 10 min (C15)
-  - [ ] 11.5 Uruchom tylko testy z 11.1
+- [ ] 11.0 Listy POP i POP0 w pamięci (C1–C10, C14, C15, C19)
+  - [ ] 11.1 Napisz 8 testów w `tests/test_pop.py`
+    - `load_config` zawężone: `d5 = d`, klasy D2, reguła (ii), `d1 = kwjp-all`, inna reguła D4, waga ≠ 0,5, `d6` przez `coverage`, D9 `true`, wycofanie z `d4` ≠ `null` → kod 2; `pop.json` z repo i wycofanie z `d4 = null` przechodzą
+    - POP0 ⊆ POP ⊆ STANDARD; `zamek:a/b` wchodzi w całości albo wcale; F grupy nie trafia do członków
+    - `Polska` bez rangi i poza progiem; forma `polska` wchodzi przez `polski`
+    - brak pełny → `NO_DATA`, poza listami; częściowy → flaga `single_source:<źródło>`; nigdy ranga 0
+    - forma konstrukcji wchodzi z leksemem składnika; `ul.` nie skleja się z `ul`
+    - brak słowa z `must_include_pop0` w POP0 → kod 4
+    - sama KWJP (`d3 = {kwjp, F}`, `d4 = null`): `1grams.gz` nie jest otwierany; wynik bez pól NKJP (C19)
+    - hash bazy przed = po; inny hash po (podmieniony `database_sha256`) → kod 5; CLI (subprocess) zły `pop.json` → 2, zły pin → 3, przebieg nie-FROZEN → 5
+  - [ ] 11.2 `tests/pop_helpers.py`: `pop_config(tmp, pop, pop0)` z małymi progami; NKJP fikstury z `kot` i liczbami o rzadkich ciągach cyfr (np. `7340919`) dla skanu C14; `kot` w POP0 przy progach fikstury
+  - [ ] 11.3 Zawęź `load_config` (C3): wartości ADR-007 jako stałe w sekcji konfiguracji; D3 = KWJP+NKJP F z wagą 0,5 albo sama KWJP F z `d4 = null`; D6 tylko `count`, POP0 < POP. Odwróć testy grupy 9: „waga 1 w zakresie” i wycofanie z `d4` ≠ `null`
+  - [ ] 11.4 `build_pop(sources, config, run_dir, release_dir)` pod sekcją konfiguracji
+    - `check_inputs` → hash bazy → `read_standard` → `load_lexemes`, `load_kwjp_lists`, `kwjp_measures`, `form_owners`, `load_forms` (reguła (i)), `load_constructions`
+    - `read_nkjp(path, d4)` tylko przy KWJP+NKJP
+    - `units(kwjp, 'e', relevant, nkjp, owners, eligible=relevant − proper)`; `relevant` = leksemy z formą w STANDARD
+    - `measure(result, d3, d8)` → `rank_units` → `threshold` osobno dla `d6.pop` i `d6.pop0`
+    - `must_include_pop0` w POP0 (brak → 4) → `forms_for(members, d2, forms, constructions)` → kontrola podzbiorów (→ 4) → hash bazy po (różny → 5)
+    - funkcji rankingu nie zmieniać; wzór złożenia: `scripts/measure_pop.py`
+  - [ ] 11.5 Wynik w pamięci: posortowane klucze POP i POP0; wiersze jednostek (ranga, miara, percentyle KWJP/NKJP, statusy per źródło, flagi, członkowie); raport progów (ranga graniczna, jednostki, leksemy, formy, pokrycie `kwjp-standard` i `kwjp-all`)
+  - [ ] 11.6 Podkomenda `pop` w `cli.py` (C1): `--manifest`, `--config`, `--run-dir`, `--release-dir`, `--output-dir`, `--json`; leniwy import, `_finish`. W tej grupie liczy i wypisuje podsumowanie; zapis pakietu w grupie 12
+  - [ ] 11.7 Na v29 (bez zapisu): czas ≤ 10 min (C15); POP = sonda (45 229 jednostek, 1 328 263 formy, 98,5%); `kot` w POP0; wynik i czas do `work-log.md`. Kontrola D-6 z 10.3
+  - [ ] 11.8 Uruchom tylko testy z 11.1 i odwrócone testy grupy 9
 
 **Acceptance Criteria:**
-- testy z 11.1 przechodzą; `pop` na v29 ≤ 10 min
+- 8 testów z 11.1 przechodzi
+- `pop` na v29 ≤ 10 min; POP zgodne z sondą; `kot` w POP0
+- `pop.py` przed sekcją konfiguracji i `database.py` równe 7133fbe
 
-### Task Group 12: Pakiet POP
+### Task Group 12: Pakiet POP `BUILT`
 **Dependencies:** 11
-**Files to Modify:** literaki_slownik/pop.py, tests/test_pop.py
-**Estimated Steps:** 6
+**Files to Modify:** literaki_slownik/pop.py, literaki_slownik/cli.py, tests/pop_helpers.py, tests/test_pop.py
+**Estimated Steps:** 8
 
-- [ ] 12.0 Pakiet `BUILT` (C11–C13, C17, C18)
-  - [ ] 12.1 Napisz do 7 testów: dwa przebiegi równe bajtowo (z gzip); gzip `mtime=0`, pusta nazwa, poziom 9; manifest `status: BUILT`, bez czasów i ścieżek bezwzględnych; pliki 0444, istniejący katalog → 4; skan pakietu bez liczb NKJP (C14); próbki `pop-quality-v1` i `review_template` z hashem raportu rang; `ATTRIBUTIONS.md`/`LIMITATIONS.md`/`TERMS.md` obecne
-  - [ ] 12.2 `POP.txt.gz`, `POP0.txt.gz`, `reports/` (pokrycie, rangi, wrażliwość wag, próbki, szablon przeglądu), `SHA256SUMS`
-  - [ ] 12.3 `release-manifest.json` (C12)
-  - [ ] 12.4 Trzy pliki md z `pop-sources.json` i ADR-007 (wzór `verify.py:468-520`)
-  - [ ] 12.5 Staging + `export.rename_noreplace`, pliki 0444
-  - [ ] 12.6 Uruchom tylko testy z 12.1
+- [ ] 12.0 Zapis pakietu (C11–C13, C17, C18)
+  - [ ] 12.1 Napisz 7 testów
+    - dwa przebiegi do dwóch katalogów: wszystkie pliki równe bajtowo; gzip: `mtime=0`, pusta nazwa, poziom 9; treść = posortowane `game_key` z `\n`
+    - układ: `POP.txt.gz`, `POP0.txt.gz`, `reports/` (4 pliki), `release-manifest.json`, `ATTRIBUTIONS.md`, `LIMITATIONS.md`, `TERMS.md`, `SHA256SUMS`; `SHA256SUMS` obejmuje wszystko poza sobą
+    - manifest: `status: BUILT`, hashe wejść (z hashem bazy), `code_identity`, hash `pop.json`, ADR-007, `must_include_pop0`, id reguły NKJP, hashe wyjść; bez czasów i ścieżek bezwzględnych
+    - pliki 0444; istniejący `--output-dir` → 4 i bez zmian; błąd w trakcie → brak celu
+    - skan pakietu: żadnej liczby NKJP z fikstury (rzadkie ciągi z 11.2) i brak surowego NKJP; klucze `nkjp*` tylko z listy dozwolonej (C14)
+    - próbki `pop-quality-v1` z warstwami C17; `review-template.json` `UNREVIEWED`, `canonical_index_sha256` = hash `reports/units.json`
+    - `ATTRIBUTIONS.md` z NKJP wg ADR-006 (twórca, URL, „CC BY, wersja nieokreślona”, reguła D4); sama KWJP → bez NKJP w atrybucjach i manifeście (C19); TERMS: CC BY i BSD-2-Clause
+  - [ ] 12.2 `tests/pop_helpers.py`: `pop_package(tmp)` buduje pakiet fikstury dla grup 13–14
+  - [ ] 12.3 `_write_gzip(path, keys)`: `gzip.GzipFile(filename='', mtime=0, compresslevel=9)`; `POP.txt.gz`, `POP0.txt.gz`
+  - [ ] 12.4 `reports/`: `thresholds.json` (C10), `units.json` (rangi, miary, percentyle, statusy, flagi; bez F NKJP), `sample.json` (`quality.sample_strata`, `sampling` z `pop.json`; warstwy: granica POP wewn./zewn., granica POP0 wewn./zewn., braki danych, rozbieżność KWJP–NKJP, grupy homonimów, części mowy, krótkie/długie), `review-template.json` (`quality.review_template`, `evidence_sha256` = hashe list i `thresholds.json`)
+  - [ ] 12.5 `ATTRIBUTIONS.md`, `LIMITATIONS.md` (punkty E3), `TERMS.md` z `pop-sources.json` i ADR-007 (wzór `verify.py:468-520`)
+  - [ ] 12.6 `release-manifest.json` (C12) przez `canonical`; potem `SHA256SUMS` (`<sha256>  <ścieżka>`, posortowane)
+  - [ ] 12.7 Staging obok celu → `export.rename_noreplace`; pliki 0444; cel istnieje → 4. `cli pop` zapisuje pakiet i wypisuje ścieżkę oraz liczby
+  - [ ] 12.8 Uruchom tylko testy z 12.1
 
 **Acceptance Criteria:**
-- testy z 12.1 przechodzą
+- 7 testów z 12.1 przechodzi
+- pakiet fikstury powtarzalny bajtowo, bez liczb NKJP
 
 ### Task Group 13: `explain_pop`
 **Dependencies:** 12
 **Files to Modify:** literaki_slownik/explain.py, literaki_slownik/cli.py, tests/test_explain_pop.py
-**Estimated Steps:** 4
+**Estimated Steps:** 5
 
 - [ ] 13.0 Wyjaśnienie słowa w POP/POP0 (C16)
-  - [ ] 13.1 Napisz 5 testów: powody `IN_POP0`, `IN_POP`, `BELOW_THRESHOLD`, `NO_DATA`, `FORM_NOT_TYPICAL`, `NOT_IN_STANDARD`; piny pakietu ≠ run-dir → 3; brak liczb NKJP w wyniku; `decisions.VARIANTS` bez zmian; CLI `--variant pop|pop0 --pop-dir`
-  - [ ] 13.2 `explain_pop(...)` obok `explain`
-  - [ ] 13.3 CLI: `choices` rozszerzone, `--pop-dir`
-  - [ ] 13.4 Uruchom tylko testy z 13.1
+  - [ ] 13.1 Napisz 5 testów w `tests/test_explain_pop.py` (pakiet z `pop_package`)
+    - każdy powód: `IN_POP0`, `IN_POP`, `BELOW_THRESHOLD`, `NO_DATA`, `PROPER_NAME_ONLY`, `NOT_IN_STANDARD`
+    - wynik: czy w STANDARD, leksemy, per jednostka ranga, miara, statusy, flagi, próg; bez liczb NKJP
+    - piny pakietu ≠ run-dir (hash bazy, release-manifest) → kod 3
+    - hash bazy przed = po; `decisions.VARIANTS` bez zmian
+    - CLI `explain --variant pop0 --pop-dir … --word kot` (tekst i `--json`); `--variant pop` bez `--pop-dir` → kod 2
+  - [ ] 13.2 `explain_pop(pop_dir, run_dir, word, variant)` w `explain.py`: piny z `release-manifest.json` pakietu; leksemy słowa z bazy ro; wiersze z `reports/units.json` i `thresholds.json`
+  - [ ] 13.3 Format tekstowy obok `format_explanation`
+  - [ ] 13.4 CLI: `choices` + `pop`, `pop0`; `--pop-dir`; brak przy POP → 2
+  - [ ] 13.5 Uruchom tylko testy z 13.1
 
 **Acceptance Criteria:**
-- testy z 13.1 przechodzą
+- 5 testów z 13.1 przechodzi; `explain` LL-PL bez zmian
 
 ### Task Group 14: `scripts/check_pop_package.py`
 **Dependencies:** 12
 **Files to Modify:** scripts/check_pop_package.py, tests/test_check_pop_package.py
-**Estimated Steps:** 3
+**Estimated Steps:** 6
 
 - [ ] 14.0 Niezależna kontrola pakietu i przeglądu (D-3, D-5)
-  - [ ] 14.1 Napisz 6 testów: poprawny pakiet → 0; zmieniony plik → 4; naruszenie podzbiorów → 4; liczba NKJP w pakiecie → 4; przegląd `UNREVIEWED`, pozycja bez oceny, inny `sample_sha256` albo inny hash `SHA256SUMS` → 4; skrypt nie importuje `pop.py`
-  - [ ] 14.2 Skrypt tylko na stdlib
-  - [ ] 14.3 Uruchom tylko testy z 14.1
+  - [ ] 14.1 Napisz 7 testów w `tests/test_check_pop_package.py` (pakiet z `pop_package`)
+    - poprawny pakiet → 0
+    - zmieniony, brakujący albo dodatkowy plik → 4
+    - słowo POP0 spoza POP, słowo POP spoza STANDARD, brak `kot` w POP0 → 4
+    - klucz `nkjp*` spoza listy dozwolonej albo plik surowego NKJP → 4
+    - przegląd: `UNREVIEWED`, pozycja bez oceny, inny `sample_sha256`, inny hash `SHA256SUMS` → 4; `REVIEWED` kompletny → 0
+    - zły argument → 2; hash `--standard` ≠ pin w manifeście → 3
+    - skrypt nie importuje `pop` ani `literaki_slownik` (skan AST)
+  - [ ] 14.2 `SHA256SUMS` i hashe wyjść manifestu; zbiór plików dokładnie jak w `SHA256SUMS`
+  - [ ] 14.3 Podzbiory na plikach (gzip), `--standard` z pinem, `must_include_pop0` z manifestu
+  - [ ] 14.4 Skan NKJP: klucze JSON w `reports/`, nazwy plików
+  - [ ] 14.5 `--review <plik>`: status, każda ocena, `sample_sha256` = hash `reports/sample.json`, hash `SHA256SUMS`. Tylko stdlib; `main()` zwraca kod
+  - [ ] 14.6 Uruchom tylko testy z 14.1
 
 **Acceptance Criteria:**
-- testy z 14.1 przechodzą
+- 7 testów z 14.1 przechodzi; skrypt tylko na stdlib
 
 ### Task Group 15: Przegląd testów i luki
 **Dependencies:** 11, 12, 13, 14
-**Files to Modify:** tests/test_pop.py, tests/test_measure_pop.py, tests/test_explain_pop.py, tests/test_check_pop_package.py
+**Files to Modify:** tests/test_pop.py, tests/test_explain_pop.py, tests/test_check_pop_package.py
 **Estimated Steps:** 4
 
 - [ ] 15.0 Przegląd testów POP
-  - [ ] 15.1 Przejrzyj testy grup 1–14 (ok. 58–68)
-  - [ ] 15.2 Znajdź luki tylko dla POP (tabela ograniczeń spec)
+  - [ ] 15.1 Przejrzyj testy grup 1–14 (ok. 72)
+  - [ ] 15.2 Luki tylko dla POP wg tabeli ograniczeń spec i „Kluczowe przypadki” (np. wycofanie NKJP end-to-end, `ul.`/`ul` w pakiecie)
   - [ ] 15.3 Dopisz do 10 testów
   - [ ] 15.4 Testy POP, potem raz pełny zestaw `python3 -m unittest discover -s tests -p 'test_*.py'`
 
 **Acceptance Criteria:**
 - testy POP i pełny zestaw zielone; najwyżej 10 nowych testów
 
-### Etap D — odbiór (do doprecyzowania po B5)
+### Etap D — odbiór
 
-### Task Group 16: Odbiór pakietu
+### Task Group 16: Odbiór pakietu na v29
 **Dependencies:** 15
-**Files to Modify:** .maister/tasks/development/2026-10-11-slowniki-pop-pop0/verification/pop-acceptance.md, data/work/pop-v1-*/ (poza gitem)
-**Estimated Steps:** 8
+**Files to Modify:** .maister/tasks/development/2026-10-11-slowniki-pop-pop0/verification/pop-acceptance.md, .maister/tasks/development/2026-10-11-slowniki-pop-pop0/verification/pop-v1-review.json, data/work/pop-v1-<stempel>-a|b/ (poza gitem), data/work/pop-v1-review.json (poza gitem)
+**Estimated Steps:** 10
 
 - [ ] 16.0 Odbiór D-1…D-7
-  - [ ] 16.1 Hashe bazy, `manifest.json`, `lists/`, `reports/` przebiegu i release-manifest v29 przed
-  - [ ] 16.2 Dwa przebiegi `pop` do dwóch katalogów; wszystkie pliki równe bajtowo (D-1)
-  - [ ] 16.3 Hashe z 16.1 po; baza = `85b23ca5…` (D-2)
-  - [ ] 16.4 `check_pop_package.py --pop-dir` = 0 (D-3)
-  - [ ] 16.5 Liczby pakietu = raport A; inny `code_identity` → najpierw ponowny pomiar A (D-6)
-  - [ ] 16.6 Agent ocenia każdą pozycję próbki → `pop-v1-review.json`. **STOP:** właściciel zatwierdza, status `REVIEWED` (D-4)
-  - [ ] 16.7 `check_pop_package.py --review` = 0 (D-5)
-  - [ ] 16.8 `verification/pop-acceptance.md`: hashe, liczby, przegląd, D-3/D-5 (D-7)
+  - [ ] 16.1 `df`; hashe przed: baza, `manifest.json`, `lists/`, `reports/` przebiegu, `release-manifest.json` v29
+  - [ ] 16.2 D-6: kontrola z 10.3. Kod rankingu zmieniony → ponowny `scripts/measure_pop.py` do nowego katalogu; ten `measure.json` jest podstawą
+  - [ ] 16.3 Dwa przebiegi `pop` po kolei do `data/work/pop-v1-<stempel>-a` i `-b`; czas i RSS; `diff -r` i `cmp SHA256SUMS` (D-1)
+  - [ ] 16.4 Hashe z 16.1 po; baza = `85b23ca5…` (D-2)
+  - [ ] 16.5 `check_pop_package.py --pop-dir …-a --standard <v29>/lists/standard.txt` = 0 (D-3)
+  - [ ] 16.6 Liczby: POP = sonda (45 229 jednostek, 1 328 263 formy, 98,5% `kwjp-standard`); POP0 zapisane; `kot` w POP0 (ranga ok. 9 128). Rozbieżność → STOP i przyczyna, bez poprawiania liczb
+  - [ ] 16.7 Agent ocenia każdą pozycję `reports/review-template.json` (ocena, uzasadnienie, `reviewer: agent`) → szkic `data/work/pop-v1-review.json`; podsumowanie per warstwa dla właściciela
+  - [ ] 16.8 **STOP.** Właściciel zatwierdza przegląd; wtedy status `REVIEWED`. Bez tego brak grupy 17 (D-4)
+  - [ ] 16.9 `check_pop_package.py --review data/work/pop-v1-review.json` = 0 (D-5); kopia do `verification/pop-v1-review.json`
+  - [ ] 16.10 `verification/pop-acceptance.md` (D-7): hashe, liczby, `code_identity`, wynik przeglądu, wyjście D-3/D-5; commit i push repo
 
 **Acceptance Criteria:**
 - D-1…D-7 spełnione; właściciel zatwierdził przegląd
 
-### Etap E — wydanie i wiki (do doprecyzowania po B5)
+### Etap E — wydanie i wiki
 
-### Task Group 17: Wydanie `pop-v1` i wiki
+### Task Group 17: Wydanie `pop-v1`, dokumenty i wiki
 **Dependencies:** 16
-**Files to Modify:** docs/generator/cli.md, docs/generator/jakosc.md, docs/runbook-wiki.md, docs/plan-dalszych-prac-runbook.md, wiki: Slownik-POP, Slownik-POP0, Home, _Sidebar, Slownik-STANDARD, Historia-zmian
-**Estimated Steps:** 6
+**Files to Modify:** docs/generator/cli.md, docs/generator/jakosc.md, docs/runbook-wiki.md, docs/plan-dalszych-prac-runbook.md, ../wiki-literaki-slownik/Slownik-POP.md, ../wiki-literaki-slownik/Slownik-POP0.md, ../wiki-literaki-slownik/Home.md, ../wiki-literaki-slownik/_Sidebar.md, ../wiki-literaki-slownik/Slownik-STANDARD.md, ../wiki-literaki-slownik/Historia-zmian.md
+**Estimated Steps:** 7
 
 - [ ] 17.0 Wydanie i dokumentacja (E1–E6)
-  - [ ] 17.1 Tuż przed wydaniem `check_pop_package.py --review` = 0; inaczej brak wydania
-  - [ ] 17.2 `gh release create pop-v1`: pliki C11, osobny asset `pop-v1-review.json`; notatka: liczby, hashe, LL-PL v29, ADR-007, ograniczenia, atrybucja NKJP (E1–E3)
-  - [ ] 17.3 Dokumenty (E5): `cli.md`, `jakosc.md`, `runbook-wiki.md`, `plan-dalszych-prac-runbook.md:51` bez „NKJP BLOCKED”
-  - [ ] 17.4 Wiki wg `docs/runbook-wiki.md` (E4): liczby z pakietu, metoda z ADR-007, link do Release; bez „W przygotowaniu”; wiersz w `Historia-zmian`; bez tez o znajomości słów
-  - [ ] 17.5 `curl -fI` na każdy asset i stronę wiki → 200 (E6)
-  - [ ] 17.6 Commit i push repo oraz wiki
+  - [ ] 17.1 Tuż przed wydaniem `check_pop_package.py --pop-dir … --standard … --review …` = 0; inaczej brak wydania (E1)
+  - [ ] 17.2 `gh release create pop-v1` wg wzoru `llpl-v29`: `POP.txt.gz`, `POP0.txt.gz`, `pop-v1-pakiet.tar.gz`, `SHA256SUMS`, `pop-v1-review.json`. Notatka: liczby z `reports/thresholds.json`, hashe, podstawa `llpl-v29`, ADR-007, ograniczenia, atrybucja NKJP wg ADR-006 (E1–E3)
+  - [ ] 17.3 Dokumenty (E5): `cli.md` (`pop`, `explain --variant pop|pop0 --pop-dir`), `jakosc.md` (`pop-quality-v1`), `runbook-wiki.md` (strony POP/POP0, skąd liczby), `plan-dalszych-prac-runbook.md` (l. 45: komenda `pop`; l. 51: bez „NKJP BLOCKED”, odesłanie do ADR-006/007)
+  - [ ] 17.4 Wiki wg `docs/runbook-wiki.md`: `git -C ~/Projects/Literaki/wiki-literaki-slownik pull --ff-only`; `Slownik-POP` i `Slownik-POP0`: zamiast „**W przygotowaniu.**” stan (słowa, leksemy, `pop-v1`, link do Release, sha256), tabela filtrów z przykładem słowa, link do ADR-007; bez tez o znajomości słów
+  - [ ] 17.5 Usuń „w przygotowaniu” z `Home` (wiersze POP/POP0: liczba i link), `_Sidebar`, `Slownik-STANDARD`; wiersz w `Historia-zmian`. W tabelach `[POP](Slownik-POP)`, nie `[[a|b]]`. `grep -ri przygotowaniu` w wiki = pusto
+  - [ ] 17.6 `curl -fIL` na każdy asset Release i każdą zmienioną stronę wiki → 200 (E6)
+  - [ ] 17.7 Commit i push repo `literaki-slownik` oraz wiki
 
 **Acceptance Criteria:**
-- Release `pop-v1` po D-5; wiki wypchnięte; E6 zielone
+- Release `pop-v1` po D-5; wiki bez „w przygotowaniu”, wypchnięte; E6 zielone
 
 ## Execution Order
 
-1. Grupa 1: Manifest i piny (5 kroków)
-2. Grupa 5: `pop-quality-v1` (3 kroki; równolegle z 1–4)
-3. Grupa 2: KWJP i SGJP (7 kroków, po 1)
-4. Grupa 3: NKJP (6 kroków, po 1; po 2, bo ten sam plik)
-5. Grupa 4: Rangi i opcje (7 kroków, po 2, 3)
-6. Grupa 6: Skrypt pomiaru (7 kroków, po 4, 5)
-7. Grupa 7: Pomiar na v29 (6 kroków, po 6) — **STOP: właściciel D1–D8**
-8. Grupa 8: ADR-007 (4 kroki, po 7)
-9. Grupa 9: `pop.json` (5 kroków, po 8)
-10. Grupa 10: Bramka B5 (4 kroki, po 9) — **STOP: właściciel**
-11. Grupa 11: `pop` rdzeń (5 kroków, po 10)
-12. Grupa 12: Pakiet (6 kroków, po 11)
-13. Grupy 13 i 14 równolegle (4 i 3 kroki, po 12)
-14. Grupa 15: Przegląd testów (4 kroki, po 11–14)
-15. Grupa 16: Odbiór (8 kroków, po 15) — **STOP: przegląd właściciela**
-16. Grupa 17: Wydanie i wiki (6 kroków, po 16)
+1. Grupa 1: Manifest i piny (5 kroków) — zrobione
+2. Grupa 5: `pop-quality-v1` (3 kroki) — zrobione
+3. Grupy 2, 3, 4: KWJP/SGJP, NKJP, rangi (7, 6, 7 kroków) — zrobione
+4. Grupa 6: Skrypt pomiaru (7 kroków) — zrobione
+5. Grupa 7: Pomiar na v29 (6 kroków) — zrobione
+6. Grupy 8, 9: ADR-007, `pop.json` (4, 5 kroków) — zrobione
+7. Grupa 10: Bramka B5 (4 kroki, po 9) — **STOP: właściciel (10.4)**
+8. Grupa 11: `pop` rdzeń (8 kroków, po 10)
+9. Grupa 12: Pakiet (8 kroków, po 11)
+10. Grupy 13 i 14 równolegle (5 i 6 kroków, po 12; wspólnych plików brak)
+11. Grupa 15: Przegląd testów (4 kroki, po 11–14)
+12. Grupa 16: Odbiór na v29 (10 kroków, po 15) — **STOP: przegląd właściciela (16.8)**
+13. Grupa 17: Wydanie i wiki (7 kroków, po 16)
 
 ## Standards Compliance
 
 Zgodnie z `.maister/docs/INDEX.md` i `docs/`:
-- `AGENTS.md`: po polsku, zwięźle; decyzje o składzie słownika z właścicielem; wiki w tej samej pracy
+- `AGENTS.md`: po polsku, zwięźle; decyzje o składzie słownika z właścicielem (D1–D9 delegowane, ADR-007); wiki w tej samej pracy
 - `docs/literaki-niezalezne-slowniki-prompt-v3.md` §2.1, §2.2, §8.1, §8.2, §9.1, §9.4, §13
 - `docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md`: atrybucja, bez surowego NKJP, wycofanie NKJP
+- `docs/adr/ADR-007-metoda-pop-v1.md`: tylko metoda `pop-v1`; zmiana = nowa wersja
 - `docs/generator/jakosc.md` (kontrakt próbek), `docs/generator/publikacja.md` (licencje, układ pakietu), `docs/runbook-wiki.md`
 - `docs/literaki-prosty-jezyk-minimum-leksykalne-kierunki.md` §4–5: bez list zewnętrznych
 
@@ -406,5 +458,5 @@ Zgodnie z `.maister/docs/INDEX.md` i `docs/`:
 - Test najpierw: każda grupa z kodem zaczyna od 2–8 testów.
 - Po grupie uruchamiaj tylko jej testy. Pełny zestaw raz, w grupie 15.
 - Zaznaczaj kroki po wykonaniu.
-- Najpierw ponowne użycie: `canonical`, `inputs.checked_file`, `export.rename_noreplace`, `quality.sample_strata`/`review_template`, `run.code_identity`, `kwjp.METRICS`, parser z `scripts/audit_nkjp.py`, fikstury `tests/release_helpers.py`.
-- Bramki właściciela (grupy 7, 10, 16) zatrzymują wykonawcę. Etap C nie startuje przed B5.
+- Najpierw ponowne użycie: funkcje `pop.py` z grup 1–4 i 9, złożenie z `scripts/measure_pop.py`, `quality.sample_strata`/`review_template`, `canonical`, `export.rename_noreplace`, `run.code_identity`, wzór `verify.py:468-520`, fikstury `tests/pop_helpers.py`.
+- Bramki właściciela (10.4, 16.8) zatrzymują wykonawcę.
