@@ -217,11 +217,11 @@ Zasady dla każdej grupy:
 **Files to Modify:** docs/adr/ADR-007-metoda-pop-v1.md, ATTRIBUTIONS.md
 **Estimated Steps:** 4
 
-- [ ] 8.0 Zapis decyzji (B2, B4)
-  - [ ] 8.1 Sprawdź, że ADR-007 jest wolny (`docs/adr/`, gałęzie lokalne)
-  - [ ] 8.2 `docs/adr/ADR-007-metoda-pop-v1.md`: status, data, wybór per D1–D8 z liczbami z raportu A, odrzucone opcje, warunek rewizji, wycofanie NKJP (D3 = sama KWJP), link do `config/generator/pop.json`
-  - [ ] 8.3 `ATTRIBUTIONS.md`: opis zmian NKJP wg D4 (reguła i jej identyfikator)
-  - [ ] 8.4 Właściciel akceptuje ADR; status „zaakceptowana” z datą
+- [x] 8.0 Zapis decyzji (B2, B4)
+  - [x] 8.1 Sprawdź, że ADR-007 jest wolny (`docs/adr/`, gałęzie lokalne)
+  - [x] 8.2 `docs/adr/ADR-007-metoda-pop-v1.md`: status, data, wybór per D1–D8 z liczbami z raportu A, odrzucone opcje, warunek rewizji, wycofanie NKJP (D3 = sama KWJP), link do `config/generator/pop.json`
+  - [x] 8.3 `ATTRIBUTIONS.md`: opis zmian NKJP wg D4 (reguła i jej identyfikator)
+  - [x] 8.4 Właściciel akceptuje ADR; status „zaakceptowana” z datą
 
 **Acceptance Criteria:**
 - ADR-007 zaakceptowany; `ATTRIBUTIONS.md` zgodny z D4
@@ -231,18 +231,18 @@ Zasady dla każdej grupy:
 **Files to Modify:** config/generator/pop.json, literaki_slownik/pop.py, tests/test_pop.py
 **Estimated Steps:** 5
 
-- [ ] 9.0 Konfiguracja metody `pop-v1` (B3, C3)
-  - [ ] 9.1 Napisz 6 testów
+- [x] 9.0 Konfiguracja metody `pop-v1` (B3, C3)
+  - [x] 9.1 Napisz 6 testów
     - `config/generator/pop.json` z repo przechodzi
     - nieznany klucz → kod 2
     - opcja D spoza zamkniętej listy → kod 2
     - liczba złego typu (`bool`, `float` zamiast `int`) albo spoza zakresu → kod 2
     - D3 = „sama KWJP” zawsze przyjmowane
     - `sampling` inne niż `pop-quality-v1` → kod 2
-  - [ ] 9.2 `pop.json`: `version: pop-v1`, `adr: ADR-007`, opcje D1–D8, progi, wagi, `sampling`
-  - [ ] 9.3 `load_config(path)` w `pop.py`: zamknięte listy opcji (te z raportu A), typy przez `type(x) is int`, zakresy
-  - [ ] 9.4 ADR-007 i `pop.json` wskazują się nawzajem
-  - [ ] 9.5 Uruchom tylko testy z 9.1
+  - [x] 9.2 `pop.json`: `version: pop-v1`, `adr: ADR-007`, opcje D1–D8, progi, wagi, `sampling`
+  - [x] 9.3 `load_config(path)` w `pop.py`: zamknięte listy opcji (te z raportu A), typy przez `type(x) is int`, zakresy
+  - [x] 9.4 ADR-007 i `pop.json` wskazują się nawzajem
+  - [x] 9.5 Uruchom tylko testy z 9.1
 
 **Acceptance Criteria:**
 - 6 testów z 9.1 przechodzi; `pop.json` przechodzi walidator

@@ -8,8 +8,9 @@ from literaki_slownik.canonical import load_json, sha256, write_json
 from literaki_slownik.inputs import GeneratorError
 from literaki_slownik.database import connect
 from literaki_slownik.pop import (CLEANING_RULES, check_inputs, coverage, database_sha256, form_owners,
-                                  forms_for, kwjp_measures, load_constructions, load_form_classes, load_forms,
-                                  load_forms_accepted, load_kwjp, load_kwjp_lists, load_lexemes, load_sources,
+                                  forms_for, kwjp_measures, load_config, load_constructions, load_form_classes,
+                                  load_forms, load_forms_accepted, load_kwjp, load_kwjp_lists, load_lexemes,
+                                  load_sources,
                                   measure, member_ranks, nkjp_collisions, nkjp_form_status, nkjp_lexeme_ranks,
                                   percentiles, rank_units, read_nkjp, read_standard, spearman, tag_classes,
                                   threshold, top_overlap, units)
@@ -578,6 +579,154 @@ class PopRankingTests(unittest.TestCase):
             with self.assertRaises(GeneratorError) as raised:
                 measure(result, bad)
             self.assertEqual(raised.exception.code, 2, bad)
+
+
+class PopConfigTests(unittest.TestCase):
+    """`pop.json` i `load_config` (B3, C3, ADR-007): zamknięte klucze, opcje, typy i zakresy."""
+    ROOT = Path(__file__).resolve().parent.parent
+
+    def setUp(self):
+        self.work = tempfile.TemporaryDirectory()
+        self.directory = Path(self.work.name)
+        self.base = load_json(self.ROOT / 'config/generator/pop.json')
+
+    def tearDown(self):
+        self.work.cleanup()
+
+    def write(self, config):
+        path = self.directory / 'pop.json'
+        path.write_text(json.dumps(config, ensure_ascii=False), encoding='utf-8')
+        return path
+
+    def variant(self, change):
+        config = json.loads(json.dumps(self.base))
+        change(config)
+        return config
+
+    def assert_code_2(self, config, label):
+        with self.assertRaises(GeneratorError, msg=label) as raised:
+            load_config(self.write(config))
+        self.assertEqual(raised.exception.code, 2, label)
+
+    def test_repository_config_is_valid_and_encodes_adr_007(self):
+        config = load_config(self.ROOT / 'config/generator/pop.json')
+        self.assertEqual(config['version'], 'pop-v1')
+        self.assertEqual(config['adr'], 'docs/adr/ADR-007-metoda-pop-v1.md')
+        self.assertTrue((self.ROOT / config['adr']).is_file())
+        self.assertEqual(config['d1'], 'kwjp-standard')
+        self.assertEqual(config['d2'], {'classes': [], 'constructions': 'yes', 'membership': 'i'})
+        self.assertEqual(config['d3'], {'source': 'kwjp+nkjp', 'field': 'F', 'weight': 0.5})
+        self.assertEqual(config['d4'], 'strip-edges-keep-dot')
+        self.assertEqual(config['d5'], 'e-common')
+        self.assertEqual(config['d6'], {'pop': {'by': 'count', 'value': 60000},
+                                        'pop0': {'by': 'count', 'value': 20000}})
+        self.assertEqual((config['d7'], config['d8']), ('accepted', 'available-only'))
+        self.assertIs(config['proper_names_in_ranking'], False)
+        self.assertEqual(config['must_include_pop0'], ['kot'])
+        self.assertEqual(config['sampling']['version'], 'pop-quality-v1')
+        self.assertEqual(config['config_sha256'], sha256(self.ROOT / 'config/generator/pop.json'))
+        # ADR-007 wskazuje pop.json.
+        adr = (self.ROOT / config['adr']).read_text(encoding='utf-8')
+        self.assertIn('config/generator/pop.json', adr)
+        # Zapis kanoniczny: indent=2, ensure_ascii=False, newline.
+        text = (self.ROOT / 'config/generator/pop.json').read_text(encoding='utf-8')
+        self.assertEqual(text, json.dumps(self.base, indent=2, ensure_ascii=False) + '\n')
+
+    def test_unknown_or_missing_key_is_code_2(self):
+        cases = {
+            'nowy klucz': lambda c: c.update(extra=1),
+            'brak d7': lambda c: c.pop('d7'),
+            'klucz w d2': lambda c: c['d2'].update(extra=1),
+            'klucz w d3': lambda c: c['d3'].update(extra=1),
+            'waga przy samej KWJP': lambda c: c['d3'].update(source='kwjp'),
+            'klucz w d6': lambda c: c['d6'].update(pop1={'by': 'count', 'value': 1}),
+            'klucz w d6.pop': lambda c: c['d6']['pop'].update(denominator='kwjp-all'),
+            'klucz w sampling': lambda c: c['sampling'].update(extra=1),
+        }
+        for label, change in cases.items():
+            self.assert_code_2(self.variant(change), label)
+        path = self.directory / 'dup.json'
+        path.write_text('{"version": "pop-v1", "version": "pop-v1"}', encoding='utf-8')
+        with self.assertRaises(GeneratorError) as raised:
+            load_config(path)
+        self.assertEqual(raised.exception.code, 2)
+
+    def test_option_outside_closed_list_is_code_2(self):
+        cases = {
+            'version': lambda c: c.update(version='pop-v2'),
+            'adr': lambda c: c.update(adr='docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md'),
+            'd1': lambda c: c.update(d1='kwjp-everything'),
+            'd2 klasa': lambda c: c['d2'].update(classes=['noun']),
+            'd2 powtórzona klasa': lambda c: c['d2'].update(classes=['voc', 'voc']),
+            'd2 konstrukcje': lambda c: c['d2'].update(constructions=True),
+            'd2 reguła': lambda c: c['d2'].update(membership='iii'),
+            'd3 źródło': lambda c: c['d3'].update(source='nkjp'),
+            'd3 pole': lambda c: c['d3'].update(field='f'),
+            'd4': lambda c: c.update(d4='strip-all'),
+            'd4 brak przy NKJP': lambda c: c.update(d4=None),
+            'd5': lambda c: c.update(d5='f'),
+            'd6 by': lambda c: c['d6']['pop'].update(by='lexemes'),
+            'd7': lambda c: c.update(d7='corrected'),
+            'd8': lambda c: c.update(d8='zero'),
+            'd9 nie bool': lambda c: c.update(proper_names_in_ranking=0),
+        }
+        for label, change in cases.items():
+            self.assert_code_2(self.variant(change), label)
+
+    def test_number_of_wrong_type_or_out_of_range_is_code_2(self):
+        cases = {
+            'POP bool': lambda c: c['d6']['pop'].update(value=True),
+            'POP float': lambda c: c['d6']['pop'].update(value=60000.0),
+            'POP tekst': lambda c: c['d6']['pop'].update(value='60000'),
+            'POP zero': lambda c: c['d6']['pop'].update(value=0),
+            'POP0 ujemne': lambda c: c['d6']['pop0'].update(value=-1),
+            'POP0 = POP': lambda c: c['d6']['pop0'].update(value=60000),
+            'POP0 > POP': lambda c: c['d6']['pop0'].update(value=70000),
+            'waga bool': lambda c: c['d3'].update(weight=True),
+            'waga zero': lambda c: c['d3'].update(weight=0),
+            'waga > 1': lambda c: c['d3'].update(weight=1.5),
+            'waga tekst': lambda c: c['d3'].update(weight='0.5'),
+            'sampling float': lambda c: c['sampling'].update(size_per_stratum=30.0),
+        }
+        for label, change in cases.items():
+            self.assert_code_2(self.variant(change), label)
+        # Waga 1 jest w zakresie (0, 1].
+        load_config(self.write(self.variant(lambda c: c['d3'].update(weight=1))))
+
+    def test_kwjp_only_rollback_is_always_accepted(self):
+        def rollback(config):
+            config['d3'] = {'source': 'kwjp', 'field': 'F'}
+        config = load_config(self.write(self.variant(rollback)))
+        self.assertEqual(config['d3'], {'source': 'kwjp', 'field': 'F'})
+
+        def without_d4(config):
+            rollback(config)
+            config['d4'] = None
+        self.assertIsNone(load_config(self.write(self.variant(without_d4)))['d4'])
+
+    def test_sampling_other_than_pop_quality_v1_is_code_2(self):
+        cases = {
+            'quality-v1': lambda c: c.update(sampling={'version': 'quality-v1', 'seed': 'literaki-slownik-g1-v1',
+                                                       'size_per_stratum': 30,
+                                                       'encoding': c['sampling']['encoding']}),
+            'zły seed': lambda c: c['sampling'].update(seed='inny'),
+            'inny rozmiar': lambda c: c['sampling'].update(size_per_stratum=31),
+            'inne kodowanie': lambda c: c['sampling'].update(encoding='json'),
+            'nie obiekt': lambda c: c.update(sampling='pop-quality-v1'),
+        }
+        for label, change in cases.items():
+            self.assert_code_2(self.variant(change), label)
+
+    def test_must_include_pop0_is_non_empty_list_of_words(self):
+        cases = {
+            'pusta lista': lambda c: c.update(must_include_pop0=[]),
+            'tekst': lambda c: c.update(must_include_pop0='kot'),
+            'pusty wyraz': lambda c: c.update(must_include_pop0=['kot', '']),
+            'liczba': lambda c: c.update(must_include_pop0=[1]),
+            'powtórzenie': lambda c: c.update(must_include_pop0=['kot', 'kot']),
+        }
+        for label, change in cases.items():
+            self.assert_code_2(self.variant(change), label)
 
 
 class RepositoryPopSourcesTests(unittest.TestCase):

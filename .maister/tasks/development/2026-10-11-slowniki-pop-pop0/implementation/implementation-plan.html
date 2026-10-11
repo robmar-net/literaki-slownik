@@ -152,24 +152,24 @@ ul.subs { margin:2px 0 0 22px; color:var(--dim); }
 <li data-step="7.6" class="step done"><b>7.6</b> <b>STOP.</b> Pytanie do właściciela (B1): dla każdej D1–D8 opcje, liczby, przykłady, zalecenie. Nie zaczynaj grupy 8 bez odpowiedzi</li>
 </ul><div class="acc"><b>Kryteria:</b><ul><li>dwa <code>measure.json</code> równe bajtowo; hash bazy bez zmian</li><li>raport ma tabelę dla każdej D1–D8, pomiar A9 i próbki</li><li>właściciel odpowiedział na D1–D8</li></ul></div></div></section>
 <h2 class="stage">Etap B — decyzje</h2>
-<section data-group="8" class="group todo" id="g8"><div class="card">
+<section data-group="8" class="group done" id="g8"><div class="card">
 <div class="ghead"><h3>Grupa 8: ADR-007 i atrybucja NKJP</h3><span class="badge g-badge"></span></div>
 <p class="dim">Zapis decyzji (B2, B4) · zależy od: <b>7 (i odpowiedź właściciela)</b> · kroków: 4</p>
 <div class="chips"><code>docs/adr/ADR-007-metoda-pop-v1.md</code> <code>ATTRIBUTIONS.md</code> </div><ul class="steps">
-<li data-step="8.1" class="step todo"><b>8.1</b> Sprawdź, że ADR-007 jest wolny (<code>docs/adr/</code>, gałęzie lokalne)</li>
-<li data-step="8.2" class="step todo"><b>8.2</b> <code>docs/adr/ADR-007-metoda-pop-v1.md</code>: status, data, wybór per D1–D8 z liczbami z raportu A, odrzucone opcje, warunek rewizji, wycofanie NKJP (D3 = sama KWJP), link do <code>config/generator/pop.json</code></li>
-<li data-step="8.3" class="step todo"><b>8.3</b> <code>ATTRIBUTIONS.md</code>: opis zmian NKJP wg D4 (reguła i jej identyfikator)</li>
-<li data-step="8.4" class="step todo"><b>8.4</b> Właściciel akceptuje ADR; status „zaakceptowana” z datą</li>
+<li data-step="8.1" class="step done"><b>8.1</b> Sprawdź, że ADR-007 jest wolny (<code>docs/adr/</code>, gałęzie lokalne)</li>
+<li data-step="8.2" class="step done"><b>8.2</b> <code>docs/adr/ADR-007-metoda-pop-v1.md</code>: status, data, wybór per D1–D8 z liczbami z raportu A, odrzucone opcje, warunek rewizji, wycofanie NKJP (D3 = sama KWJP), link do <code>config/generator/pop.json</code></li>
+<li data-step="8.3" class="step done"><b>8.3</b> <code>ATTRIBUTIONS.md</code>: opis zmian NKJP wg D4 (reguła i jej identyfikator)</li>
+<li data-step="8.4" class="step done"><b>8.4</b> Właściciel akceptuje ADR; status „zaakceptowana” z datą</li>
 </ul><div class="acc"><b>Kryteria:</b><ul><li>ADR-007 zaakceptowany; <code>ATTRIBUTIONS.md</code> zgodny z D4</li></ul></div></div></section>
-<section data-group="9" class="group todo" id="g9"><div class="card">
+<section data-group="9" class="group done" id="g9"><div class="card">
 <div class="ghead"><h3>Grupa 9: <code>pop.json</code> i walidator konfiguracji</h3><span class="badge g-badge"></span></div>
 <p class="dim">Konfiguracja metody <code>pop-v1</code> (B3, C3) · zależy od: <b>8</b> · kroków: 5</p>
 <div class="chips"><code>config/generator/pop.json</code> <code>literaki_slownik/pop.py</code> <code>tests/test_pop.py</code> </div><ul class="steps">
-<li data-step="9.1" class="step todo"><b>9.1</b> Napisz 6 testów<ul class="subs"><li><code>config/generator/pop.json</code> z repo przechodzi</li><li>nieznany klucz → kod 2</li><li>opcja D spoza zamkniętej listy → kod 2</li><li>liczba złego typu (<code>bool</code>, <code>float</code> zamiast <code>int</code>) albo spoza zakresu → kod 2</li><li>D3 = „sama KWJP” zawsze przyjmowane</li><li><code>sampling</code> inne niż <code>pop-quality-v1</code> → kod 2</li></ul></li>
-<li data-step="9.2" class="step todo"><b>9.2</b> <code>pop.json</code>: <code>version: pop-v1</code>, <code>adr: ADR-007</code>, opcje D1–D8, progi, wagi, <code>sampling</code></li>
-<li data-step="9.3" class="step todo"><b>9.3</b> <code>load_config(path)</code> w <code>pop.py</code>: zamknięte listy opcji (te z raportu A), typy przez <code>type(x) is int</code>, zakresy</li>
-<li data-step="9.4" class="step todo"><b>9.4</b> ADR-007 i <code>pop.json</code> wskazują się nawzajem</li>
-<li data-step="9.5" class="step todo"><b>9.5</b> Uruchom tylko testy z 9.1</li>
+<li data-step="9.1" class="step done"><b>9.1</b> Napisz 6 testów<ul class="subs"><li><code>config/generator/pop.json</code> z repo przechodzi</li><li>nieznany klucz → kod 2</li><li>opcja D spoza zamkniętej listy → kod 2</li><li>liczba złego typu (<code>bool</code>, <code>float</code> zamiast <code>int</code>) albo spoza zakresu → kod 2</li><li>D3 = „sama KWJP” zawsze przyjmowane</li><li><code>sampling</code> inne niż <code>pop-quality-v1</code> → kod 2</li></ul></li>
+<li data-step="9.2" class="step done"><b>9.2</b> <code>pop.json</code>: <code>version: pop-v1</code>, <code>adr: ADR-007</code>, opcje D1–D8, progi, wagi, <code>sampling</code></li>
+<li data-step="9.3" class="step done"><b>9.3</b> <code>load_config(path)</code> w <code>pop.py</code>: zamknięte listy opcji (te z raportu A), typy przez <code>type(x) is int</code>, zakresy</li>
+<li data-step="9.4" class="step done"><b>9.4</b> ADR-007 i <code>pop.json</code> wskazują się nawzajem</li>
+<li data-step="9.5" class="step done"><b>9.5</b> Uruchom tylko testy z 9.1</li>
 </ul><div class="acc"><b>Kryteria:</b><ul><li>6 testów z 9.1 przechodzi; <code>pop.json</code> przechodzi walidator</li></ul></div></div></section>
 <section data-group="10" class="group todo" id="g10"><div class="card">
 <div class="ghead"><h3>Grupa 10: Bramka B5 — spec rew. 3 i plan C</h3><span class="badge g-badge"></span> <span class="stop">STOP</span></div>

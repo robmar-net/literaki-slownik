@@ -1,0 +1,39 @@
+{
+  "version": "pop-v1",
+  "adr": "docs/adr/ADR-007-metoda-pop-v1.md",
+  "d1": "kwjp-standard",
+  "d2": {
+    "classes": [],
+    "constructions": "yes",
+    "membership": "i"
+  },
+  "d3": {
+    "source": "kwjp+nkjp",
+    "field": "F",
+    "weight": 0.5
+  },
+  "d4": "strip-edges-keep-dot",
+  "d5": "e-common",
+  "d6": {
+    "pop": {
+      "by": "count",
+      "value": 60000
+    },
+    "pop0": {
+      "by": "count",
+      "value": 20000
+    }
+  },
+  "d7": "accepted",
+  "d8": "available-only",
+  "proper_names_in_ranking": false,
+  "must_include_pop0": [
+    "kot"
+  ],
+  "sampling": {
+    "version": "pop-quality-v1",
+    "seed": "literaki-slownik-pop-v1",
+    "size_per_stratum": 30,
+    "encoding": "canonical JSON array [seed,stratum,key], UTF-8"
+  }
+}

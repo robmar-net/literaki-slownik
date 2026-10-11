@@ -40,3 +40,11 @@
 **Pomiar**: data/work/pop-measure-20261011-154857-{a,b,c}; a z regułą (ii) (1149 s, RSS 4,3 GB), b i c bez (261 s, 3,6 GB); b = c bajtowo; hash bazy bez zmian; a różni się tylko polami reguły (ii).
 **Raport**: analysis/pop-measure-report.md + dodatek z sondą progów i decyzjami.
 **7.6**: właściciel delegował decyzje („podnieść oba limity; POP mocno, POP0 trochę; decyzje podejmij sam”). Decyzje D1–D9 w dodatku raportu.
+
+## 2026-10-11T14:20:40Z - Group 8 Complete
+**Steps**: 8.1–8.4. **Files**: docs/adr/ADR-007-metoda-pop-v1.md (nowy, zaakceptowany z upoważnienia), ATTRIBUTIONS.md (NKJP wg D4), release.json i sources.json (piny). **Tests**: 320 OK; inspect-sources ok.
+**Uwaga**: warunek D6 „kot w POP0” do sprawdzenia w walidatorze/buildzie (grupa 9/11).
+
+## 2026-10-11T14:23:27Z - Group 9 Complete
+**Steps**: 9.1–9.5. **Tests**: test_pop 36 OK, całość 327 OK. **Files**: config/generator/pop.json, pop.py (load_config), test_pop.py.
+**Dla grupy 11**: D5 e-common = units('e', eligible=relevant−proper); d6 {pop, pop0} wprost do threshold(); must_include_pop0 ["kot"] do wymuszenia w pop.

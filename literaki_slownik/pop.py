@@ -957,3 +957,94 @@ def top_overlap(ranks_a, ranks_b, n):
     top = lambda ranks: {k for k, r in ranks.items() if r <= n}
     overlap = len(top(ranks_a) & top(ranks_b))
     return {'n': n, 'overlap': overlap, 'share': round(overlap / n, 6)}
+
+
+# --- Konfiguracja metody `pop-v1` (B3, C3, ADR-007) ---
+# `config/generator/pop.json` zapisuje decyzje D1–D9. Każde naruszenie schematu = kod 2.
+# D3 = sama KWJP (`{source: kwjp, field}`) jest zawsze przyjmowane: to ścieżka wycofania NKJP (ADR-006);
+# wtedy D4 może być `null`. `proper_names_in_ranking` (D9) to bool; `pop-v1` zapisuje `false`.
+# `must_include_pop0`: słowa, których brak w POP0 zatrzyma polecenie `pop` (kontrola w grupie 11).
+
+METHODS = {'pop-v1': 'docs/adr/ADR-007-metoda-pop-v1.md'}
+CONFIG_KEYS = {'version', 'adr', 'd1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'proper_names_in_ranking',
+               'must_include_pop0', 'sampling'}
+# D5 w konfiguracji: opcje `units` plus `e-common` = `e` z `eligible` = leksemy bez nazw własnych.
+D5_CONFIG = D5_OPTIONS + ('e-common',)
+D7_OPTIONS = ('accepted',)
+SAMPLING_VERSION = 'pop-quality-v1'
+D6_MAX = 10 ** 7
+
+
+def _config_d2(d2):
+    _exact(d2, {'classes', 'constructions', 'membership'}, 'D2')
+    classes = d2['classes']
+    if not isinstance(classes, list) or len(set(map(str, classes))) != len(classes):
+        raise GeneratorError('D2 classes musi być listą bez powtórzeń', 2)
+    for name in classes:
+        _option(name, D2_CLASSES, 'D2 class')
+    _option(d2['constructions'], D2_CONSTRUCTIONS, 'D2 constructions')
+    _option(d2['membership'], D2_MEMBERSHIP, 'D2 membership')
+
+
+def _config_d3_d4(d3, d4):
+    source = d3.get('source') if isinstance(d3, dict) else None
+    _exact(d3, {'source', 'field'} | ({'weight'} if source == 'kwjp+nkjp' else set()), 'D3')
+    _option(source, D3_SOURCES, 'D3 source')
+    _option(d3['field'], D3_FIELDS, 'D3 field')
+    if source == 'kwjp+nkjp':
+        _number(d3['weight'], 0, 1, 'D3 weight', low_open=True)
+    if d4 is not None or source == 'kwjp+nkjp':
+        _option(d4, CLEANING_RULES, 'D4')
+
+
+def _config_d6(d6):
+    _exact(d6, {'pop', 'pop0'}, 'D6')
+    limits = {}
+    for name in ('pop', 'pop0'):
+        item = d6[name]
+        by = _option(item.get('by') if isinstance(item, dict) else None, D6_BY, f'D6 {name}')
+        _exact(item, {'by', 'value'} | ({'denominator'} if by == 'coverage' else set()), f'D6 {name}')
+        if by == 'count':
+            limits[name] = _number(item['value'], 0, D6_MAX, f'D6 {name}', integer=True, low_open=True)
+        else:
+            _option(item['denominator'], D1_OPTIONS, f'D6 {name} denominator')
+            limits[name] = _number(item['value'], 0, 1, f'D6 {name}', low_open=True)
+    if (d6['pop']['by'] != d6['pop0']['by'] or d6['pop'].get('denominator') != d6['pop0'].get('denominator')
+            or not limits['pop0'] < limits['pop']):
+        raise GeneratorError('D6: POP0 musi być mniejsze od POP w tej samej mierze', 2)
+
+
+def _validate_config(config):
+    from .quality import _config as sampling_config
+    _exact(config, CONFIG_KEYS, 'pop.json')
+    version = _option(config['version'], METHODS, 'wersja metody')
+    if config['adr'] != METHODS[version]:
+        raise GeneratorError(f'pop.json: adr musi wskazywać {METHODS[version]}', 2)
+    _option(config['d1'], D1_OPTIONS, 'D1')
+    _config_d2(config['d2'])
+    _config_d3_d4(config['d3'], config['d4'])
+    _option(config['d5'], D5_CONFIG, 'D5')
+    _config_d6(config['d6'])
+    _option(config['d7'], D7_OPTIONS, 'D7')
+    _option(config['d8'], D8_PARTIAL, 'D8b')
+    if type(config['proper_names_in_ranking']) is not bool:
+        raise GeneratorError('D9: proper_names_in_ranking musi być true albo false', 2)
+    words = config['must_include_pop0']
+    if (not isinstance(words, list) or not words or not all(_text(w) for w in words)
+            or len(set(words)) != len(words)):
+        raise GeneratorError('must_include_pop0: niepusta lista słów bez powtórzeń', 2)
+    sampling = config['sampling']
+    if not isinstance(sampling, dict) or sampling.get('version') != SAMPLING_VERSION:
+        raise GeneratorError(f'pop.json: sampling musi być {SAMPLING_VERSION}', 2)
+    sampling_config(sampling)
+
+
+def load_config(path):
+    """Wczytaj i ściśle sprawdź `pop.json` (metoda `pop-v1`, ADR-007); błąd schematu = kod 2."""
+    path = Path(path).resolve()
+    try:
+        config = load_json(path)
+    except (OSError, ValueError) as error:
+        raise GeneratorError(f'Nie można wczytać pop.json: {error}', 2, str(path)) from error
+    _validate_config(config)
+    return {**config, 'config_path': str(path), 'config_sha256': sha256(path)}

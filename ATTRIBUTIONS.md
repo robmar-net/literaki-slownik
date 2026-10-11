@@ -68,7 +68,9 @@ Dotyczy pakietów, które używają NKJP (POP, POP0). Pakiet LL-PL v29 go nie u�
 - Licencja: CC BY, wersja nieokreślona przez udostępniającego. Spełniamy wymagania wszystkich wersji
   1.0–4.0; tekst wersji 4.0: https://creativecommons.org/licenses/by/4.0/. Udostępniający nie podał
   informacji o prawach autorskich ani wyłączenia gwarancji.
-- Zmiany: zliczenia form oczyszczamy z doklejonej interpunkcji, łączymy z formami SGJP i przeliczamy
+- Zmiany: z formy zdejmujemy interpunkcję tylko z brzegów tokenu i zostawiamy kropkę, więc skróty
+  (np. `ul.`) nie łączą się ze słowami (`ul`); reguła `nkjp-clean-strip-edges-keep-dot-v1`
+  ([ADR-007](docs/adr/ADR-007-metoda-pop-v1.md)). Zliczenia łączymy z formami SGJP i przeliczamy
   na miary popularności. Surowego pliku nie redystrybuujemy.
 - Autorzy NKJP i IPI PAN nie popierają tego projektu ani jego wyników. Decyzja: [ADR-006](docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md).
 
