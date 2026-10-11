@@ -393,17 +393,17 @@ Zasady dla każdej grupy:
 **Files to Modify:** .maister/tasks/development/2026-10-11-slowniki-pop-pop0/verification/pop-acceptance.md, .maister/tasks/development/2026-10-11-slowniki-pop-pop0/verification/pop-v1-review.json, data/work/pop-v1-<stempel>-a|b/ (poza gitem), data/work/pop-v1-review.json (poza gitem)
 **Estimated Steps:** 10
 
-- [ ] 16.0 Odbiór D-1…D-7
-  - [ ] 16.1 `df`; hashe przed: baza, `manifest.json`, `lists/`, `reports/` przebiegu, `release-manifest.json` v29
-  - [ ] 16.2 D-6: kontrola z 10.3. Kod rankingu zmieniony → ponowny `scripts/measure_pop.py` do nowego katalogu; ten `measure.json` jest podstawą
-  - [ ] 16.3 Dwa przebiegi `pop` po kolei do `data/work/pop-v1-<stempel>-a` i `-b`; czas i RSS; `diff -r` i `cmp SHA256SUMS` (D-1)
-  - [ ] 16.4 Hashe z 16.1 po; baza = `85b23ca5…` (D-2)
-  - [ ] 16.5 `check_pop_package.py --pop-dir …-a --standard <v29>/lists/standard.txt` = 0 (D-3)
-  - [ ] 16.6 Liczby: POP = sonda (45 229 jednostek, 1 328 263 formy, 98,5% `kwjp-standard`); POP0 zapisane; `kot` w POP0 (ranga ok. 9 128). Rozbieżność → STOP i przyczyna, bez poprawiania liczb
-  - [ ] 16.7 Agent ocenia każdą pozycję `reports/review-template.json` (ocena, uzasadnienie, `reviewer: agent`) → szkic `data/work/pop-v1-review.json`; podsumowanie per warstwa dla właściciela
-  - [ ] 16.8 **STOP.** Właściciel zatwierdza przegląd; wtedy status `REVIEWED`. Bez tego brak grupy 17 (D-4)
-  - [ ] 16.9 `check_pop_package.py --review data/work/pop-v1-review.json` = 0 (D-5); kopia do `verification/pop-v1-review.json`
-  - [ ] 16.10 `verification/pop-acceptance.md` (D-7): hashe, liczby, `code_identity`, wynik przeglądu, wyjście D-3/D-5; commit i push repo
+- [x] 16.0 Odbiór D-1…D-7
+  - [x] 16.1 `df`; hashe przed: baza, `manifest.json`, `lists/`, `reports/` przebiegu, `release-manifest.json` v29
+  - [x] 16.2 D-6: kontrola z 10.3. Kod rankingu zmieniony → ponowny `scripts/measure_pop.py` do nowego katalogu; ten `measure.json` jest podstawą
+  - [x] 16.3 Dwa przebiegi `pop` po kolei do `data/work/pop-v1-<stempel>-a` i `-b`; czas i RSS; `diff -r` i `cmp SHA256SUMS` (D-1)
+  - [x] 16.4 Hashe z 16.1 po; baza = `85b23ca5…` (D-2)
+  - [x] 16.5 `check_pop_package.py --pop-dir …-a --standard <v29>/lists/standard.txt` = 0 (D-3)
+  - [x] 16.6 Liczby: POP = sonda (45 229 jednostek, 1 328 263 formy, 98,5% `kwjp-standard`); POP0 zapisane; `kot` w POP0 (ranga ok. 9 128). Rozbieżność → STOP i przyczyna, bez poprawiania liczb
+  - [x] 16.7 Agent ocenia każdą pozycję `reports/review-template.json` (ocena, uzasadnienie, `reviewer: agent`) → szkic `data/work/pop-v1-review.json`; podsumowanie per warstwa dla właściciela
+  - [x] 16.8 **STOP.** Właściciel zatwierdza przegląd; wtedy status `REVIEWED`. Bez tego brak grupy 17 (D-4)
+  - [x] 16.9 `check_pop_package.py --review data/work/pop-v1-review.json` = 0 (D-5); kopia do `verification/pop-v1-review.json`
+  - [x] 16.10 `verification/pop-acceptance.md` (D-7): hashe, liczby, `code_identity`, wynik przeglądu, wyjście D-3/D-5; commit i push repo
 
 **Acceptance Criteria:**
 - D-1…D-7 spełnione; właściciel zatwierdził przegląd

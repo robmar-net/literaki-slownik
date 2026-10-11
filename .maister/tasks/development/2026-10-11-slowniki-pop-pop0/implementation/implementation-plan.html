@@ -238,20 +238,20 @@ ul.subs { margin:2px 0 0 22px; color:var(--dim); }
 <li data-step="15.4" class="step done"><b>15.4</b> Testy POP, potem raz pełny zestaw <code>python3 -m unittest discover -s tests -p 'test_*.py'</code></li>
 </ul><div class="acc"><b>Kryteria:</b><ul><li>testy POP i pełny zestaw zielone; najwyżej 10 nowych testów</li></ul></div></div></section>
 <h2 class="stage">Etap D — odbiór</h2>
-<section data-group="16" class="group todo" id="g16"><div class="card">
+<section data-group="16" class="group done" id="g16"><div class="card">
 <div class="ghead"><h3>Grupa 16: Odbiór pakietu na v29</h3><span class="badge g-badge"></span> <span class="stop">STOP</span></div>
 <p class="dim">Odbiór D-1…D-7 · zależy od: <b>15</b> · kroków: 10</p>
 <div class="chips"><code>.maister/tasks/development/2026-10-11-slowniki-pop-pop0/verification/pop-acceptance.md</code> <code>.maister/tasks/development/2026-10-11-slowniki-pop-pop0/verification/pop-v1-review.json</code> <code>data/work/pop-v1-&lt;stempel&gt;-a|b/ (poza gitem)</code> <code>data/work/pop-v1-review.json (poza gitem)</code> </div><ul class="steps">
-<li data-step="16.1" class="step todo"><b>16.1</b> <code>df</code>; hashe przed: baza, <code>manifest.json</code>, <code>lists/</code>, <code>reports/</code> przebiegu, <code>release-manifest.json</code> v29</li>
-<li data-step="16.2" class="step todo"><b>16.2</b> D-6: kontrola z 10.3. Kod rankingu zmieniony → ponowny <code>scripts/measure_pop.py</code> do nowego katalogu; ten <code>measure.json</code> jest podstawą</li>
-<li data-step="16.3" class="step todo"><b>16.3</b> Dwa przebiegi <code>pop</code> po kolei do <code>data/work/pop-v1-&lt;stempel&gt;-a</code> i <code>-b</code>; czas i RSS; <code>diff -r</code> i <code>cmp SHA256SUMS</code> (D-1)</li>
-<li data-step="16.4" class="step todo"><b>16.4</b> Hashe z 16.1 po; baza = <code>85b23ca5…</code> (D-2)</li>
-<li data-step="16.5" class="step todo"><b>16.5</b> <code>check_pop_package.py --pop-dir …-a --standard &lt;v29&gt;/lists/standard.txt</code> = 0 (D-3)</li>
-<li data-step="16.6" class="step todo"><b>16.6</b> Liczby: POP = sonda (45 229 jednostek, 1 328 263 formy, 98,5% <code>kwjp-standard</code>); POP0 zapisane; <code>kot</code> w POP0 (ranga ok. 9 128). Rozbieżność → STOP i przyczyna, bez poprawiania liczb</li>
-<li data-step="16.7" class="step todo"><b>16.7</b> Agent ocenia każdą pozycję <code>reports/review-template.json</code> (ocena, uzasadnienie, <code>reviewer: agent</code>) → szkic <code>data/work/pop-v1-review.json</code>; podsumowanie per warstwa dla właściciela</li>
-<li data-step="16.8" class="step todo"><b>16.8</b> <b>STOP.</b> Właściciel zatwierdza przegląd; wtedy status <code>REVIEWED</code>. Bez tego brak grupy 17 (D-4)</li>
-<li data-step="16.9" class="step todo"><b>16.9</b> <code>check_pop_package.py --review data/work/pop-v1-review.json</code> = 0 (D-5); kopia do <code>verification/pop-v1-review.json</code></li>
-<li data-step="16.10" class="step todo"><b>16.10</b> <code>verification/pop-acceptance.md</code> (D-7): hashe, liczby, <code>code_identity</code>, wynik przeglądu, wyjście D-3/D-5; commit i push repo</li>
+<li data-step="16.1" class="step done"><b>16.1</b> <code>df</code>; hashe przed: baza, <code>manifest.json</code>, <code>lists/</code>, <code>reports/</code> przebiegu, <code>release-manifest.json</code> v29</li>
+<li data-step="16.2" class="step done"><b>16.2</b> D-6: kontrola z 10.3. Kod rankingu zmieniony → ponowny <code>scripts/measure_pop.py</code> do nowego katalogu; ten <code>measure.json</code> jest podstawą</li>
+<li data-step="16.3" class="step done"><b>16.3</b> Dwa przebiegi <code>pop</code> po kolei do <code>data/work/pop-v1-&lt;stempel&gt;-a</code> i <code>-b</code>; czas i RSS; <code>diff -r</code> i <code>cmp SHA256SUMS</code> (D-1)</li>
+<li data-step="16.4" class="step done"><b>16.4</b> Hashe z 16.1 po; baza = <code>85b23ca5…</code> (D-2)</li>
+<li data-step="16.5" class="step done"><b>16.5</b> <code>check_pop_package.py --pop-dir …-a --standard &lt;v29&gt;/lists/standard.txt</code> = 0 (D-3)</li>
+<li data-step="16.6" class="step done"><b>16.6</b> Liczby: POP = sonda (45 229 jednostek, 1 328 263 formy, 98,5% <code>kwjp-standard</code>); POP0 zapisane; <code>kot</code> w POP0 (ranga ok. 9 128). Rozbieżność → STOP i przyczyna, bez poprawiania liczb</li>
+<li data-step="16.7" class="step done"><b>16.7</b> Agent ocenia każdą pozycję <code>reports/review-template.json</code> (ocena, uzasadnienie, <code>reviewer: agent</code>) → szkic <code>data/work/pop-v1-review.json</code>; podsumowanie per warstwa dla właściciela</li>
+<li data-step="16.8" class="step done"><b>16.8</b> <b>STOP.</b> Właściciel zatwierdza przegląd; wtedy status <code>REVIEWED</code>. Bez tego brak grupy 17 (D-4)</li>
+<li data-step="16.9" class="step done"><b>16.9</b> <code>check_pop_package.py --review data/work/pop-v1-review.json</code> = 0 (D-5); kopia do <code>verification/pop-v1-review.json</code></li>
+<li data-step="16.10" class="step done"><b>16.10</b> <code>verification/pop-acceptance.md</code> (D-7): hashe, liczby, <code>code_identity</code>, wynik przeglądu, wyjście D-3/D-5; commit i push repo</li>
 </ul><div class="acc"><b>Kryteria:</b><ul><li>D-1…D-7 spełnione; właściciel zatwierdził przegląd</li></ul></div></div></section>
 <h2 class="stage">Etap E — wydanie i wiki</h2>
 <section data-group="17" class="group todo" id="g17"><div class="card">

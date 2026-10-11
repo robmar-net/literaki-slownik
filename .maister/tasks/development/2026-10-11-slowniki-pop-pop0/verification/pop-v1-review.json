@@ -1,0 +1,4215 @@
+{
+  "canonical_index_sha256": "a194f172968d85b5da24175c4f70ca1c07af53f99efb085ff6624afc8a7e104f",
+  "evidence_sha256": {
+    "POP.txt.gz": "7cad9d9bb58b4f7805e13aeeb87e7dc93db62dd246a3c766966b2de8caf4d7f7",
+    "POP0.txt.gz": "e5d1bf6238ea9b75bffcfaad150a9e5bfb69a93d30c5884101ae813c09a87c48",
+    "reports/thresholds.json": "535cf75b4fe13ad6735a5aeffadb3ce971e6e1fc1b3575134f21388654e3986e"
+  },
+  "items": [
+    {
+      "assessment": "correct",
+      "key": "Jankes@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 20567 (KWJP 60, NKJP 75): „jankes” to znane słowo potoczne, miejsce w POP poza POP0 rozsądne.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "aa@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 30701 (tylko KWJP 54): wykrzyknik „aa” jest zrozumiały, środek POP pasuje.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "acz",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP i POP0: spójnik „acz” jest książkowy, lecz powszechnie rozumiany.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "aferowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45245 tuż za granicą POP (KWJP brak, NKJP 56,8); przymiotnik publicystyczny, granica sporna.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "amputowałbym",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0: „amputować” znane, ale nie z najczęstszych; rozsądne.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ani",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP i POP0: „ani” to podstawowy spójnik.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "unknown",
+      "key": "ant",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0; dane nie mówią, z którego leksemu pochodzi (np. rzadka „anta”, dop. lm.), więc nie da się ocenić.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "antykoncepcyjny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP tuż za granicą POP0 (11706; KWJP 74, NKJP 89): znane słowo, granica sporna.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "apendyks@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44 632 tuż przy granicy; „apendyks” to znane potoczne słowo, przy granicy rozsądne.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "aranżować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 15108 (KWJP 70, NKJP 81): znany czasownik, POP poza POP0 rozsądne.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "arbuz@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 17150 (KWJP 65, NKJP 81): „arbuz” zna każdy, ale w tekstach rzadszy; niedaleko granicy POP0, do przyjęcia.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "as",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP i POP0: „as” to znane słowo.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "bachor@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 18036 (tylko KWJP 71): znane potoczne słowo, POP poza POP0 rozsądne.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "baj:I@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 36 057 (tylko KWJP); potoczne „baj” (pożegnanie) mieści się w POP, poza POP0 słusznie.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "bankowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 2361 (KWJP 94, NKJP 98): bardzo częste słowo.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "barszczyk@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 30142 (KWJP 37,5, NKJP przez nazwę własną); znane zdrobnienie, poza POP0 rozsądnie.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "baź",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0; to dop. lm. od „bazia”, znanego słowa, sensowne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "bernikla@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45204 (KWJP 20,0, NKJP 45,5); nazwa gatunku gęsi, mało znana, wykluczenie słuszne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "biedzić@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 26429 (KWJP 46, NKJP 73): „biedzić się” znane, rzadsze; rozsądne.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "biokatalizator@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami (49511, tylko NKJP 36): termin specjalistyczny, słusznie poza POP.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "bit",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0; „bit” jest dość znany, POP0 byłby też do obrony, decyzja sporna, ale rozsądna.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "borsalino@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44633 tuż przed granicą; nazwa kapelusza znana części ludzi, granica sporna.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "brr@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 29552 (KWJP 38,5); powszechny wykrzyknik, poza POP0 dopuszczalne.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "bruzdkowanie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami (47367, tylko NKJP 38): termin biologiczny, słusznie poza POP.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "budapeszteńsko@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami (brak danych w obu korpusach): słowo prawie nieużywane, słusznie poza POP.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "buduarek@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45255 (KWJP 3,9); rzadkie zdrobnienie od 'buduar', wykluczenie słuszne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "bykowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 39460 z 'bykowe' (KWJP 20,0); 'bykowe' jest znane, POP rozsądne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "bystro@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, grupa POP0 (ranga 6448) dzięki „bystry”; samo „bystro” jest rzadsze, POP rozsądny.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "bądź:C@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 2 (percentyle ~100): grupa z „być”, poprawnie na szczycie.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "cedzakowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45066 tuż za granicą; rzadki przymiotnik od 'cedzak', wykluczenie słuszne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "cent@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11385 (KWJP 75,7, NKJP przez nazwę własną); słowo powszechnie znane, POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "centuś@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 45033 tuż przed granicą; potoczne określenie skąpca, granica sporna.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "cer",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP i POP0: D. lm. „cera”, znane słowo.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ceregiele@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 19 862; „ceregiele” znane z frazy „bez ceregieli”, POP trafny.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "cesarstwo:Sn_ncol@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 7376 (KWJP 84, NKJP 92): znane słowo.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "chybotliwie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44761 (KWJP 21,3, NKJP 45,4); zrozumiały przysłówek, miejsce przy granicy sensowne.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ciskać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11609 tuż przed granicą (KWJP 75,2); czasownik znany każdemu, POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "cwałować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 30878 (KWJP 36, NKJP 72): znane z literatury, POP rozsądne.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "cynamon@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11539 z 'cynamonowy' (KWJP 82,2, NKJP 86,0); słowo codzienne, POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "cytomegalowirus@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami (brak danych): termin medyczny, słusznie poza POP.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "czortowskość@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami (brak danych): słowo prawie nieznane, słusznie poza POP.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "cztery@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 333 (KWJP 99, NKJP 100): liczebnik podstawowy.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "czuć:V@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 376 (KWJP 100, NKJP 99): bardzo częste słowo.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "czyliż@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 42123 (KWJP 3,7, NKJP 63,1); książkowa partykuła, zrozumiała z literatury, POP bez POP0 do przyjęcia.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dalmierz@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44643 (KWJP 10, NKJP 71): rzeczownik znany, blisko granicy; rozsądne.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dannicko@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami (brak danych): słowo prawie nieznane, słusznie poza POP.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "darmowość@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45360 tuż za granicą; rzeczownik zrozumiały, ale rzadki, granica sporna.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "darłowski@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 33877 (KWJP 24, NKJP 77): przymiotnik od Darłowa, wysoki NKJP to pewnie prasa lokalna; zrozumiały, do przyjęcia.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "demonopolizacja@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 35299 (KWJP 25, NKJP 73): termin ekonomiczny, ale przejrzysty; do przyjęcia.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "deprawowaniu",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0; od 'deprawować/deprawowanie', słowo znane, decyzja rozsądna.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dewiacyjny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 26412 (KWJP 34, NKJP 85): zrozumiałe słowo, POP rozsądne.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "diametralnie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 9699 (KWJP 80, NKJP 88): znane słowo.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dlaczegoż@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 41853 (KWJP 3,7, NKJP 63,7); książkowe, ale każdy je rozumie, POP rozsądne.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dną",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0; narzędnik od „dna” (choroba), słowo znane, sensowne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dobroczynność@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 17 266; znane słowo, POP trafny, POP0 też byłby do obrony.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dokądże@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45074 tuż za granicą (KWJP brak); książkowa partykuła, granica sporna.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dopingować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0 tuż przed granicą (11379; KWJP 73, NKJP 90): znane słowo.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dopóty@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 37818 (KWJP 4, NKJP 90): znany spójnik, w POP słusznie; niska ranga to skutek bardzo niskiego KWJP.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dorwać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11654 tuż za granicą POP0 (KWJP 79,5, NKJP 87,5); znane słowo, mogłoby być po obu stronach.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dorzucałyśmy",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP i POP0: „dorzucać” znane.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "doskwierać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11728 tuż za granicą POP0 (KWJP 79,2, NKJP 87,5); znane, sporne przy granicy.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "drobnicowemu",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0; 'drobnicowy' to termin transportowy przy dolnej granicy POP, decyzja do przyjęcia.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "drwal@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11584 (KWJP 75,3, NKJP przez nazwę własną); słowo powszechnie znane, POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dwuwartościowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 39894 (KWJP 12,4, NKJP 62,4); termin szkolnej chemii, POP rozsądne.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dym",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP i POP0: podstawowe słowo.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dyskredytować",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0: znane, ale nie z najczęstszych; rozsądne.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dyskursywnie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44 793 tuż przy granicy; rzadki przysłówek książkowy, przy granicy sporny, rozsądne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dławisz@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, choć grupa POP0 (10 090) przez „dławić”; „dławisz” jako osobny leksem jest rzadki, słusznie odcięty.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "dźwignąć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, grupa POP0 (7572) dzięki „dźwignia”; „dźwignąć” to znany czasownik, POP rozsądny.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "egzempt@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami (brak danych): archaizm, słusznie poza POP.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ekonometria@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 42672 (KWJP 12, NKJP 72): nazwa dziedziny, znana; blisko granicy, rozsądne.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ekstatyczny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 16636 (KWJP 67, NKJP 80): znane słowo, rozsądne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "elektryzować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 15811 (KWJP 69, NKJP 80): znane słowo, rozsądne.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "elf",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP i POP0: „elf” znane słowo.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "entomogamia@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami (76935, tylko NKJP 10): termin botaniczny, słusznie poza POP.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "etnograficzny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11225 (KWJP 76,9, NKJP 89,7); znane z muzeów i szkoły, POP0 przy granicy do przyjęcia.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "familiarnie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 41771 (KWJP 18,1, NKJP 54,5); zrozumiały przysłówek, POP rozsądne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "filarowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 35542 (KWJP 27,0); przejrzysty przymiotnik od 'filar', POP rozsądne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "finansujecie",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP i POP0: „finansować” częste.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "fokus@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 33 086; „fokus” znany z fotografii i mowy potocznej, POP trafny.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "fordanser@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45369 (KWJP 9,8); przestarzałe słowo z epoki dancingów, wykluczenie słuszne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "formalizacjach",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0: „formalizacja” znana, nie z najczęstszych.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "fortyfikacyjny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 31741 (KWJP 26, NKJP 80): zrozumiałe słowo, rozsądne.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "fotoedytor@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44989 tuż przed granicą; zawodowe, ale przejrzyste, granica sporna.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "garnizonowy:A@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, grupa POP0 (8044) dzięki „garnizon”; przymiotnik „garnizonowy” rzadszy, POP rozsądny.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "gdyby:M@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 183 (percentyle ~100): podstawowy spójnik.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "generał@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 5282 (KWJP 91, NKJP brak dopasowania): decyzja słuszna mimo luki w NKJP.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "globalistyczny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 35516 (KWJP 38, NKJP 59): zrozumiałe słowo, rozsądne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "glutaminowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45270 (KWJP brak); termin chemiczny, wykluczenie słuszne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "golf:Sm3~a~u@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 6182 (KWJP 86, NKJP 94): znane słowo.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "granitowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11775 tuż za granicą POP0 (KWJP 76,4, NKJP 88,8); znane, sporne przy granicy.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "gromadny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 43580 (KWJP 18, NKJP 64): rzadsze, ale zrozumiałe; blisko granicy.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "gromowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, brak danych (KWJP brak, NKJP przez nazwę własną); rzadki przymiotnik z 'gromowo', wykluczenie do przyjęcia.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "groźny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 2107 (KWJP 95, NKJP 98): bardzo częste.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "grzecznie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 5248 (KWJP 90, NKJP 93): częste słowo.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "gubernatorowa@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45271 (KWJP brak); dawne określenie żony gubernatora, wykluczenie słuszne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ha:I@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 2534 (94/98): wykrzyknik „ha” i skrót „ha” (hektar) są powszechne; słusznie w POP0.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "hak",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP i POP0: „hak” to znane słowo.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "hau",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0: „hau” znane, wykrzyknik rzadki w tekstach; rozsądne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "headhunter@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 40661 (KWJP 19,7, NKJP 55,9); zapożyczenie znane z rynku pracy, POP rozsądne.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "hop:I@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 27023 (KWJP 59, brak NKJP): „hop” znane wszystkim; POP to minimum, mogłoby być i w POP0.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "horoskopowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, grupa POP (11 674) przez „horoskop”; „horoskopowy” jest rzadkim przymiotnikiem, odcięcie do obrony.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "hybryd:Sm2@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, grupa POP (11 707) przez „hybryda”; męskie „hybryd” (auto) rzadkie i potoczne, słusznie poza.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "inaktywować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44676 tuż przed granicą (KWJP brak); termin naukowy, ale przejrzysty, granica sporna.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "interliga@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45086 (KWJP brak); termin sportowy znany niszowo, wykluczenie słuszne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "interpersonalny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 15266 (64/87): „interpersonalny” znany z mediów; rozsądne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "izolacjonista@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44899 (KWJP 3,1, NKJP 57,5); zrozumiałe z publicystyki, granica sporna.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "jaja@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, grupa POP0 (3755) przez „jajo”; „jaja” (żarty) potoczne i znane, POP rozsądny.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "jar",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0: „jar” (wąwóz) znany, ale niezbyt częsty; rozsądne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "jednakże:C@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 2814 (93/98): spójnik „jednakże” bardzo częsty.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "jednogłośnie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 9144; „jednogłośnie” powszechnie znane, trafnie.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "jowialność@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44679 (KWJP 16,3, NKJP 48,8); książkowe, ale znane, granica sporna.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "juhas@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 35426 (24/74): „juhas” znany z kultury góralskiej; rozsądne w POP.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "juk",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0: „juk” rzadki, ale forma może pochodzić z innych leksemów (np. „juka”); sporne, akceptowalne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "jurorski@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44 558 tuż przy granicy; „jurorski” zrozumiały, ale rzadki, przy granicy rozsądne.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kafla@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 12856 z 'kafel' (KWJP 72,5, NKJP przez nazwę własną); 'kafel' jest codzienny, ale poza POP0 niedaleko granicy to do przyjęcia.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kahalny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza POP, ranga 50066 (tylko NKJP 36): „kahalny” to termin historyczny; słusznie poza.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kawał:Sm3~u@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 10697 (90/76): „kawał” podstawowe słowo.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kań",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0; D. lm. od 'kania' (ptak, grzyb), słowo znane, decyzja rozsądna.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kibel@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11746 tuż za granicą POP0 (KWJP 80,5, NKJP 86,7); potoczne, znane, sporne przy granicy.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kijaszek@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 41760 (KWJP 9,5, NKJP 60,0); rzadkie, ale przejrzyste zdrobnienie od 'kij', POP do przyjęcia.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kilkadziesiąt@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 1317 (97/99): „kilkadziesiąt” bardzo częste.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "unknown",
+      "key": "kią",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0; prawdopodobnie narzędnik od „kia” (auto marki Kia), więc zależny od nazwy marki, ale dane nie pokazują leksemu.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "klister@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza POP, ranga 78122 (NKJP 9): „klister” rzadki; słusznie poza.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kokaina@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11760 tuż za granicą POP0 (KWJP 80,2, NKJP 86,8); znane, sporne przy granicy.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kolbuszowski@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza POP, ranga 58962 (KWJP 3): „kolbuszowski” to przymiotnik od nazwy miasta; słusznie poza.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kolec@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11635, dwa miejsca za granicą POP0 (KWJP 75,1, NKJP przez nazwę własną); znane słowo, przypadek graniczny.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "koleżeńsko@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, grupa POP (12 091) przez „koleżeński”; „koleżeńsko” rzadkie wobec „po koleżeńsku”, odcięcie do obrony.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kolokacja@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45536 (KWJP 16,2); termin językoznawczy, wykluczenie słuszne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kondolencja@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 16864 (72/74): „kondolencje” znane; rozsądne.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kreskowany@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, grupa POP (29 775); „linia kreskowana” dość znana, ale słowo rzadkie w tekstach, decyzja sporna, rozsądna.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kresowiacki@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza POP, ranga 78396 (NKJP 8): „kresowiacki” rzadki; słusznie poza.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "krokodylek@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 41871 (KWJP 2,8, NKJP 63,7); przejrzyste zdrobnienie, POP rozsądne.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kromeczka@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45544 tuż za granicą; zrozumiałe zdrobnienie, ale rzadkie, granica sporna.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "krótkofalarski@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44905 tuż przed granicą (KWJP brak); przejrzyste, granica sporna.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kulombowski@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45546 (KWJP brak); termin fizyczny, wykluczenie słuszne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kupka@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 10968 (KWJP 76,5, NKJP przez nazwę własną); słowo codzienne, POP0 słuszne.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "kwaterunkowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 21494 (53/80): „kwaterunkowy” znany (mieszkania kwaterunkowe); rozsądne.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "la:P@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, grupa POP0 (5161) przez nutę „la”; przyimek „la” (à la) daje tylko formę „la”, która i tak wchodzi, bez szkody.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "lad",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP0: „lad” to dopełniacz od „lada”; poprawne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "lakiernictwo@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45547 tuż za granicą (KWJP brak); znane z szyldów warsztatów, ale granica sporna.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "legacja@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45217 (KWJP 6,4); termin kościelno-dyplomatyczny, wykluczenie słuszne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "legitymizacyjny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45436 (KWJP 25,8, NKJP 40,0); termin urzędowy, granica sporna.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "likwor@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 45040, KWJP 9,4/NKJP 52,8: „likwor” rzadkie, książkowe; tuż w granicy POP, sporne, więc do przyjęcia.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "literackość@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 28860 (52/61): „literackość” przejrzyste; rozsądne.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "liścisko@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza POP, ranga 70769 (NKJP 17): „liścisko” rzadkie zgrubienie; słusznie poza.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "loko@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44568, tylko NKJP 58,1: „loko” to termin handlowy, mało znany; leży przy granicy POP, do przyjęcia.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "luby:A@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, grupa POP0 (376) przez „lubić”; przymiotnik „luby” książkowy, ale znany, POP rozsądny.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "luk",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP0: „luk” (właz) i dopełniacz od „luka”; poprawne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "macocha@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11429, tylko KWJP 75,6: „macocha” zna każdy; POP0 słuszne (bez NKJP przez nazwę własną spadła aż pod granicę).",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "madrygał@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45104, tylko NKJP 57,1: „madrygał” to termin muzyczny, znany słabo; tuż za granicą POP, do przyjęcia.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "manhattański@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza POP, ranga 58883 (KWJP 3): „manhattański” przymiotnik od nazwy; słusznie poza.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "maniacko@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 32 126; „maniacko” zrozumiałe i spotykane, POP trafny.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "mannoza@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44694, tylko NKJP 57,8: „mannoza” to termin chemiczny, mało znany; przy granicy POP, sporne, do przyjęcia.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "maselniczka@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44996, KWJP 14,0/NKJP 49,6: „maselniczka” zrozumiała i domowa; w POP przy granicy, słusznie.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "mazisty@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45106, tylko NKJP 57,1: „mazisty” znany, ale rzadki; tuż za granicą POP, sporne, do przyjęcia.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "medykalizacja@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 37409 (33/61): „medykalizacja” to termin specjalistyczny, ale obecny w publicystyce; graniczne, akceptowalne.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "mielonka@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 28 383; „mielonka” powszechnie znana, POP trafny, POP0 też byłby do obrony.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "mierzyn@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, brak danych: „mierzyn” to słowo nieznane; słusznie poza.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "mig:Sm3@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 10066, KWJP 78,4: „mig” (w mig, samolot, migi) to słowo powszechne; POP0 słuszne.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "milicyjny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11681, tuż za POP0 (77/86): „milicyjny” znane; rozsądne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "minierskość@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, brak danych: „minierskość” to sztuczny derywat; słusznie poza.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "mityczność@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44997, KWJP 13,9/NKJP 49,5: „mityczność” to rzadki rzeczownik odprzymiotnikowy, zrozumiały; przy granicy POP, do przyjęcia.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "miętolić@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45383, KWJP 22,2/NKJP 42,8: „miętolić” to znane słowo potoczne, ale rzadkie w tekstach; tuż za granicą, sporne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "mniej@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 68 (100/100): „mniej” podstawowe słowo.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "moralizatorski@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 23985 (55/70): „moralizatorski” znane; rozsądne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "nagannie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 43 690 blisko granicy; „nagannie” zrozumiałe, rzadkie, rozsądne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "nam",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP0: „nam” podstawowa forma zaimka.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "naprzeciwko:D@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 4901: „naprzeciwko” to słowo bardzo częste i znane; POP0 trafne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "napytalibyśmy",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0: „napytać (sobie biedy)” znane; rozsądne.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "narodowościowo@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP (grupa POP0, ranga 11094 przez „narodowościowy”): przysłówek znany, ale rzadszy niż przymiotnik; POP bez POP0 trafne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "nań",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP0: „nań” książkowe, ale znane; rozsądne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "negatywistyczny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44704, tylko NKJP 57,8: „negatywistyczny” to słowo książkowe, rzadkie; przy granicy POP, do przyjęcia.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ni:C@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 3091: spójnik „ni” („ni to, ni owo”) jest powszechnie znany; POP0 trafne.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niebezpieczno@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP (grupa POP0, ranga 1546): „niebezpieczno” to forma książkowa, ale zrozumiała („niebezpieczno tu”); POP bez POP0 do przyjęcia.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niebiofilność@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, brak danych: „niebiofilność” sztuczny derywat; słusznie poza.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niedosyt@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11964, KWJP 76,6/NKJP 88,4: „niedosyt” znany powszechnie; tuż za granicą POP0, mógłby być po obu stronach.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niedziwowania",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0: przeczony odsłownik od „dziwować się”; wynika z zasady pełnej odmiany, akceptowalne.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "nieelektrolit@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44706, tylko NKJP 57,8: „nieelektrolit” to wąski termin chemiczny; przy granicy POP, sporne, do przyjęcia.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niefrasobliwość",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0: „niefrasobliwość” to słowo znane, ale książkowe; taki podział jest sensowny.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niegdyś@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 3070: „niegdyś” jest książkowe, ale powszechnie znane; POP0 trafne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niegnuśnieniach",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0: odsłownik od „gnuśnieć”; rzadki, ale zgodny z zasadą pełnej odmiany.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niegórnolotność@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, brak danych: „niegórnolotność” sztuczny derywat; słusznie poza.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niekantabryjsko@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, brak danych: „niekantabryjsko” sztuczny derywat; słusznie poza.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niekordobański@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, brak danych: „niekordobański” sztuczny derywat; słusznie poza.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "nieokiełznany@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11134, KWJP 81,5/NKJP 87,4: „nieokiełznany” i „okiełznać” to słowa dobrze znane; POP0 do przyjęcia.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "nieokrutność@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, brak danych: „nieokrutność” sztuczny derywat; słusznie poza.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niepamięć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11446, KWJP 81,4/NKJP 86,8: „niepamięć” („pójść w niepamięć”) to słowo znane; POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niepyszny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 29958 (43/67): „niepyszny” (jak niepyszny) znane; rozsądne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "nierotowaniach",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0: odsłownik od „rotować”; zgodny z zasadą pełnej odmiany.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niesieciowość@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, brak danych: „niesieciowość” sztuczny derywat; słusznie poza.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niesymetrycznie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 40502: przysłówek przejrzysty i znany, choć rzadki; POP przy granicy trafne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niesynogarliczy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, brak danych: „niesynogarliczy” sztuczny derywat; słusznie poza.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "nieszlachetny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 39141, KWJP 19,4/NKJP 59,4: „nieszlachetny” (metal) jest zrozumiały i rzadki; POP słuszne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "nieufny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11647, o 14 miejsc za POP0: „nieufny” to słowo powszechne; przy granicy, mógłby być po obu stronach.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niewart@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 12677 (75/84): „niewart” znane; rozsądne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niewierny:S@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11954, KWJP 77,9/NKJP 87,8: „niewierny” to słowo znane; tuż za granicą POP0, do przyjęcia.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niewolframowość@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, brak danych: „niewolframowość” sztuczny derywat; słusznie poza.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niewynalezionym",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP0: imiesłów od „wynaleźć”, podstawowego czasownika; poprawne.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niewypieprzeniu",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0: od wulgarnego, ale znanego „wypieprzyć”; rozsądne.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niezakatrupień",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0: od potocznego „zakatrupić”; rozsądne.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niezamazywanemu",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, poza POP0: od „zamazywać”; rozsądne.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niezaparkowania",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP0: odsłownik od „zaparkować”; poprawne.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niezasłużenie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP (grupa POP0, ranga 2584): „niezasłużenie” jest znane; POP bez POP0 rozsądne.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niezbędnie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 39237 (22/68): „niezbędnie” rzadkie, ale przejrzyste; rozsądne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niski@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„niski” w POP0, ranga 695, percentyle ~99; słowo podstawowe.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niskość@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 43495, KWJP 17,6/NKJP 50,2: „niskość” jest rzadka, ale przejrzysta; POP słuszne.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "niwelować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„niwelować” w POP, ranga 11692, tuż za POP0 (76/86); rozsądnie.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "noblista@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11985, KWJP 78,5/NKJP 87,3: „noblista” jest znany; tuż za granicą POP0, sporne, do przyjęcia.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "nowosądecki@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 14444 (tylko KWJP, NKJP z nazwą własną): przymiotnik od Nowego Sącza jest znany; POP trafne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "obciskać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44913, KWJP 2,1/NKJP 57,4: „obciskać” jest zrozumiałe i rzadkie; przy granicy POP, do przyjęcia.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "obcisły@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11320, KWJP 80,5/NKJP 87,7: „obcisły” to słowo powszechne; POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "obieralnia@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "null (grupa POP przez „obieralny”, ranga 41481): „obieralnia” to rzadki termin zakładowy; brak na liście trafny.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "obywatelka@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11467, tylko KWJP 75,5: „obywatelka” to słowo powszechne; POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "obyć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Grupa „obyć/obycie/obyty” w POP0, ranga 5639 (88/94); słowa znane.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ocierniony@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„ocierniony/ociernić” poza listami, ranga 71862, tylko NKJP 16; słowo rzadkie.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "odczekać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 8673, KWJP 84,7/NKJP 90,9: „odczekać” to słowo powszechne; POP0 słuszne.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "oddolnie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 26397: „oddolnie” (oddolna inicjatywa) znane z publicystyki; POP trafne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "oddziałowa@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11197, tylko KWJP 76,0: „oddziałowa/oddziałowy” to słowa znane (szpital, więzienie); POP0 do przyjęcia.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "odnośnie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„odnośnie” w POP0, ranga 7278 (80/96); częste.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "odpowiedzieć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„odpowiedzieć” w POP0, ranga 541; podstawowe.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "odpływać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11413, KWJP 79,2/NKJP 88,3: „odpływać” to słowo powszechne; POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "odtłuszczanym",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma od „odtłuszczać” w POP, poza POP0; rozsądnie.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ogieniek@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 41627, KWJP 2,0/NKJP 64,3: „ogieniek” to zdrobnienie znane każdemu; POP słuszne.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "okuleć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44623, KWJP 5,9/NKJP 55,8: „okuleć” i „okulały” są zrozumiałe, ale rzadkie; przy granicy POP, do przyjęcia.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "olśniewający@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11619 (tuż przed granicą 11633): „olśniewający” jest powszechnie znany; POP0 trafne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "opatrunkowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„opatrunkowy” w POP, ranga 22027; znane.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "opatrywać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 12045, KWJP 77,1/NKJP 88,0: „opatrywać” to słowo znane; tuż za granicą POP0, sporne.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "oportunistyczny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 26966: wyraz znany z publicystyki; POP bez POP0 trafne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "oprzyrządowywać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„oprzyrządowywać” bez danych, poza listami; słowo rzadkie.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "opóźnić@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„opóźnić/opóźnienie” w POP0, ranga 2884; częste.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "osiemnaście@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 4866: liczebnik podstawowy; POP0 trafne.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ostatek@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 12022, tylko KWJP 74,3: „ostatek” jest znany (ostatki), ale nieco książkowy; tuż za POP0, sporne.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ostinato@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 47897, KWJP 2,0/NKJP 52,2: „ostinato” to fachowy termin muzyczny; brak na listach słuszny.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "otóż@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„otóż” w POP0, ranga 1850; częste.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "oświetlenie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„oświetlenie” w POP0, ranga 2774; częste.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "penetrometr@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„penetrometr” bez danych, poza listami; termin techniczny.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "pełno:N@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Grupa „pełny/pełno/pełnić” w POP0, ranga 155; podstawowe.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "pielgrzymować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11650, o 17 miejsc za POP0: „pielgrzymować” jest znane; przy granicy, mógłby być po obu stronach.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "piernik:Sm1@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11198, tylko KWJP 76,0: „piernik” to słowo powszechne; POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "pigularz@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 50050, tylko NKJP 48,6: „pigularz/pigulara” to rzadkie potoczne określenie aptekarza; brak na listach słuszny.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "pionek:Sm1.m2@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 12061, tylko KWJP 74,3: „pionek” znają wszyscy, więc pasowałby do POP0; przy granicy, sporne (bez NKJP przez nazwę własną).",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "podczerwony@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 25674, tylko KWJP 46,0: „podczerwony” (podczerwień) to słowo znane; POP słuszne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "podhalański@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11352, KWJP 68,3/NKJP 92,7: „podhalański” to znany przymiotnik regionalny; POP0 przy granicy, do przyjęcia.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "podkuwać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 42801, KWJP 1,8/NKJP 61,8: „podkuwać” (konia, buty) jest zrozumiałe; POP do przyjęcia.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "podle:D@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP (grupa POP0, ranga 5746 przez „podły”/„podlać”): przysłówek „podle” jest znany, ale rzadszy; POP rozsądne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "podsadzać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 42563, KWJP 1,7/NKJP 62,1: „podsadzać” to słowo zrozumiałe; POP słuszne.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "podstępnie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 14789: „podstępnie” znane; mogłoby być w POP0, ale to blisko granicy, więc POP rozsądne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "podtekst@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 12090, KWJP 74,9/NKJP 89,0: „podtekst” jest znany; tuż za granicą POP0, sporne.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "podwykonawca@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11464 (przy granicy): słowo znane z życia codziennego; POP0 do przyjęcia.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "podzwaniać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„podzwaniać” w POP, ranga 26703; literackie, akceptowalne.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "pogratulować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11591 (przy granicy): czasownik powszechnie znany; POP0 trafne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "pokiełbasić@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44835, KWJP 11,3/NKJP 51,5: „pokiełbasić” to znane słowo potoczne, rzadkie w tekstach; przy granicy POP, do przyjęcia.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "popelina@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 41483, KWJP 8,7/NKJP 60,5: „popelina” (tkanina) jest znana średnio; POP do przyjęcia.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "poprzednio@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 762: słowo bardzo częste; POP0 trafne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "porucznik@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11029, tylko KWJP 76,3: „porucznik” to słowo powszechne, więc POP0 słuszne, choć brak NKJP (nazwa własna) zepchnął go nisko.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "posag@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„posag” w POP, ranga 11840 tuż za POP0; sporne.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "incorrect",
+      "key": "postponowanej",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0: „postponować” (lekceważyć) to wyraz przestarzały, większości graczy nieznany; nie pasuje do słownika „bez nieznanych słów”.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "posługa@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„posługa” w POP0, ranga 6962 (87/90); znane.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "pousuwać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45135, KWJP 1,6/NKJP 57,0: „pousuwać” to znane słowo potoczne; tuż za granicą POP, sporne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "pozabilansowego",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0: „pozabilansowy” to termin księgowy, ale przejrzysty; POP do przyjęcia.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "pozajelitowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„pozajelitowy” poza listami, ranga 57213; termin medyczny.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "pozapartyjny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 40753, KWJP 17,5/NKJP 56,6: „pozapartyjny” jest przejrzysty i używany w prasie; POP słuszne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "pozazdrościć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11573, KWJP 78,8/NKJP 88,1: „pozazdrościć” to słowo powszechne; POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "prostolinijny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„prostolinijny” w POP, ranga 22361; znane.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "przejażdżka@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„przejażdżka” w POP0, ranga 8074; znane.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "przekopiować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 39606, KWJP 1,5/NKJP 68,6: „przekopiować” to słowo potoczne i znane; POP słuszne.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "przeliczalny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 40303, KWJP 11,2/NKJP 61,3: „przeliczalny” jest zrozumiały (np. zbiór, waluta); POP słuszne.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "incorrect",
+      "key": "przestanek@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 42293 (warstwa rozbieżności korpusów): „przestanek” to wyraz przestarzały, znany tylko z „bez przestanku”; raczej powinien być poza POP.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "przesłuchanie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„przesłuchanie” w POP0, ranga 2017; częste.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "przetestował",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma „przetestował” w POP0; częste.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "przeładować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11793, tuż za POP0 (KWJP 78, NKJP 88): znane słowo, miejsce przy granicy POP0 rozsądne.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "prześwitując",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma „prześwitując” w POP, poza POP0; rozsądnie.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "przybierać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 4737: czasownik powszechnie znany; POP0 trafne.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "przyciszyć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„przyciszyć” w POP, ranga 18330; znane, mogłoby być w POP0, ale nie wyraźny błąd.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "przysparzać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„przysparzać” w POP0, ranga 11196 przy granicy; znane.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "prócz@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„prócz” w POP0, ranga 3628; częste.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "psychoanaliza@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11649, tuż za POP0 (KWJP 78, NKJP 88): znany termin, POP poza POP0 pasuje.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "pula@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„pula” w POP0, ranga 5773; znane.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "unknown",
+      "key": "pun",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0, bez danych o leksemie: nie wiem, który leksem ją daje (np. dop. lm „puna”), więc nie da się ocenić.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "pup",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP i POP0: „pup” to dop. lm. potocznego „pupa”, obecność w POP0 słuszna.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "pędny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 43360 (KWJP poniżej progu): „pędny” znany z „wał/siła pędna”; przy granicy POP do przyjęcia.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "reliktowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11822, tuż za POP0 (KWJP 75, NKJP 89), grupa z „relikt”: znane słowa, granica POP0 sporna, decyzja rozsądna.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "restrykcyjnie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 32014: przysłówek znany z publicystyki; POP trafne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "rosarium@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 39259 (KWJP 11, NKJP 64): „rosarium” (ogród różany) jest dość znane, miejsce w końcówce POP rozsądne.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "rozczytywania",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma od „rozczytywać” w POP, poza POP0; rozsądnie.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "rozkoszny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11410 (tylko KWJP, NKJP z nazwą własną): „rozkoszny” jest powszechnie znany; POP0 trafne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "rozmydlać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45228, tuż za POP (KWJP 5, NKJP 54): „rozmydlać” zrozumiałe, ale rzadkie; przy granicy obie strony sensowne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "rozpleniać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45404 (KWJP 8, NKJP 52): „rozpleniać” jest rzadkie, wynik za granicą POP sensowny.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "rozsiąść@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11508 (KWJP 79, NKJP 88), grupa z „rozsiadły”, „rozsiedlić”: „rozsiąść się” jest powszechne, POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "rozsądzić@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„rozsądzić” w POP, ranga 26692; znane.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "roztleć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„roztleć/roztlały” poza listami, ranga 73330; rzadkie.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "rozwarstwiać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„rozwarstwiać” w POP, ranga 35432; rozsądnie.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "rozwojowo@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP (grupa POP0, ranga 363 przez „rozwój”): przysłówek rzadszy, ale znany; POP bez POP0 rozsądne.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "rozłamywać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 47935 (brak w KWJP, NKJP 52): „rozłamywać” rzadkie, wynik poza POP rozsądny.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "rzemieślnik@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„rzemieślnik” w POP0, ranga 6552; znane.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "rznąć:Vi@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45321 (brak w KWJP, NKJP 57): „rznąć” to rzadki wariant „rżnąć”, pozostawienie poza POP rozsądne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "równouprawnienie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„równouprawnienie” w POP0, ranga 9467; znane.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "rżę",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0: „rżeć” (koń rży) jest znane; POP bez POP0 trafne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "samojed@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga grupy 42545 (POP, blisko granicy); samojed to rasa psa znana części ludzi, decyzja sporna przy granicy.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "samowzmocnienie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„samowzmocnienie” poza listami, ranga 83263; termin rzadki.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "sansara@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 42571 (KWJP 1,2, NKJP 62): „sansara” to termin religijny znany części graczy, przy końcu POP do przyjęcia.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "sekurytyzacyjny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„sekurytyzacyjny” w POP, ranga 44333 przy granicy (13/68); żargon, sporne.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "serowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP, grupa (ser) w POP0 z rangą 4097; serowy to słowo powszechne, POP jest rozsądne, POP0 też byłoby.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "siku:I@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 36101 (KWJP 25, tylko KWJP): „siku” znane każdemu; mogłoby być wyżej, ale obecność w POP poprawna.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "sil",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma „sil” (tryb rozk. od „silić się”) w POP0; akceptowalne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "sito@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11587 (KWJP 75, tylko KWJP), grupa z „sit”, „sitowie”, „sitowy”: „sito” powszechne, POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "skompletować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„skompletować” w POP0, ranga 11279; znane.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "skować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45326 (brak w KWJP, NKJP 57), grupa z „skowa”: rzadkie słowa, wynik poza POP rozsądny.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "smok:Sm3@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„smok” w POP0, ranga 5170 (KWJP 92, NKJP UNMATCHED); słowo znane.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "smętek@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP, ranga 37306, dane tylko z KWJP; smętek to słowo książkowe (Żeromski), mało znane, ale miejsce w dalszej części POP jest do przyjęcia.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "socjaldemokrata@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11655, tuż za POP0 (KWJP 75, NKJP 90): znane słowo, granica POP0 sporna, decyzja rozsądna.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "solidarnie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„solidarnie” w POP, ranga 12190 tuż za POP0; rozsądnie.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "spacyfikować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "„spacyfikować” w POP, ranga 15609; znane.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "spokojniutki@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45408 (KWJP 8, NKJP 52): zdrobnienie zrozumiałe, ale rzadkie; przy granicy obie strony sensowne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "spotkaniowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 45017, tuż przed granicą (KWJP 13, NKJP 49): „spotkaniowy” zrozumiały, przy granicy do przyjęcia.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "społecznikarski@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, brak danych w obu korpusach; „społecznikarski” to rzadkie słowo, wykluczenie rozsądne.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "spożyć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP, grupa (spożycie) w POP0 z rangą 5271; spożyć jest znane (spożyć przed), choć książkowe, POP rozsądne.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "spryciula:Sf@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 56842, percentyle 19/41; „spryciula” to potoczne, rzadkie słowo, wykluczenie rozsądne.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "srokaty@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44599 (KWJP 1, NKJP 58): „srokaty” (np. koń) dość znany z literatury, przy granicy obie strony sensowne.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "stancyjka@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45328 (brak w KWJP, NKJP 56): zdrobnienie od „stancja”, rzadkie; tuż za granicą rozsądnie.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "standaryzacyjny@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 42140 przy granicy, percentyle 17/68; „standaryzacyjny” to termin, sporny przypadek graniczny.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "stawiennictwo@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 25750, percentyle 47/74; „stawiennictwo” znane z języka urzędowego, POP rozsądny.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "stoczyć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 6689, percentyle 84/94; „stoczyć (walkę)” jest powszechne.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "strzałka@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11505 (KWJP 75, tylko KWJP): „strzałka” powszechna, POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "incorrect",
+      "key": "strzeleński@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP, ranga 44941, brak w KWJP, tylko NKJP; przymiotnik od małej miejscowości (Strzelno), prawie nikomu nieznany, nie powinien być w słowniku bez nieznanych słów.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "stukrotnie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP, ranga 35318; stukrotnie to zrozumiałe, znane słowo, POP trafne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "stylistycznie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 16460, percentyle 70/78; „stylistycznie” znane, poza POP0 rozsądnie.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "suw@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44737 (brak w KWJP, NKJP 58): „suw” (tłoka) to znany termin techniczny, przy granicy do przyjęcia.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "suń",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP i POP0; „suń” (rozkaźnik od sunąć, „suń się”) jest powszechnie znana.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "sykomora@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 40696 (KWJP 0,9, NKJP 66), grupa z „sykomor”: „sykomora” znana z Biblii i literatury, końcówka POP pasuje.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "symboliczność@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45479 (KWJP 27, NKJP 38): rzeczownik zrozumiały, ale rzadki; przy granicy obie strony sensowne.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "syryjski:A@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11778, tuż za POP0 (KWJP 85, NKJP 83): znane słowo, przy granicy POP0 obie strony sensowne.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "szampańskie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Leksem poza listami, grupa w POP (19856); rzeczownik szampańskie jest potoczny, a jego formy i tak dzieli przymiotnik szampański, więc skutek dla gry jest zerowy.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "szmuglerski@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44854 (KWJP 8, NKJP 53): „szmuglerski” zrozumiały, przy granicy do przyjęcia.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "szpachlówka@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 45054 (KWJP 8, NKJP 53): „szpachlówka” znana z remontów; mogłaby być wyżej, ale obecność w POP poprawna.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "tak:T@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11; grupa „tak”/„taki” z „taca”, „taco” – wszystkie słowa znane.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "tamtędy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP0, ranga 10535; tamtędy to słowo codzienne, POP0 trafne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "tatuownica@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 28606, tylko NKJP 57; „tatuownica” znana, POP rozsądny.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "togijski@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 57755, tylko NKJP 29; „togijski” rzadki, wykluczenie rozsądne.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "transportować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 8924, percentyle 82/90; „transportować” powszechne.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "trzeci:A@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 79; grupa „trzeci”/„trzeć” z „tarcie”, „tarta”, „troić” – słowa znane.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "trzysta@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 5214, percentyle 88/95; liczebnik „trzysta” powszechny.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "tuj",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0; „tuj” (dop. lm. od „tuja”) znane, rozsądne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "tym:D@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 1179, KWJP 98; „tym (bardziej)” powszechne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "uciążliwość@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 12464 tuż za POP0, percentyle 70/90; „uciążliwość” mogłaby być po obu stronach.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ucywilizować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 16958, percentyle 66/80; „ucywilizować” znane, POP rozsądny.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "uf:I@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 40096, tylko KWJP 44; wykrzyknik „uf” jest znany, POP rozsądny.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "uh@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 37915 (KWJP 17, NKJP 63): wykrzyknik „uh” zrozumiały, POP rozsądne.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ulg",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP i POP0; „ulg” (dop. lm. od „ulga”) powszechne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "umiejętnie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 7023, percentyle 85/93; „umiejętnie” powszechne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "umocnić@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 4700, percentyle 89/95; „umocnić” powszechne.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "upojenie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11960, tuż za POP0 (KWJP 75, NKJP 89), grupa z „upoić”: znane słowo, granica POP0 sporna, decyzja rozsądna.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "uprzemysławiać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45181 (brak w KWJP, NKJP 57): forma niedokonana rzadka, tuż za granicą rozsądnie.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "uszczypliwość",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0; „uszczypliwość” znane, rozsądne.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "utwardzić@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 9735, percentyle 79/90; „utwardzić” znane.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "uwielbić@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP, grupa (uwielbienie) w POP0 z rangą 9350; dokonane uwielbić jest rzadsze od uwielbiać, POP rozsądne.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wie",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP i POP0; „wie” powszechne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "windykatorowi",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0; „windykator” znany, rozsądne.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wodolecznictwo@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44605 (KWJP 0,5, NKJP 58): złożenie przejrzyste, ale rzadkie; przy granicy obie strony sensowne.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wpierdolić@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 21700, percentyle 63/69; „wpierdolić” wulgarne, ale powszechnie znane.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wsadowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 40296, percentyle 15/73; „wsadowy” techniczny, dopuszczalny w POP.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "współmałżonka@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, grupa w POP (12104); współmałżonka jest zrozumiała, ale rzadka (formalna), więc wypadnięcie z POP jest sporne, nie wyraźnie błędne.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wszystkowidząca@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45344 (brak w KWJP, NKJP 56): rzadkie złożenie, wynik tuż za POP rozsądny.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wygadany@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11921, tuż za POP0 (KWJP 79, NKJP 87), grupa z „wygadać”: znane słowa, granica POP0 sporna.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wygoić@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 30894 (KWJP 42, NKJP 65): „wygoić” zrozumiałe, środek POP pasuje.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wyk",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0: najpewniej dop. lm. „wyka” (roślina), słowo znane, ale rzadkie; POP bez POP0 rozsądne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wykon@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44963 (KWJP 23, NKJP 42): potoczne „wykon” znane, przy granicy do przyjęcia.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wykłośność@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, brak danych; „wykłośność” prawie nieznana, wykluczenie rozsądne.",
+      "strata": [
+        "braki-danych"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wymownie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP0, ranga 11188 (tuż przed granicą 11633); wymownie to znane słowo, POP0 do przyjęcia.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wyrypać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, grupa 43867, brak w KWJP; wyrypać to rzadkie słowo gwarowo-potoczne, wykluczenie trafne.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wysokoobrotowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44866 (KWJP 22, NKJP 43): przejrzyste złożenie techniczne, przy granicy do przyjęcia.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wysubtelnieć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, grupa 41634; wysubtelnieć to rzadki czasownik, wykluczenie trafne.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wytłoczyć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 22911, percentyle 52/76; „wytłoczyć” znane, POP rozsądny.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "włóczkowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 33200, percentyle 37/66; „włóczkowy” znany, POP rozsądny.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wślizgać:Vi@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 85103, tylko NKJP 0,9; „wślizgać” rzadkie, wykluczenie słuszne.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "wśród@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 272; „wśród” powszechne.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zabukować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 36643, percentyle 39/57; „zabukować” potoczne, znane, POP rozsądny.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zaczadzić@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 19834, percentyle 57/80; „zaczadzić” znane, POP rozsądny.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zaczajać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 42294 (KWJP 4, NKJP 60): „zaczajać się” znane, końcówka POP pasuje.",
+      "strata": [
+        "rozbieznosc-korpusow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zagnieździwszy",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0; „zagnieździć” znane, forma poprawna.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zagracałybyście",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0; „zagracać” znane, forma poprawna.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zajazgotać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 45055, tuż przed granicą (KWJP 8, NKJP 52): rzadkie, ale zrozumiałe; przy granicy obie strony sensowne.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zakryty@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP, grupa (zakryć) w POP0 z rangą 7700; zakryty to słowo znane, POP rozsądne, POP0 też byłoby.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zalegalizować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP0, ranga 10813; zalegalizować to słowo powszechnie znane z mediów, POP0 trafne.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zamruczeć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 16626, percentyle 68/79; „zamruczeć” znane, POP rozsądny.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zaniedbany@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 3417, percentyle 93/96; „zaniedbać”, „zaniedbany” powszechne.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zaokrąglenie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 11652, tuż za POP0 (KWJP 76, NKJP 89), grupa z „zaokrąglić”: znane słowa, granica POP0 sporna.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zaorywać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 45192 (KWJP 10, NKJP 51): forma niedokonana rzadka, tuż za granicą rozsądnie.",
+      "strata": [
+        "pop-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zarwać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 19703, percentyle 60/78; „zarwać (noc)” znane, POP rozsądny.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zasadzić@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11423 (KWJP 78, NKJP 89): „zasadzić” powszechne, POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zastraszająco@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP, grupa w POP0 (9546); zastraszająco to znane słowo (zastraszająco niski), POP rozsądne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zatroszczyć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 12035 tuż za POP0, percentyle 75/87; „zatroszczyć” mógłby być po obu stronach.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zatroszczyłaby",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0; zatroszczyć się to znany czasownik, obecność w POP trafna, brak w POP0 do przyjęcia.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zblazowanie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, grupa w POP (20279); rzeczownik zblazowanie jest rzadki w przeciwieństwie do zblazowany, wykluczenie rozsądne.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zdyscyplinować@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11487 (KWJP 75, tylko KWJP), grupa z „zdyscyplinowanie”: znane słowa, POP0 do przyjęcia.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zgrzać@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 26243, percentyle 46/73; „zgrzać” potoczne, znane, POP rozsądny.",
+      "strata": [
+        "pos-verb"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ziarnica@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 44975 (KWJP 0,1, NKJP 57): nazwa choroby (ziarnica złośliwa) znana części ludzi; przy granicy obie strony sensowne.",
+      "strata": [
+        "pop-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zjędrnić@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, ranga 62809, tylko NKJP 25; „zjędrnić” rzadkie, wykluczenie rozsądne.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zleceniodawca@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP0, ranga 11163; zleceniodawca to znane słowo z języka pracy, POP0 przy granicy do przyjęcia.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zmylić@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP, grupa (zmyć) w POP0 z rangą 7128; zmylić to słowo znane, POP rozsądne.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zniczowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Poza listami, grupa (znicz) w POP0 z rangą 6614; zniczowy to rzadki przymiotnik, wykluczenie trafne mimo częstego znicz.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "znowu@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 638; „znowu” powszechne.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "znużony@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP, grupa w POP0 (7786); znużony to znane słowo, POP rozsądne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "znękany@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 22245, percentyle 52/79; „znękany” znany, POP rozsądny.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zwarzylibyście",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0; „zwarzyć” znane, forma poprawna.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zwiewnie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP, ranga 43505, tuż przed granicą; zwiewnie jest zrozumiałe (od zwiewny), przy granicy sporne, decyzja do przyjęcia.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "zwiększeniami",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP i POP0; zwiększenie to słowo powszechne, a leksem daje wszystkie formy, więc trafne.",
+      "strata": [
+        "formy-dlugie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "złościć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 2164; „złość”, „złościć” powszechne.",
+      "strata": [
+        "grupy-homonimow"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "łudząco@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP, grupa (łudzić) w POP0 z rangą 6208; łudząco jest znane z wyrażenia łudząco podobny, POP rozsądne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ług",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "Forma w POP, nie w POP0; „ług” znany, rozsądne.",
+      "strata": [
+        "formy-krotkie"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "ślepo@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 3230, percentyle 93/96; „ślepo”, „ślepy” powszechne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "średnio@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP0, ranga 867; średnio to słowo bardzo częste, POP0 trafne.",
+      "strata": [
+        "pos-adv"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "świstun:Sm2@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 42700 (KWJP 13, tylko KWJP): „świstun” (lekkoduch, ptak) dość znany, końcówka POP do przyjęcia.",
+      "strata": [
+        "pos-subst"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "świński@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 11175 (KWJP 76, tylko KWJP): „świński” powszechny, POP0 słuszne.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "żachnąć@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 12063, tuż za POP0 (KWJP 78, NKJP 88): „żachnąć się” znane, decyzja rozsądna.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "żartobliwie@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "W POP0, ranga 11555 (tuż przed granicą); żartobliwie to znane słowo, POP0 do przyjęcia.",
+      "strata": [
+        "pop0-granica-wewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "żeby:M@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 74; „żeby” powszechne.",
+      "strata": [
+        "pos-other"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "żwawy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP, ranga 12086, tuż za POP0 (KWJP 76, NKJP 88), grupa z „żwawo”: znane słowa, mogłyby być w POP0, ale to granica.",
+      "strata": [
+        "pop0-granica-zewnatrz"
+      ],
+      "affects_lists_or_links": false
+    },
+    {
+      "assessment": "correct",
+      "key": "życiowy@sgjp-20260823",
+      "reviewer": "agent Claude Opus 5.5 (ocena), zatwierdził właściciel 2026-10-11",
+      "source_justification": "POP0, ranga 1806, percentyle 96/98; „życiowy” powszechne.",
+      "strata": [
+        "pos-adj"
+      ],
+      "affects_lists_or_links": false
+    }
+  ],
+  "sample_sha256": "a2f384ba8c3385210e6babb1a65ea8fec518869bb760257ac2b165e6222bab56",
+  "schema_version": 1,
+  "status": "REVIEWED",
+  "version": "pop-quality-v1",
+  "sha256sums_sha256": "8ea8d690e409b76088794deb0e8bc868098ad4a175c00a00278ed4e536cdf7a7"
+}

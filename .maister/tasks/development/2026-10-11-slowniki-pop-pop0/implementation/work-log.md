@@ -84,3 +84,6 @@
 **Przegląd rew. 2**: 404 correct / 4 incorrect / 2 unknown (błędy: kią, pozytywniałby, przestanek, strzeleński). Wada klasowa: grupa wciąga rzadki leksem.
 **Zmiana** (ADR-007 rew. 3): D5 members = prune-weak-members (+ najsilniejszy członek zostaje; członkowie bez własnych danych razem). Testy 372 OK.
 **v29**: POP 51 805 leks., 1 219 614 form, 97,35%; POP0 13 181 leks., 380 489 form, 92,88%; kot w POP0. Limity bez zmian.
+
+## 2026-10-11T16:11:27Z - Group 16 Complete (odbiór)
+**Przegląd rew. 3**: 414 correct / 3 incorrect / 3 unknown, 0 wad metody; właściciel zatwierdził przegląd i wydanie 2026-10-11. D-1…D-7 spełnione; verification/pop-acceptance.md, verification/pop-v1-review.json.
