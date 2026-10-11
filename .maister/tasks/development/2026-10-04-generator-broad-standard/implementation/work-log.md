@@ -384,3 +384,10 @@ Standardy: AGENTS.md, .maister/docs/INDEX.md; brak osobnych plików standardów.
 - Oba buildy równolegle, 12,6 h, wszystkie etapy complete, coverage COMPLETE. 15 plików kanonicznych i logical-content identyczne (K8).
 - BROAD 3 479 364 (bez zmian), STANDARD 3 090 194 (−230). Porównanie z SJP.pl: `sjp-benchmark-v29.md`.
 - Próbki v30: 1 870 z 1 876 pozycji identycznych z v29 (oceny przeniesione), 6 nowych przejrzanych, 0 blokujących.
+
+## 2026-10-11: G8 odebrane — VERIFIED i export
+- `verify --run-dir lists-v30-…-a --peer-run lists-v30-…-b --review verification/quality-review.json`: K1–K10 pass, werdykt VERIFIED (attempt-0001, 4,1 h).
+- `export` → `data/work/release-LL-PL-v29` (21 plików, 146 MB, FROZEN). release-manifest sha256 `5470574338cd49742ca9ffb51278d69d6e2db0f05000c67342a07b6426a933ee`.
+- LL-PL-BROAD.txt sha256 `9be96245f5156af1879b68b85d870f65f5da9e46d1d575277e40456341f72f1a` (3 479 364 słów).
+- LL-PL-STANDARD.txt sha256 `a432c7c51100f611ab2aaf7d712cf2af9a5354383cf3eb7fd271577ecb19d877` (3 090 194 słów).
+- Publikacja (GitHub Release) czeka na zgodę właściciela.
