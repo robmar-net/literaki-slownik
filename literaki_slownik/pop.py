@@ -1073,6 +1073,11 @@ def load_config(path):
 
 LISTS = ('pop0', 'pop')
 REPORT_DENOMINATORS = ('kwjp-standard', 'kwjp-all')
+POS_CLASSES = (('subst', {'subst', 'depr'}),
+               ('verb', {'fin', 'praet', 'inf', 'impt', 'imps', 'pcon', 'pant', 'pact', 'ppas', 'ger', 'bedzie',
+                         'winien'}),
+               ('adj', {'adj', 'adja', 'adjp', 'adjc'}),
+               ('adv', {'adv'}))
 
 
 def _lexicon(paths, sources, with_nkjp):
@@ -1086,8 +1091,44 @@ def _lexicon(paths, sources, with_nkjp):
         forms = load_forms(db, standard, lexemes)
         constructions = load_constructions(db, standard, lexemes)
     proper = frozenset(item['key'] for item in lexemes.values() if item['proper'])
+    pos = {item['key']: _pos_class(item['pos']) for item in lexemes.values()}
     return {'standard': standard, 'kwjp': kwjp_measures(rows, genres), 'owners': owners, 'forms': forms,
-            'constructions': constructions, 'proper': proper, 'relevant': frozenset(forms)}
+            'constructions': constructions, 'proper': proper, 'relevant': frozenset(forms), 'pos': pos}
+
+
+def _pos_class(tags):
+    """Klasa części mowy leksemu do warstw próbek (wzór `scripts/measure_pop.py`)."""
+    tags = set(tags)
+    return next((name for name, group in POS_CLASSES if tags & group), 'other')
+
+
+def _base_attributions(paths):
+    """`ATTRIBUTIONS.md` pakietu LL-PL sprawdzone hashem z jego release-manifestu, bez sekcji NKJP."""
+    release = Path(paths['release_dir'])
+    files = load_json(paths['release_manifest']).get('files') or {}
+    pinned = (files.get('ATTRIBUTIONS.md') or {}).get('sha256')
+    if not pinned:
+        raise GeneratorError('Pakiet LL-PL bez ATTRIBUTIONS.md w release-manifest', 3, str(release))
+    text = checked_file(release, {'path': 'ATTRIBUTIONS.md', 'sha256': pinned}).read_text(encoding='utf-8')
+    return _demote_without_nkjp(text)
+
+
+def _demote_without_nkjp(text):
+    """Nagłówki o dwa poziomy niżej; sekcje z NKJP w nagłówku pomijane (NKJP opisuje własna sekcja, C19)."""
+    lines, fence, skip = [], False, None
+    for line in text.splitlines():
+        heading = 0
+        if line.startswith('```'):
+            fence = not fence
+        elif not fence and line.startswith('#') and line.lstrip('#').startswith(' '):
+            heading = len(line) - len(line.lstrip('#'))
+            if skip is not None and heading <= skip:
+                skip = None
+            if skip is None and 'nkjp' in line.lower():
+                skip = heading
+        if skip is None:
+            lines.append('##' + line if heading else line)
+    return '\n'.join(lines).strip('\n')
 
 
 def _unit_row(key, unit, found, rank, kwjp_pct, place):
@@ -1165,9 +1206,15 @@ def build_pop(sources, config, run_dir=None, release_dir=None):
               'database_sha256': after, 'inputs': inputs, 'pop': sorted(pop), 'pop0': sorted(pop0),
               'units': rows, 'thresholds': thresholds, 'missing': missing, 'mass': result['mass'],
               'groups': result['groups'], 'proper_units': proper_units, 'must_include_pop0': included}
+    # Dane tylko do zapisu pakietu (grupa 12): próbki, atrybucje, klasy POS członków POP.
+    package = {'sampling': config['sampling'], 'base_package_id': sources['base']['package_id'],
+               'base_attributions': _base_attributions(paths),
+               'pos': {_label(m): data['pos'][m] for m in sorted(cuts['pop']['members'])}}
+    answer['package'] = package
     if with_nkjp:
         inputs['nkjp_sha256'] = paths['nkjp_sha256']
         answer['nkjp_rule_id'] = rule_id
+        package['nkjp'] = {k: v for k, v in _input(sources, 'nkjp_1gram').items() if k != 'path'}
     return answer
 
 
@@ -1178,4 +1225,232 @@ def pop_summary(result):
     summary = {key: result[key] for key in keep if key in result}
     summary['units'] = len(result['units'])
     summary['ranked'] = sum(1 for row in result['units'] if row['rank'] is not None)
+    return summary
+
+
+# --- Pakiet POP `BUILT` (C11–C13, C17, C18, C19) ---
+# Zapis do stagingu obok celu, potem `export.rename_noreplace`; pliki 0444. Bez czasów i ścieżek
+# bezwzględnych, więc dwa przebiegi z tych samych wejść dają te same bajty (D-1).
+# NKJP w raportach tylko pod kluczami `NKJP_REPORT_KEYS` (C14); bez NKJP (C19) nie ma ich wcale.
+
+PACKAGE_ID = 'POP'
+NKJP_REPORT_KEYS = ('nkjp_rank', 'nkjp_percentile', 'nkjp_status')
+SAMPLE_WINDOW = 500  # jednostek po każdej stronie granicy (jak w pomiarze A)
+SHORT_FORM, LONG_FORM = 3, 12
+DIVERGENCE = 50  # różnica percentyli KWJP i NKJP w warstwie rozbieżności
+LIST_FILES = {'pop': 'POP.txt.gz', 'pop0': 'POP0.txt.gz'}
+CC_BY_4 = 'https://creativecommons.org/licenses/by/4.0/'
+
+
+def _label(key):
+    """Klucz leksemu jako napis: `lemma_id@source_id` (wzór `scripts/measure_pop.py`)."""
+    return f'{key[1]}@{key[0]}'
+
+
+def _write_gzip(path, keys):
+    """Lista `game_key`, po jednym w wierszu; gzip bez nazwy i czasu, poziom 9 (C11)."""
+    data = ''.join(key + '\n' for key in keys).encode('utf-8')
+    with open(path, 'wb') as raw, gzip.GzipFile(filename='', mode='wb', fileobj=raw, mtime=0,
+                                                compresslevel=9) as stream:
+        stream.write(data)
+
+
+def _package_row(row):
+    """Wiersz `reports/units.json`: ranga, miara, percentyle, statusy, flagi; NKJP bez F (C14)."""
+    out = {'members': [_label(m) for m in row['unit']], 'size': row['size'], 'rank': row['rank'],
+           'value': row['value'], 'status': row['status'], 'flags': list(row['flags']),
+           'confidence': row['confidence'], 'list': row['list'], 'kwjp_status': row['kwjp']['status'],
+           'kwjp_percentile': row['kwjp']['percentile'], 'kwjp_ambiguous': row['kwjp']['ambiguous']}
+    if 'nkjp' in row:
+        nkjp = row['nkjp']
+        out.update(zip(NKJP_REPORT_KEYS, (nkjp['rank'], nkjp['percentile'], nkjp['status'])))
+        if nkjp['ambiguous']:
+            out['flags'].append('ambiguous:nkjp')
+    return out
+
+
+def _strata(result, rows):
+    """Warstwy `pop-quality-v1` (C17); klucze to leksemy (`lemma_id@source_id`) albo formy."""
+    ranked = [row for row in rows if row['rank'] is not None]  # wiersze są w kolejności rang
+
+    def members(selected):
+        return sorted({m for row in selected for m in row['members']})
+
+    strata = {}
+    for name in LISTS:
+        position = result['thresholds'][name]['units']
+        strata[f'{name}-granica-wewnatrz'] = members(ranked[max(0, position - SAMPLE_WINDOW):position])
+        strata[f'{name}-granica-zewnatrz'] = members(ranked[position:position + SAMPLE_WINDOW])
+    strata['braki-danych'] = members(row for row in rows if row['status'] != 'MEASURED'
+                                     or any(f.startswith('single_source:') for f in row['flags']))
+    # Bez NKJP warstwa jest pusta i zostaje jawnie (`EMPTY_NOT_COVERAGE`).
+    strata['rozbieznosc-korpusow'] = members(
+        row for row in rows if row['kwjp_percentile'] is not None and row.get('nkjp_percentile') is not None
+        and abs(row['kwjp_percentile'] - row['nkjp_percentile']) >= DIVERGENCE)
+    strata['grupy-homonimow'] = members(row for row in rows if len(row['members']) > 1)
+    for member, pos in result['package']['pos'].items():
+        strata.setdefault(f'pos-{pos}', []).append(member)
+    strata['formy-krotkie'] = [form for form in result['pop'] if len(form) <= SHORT_FORM]
+    strata['formy-dlugie'] = [form for form in result['pop'] if len(form) >= LONG_FORM]
+    return {name: sorted(keys) for name, keys in strata.items()}
+
+
+def _attributions(result):
+    package = result['package']
+    lines = ['# Atrybucje pakietu POP', '',
+             f'Listy POP i POP0 (metoda {result["method"]}, {result["adr"]}) to podzbiory listy STANDARD pakietu '
+             f'{package["base_package_id"]} (release-manifest SHA256 `{result["inputs"]["release_manifest_sha256"]}`). '
+             'Formy pochodzą z SGJP, wybór miarą z KWJP' + (' i NKJP.' if 'nkjp' in package else '.'),
+             'Pakiet nie przypisuje projektowi praw do materiałów zewnętrznych.', '']
+    nkjp = package.get('nkjp')
+    if nkjp:
+        lines += [f'## NKJP — {nkjp["title"]}', '',
+                  f'- zasób: {nkjp["title"]}, plik 1-gramów (SHA256 `{nkjp["sha256"]}`)',
+                  f'- adres: {nkjp["url"]}',
+                  f'- twórca i udostępniający: {nkjp["creator"]}',
+                  f'- licencja: {nkjp["license"]}. Spełniamy wymagania wszystkich wersji CC BY 1.0–4.0; '
+                  f'tekst wersji 4.0: {CC_BY_4}',
+                  '- prawa i gwarancja: udostępniający nie podał informacji o prawach autorskich '
+                  'ani wyłączenia gwarancji.',
+                  '- zmiany: z formy zdejmujemy interpunkcję tylko z brzegów tokenu i zostawiamy kropkę, '
+                  'więc skróty (np. `ul.`) nie łączą się ze słowami (`ul`); '
+                  f'reguła `{result["nkjp_rule_id"]}`. '
+                  'Zliczenia łączymy z formami SGJP i przeliczamy na rangi i percentyle. '
+                  'Pakiet nie zawiera surowego pliku ani zliczeń NKJP.',
+                  f'- użycie: {nkjp["used_for"]}',
+                  '- Autorzy NKJP i IPI PAN nie popierają tego projektu ani jego wyników. '
+                  'Decyzja: ADR-006 (`docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md`).', '']
+    lines += [f'## Podstawa: atrybucje pakietu {package["base_package_id"]}', '', package['base_attributions'], '']
+    return '\n'.join(lines).rstrip('\n') + '\n'
+
+
+def _limitations(result):
+    with_nkjp = 'nkjp_rule_id' in result
+    corpora = 'KWJP i NKJP' if with_nkjp else 'KWJP'
+    lines = ['# Ograniczenia pakietu POP', '',
+             '- Status `BUILT`: pakiet nie jest wydaniem. Wydanie wymaga przeglądu próbek `pop-quality-v1` '
+             '(`reports/sample.json`) ze statusem `REVIEWED`.',
+             f'- POP0 ⊆ POP ⊆ STANDARD pakietu {result["package"]["base_package_id"]}, nie ⊆ SJP.pl. '
+             'Serwer gry gra dziś na SJP.pl: bot z POP przy stole SJP może zagrać słowo, którego SJP.pl nie ma. '
+             'Integracja z grą to osobna praca.',
+             f'- Miara to częstość w tekstach ({corpora}), nie znajomość słowa przez ludzi. '
+             'Ludzie oceniają tylko próbki, nie całą listę.',
+             '- Pełna odmiana: leksem z POP wnosi każdą swoją formę ze STANDARD, także rzadkie '
+             '(wołacz, imiesłowy).',
+             '- Grupy homonimów `e-common` łączą też zwykłe homonimy (np. `nie`, `on`, `jeść`). '
+             'Grupa wchodzi w całości albo wcale; jej F nie jest dzielone ani kopiowane.',
+             f'- Luka potoczna (D7): miara pochodzi z tekstów pisanych ({corpora}). '
+             'Nie ma listy mowy potocznej ani slangu internetowego.',
+             '- Nazwy własne poza rankingiem (D9): ich formy wchodzą tylko przez zwykły leksem o tej samej formie.',
+             '- KWJP dzieli formy przeszłe (`zrobił`+`em`). Brak w źródle to brak danych, nie zero: '
+             'status per źródło, nigdy ranga 0. Brak pełny = poza listami; częściowy = flaga `single_source`.']
+    if with_nkjp:
+        lines += [f'- NKJP: zrównoważony podkorpus, starszy od KWJP; reguła czyszczenia `{result["nkjp_rule_id"]}`. '
+                  'Pakiet podaje NKJP tylko jako rangę, percentyl i status.']
+    else:
+        lines += ['- Miara tylko z KWJP F (wycofanie NKJP, ADR-006).']
+    lines += ['- Wycofanie NKJP (sama KWJP) nadal wymaga pliku NKJP przypiętego w `pop-sources.json`: '
+              'kontrola wejść sprawdza jego SHA256.']
+    return '\n'.join(lines) + '\n'
+
+
+def _terms(result):
+    with_nkjp = 'nkjp_rule_id' in result
+    measure = ('KWJP (CC BY 4.0) i NKJP (CC BY, wersja nieokreślona; ADR-006)' if with_nkjp
+               else 'KWJP (CC BY 4.0)')
+    lines = ['# Warunki udostępnienia pakietu POP', '',
+             '## Listy (`POP.txt.gz`, `POP0.txt.gz`)', '',
+             f'- Wybór i układ list: CC BY 4.0 ({CC_BY_4}).',
+             '- Formy pochodzą z eksportu SGJP i zachowują jego warunki BSD-2-Clause z pełną atrybucją '
+             '(`ATTRIBUTIONS.md`).',
+             f'- Wybór miarą z {measure}.', '',
+             '## Raporty (`reports/`)', '',
+             f'- Własne raporty: CC BY 4.0 ({CC_BY_4}); miary źródeł z atrybucją w `ATTRIBUTIONS.md`.', '',
+             '## Kod', '',
+             '- Kod generatora (`literaki_slownik`): BSD-2-Clause; tożsamość kodu w `release-manifest.json`.', '']
+    return '\n'.join(lines).rstrip('\n') + '\n'
+
+
+def _write_text(path, text):
+    Path(path).write_bytes(text.encode('utf-8'))
+
+
+def write_package(result, staging):
+    """Zapisz pakiet wyniku `build_pop` w pustym katalogu `staging` (C11, C12, C17, C18)."""
+    from .canonical import dumps, write_json
+    from .quality import review_template, sample_strata
+    from .run import code_identity
+    staging = Path(staging)
+    (staging / 'reports').mkdir()
+    for name in LISTS:
+        _write_gzip(staging / LIST_FILES[name], result[name])
+    rows = [_package_row(row) for row in result['units']]
+    write_json(staging / 'reports/units.json', {'schema_version': 1, 'method': result['method'], 'units': rows})
+    write_json(staging / 'reports/thresholds.json', {
+        'schema_version': 1, 'method': result['method'], 'adr': result['adr'], 'thresholds': result['thresholds'],
+        'must_include_pop0': result['must_include_pop0'], 'missing': result['missing'], 'groups': result['groups'],
+        'proper_units': result['proper_units'], 'kwjp_mass': result['mass']['kwjp'],
+        'units': len(rows), 'ranked': sum(1 for row in rows if row['rank'] is not None)})
+    sample = sample_strata(_strata(result, rows), result['package']['sampling'])
+    # Bez końcowego `\n`: SHA256 pliku = `sample_sha256` szablonu przeglądu (D-5).
+    _write_text(staging / 'reports/sample.json', dumps(sample))
+    evidence = {name: sha256(staging / name) for name in (*LIST_FILES.values(), 'reports/thresholds.json')}
+    write_json(staging / 'reports/review-template.json', review_template(
+        sample, canonical_index_sha256=sha256(staging / 'reports/units.json'), evidence_sha256=evidence))
+    _write_text(staging / 'ATTRIBUTIONS.md', _attributions(result))
+    _write_text(staging / 'LIMITATIONS.md', _limitations(result))
+    _write_text(staging / 'TERMS.md', _terms(result))
+    files = {str(p.relative_to(staging)): {'sha256': sha256(p), 'bytes': p.stat().st_size}
+             for p in sorted(staging.rglob('*')) if p.is_file()}
+    manifest = {
+        'schema_version': 1, 'kind': 'literaki-pop-manifest', 'status': 'BUILT', 'package_id': PACKAGE_ID,
+        'method': result['method'], 'adr': result['adr'], 'config_sha256': result['config_sha256'],
+        'inputs': result['inputs'], 'base_package_id': result['package']['base_package_id'],
+        'code_identity': code_identity(), 'must_include_pop0': sorted(result['must_include_pop0']),
+        'sampling': result['package']['sampling']['version'],
+        'counts': {name: {k: result['thresholds'][name][k] for k in ('units', 'lexemes', 'forms')} for name in LISTS},
+        'hash_scope': 'wszystkie pliki pakietu poza release-manifest.json i SHA256SUMS',
+        'files': dict(sorted(files.items()))}
+    if 'nkjp_rule_id' in result:
+        manifest['nkjp_rule_id'] = result['nkjp_rule_id']
+    write_json(staging / 'release-manifest.json', manifest)
+    sums = sorted(str(p.relative_to(staging)) for p in staging.rglob('*') if p.is_file())
+    _write_text(staging / 'SHA256SUMS', ''.join(f'{sha256(staging / r)}  {r}\n' for r in sums))
+    return manifest
+
+
+def build_package(sources, config, output_dir, run_dir=None, release_dir=None):
+    """Polecenie `pop`: listy (`build_pop`) i pakiet `BUILT` w nowym katalogu (C13).
+
+    Cel istnieje → kod 4 (przed liczeniem i przy przeniesieniu). Błąd w trakcie: staging usunięty,
+    celu brak. Wynik: podsumowanie list, ścieżka pakietu, liczby form i SHA256 manifestu.
+    """
+    import os
+    import shutil
+    import tempfile
+    from .export import READ_ONLY, rename_noreplace
+    target = Path(output_dir).absolute()
+    if os.path.lexists(target):
+        raise GeneratorError('Katalog pakietu POP już istnieje; pop nigdy nie nadpisuje', 4, str(target))
+    if not target.parent.is_dir():
+        raise GeneratorError('Katalog nadrzędny pakietu POP nie istnieje', 2, str(target.parent))
+    result = build_pop(sources, config, run_dir, release_dir)
+    staging = Path(tempfile.mkdtemp(prefix=f'.{target.name}.staging-', dir=target.parent))
+    try:
+        write_package(result, staging)
+        for path in staging.rglob('*'):
+            if path.is_file():
+                path.chmod(READ_ONLY)
+        rename_noreplace(staging, target)
+    except FileExistsError as error:
+        shutil.rmtree(staging, ignore_errors=True)
+        raise GeneratorError('Katalog pakietu POP powstał w trakcie; pop nigdy nie nadpisuje', 4,
+                             str(target)) from error
+    except BaseException:
+        shutil.rmtree(staging, ignore_errors=True)
+        raise
+    summary = pop_summary(result)
+    summary.update(output_dir=str(target.resolve()), release_manifest_sha256=sha256(target / 'release-manifest.json'),
+                   files=sum(1 for p in target.rglob('*') if p.is_file()),
+                   forms={name: len(result[name]) for name in LISTS})
     return summary

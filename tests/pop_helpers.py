@@ -146,3 +146,17 @@ def pop_fixture(directory, nkjp_text=NKJP_1GRAMS):
     sources = write_pop_sources(directory / 'pop-sources.json', run, release, nkjp)
     return {'directory': directory, 'run': run, 'release': release, 'nkjp': nkjp,
             'sources': sources, 'database': run / 'build.sqlite'}
+
+
+def pop_package(directory, name='package', pop=9, pop0=6, **changes):
+    """Pakiet POP fikstury (C11) dla grup 13–14: przebieg, LL-PL, NKJP z rzadkimi liczbami i `pop.json`.
+
+    Progi 9/6 jak w `PopBuildTests`; `changes` nadpisuje klucze `pop.json` (np. wycofanie NKJP).
+    """
+    from literaki_slownik.pop import build_package
+    directory = Path(directory)
+    fixture = pop_fixture(directory / 'pop', NKJP_POP_1GRAMS)
+    config = pop_config(directory, pop, pop0, **changes)
+    package = directory / name
+    summary = build_package(fixture['sources'], config, package)
+    return {**fixture, 'config': config, 'package': package, 'summary': summary}

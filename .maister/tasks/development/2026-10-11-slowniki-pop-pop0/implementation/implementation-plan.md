@@ -308,8 +308,8 @@ Zasady dla każdej grupy:
 **Files to Modify:** literaki_slownik/pop.py, literaki_slownik/cli.py, tests/pop_helpers.py, tests/test_pop.py
 **Estimated Steps:** 8
 
-- [ ] 12.0 Zapis pakietu (C11–C13, C17, C18)
-  - [ ] 12.1 Napisz 7 testów
+- [x] 12.0 Zapis pakietu (C11–C13, C17, C18)
+  - [x] 12.1 Napisz 7 testów
     - dwa przebiegi do dwóch katalogów: wszystkie pliki równe bajtowo; gzip: `mtime=0`, pusta nazwa, poziom 9; treść = posortowane `game_key` z `\n`
     - układ: `POP.txt.gz`, `POP0.txt.gz`, `reports/` (4 pliki), `release-manifest.json`, `ATTRIBUTIONS.md`, `LIMITATIONS.md`, `TERMS.md`, `SHA256SUMS`; `SHA256SUMS` obejmuje wszystko poza sobą
     - manifest: `status: BUILT`, hashe wejść (z hashem bazy), `code_identity`, hash `pop.json`, ADR-007, `must_include_pop0`, id reguły NKJP, hashe wyjść; bez czasów i ścieżek bezwzględnych
@@ -317,13 +317,13 @@ Zasady dla każdej grupy:
     - skan pakietu: żadnej liczby NKJP z fikstury (rzadkie ciągi z 11.2) i brak surowego NKJP; klucze `nkjp*` tylko z listy dozwolonej (C14)
     - próbki `pop-quality-v1` z warstwami C17; `review-template.json` `UNREVIEWED`, `canonical_index_sha256` = hash `reports/units.json`
     - `ATTRIBUTIONS.md` z NKJP wg ADR-006 (twórca, URL, „CC BY, wersja nieokreślona”, reguła D4); sama KWJP → bez NKJP w atrybucjach i manifeście (C19); TERMS: CC BY i BSD-2-Clause
-  - [ ] 12.2 `tests/pop_helpers.py`: `pop_package(tmp)` buduje pakiet fikstury dla grup 13–14
-  - [ ] 12.3 `_write_gzip(path, keys)`: `gzip.GzipFile(filename='', mtime=0, compresslevel=9)`; `POP.txt.gz`, `POP0.txt.gz`
-  - [ ] 12.4 `reports/`: `thresholds.json` (C10), `units.json` (rangi, miary, percentyle, statusy, flagi; bez F NKJP), `sample.json` (`quality.sample_strata`, `sampling` z `pop.json`; warstwy: granica POP wewn./zewn., granica POP0 wewn./zewn., braki danych, rozbieżność KWJP–NKJP, grupy homonimów, części mowy, krótkie/długie), `review-template.json` (`quality.review_template`, `evidence_sha256` = hashe list i `thresholds.json`)
-  - [ ] 12.5 `ATTRIBUTIONS.md`, `LIMITATIONS.md` (punkty E3), `TERMS.md` z `pop-sources.json` i ADR-007 (wzór `verify.py:468-520`)
-  - [ ] 12.6 `release-manifest.json` (C12) przez `canonical`; potem `SHA256SUMS` (`<sha256>  <ścieżka>`, posortowane)
-  - [ ] 12.7 Staging obok celu → `export.rename_noreplace`; pliki 0444; cel istnieje → 4. `cli pop` zapisuje pakiet i wypisuje ścieżkę oraz liczby
-  - [ ] 12.8 Uruchom tylko testy z 12.1
+  - [x] 12.2 `tests/pop_helpers.py`: `pop_package(tmp)` buduje pakiet fikstury dla grup 13–14
+  - [x] 12.3 `_write_gzip(path, keys)`: `gzip.GzipFile(filename='', mtime=0, compresslevel=9)`; `POP.txt.gz`, `POP0.txt.gz`
+  - [x] 12.4 `reports/`: `thresholds.json` (C10), `units.json` (rangi, miary, percentyle, statusy, flagi; bez F NKJP), `sample.json` (`quality.sample_strata`, `sampling` z `pop.json`; warstwy: granica POP wewn./zewn., granica POP0 wewn./zewn., braki danych, rozbieżność KWJP–NKJP, grupy homonimów, części mowy, krótkie/długie), `review-template.json` (`quality.review_template`, `evidence_sha256` = hashe list i `thresholds.json`)
+  - [x] 12.5 `ATTRIBUTIONS.md`, `LIMITATIONS.md` (punkty E3), `TERMS.md` z `pop-sources.json` i ADR-007 (wzór `verify.py:468-520`)
+  - [x] 12.6 `release-manifest.json` (C12) przez `canonical`; potem `SHA256SUMS` (`<sha256>  <ścieżka>`, posortowane)
+  - [x] 12.7 Staging obok celu → `export.rename_noreplace`; pliki 0444; cel istnieje → 4. `cli pop` zapisuje pakiet i wypisuje ścieżkę oraz liczby
+  - [x] 12.8 Uruchom tylko testy z 12.1
 
 **Acceptance Criteria:**
 - 7 testów z 12.1 przechodzi

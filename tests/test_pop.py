@@ -1,4 +1,5 @@
 """POP/POP0: manifest źródeł, piny podstawy LL-PL, wejścia (A1, C2) i dane z bazy (A6, A8, A9)."""
+import gzip
 import json
 import shutil
 import subprocess
@@ -12,15 +13,15 @@ from literaki_slownik.inputs import GeneratorError
 from literaki_slownik.database import connect
 from literaki_slownik import pop as pop_module
 from literaki_slownik.canonical import dumps
-from literaki_slownik.pop import (CLEANING_RULES, build_pop, check_inputs, coverage, database_sha256, form_owners,
-                                  forms_for, kwjp_measures, load_config, load_constructions, load_form_classes,
-                                  load_forms, load_forms_accepted, load_kwjp, load_kwjp_lists, load_lexemes,
-                                  load_sources,
+from literaki_slownik.pop import (CLEANING_RULES, build_package, build_pop, check_inputs, coverage, database_sha256,
+                                  form_owners, forms_for, kwjp_measures, load_config, load_constructions,
+                                  load_form_classes, load_forms, load_forms_accepted, load_kwjp, load_kwjp_lists,
+                                  load_lexemes, load_sources,
                                   measure, member_ranks, nkjp_collisions, nkjp_form_status, nkjp_lexeme_ranks,
                                   percentiles, rank_units, read_nkjp, read_standard, spearman, tag_classes,
                                   threshold, top_overlap, units)
 from tests.pop_helpers import (NKJP_POP_1GRAMS, gz_write, kwjp_lemma_sources, pop_config, pop_fixture,
-                               write_pop_sources)
+                               pop_package, write_pop_sources)
 
 
 class PopSourcesTests(unittest.TestCase):
@@ -898,19 +899,31 @@ class PopBuildTests(unittest.TestCase):
             self.assertEqual(self.code(self.build), 5)
         self.assertEqual(changed.call_count, 2)
 
-        def cli(sources, config, *extra):
-            output = self.directory / 'out'
+        def cli(sources, config, *extra, output='out', text=False):
+            output = self.directory / output
+            existed = output.exists()
             done = subprocess.run([sys.executable, '-m', 'literaki_slownik', 'pop', '--manifest', str(sources),
-                                   '--config', str(config), '--output-dir', str(output), '--json', *extra],
+                                   '--config', str(config), '--output-dir', str(output),
+                                   *(() if text else ('--json',)), *extra],
                                   cwd=self.ROOT, capture_output=True, text=True)
-            self.assertFalse(output.exists())
-            return done.returncode, json.loads(done.stdout)
+            if done.returncode and not existed:
+                self.assertFalse(output.exists())
+            return done.returncode, done.stdout if text else json.loads(done.stdout)
 
         good = pop_config(self.directory, 9, 6)
-        code, answer = cli(f['sources'], good)
+        code, answer = cli(f['sources'], good, output='package')
         self.assertEqual((code, answer['status'], answer['command']), (0, 'ok', 'pop'), answer)
         self.assertEqual(answer['result']['thresholds']['pop0']['lexemes'], 6)
         self.assertEqual(answer['result']['must_include_pop0'], {'kot': 4})
+        self.assertEqual(answer['result']['output_dir'], str((self.directory / 'package').resolve()))
+        self.assertTrue((self.directory / 'package/SHA256SUMS').is_file())
+        code, text = cli(f['sources'], good, output='package-text', text=True)
+        self.assertEqual(code, 0)
+        self.assertIn(str((self.directory / 'package-text').resolve()), text)
+        self.assertIn(f"POP0: {answer['result']['forms']['pop0']} form", text)
+        self.assertEqual(cli(f['sources'], good, output='package')[0], 4)
+        for path in self.directory.rglob('*'):
+            path.chmod(0o755 if path.is_dir() else 0o644)
         (self.directory / 'bad').mkdir()
         bad = pop_config(self.directory / 'bad', 9, 6, d5='d')
         self.assertEqual(cli(f['sources'], bad)[0], 2)
@@ -923,6 +936,197 @@ class PopBuildTests(unittest.TestCase):
         manifest['readiness'] = 'VERIFIED'
         write_json(run / 'manifest.json', manifest)
         self.assertEqual(cli(f['sources'], good, '--run-dir', str(run))[0], 5)
+
+
+# Rzadkie ciągi cyfr NKJP z `NKJP_POP_1GRAMS` (11.2) i ich suma: żaden nie może trafić do pakietu (C14).
+NKJP_NUMBERS = ('7340919', '6182537', '5093746', '4718293', '9182736', '2837465', '35356066')
+PACKAGE_FILES = {'POP.txt.gz', 'POP0.txt.gz', 'reports/thresholds.json', 'reports/units.json', 'reports/sample.json',
+                 'reports/review-template.json', 'release-manifest.json', 'ATTRIBUTIONS.md', 'LIMITATIONS.md',
+                 'TERMS.md', 'SHA256SUMS'}
+NKJP_KEYS = {'nkjp_rank', 'nkjp_percentile', 'nkjp_status'}
+
+
+def _files(directory):
+    return {str(p.relative_to(directory)): p for p in sorted(Path(directory).rglob('*')) if p.is_file()}
+
+
+def _json_keys(value):
+    if isinstance(value, dict):
+        for key, item in value.items():
+            yield key
+            yield from _json_keys(item)
+    elif isinstance(value, list):
+        for item in value:
+            yield from _json_keys(item)
+
+
+class PopPackageTests(unittest.TestCase):
+    """Pakiet POP `BUILT` (C11–C13, C17, C18, C19); fikstura `pop_package` (progi 9/6)."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = tempfile.TemporaryDirectory()
+        cls.made = pop_package(cls.tmp.name)
+        cls.package = cls.made['package']
+
+    @classmethod
+    def tearDownClass(cls):
+        for path in Path(cls.tmp.name).rglob('*'):
+            path.chmod(0o755 if path.is_dir() else 0o644)
+        cls.tmp.cleanup()
+
+    def setUp(self):
+        self.work = tempfile.TemporaryDirectory()
+        self.directory = Path(self.work.name)
+
+    def tearDown(self):
+        for path in self.directory.rglob('*'):
+            path.chmod(0o755 if path.is_dir() else 0o644)
+        self.work.cleanup()
+
+    def read(self, relative):
+        return (self.package / relative).read_text(encoding='utf-8')
+
+    def test_two_runs_are_byte_identical_and_gzip_is_canonical(self):
+        other = self.directory / 'b'
+        build_package(self.made['sources'], self.made['config'], other)
+        first, second = _files(self.package), _files(other)
+        self.assertEqual(set(first), set(second))
+        for relative in first:
+            self.assertEqual(first[relative].read_bytes(), second[relative].read_bytes(), relative)
+        result = build_pop(self.made['sources'], self.made['config'])
+        for name in ('POP', 'POP0'):
+            raw = (self.package / f'{name}.txt.gz').read_bytes()
+            # Nagłówek gzip: bez FNAME (FLG = 0), MTIME = 0, XFL = 2 (poziom 9).
+            self.assertEqual((raw[3], raw[4:8], raw[8]), (0, b'\0\0\0\0', 2), name)
+            text = gzip.decompress(raw).decode('utf-8')
+            keys = result[name.lower()]
+            self.assertEqual(text, ''.join(k + '\n' for k in keys))
+            self.assertEqual(keys, sorted(keys))
+        self.assertIn('kot', gzip.decompress((self.package / 'POP0.txt.gz').read_bytes()).decode().split('\n'))
+
+    def test_layout_and_sha256sums_cover_everything_but_itself(self):
+        self.assertEqual(set(_files(self.package)), PACKAGE_FILES)
+        lines = self.read('SHA256SUMS').splitlines()
+        listed = [line.split('  ', 1)[1] for line in lines]
+        self.assertEqual(listed, sorted(listed))
+        self.assertEqual(set(listed), PACKAGE_FILES - {'SHA256SUMS'})
+        for line in lines:
+            digest, relative = line.split('  ', 1)
+            self.assertEqual(digest, sha256(self.package / relative), relative)
+
+    def test_manifest_is_built_pinned_and_free_of_time_and_paths(self):
+        from literaki_slownik.run import code_identity
+        made, text = self.made, self.read('release-manifest.json')
+        manifest = json.loads(text)
+        self.assertEqual((manifest['status'], manifest['method'], manifest['adr']),
+                         ('BUILT', 'pop-v1', 'docs/adr/ADR-007-metoda-pop-v1.md'))
+        inputs = manifest['inputs']
+        self.assertEqual(inputs['database_sha256'], sha256(made['database']))
+        self.assertEqual(inputs['release_manifest_sha256'], sha256(made['release'] / 'release-manifest.json'))
+        self.assertEqual(inputs['standard_sha256'], sha256(made['run'] / 'lists/standard.txt'))
+        self.assertEqual(inputs['nkjp_sha256'], sha256(made['nkjp']))
+        self.assertEqual(inputs['sources_sha256'], sha256(made['sources']))
+        self.assertEqual(manifest['config_sha256'], sha256(made['config']))
+        self.assertEqual(manifest['code_identity'], code_identity())
+        self.assertEqual(manifest['must_include_pop0'], ['kot'])
+        self.assertEqual(manifest['nkjp_rule_id'], 'nkjp-clean-strip-edges-keep-dot-v1')
+        self.assertEqual(set(manifest['files']), PACKAGE_FILES - {'SHA256SUMS', 'release-manifest.json'})
+        for relative, meta in manifest['files'].items():
+            path = self.package / relative
+            self.assertEqual((meta['sha256'], meta['bytes']), (sha256(path), path.stat().st_size), relative)
+        self.assertNotRegex(text, r'\d{4}-\d{2}-\d{2}T\d{2}:')
+        for path in (self.tmp.name, str(Path(self.tmp.name).resolve()), str(Path.home())):
+            self.assertNotIn(path, text)
+        self.assertNotIn('"/', text)
+
+    def test_read_only_existing_target_is_4_and_failure_leaves_nothing(self):
+        for relative, path in _files(self.package).items():
+            self.assertEqual(path.stat().st_mode & 0o777, 0o444, relative)
+        made = self.made
+        existing = self.directory / 'existing'
+        existing.mkdir()
+        (existing / 'keep.txt').write_text('x', encoding='utf-8')
+        with self.assertRaises(GeneratorError) as raised:
+            build_package(made['sources'], made['config'], existing)
+        self.assertEqual(raised.exception.code, 4)
+        self.assertEqual(set(_files(existing)), {'keep.txt'})
+        broken = mock.Mock(side_effect=[None, OSError('dysk pełny')])
+        target = self.directory / 'broken'
+        with mock.patch.object(pop_module, '_write_gzip', broken), self.assertRaises(OSError):
+            build_package(made['sources'], made['config'], target)
+        self.assertEqual(broken.call_count, 2)
+        self.assertFalse(target.exists())
+        self.assertEqual(sorted(p.name for p in self.directory.iterdir()), ['existing'])
+
+    def test_package_has_no_nkjp_numbers_raw_file_or_foreign_nkjp_keys(self):
+        raw_lines = [line.strip() for line in NKJP_POP_1GRAMS.splitlines()]
+        found_keys = set()
+        for relative, path in _files(self.package).items():
+            data = path.read_bytes()
+            text = (gzip.decompress(data) if relative.endswith('.gz') else data).decode('utf-8')
+            for number in NKJP_NUMBERS:
+                self.assertNotIn(number, text, relative)
+            for line in raw_lines:
+                self.assertNotIn(line, text, relative)
+            self.assertNotIn('1grams', relative.lower())
+            if relative.startswith('reports/'):
+                found_keys |= {k for k in _json_keys(json.loads(text)) if 'nkjp' in k.lower()}
+        self.assertEqual(found_keys, NKJP_KEYS)
+
+    def test_samples_use_pop_quality_v1_strata_and_review_template_is_bound(self):
+        sample = json.loads(self.read('reports/sample.json'))
+        self.assertEqual((sample['version'], sample['seed'], sample['size_per_stratum'], sample['status']),
+                         ('pop-quality-v1', 'literaki-slownik-pop-v1', 30, 'UNREVIEWED'))
+        fixed = {'pop-granica-wewnatrz', 'pop-granica-zewnatrz', 'pop0-granica-wewnatrz', 'pop0-granica-zewnatrz',
+                 'braki-danych', 'rozbieznosc-korpusow', 'grupy-homonimow', 'formy-krotkie', 'formy-dlugie'}
+        strata = sample['strata']
+        self.assertTrue(fixed <= set(strata), set(strata))
+        self.assertTrue(any(name.startswith('pos-') for name in strata))
+        self.assertTrue(set(strata) - fixed <= {f'pos-{p}' for p in ('subst', 'verb', 'adj', 'adv', 'other')})
+        selected = lambda name: {item['key'] for item in strata[name]['selected']}
+        self.assertIn(f'kumpel@{S}', selected('braki-danych'))
+        self.assertIn(f'zamek:a@{S}', selected('grupy-homonimow'))
+        self.assertIn(f'kot@{S}', selected('pop0-granica-wewnatrz'))
+        self.assertIn(f'zamek:b@{S}', selected('pop0-granica-zewnatrz'))
+        template = json.loads(self.read('reports/review-template.json'))
+        self.assertEqual(template['status'], 'UNREVIEWED')
+        self.assertEqual(template['canonical_index_sha256'], sha256(self.package / 'reports/units.json'))
+        self.assertEqual(template['sample_sha256'], sha256(self.package / 'reports/sample.json'))
+        self.assertEqual(template['evidence_sha256'],
+                         {name: sha256(self.package / name)
+                          for name in ('POP.txt.gz', 'POP0.txt.gz', 'reports/thresholds.json')})
+        self.assertTrue(template['items'] and all(i['assessment'] is None for i in template['items']))
+
+    def test_attributions_follow_adr_006_terms_and_kwjp_only_drops_nkjp(self):
+        made = self.made
+        nkjp = [i for i in load_sources(made['sources'])['inputs'] if i['kind'] == 'nkjp_1gram'][0]
+        attributions = self.read('ATTRIBUTIONS.md')
+        for text in (nkjp['creator'], nkjp['url'], nkjp['license'], nkjp['sha256'], nkjp['title'],
+                     'nkjp-clean-strip-edges-keep-dot-v1', 'ADR-006', '1.0–4.0', 'nie popierają', 'SGJP'):
+            self.assertIn(text, attributions)
+        terms = self.read('TERMS.md')
+        for text in ('CC BY 4.0', 'BSD-2-Clause', 'SGJP', 'KWJP', 'NKJP', 'ADR-006'):
+            self.assertIn(text, terms)
+        limitations = self.read('LIMITATIONS.md')
+        for text in ('SJP.pl', 'STANDARD', 'D7', 'D9', 'e-common', 'zrobił', 'próbk', 'pop-sources.json',
+                     'nkjp-clean-strip-edges-keep-dot-v1'):
+            self.assertIn(text, limitations)
+        # C19: sama KWJP (wycofanie NKJP) nie czyta NKJP i nie wymienia go w atrybucjach ani manifeście.
+        refuse = mock.Mock(side_effect=AssertionError('NKJP otwarty'))
+        config = pop_config(self.directory, 11, 6, d3={'source': 'kwjp', 'field': 'F'}, d4=None,
+                            must_include_pop0=['rok'])
+        target = self.directory / 'kwjp'
+        with mock.patch.object(pop_module, 'read_nkjp', refuse), mock.patch.object(pop_module.gzip, 'open', refuse):
+            build_package(made['sources'], config, target)
+        refuse.assert_not_called()
+        for name in ('ATTRIBUTIONS.md', 'release-manifest.json', 'TERMS.md'):
+            self.assertNotIn('nkjp', (target / name).read_text(encoding='utf-8').lower(), name)
+        self.assertIn('SGJP', (target / 'ATTRIBUTIONS.md').read_text(encoding='utf-8'))
+        # Wzór licencji ADR-006 w repozytorium: „CC BY, wersja nieokreślona”.
+        repo = load_sources(Path(__file__).resolve().parent.parent / 'config/generator/pop-sources.json')
+        license = [i for i in repo['inputs'] if i['kind'] == 'nkjp_1gram'][0]['license']
+        self.assertIn('CC BY, wersja nieokreślona', license)
 
 
 class RepositoryPopSourcesTests(unittest.TestCase):

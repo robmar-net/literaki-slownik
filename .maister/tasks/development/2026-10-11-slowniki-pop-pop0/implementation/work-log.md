@@ -57,3 +57,8 @@
 **Tests**: test_pop 44 OK. **Files**: pop.py (pod sekcją konfiguracji: zawężenie ADR-007, build_pop, pop_summary), cli.py (pop), pop_helpers.py, test_pop.py.
 **v29 (ro)**: POP 60 000 leks. = 45 229 jedn., 1 328 263 form (46 146 z konstrukcji), kwjp-standard 98,48%, kwjp-all 89,89%; POP0 20 000 = 11 600 jedn., 457 409 form, 94,39% / 86,15%; kot ranga 9 128 w POP0. 122 s, RSS 3,39 GB. Hash bazy bez zmian. D-6: kod rankingu = 7133fbe.
 **Decyzja**: C19 częściowe (check_inputs wciąż pinuje plik NKJP) — do LIMITATIONS, bez zmiany zamrożonego kodu.
+
+## 2026-10-11T14:53:15Z - Group 12 Complete
+**Tests**: test_pop 51 OK. **Files**: pop.py (pakiet BUILT pod sekcją konfiguracji), cli.py, pop_helpers.py (pop_package), test_pop.py.
+**Próba v29**: 145 s, 3,2 GB; POP = sonda; POP0 457 409 form; 14 warstw × 30 = 420 próbek; units.json 62 MB. Katalog próby usunięty.
+**Kontrakt dla 13/14**: units.json wiersze płaskie (members lemma_id@source_id), sample.json bez \n (sha = sample_sha256), warstwa rozbieznosc-korpusow, manifest bez nkjp przy samej KWJP. Daty NKJP „2012–2014” pominięte (brak źródła).

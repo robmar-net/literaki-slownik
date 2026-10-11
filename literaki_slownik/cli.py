@@ -65,8 +65,9 @@ def main(argv=None):
                 print('Verify odmówił VERIFIED; blokady: ' + ', '.join(blocked), file=sys.stderr)
                 return _finish(argv, command, result, 5)
         elif args.command == 'pop':
-            from .pop import build_pop, pop_summary
-            result['result'] = pop_summary(build_pop(args.manifest, args.config, args.run_dir, args.release_dir))
+            from .pop import build_package
+            result['result'] = build_package(args.manifest, args.config, args.output_dir, args.run_dir,
+                                             args.release_dir)
         elif args.command == 'export':
             from .export import export
             result['result'] = export(args.run_dir, args.output_dir)
@@ -95,6 +96,11 @@ def _finish(argv, command, result, code):
         if command == 'explain':
             from .explain import format_explanation
             print(format_explanation(result['result']))
+        elif command == 'pop':
+            found = result['result']
+            print(f"Pakiet POP (BUILT): {found['output_dir']}\n"
+                  f"POP: {found['forms']['pop']} form, {found['thresholds']['pop']['lexemes']} leksemów; "
+                  f"POP0: {found['forms']['pop0']} form, {found['thresholds']['pop0']['lexemes']} leksemów")
         else:
             print('Kontrola zakończona: ' + dumps(result.get('result', {})))
     return code
