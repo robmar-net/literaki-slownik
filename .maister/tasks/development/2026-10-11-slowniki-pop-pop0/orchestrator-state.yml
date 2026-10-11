@@ -1,0 +1,64 @@
+orchestrator:
+  started_phase: phase-1
+  completed_phases: [phase-1, phase-2, phase-5, phase-6]
+  failed_phases: []
+  auto_fix_attempts: {}
+  options:
+    html_output: true
+    mockup_format: html
+    spec_audit_enabled: true
+    skip_test_suite: true
+    e2e_enabled: false
+    user_docs_enabled: false
+    code_review_enabled: true
+    pragmatic_review_enabled: true
+    reality_check_enabled: true
+    production_check_enabled: true
+  created: 2026-10-11T10:36:22Z
+  updated: 2026-10-11T11:45:13Z
+  task_path: .maister/tasks/development/2026-10-11-slowniki-pop-pop0
+task:
+  title: Słowniki słów popularnych POP i POP0
+  description: "GitHub robmar-net/literaki-slownik#3. Dwa słowniki popularnych słów jako podzbiory STANDARD (LL-PL v29), źródła KWJP + NKJP (ADR-006). POP: szeroki, kandydat na słownik gry bez nieznanych słów i słownik botów. POP0: o rząd wielkości mniejszy, dla słabszych botów. Najpierw pomiary i decyzje właściciela (jednostka, miara, progi, słowa potoczne, akceptacja w grze), potem implementacja. Pisać po polsku, bardzo zwięźle i prosto."
+  status: in_progress
+  tags: [pop, pop0, kwjp, nkjp]
+  issue: robmar-net/literaki-slownik#3
+task_context:
+  risk_level: medium
+  clarifications_resolved: true
+  scope_expanded: false
+  architecture_decision: "Krok pochodny tylko do odczytu nad zamrożonym LL-PL v29; osobny manifest i config POP; etapy A–E; D1–D8 w ADR-007 po pomiarze."
+  task_characteristics: {has_reproducible_defect: false, modifies_existing_code: true, creates_new_entities: true, involves_data_operations: true, ui_heavy: false}
+  research_reference: {path: null, research_question: null, research_type: null, confidence_level: null}
+  design_reference: {source: null, product_design_path: null, mockup_count: 0, has_brief: false, index_path: null}
+  project_context:
+    project_doc_paths:
+      - .maister/docs/INDEX.md
+      - AGENTS.md
+      - docs/literaki-niezalezne-slowniki-prompt-v3.md
+      - docs/literaki-prosty-jezyk-minimum-leksykalne-kierunki.md
+      - docs/plan-dalszych-prac-runbook.md
+      - docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md
+      - docs/generator/mapowanie-kwjp.md
+      - docs/generator/publikacja.md
+      - docs/generator/jakosc.md
+      - docs/runbook-wiki.md
+  phase_summaries:
+    codebase_analysis:
+      summary: "Kodu popularności nie ma. POP/POP0 to nowy krok tylko do odczytu nad zamrożonym przebiegiem v30, z własnym manifestem, zamrożeniem i atrybucją; LL-PL bez zmian."
+      artifacts: [{path: analysis/codebase-analysis.md, label: Analiza kodu, html: null}]
+    specification:
+      summary: "Spec 5 etapów (A pomiar, B ADR-007 i pop.json, C polecenie pop i explain, D odbiór, E wydanie pop-v1 i wiki), 39 wymagań."
+      artifacts: [{path: implementation/spec.md, label: Specyfikacja, html: implementation/spec.html}]
+    spec_audit:
+      summary: "Audyt: pass-with-concerns (0 krytycznych, 6 poważnych, 14 drobnych); spec poprawiona do rew. 2 (46 wymagań)."
+      artifacts: [{path: verification/spec-audit.md, label: Audyt specyfikacji, html: null}]
+    implementation_plan:
+      summary: "17 grup, 90 kroków; A i B szczegółowo, C–E zarys do B5; 3 bramki właściciela (7.6 D1–D8, 10.4 B5, 16.6 przegląd)."
+      artifacts: [{path: implementation/implementation-plan.md, label: Plan, html: implementation/implementation-plan.html}]
+    gap_analysis:
+      summary: "Cel 98–99% pokrycia nieosiągalny wobec wszystkich tokenów KWJP (sufit 93,5%); pełna odmiana bardzo duża (40k leksemów = 878k form); czyszczenie NKJP tworzy fałszywe słowa (ul., ok.); serwer gra na pl-sjp. Najpierw skrypt pomiarowy, decyzje D1–D8 po raporcie."
+      artifacts: [{path: analysis/gap-analysis.md, label: Analiza luk, html: null}]
+    clarifications:
+      summary: "Leksem z typowymi formami; rozmiar wg pokrycia tekstów; tylko korpusy; pomiar, decyzje, wydanie w jednym zadaniu."
+      artifacts: [{path: analysis/clarifications.md, label: Doprecyzowania, html: null}]

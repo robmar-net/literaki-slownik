@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan implementacji — słowniki POP i POP0 (#3)</title>
+<style>:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+img.shot { max-width:100%; border:1px solid var(--border); border-radius:var(--radius); }
+details > summary { cursor:pointer; font-weight:600; }
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+.step.todo::before  { content:"☐ "; color:var(--dim); }
+.step.done::before  { content:"☑ "; color:var(--ok); }
+.step.done          { color:var(--dim); }
+.group.todo .g-badge::after { content:"pending"; }
+.group.done .g-badge::after { content:"✓ completed"; color:var(--ok); }
+.dim { color:var(--dim); }
+.tldr h2 { margin-top:12px; }
+.flow { line-height:2.2; }
+.node { display:inline-block; padding:1px 9px; border:1px solid var(--border); border-radius:99px; background:var(--accent-soft); font-weight:600; }
+.stop { display:inline-block; font-size:11px; font-weight:700; padding:1px 8px; border-radius:99px; background:var(--crit-soft); color:var(--crit); }
+.stage { border-bottom:1px solid var(--border); padding-bottom:4px; }
+.ghead { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.ghead h3 { margin:0; font-size:15px; }
+.chips code { display:inline-block; margin:2px 0; }
+ul.steps { list-style:none; padding-left:0; }
+ul.steps > li { margin:6px 0; }
+ul.subs { margin:2px 0 0 22px; color:var(--dim); }
+.acc { background:var(--ok-soft); border-radius:8px; padding:8px 12px; }
+.acc ul { margin:4px 0 0; }
+</style>
+</head>
+<body>
+<nav class="crumbs"><a href="../dashboard.html">← Dashboard</a> <a href="spec.html">Spec</a> <span class="here">Plan</span> <a href="implementation-plan.md" target="_blank" rel="noopener" class="md">md twin ↗</a></nav>
+<header><span class="badge">implementation plan</span><h1>Plan implementacji: słowniki POP i POP0 (#3)</h1><div class="dim">2026-10-11 · podstawa: <a href="spec.md" target="_blank" rel="noopener">spec.md</a> (rew. 2), <a href="../verification/spec-audit.md" target="_blank" rel="noopener">spec-audit.md</a></div></header>
+<div class="tiles"><div class="tile"><b>17</b><span>grup</span></div><div class="tile"><b>90</b><span>kroków</span></div><div class="tile"><b>55–78</b><span>testów</span></div><div class="tile"><b>3</b><span>bramki właściciela</span></div><div class="tile"><b>A–E</b><span>etapy</span></div></div>
+<section class="tldr card"><h2>TL;DR</h2><ul><li>17 grup, 90 kroków. Etapy A (grupy 1–7) i B (8–10) są rozpisane w całości. C, D i E (11–17) to zarys, <b>do doprecyzowania po B5</b>.</li><li>Kolejność: piny → ładowanie KWJP/SGJP → NKJP → rangi i opcje → skrypt pomiaru → pomiar na v29 → <b>STOP: właściciel</b> → ADR-007 → <code>pop.json</code> → <b>STOP: bramka B5</b> → C → D (<b>STOP: przegląd</b>) → E.</li><li>Równolegle: grupa 5 (<code>quality.py</code>) z grupami 1–4; grupy 13 i 14 po 12. Reszta jest szeregowa, bo dzieli <code>pop.py</code> i <code>tests/test_pop.py</code>.</li><li>Testy: 2–8 na grupę z kodem, razem ok. 55–78.</li></ul><h2>Key Decisions</h2><ul><li>Kod ładowania danych, rang i opcji jest w <code>literaki_slownik/pop.py</code>. Skrypt pomiaru go importuje, więc A i C liczą tym samym kodem (D-6).</li><li>Czasy reguł przynależności (A9) trafiają do osobnego <code>timing.json</code>. <code>measure.json</code> jest bez czasów, więc dwa przebiegi dają te same bajty (A3).</li><li>Testy <code>pop-quality-v1</code> są w nowym pliku <code>tests/test_pop_quality.py</code>. <code>tests/test_quality.py</code> zostaje bez zmian.</li><li>Fikstura POP (<code>tests/pop_helpers.py</code>) ma własne SGJP. <code>release_helpers.SGJP</code> i testy LL-PL się nie zmieniają.</li><li>Grupy bez kodu (7, 8, 10, 16, 17) nie mają testów. Zamiast nich mają kontrole: hashe, <code>cmp</code>, <code>curl -fI</code>.</li></ul><h2>Open Questions / Risks</h2><ul><li>Bramki właściciela: po grupie 7 (D1–D8), po grupie 10 (B5) i w grupie 16 (przegląd). Wykonawca <b>zatrzymuje się</b> w każdej i nie zaczyna następnej grupy bez odpowiedzi.</li><li>Grupy 11–17 zależą od wyborów D1–D8. Ich kroki i testy przepisze grupa 10.</li><li>Liczby z audytu (14 s odczytu, 350 MB, 14 s hasha) mogły się zestarzeć. Grupa 7 mierzy je od nowa.</li><li>Druga reguła przynależności (D2c) czyta <code>analysis</code> (17,5 mln) i <code>variant_decision</code> (35 mln). Czas nieznany do grupy 7.</li><li>Grupy 2–4 dzielą <code>pop.py</code>, więc idą po kolei. To wydłuża etap A.</li><li>Nowy <code>pop.py</code> i zmiana <code>quality.py</code> zmieniają <code>code_identity</code>. Ma to znaczenie tylko dla przyszłej weryfikacji LL-PL.</li></ul></section>
+<section class="card"><h2>Kolejność i bramki</h2><p class="dim">G5 idzie równolegle z G1–G4; G13 ‖ G14 po G12. G16 ma trzecią bramkę (przegląd próbek).</p><div class="flow"><a href="#g1" class="node">G1</a> → <a href="#g5" class="node">G5</a> → <a href="#g2" class="node">G2</a> → <a href="#g3" class="node">G3</a> → <a href="#g4" class="node">G4</a> → <a href="#g6" class="node">G6</a> → <a href="#g7" class="node">G7</a> → <span class="stop">STOP: właściciel</span> → <a href="#g8" class="node">G8</a> → <a href="#g9" class="node">G9</a> → <a href="#g10" class="node">G10</a> → <span class="stop">STOP: właściciel</span> → <a href="#g11" class="node">G11</a> → <a href="#g12" class="node">G12</a> → <a href="#g13" class="node">G13</a> ‖ <a href="#g14" class="node">G14</a> → <a href="#g15" class="node">G15</a> → <a href="#g16" class="node">G16</a> → <a href="#g17" class="node">G17</a></div></section>
+<section class="card"><h2>Overview</h2><p>Total Steps: 90</p><p>Task Groups: 17 (A: 1–7, B: 8–10, C: 11–15, D: 16, E: 17)</p><p>Expected Tests: ok. 55–78 (A+B: 42, C: do 26, przegląd: do 10)</p><ul><li>Nigdy nie pisać do <code>data/work/lists-v30-20261010-165826-a</code> ani do <code>data/work/release-LL-PL-v29</code>. Baza tylko <code>mode=ro</code>.</li><li><code>config/generator/sources.json</code>, <code>literaki_slownik/inputs.py</code>, <code>decisions.VARIANTS</code> i testy LL-PL bez zmian.</li><li>Docstringi i komunikaty po polsku. JSON przez <code>canonical.write_json</code>. Błędy przez <code>GeneratorError</code> (2 argumenty/konfiguracja, 3 źródło/hash, 4 integralność/katalog istnieje, 5 gotowość).</li><li>KWJP zbiorczo per <code>source_id</code> / zakres <code>evidence_id</code>. Bez <code>LEFT JOIN evidence_candidate</code> bez kierunku. Sortowanie i agregacja w Pythonie.</li></ul></section>
+<main>
+<h2 class="stage">Etap A — pomiar</h2>
+<section data-group="1" class="group todo" id="g1"><div class="card">
+<div class="ghead"><h3>Grupa 1: Manifest POP, piny i fikstura</h3><span class="badge g-badge"></span></div>
+<p class="dim">Manifest POP i sprawdzanie pinów (A1, część C2) · zależy od: <b>None</b> · kroków: 5</p>
+<div class="chips"><code>config/generator/pop-sources.json</code> <code>literaki_slownik/pop.py</code> <code>tests/pop_helpers.py</code> <code>tests/test_pop.py</code> </div><ul class="steps">
+<li data-step="1.1" class="step todo"><b>1.1</b> Napisz 6 testów w <code>tests/test_pop.py</code><ul class="subs"><li>poprawny manifest na fiksturze: zwraca ścieżki i hash bazy</li><li>zły pin bazy → kod 3</li><li><code>run-dir/manifest.json</code> <code>export.release_manifest_sha256</code> ≠ hash <code>--release-dir/release-manifest.json</code> → kod 3</li><li>zły hash <code>lists/standard.txt</code> albo NKJP → kod 3</li><li>przebieg bez <code>readiness: FROZEN</code> → kod 5</li><li>wejście inne niż KWJP/NKJP (np. <code>sjp</code>) albo nieznany klucz → kod 2</li></ul></li>
+<li data-step="1.2" class="step todo"><b>1.2</b> Fikstura <code>tests/pop_helpers.py</code><ul class="subs"><li>przebieg FROZEN i pakiet z <code>release_helpers</code> (<code>complete_pair</code> + verify/export z <code>allow_test_fixture</code>, wzór <code>tests/test_export.py</code>)</li><li>własne SGJP i KWJP (wzór <code>tests/test_build.py</code> <code>manifest</code>): <code>zamek:a/b</code>, <code>rok</code> z dwoma leksemami, <code>lata</code>/<code>lato</code>, <code>Polska</code> (nazwa własna) i <code>polski</code>, interpretacja z <code>pot.</code>, konstrukcja (<code>nie-</code> + przymiotnik), <code>ul</code></li><li>mały <code>1grams.gz</code> (wzór <code>tests/test_kwjp.py</code>) z <code>ul.</code>, <code>ul</code>, <code>ok.</code>, <code>polska</code>, <code>lata</code></li><li><code>pop-sources.json</code> przypięty do fikstury</li></ul></li>
+<li data-step="1.3" class="step todo"><b>1.3</b> <code>config/generator/pop-sources.json</code><ul class="subs"><li><code>version: pop-sources-v1</code>; pełne hashe: baza (z <code>manifest.json</code> przebiegu), <code>release-manifest.json</code> v29, <code>lists/standard.txt</code>, <code>cache/nkjp/1grams.gz</code></li><li>wejścia tylko <code>kwjp</code> (z bazy) i <code>nkjp_1gram</code>; ścieżka pakietu LL-PL v29</li></ul></li>
+<li data-step="1.4" class="step todo"><b>1.4</b> <code>literaki_slownik/pop.py</code><ul class="subs"><li><code>load_sources(path)</code>: ścisły walidator kluczy i rodzajów wejść (kod 2)</li><li><code>check_inputs(sources, run_dir, release_dir)</code>: FROZEN (5), piny (3); reuse <code>inputs.checked_file</code>, <code>canonical.sha256</code></li><li><code>database_sha256(path)</code>: strumień po 1 MB</li><li><code>read_standard(path)</code> → <code>frozenset</code> kluczy</li></ul></li>
+<li data-step="1.5" class="step todo"><b>1.5</b> Uruchom tylko testy z 1.1</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>6 testów z 1.1 przechodzi</li><li><code>pop-sources.json</code> ma pełne hashe zgodne z danymi na dysku</li></ul></div></div></section>
+<section data-group="2" class="group todo" id="g2"><div class="card">
+<div class="ghead"><h3>Grupa 2: Ładowanie KWJP i SGJP z bazy</h3><span class="badge g-badge"></span></div>
+<p class="dim">Dane leksemów i form z bazy tylko do odczytu (A6, A8, A9) · zależy od: <b>1</b> · kroków: 7</p>
+<div class="chips"><code>literaki_slownik/pop.py</code> <code>tests/pop_helpers.py</code> <code>tests/test_pop.py</code> </div><ul class="steps">
+<li data-step="2.1" class="step todo"><b>2.1</b> Napisz 7 testów<ul class="subs"><li>klucz leksemu to <code>(source_id, lemma_id)</code>, nie <code>lexeme.id</code></li><li>kilka wierszy KWJP jednego leksemu: F sumowane; ARF, 1-DP i gatunki z wiersza o największym F (remis: klucz wiersza)</li><li>wiersz AMBIGUOUS <code>zamek</code> daje grupę <code>zamek:a/b</code>; F przy grupie, członkowie bez własnego F</li><li>formy leksemu tylko z kluczy STANDARD</li><li>forma konstrukcji trafia do leksemu składnika przez <code>derivation_candidate.lemma_id</code> + <code>source_id</code></li><li>leksem potoczny = <code>pot.</code> w dowolnej interpretacji</li><li>hash bazy przed = po (wzór <code>tests/test_explain.py:22</code>)</li></ul></li>
+<li data-step="2.2" class="step todo"><b>2.2</b> <code>load_kwjp(db, source_id)</code><ul class="subs"><li>zakres <code>evidence_id</code> per <code>source_id</code>, potem <code>evidence_link</code> i <code>evidence_candidate</code> w tym zakresie; łączenie w Pythonie</li><li>lemma-all i gatunki (fikcja, fakt, publicystyka); statusy EXACT/AMBIGUOUS/UNMATCHED; miary z <code>kwjp.METRICS</code></li></ul></li>
+<li data-step="2.3" class="step todo"><b>2.3</b> <code>load_lexemes(db)</code>: <code>lexeme.id</code> → klucz, źródło, POS, kwalifikatory (<code>pot.</code>), nazwa własna</li>
+<li data-step="2.4" class="step todo"><b>2.4</b> <code>load_forms(db, standard)</code>: leksem → <code>game_key</code> przez <code>interpretation</code> → <code>surface_form</code><ul class="subs"><li>reguła (i): forma ∈ STANDARD i jest formą leksemu</li><li>reguła (ii): analiza tego leksemu przyjęta w STANDARD (<code>analysis</code> + <code>variant_decision</code>); osobna funkcja, żeby zmierzyć jej czas</li></ul></li>
+<li data-step="2.5" class="step todo"><b>2.5</b> <code>load_constructions(db, standard)</code>: <code>derivation_candidate</code> bez <code>interpretation_id</code> → leksem składnika; liczniki: jeden / żaden / kilka (A9)</li>
+<li data-step="2.6" class="step todo"><b>2.6</b> <code>kwjp_measures(rows)</code>: agregacja wierszy leksemu wg reguł wspólnych; grupy homonimów jako osobne jednostki; nigdy suma ARF/1-DP ani korpusu z podkorpusami</li>
+<li data-step="2.7" class="step todo"><b>2.7</b> Uruchom tylko testy z 2.1</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>7 testów z 2.1 przechodzi</li><li>żadne zapytanie nie używa <code>LEFT JOIN evidence_candidate</code> ani <code>ORDER BY</code> na tekście</li></ul></div></div></section>
+<section data-group="3" class="group todo" id="g3"><div class="card">
+<div class="ghead"><h3>Grupa 3: NKJP — czytanie, czyszczenie, jednoznaczność</h3><span class="badge g-badge"></span></div>
+<p class="dim">NKJP jako ranga leksemu bez kopiowania F (A10, D4, D5) · zależy od: <b>1</b> · kroków: 6</p>
+<div class="chips"><code>literaki_slownik/pop.py</code> <code>tests/test_pop.py</code> </div><ul class="steps">
+<li data-step="3.1" class="step todo"><b>3.1</b> Napisz 6 testów<ul class="subs"><li>parser <code>r" *([0-9]+) (.+)\n"</code> na małym gz; NFC, małe litery, suma po <code>game_key</code></li><li>trzy reguły czyszczenia: <code>full-nfc</code>, <code>strip-edges</code>, <code>strip-edges-keep-dot</code>; <code>ul.</code> i <code>ok.</code> w każdej</li><li>lista kolizji (<code>ul.</code>→<code>ul</code>, <code>ok.</code>→<code>ok</code>) z masą obu stron</li><li><code>polska</code> nie jest jednoznaczna (nazwa własna + przymiotnik) i nie daje F <code>polski</code></li><li><code>lata</code> (<code>rok</code> i <code>lato</code>) nie daje F żadnemu leksemowi</li><li>forma bez wiersza NKJP ma status <code>NOT_IN_PUBLISHED_LIST</code>, nigdy 0</li></ul></li>
+<li data-step="3.2" class="step todo"><b>3.2</b> <code>read_nkjp(path, rule)</code>: strumień gzip, identyfikator reguły z wersją; suma całości w strumieniu; w pamięci tylko klucze form SGJP</li>
+<li data-step="3.3" class="step todo"><b>3.3</b> <code>nkjp_collisions(...)</code>: napisy scalane przez regułę, top wg masy</li>
+<li data-step="3.4" class="step todo"><b>3.4</b> <code>form_owners(db)</code>: <code>game_key</code> → klucze leksemów wśród wszystkich leksemów SGJP (<code>sgjp-20260823</code>, <code>sgjp-supplement-v1</code>, z nazwami własnymi i analizami odrzuconymi); zbiorczo</li>
+<li data-step="3.5" class="step todo"><b>3.5</b> <code>nkjp_lexeme_ranks(...)</code>: F tylko z formy jednoznacznej; na wyjściu ranga i percentyl, także dla leksemu z jedną formą</li>
+<li data-step="3.6" class="step todo"><b>3.6</b> Uruchom tylko testy z 3.1</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>6 testów z 3.1 przechodzi</li><li>funkcje publiczne zwracają NKJP leksemu tylko jako rangę/percentyl</li></ul></div></div></section>
+<section data-group="4" class="group todo" id="g4"><div class="card">
+<div class="ghead"><h3>Grupa 4: Rangi, pokrycie i opcje D1–D8</h3><span class="badge g-badge"></span></div>
+<p class="dim">Wspólne funkcje rankingu dla pomiaru i <code>pop</code> · zależy od: <b>2, 3</b> · kroków: 7</p>
+<div class="chips"><code>literaki_slownik/pop.py</code> <code>tests/test_pop.py</code> </div><ul class="steps">
+<li data-step="4.1" class="step todo"><b>4.1</b> Napisz 8 testów<ul class="subs"><li>ranga deterministyczna, klucz <code>(-miara, klucz jednostki)</code>, remis rozstrzyga klucz</li><li>percentyle na małym przykładzie</li><li>brak pełny i częściowy: osobne statusy KWJP i NKJP, nigdy ranga 0; trzy reguły D8b</li><li>D5d: grupa <code>rok</code> dzieli rangę i wchodzi w całości albo wcale</li><li>pokrycie w trzech mianownikach D1</li><li>próg po liczbie jednostek i po celu pokrycia (D6)</li><li>filtr klas znaczników D2a (wołacz, rozkaźnik, imiesłowy, os. 1/2)</li><li>Spearman i nakładanie top-N; kombinacja KWJP+NKJP tylko z rang/percentyli, z wagą</li></ul></li>
+<li data-step="4.2" class="step todo"><b>4.2</b> <code>units(..., d5)</code>: jednostki dla opcji D5 a–d</li>
+<li data-step="4.3" class="step todo"><b>4.3</b> <code>measure(..., d3, d8)</code>: sama KWJP (F, ARF, 1-DP, gatunki) albo KWJP+NKJP z wagą; reguła braku częściowego</li>
+<li data-step="4.4" class="step todo"><b>4.4</b> <code>rank_units</code>, <code>percentiles</code>, <code>coverage(..., d1)</code>, <code>threshold(..., d6)</code></li>
+<li data-step="4.5" class="step todo"><b>4.5</b> <code>forms_for(units, d2)</code>: klasy znaczników, konstrukcje tak/nie, reguła przynależności (i)/(ii)</li>
+<li data-step="4.6" class="step todo"><b>4.6</b> <code>spearman</code>, <code>top_overlap</code></li>
+<li data-step="4.7" class="step todo"><b>4.7</b> Uruchom tylko testy z 4.1</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>8 testów z 4.1 przechodzi</li><li>żadna funkcja nie zwraca 0 w miejsce braku danych</li></ul></div></div></section>
+<section data-group="5" class="group todo" id="g5"><div class="card">
+<div class="ghead"><h3>Grupa 5: Konfiguracja próbek <code>pop-quality-v1</code></h3><span class="badge g-badge"></span></div>
+<p class="dim">Druga zamknięta konfiguracja w <code>quality._config</code> (A7, C17) · zależy od: <b>None</b> · kroków: 3</p>
+<div class="chips"><code>literaki_slownik/quality.py</code> <code>tests/test_pop_quality.py</code> </div><ul class="steps">
+<li data-step="5.1" class="step todo"><b>5.1</b> Napisz 3 testy w <code>tests/test_pop_quality.py</code><ul class="subs"><li><code>pop-quality-v1</code> (seed <code>literaki-slownik-pop-v1</code>, 30, <code>ENCODING</code>) przyjęte; dwa wywołania <code>sample_strata</code> równe</li><li>inna wartość (wersja, seed, rozmiar, kodowanie, <code>bool</code> jako rozmiar) → kod 2</li><li>mieszanka: wersja <code>quality-v1</code> z seedem POP → kod 2</li></ul></li>
+<li data-step="5.2" class="step todo"><b>5.2</b> <code>_config</code>: zamknięta mapa <code>wersja → seed</code> z dwiema parami; reszta warunków bez zmian</li>
+<li data-step="5.3" class="step todo"><b>5.3</b> Uruchom testy z 5.1 i <code>tests.test_quality</code> (plik bez zmian)</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>3 nowe testy i wszystkie <code>tests.test_quality</code> przechodzą</li></ul></div></div></section>
+<section data-group="6" class="group todo" id="g6"><div class="card">
+<div class="ghead"><h3>Grupa 6: Skrypt pomiaru <code>scripts/measure_pop.py</code></h3><span class="badge g-badge"></span></div>
+<p class="dim">Pomiar tylko do odczytu z raportem dla właściciela (A1–A10) · zależy od: <b>4, 5</b> · kroków: 7</p>
+<div class="chips"><code>scripts/measure_pop.py</code> <code>tests/test_measure_pop.py</code> </div><ul class="steps">
+<li data-step="6.1" class="step todo"><b>6.1</b> Napisz 6 testów dymnych na fiksturze<ul class="subs"><li>dwa przebiegi do dwóch katalogów → <code>measure.json</code> równy bajtowo</li><li>istniejący katalog wyjściowy → kod 4</li><li>zły pin → kod 3, nic nie zapisane</li><li>hash bazy przed = po</li><li><code>report.md</code> ma sekcje D1–D8, A9 i próbki</li><li><code>report.md</code> nie ma liczb NKJP per forma (skan: tylko rangi/percentyle)</li></ul></li>
+<li data-step="6.2" class="step todo"><b>6.2</b> Argumenty: <code>--sources</code>, <code>--run-dir</code>, <code>--release-dir</code>, <code>--output-dir</code>; <code>main()</code> zwraca kod, <code>GeneratorError</code> → kod i komunikat; bez <code>SystemExit</code> w funkcjach</li>
+<li data-step="6.3" class="step todo"><b>6.3</b> Przepływ: <code>check_inputs</code> → hash bazy → grupy 2–3 → opcje D1–D8 (grupa 4) → próbki <code>pop-quality-v1</code> → hash bazy; różnica → kod 5, nic nie zapisane<ul class="subs"><li>warstwy próbek: granica POP wewn./zewn. i POP0 wewn./zewn. przy kandydatach D6, braki danych, rozbieżność KWJP–NKJP, grupy homonimów, części mowy, krótkie/długie słowa</li></ul></li>
+<li data-step="6.4" class="step todo"><b>6.4</b> <code>measure.json</code>: kanoniczny, <code>code_identity</code>, hash <code>pop-sources.json</code> i listy opcji, bez czasów i ścieżek; liczby NKJP per forma tylko tu. Czasy (A9, D2c) w osobnym <code>timing.json</code></li>
+<li data-step="6.5" class="step todo"><b>6.5</b> <code>report.md</code> po polsku<ul class="subs"><li>TL;DR; tabela na każdą D1–D8: opcja, leksemy, formy STANDARD, pokrycie, przykłady oznaczone „ilustracja”; zalecenie przy każdej</li><li>D5: top 50 AMBIGUOUS wg F i ich los w każdej opcji (<code>rok</code>, <code>raz</code>, <code>dzień</code>, <code>lata</code>/<code>lato</code>, <code>polska</code>/<code>polski</code>)</li><li>A6 luka potoczna; A9 formy konstrukcji i czas obu reguł; próbki graniczne</li></ul></li>
+<li data-step="6.6" class="step todo"><b>6.6</b> Zapis do stagingu obok celu, potem <code>export.rename_noreplace</code></li>
+<li data-step="6.7" class="step todo"><b>6.7</b> Uruchom tylko testy z 6.1</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>6 testów z 6.1 przechodzi</li><li>skrypt nie pisze poza nowym katalogiem wyjściowym</li></ul></div></div></section>
+<section data-group="7" class="group todo" id="g7"><div class="card">
+<div class="ghead"><h3>Grupa 7: Pomiar na v29 i raport dla właściciela</h3><span class="badge g-badge"></span> <span class="stop">STOP</span></div>
+<p class="dim">Prawdziwy pomiar i pytanie do właściciela (kryteria etapu A) · zależy od: <b>6</b> · kroków: 6</p>
+<div class="chips"><code>data/work/pop-measure-&lt;stempel&gt;/ (poza gitem)</code> <code>.maister/tasks/development/2026-10-11-slowniki-pop-pop0/analysis/pop-measure-report.md</code> </div><ul class="steps">
+<li data-step="7.1" class="step todo"><b>7.1</b> Przed: <code>df</code> (miejsce na dysku); zapisz hashe <code>manifest.json</code>, <code>lists/</code>, <code>reports/</code> przebiegu i <code>release-manifest.json</code> v29</li>
+<li data-step="7.2" class="step todo"><b>7.2</b> Dwa przebiegi do dwóch katalogów <code>data/work/pop-measure-&lt;stempel&gt;-a|b</code>; <code>cmp</code> obu <code>measure.json</code>; zapisz czas i RSS</li>
+<li data-step="7.3" class="step todo"><b>7.3</b> Hash bazy = pin <code>85b23ca5…</code>; hashe z 7.1 bez zmian</li>
+<li data-step="7.4" class="step todo"><b>7.4</b> Agent wstępnie ocenia próbki graniczne; ocena w raporcie, osobno od ilustracji</li>
+<li data-step="7.5" class="step todo"><b>7.5</b> Kopia raportu do <code>analysis/pop-measure-report.md</code> bez liczb NKJP per forma; commit i push repo</li>
+<li data-step="7.6" class="step todo"><b>7.6</b> <b>STOP.</b> Pytanie do właściciela (B1): dla każdej D1–D8 opcje, liczby, przykłady, zalecenie. Nie zaczynaj grupy 8 bez odpowiedzi</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>dwa <code>measure.json</code> równe bajtowo; hash bazy bez zmian</li><li>raport ma tabelę dla każdej D1–D8, pomiar A9 i próbki</li><li>właściciel odpowiedział na D1–D8</li></ul></div></div></section>
+<h2 class="stage">Etap B — decyzje</h2>
+<section data-group="8" class="group todo" id="g8"><div class="card">
+<div class="ghead"><h3>Grupa 8: ADR-007 i atrybucja NKJP</h3><span class="badge g-badge"></span></div>
+<p class="dim">Zapis decyzji (B2, B4) · zależy od: <b>7 (i odpowiedź właściciela)</b> · kroków: 4</p>
+<div class="chips"><code>docs/adr/ADR-007-metoda-pop-v1.md</code> <code>ATTRIBUTIONS.md</code> </div><ul class="steps">
+<li data-step="8.1" class="step todo"><b>8.1</b> Sprawdź, że ADR-007 jest wolny (<code>docs/adr/</code>, gałęzie lokalne)</li>
+<li data-step="8.2" class="step todo"><b>8.2</b> <code>docs/adr/ADR-007-metoda-pop-v1.md</code>: status, data, wybór per D1–D8 z liczbami z raportu A, odrzucone opcje, warunek rewizji, wycofanie NKJP (D3 = sama KWJP), link do <code>config/generator/pop.json</code></li>
+<li data-step="8.3" class="step todo"><b>8.3</b> <code>ATTRIBUTIONS.md</code>: opis zmian NKJP wg D4 (reguła i jej identyfikator)</li>
+<li data-step="8.4" class="step todo"><b>8.4</b> Właściciel akceptuje ADR; status „zaakceptowana” z datą</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>ADR-007 zaakceptowany; <code>ATTRIBUTIONS.md</code> zgodny z D4</li></ul></div></div></section>
+<section data-group="9" class="group todo" id="g9"><div class="card">
+<div class="ghead"><h3>Grupa 9: <code>pop.json</code> i walidator konfiguracji</h3><span class="badge g-badge"></span></div>
+<p class="dim">Konfiguracja metody <code>pop-v1</code> (B3, C3) · zależy od: <b>8</b> · kroków: 5</p>
+<div class="chips"><code>config/generator/pop.json</code> <code>literaki_slownik/pop.py</code> <code>tests/test_pop.py</code> </div><ul class="steps">
+<li data-step="9.1" class="step todo"><b>9.1</b> Napisz 6 testów<ul class="subs"><li><code>config/generator/pop.json</code> z repo przechodzi</li><li>nieznany klucz → kod 2</li><li>opcja D spoza zamkniętej listy → kod 2</li><li>liczba złego typu (<code>bool</code>, <code>float</code> zamiast <code>int</code>) albo spoza zakresu → kod 2</li><li>D3 = „sama KWJP” zawsze przyjmowane</li><li><code>sampling</code> inne niż <code>pop-quality-v1</code> → kod 2</li></ul></li>
+<li data-step="9.2" class="step todo"><b>9.2</b> <code>pop.json</code>: <code>version: pop-v1</code>, <code>adr: ADR-007</code>, opcje D1–D8, progi, wagi, <code>sampling</code></li>
+<li data-step="9.3" class="step todo"><b>9.3</b> <code>load_config(path)</code> w <code>pop.py</code>: zamknięte listy opcji (te z raportu A), typy przez <code>type(x) is int</code>, zakresy</li>
+<li data-step="9.4" class="step todo"><b>9.4</b> ADR-007 i <code>pop.json</code> wskazują się nawzajem</li>
+<li data-step="9.5" class="step todo"><b>9.5</b> Uruchom tylko testy z 9.1</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>6 testów z 9.1 przechodzi; <code>pop.json</code> przechodzi walidator</li></ul></div></div></section>
+<section data-group="10" class="group todo" id="g10"><div class="card">
+<div class="ghead"><h3>Grupa 10: Bramka B5 — spec rew. 3 i plan C</h3><span class="badge g-badge"></span> <span class="stop">STOP</span></div>
+<p class="dim">Bramka B→C (B5) · zależy od: <b>9</b> · kroków: 4</p>
+<div class="chips"><code>.maister/tasks/development/2026-10-11-slowniki-pop-pop0/implementation/spec.md</code> <code>.maister/tasks/development/2026-10-11-slowniki-pop-pop0/implementation/implementation-plan.md</code> <code>.maister/tasks/development/2026-10-11-slowniki-pop-pop0/implementation/implementation-plan.html</code> </div><ul class="steps">
+<li data-step="10.1" class="step todo"><b>10.1</b> Spec rew. 3: wybrane opcje zamiast list; usunąć niewybrane ścieżki (zostaje D3 = sama KWJP)</li>
+<li data-step="10.2" class="step todo"><b>10.2</b> Rozpisz grupy 11–17: kroki, testy, pliki</li>
+<li data-step="10.3" class="step todo"><b>10.3</b> Zanotuj <code>code_identity</code> z <code>measure.json</code>; jeśli kod rankingu zmieni się w C, D-6 wymaga ponownego pomiaru</li>
+<li data-step="10.4" class="step todo"><b>10.4</b> <b>STOP.</b> Właściciel zatwierdza spec rew. 3 i plan C. Bez tego grupa 11 nie startuje</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>spec rew. 3 i plan C zatwierdzone przez właściciela</li></ul></div></div></section>
+<h2 class="stage">Etap C — polecenie <code>pop</code> <span class="sev warning">do doprecyzowania po B5</span></h2>
+<section data-group="11" class="group todo" id="g11"><div class="card">
+<div class="ghead"><h3>Grupa 11: Polecenie <code>pop</code> — rdzeń</h3><span class="badge g-badge"></span></div>
+<p class="dim">Budowa list POP i POP0 (C1–C10, C14, C15) · zależy od: <b>10</b> · kroków: 5</p>
+<div class="chips"><code>literaki_slownik/pop.py</code> <code>literaki_slownik/cli.py</code> <code>tests/test_pop.py</code> </div><ul class="steps">
+<li data-step="11.1" class="step todo"><b>11.1</b> Napisz do 8 testów: POP0 ⊆ POP ⊆ STANDARD; naruszenie → 4; D5 bez kopiowania F; brak ≠ 0 (statusy KWJP/NKJP); forma konstrukcji z leksemem składnika; hash bazy po ≠ przed → 5 i pusty <code>--output-dir</code>; CLI kody 2/3/4/5 (subprocess)</li>
+<li data-step="11.2" class="step todo"><b>11.2</b> <code>build_pop(...)</code>: przepływ ze spec na funkcjach grup 1–4 i <code>load_config</code></li>
+<li data-step="11.3" class="step todo"><b>11.3</b> Podkomenda <code>pop</code> w <code>cli.py</code>: leniwy import, <code>_finish</code>, <code>--json</code></li>
+<li data-step="11.4" class="step todo"><b>11.4</b> Czas na v29 ≤ 10 min (C15)</li>
+<li data-step="11.5" class="step todo"><b>11.5</b> Uruchom tylko testy z 11.1</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>testy z 11.1 przechodzą; <code>pop</code> na v29 ≤ 10 min</li></ul></div></div></section>
+<section data-group="12" class="group todo" id="g12"><div class="card">
+<div class="ghead"><h3>Grupa 12: Pakiet POP</h3><span class="badge g-badge"></span></div>
+<p class="dim">Pakiet <code>BUILT</code> (C11–C13, C17, C18) · zależy od: <b>11</b> · kroków: 6</p>
+<div class="chips"><code>literaki_slownik/pop.py</code> <code>tests/test_pop.py</code> </div><ul class="steps">
+<li data-step="12.1" class="step todo"><b>12.1</b> Napisz do 7 testów: dwa przebiegi równe bajtowo (z gzip); gzip <code>mtime=0</code>, pusta nazwa, poziom 9; manifest <code>status: BUILT</code>, bez czasów i ścieżek bezwzględnych; pliki 0444, istniejący katalog → 4; skan pakietu bez liczb NKJP (C14); próbki <code>pop-quality-v1</code> i <code>review_template</code> z hashem raportu rang; <code>ATTRIBUTIONS.md</code>/<code>LIMITATIONS.md</code>/<code>TERMS.md</code> obecne</li>
+<li data-step="12.2" class="step todo"><b>12.2</b> <code>POP.txt.gz</code>, <code>POP0.txt.gz</code>, <code>reports/</code> (pokrycie, rangi, wrażliwość wag, próbki, szablon przeglądu), <code>SHA256SUMS</code></li>
+<li data-step="12.3" class="step todo"><b>12.3</b> <code>release-manifest.json</code> (C12)</li>
+<li data-step="12.4" class="step todo"><b>12.4</b> Trzy pliki md z <code>pop-sources.json</code> i ADR-007 (wzór <code>verify.py:468-520</code>)</li>
+<li data-step="12.5" class="step todo"><b>12.5</b> Staging + <code>export.rename_noreplace</code>, pliki 0444</li>
+<li data-step="12.6" class="step todo"><b>12.6</b> Uruchom tylko testy z 12.1</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>testy z 12.1 przechodzą</li></ul></div></div></section>
+<section data-group="13" class="group todo" id="g13"><div class="card">
+<div class="ghead"><h3>Grupa 13: <code>explain_pop</code></h3><span class="badge g-badge"></span></div>
+<p class="dim">Wyjaśnienie słowa w POP/POP0 (C16) · zależy od: <b>12</b> · kroków: 4</p>
+<div class="chips"><code>literaki_slownik/explain.py</code> <code>literaki_slownik/cli.py</code> <code>tests/test_explain_pop.py</code> </div><ul class="steps">
+<li data-step="13.1" class="step todo"><b>13.1</b> Napisz 5 testów: powody <code>IN_POP0</code>, <code>IN_POP</code>, <code>BELOW_THRESHOLD</code>, <code>NO_DATA</code>, <code>FORM_NOT_TYPICAL</code>, <code>NOT_IN_STANDARD</code>; piny pakietu ≠ run-dir → 3; brak liczb NKJP w wyniku; <code>decisions.VARIANTS</code> bez zmian; CLI <code>--variant pop|pop0 --pop-dir</code></li>
+<li data-step="13.2" class="step todo"><b>13.2</b> <code>explain_pop(...)</code> obok <code>explain</code></li>
+<li data-step="13.3" class="step todo"><b>13.3</b> CLI: <code>choices</code> rozszerzone, <code>--pop-dir</code></li>
+<li data-step="13.4" class="step todo"><b>13.4</b> Uruchom tylko testy z 13.1</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>testy z 13.1 przechodzą</li></ul></div></div></section>
+<section data-group="14" class="group todo" id="g14"><div class="card">
+<div class="ghead"><h3>Grupa 14: <code>scripts/check_pop_package.py</code></h3><span class="badge g-badge"></span></div>
+<p class="dim">Niezależna kontrola pakietu i przeglądu (D-3, D-5) · zależy od: <b>12</b> · kroków: 3</p>
+<div class="chips"><code>scripts/check_pop_package.py</code> <code>tests/test_check_pop_package.py</code> </div><ul class="steps">
+<li data-step="14.1" class="step todo"><b>14.1</b> Napisz 6 testów: poprawny pakiet → 0; zmieniony plik → 4; naruszenie podzbiorów → 4; liczba NKJP w pakiecie → 4; przegląd <code>UNREVIEWED</code>, pozycja bez oceny, inny <code>sample_sha256</code> albo inny hash <code>SHA256SUMS</code> → 4; skrypt nie importuje <code>pop.py</code></li>
+<li data-step="14.2" class="step todo"><b>14.2</b> Skrypt tylko na stdlib</li>
+<li data-step="14.3" class="step todo"><b>14.3</b> Uruchom tylko testy z 14.1</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>testy z 14.1 przechodzą</li></ul></div></div></section>
+<section data-group="15" class="group todo" id="g15"><div class="card">
+<div class="ghead"><h3>Grupa 15: Przegląd testów i luki</h3><span class="badge g-badge"></span></div>
+<p class="dim">Przegląd testów POP · zależy od: <b>11, 12, 13, 14</b> · kroków: 4</p>
+<div class="chips"><code>tests/test_pop.py</code> <code>tests/test_measure_pop.py</code> <code>tests/test_explain_pop.py</code> <code>tests/test_check_pop_package.py</code> </div><ul class="steps">
+<li data-step="15.1" class="step todo"><b>15.1</b> Przejrzyj testy grup 1–14 (ok. 58–68)</li>
+<li data-step="15.2" class="step todo"><b>15.2</b> Znajdź luki tylko dla POP (tabela ograniczeń spec)</li>
+<li data-step="15.3" class="step todo"><b>15.3</b> Dopisz do 10 testów</li>
+<li data-step="15.4" class="step todo"><b>15.4</b> Testy POP, potem raz pełny zestaw <code>python3 -m unittest discover -s tests -p 'test_*.py'</code></li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>testy POP i pełny zestaw zielone; najwyżej 10 nowych testów</li></ul></div></div></section>
+<h2 class="stage">Etap D — odbiór <span class="sev warning">do doprecyzowania po B5</span></h2>
+<section data-group="16" class="group todo" id="g16"><div class="card">
+<div class="ghead"><h3>Grupa 16: Odbiór pakietu</h3><span class="badge g-badge"></span> <span class="stop">STOP</span></div>
+<p class="dim">Odbiór D-1…D-7 · zależy od: <b>15</b> · kroków: 8</p>
+<div class="chips"><code>.maister/tasks/development/2026-10-11-slowniki-pop-pop0/verification/pop-acceptance.md</code> <code>data/work/pop-v1-*/ (poza gitem)</code> </div><ul class="steps">
+<li data-step="16.1" class="step todo"><b>16.1</b> Hashe bazy, <code>manifest.json</code>, <code>lists/</code>, <code>reports/</code> przebiegu i release-manifest v29 przed</li>
+<li data-step="16.2" class="step todo"><b>16.2</b> Dwa przebiegi <code>pop</code> do dwóch katalogów; wszystkie pliki równe bajtowo (D-1)</li>
+<li data-step="16.3" class="step todo"><b>16.3</b> Hashe z 16.1 po; baza = <code>85b23ca5…</code> (D-2)</li>
+<li data-step="16.4" class="step todo"><b>16.4</b> <code>check_pop_package.py --pop-dir</code> = 0 (D-3)</li>
+<li data-step="16.5" class="step todo"><b>16.5</b> Liczby pakietu = raport A; inny <code>code_identity</code> → najpierw ponowny pomiar A (D-6)</li>
+<li data-step="16.6" class="step todo"><b>16.6</b> Agent ocenia każdą pozycję próbki → <code>pop-v1-review.json</code>. <b>STOP:</b> właściciel zatwierdza, status <code>REVIEWED</code> (D-4)</li>
+<li data-step="16.7" class="step todo"><b>16.7</b> <code>check_pop_package.py --review</code> = 0 (D-5)</li>
+<li data-step="16.8" class="step todo"><b>16.8</b> <code>verification/pop-acceptance.md</code>: hashe, liczby, przegląd, D-3/D-5 (D-7)</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>D-1…D-7 spełnione; właściciel zatwierdził przegląd</li></ul></div></div></section>
+<h2 class="stage">Etap E — wydanie i wiki <span class="sev warning">do doprecyzowania po B5</span></h2>
+<section data-group="17" class="group todo" id="g17"><div class="card">
+<div class="ghead"><h3>Grupa 17: Wydanie <code>pop-v1</code> i wiki</h3><span class="badge g-badge"></span></div>
+<p class="dim">Wydanie i dokumentacja (E1–E6) · zależy od: <b>16</b> · kroków: 6</p>
+<div class="chips"><code>docs/generator/cli.md</code> <code>docs/generator/jakosc.md</code> <code>docs/runbook-wiki.md</code> <code>docs/plan-dalszych-prac-runbook.md</code> <code>wiki: Slownik-POP</code> <code>Slownik-POP0</code> <code>Home</code> <code>_Sidebar</code> <code>Slownik-STANDARD</code> <code>Historia-zmian</code> </div><ul class="steps">
+<li data-step="17.1" class="step todo"><b>17.1</b> Tuż przed wydaniem <code>check_pop_package.py --review</code> = 0; inaczej brak wydania</li>
+<li data-step="17.2" class="step todo"><b>17.2</b> <code>gh release create pop-v1</code>: pliki C11, osobny asset <code>pop-v1-review.json</code>; notatka: liczby, hashe, LL-PL v29, ADR-007, ograniczenia, atrybucja NKJP (E1–E3)</li>
+<li data-step="17.3" class="step todo"><b>17.3</b> Dokumenty (E5): <code>cli.md</code>, <code>jakosc.md</code>, <code>runbook-wiki.md</code>, <code>plan-dalszych-prac-runbook.md:51</code> bez „NKJP BLOCKED”</li>
+<li data-step="17.4" class="step todo"><b>17.4</b> Wiki wg <code>docs/runbook-wiki.md</code> (E4): liczby z pakietu, metoda z ADR-007, link do Release; bez „W przygotowaniu”; wiersz w <code>Historia-zmian</code>; bez tez o znajomości słów</li>
+<li data-step="17.5" class="step todo"><b>17.5</b> <code>curl -fI</code> na każdy asset i stronę wiki → 200 (E6)</li>
+<li data-step="17.6" class="step todo"><b>17.6</b> Commit i push repo oraz wiki</li>
+</ul><div class="acc"><b>Kryteria:</b><ul><li>Release <code>pop-v1</code> po D-5; wiki wypchnięte; E6 zielone</li></ul></div></div></section>
+</main>
+<section class="card"><h2>Standards Compliance</h2><ul><li><code>AGENTS.md</code>: po polsku, zwięźle; decyzje o składzie słownika z właścicielem; wiki w tej samej pracy</li><li><code>docs/literaki-niezalezne-slowniki-prompt-v3.md</code> §2.1, §2.2, §8.1, §8.2, §9.1, §9.4, §13</li><li><code>docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md</code>: atrybucja, bez surowego NKJP, wycofanie NKJP</li><li><code>docs/generator/jakosc.md</code> (kontrakt próbek), <code>docs/generator/publikacja.md</code> (licencje, układ pakietu), <code>docs/runbook-wiki.md</code></li><li><code>docs/literaki-prosty-jezyk-minimum-leksykalne-kierunki.md</code> §4–5: bez list zewnętrznych</li></ul></section>
+<section class="card"><h2>Notes</h2><ul><li>Test najpierw: każda grupa z kodem zaczyna od 2–8 testów.</li><li>Po grupie uruchamiaj tylko jej testy. Pełny zestaw raz, w grupie 15.</li><li>Zaznaczaj kroki po wykonaniu.</li><li>Najpierw ponowne użycie: <code>canonical</code>, <code>inputs.checked_file</code>, <code>export.rename_noreplace</code>, <code>quality.sample_strata</code>/<code>review_template</code>, <code>run.code_identity</code>, <code>kwjp.METRICS</code>, parser z <code>scripts/audit_nkjp.py</code>, fikstury <code>tests/release_helpers.py</code>.</li><li>Bramki właściciela (grupy 7, 10, 16) zatrzymują wykonawcę. Etap C nie startuje przed B5.</li></ul></section>
+</body>
+</html>
