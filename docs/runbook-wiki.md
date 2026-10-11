@@ -14,7 +14,7 @@
   - co wchodzi;
   - tabela filtrów: filtr, przykłady, podstawa;
   - linki do dokumentów decyzji.
-- **Styl:** po polsku, dla gracza, bez żargonu. **Bardzo zwięźle:** krótkie punkty zamiast akapitów. Przykład słowa przy każdym filtrze. Strona ma się mieścić na jednym ekranie.
+- **Styl:** po polsku, dla gracza, bez żargonu. **Bardzo zwięźle:** krótkie punkty zamiast akapitów. W tabelach linkuj `[POP](Slownik-POP)`, nie `[[POP|Slownik-POP]]`: znak `|` rozbija kolumny. Przykład słowa przy każdym filtrze. Strona ma się mieścić na jednym ekranie.
 
 ## Kiedy aktualizować
 
