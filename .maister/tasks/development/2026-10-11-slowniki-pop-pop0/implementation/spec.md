@@ -1,5 +1,8 @@
 # Specyfikacja: słowniki POP i POP0 (#3)
 
+> **Uwaga (2026-10-11):** metoda zmieniła się po przeglądach i weryfikacji (ADR-007 rew. 2–4, metoda `pop-v2`): log-ipm, `prune-weak-members-v2`, D8 `lower-bound-kwjp-absent`, straż częstych form, warunki list jak LL-PL. Gdzie ta specyfikacja mówi inaczej (percentyle F, `available-only`, liczby D-6), obowiązuje ADR-007 rew. 4 i `config/generator/pop.json`.
+
+
 Rewizja 3 (2026-10-11), bramka B5. Opcje wybrane w [ADR-007](../../../../../docs/adr/ADR-007-metoda-pop-v1.md) zamiast list opcji. Rew. 2: po audycie `verification/spec-audit.md`.
 
 ## TL;DR

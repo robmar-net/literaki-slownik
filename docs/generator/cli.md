@@ -31,7 +31,7 @@ Verify i export opisuje [publikacja.md](publikacja.md#verify-i-export--wdrożeni
 
 ## POP i POP0 (`pop`)
 
-Metoda: [ADR-007](../adr/ADR-007-metoda-pop-v1.md) rew. 3. NKJP jako CC BY: [ADR-006](../adr/ADR-006-nkjp-cc-by-bez-wersji.md).
+Metoda `pop-v2`: [ADR-007](../adr/ADR-007-metoda-pop-v1.md) rew. 4. NKJP jako CC BY: [ADR-006](../adr/ADR-006-nkjp-cc-by-bez-wersji.md).
 
 ```sh
 python3 -m literaki_slownik pop --manifest config/generator/pop-sources.json \
@@ -40,7 +40,8 @@ python3 -m literaki_slownik pop --manifest config/generator/pop-sources.json \
 
 - `--run-dir` i `--release-dir` domyślnie z manifestu. Przebieg musi być FROZEN, hashe zgodne z pinami.
 - `--output-dir` musi nie istnieć; katalog nadrzędny musi istnieć. `pop` nigdy nie nadpisuje.
-- Kody: 0 pakiet zbudowany; 2 argumenty, manifest lub `pop.json` spoza ADR-007; 3 pin lub brak wejścia; 4 błąd danych, istniejący cel, naruszone `POP0 ⊆ POP ⊆ STANDARD` albo słowo z `must_include_pop0` poza POP0; 5 przebieg nie FROZEN albo baza zmieniła się w trakcie.
+- `--output-dir` w przebiegu albo w pakiecie LL-PL: kod 2, zanim cokolwiek się liczy.
+- Kody: 0 pakiet zbudowany; 2 argumenty, manifest lub `pop.json` spoza ADR-007; 3 pin lub brak wejścia; 4 błąd danych (też SQLite, brak klucza, zły kształt, wiersz NKJP z CRLF), istniejący cel, naruszone `POP0 ⊆ POP ⊆ STANDARD`, słowo z `must_include_pop0` poza POP0 albo częsta forma poza listą (straż `frequent_guard`); 5 przebieg nie FROZEN albo baza zmieniła się w trakcie.
 
 Pakiet (status `BUILT`, pliki 0444):
 
@@ -48,7 +49,7 @@ Pakiet (status `BUILT`, pliki 0444):
 |---|---|
 | `POP.txt.gz`, `POP0.txt.gz` | listy form, gzip bez nazwy, `mtime=0` |
 | `reports/units.json` | jednostki: ranga i percentyl, bez wartości NKJP |
-| `reports/thresholds.json` | progi: leksemy, formy, przycięcia |
+| `reports/thresholds.json` | progi: leksemy, formy, przycięcia, straż częstych form |
 | `reports/sample.json`, `reports/review-template.json` | próbka `pop-quality-v1` i pusty szablon przeglądu |
 | `ATTRIBUTIONS.md`, `LIMITATIONS.md`, `TERMS.md` | atrybucje, ograniczenia, warunki |
 | `release-manifest.json`, `SHA256SUMS` | tożsamość wejść i kodu, hashe plików |

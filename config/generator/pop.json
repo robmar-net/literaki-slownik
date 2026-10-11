@@ -1,5 +1,5 @@
 {
-  "version": "pop-v1",
+  "version": "pop-v2",
   "adr": "docs/adr/ADR-007-metoda-pop-v1.md",
   "d1": "kwjp-standard",
   "d2": {
@@ -15,7 +15,7 @@
   "d4": "strip-edges-keep-dot",
   "d5": {
     "groups": "e-common",
-    "members": "prune-weak-members"
+    "members": "prune-weak-members-v2"
   },
   "d6": {
     "pop": {
@@ -28,11 +28,15 @@
     }
   },
   "d7": "accepted",
-  "d8": "lower-bound-absent",
+  "d8": "lower-bound-kwjp-absent",
   "proper_names_in_ranking": false,
   "must_include_pop0": [
     "kot"
   ],
+  "frequent_guard": {
+    "pop_top": 20000,
+    "pop0_top": 5000
+  },
   "sampling": {
     "version": "pop-quality-v1",
     "seed": "literaki-slownik-pop-v1",

@@ -41,7 +41,7 @@ sample_persisted_analyses dobiera do30 stabilnych kluczy na rodzaj analizy (źr�
 
 - Konfiguracja: `sampling` w `config/generator/pop.json`. Seed `literaki-slownik-pop-v1`, 30 na warstwę, to samo kodowanie co quality-v1.
 - Klucze: leksemy (`lemma_id@source_id`) albo formy.
-- Warstwy: `pop-granica-wewnatrz`, `pop-granica-zewnatrz`, `pop0-granica-wewnatrz`, `pop0-granica-zewnatrz`, `braki-danych`, `rozbieznosc-korpusow`, `grupy-homonimow`, `pos-<POS>`, `formy-krotkie`, `formy-dlugie`. Pusta warstwa: `EMPTY_NOT_COVERAGE`.
+- Warstwy: `pop-granica-wewnatrz`, `pop-granica-zewnatrz`, `pop0-granica-wewnatrz`, `pop0-granica-zewnatrz`, `braki-danych`, `rozbieznosc-korpusow`, `grupy-homonimow`, `pos-<POS>`, `czeste-poza-lista` (formy z 50 000 najczęstszych form KWJP `orth` (all, tylko zapis małymi literami) ze STANDARD, z leksemem w rankingu, których nie ma w POP), `formy-krotkie`, `formy-dlugie`. Pusta warstwa: `EMPTY_NOT_COVERAGE`.
 - `pop` zapisuje `reports/sample.json` i `reports/review-template.json` (UNREVIEWED).
 - Przegląd: status `REVIEWED`, każda pozycja oceniona, hashe próbki, indeksu jednostek, dowodów i `sha256sums_sha256` (SHA256 pliku `SHA256SUMS` pakietu). Sprawdza go `scripts/check_pop_package.py --review` ([cli.md](cli.md#pop-i-pop0-pop)).
 - Przegląd wydania `pop-v1-review.json` jest assetem [Release pop-v1](https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v1).

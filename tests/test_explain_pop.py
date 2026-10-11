@@ -62,17 +62,17 @@ class ExplainPopTests(unittest.TestCase):
         self.assertEqual(value['lexemes'], [{'lexeme': 'odra@synthetic', 'proper_name': True, 'unit': None}])
 
     def test_pruned_member_explains_own_rank_and_unit_in_list(self):
-        # `lato`: jednostka lato+rok jest w POP0, ale własna ranga `lato` (5) jest pod progiem POP0 (4).
+        # `lato`: jednostka lato+rok jest w POP0, ale własna ranga `lato` (6) jest pod progiem POP0 (4).
         value = self.explain('lato', 'pop0')
         self.assertEqual(value['reason'], 'PRUNED_WEAK_MEMBER')
         unit, = value['units']
         self.assertEqual(unit['list'], 'POP0')
         self.assertNotIn('lato@synthetic', unit['members_in']['POP0'])
-        self.assertEqual(unit['member_ranks']['lato@synthetic'], 5)
+        self.assertEqual(unit['member_ranks']['lato@synthetic'], 6)
         text = format_pop_explanation(value)
         self.assertIn('PRUNED_WEAK_MEMBER', text)
         self.assertIn('członkowie w POP0: rok:S1@synthetic, rok:S2@synthetic', text)
-        self.assertIn('lato@synthetic 5', text)
+        self.assertIn('lato@synthetic 6', text)
 
     def test_construction_form_reports_component_lexeme(self):
         # Forma konstrukcji nie ma własnej interpretacji: leksem przychodzi przez składnik (jak `pop`).
@@ -87,12 +87,12 @@ class ExplainPopTests(unittest.TestCase):
         self.assertEqual([item['lexeme'] for item in inside['lexemes']], ['polski@synthetic'])
 
     def test_ul_rank_ignores_ul_dot_mass(self):
-        # D4 strip-edges-keep-dot: `ul.` (9 182 736) nie wlicza się do `ul` (12).
+        # D4 strip-edges-keep-dot: `ul.` (9 182 736) nie wlicza się do `ul` (41 207).
         value = self.explain('ul', 'pop')
         self.assertEqual(value['reason'], 'BELOW_THRESHOLD')
         unit, = value['units']
         self.assertEqual((unit['members'], unit['nkjp_status'], unit['nkjp_rank'], unit['rank']),
-                         (['ul@synthetic'], 'OBSERVED', 5, 8))
+                         (['ul@synthetic'], 'OBSERVED', 7, 8))
         self.assertEqual(self.explain('ul.', 'pop')['reason'], 'NOT_IN_STANDARD')
 
     def test_result_shows_lexemes_units_threshold_and_no_nkjp_counts(self):
@@ -114,7 +114,7 @@ class ExplainPopTests(unittest.TestCase):
         self.assertEqual(value['threshold']['rank'], 4)
         self.assertEqual(value['threshold']['limit'], 6)
         zamek = self.explain('zamek', 'pop')
-        self.assertIn('bound:nkjp', zamek['units'][0]['flags'])
+        self.assertEqual(zamek['units'][0]['flags'], ['ambiguous:nkjp'])  # `zamek` 12 w NKJP: bez flag braków
         text = json.dumps(value, ensure_ascii=False) + format_pop_explanation(value) + format_pop_explanation(zamek)
         for count in NKJP_COUNTS:
             self.assertNotIn(count, text)

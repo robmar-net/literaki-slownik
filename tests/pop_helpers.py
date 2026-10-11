@@ -56,6 +56,18 @@ POP_KWJP_GENRES = {
     'publicystyka': (',,freq,ipm,ARF,DP,DP_norm,1-DP,total_freq\nbać,praet,9,1,1,0.3,0.3,0.7,9\n'
                      'kot,subst,5,1,1,0.5,0.5,0.5,5\n'),
 }
+# Lista form KWJP `orth` (gatunek all, z wielkością liter) do straży częstych form (pop-v2). Liczą się tylko
+# zapisy małymi literami: `Zamek` i `Polska` nie (zamek jest poza POP przy progu 9). Same formy POP0 we wszystkich
+# wariantach testów (próg POP0 6) i `ul.` spoza STANDARD. `kumple`: leksem bez danych w liście lematów KWJP,
+# straż go pomija (raport `guard_skipped_no_kwjp_lemma`).
+POP_KWJP_ORTH = (',freq,ipm,ARF,DP,DP_norm,1-DP,total_freq\n'
+                 'Zamek,500,50,40,0.1,0.1,0.9,500\n'
+                 'Polska,200,20,18,0.1,0.1,0.9,200\n'
+                 'rok,95,9,8,0.1,0.1,0.9,95\n'
+                 'kumple,80,8,7,0.1,0.1,0.9,80\n'
+                 'ul.,60,6,5,0.2,0.2,0.8,60\n'
+                 'polska,30,3,3,0.2,0.2,0.8,30\n'
+                 'lata,25,2,2,0.3,0.3,0.7,25\n')
 # Format NKJP: ' *liczba napis\n' (wzór scripts/audit_nkjp.py).
 NKJP_1GRAMS = ('     50 ul.\n     10 ul\n     30 ok.\n     40 polska\n     15 Polska\n'
                '     25 lata\n     20 rok\n      8 duży\n      1 fajny\n')
@@ -63,8 +75,10 @@ NKJP_1GRAMS = ('     50 ul.\n     10 ul\n     30 ok.\n     40 polska\n     15 Po
 # `ul.` ma dużą liczbę: gdyby skleił się z `ul`, `ul` byłoby pierwsze w NKJP. `polska` dzieli nazwa własna,
 # więc `polski` ma miarę z samej KWJP (PROPER_SHARED). Miara log-ipm (KWJP F 7 z 393): `kot` ma większość
 # tokenów NKJP, żeby był w POP0; `duży` tuż nad grupą `zamek` (próg 8 jej nie mieści).
+# Rew. 4 (D8 `lower-bound-kwjp-absent`, `nkjp_outdated`): każde słowo z KWJP ma NKJP co najwyżej ~80 razy rzadsze
+# (różnica log-ipm < 2), więc miara łączy oba źródła i rangi fikstury zostają jak w rew. 3.
 NKJP_POP_1GRAMS = (' 97340919 kot\n  6182537 polski\n  5093746 lata\n  4718293 Polska\n      317 polska\n'
-                   '  9182736 ul.\n       12 ul\n  7837465 duży\n       41 fajny\n')
+                   '  9182736 ul.\n    41207 ul\n  7837465 duży\n  1302857 fajny\n  3271946 boi\n   130419 zamek\n')
 
 
 def gz_write(path, text):
@@ -115,7 +129,7 @@ def pop_config(directory, pop, pop0, **changes):
     return path
 
 
-def pop_fixture(directory, nkjp_text=NKJP_1GRAMS):
+def pop_fixture(directory, nkjp_text=NKJP_1GRAMS, orth_text=POP_KWJP_ORTH):
     """Przebieg FROZEN, pakiet LL-PL, 1grams.gz i pop-sources.json fikstury."""
     directory = Path(directory)
     directory.mkdir(parents=True)
@@ -132,6 +146,9 @@ def pop_fixture(directory, nkjp_text=NKJP_1GRAMS):
         path = gz_write(inputs / f'lemma-{genre}.csv.gz', text)
         manifest['artifacts'].append(dict(base, source_id=f'corpus-{genre}', genre=genre, path=path.name,
                                           sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
+    orth = gz_write(inputs / 'orth-all.csv.gz', orth_text)
+    manifest['artifacts'].append(dict(base, source_id='corpus-orth-all', kind='kwjp_orth', genre='all',
+                                      path=orth.name, sha256=hashlib.sha256(orth.read_bytes()).hexdigest()))
     rewrite(manifest_path, manifest)
     run, peer = directory / 'run-a', directory / 'run-b'
     build(manifest_path, run)

@@ -93,3 +93,8 @@
 
 ## 2026-10-11T16:59:52Z - Implementation Complete
 **Grupy**: 17/17, wszystkie kroki [x]. **Testy**: 372 OK. Trzy iteracje metody po przeglądach (ADR-007 rew. 2, 3).
+
+## 2026-10-11T17:47:00Z - Weryfikacja: nie zaliczona → poprawki pop-v2 (ADR-007 rew. 4)
+**Weryfikacja**: realność wykryła brak częstych słów (pies, przypadek, padł; raz poza POP0). pop-v1 oznaczone na GitHubie jako wycofane (pre-release), wiki „pop-v2 w przygotowaniu”.
+**Poprawki** (właściciel: wszystkie 1–6; licencja jak LL-PL; formy nijakie 1./2. os. zostają): warianty lematu razem; straż częstych form (małe litery, z danymi w liście lematów); D8 lower-bound-kwjp-absent; NKJP przestarzałe (≥100×) i zdominowane (z KWJP); TERMS jak LL-PL; W1 blokada wyjścia; W2 kody błędów; CRLF; must_include jako klucze gry; LIMITATIONS; spec/plan nota, INDEX.md.
+**v29 w pamięci**: POP 53 002 leks., 1 227 250 form, 98,60%; POP0 13 896, 388 509 form, 94,59%; straż 0 braków. Testy 390 OK.

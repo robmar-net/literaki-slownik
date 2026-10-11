@@ -8,6 +8,7 @@ import json
 import math
 from pathlib import Path
 import re
+import sqlite3
 import unicodedata
 from .canonical import load_json, sha256
 from .inputs import GeneratorError, checked_file
@@ -87,15 +88,21 @@ def _input(sources, kind):
     return next(i for i in sources['inputs'] if i['kind'] == kind)
 
 
+def base_dirs(sources, run_dir=None, release_dir=None):
+    """Rozwiązane ścieżki przebiegu i pakietu LL-PL: z argumentów albo z manifestu (względem niego)."""
+    base_dir, base = Path(sources['manifest_path']).parent, sources['base']
+    return (Path(run_dir or base_dir / base['run_dir']).resolve(),
+            Path(release_dir or base_dir / base['release_dir']).resolve())
+
+
 def check_inputs(sources, run_dir=None, release_dir=None):
     """Sprawdź podstawę LL-PL i NKJP wobec pinów. FROZEN → inaczej kod 5; niezgodność → kod 3.
 
     Hash bazy liczony na końcu (największy plik). Zwraca ścieżki i zmierzony hash bazy.
     """
-    base_dir = Path(sources['manifest_path']).parent
     base = sources['base']
-    run = Path(run_dir or base_dir / base['run_dir']).resolve()
-    release = Path(release_dir or base_dir / base['release_dir']).resolve()
+    run, release = base_dirs(sources, run_dir, release_dir)
+    base_dir = Path(sources['manifest_path']).parent
     run_manifest_path = run / 'manifest.json'
     if not run_manifest_path.is_file():
         raise GeneratorError('Brak manifest.json przebiegu', 3, str(run_manifest_path))
@@ -339,7 +346,7 @@ def load_constructions(db, standard, lexemes=None, surface_keys=None):
 
 CLEANING_RULES = {'full-nfc': 'nkjp-clean-full-nfc-v1', 'strip-edges': 'nkjp-clean-strip-edges-v1',
                   'strip-edges-keep-dot': 'nkjp-clean-strip-edges-keep-dot-v1'}
-NKJP_LINE = re.compile(r' *([0-9]+) (.+)\n')
+NKJP_LINE = re.compile(r' *([0-9]+) ([^\r\n]+)\n')  # `\r` (CRLF) = zły wiersz, kod 4
 
 
 def _game_key(text):
@@ -476,8 +483,14 @@ D3_SOURCES = ('kwjp', 'kwjp+nkjp')
 D3_FIELDS = ('F', 'ARF', '1-DP', 'genres', 'log-ipm')
 D5_OPTIONS = ('a', 'b', 'c', 'd', 'e')
 D6_BY = ('count', 'coverage')
-D8_PARTIAL = ('available-only', 'lower-bound', 'exclude', 'lower-bound-absent')
+D8_PARTIAL = ('available-only', 'lower-bound', 'exclude', 'lower-bound-absent', 'lower-bound-kwjp-absent')
 # `lower-bound-absent`: źródło prawdziwie nieobecne dostaje dolną granicę; niewiarygodne jest pomijane.
+# `lower-bound-kwjp-absent` (rew. 4): dolną granicę dostaje tylko KWJP poniżej progu publikacji; brak w NKJP
+# (starszy, pomocniczy korpus, np. `koronawirus`) = miara z samej KWJP.
+BOUNDED = {'lower-bound-absent': ('kwjp', 'nkjp'), 'lower-bound-kwjp-absent': ('kwjp',)}
+# Rew. 4, razem z `lower-bound-kwjp-absent`: NKJP przestarzałe. Gdy log-ipm KWJP − log-ipm NKJP ≥ 2 (KWJP co najmniej
+# 100 razy częstsze, np. `koronawirus`), miara z samej KWJP z flagą `nkjp_outdated`. Odwrotnie bez zmian.
+NKJP_OUTDATED = {'lower-bound-kwjp-absent': 2}
 ABSENT_STATUSES = {'kwjp': 'ABSENT_OR_BELOW_PUBLICATION_THRESHOLD', 'nkjp': 'NOT_IN_PUBLISHED_LIST'}
 PARTICIPLES = frozenset({'pact', 'ppas', 'pcon', 'pant'})
 KWJP_ABSENT = 'ABSENT_OR_BELOW_PUBLICATION_THRESHOLD'
@@ -485,6 +498,11 @@ NKJP_ABSENT = 'NOT_IN_PUBLISHED_LIST'
 # D5e z `eligible`: forma NKJP jednostki należy też do leksemu spoza `eligible` (nazwa własna, skrót),
 # więc jej masa zostaje nieprzypisana i NKJP zaniża jednostkę. Jednostka bez NKJP w mierze.
 NKJP_PROPER_SHARED = 'PROPER_SHARED'
+# Rew. 4: podjednostka, której formy NKJP wspólne z innym lematem (masa nieprzypisana) ważą więcej niż jej własna
+# masa NKJP: NKJP widzi tylko rzadkie formy słowa (`głównie` wspólne z `głównia`), więc jest niewiarygodny.
+# Jednostki rankingu tego nie potrzebują: w `units('e', eligible=…)` forma wspólna z lematem spoza jednostki
+# daje całej jednostce `PROPER_SHARED` (ostrzej: NKJP odpada przy każdej takiej masie).
+NKJP_SHARED_DOMINANT = 'SHARED_DOMINANT'
 
 
 def _option(value, allowed, what):
@@ -751,7 +769,9 @@ def measure(result, d3, d8='available-only', floors=None):
     tuż pod ostatnią obserwowaną rangą (log-ipm: najmniejsza obserwowana wartość), z flagą; `exclude` —
     jednostka bez wartości; `lower-bound-absent` — źródło prawdziwie nieobecne (KWJP poniżej progu
     publikacji, brak w liście NKJP) dostaje tę dolną granicę z flagą `bound:<źródło>`, a źródło
-    niewiarygodne (`PROPER_SHARED`, `UNMATCHED`) jest pomijane jak w `available-only`. Brak pełny = `NO_DATA`. Wartość log-ipm łączy F NKJP: tylko do rangi (C14).
+    niewiarygodne (`PROPER_SHARED`, `UNMATCHED`, `SHARED_DOMINANT`) jest pomijane jak w `available-only`;
+    `lower-bound-kwjp-absent` — dolna granica tylko dla KWJP nieobecnej; każdy brak NKJP = sama KWJP; przy log-ipm
+    z obu źródeł KWJP ≥ 100 razy częstsze niż NKJP (różnica ≥ 2) = sama KWJP, flaga `nkjp_outdated`. Brak pełny = `NO_DATA`. Wartość log-ipm łączy F NKJP: tylko do rangi (C14).
     `floors` (wynik `measure_floors` innej populacji): dolne granice z tej populacji zamiast własnych;
     tak członkowie grup (`member_units`) dostają tę samą skalę co jednostki rankingu. Tylko log-ipm.
     """
@@ -801,14 +821,18 @@ def measure(result, d3, d8='available-only', floors=None):
             if d8 == 'exclude':
                 found[key] = {'value': None, 'status': 'EXCLUDED_PARTIAL', 'flags': ()}
                 continue
-            if d8 == 'available-only' or (d8 == 'lower-bound-absent' and not absent):
+            if d8 == 'available-only' or (d8 in BOUNDED and not (absent and gone in BOUNDED[d8])):
                 kept = 'nkjp' if gone == 'kwjp' else 'kwjp'
                 found[key] = {'value': round(values[kept], digits), 'status': 'MEASURED',
                               'flags': (f'single_source:{kept}',)}
                 continue
             values[gone] = floors[gone]
+        gap = NKJP_OUTDATED.get(d8)
+        if gap is not None and field == 'log-ipm' and not missing and values['kwjp'] - values['nkjp'] >= gap - 1e-9:
+            found[key] = {'value': round(values['kwjp'], digits), 'status': 'MEASURED', 'flags': ('nkjp_outdated',)}
+            continue
         value = round(weight * values['kwjp'] + (1 - weight) * values['nkjp'], digits)
-        flag = 'bound' if d8 == 'lower-bound-absent' else 'lower_bound'
+        flag = 'bound' if d8 in BOUNDED else 'lower_bound'
         found[key] = {'value': value, 'status': 'MEASURED', 'flags': (f'{flag}:{missing[0]}',) if missing else ()}
     return {'units': found, 'missing': _missing(found, result, partial)}
 
@@ -939,11 +963,18 @@ def threshold(ranks, result, d6, kwjp=None, relevant=None, values=None):
             'coverage': _coverage(d6['denominator'], covered, total)}
 
 
-# --- D5 `prune-weak-members`: członkowie grup homonimów na listach (iteracja 3, rew. 3 ADR-007) ---
+# --- D5 `prune-weak-members-v2`: członkowie grup homonimów na listach (rew. 3 i 4 ADR-007) ---
 # Ranking i progi liczą jednostki (grupa wchodzi w całości albo wcale; F grupy nie jest dzielone ani kopiowane).
 # Na listę trafia jednak tylko członek, którego WŁASNE jednoznaczne dowody (widok D5c) dają rangę w progu.
 # Powód: forma wspólna z częstym leksemem wciągała rzadki leksem do POP0 (`kią` przez grupę `kto`).
-D5_MEMBERS = ('all', 'prune-weak-members')
+# v2: warianty jednego lematu SGJP (`pies:Sm1`/`pies:Sm2`, `przypadek:Sm3~a`/`~u`) są jednym członkiem:
+# ich dowody łączą się, a wynik dotyczy wszystkich razem. Bez tego wypadały bardzo częste słowa (`pies`, `raz`).
+D5_MEMBERS = ('all', 'prune-weak-members-v2')
+
+
+def lemma_base(key):
+    """Lemat SGJP przed `:` (`pies:Sm1` → `pies`); równy kolumnie `lexeme.lemma_base`."""
+    return key[1].split(':', 1)[0]
 
 
 def member_units(result, kwjp, eligible, nkjp=None, owners=None):
@@ -951,8 +982,13 @@ def member_units(result, kwjp, eligible, nkjp=None, owners=None):
 
     Własny dowód leksemu: wiersz EXACT KWJP albo forma NKJP jednego właściciela. Forma NKJP wspólna
     z leksemem spoza `eligible` (nazwa własna) daje członkowi status `PROPER_SHARED`, jak `units` jednostce:
-    jego NKJP nie wchodzi do miary. Formy i wiersze wspólne z innym członkiem nie są niczyje.
-    Wyjątek: członkowie bez własnego dowodu, połączeni wierszem AMBIGUOUS KWJP albo formą NKJP, w których
+    jego NKJP nie wchodzi do miary. Formy i wiersze wspólne z innym członkiem nie są niczyje. Gdy ich masa NKJP
+    przewyższa własną masę NKJP podjednostki, która ma własne KWJP, NKJP podjednostki jest niewiarygodne
+    (`SHARED_DOMINANT`, rew. 4). Bez własnego KWJP NKJP jest jedynym dowodem i zostaje (`siebie`).
+    Warianty jednego lematu (ten sam `lemma_base` w jednej jednostce: `pies:Sm1`+`pies:Sm2`) tworzą zawsze jedną
+    podjednostkę: ich własne dowody, wiersze AMBIGUOUS i formy NKJP wspólne tylko między nimi liczą się razem
+    (v2). Członkowie różnych lematów nigdy się tak nie łączą.
+    Wyjątek: podjednostki bez własnego dowodu, połączone wierszem AMBIGUOUS KWJP albo formą NKJP, w których
     żaden kandydat nie ma własnego dowodu, tworzą jedną podjednostkę z masą tych wierszy i form
     (`rok:S1`+`rok:S2` w grupie z `lato`). Grupa bez żadnego własnego dowodu (`zamek:a`+`zamek:b`)
     jest więc jedną podjednostką równą jednostce. F nigdy nie jest kopiowane ani dzielone.
@@ -990,10 +1026,15 @@ def member_units(result, kwjp, eligible, nkjp=None, owners=None):
             joined_groups.append(group)
     evidence = {m for m in unit_of if m in lexemes or (own_nkjp.get(m) and m not in proper)}
     found = _Groups()
+    variants = defaultdict(list)
     for member in unit_of:
         found.find(member)
+        variants[unit_of[member], lemma_base(member)].append(member)
+    for members in variants.values():
+        found.union(sorted(members))
+    backed = {found.find(m) for m in evidence}
     for members in [*joined_groups, *(members for members, _ in shared)]:
-        if evidence.isdisjoint(members):
+        if backed.isdisjoint(found.find(m) for m in members):
             found.union(list(members))
     parts = defaultdict(list)
     for member in unit_of:
@@ -1007,9 +1048,13 @@ def member_units(result, kwjp, eligible, nkjp=None, owners=None):
     for group in joined_groups:
         if inside(group):
             sub_groups[sub_of[group[0]]].append(group)
+    outside = defaultdict(int)  # masa form wspólnych z członkiem innej podjednostki (nieprzypisana)
     for members, count in shared:
         if inside(members):
             sub_shared[sub_of[members[0]]] += count
+        else:
+            for sub in {sub_of[m] for m in members if m in sub_of}:
+                outside[sub] += count
     out, nkjp_f = {}, {}
     for key in sorted(set(sub_of.values())):
         mine = sorted(sub_groups.get(key, ()))
@@ -1024,11 +1069,14 @@ def member_units(result, kwjp, eligible, nkjp=None, owners=None):
             nkjp_item = {'status': NKJP_PROPER_SHARED, 'rank': None, 'percentile': None, 'ambiguous': False}
         else:
             mass = sum(own_nkjp.get(m, 0) for m in key) + sub_shared.get(key, 0)
-            if mass:
-                nkjp_f[key] = mass
-            status = 'OBSERVED' if mass else 'UNMATCHED' if seen.intersection(key) else NKJP_ABSENT
+            if mass and outside.get(key, 0) > mass and kwjp_item['status'] == 'OBSERVED':
+                status = NKJP_SHARED_DOMINANT
+            else:
+                if mass:
+                    nkjp_f[key] = mass
+                status = 'OBSERVED' if mass else 'UNMATCHED' if seen.intersection(key) else NKJP_ABSENT
             nkjp_item = {'status': status, 'rank': None, 'percentile': None,
-                         'ambiguous': bool(mass and sub_shared.get(key))}
+                         'ambiguous': bool(key in nkjp_f and sub_shared.get(key))}
         out[key] = {'members': key, 'size': len(key), 'unit': unit_of[key[0]], 'kwjp': kwjp_item,
                     'nkjp': nkjp_item, 'evidence': not evidence.isdisjoint(key)}
     mass = {'kwjp': {'total': result['mass']['kwjp']['total']}}
@@ -1187,25 +1235,26 @@ def top_overlap(ranks_a, ranks_b, n):
     return {'n': n, 'overlap': overlap, 'share': round(overlap / n, 6)}
 
 
-# --- Konfiguracja metody `pop-v1` (B3, C3, ADR-007) ---
+# --- Konfiguracja metody `pop-v2` (B3, C3, ADR-007 rew. 4) ---
 # `config/generator/pop.json` zapisuje decyzje D1–D9. Każde naruszenie schematu = kod 2.
 # Schemat zna wszystkie opcje pomiaru; `load_config` przyjmuje tylko wartości ADR-007 (C3).
 # Jedyny wyjątek: wycofanie NKJP (ADR-006) = `d3 = {source: kwjp, field: log-ipm albo F}` i `d4 = null`.
-# `must_include_pop0`: słowa, których brak w POP0 zatrzymuje polecenie `pop` (kod 4).
+# `must_include_pop0`: słowa (klucze gry), których brak w POP0 zatrzymuje polecenie `pop` (kod 4).
+# `frequent_guard`: tyle najczęstszych form KWJP `orth` małymi literami (patrz `rank_frequent_forms`) musi być w POP i POP0.
 
-METHODS = {'pop-v1': 'docs/adr/ADR-007-metoda-pop-v1.md'}
+METHODS = {'pop-v2': 'docs/adr/ADR-007-metoda-pop-v1.md'}
 CONFIG_KEYS = {'version', 'adr', 'd1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'proper_names_in_ranking',
-               'must_include_pop0', 'sampling'}
+               'must_include_pop0', 'frequent_guard', 'sampling'}
 # D5 w konfiguracji: `groups` = opcje `units` plus `e-common` (`e` z `eligible` = leksemy bez nazw własnych);
-# `members` = członkowie jednostek na listach: `all` albo `prune-weak-members` (iteracja 3).
+# `members` = członkowie jednostek na listach: `all` albo `prune-weak-members-v2` (rew. 4).
 D5_CONFIG = D5_OPTIONS + ('e-common',)
 D7_OPTIONS = ('accepted',)
 SAMPLING_VERSION = 'pop-quality-v1'
 D6_MAX = 10 ** 7
 # Wartości ADR-007 (C3). D3 i D4 idą parami: KWJP+NKJP z regułą D4 albo sama KWJP bez D4.
 ADR_007 = {'d1': 'kwjp-standard', 'd2': {'classes': [], 'constructions': 'yes', 'membership': 'i'},
-           'd5': {'groups': 'e-common', 'members': 'prune-weak-members'}, 'd7': 'accepted', 'd8': 'lower-bound-absent', 'proper_names_in_ranking': False}
-# D8 `lower-bound-absent` także przy wycofaniu NKJP: przy jednym źródle D8 nie działa (brak = NO_DATA),
+           'd5': {'groups': 'e-common', 'members': 'prune-weak-members-v2'}, 'd7': 'accepted', 'd8': 'lower-bound-kwjp-absent', 'proper_names_in_ranking': False}
+# D8 `lower-bound-kwjp-absent` także przy wycofaniu NKJP: przy jednym źródle D8 nie działa (brak = NO_DATA),
 # więc jedna wartość w każdej konfiguracji ADR-007.
 # Poprawka po przeglądzie próbek: log-ipm zamiast średniej percentyli (KWJP+NKJP, waga 0,5).
 # Sama KWJP: log-ipm i F dają tę samą kolejność.
@@ -1259,6 +1308,14 @@ def _config_d6(d6):
         raise GeneratorError('D6: POP0 musi być mniejsze od POP w tej samej mierze', 2)
 
 
+def _config_guard(guard):
+    _exact(guard, {'pop_top', 'pop0_top'}, 'frequent_guard')
+    tops = {name: _number(guard[name], 0, D6_MAX, f'frequent_guard {name}', integer=True, low_open=True)
+            for name in ('pop_top', 'pop0_top')}
+    if tops['pop0_top'] > tops['pop_top']:
+        raise GeneratorError('frequent_guard: pop0_top nie może być większe od pop_top', 2)
+
+
 def _validate_config(config):
     from .quality import _config as sampling_config
     _exact(config, CONFIG_KEYS, 'pop.json')
@@ -1278,6 +1335,9 @@ def _validate_config(config):
     if (not isinstance(words, list) or not words or not all(_text(w) for w in words)
             or len(set(words)) != len(words)):
         raise GeneratorError('must_include_pop0: niepusta lista słów bez powtórzeń', 2)
+    if any(_game_key(w) != w for w in words):
+        raise GeneratorError('must_include_pop0: słowa jako klucze gry (małe litery, NFC)', 2)
+    _config_guard(config['frequent_guard'])
     sampling = config['sampling']
     if not isinstance(sampling, dict) or sampling.get('version') != SAMPLING_VERSION:
         raise GeneratorError(f'pop.json: sampling musi być {SAMPLING_VERSION}', 2)
@@ -1286,7 +1346,7 @@ def _validate_config(config):
 
 
 def _adr_007(config):
-    """Zawężenie do metody `pop-v1` (C3): inna wartość niż w ADR-007 = kod 2."""
+    """Zawężenie do metody `pop-v2` (C3): inna wartość niż w ADR-007 = kod 2."""
     for key, value in ADR_007.items():
         if config[key] != value or type(config[key]) is not type(value):
             raise GeneratorError(f'pop.json: {key} spoza ADR-007 (oczekiwane {value!r})', 2)
@@ -1298,7 +1358,7 @@ def _adr_007(config):
 
 
 def load_config(path):
-    """Wczytaj i ściśle sprawdź `pop.json` (metoda `pop-v1`, ADR-007); błąd schematu = kod 2."""
+    """Wczytaj i ściśle sprawdź `pop.json` (metoda `pop-v2`, ADR-007); błąd schematu = kod 2."""
     path = Path(path).resolve()
     try:
         config = load_json(path)
@@ -1331,10 +1391,69 @@ def _lexicon(paths, sources, with_nkjp):
         owners = form_owners(db, lexemes) if with_nkjp else None
         forms = load_forms(db, standard, lexemes)
         constructions = load_constructions(db, standard, lexemes)
+        orth = _orth_all(db)
     proper = frozenset(item['key'] for item in lexemes.values() if item['proper'])
     pos = {item['key']: _pos_class(item['pos']) for item in lexemes.values()}
     return {'standard': standard, 'kwjp': kwjp_measures(rows, genres), 'owners': owners, 'forms': forms,
-            'constructions': constructions, 'proper': proper, 'relevant': frozenset(forms), 'pos': pos}
+            'constructions': constructions, 'proper': proper, 'relevant': frozenset(forms), 'pos': pos,
+            'orth': orth}
+
+
+# --- Straż częstych form (pop-v2, G2) ---
+# Ranking form: lista KWJP `orth` gatunku all z zamrożonej bazy (rozróżnia wielkość liter), tylko zapisy
+# małymi literami (jak `decisions.nonfiction_frequencies`, runda 7: `Wałęsa` nie liczy się do `wałęsa`),
+# F malejąco (remis: numer wiersza), tylko formy STANDARD z co najmniej jednym leksemem rankingu (D9), który ma
+# dane w liście lematów KWJP (rew. 4).
+# Pierwsze `pop_top` form musi być w POP, pierwsze `pop0_top` w POP0; brak = kod 4.
+FREQUENT_SAMPLE = 50000  # formy rankingu dla warstwy próbek `czeste-poza-lista`
+GUARD_EXAMPLES = 50
+GUARD_SKIPPED_EXAMPLES = 20
+
+
+def _orth_all(db):
+    """Lista KWJP `orth` (all) z bazy: `source_id` i wiersze (numer, forma, F). Brak lub kilka → kod 3."""
+    found = [source_id for source_id, metadata in db.execute(
+        "select source_id,metadata from source_artifact where kind='kwjp_orth'")
+        if json.loads(metadata).get('genre') == 'all']
+    if len(found) != 1:
+        raise GeneratorError('Baza wymaga dokładnie jednej listy KWJP orth (all)', 3)
+    source_id, = found
+    rows = db.execute('select row_number,unit_1,freq from corpus_evidence where source_id=?', (source_id,)).fetchall()
+    return source_id, rows
+
+
+def rank_frequent_forms(rows, allowed, top):
+    """Klucze gry zapisów małymi literami wg `(-F, numer wiersza)`; tylko z `allowed`, każdy raz; pierwsze `top`.
+
+    Zapis z wielką literą (`Paweł`, `Europy`) nie liczy się do formy: to częstość nazwy, nie słowa.
+    """
+    ranked, seen = [], set()
+    for _, unit, _ in sorted(rows, key=lambda row: (-row[2], row[0])):
+        if unit != unit.lower():
+            continue
+        key = _game_key(unit)
+        if key in allowed and key not in seen:
+            seen.add(key)
+            ranked.append(key)
+            if len(ranked) == top:
+                break
+    return ranked
+
+
+def frequent_guard(ranked, lists, guard, source_id):
+    """Pierwsze `pop_top` form `ranked` w POP i `pop0_top` w POP0; brak → kod 4 z pierwszymi 50 brakami."""
+    report = {'source_id': source_id, 'ranked_forms': len(ranked)}
+    missing = []
+    for name in ('pop', 'pop0'):
+        top = guard[f'{name}_top']
+        checked = ranked[:top]
+        lost = [form for form in checked if form not in lists[name]]
+        report[name] = {'top': top, 'checked': len(checked), 'missing': len(lost)}
+        missing += [(form, name) for form in lost]
+    if missing:
+        shown = ', '.join(f'{form} ({name.upper()})' for form, name in missing[:GUARD_EXAMPLES])
+        raise GeneratorError(f'Częste formy KWJP poza listą: {len(missing)}; pierwsze: {shown}', 4)
+    return report
 
 
 def _pos_class(tags):
@@ -1416,13 +1535,27 @@ def _unit_row(key, unit, found, rank, percentile, kwjp_pct, place, kept, own_ran
     return row
 
 
+def _data_error(error):
+    """Dane niezgodne z oczekiwaną strukturą (SQLite, brak klucza, zły kształt) → kod 4 bez śladu stosu."""
+    return GeneratorError(f'Dane niezgodne z oczekiwaną strukturą: {type(error).__name__}: {error}', 4)
+
+
 def build_pop(sources, config, run_dir=None, release_dir=None):
-    """Listy POP i POP0 wg `pop.json` (ADR-007), bez zapisu. Kody: 2 konfiguracja, 3 piny, 4 kontrola list,
-    5 przebieg nie FROZEN albo baza zmieniona w trakcie.
+    """Listy POP i POP0 wg `pop.json` (ADR-007), bez zapisu. Kody: 2 konfiguracja, 3 piny, 4 kontrola list
+    (także straż częstych form) i dane niezgodne ze strukturą, 5 przebieg nie FROZEN albo baza zmieniona w trakcie.
 
     Wynik: posortowane klucze POP i POP0, wiersze jednostek (ranga, miara, percentyle, statusy, flagi,
     lista), raport progów. NKJP tylko jako status, ranga i percentyl (C14); przy samej KWJP bez NKJP (C19).
     """
+    try:
+        return _build_pop(sources, config, run_dir, release_dir)
+    except GeneratorError:
+        raise
+    except (sqlite3.Error, KeyError, ValueError) as error:
+        raise _data_error(error) from error
+
+
+def _build_pop(sources, config, run_dir, release_dir):
     config = load_config(config)
     sources = load_sources(sources)
     paths = check_inputs(sources, run_dir, release_dir)
@@ -1436,7 +1569,7 @@ def build_pop(sources, config, run_dir=None, release_dir=None):
     # D9: jednostka z samych nazw własnych nie ma rangi i nie liczy się do progu.
     proper_units = sum(1 for unit in result['units'].values() if proper.issuperset(unit['members']))
     result['units'] = {k: u for k, u in result['units'].items() if not proper.issuperset(u['members'])}
-    pruning = config['d5']['members'] == 'prune-weak-members'
+    pruning = config['d5']['members'] == 'prune-weak-members-v2'
     members = member_units(result, kwjp, eligible, nkjp, data['owners']) if pruning else None
     del nkjp, data['owners']
     found = measure(result, config['d3'], config['d8'])
@@ -1462,6 +1595,23 @@ def build_pop(sources, config, run_dir=None, release_dir=None):
         included[word] = min(ranked_members[m] for m in owners)
     if not (pop0 <= pop <= data['standard']):
         raise GeneratorError('Naruszone POP0 ⊆ POP ⊆ STANDARD', 4)
+    # Straż liczy formy z co najmniej jednym leksemem rankingu, który ma dane w liście lematów KWJP (wiersz EXACT
+    # albo członek grupy AMBIGUOUS). Formy tylko z obcymi lub niedopasowanymi wierszami (`et`, `der`) pomija
+    # i raportuje osobno (`guard_skipped_no_kwjp_lemma`, w zakresie pierwszych `pop_top` form).
+    in_kwjp = set(kwjp['lexemes']).union(*kwjp['groups'])
+    allowed, with_lemma = set(), set()
+    for member in eligible:
+        mine = set(data['forms'].get(member, ())) | set(data['constructions']['forms'].get(member, ()))
+        allowed |= mine
+        if member in in_kwjp:
+            with_lemma |= mine
+    source_id, orth_rows = data.pop('orth')
+    guard_config = config['frequent_guard']
+    frequent = rank_frequent_forms(orth_rows, with_lemma, max(guard_config['pop_top'], FREQUENT_SAMPLE))
+    skipped = [form for form in rank_frequent_forms(orth_rows, allowed, guard_config['pop_top'])
+               if form not in with_lemma]
+    del orth_rows, allowed, with_lemma
+    guard = frequent_guard(frequent, {'pop': pop, 'pop0': pop0}, guard_config, source_id)
     after = database_sha256(paths['database'])
     if after != paths['database_sha256']:
         raise GeneratorError('Baza zmieniła się w trakcie pop', 5, paths['database'])
@@ -1487,6 +1637,8 @@ def build_pop(sources, config, run_dir=None, release_dir=None):
                             **report(kept[name], lists[name]),
                             'pruning': _pruning_report(config['d5']['members'], cut, ranks, pruned, name,
                                                        report(cut['members'], before[name]))}
+    thresholds['frequent_guard'] = guard
+    thresholds['guard_skipped_no_kwjp_lemma'] = {'count': len(skipped), 'examples': skipped[:GUARD_SKIPPED_EXAMPLES]}
     missing = found['missing']
     if not with_nkjp:
         statuses = defaultdict(int)
@@ -1502,7 +1654,9 @@ def build_pop(sources, config, run_dir=None, release_dir=None):
     # Dane tylko do zapisu pakietu (grupa 12): próbki, atrybucje, klasy POS członków POP.
     package = {'sampling': config['sampling'], 'base_package_id': sources['base']['package_id'],
                'base_attributions': _base_attributions(paths),
-               'pos': {_label(m): data['pos'][m] for m in sorted(kept['pop'])}}
+               'pos': {_label(m): data['pos'][m] for m in sorted(kept['pop'])},
+               # Warstwa `czeste-poza-lista`: formy z pierwszych 50 000 rankingu straży, których nie ma w POP.
+               'frequent_outside': sorted(set(frequent[:FREQUENT_SAMPLE]) - pop)}
     answer['package'] = package
     if with_nkjp:
         inputs['nkjp_sha256'] = paths['nkjp_sha256']
@@ -1592,6 +1746,8 @@ def _strata(result, rows):
     strata['grupy-homonimow'] = members(row for row in rows if len(row['members']) > 1)
     for member, pos in result['package']['pos'].items():
         strata.setdefault(f'pos-{pos}', []).append(member)
+    # Częste formy KWJP poza POP (ranking straży, pierwsze 50 000): przegląd widzi, co lista wykluczyła.
+    strata['czeste-poza-lista'] = result['package']['frequent_outside']
     strata['formy-krotkie'] = [form for form in result['pop'] if len(form) <= SHORT_FORM]
     strata['formy-dlugie'] = [form for form in result['pop'] if len(form) >= LONG_FORM]
     return {name: sorted(keys) for name, keys in strata.items()}
@@ -1630,22 +1786,29 @@ def _limitations(result):
     with_nkjp = 'nkjp_rule_id' in result
     corpora = 'KWJP i NKJP' if with_nkjp else 'KWJP'
     lines = ['# Ograniczenia pakietu POP', '',
-             '- Status `BUILT`: pakiet nie jest wydaniem. Wydanie wymaga przeglądu próbek `pop-quality-v1` '
-             '(`reports/sample.json`) ze statusem `REVIEWED`.',
-             f'- POP0 ⊆ POP ⊆ STANDARD pakietu {result["package"]["base_package_id"]}, nie ⊆ SJP.pl. '
-             'Serwer gry gra dziś na SJP.pl: bot z POP przy stole SJP może zagrać słowo, którego SJP.pl nie ma. '
-             'Integracja z grą to osobna praca.',
+             '- Status pakietu w `release-manifest.json` to `BUILT`. Przegląd próbek `pop-quality-v1` '
+             '(`reports/sample.json`) jest osobnym plikiem; wiąże go z pakietem SHA256 (`SHA256SUMS`, '
+             '`reports/review-template.json`).',
+             f'- Podłączenie POP do gry to osobna praca; POP ⊆ {result["package"]["base_package_id"]} STANDARD. '
+             'POP0 ⊆ POP.',
              f'- Miara to częstość w tekstach ({corpora}), nie znajomość słowa przez ludzi. '
              'Ludzie oceniają tylko próbki, nie całą listę.',
              '- Pełna odmiana: leksem z POP wnosi każdą swoją formę ze STANDARD, także rzadkie '
-             '(wołacz, imiesłowy).',
+             '(wołacz, imiesłowy, rodzaj nijaki w 1. i 2. osobie, np. `-łom`, `-łobyś`).',
              '- Grupy homonimów `e-common` łączą też zwykłe homonimy (np. `nie`, `on`, `jeść`). '
              'Ranga i próg liczą grupę w całości; jej F nie jest dzielone ani kopiowane.',
              '- Członek grupy jest na liście tylko wtedy, gdy jego własne jednoznaczne dowody (wiersz EXACT KWJP, '
-             'forma jednego leksemu) dają rangę w progu tej listy (`prune-weak-members`). Przycięty członek '
+             'forma jednego leksemu) dają rangę w progu tej listy. Przycięty członek '
              'nie wnosi form; forma wspólna z członkiem na liście zostaje. Najmocniejszy członek zostaje zawsze, '
              'a grupa bez żadnych własnych dowodów (np. `zamek`) wchodzi w całości. '
-             'Liczby i przykłady: `thresholds.json`, `pruning`.',
+             'Warianty jednego lematu SGJP (np. `pies:Sm1` i `pies:Sm2`) są jednym członkiem: ich dowody '
+             'liczą się razem (`prune-weak-members-v2`). Liczby i przykłady: `thresholds.json`, `pruning`.',
+             '- Straż częstych form: najczęstsze formy KWJP (`orth`, all, tylko zapis małymi literami) ze STANDARD, z leksemem '
+             'w rankingu, który ma dane w liście lematów KWJP, muszą być na listach (`thresholds.json`, `frequent_guard`); '
+             'brak zatrzymuje `pop`. Formy pominięte, bo ich leksem nie ma takich danych (obce tokeny, np. `et`): '
+             '`guard_skipped_no_kwjp_lemma`.',
+             '- NKJP przestarzałe: gdy słowo jest w KWJP co najmniej 100 razy częstsze niż w NKJP (np. `koronawirus`), '
+             'miara pochodzi z samej KWJP (flaga `nkjp_outdated`).',
              f'- Luka potoczna (D7): miara pochodzi z tekstów pisanych ({corpora}). '
              'Nie ma listy mowy potocznej ani slangu internetowego.',
              '- Nazwy własne poza rankingiem (D9): ich formy wchodzą tylko przez zwykły leksem o tej samej formie.',
@@ -1653,10 +1816,13 @@ def _limitations(result):
              'więc lista może mieć nieco mniej leksemów niż limit (`thresholds.json`, `next_block`).',
              '- KWJP dzieli formy przeszłe (`zrobił`+`em`). Brak w źródle to brak danych, nie zero: '
              'status per źródło, nigdy ranga 0. Brak pełny = poza listami.',
-             '- Brak w jednym źródle (D8 `lower-bound-absent`): słowo nieobecne w KWJP (poniżej progu publikacji) '
-             'albo w liście NKJP dostaje za to źródło najmniejszą zaobserwowaną miarę (flaga `bound:<źródło>`). '
-             'Źródło niewiarygodne (`PROPER_SHARED`, `UNMATCHED`) jest pomijane: miara z drugiego źródła '
-             '(flaga `single_source:<źródło>`).']
+             '- Brak w jednym źródle (D8 `lower-bound-kwjp-absent`): słowo nieobecne w KWJP (poniżej progu '
+             'publikacji) dostaje za KWJP najmniejszą zaobserwowaną miarę (flaga `bound:kwjp`). Słowo nieobecne '
+             'w NKJP ma miarę z samej KWJP (flaga `single_source:kwjp`): NKJP jest starszy i pomocniczy. '
+             'Źródło niewiarygodne (`PROPER_SHARED`, `UNMATCHED`, `SHARED_DOMINANT`) jest pomijane: miara z drugiego '
+             'źródła (flaga `single_source:<źródło>`).',
+             '- `SHARED_DOMINANT`: masa NKJP form słowa wspólnych z innym lematem (nieprzypisana nikomu) jest większa '
+             'od jego własnej masy NKJP (np. `głównie`, wspólne z `głównia`). Wtedy NKJP nie wchodzi do miary.']
     if with_nkjp:
         lines += [f'- NKJP: zrównoważony podkorpus, starszy od KWJP; reguła czyszczenia `{result["nkjp_rule_id"]}`. '
                   'Pakiet podaje NKJP tylko jako rangę, percentyl i status.',
@@ -1677,10 +1843,10 @@ def _terms(result):
                else 'KWJP (CC BY 4.0)')
     lines = ['# Warunki udostępnienia pakietu POP', '',
              '## Listy (`POP.txt.gz`, `POP0.txt.gz`)', '',
-             f'- Wybór i układ list: CC BY 4.0 ({CC_BY_4}).',
-             '- Formy pochodzą z eksportu SGJP i zachowują jego warunki BSD-2-Clause z pełną atrybucją '
-             '(`ATTRIBUTIONS.md`).',
-             f'- Wybór miarą z {measure}.', '',
+             '- Listy pochodzą z tekstowego eksportu SGJP i zachowują jego warunki BSD-2-Clause z pełną '
+             'atrybucją (`ATTRIBUTIONS.md`), jak listy pakietu LL-PL.',
+             '- Projekt nie deklaruje wyłącznych praw do wyboru słów.',
+             f'- Wybór miarą z {measure}. Wymagana atrybucja tych źródeł: `ATTRIBUTIONS.md`.', '',
              '## Raporty (`reports/`)', '',
              f'- Własne raporty: CC BY 4.0 ({CC_BY_4}); miary źródeł z atrybucją w `ATTRIBUTIONS.md`.', '',
              '## Kod', '',
@@ -1739,6 +1905,7 @@ def write_package(result, staging):
 def build_package(sources, config, output_dir, run_dir=None, release_dir=None):
     """Polecenie `pop`: listy (`build_pop`) i pakiet `BUILT` w nowym katalogu (C13).
 
+    Cel w przebiegu albo w pakiecie LL-PL (także one same) → kod 2, przed jakąkolwiek pracą (C4).
     Cel istnieje → kod 4 (przed liczeniem i przy przeniesieniu). Błąd w trakcie: staging usunięty,
     celu brak. Wynik: podsumowanie list, ścieżka pakietu, liczby form i SHA256 manifestu.
     """
@@ -1747,6 +1914,10 @@ def build_package(sources, config, output_dir, run_dir=None, release_dir=None):
     import tempfile
     from .export import READ_ONLY, rename_noreplace
     target = Path(output_dir).absolute()
+    resolved = target.parent.resolve() / target.name
+    for protected in base_dirs(load_sources(sources), run_dir, release_dir):
+        if resolved == protected or protected in resolved.parents:
+            raise GeneratorError('Pakiet POP nie może leżeć w przebiegu ani w pakiecie LL-PL', 2, str(target))
     if os.path.lexists(target):
         raise GeneratorError('Katalog pakietu POP już istnieje; pop nigdy nie nadpisuje', 4, str(target))
     if not target.parent.is_dir():
@@ -1763,6 +1934,9 @@ def build_package(sources, config, output_dir, run_dir=None, release_dir=None):
         shutil.rmtree(staging, ignore_errors=True)
         raise GeneratorError('Katalog pakietu POP powstał w trakcie; pop nigdy nie nadpisuje', 4,
                              str(target)) from error
+    except (sqlite3.Error, KeyError, ValueError) as error:
+        shutil.rmtree(staging, ignore_errors=True)
+        raise _data_error(error) from error
     except BaseException:
         shutil.rmtree(staging, ignore_errors=True)
         raise

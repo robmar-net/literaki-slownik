@@ -370,7 +370,7 @@ def explain_pop(pop_dir, run_dir, word, variant):
             if hit:
                 owner.update((label, len(rows)) for label in hit)
                 rows.append(row)
-        # D5 `prune-weak-members`: jednostka jest w liście, ale leksem słowa nie (za słabe własne dowody).
+        # D5 `prune-weak-members-v2`: jednostka jest w liście, ale leksem słowa nie (za słabe własne dowody).
         pruned = any(variant in _POP_UNIT_LISTS.get(rows[owner[label]]['list'], ())
                      and 'members_in' in rows[owner[label]]
                      and label not in rows[owner[label]]['members_in'][variant.upper()]
@@ -406,7 +406,7 @@ def explain_pop(pop_dir, run_dir, word, variant):
 def format_pop_explanation(value):
     reasons = {'IN_POP0': 'w POP0', 'IN_POP': 'w POP',
                'PRUNED_WEAK_MEMBER': 'jednostka w liście, ale własne dowody leksemu dają rangę poniżej progu '
-                                     '(D5 prune-weak-members)',
+                                     '(D5 prune-weak-members-v2)',
                'BELOW_THRESHOLD': 'poniżej progu listy', 'NO_DATA': 'brak danych o użyciu leksemu',
                'PROPER_NAME_ONLY': 'tylko nazwy własne; poza rankingiem (D9)',
                'NOT_IN_STANDARD': 'poza STANDARD; POP ⊆ STANDARD'}

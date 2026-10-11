@@ -858,17 +858,17 @@ class PopConfigTests(unittest.TestCase):
 
     def test_repository_config_is_valid_and_encodes_adr_007(self):
         config = load_config(self.ROOT / 'config/generator/pop.json')
-        self.assertEqual(config['version'], 'pop-v1')
+        self.assertEqual(config['version'], 'pop-v2')
         self.assertEqual(config['adr'], 'docs/adr/ADR-007-metoda-pop-v1.md')
         self.assertTrue((self.ROOT / config['adr']).is_file())
         self.assertEqual(config['d1'], 'kwjp-standard')
         self.assertEqual(config['d2'], {'classes': [], 'constructions': 'yes', 'membership': 'i'})
         self.assertEqual(config['d3'], {'source': 'kwjp+nkjp', 'field': 'log-ipm', 'weight': 0.5})
         self.assertEqual(config['d4'], 'strip-edges-keep-dot')
-        self.assertEqual(config['d5'], {'groups': 'e-common', 'members': 'prune-weak-members'})
+        self.assertEqual(config['d5'], {'groups': 'e-common', 'members': 'prune-weak-members-v2'})
         self.assertEqual(config['d6'], {'pop': {'by': 'count', 'value': 60000},
                                         'pop0': {'by': 'count', 'value': 20000}})
-        self.assertEqual((config['d7'], config['d8']), ('accepted', 'lower-bound-absent'))
+        self.assertEqual((config['d7'], config['d8']), ('accepted', 'lower-bound-kwjp-absent'))
         self.assertIs(config['proper_names_in_ranking'], False)
         self.assertEqual(config['must_include_pop0'], ['kot'])
         self.assertEqual(config['sampling']['version'], 'pop-quality-v1')
@@ -903,7 +903,7 @@ class PopConfigTests(unittest.TestCase):
 
     def test_option_outside_closed_list_is_code_2(self):
         cases = {
-            'version': lambda c: c.update(version='pop-v2'),
+            'version': lambda c: c.update(version='pop-v3'),
             'adr': lambda c: c.update(adr='docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md'),
             'd1': lambda c: c.update(d1='kwjp-everything'),
             'd2 klasa': lambda c: c['d2'].update(classes=['noun']),
@@ -1025,7 +1025,7 @@ def _lexeme(*names):
 class PopBuildTests(unittest.TestCase):
     """Polecenie `pop`: listy POP i POP0 w pamięci (C1–C10, C14, C19).
 
-    Rangi fikstury (D3 log-ipm 0,5/0,5, D8 lower-bound-absent): polski 1 (sama KWJP, PROPER_SHARED), kot 2,
+    Rangi fikstury (D3 log-ipm 0,5/0,5, D8 lower-bound-kwjp-absent): polski 1 (sama KWJP, PROPER_SHARED), kot 2,
     lato+rok 3, duży 4, bać 5 (granica NKJP), fajny 6, zamek 7 (granica NKJP), ul 8; kumpel bez danych.
     Leksemy narastająco: 1, 2, 5, 6, 7, 8, 10, 11.
     """
@@ -1099,18 +1099,18 @@ class PopBuildTests(unittest.TestCase):
         row = self.row(result, 'lato', 'rok:S1', 'rok:S2')
         # Ranga i lista jednostki bez zmian (grupa nie jest dzielona ani przeliczana).
         self.assertEqual((row['rank'], row['list']), (3, 'POP0'))
-        # `lato`: własne KWJP 20 (EXACT), wspólne `lata` poza miarą → ranga 5, pod progiem POP0 (4), w POP (6).
+        # `lato`: własne KWJP 20 (EXACT), wspólne `lata` poza miarą → ranga 6 (pod `bać`), pod progiem POP0 (4), w POP (6).
         # rok:S1+rok:S2: bez własnych dowodów, wspólny wiersz KWJP `rok` → jedna podjednostka, ranga 1.
         self.assertEqual(row['members_in'], {'POP': [lato, rok1, rok2], 'POP0': [rok1, rok2]})
-        self.assertEqual(row['member_ranks'], {f'lato@{S}': 5, f'rok:S1@{S}': 1, f'rok:S2@{S}': 1})
+        self.assertEqual(row['member_ranks'], {f'lato@{S}': 6, f'rok:S1@{S}': 1, f'rok:S2@{S}': 1})
         self.assertNotIn('lato', result['pop0'])
         self.assertIn('lato', result['pop'])
         self.assertIn('lata', result['pop0'])  # forma wspólna z rok:S1 zostaje
         self.assertIn('rok', result['pop0'])
         pop0, pop = result['thresholds']['pop0'], result['thresholds']['pop']
-        self.assertEqual(pop0['pruning']['rule'], 'prune-weak-members')
+        self.assertEqual(pop0['pruning']['rule'], 'prune-weak-members-v2')
         self.assertEqual((pop0['pruning']['pruned_members'], pop['pruning']['pruned_members']), (1, 0))
-        self.assertEqual(pop0['pruning']['examples'], [{'member': f'lato@{S}', 'unit_rank': 3, 'own_rank': 5,
+        self.assertEqual(pop0['pruning']['examples'], [{'member': f'lato@{S}', 'unit_rank': 3, 'own_rank': 6,
                                                         'unit_size': 3}])
         self.assertEqual(pop0['forms'], len(result['pop0']))
         self.assertGreater(pop0['pruning']['before']['forms'], pop0['forms'])
@@ -1141,12 +1141,12 @@ class PopBuildTests(unittest.TestCase):
                          ('ABSENT_OR_BELOW_PUBLICATION_THRESHOLD', 'NOT_IN_PUBLISHED_LIST'))
         self.assertNotIn('kumpel', result['pop'])
         bac = self.row(result, 'bać')
-        # D8 lower-bound-absent: brak w liście NKJP = dolna granica NKJP (najrzadsza forma), nie pominięcie.
-        self.assertEqual((bac['status'], bac['flags'], bac['rank']), ('MEASURED', ['bound:nkjp'], 5))
+        # `boi` jest w NKJP (rew. 4: fikstura bez braków NKJP), ranga 5 jak w rew. 3 (D8 rew. 4:
+        # brak w NKJP = sama KWJP, test w test_pop_v2.AsymmetricBoundTests).
+        self.assertEqual((bac['status'], bac['flags'], bac['rank']), ('MEASURED', [], 5))
         polski = self.row(result, 'polski')
         self.assertEqual((polski['flags'], polski['rank']), (['single_source:kwjp'], 1))
-        self.assertEqual(bac['nkjp']['status'], 'NOT_IN_PUBLISHED_LIST')
-        self.assertIsNone(bac['nkjp']['percentile'])
+        self.assertEqual(bac['nkjp']['status'], 'OBSERVED')
         self.assertEqual(result['missing']['full'], 1)
         for row in result['units']:
             self.assertNotEqual(row['rank'], 0)
@@ -1158,10 +1158,10 @@ class PopBuildTests(unittest.TestCase):
         self.assertIn('niefajny', result['pop'])
         self.assertNotIn('niefajny', result['pop0'])
         self.assertTrue({'niepolska', 'niepolski'} <= set(result['pop0']))
-        # `ul.` (9 182 736) nie skleja się z `ul` (12): ul ma ostatnią rangę NKJP.
+        # `ul.` (9 182 736) nie skleja się z `ul` (41 207): ul ma ostatnią rangę NKJP.
         ul = self.row(result, 'ul')
         # NKJP: kot, duży, lata, fajny, ul (polski PROPER_SHARED nie ma rangi NKJP).
-        self.assertEqual((ul['nkjp']['status'], ul['nkjp']['rank'], ul['rank']), ('OBSERVED', 5, 8))
+        self.assertEqual((ul['nkjp']['status'], ul['nkjp']['rank'], ul['rank']), ('OBSERVED', 7, 8))
         self.assertEqual(result['nkjp_rule_id'], 'nkjp-clean-strip-edges-keep-dot-v1')
         self.assertNotIn('ul.', result['pop'])
 
@@ -1235,7 +1235,7 @@ class PopBuildTests(unittest.TestCase):
 
 
 # Rzadkie ciągi cyfr NKJP z `NKJP_POP_1GRAMS` (11.2) i ich suma: żaden nie może trafić do pakietu (C14).
-NKJP_NUMBERS = ('97340919', '6182537', '5093746', '4718293', '9182736', '7837465', '130356066')
+NKJP_NUMBERS = ('97340919', '6182537', '5093746', '4718293', '9182736', '7837465', '3271946', '1302857', '130419', '135102442')
 PACKAGE_FILES = {'POP.txt.gz', 'POP0.txt.gz', 'reports/thresholds.json', 'reports/units.json', 'reports/sample.json',
                  'reports/review-template.json', 'release-manifest.json', 'ATTRIBUTIONS.md', 'LIMITATIONS.md',
                  'TERMS.md', 'SHA256SUMS'}
@@ -1316,7 +1316,7 @@ class PopPackageTests(unittest.TestCase):
         made, text = self.made, self.read('release-manifest.json')
         manifest = json.loads(text)
         self.assertEqual((manifest['status'], manifest['method'], manifest['adr']),
-                         ('BUILT', 'pop-v1', 'docs/adr/ADR-007-metoda-pop-v1.md'))
+                         ('BUILT', 'pop-v2', 'docs/adr/ADR-007-metoda-pop-v1.md'))
         inputs = manifest['inputs']
         self.assertEqual(inputs['database_sha256'], sha256(made['database']))
         self.assertEqual(inputs['release_manifest_sha256'], sha256(made['release'] / 'release-manifest.json'))
@@ -1397,7 +1397,8 @@ class PopPackageTests(unittest.TestCase):
         self.assertEqual((sample['version'], sample['seed'], sample['size_per_stratum'], sample['status']),
                          ('pop-quality-v1', 'literaki-slownik-pop-v1', 30, 'UNREVIEWED'))
         fixed = {'pop-granica-wewnatrz', 'pop-granica-zewnatrz', 'pop0-granica-wewnatrz', 'pop0-granica-zewnatrz',
-                 'braki-danych', 'rozbieznosc-korpusow', 'grupy-homonimow', 'formy-krotkie', 'formy-dlugie'}
+                 'braki-danych', 'rozbieznosc-korpusow', 'grupy-homonimow', 'formy-krotkie', 'formy-dlugie',
+                 'czeste-poza-lista'}
         strata = sample['strata']
         self.assertTrue(fixed <= set(strata), set(strata))
         self.assertTrue(any(name.startswith('pos-') for name in strata))
@@ -1424,7 +1425,7 @@ class PopPackageTests(unittest.TestCase):
         rok, = [row for row in rows if f'lato@{S}' in row['members']]
         self.assertEqual(rok['members_in'], {'POP': [f'lato@{S}', f'rok:S1@{S}', f'rok:S2@{S}'],
                                              'POP0': [f'rok:S1@{S}', f'rok:S2@{S}']})
-        self.assertEqual(rok['member_ranks'], {f'lato@{S}': 5, f'rok:S1@{S}': 1, f'rok:S2@{S}': 1})
+        self.assertEqual(rok['member_ranks'], {f'lato@{S}': 6, f'rok:S1@{S}': 1, f'rok:S2@{S}': 1})
         for row in rows:
             listed = row['members_in']
             self.assertTrue(set(listed.get('POP0', ())) <= set(listed.get('POP', ())) <= set(row['members']))
@@ -1437,11 +1438,11 @@ class PopPackageTests(unittest.TestCase):
         self.assertEqual(thresholds['pop0']['forms'], len(words))
 
     def test_ul_dot_mass_stays_out_of_ul_in_package(self):
-        # D4 w pakiecie: `ul` ma rangę NKJP z własnych 12, nie z 9 182 736 `ul.`; `ul.` nie ma wiersza.
+        # D4 w pakiecie: `ul` ma rangę NKJP z własnych 41 207, nie z 9 182 736 `ul.`; `ul.` nie ma wiersza.
         rows = json.loads(self.read('reports/units.json'))['units']
         ul, = [row for row in rows if 'ul@synthetic' in row['members']]
         self.assertEqual((ul['members'], ul['nkjp_status'], ul['nkjp_rank'], ul['rank']),
-                         (['ul@synthetic'], 'OBSERVED', 5, 8))
+                         (['ul@synthetic'], 'OBSERVED', 7, 8))
         self.assertEqual(min(row['nkjp_rank'] for row in rows if row['nkjp_rank'] is not None), 1)
         self.assertNotEqual(ul['nkjp_rank'], 1)
         for name in ('POP.txt.gz', 'POP0.txt.gz'):
@@ -1460,7 +1461,7 @@ class PopPackageTests(unittest.TestCase):
         for text in ('CC BY 4.0', 'BSD-2-Clause', 'SGJP', 'KWJP', 'NKJP', 'ADR-006'):
             self.assertIn(text, terms)
         limitations = self.read('LIMITATIONS.md')
-        for text in ('SJP.pl', 'STANDARD', 'D7', 'D9', 'e-common', 'zrobił', 'próbk', 'pop-sources.json',
+        for text in ('STANDARD', 'D7', 'D9', 'e-common', 'zrobił', 'próbk', 'pop-sources.json',
                      'nkjp-clean-strip-edges-keep-dot-v1'):
             self.assertIn(text, limitations)
         # C19: sama KWJP (wycofanie NKJP) nie czyta NKJP i nie wymienia go w atrybucjach ani manifeście.

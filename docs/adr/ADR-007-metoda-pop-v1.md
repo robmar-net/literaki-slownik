@@ -1,6 +1,6 @@
 # ADR-007: Metoda `pop-v1` dla list POP i POP0
 
-**Status:** zaakceptowana 2026-10-11 (decyzje agenta z upoważnienia właściciela, odwracalne). Rewizje 2 i 3 z 2026-10-11 po przeglądach próbek (D3, D5, D6, D8).
+**Status:** zaakceptowana 2026-10-11 (decyzje agenta z upoważnienia właściciela, odwracalne). Rewizje 2–4 z 2026-10-11 po przeglądach próbek i weryfikacji (D3, D5, D6, D8); od rew. 4 metoda `pop-v2`.
 Właściciel, 2026-10-11: „podnieść oba limity; POP mocno, POP0 trochę; decyzje podejmij sam”.
 
 ## Kontekst
@@ -77,6 +77,22 @@ Przegląd rew. 2: 404 trafne, 4 błędne, 2 niepewne. Wada: grupa homonimów wci
 D5: `prune-weak-members`. Ranga i progi grup bez zmian. Członek grupy zostaje na liście, gdy jego **własne** jednoznaczne dane (KWJP EXACT, NKJP z jednym właścicielem) dają rangę w granicy tej listy. Wyjątki: najsilniejszy członek jednostki zawsze zostaje; członkowie bez własnych danych liczą się razem (jak `zamek`, `rok`, `dzień`). Formy wspólne z zostającym członkiem zostają.
 
 Wynik (v29): POP 51 805 leksemów (45 056 jednostek, 1 219 614 form, 97,35% `kwjp-standard`); POP0 13 181 leksemów (11 633 jednostki, 380 489 form, 92,88%). Usunięci członkowie: 8 109 z POP, 6 810 z POP0 (np. `jadło`, `zeszyć`, `mamić`; znane `niebyt`, `mailowy`, `mem` spadają do POP). `kot` w POP0. Limity D6 (60 000 / 20 000) liczą leksemy jednostek przed przycięciem; nie podnosimy ich.
+
+## Rewizja 4 (2026-10-11, metoda `pop-v2`)
+Wydanie `pop-v1` (rew. 3) wycofane: w POP brakowało częstych słów (`pies`, `przypadek`, `padł`; `raz` poza POP0). SGJP dzieli lemat na warianty (`pies:Sm1`/`Sm2`), a przycinanie oceniało je osobno.
+
+| zmiana | powód |
+|---|---|
+| D5 `prune-weak-members-v2`: warianty jednego lematu (ta sama podstawa przed `:`) mają wspólne własne dane i zostają lub odpadają razem | `pies`, `przypadek`, `metr` |
+| straż częstych form (`frequent_guard`): pierwsze 20 000 form KWJP (tylko zapis małymi literami, formy STANDARD ze zwykłym leksemem z danymi w liście lematów) muszą być w POP, pierwsze 5 000 w POP0; brak → kod 4 | błąd z rew. 3 nie może wrócić niezauważony |
+| D8 `lower-bound-kwjp-absent`: brak w KWJP → minimum KWJP; brak w NKJP → tylko KWJP (NKJP jest starszy i pomocniczy) | `koronawirus` |
+| NKJP przestarzałe: KWJP ≥ 100× częstsze niż NKJP → tylko KWJP | `koronawirus` (śladowe NKJP) |
+| NKJP zdominowane: masa wspólna z innym lematem > własna, a jednostka ma KWJP → tylko KWJP | `głównie`, `świetnie` |
+| warstwa przeglądu `czeste-poza-lista` | przegląd rew. 3 nie mógł wykryć błędu |
+| warunki list jak LL-PL (bez własnego wymogu) | decyzja właściciela 2026-10-11 |
+
+Formy nijakie 1./2. os. (`przeczytałobym`) zostają (decyzja właściciela).
+Wynik (v29, w pamięci): POP 53 002 leksemy (1 227 250 form, 98,60% `kwjp-standard`), POP0 13 896 (388 509 form, 94,59%); straż 0 braków.
 
 ## Rewizja
 Decyzje są odwracalne. Wracamy do nich, gdy:

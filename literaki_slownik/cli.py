@@ -40,7 +40,7 @@ def main(argv=None):
         exporter.add_argument('--run-dir', required=True, help='Przebieg VERIFIED')
         exporter.add_argument('--output-dir', required=True, help='Nowy, nieistniejący katalog pakietu')
         exporter.add_argument('--json', action='store_true', help='Odpowiedź JSON')
-        popper = sub.add_parser('pop', help='Listy POP i POP0 metodą pop-v1 (ADR-007)')
+        popper = sub.add_parser('pop', help='Listy POP i POP0 metodą pop-v2 (ADR-007)')
         popper.add_argument('--manifest', required=True, help='Manifest źródeł POP (pop-sources.json)')
         popper.add_argument('--config', required=True, help='Konfiguracja metody (pop.json)')
         popper.add_argument('--run-dir', help='Przebieg FROZEN; domyślnie z manifestu')
