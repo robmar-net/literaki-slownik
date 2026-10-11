@@ -14,7 +14,7 @@
   - co wchodzi;
   - tabela filtrów: filtr, przykłady, podstawa;
   - linki do dokumentów decyzji.
-- **Styl:** po polsku, dla gracza, bez żargonu. Przykład słowa przy każdym filtrze. Strona ma się mieścić na jednym ekranie.
+- **Styl:** po polsku, dla gracza, bez żargonu. **Bardzo zwięźle:** krótkie punkty zamiast akapitów. Przykład słowa przy każdym filtrze. Strona ma się mieścić na jednym ekranie.
 
 ## Kiedy aktualizować
 
@@ -25,7 +25,8 @@
 | nowe lub zmienione źródło (manifest `sources.json`) | tabela źródeł na `Home` |
 | nowy benchmark SJP.pl | strona `Porownanie-z-SJP.pl` |
 | `export` lub wydanie | link do pobrania, sha256 i wersja; „wersja robocza” zamienia się w numer wydania |
-| nowy rodzaj słownika (ATTESTED, popularne, tematyczne) | nowa strona, wiersz w tabeli na `Home`, wpis w `_Sidebar` |
+| start prac nad nowym słownikiem | od razu wstępna strona „W przygotowaniu”: cel, do czego, jak powstanie; link do ticketu; wiersz na `Home`, wpis w `_Sidebar`, link ze strony słownika bazowego |
+| wydanie nowego słownika | ta sama strona: liczby, kryteria, pobieranie; usuń „W przygotowaniu” na wszystkich stronach |
 
 ## Procedura
 1. Przygotuj klon wiki:
