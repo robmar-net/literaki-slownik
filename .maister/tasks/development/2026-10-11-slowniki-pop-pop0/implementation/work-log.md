@@ -70,3 +70,7 @@
 ## 2026-10-11T14:56:57Z - Group 13 Complete
 **Tests**: test_explain_pop + test_explain 34 OK. **Files**: explain.py (explain_pop, format_pop_explanation), cli.py (--variant pop|pop0, --pop-dir), tests/test_explain_pop.py.
 **Luka do 15**: formy konstrukcji bez leksemu w explain_pop (NO_DATA zamiast BELOW_THRESHOLD) — doprowadzić leksem przez derivation_candidate po game_key.
+
+## 2026-10-11T14:59:27Z - Group 15 Complete
+**Tests**: POP 77 OK; pełny zestaw 359 OK. **Files**: explain.py (_word_lexemes: leksem formy konstrukcji przez derivation_candidate), test_explain_pop.py (+3), test_check_pop_package.py (+1), test_pop.py (+1).
+**Luka z grupy 13 rozwiązana**. Wariant bez NKJP przechodzi kontrolę pakietu; ul. nie zawyża rangi ul.

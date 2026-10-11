@@ -1098,6 +1098,19 @@ class PopPackageTests(unittest.TestCase):
                           for name in ('POP.txt.gz', 'POP0.txt.gz', 'reports/thresholds.json')})
         self.assertTrue(template['items'] and all(i['assessment'] is None for i in template['items']))
 
+    def test_ul_dot_mass_stays_out_of_ul_in_package(self):
+        # D4 w pakiecie: `ul` ma rangę NKJP z własnych 12, nie z 9 182 736 `ul.`; `ul.` nie ma wiersza.
+        rows = json.loads(self.read('reports/units.json'))['units']
+        ul, = [row for row in rows if 'ul@synthetic' in row['members']]
+        self.assertEqual((ul['members'], ul['nkjp_status'], ul['nkjp_rank'], ul['rank']),
+                         (['ul@synthetic'], 'OBSERVED', 6, 8))
+        self.assertEqual(min(row['nkjp_rank'] for row in rows if row['nkjp_rank'] is not None), 1)
+        self.assertNotEqual(ul['nkjp_rank'], 1)
+        for name in ('POP.txt.gz', 'POP0.txt.gz'):
+            words = gzip.decompress((self.package / name).read_bytes()).decode('utf-8').split()
+            self.assertNotIn('ul.', words)
+            self.assertFalse([w for w in words if '.' in w], name)
+
     def test_attributions_follow_adr_006_terms_and_kwjp_only_drops_nkjp(self):
         made = self.made
         nkjp = [i for i in load_sources(made['sources'])['inputs'] if i['kind'] == 'nkjp_1gram'][0]

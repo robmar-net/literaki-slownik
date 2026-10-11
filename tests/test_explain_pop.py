@@ -60,6 +60,27 @@ class ExplainPopTests(unittest.TestCase):
         self.assertEqual(value['reason'], 'PROPER_NAME_ONLY')
         self.assertEqual(value['lexemes'], [{'lexeme': 'odra@synthetic', 'proper_name': True, 'unit': None}])
 
+    def test_construction_form_reports_component_lexeme(self):
+        # Forma konstrukcji nie ma własnej interpretacji: leksem przychodzi przez składnik (jak `pop`).
+        below = self.explain('nieduży', 'pop0')
+        self.assertEqual(below['reason'], 'BELOW_THRESHOLD')
+        self.assertTrue(below['in_standard'])
+        self.assertEqual(below['lists'], {'pop': True, 'pop0': False})
+        self.assertEqual(below['lexemes'], [{'lexeme': 'duży@synthetic', 'proper_name': False, 'unit': 0}])
+        self.assertEqual(below['units'][0]['members'], ['duży@synthetic'])
+        inside = self.explain('niepolski', 'pop0')
+        self.assertEqual(inside['reason'], 'IN_POP0')
+        self.assertEqual([item['lexeme'] for item in inside['lexemes']], ['polski@synthetic'])
+
+    def test_ul_rank_ignores_ul_dot_mass(self):
+        # D4 strip-edges-keep-dot: `ul.` (9 182 736) nie wlicza się do `ul` (12).
+        value = self.explain('ul', 'pop')
+        self.assertEqual(value['reason'], 'BELOW_THRESHOLD')
+        unit, = value['units']
+        self.assertEqual((unit['members'], unit['nkjp_status'], unit['nkjp_rank'], unit['rank']),
+                         (['ul@synthetic'], 'OBSERVED', 6, 8))
+        self.assertEqual(self.explain('ul.', 'pop')['reason'], 'NOT_IN_STANDARD')
+
     def test_result_shows_lexemes_units_threshold_and_no_nkjp_counts(self):
         value = self.explain('lata', 'pop0')
         self.assertEqual(value['reason'], 'IN_POP0')
@@ -79,6 +100,17 @@ class ExplainPopTests(unittest.TestCase):
         for count in NKJP_COUNTS:
             self.assertNotIn(count, text)
         self.assertIn('IN_POP0', format_pop_explanation(value))
+
+    def test_kwjp_only_package_explains_without_nkjp(self):
+        # C19: pakiet bez NKJP; explain działa, a jednostki i tekst nie mają pól NKJP.
+        made = pop_package(Path(self.temp.name) / 'kwjp-only', pop=11, pop0=6,
+                           d3={'source': 'kwjp', 'field': 'F'}, d4=None, must_include_pop0=['rok'])
+        value = explain_pop(made['package'], made['run'], 'lata', 'pop0')
+        self.assertEqual(value['reason'], 'IN_POP0')
+        self.assertTrue(value['units'])
+        for row in value['units']:
+            self.assertFalse([key for key in row if 'nkjp' in key])
+        self.assertNotIn('NKJP', format_pop_explanation(value))
 
     def test_package_pins_must_match_run(self):
         for field in ('database_sha256', 'release_manifest_sha256', 'standard_sha256'):

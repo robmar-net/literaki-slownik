@@ -314,12 +314,21 @@ def _pop_pins(package, run, manifest):
 
 
 def _word_lexemes(db, key):
-    """Leksemy formy (bezpośrednie interpretacje): etykieta `lemma_id@source_id` i nazwa własna (D9, jak `pop`)."""
+    """Leksemy formy: etykieta `lemma_id@source_id` i nazwa własna (D9, jak `pop`).
+
+    Bezpośrednie interpretacje oraz formy konstrukcji (`derivation_candidate`): leksem składnika
+    źródłowego, ten sam klucz co `pop.load_constructions`.
+    """
     from .pop import COMMON_NAME
     found = {}
     for lexeme_id, source_id, lemma_id in db.execute('''select distinct l.id,l.source_id,l.lemma_id
             from interpretation i join surface_form f on f.id=i.form_id join lexeme l on l.id=i.lexeme_id
-            where f.game_key=?''', (key,)):
+            where f.game_key=?
+            union
+            select distinct l.id,l.source_id,l.lemma_id
+            from derivation_candidate c join derivation_component p on p.candidate_key=c.candidate_key
+            join lexeme l on l.source_id=p.source_id and l.lemma_id=c.lemma_id
+            where c.game_key=? and p.kind='source_interpretation' ''', (key, key)):
         names = set()
         for (value,) in db.execute('select distinct names from interpretation where lexeme_id=?', (lexeme_id,)):
             names |= {t.strip() for t in value.split('|') if t.strip()}

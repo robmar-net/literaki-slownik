@@ -377,11 +377,11 @@ Zasady dla każdej grupy:
 **Files to Modify:** tests/test_pop.py, tests/test_explain_pop.py, tests/test_check_pop_package.py
 **Estimated Steps:** 4
 
-- [ ] 15.0 Przegląd testów POP
-  - [ ] 15.1 Przejrzyj testy grup 1–14 (ok. 72)
-  - [ ] 15.2 Luki tylko dla POP wg tabeli ograniczeń spec i „Kluczowe przypadki” (np. wycofanie NKJP end-to-end, `ul.`/`ul` w pakiecie)
-  - [ ] 15.3 Dopisz do 10 testów
-  - [ ] 15.4 Testy POP, potem raz pełny zestaw `python3 -m unittest discover -s tests -p 'test_*.py'`
+- [x] 15.0 Przegląd testów POP
+  - [x] 15.1 Przejrzyj testy grup 1–14 (ok. 72)
+  - [x] 15.2 Luki tylko dla POP wg tabeli ograniczeń spec i „Kluczowe przypadki” (np. wycofanie NKJP end-to-end, `ul.`/`ul` w pakiecie)
+  - [x] 15.3 Dopisz do 10 testów
+  - [x] 15.4 Testy POP, potem raz pełny zestaw `python3 -m unittest discover -s tests -p 'test_*.py'`
 
 **Acceptance Criteria:**
 - testy POP i pełny zestaw zielone; najwyżej 10 nowych testów

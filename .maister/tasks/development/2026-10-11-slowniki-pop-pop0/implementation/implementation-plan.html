@@ -228,14 +228,14 @@ ul.subs { margin:2px 0 0 22px; color:var(--dim); }
 <li data-step="14.5" class="step done"><b>14.5</b> <code>--review &lt;plik&gt;</code>: status, każda ocena, <code>sample_sha256</code> = hash <code>reports/sample.json</code>, hash <code>SHA256SUMS</code>. Tylko stdlib; <code>main()</code> zwraca kod</li>
 <li data-step="14.6" class="step done"><b>14.6</b> Uruchom tylko testy z 14.1</li>
 </ul><div class="acc"><b>Kryteria:</b><ul><li>7 testów z 14.1 przechodzi; skrypt tylko na stdlib</li></ul></div></div></section>
-<section data-group="15" class="group todo" id="g15"><div class="card">
+<section data-group="15" class="group done" id="g15"><div class="card">
 <div class="ghead"><h3>Grupa 15: Przegląd testów i luki</h3><span class="badge g-badge"></span></div>
 <p class="dim">Przegląd testów POP · zależy od: <b>11, 12, 13, 14</b> · kroków: 4</p>
 <div class="chips"><code>tests/test_pop.py</code> <code>tests/test_explain_pop.py</code> <code>tests/test_check_pop_package.py</code> </div><ul class="steps">
-<li data-step="15.1" class="step todo"><b>15.1</b> Przejrzyj testy grup 1–14 (ok. 72)</li>
-<li data-step="15.2" class="step todo"><b>15.2</b> Luki tylko dla POP wg tabeli ograniczeń spec i „Kluczowe przypadki” (np. wycofanie NKJP end-to-end, <code>ul.</code>/<code>ul</code> w pakiecie)</li>
-<li data-step="15.3" class="step todo"><b>15.3</b> Dopisz do 10 testów</li>
-<li data-step="15.4" class="step todo"><b>15.4</b> Testy POP, potem raz pełny zestaw <code>python3 -m unittest discover -s tests -p 'test_*.py'</code></li>
+<li data-step="15.1" class="step done"><b>15.1</b> Przejrzyj testy grup 1–14 (ok. 72)</li>
+<li data-step="15.2" class="step done"><b>15.2</b> Luki tylko dla POP wg tabeli ograniczeń spec i „Kluczowe przypadki” (np. wycofanie NKJP end-to-end, <code>ul.</code>/<code>ul</code> w pakiecie)</li>
+<li data-step="15.3" class="step done"><b>15.3</b> Dopisz do 10 testów</li>
+<li data-step="15.4" class="step done"><b>15.4</b> Testy POP, potem raz pełny zestaw <code>python3 -m unittest discover -s tests -p 'test_*.py'</code></li>
 </ul><div class="acc"><b>Kryteria:</b><ul><li>testy POP i pełny zestaw zielone; najwyżej 10 nowych testów</li></ul></div></div></section>
 <h2 class="stage">Etap D — odbiór</h2>
 <section data-group="16" class="group todo" id="g16"><div class="card">

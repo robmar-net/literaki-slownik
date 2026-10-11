@@ -109,6 +109,18 @@ class CheckPopPackageTests(unittest.TestCase):
         self.assertEqual(code, 0, output)
         self.assertIn('OK', output)
 
+    def test_kwjp_only_package_passes_with_review(self):
+        # C19: pakiet bez NKJP (d3 sama KWJP, d4 null) przechodzi kontrolę i przegląd.
+        made = pop_package(self.root / 'kwjp-only', pop=11, pop0=6, d3={'source': 'kwjp', 'field': 'F'},
+                           d4=None, must_include_pop0=['rok'])
+        package = made['package']
+        manifest = json.loads((package / 'release-manifest.json').read_text(encoding='utf-8'))
+        self.assertEqual(manifest['must_include_pop0'], ['rok'])
+        self.assertFalse(any('nkjp' in str(key).lower() for key in manifest['inputs']))
+        code, output = self.run_check('--pop-dir', package, '--standard', made['run'] / 'lists/standard.txt',
+                                      '--review', self.review(self.root, package=package))
+        self.assertEqual(code, 0, output)
+
     def test_changed_missing_or_extra_file_fails(self):
         def changed(p):
             _rewrite(p / 'TERMS.md', (p / 'TERMS.md').read_bytes() + b'dopisek\n')
