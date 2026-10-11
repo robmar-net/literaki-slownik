@@ -2,7 +2,7 @@
 
 ## TL;DR
 
-Stan na 2026-10-06, po implementacji `4d569ee`. Projekt buduje niezależne polskie słowniki dla Literaki Lounge: najpierw bazę dopuszczalności BROAD/STANDARD, następnie warianty poświadczone, zasoby popularnych słów i specjalizacje tematyczne. SJP.pl będzie późniejszym punktem odniesienia, dopiero po zamrożeniu porównywanych kandydatów.
+Stan na 2026-10-11: wydane LL-PL v29 (BROAD, STANDARD) i pop-v1 (POP, POP0). Projekt buduje niezależne polskie słowniki dla Literaki Lounge: najpierw bazę dopuszczalności BROAD/STANDARD, następnie warianty poświadczone, zasoby popularnych słów i specjalizacje tematyczne. SJP.pl będzie późniejszym punktem odniesienia, dopiero po zamrożeniu porównywanych kandydatów.
 
 Import oraz znaczna część mechaniki generatora działają. Nie istnieje jeszcze odebrane pełne wydanie. Najbliższa praca to domknięcie dowodów i mapowania językowego na zatwierdzonych wejściach; następnie pełna kwalifikacja, verify/export i dwa odtworzenia.
 
@@ -42,13 +42,14 @@ Pliki planu mają również historyczne dopiski. Przy wznowieniu czytać najnows
 - Mechanika 70 źródłowych definicji hostów konstrukcji została sprawdzona; pełna kwalifikacja językowa/growa pozostaje odrębna.
 - Ostatnia wykonana pełna suita: 247 testów generatora i 5 audytu, wszystkie przeszły (2026-10-08). To wynik historyczny, nie zastępstwo za testy przyszłych zmian.
 - Maister: `development`, `phase_8`, zadanie `in_progress`; G7 ukończone 2026-10-08, G8–G9 oczekują. W głównym planie zaznaczono 15 z 36 pozycji (21 otwartych, stan 2026-10-08), lecz to nie miara czasu: dotyczą dużych etapów pełnych przebiegów i odbioru. Nie zamykać częściowych G3–G6 na podstawie liczby checkboxów.
-- Dostępne komendy publicznego CLI: `inspect-sources`, `build`, `explain`, `verify`, `export` (opis: `docs/generator/cli.md`). Obecny build zawsze dostaje odmowę verify. Nie ma jeszcze końcowych list ani zmiany działającej gry.
+- Dostępne komendy publicznego CLI: `inspect-sources`, `build`, `explain`, `verify`, `export`, `pop` (opis: `docs/generator/cli.md`). Wydanie LL-PL v29 przeszło verify K1–K10 i export. Nie ma zmiany działającej gry.
+- POP/POP0 wydane 2026-10-11: [Release pop-v1](https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v1). POP 1 219 614 form / 51 805 leksemów, POP0 380 489 / 13 181. Metoda: [ADR-007](adr/ADR-007-metoda-pop-v1.md) rew. 3.
 
 ## 3. Granice pracy i źródeł
 
 - Nie zmieniamy reguł gry. Nie przejmujemy automatycznie polityki redakcyjnej SJP.pl.
 - SJP.pl wyłącznie jako późniejszy benchmark; bez jego danych leksykalnych, wyjątków lub list różnic jako wejść budowy. OSPS i PoliMorf nie są wejściami. Odczyt zasad SJP.pl wykonany wcześniej na zlecenie nie jest benchmarkiem ani importem słów.
-- NKJP obecnie `UNAVAILABLE`/`BLOCKED` dla generatora. Ewentualny powrót wymaga wyjaśnienia warunków, mapowania i osobnego odbioru; nie jest zależnością pierwszego wydania.
+- NKJP (1-gramy) wolno użyć jako CC BY do rang POP: [ADR-006](adr/ADR-006-nkjp-cc-by-bez-wersji.md); sposób użycia: [ADR-007](adr/ADR-007-metoda-pop-v1.md). Pakiet nie zawiera surowego NKJP. NKJP nie dopuszcza słów do BROAD/STANDARD.
 - Wikisłownik i podobne źródła społecznościowe oraz nowe opisowe dowody czytnika SGJP są odłożone. Brak kontaktu z innymi grupami: nie wysyłamy pytań do autorów źródeł.
 - Zachowujemy homonimy, oryginalne pola i nierozpoznaną pozostałość znaczeń. Dowód konkretnego użycia nie kwalifikuje automatycznie wszystkich znaczeń rekordu.
 - Brak w opublikowanej liście KWJP nie oznacza częstości zero ani błędności słowa; częstość pozostaje przy jednostce korpusu, bez wielokrotnego przypisywania homonimom. KWJP nie jest dowodem poprawności konstrukcji.
@@ -72,7 +73,7 @@ Kolejność zależna: G3 → G4 → G5 → G6 → G7 → G8 → G9. Plan dopuszc
 
 - [ ] Przygotować osobną specyfikację i eksperymenty dla `ATTESTED-LEXEME` (poświadczenie leksemu, jego dopuszczalne formy) i `ATTESTED-FORM` (poświadczenie konkretnej formy, możliwa niepełna odmiana).
 - [ ] Wskazać bazę BROAD albo STANDARD; przetestować niewielką rodzinę progów na rozkładach KWJP i próbkach jakości. Niejednoznaczne dopasowania raportować osobno.
-- [ ] Jeśli warianty mają wejść do pierwszego porównania z SJP.pl, wybrać progi i zamrozić je **przed** tym porównaniem. Nie wymagać niedostępnego NKJP ani dopasowywać progów do zgodności z SJP.pl.
+- [ ] Jeśli warianty mają wejść do pierwszego porównania z SJP.pl, wybrać progi i zamrozić je **przed** tym porównaniem. Nie dopasowywać progów do zgodności z SJP.pl. NKJP tylko na warunkach ADR-006.
 
 ### C. Porównanie z SJP.pl i rekomendacja bazy
 
@@ -156,7 +157,7 @@ python3 -m literaki_slownik build --manifest config/generator/sources.json --run
 
 Obecny build nadal kończy się gotowością `INCOMPLETE` i nieukończonymi etapami. Nie jest sposobem otrzymania końcowych list. Po awarii zachować manifest/log/bazę, odnotować nieukończony etap i przy ponowieniu użyć nowego katalogu. Nie uznawać częściowego importu za dowód braku słowa.
 
-`verify` i `export` nie mają jeszcze działających komend. Po ich wdrożeniu uzupełnić runbook **na podstawie rzeczywistego CLI**: dwa buildy → przegląd → verify K1–K10 z peer-run/review → export → kontrola hashy pakietu. Nie wymyślać dziś opcji ani obejścia odmowy wydania.
+Wydanie: dwa buildy → przegląd próbek → `verify --run-dir A --peer-run B --review PLIK` (K1–K10) → `export --run-dir A --output-dir NOWY` → kontrola hashy pakietu → GitHub Release. Wzór: `llpl-v29`, opis w `docs/generator/publikacja.md`.
 
 ## 6. Odbiór i utrzymanie ticketu
 

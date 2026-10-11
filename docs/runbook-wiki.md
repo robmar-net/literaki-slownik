@@ -39,8 +39,9 @@
    - liczby słów: `wc -l <run>/lists/broad.txt <run>/lists/standard.txt`;
    - wersja polityki: `VERSION` w `literaki_slownik/policy.py` (musi być zgodna z `policy_version` w `<run>/reports/decisions.json`);
    - porównanie z SJP.pl: wynik `scripts/benchmark_sjp.py`.
+   - POP/POP0: formy i leksemy z `counts` w `release-manifest.json` pakietu (dziś POP 1 219 614 / 51 805, POP0 380 489 / 13 181), progi i przycięcia z `reports/thresholds.json`; wersja `pop-v1`, link do [Release pop-v1](https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v1), metoda [ADR-007](adr/ADR-007-metoda-pop-v1.md). Strony `Slownik-POP` i `Slownik-POP0` idą tą samą procedurą.
    Przy liczbach podaj wersję i datę. Dopóki `verify` nie odbierze wydania, pisz „wersja robocza”.
-3. Przykład przy filtrze sprawdź w liście albo przez `python3 -m literaki_slownik explain --run-dir <run> --word <słowo>`. Przykład „odpada” nie może być na liście, a przykład „zostaje” musi na niej być.
+3. Przykład przy filtrze sprawdź w liście albo przez `python3 -m literaki_slownik explain --run-dir <run> --word <słowo>`. Dla POP/POP0: `explain ... --variant pop|pop0 --pop-dir <pakiet>`. Przykład „odpada” nie może być na liście, a przykład „zostaje” musi na niej być.
 4. Lista kontrolna przed commitem:
    - stara wersja polityki nie występuje nigdzie poza `Historia-zmian`: `grep -rn "v<poprzednia>" wiki-literaki-slownik`;
    - linki do plików w repo prowadzą do istniejących ścieżek na `main` (po pushu kodu);

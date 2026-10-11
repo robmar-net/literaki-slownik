@@ -415,14 +415,14 @@ Zasady dla każdej grupy:
 **Files to Modify:** docs/generator/cli.md, docs/generator/jakosc.md, docs/runbook-wiki.md, docs/plan-dalszych-prac-runbook.md, ../wiki-literaki-slownik/Slownik-POP.md, ../wiki-literaki-slownik/Slownik-POP0.md, ../wiki-literaki-slownik/Home.md, ../wiki-literaki-slownik/_Sidebar.md, ../wiki-literaki-slownik/Slownik-STANDARD.md, ../wiki-literaki-slownik/Historia-zmian.md
 **Estimated Steps:** 7
 
-- [ ] 17.0 Wydanie i dokumentacja (E1–E6)
-  - [ ] 17.1 Tuż przed wydaniem `check_pop_package.py --pop-dir … --standard … --review …` = 0; inaczej brak wydania (E1)
-  - [ ] 17.2 `gh release create pop-v1` wg wzoru `llpl-v29`: `POP.txt.gz`, `POP0.txt.gz`, `pop-v1-pakiet.tar.gz`, `SHA256SUMS`, `pop-v1-review.json`. Notatka: liczby z `reports/thresholds.json`, hashe, podstawa `llpl-v29`, ADR-007, ograniczenia, atrybucja NKJP wg ADR-006 (E1–E3)
-  - [ ] 17.3 Dokumenty (E5): `cli.md` (`pop`, `explain --variant pop|pop0 --pop-dir`), `jakosc.md` (`pop-quality-v1`), `runbook-wiki.md` (strony POP/POP0, skąd liczby), `plan-dalszych-prac-runbook.md` (l. 45: komenda `pop`; l. 51: bez „NKJP BLOCKED”, odesłanie do ADR-006/007)
-  - [ ] 17.4 Wiki wg `docs/runbook-wiki.md`: `git -C ~/Projects/Literaki/wiki-literaki-slownik pull --ff-only`; `Slownik-POP` i `Slownik-POP0`: zamiast „**W przygotowaniu.**” stan (słowa, leksemy, `pop-v1`, link do Release, sha256), tabela filtrów z przykładem słowa, link do ADR-007; bez tez o znajomości słów
-  - [ ] 17.5 Usuń „w przygotowaniu” z `Home` (wiersze POP/POP0: liczba i link), `_Sidebar`, `Slownik-STANDARD`; wiersz w `Historia-zmian`. W tabelach `[POP](Slownik-POP)`, nie `[[a|b]]`. `grep -ri przygotowaniu` w wiki = pusto
-  - [ ] 17.6 `curl -fIL` na każdy asset Release i każdą zmienioną stronę wiki → 200 (E6)
-  - [ ] 17.7 Commit i push repo `literaki-slownik` oraz wiki
+- [x] 17.0 Wydanie i dokumentacja (E1–E6)
+  - [x] 17.1 Tuż przed wydaniem `check_pop_package.py --pop-dir … --standard … --review …` = 0; inaczej brak wydania (E1)
+  - [x] 17.2 `gh release create pop-v1` wg wzoru `llpl-v29`: `POP.txt.gz`, `POP0.txt.gz`, `pop-v1-pakiet.tar.gz`, `SHA256SUMS`, `pop-v1-review.json`. Notatka: liczby z `reports/thresholds.json`, hashe, podstawa `llpl-v29`, ADR-007, ograniczenia, atrybucja NKJP wg ADR-006 (E1–E3)
+  - [x] 17.3 Dokumenty (E5): `cli.md` (`pop`, `explain --variant pop|pop0 --pop-dir`), `jakosc.md` (`pop-quality-v1`), `runbook-wiki.md` (strony POP/POP0, skąd liczby), `plan-dalszych-prac-runbook.md` (l. 45: komenda `pop`; l. 51: bez „NKJP BLOCKED”, odesłanie do ADR-006/007)
+  - [x] 17.4 Wiki wg `docs/runbook-wiki.md`: `git -C ~/Projects/Literaki/wiki-literaki-slownik pull --ff-only`; `Slownik-POP` i `Slownik-POP0`: zamiast „**W przygotowaniu.**” stan (słowa, leksemy, `pop-v1`, link do Release, sha256), tabela filtrów z przykładem słowa, link do ADR-007; bez tez o znajomości słów
+  - [x] 17.5 Usuń „w przygotowaniu” z `Home` (wiersze POP/POP0: liczba i link), `_Sidebar`, `Slownik-STANDARD`; wiersz w `Historia-zmian`. W tabelach `[POP](Slownik-POP)`, nie `[[a|b]]`. `grep -ri przygotowaniu` w wiki = pusto
+  - [x] 17.6 `curl -fIL` na każdy asset Release i każdą zmienioną stronę wiki → 200 (E6)
+  - [x] 17.7 Commit i push repo `literaki-slownik` oraz wiki
 
 **Acceptance Criteria:**
 - Release `pop-v1` po D-5; wiki bez „w przygotowaniu”, wypchnięte; E6 zielone

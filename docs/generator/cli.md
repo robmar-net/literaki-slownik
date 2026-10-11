@@ -1,7 +1,7 @@
 # CLI generatora — bieżący stan
 
 ## TL;DR
-Działają inspect-sources, build importu, diagnostyczne explain oraz verify/export (G7). Pełny generator nadal jest w implementacji.
+Działają inspect-sources, build importu, diagnostyczne explain, verify/export (G7) oraz `pop` (listy POP/POP0, ADR-007). Pełny generator nadal jest w implementacji.
 Explain czyta bazę bez zmian i pokazuje wszystkie źródłowe interpretacje.
 Nieaktywna polityka językowa daje unresolved; diagnostyka nie nadaje końcowego członkostwa w liście.
 
@@ -11,7 +11,7 @@ Nieaktywna polityka językowa daje unresolved; diagnostyka nie nadaje końcowego
 - Oryginał, język, reguły gry, profil i końcowa lista są rozdzielone. Korpus nie dopuszcza słowa do gry.
 
 ## Open Questions / Risks
-- Konstrukcje i pełna polityka wymagają domknięcia G3/G4. Verify/export działają, ale dzisiejszy build zawsze dostaje odmowę: etapy constructions/decisions/reports pozostają pending, a listy nie powstają.
+- Verify przyjmuje tylko przebieg ze wszystkimi etapami complete. Pierwsze wydanie: LL-PL v29 (VERIFIED, export FROZEN, 2026-10-11).
 - Bieżące explain ocenia źródłowe interpretacje oraz odtwarza kandydatów dwóch potwierdzonych klas. Brak w imporcie SGJP nie jest oceną wszystkich możliwych konstrukcji.
 - Brak powiązań w starszej bazie nie oznacza braku korpusowego ani F=0.
 
@@ -28,6 +28,48 @@ python3 -m literaki_slownik export --run-dir data/work/run-a --output-dir data/w
 ```
 
 Verify i export opisuje [publikacja.md](publikacja.md#verify-i-export--wdrożenie-g7).
+
+## POP i POP0 (`pop`)
+
+Metoda: [ADR-007](../adr/ADR-007-metoda-pop-v1.md) rew. 3. NKJP jako CC BY: [ADR-006](../adr/ADR-006-nkjp-cc-by-bez-wersji.md).
+
+```sh
+python3 -m literaki_slownik pop --manifest config/generator/pop-sources.json \
+  --config config/generator/pop.json --output-dir data/work/pop-nowy [--run-dir <v29>] [--release-dir <LL-PL v29>] [--json]
+```
+
+- `--run-dir` i `--release-dir` domyślnie z manifestu. Przebieg musi być FROZEN, hashe zgodne z pinami.
+- `--output-dir` musi nie istnieć; katalog nadrzędny musi istnieć. `pop` nigdy nie nadpisuje.
+- Kody: 0 pakiet zbudowany; 2 argumenty, manifest lub `pop.json` spoza ADR-007; 3 pin lub brak wejścia; 4 błąd danych, istniejący cel, naruszone `POP0 ⊆ POP ⊆ STANDARD` albo słowo z `must_include_pop0` poza POP0; 5 przebieg nie FROZEN albo baza zmieniła się w trakcie.
+
+Pakiet (status `BUILT`, pliki 0444):
+
+| plik | treść |
+|---|---|
+| `POP.txt.gz`, `POP0.txt.gz` | listy form, gzip bez nazwy, `mtime=0` |
+| `reports/units.json` | jednostki: ranga i percentyl, bez wartości NKJP |
+| `reports/thresholds.json` | progi: leksemy, formy, przycięcia |
+| `reports/sample.json`, `reports/review-template.json` | próbka `pop-quality-v1` i pusty szablon przeglądu |
+| `ATTRIBUTIONS.md`, `LIMITATIONS.md`, `TERMS.md` | atrybucje, ograniczenia, warunki |
+| `release-manifest.json`, `SHA256SUMS` | tożsamość wejść i kodu, hashe plików |
+
+Wyjaśnienie słowa w pakiecie:
+
+```sh
+python3 -m literaki_slownik explain --run-dir <v29> --word kot --variant pop --pop-dir <pakiet> [--json]
+```
+
+`--variant pop|pop0` wymaga `--pop-dir` (inaczej kod 2). Powody: `IN_POP0`, `IN_POP`, `BELOW_THRESHOLD` (poniżej progu), `NOT_IN_STANDARD` (spoza STANDARD), `PROPER_NAME_ONLY` (tylko nazwa własna), `PRUNED_WEAK_MEMBER` (jednostka na liście, własny leksem poniżej progu), `NO_DATA` (brak danych o użyciu).
+
+Kontrola niezależna od kodu budowy (tylko biblioteka standardowa):
+
+```sh
+python3 scripts/check_pop_package.py --pop-dir <pakiet> --standard <v29>/lists/standard.txt [--review pop-v1-review.json]
+```
+
+Sprawdza `SHA256SUMS`, manifest, `POP0 ⊆ POP ⊆ STANDARD`, brak surowego NKJP; z `--review` także przegląd. Kody: 0 zgodne, 2 argumenty, 3 `--standard` ≠ pin, 4 naruszenia (lista na stderr).
+
+Pomiar przed decyzją o progach (tylko odczyt): `python3 scripts/measure_pop.py --output-dir data/work/pop-measure-<stempel> [--sources] [--run-dir] [--release-dir] [--with-membership-ii]`. Wynik: `measure.json`, `timing.json`, `report.md`. Kody: 2 argumenty, 3 piny, 4 katalog istnieje, 5 baza zmieniona lub przebieg nie FROZEN.
 
 Build odmawia istniejącego katalogu. Aktualnie wykonuje preflight i importy; pozostawia INCOMPLETE oraz jawnie pending dla dalszych etapów. Użyj nowego katalogu przy ponowieniu. Nie modyfikuj historycznego audytu.
 

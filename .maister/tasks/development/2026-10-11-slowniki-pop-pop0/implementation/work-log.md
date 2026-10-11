@@ -87,3 +87,9 @@
 
 ## 2026-10-11T16:11:27Z - Group 16 Complete (odbiór)
 **Przegląd rew. 3**: 414 correct / 3 incorrect / 3 unknown, 0 wad metody; właściciel zatwierdził przegląd i wydanie 2026-10-11. D-1…D-7 spełnione; verification/pop-acceptance.md, verification/pop-v1-review.json.
+
+## 2026-10-11T16:59:52Z - Group 17 Complete (wydanie)
+**Release** pop-v1: https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v1 (POP.txt.gz, POP0.txt.gz, pakiet, przegląd, SHA256SUMS); pobrany POP0 = sha z pakietu. **Wiki**: Slownik-POP, Slownik-POP0, Home, _Sidebar, Slownik-STANDARD, Historia-zmian; bez „w przygotowaniu”; linki 200. **Docs**: cli.md, jakosc.md, runbook-wiki.md, plan-dalszych-prac-runbook.md (też przestarzałe zdania o odmowie verify).
+
+## 2026-10-11T16:59:52Z - Implementation Complete
+**Grupy**: 17/17, wszystkie kroki [x]. **Testy**: 372 OK. Trzy iteracje metody po przeglądach (ADR-007 rew. 2, 3).

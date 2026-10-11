@@ -23,7 +23,7 @@ Nowe build zapisują trzy diagnostyczne próbki; pełna macierz i odbiór pozost
 
 `review_template(sample, canonical_index_sha256=..., evidence_sha256=...)` tworzy pozycje z pustą oceną, recenzentem i uzasadnieniem źródłowym. Nie przypisuje poprawności domyślnie. Jeśli próbka zawiera items, dołącza pełne jednostki do selected_unit i wymaga zgodnego pokrycia bez duplikatów.
 
-Konfiguracja `config/generator/quality.json` jest zamknięta dla zatwierdzonej quality-v1. Inna wersja, seed, limit lub kodowanie wymaga jawnej aktualizacji kontraktu.
+Konfiguracja `config/generator/quality.json` jest zamknięta dla zatwierdzonej quality-v1. Druga zamknięta konfiguracja to `pop-quality-v1` (POP, niżej). Inna wersja, seed, limit lub kodowanie wymaga jawnej aktualizacji kontraktu.
 
 Testy: `python3 -m unittest tests.test_quality`. Obejmują znany hash UTF-8, wybór najmniejszych hashy, limit, powtórzenia, remisy, puste grupy, przecięcia, błędne wejścia i powiązanie przeglądu z hashami.
 
@@ -36,3 +36,12 @@ sample_persisted_analyses dobiera do30 stabilnych kluczy na rodzaj analizy (źr�
 ## Próbki słów i powiązań
 
 `sample_word_analyses` dobiera całe klucze słowne; dołącza wszystkie analizy i obie oceny, ślady konstrukcji i źródła. Definicje tematów w przypiętym quality-words służą wyłącznie próbkowaniu. `sample_corpus_links` rozlicza każdą jednostkę KWJP i jej kandydatury, F tylko raz. Build zapisuje quality-words.json i quality-links.json. UNREVIEWED i EMPTY_NOT_COVERAGE pozostają wiążące. [Pomiary i granice](../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/quality-strata-implementation-review.md).
+
+## Próbki POP (`pop-quality-v1`)
+
+- Konfiguracja: `sampling` w `config/generator/pop.json`. Seed `literaki-slownik-pop-v1`, 30 na warstwę, to samo kodowanie co quality-v1.
+- Klucze: leksemy (`lemma_id@source_id`) albo formy.
+- Warstwy: `pop-granica-wewnatrz`, `pop-granica-zewnatrz`, `pop0-granica-wewnatrz`, `pop0-granica-zewnatrz`, `braki-danych`, `rozbieznosc-korpusow`, `grupy-homonimow`, `pos-<POS>`, `formy-krotkie`, `formy-dlugie`. Pusta warstwa: `EMPTY_NOT_COVERAGE`.
+- `pop` zapisuje `reports/sample.json` i `reports/review-template.json` (UNREVIEWED).
+- Przegląd: status `REVIEWED`, każda pozycja oceniona, hashe próbki, indeksu jednostek, dowodów i `sha256sums_sha256` (SHA256 pliku `SHA256SUMS` pakietu). Sprawdza go `scripts/check_pop_package.py --review` ([cli.md](cli.md#pop-i-pop0-pop)).
+- Przegląd wydania `pop-v1-review.json` jest assetem [Release pop-v1](https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v1).
