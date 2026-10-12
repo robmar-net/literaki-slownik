@@ -5,7 +5,8 @@
     "started_phase": "research_foundation",
     "completed_phases": [
       "research_foundation",
-      "candidate_assessment"
+      "candidate_assessment",
+      "targeted_audit"
     ],
     "failed_phases": [],
     "options": {
@@ -16,13 +17,13 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-12T00:04:14Z",
-    "updated": "2026-10-12T08:14:50Z",
+    "updated": "2026-10-12T08:32:29Z",
     "task_path": ".maister/tasks/research/2026-10-12-standard-formy-dawne"
   },
   "task": {
     "title": "STANDARD: formy dawne i współczesne użycie (#4)",
     "description": "Research przyczyn odmów, niezależnych miar współczesności i skutków wariantów; komentarz do ticketu; decyzje z właścicielem.",
-    "status": "awaiting_approval",
+    "status": "completed",
     "tags": [
       "research",
       "slownik",
@@ -228,11 +229,13 @@
           "Przyjąć wyniki do osobnej decyzji",
           "Pogłębić wskazany przypadek"
         ],
-        "answer": null,
-        "implementation_approved": false
+        "answer": "Użytkownik poprosił o omówienie wyników. Przyjęto audyt jako materiał do rozmowy, bez zatwierdzenia paczki, cofnięć, metody lub wdrożenia.",
+        "implementation_approved": false,
+        "user_response": "omowmy to",
+        "answered_at": "2026-10-12T08:32:29Z"
       },
       "started": "2026-10-12T07:07:20Z",
-      "completed": null
+      "completed": "2026-10-12T08:32:29Z"
     }
   },
   "research_context": {
@@ -398,6 +401,11 @@
       {
         "completed": "2026-10-12T01:18:39Z",
         "round": 2
+      },
+      {
+        "completed": "2026-10-12T08:32:29Z",
+        "round": 4,
+        "scope": "Badanie i publikacja; dalsze decyzje omawiane z użytkownikiem."
       }
     ],
     "candidate_assessment": {
@@ -449,10 +457,25 @@
         "held_analyses": 6
       },
       "recommendation": "Przyjąć audyt jako podstawę osobnych decyzji; dodatki przy zachowaniu metody POP, cofnięcia oddzielnie. Bez dalszego ogólnego poszerzania próbki."
+    },
+    "discussion": {
+      "started": "2026-10-12T08:32:29Z",
+      "user_request": "omowmy to",
+      "status": "in_progress",
+      "decision_areas": [
+        "Paczka 2382 form w STANDARD",
+        "Rotacja POP przy niezmienionej metodzie",
+        "Osobne cofnięcia i cztery wstrzymania"
+      ],
+      "first_question": "Czy akceptujemy rotację POP przy obecnej metodzie, czy najpierw rozstrzygamy potrzebę stabilniejszego składu?",
+      "recommendation": "Dodatki mają uzasadnienie. Zachować metodę POP w tym zakresie, jeśli jej rotacja jest akceptowana; nie dopasowywać limitu do wybranych przykładów. Cofnięcia oddzielnie.",
+      "answer": null,
+      "candidate_batch_approved": false,
+      "implementation_approved": false
     }
   },
   "verification_context": {
-    "last_status": "round4_passed_awaiting_research_gate",
+    "last_status": "round4_passed_research_accepted_for_discussion",
     "issues_found": [],
     "fixes_applied": [
       "Naprawiono wybór kontroli przyjęć: odczyt accepted zamiast cache rejected.",

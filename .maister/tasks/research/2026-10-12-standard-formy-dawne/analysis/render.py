@@ -91,6 +91,8 @@ waiting = state['task']['status'] == 'awaiting_approval'
 activity = ('Wyniki oceny kandydatów i wpływ na POP do omówienia' if waiting else 'Ocena kandydatów i walidacja wpływu') if candidate else ('Research zakończony; kierunek przyjęty, wdrożenie niezatwierdzone' if state['task']['status'] == 'completed' else 'Pogłębiony research i weryfikacja dowodów')
 if audit:
     activity = 'Wyniki audytu POP, rodzin i obecnych przyjęć do omówienia' if waiting else 'Audyt POP oraz niezależna kontrola rodzin i obecnych przyjęć'
+    if state['task']['status'] == 'completed':
+        activity = 'Audyt przyjęty do omówienia; decyzje o paczce, POP i cofnięciach otwarte'
 names = {'research_foundation':'Badanie i synteza','candidate_assessment':'Ocena kandydatów i wpływu','targeted_audit':'Audyt POP i niezależny przegląd'}
 phases=[dict(s,id=k,name=names.get(k,k),icon_hint='analysis',status='completed' if s['completed'] else state['task']['status']) for k,s in state['phase_summaries'].items()]
 context = state['research_context']

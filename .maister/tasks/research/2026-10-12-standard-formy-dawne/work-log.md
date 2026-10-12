@@ -37,3 +37,5 @@ Zakończono trzy tory i sprawdzono pokrycie delegacji. Wszystkie 110 rodzin / 23
 2026-10-12T08:10:44Z: końcowy raport i dashboard odczytane w Playwright; podgląd wizualny i odsyłacze poprawne, brak błędów konsoli i przewijania poziomego. Produkcyjne pliki bez zmian; przygotowanie commita badawczego i publikacji do #4.
 
 2026-10-12T08:14:50Z: raport i dowody zapisano oraz wysłano w commicie f9793b1120a3fedc422b32acf2cfd0b2cfb797fd. Opublikowano komentarz https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6120344099; odczyt API potwierdził zgodność całej treści. Pierwszy odczyt sieciowy w sandboxie nie powiódł się; jawne ponowienie zadziałało. Bramka audytu pozostaje otwarta, wdrożenie niezatwierdzone.
+
+2026-10-12T08:32:29Z: użytkownik „omowmy to” przyjął wyniki jako materiał do rozmowy. Zamknięto bramkę audytu i etap badawczy; nie zatwierdzono paczki, cofnięć ani wdrożenia. Rozpoczęto omówienie dodatków i rotacji POP z konkretnymi przykładami z istniejących macierzy. Bez nowych pomiarów i bez nowej publikacji komentarza.

@@ -1,9 +1,9 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-12T08:14:50Z",
+  "generated": "2026-10-12T08:32:30Z",
   "task": {
     "title": "STANDARD: formy dawne i współczesne użycie (#4)",
     "description": "Research przyczyn odmów, niezależnych miar współczesności i skutków wariantów; komentarz do ticketu; decyzje z właścicielem.",
-    "status": "awaiting_approval",
+    "status": "completed",
     "tags": [
       "research",
       "slownik",
@@ -12,7 +12,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "research",
     "path": "/Users/robmar/Projects/Literaki/literaki-slownik/.maister/tasks/research/2026-10-12-standard-formy-dawne",
-    "current_activity": "Wyniki audytu POP, rodzin i obecnych przyjęć do omówienia"
+    "current_activity": "Audyt przyjęty do omówienia; decyzje o paczce, POP i cofnięciach otwarte"
   },
   "characteristics": {
     "runda": 4,
@@ -185,6 +185,11 @@ window.MAISTER_DATA = {
       {
         "completed": "2026-10-12T01:18:39Z",
         "round": 2
+      },
+      {
+        "completed": "2026-10-12T08:32:29Z",
+        "round": 4,
+        "scope": "Badanie i publikacja; dalsze decyzje omawiane z użytkownikiem."
       }
     ],
     "candidate_assessment": {
@@ -236,6 +241,21 @@ window.MAISTER_DATA = {
         "held_analyses": 6
       },
       "recommendation": "Przyjąć audyt jako podstawę osobnych decyzji; dodatki przy zachowaniu metody POP, cofnięcia oddzielnie. Bez dalszego ogólnego poszerzania próbki."
+    },
+    "discussion": {
+      "started": "2026-10-12T08:32:29Z",
+      "user_request": "omowmy to",
+      "status": "in_progress",
+      "decision_areas": [
+        "Paczka 2382 form w STANDARD",
+        "Rotacja POP przy niezmienionej metodzie",
+        "Osobne cofnięcia i cztery wstrzymania"
+      ],
+      "first_question": "Czy akceptujemy rotację POP przy obecnej metodzie, czy najpierw rozstrzygamy potrzebę stabilniejszego składu?",
+      "recommendation": "Dodatki mają uzasadnienie. Zachować metodę POP w tym zakresie, jeśli jej rotacja jest akceptowana; nie dopasowywać limitu do wybranych przykładów. Cofnięcia oddzielnie.",
+      "answer": null,
+      "candidate_batch_approved": false,
+      "implementation_approved": false
     }
   },
   "phases": [
@@ -444,15 +464,17 @@ window.MAISTER_DATA = {
           "Przyjąć wyniki do osobnej decyzji",
           "Pogłębić wskazany przypadek"
         ],
-        "answer": null,
-        "implementation_approved": false
+        "answer": "Użytkownik poprosił o omówienie wyników. Przyjęto audyt jako materiał do rozmowy, bez zatwierdzenia paczki, cofnięć, metody lub wdrożenia.",
+        "implementation_approved": false,
+        "user_response": "omowmy to",
+        "answered_at": "2026-10-12T08:32:29Z"
       },
       "started": "2026-10-12T07:07:20Z",
-      "completed": null,
+      "completed": "2026-10-12T08:32:29Z",
       "id": "targeted_audit",
       "name": "Audyt POP i niezależny przegląd",
       "icon_hint": "analysis",
-      "status": "awaiting_approval"
+      "status": "completed"
     },
     {
       "id": "solution_generation",
@@ -468,7 +490,7 @@ window.MAISTER_DATA = {
     }
   ],
   "verification": {
-    "status": "round4_passed_awaiting_research_gate",
+    "status": "round4_passed_research_accepted_for_discussion",
     "issues": [],
     "fixes": [],
     "reverify_count": 0

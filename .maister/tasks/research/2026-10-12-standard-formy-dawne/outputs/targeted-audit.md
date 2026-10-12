@@ -152,3 +152,13 @@ Kontrola kompletności: `analysis/round4_validate.py`; [wynik](../analysis/findi
 `round4_pop.py` odtwarza bazę, przyczyny ubytków i kontrole; tryb `sensitivity_eight` liczy osobno wariant 8 cofnięć.
 Surowe odpowiedzi i korpusy pozostają w ignorowanym `tmp/research-issue4/`; publiczne artefakty zawierają własne oceny, identyfikatory, hashe, metryki i odsyłacze.
 Nie zmieniono kodu produkcyjnego, reguł, list, wydania ani wiki.
+
+## 8. Początek omówienia
+
+Użytkownik odpowiedział „omowmy to”: wyniki stanowią podstawę rozmowy. Paczka, cofnięcia i wdrożenie pozostają niezatwierdzone.
+
+Dodatki obejmują m.in. 8 form `desperacja`, 8 form `familia` i 10 form `niezbędnik`; dokładne zakresy są w [macierzy rodzin](../analysis/findings/round4/family-review.json). Nie obejmują dawnych wariantów `desperacyj` ani `familij`.
+
+Przy ocenie POP nie wystarczy zmiana netto −58: 2372 formy wchodzą, 2430 wypada. Wśród tracących członków są `anyżowy`, `szybkościomierz` i `żelatynowy`; pozostają w STANDARD. [Pełny wykaz](../analysis/findings/round4/pop-losses.json). Poprawność rankingu nie przesądza, czy ten skutek jest pożądany dla graczy.
+
+Pierwszy temat rozmowy: akceptacja tej rotacji przy zachowaniu obecnej metody albo osobne rozstrzygnięcie wymagań stabilności POP. Rekomendacja pozostaje za obecną metodą w zakresie tego ticketu; nie dostrajać limitu do przykładów. Decyzja użytkownika jest otwarta.
