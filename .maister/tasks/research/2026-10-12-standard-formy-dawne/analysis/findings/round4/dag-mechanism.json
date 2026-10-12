@@ -1,0 +1,752 @@
+{
+  "accessed_at": "2026-10-12T07:09:47Z",
+  "baseline": {
+    "ranked_units": 84597,
+    "cuts": {
+      "pop0": {
+        "lexemes": 19999,
+        "rank": 11638,
+        "reached": true,
+        "next_block": {
+          "units": 8,
+          "lexemes": 10,
+          "rank": 11639
+        }
+      },
+      "pop": {
+        "lexemes": 59991,
+        "rank": 45137,
+        "reached": true,
+        "next_block": {
+          "units": 54,
+          "lexemes": 60,
+          "rank": 45138
+        }
+      }
+    },
+    "forms": {
+      "pop0": 388509,
+      "pop": 1227250
+    },
+    "kept_lexemes": {
+      "pop0": 13896,
+      "pop": 53002
+    }
+  },
+  "without_dag": {
+    "ranked_units": 84597,
+    "cuts": {
+      "pop0": {
+        "lexemes": 19997,
+        "rank": 11637,
+        "reached": true,
+        "next_block": {
+          "units": 8,
+          "lexemes": 10,
+          "rank": 11638
+        }
+      },
+      "pop": {
+        "lexemes": 59990,
+        "rank": 45137,
+        "reached": true,
+        "next_block": {
+          "units": 54,
+          "lexemes": 60,
+          "rank": 45138
+        }
+      }
+    },
+    "forms": {
+      "pop0": 388498,
+      "pop": 1227249
+    },
+    "kept_lexemes": {
+      "pop0": 13895,
+      "pop": 53001
+    }
+  },
+  "delta": {
+    "pop0": {
+      "added": [],
+      "removed": [
+        "dag",
+        "dekagram",
+        "dekagrama",
+        "dekagramach",
+        "dekagramami",
+        "dekagramem",
+        "dekagramie",
+        "dekagramom",
+        "dekagramowi",
+        "dekagramy",
+        "dekagramów"
+      ]
+    },
+    "pop": {
+      "added": [],
+      "removed": [
+        "dag"
+      ]
+    }
+  },
+  "lost_relevant": [
+    [
+      "sgjp-20260823",
+      "daga"
+    ]
+  ],
+  "traces": [
+    {
+      "key": [
+        "sgjp-20260823",
+        "daga"
+      ],
+      "before": {
+        "lemma": "daga",
+        "unit": [
+          "daga",
+          "dekagram"
+        ],
+        "unit_size": 2,
+        "kwjp": {
+          "status": "OBSERVED",
+          "F": 134,
+          "ARF": "28.71",
+          "1-DP": "0.01123",
+          "genres": [
+            "fakt",
+            "publicystyka"
+          ],
+          "row": 49026,
+          "ambiguous": false
+        },
+        "nkjp": {
+          "status": "OBSERVED",
+          "rank": 3738,
+          "percentile": 95.2987,
+          "ambiguous": true
+        },
+        "measure": {
+          "value": 0.667472221,
+          "status": "MEASURED",
+          "flags": []
+        },
+        "rank": 10311,
+        "selected_unit": {
+          "pop0": true,
+          "pop": true
+        },
+        "kept_member": {
+          "pop0": false,
+          "pop": true
+        },
+        "subunit": {
+          "members": [
+            "daga"
+          ],
+          "kwjp": {
+            "status": "OBSERVED",
+            "F": 49,
+            "ARF": "21.9",
+            "1-DP": "0.0076",
+            "genres": [
+              "fakt",
+              "publicystyka"
+            ],
+            "row": 55377,
+            "ambiguous": false
+          },
+          "nkjp": {
+            "status": "SHARED_DOMINANT",
+            "rank": null,
+            "percentile": null,
+            "ambiguous": false
+          },
+          "measure": {
+            "value": -0.221839323,
+            "status": "MEASURED",
+            "flags": [
+              "single_source:kwjp"
+            ]
+          },
+          "rank": 26237
+        }
+      },
+      "after": {
+        "lemma": "daga",
+        "eligible": false
+      }
+    },
+    {
+      "key": [
+        "sgjp-20260823",
+        "dekagram"
+      ],
+      "before": {
+        "lemma": "dekagram",
+        "unit": [
+          "daga",
+          "dekagram"
+        ],
+        "unit_size": 2,
+        "kwjp": {
+          "status": "OBSERVED",
+          "F": 134,
+          "ARF": "28.71",
+          "1-DP": "0.01123",
+          "genres": [
+            "fakt",
+            "publicystyka"
+          ],
+          "row": 49026,
+          "ambiguous": false
+        },
+        "nkjp": {
+          "status": "OBSERVED",
+          "rank": 3738,
+          "percentile": 95.2987,
+          "ambiguous": true
+        },
+        "measure": {
+          "value": 0.667472221,
+          "status": "MEASURED",
+          "flags": []
+        },
+        "rank": 10311,
+        "selected_unit": {
+          "pop0": true,
+          "pop": true
+        },
+        "kept_member": {
+          "pop0": true,
+          "pop": true
+        },
+        "subunit": {
+          "members": [
+            "dekagram"
+          ],
+          "kwjp": {
+            "status": "OBSERVED",
+            "F": 85,
+            "ARF": "28.71",
+            "1-DP": "0.01123",
+            "genres": [
+              "fakt",
+              "publicystyka"
+            ],
+            "row": 49026,
+            "ambiguous": false
+          },
+          "nkjp": {
+            "status": "SHARED_DOMINANT",
+            "rank": null,
+            "percentile": null,
+            "ambiguous": false
+          },
+          "measure": {
+            "value": 0.017383523,
+            "status": "MEASURED",
+            "flags": [
+              "single_source:kwjp"
+            ]
+          },
+          "rank": 21474
+        }
+      },
+      "after": {
+        "lemma": "dekagram",
+        "unit": [
+          "dekagram"
+        ],
+        "unit_size": 1,
+        "kwjp": {
+          "status": "OBSERVED",
+          "F": 85,
+          "ARF": "28.71",
+          "1-DP": "0.01123",
+          "genres": [
+            "fakt",
+            "publicystyka"
+          ],
+          "row": 49026,
+          "ambiguous": false
+        },
+        "nkjp": {
+          "status": "PROPER_SHARED",
+          "rank": null,
+          "percentile": null,
+          "ambiguous": false
+        },
+        "measure": {
+          "value": 0.017383523,
+          "status": "MEASURED",
+          "flags": [
+            "single_source:kwjp"
+          ]
+        },
+        "rank": 21476,
+        "selected_unit": {
+          "pop0": false,
+          "pop": true
+        },
+        "kept_member": {
+          "pop0": false,
+          "pop": true
+        }
+      }
+    }
+  ],
+  "collisions": [
+    {
+      "word": "dag",
+      "owners": [
+        [
+          "sgjp-20260823",
+          "daga"
+        ],
+        [
+          "sgjp-20260823",
+          "dekagram"
+        ]
+      ],
+      "all_eligible_before": true,
+      "all_eligible_after": false
+    }
+  ],
+  "frozen_population_control": {
+    "description": "Kontrola przyczynowa: ranking zachowuje bazowe relevant, formy list usuwają dag. To eksperyment, nie propozycja metody.",
+    "delta": {
+      "pop0": {
+        "added": [],
+        "removed": [
+          "dag"
+        ]
+      },
+      "pop": {
+        "added": [],
+        "removed": [
+          "dag"
+        ]
+      }
+    }
+  },
+  "kwjp_scoring_control": {
+    "description": "Sama punktacja KWJP, topologia grup nadal z KWJP i NKJP. Izoluje wpływ mieszania miar; nie jest pełnym wycofaniem NKJP.",
+    "delta": {
+      "pop0": {
+        "added": [],
+        "removed": []
+      },
+      "pop": {
+        "added": [],
+        "removed": [
+          "dag"
+        ]
+      }
+    },
+    "traces": [
+      {
+        "key": [
+          "sgjp-20260823",
+          "daga"
+        ],
+        "before": {
+          "lemma": "daga",
+          "unit": [
+            "daga",
+            "dekagram"
+          ],
+          "unit_size": 2,
+          "kwjp": {
+            "status": "OBSERVED",
+            "F": 134,
+            "ARF": "28.71",
+            "1-DP": "0.01123",
+            "genres": [
+              "fakt",
+              "publicystyka"
+            ],
+            "row": 49026,
+            "ambiguous": false
+          },
+          "nkjp": {
+            "status": "OBSERVED",
+            "rank": 3738,
+            "percentile": 95.2987,
+            "ambiguous": true
+          },
+          "measure": {
+            "value": 0.215069396,
+            "status": "MEASURED",
+            "flags": []
+          },
+          "rank": 18786,
+          "selected_unit": {
+            "pop0": false,
+            "pop": true
+          },
+          "kept_member": {
+            "pop0": false,
+            "pop": true
+          },
+          "subunit": {
+            "members": [
+              "daga"
+            ],
+            "kwjp": {
+              "status": "OBSERVED",
+              "F": 49,
+              "ARF": "21.9",
+              "1-DP": "0.0076",
+              "genres": [
+                "fakt",
+                "publicystyka"
+              ],
+              "row": 55377,
+              "ambiguous": false
+            },
+            "nkjp": {
+              "status": "SHARED_DOMINANT",
+              "rank": null,
+              "percentile": null,
+              "ambiguous": false
+            },
+            "measure": {
+              "value": -0.221839323,
+              "status": "MEASURED",
+              "flags": []
+            },
+            "rank": 27434
+          }
+        },
+        "after": {
+          "lemma": "daga",
+          "eligible": false
+        }
+      },
+      {
+        "key": [
+          "sgjp-20260823",
+          "dekagram"
+        ],
+        "before": {
+          "lemma": "dekagram",
+          "unit": [
+            "daga",
+            "dekagram"
+          ],
+          "unit_size": 2,
+          "kwjp": {
+            "status": "OBSERVED",
+            "F": 134,
+            "ARF": "28.71",
+            "1-DP": "0.01123",
+            "genres": [
+              "fakt",
+              "publicystyka"
+            ],
+            "row": 49026,
+            "ambiguous": false
+          },
+          "nkjp": {
+            "status": "OBSERVED",
+            "rank": 3738,
+            "percentile": 95.2987,
+            "ambiguous": true
+          },
+          "measure": {
+            "value": 0.215069396,
+            "status": "MEASURED",
+            "flags": []
+          },
+          "rank": 18786,
+          "selected_unit": {
+            "pop0": false,
+            "pop": true
+          },
+          "kept_member": {
+            "pop0": false,
+            "pop": true
+          },
+          "subunit": {
+            "members": [
+              "dekagram"
+            ],
+            "kwjp": {
+              "status": "OBSERVED",
+              "F": 85,
+              "ARF": "28.71",
+              "1-DP": "0.01123",
+              "genres": [
+                "fakt",
+                "publicystyka"
+              ],
+              "row": 49026,
+              "ambiguous": false
+            },
+            "nkjp": {
+              "status": "SHARED_DOMINANT",
+              "rank": null,
+              "percentile": null,
+              "ambiguous": false
+            },
+            "measure": {
+              "value": 0.017383523,
+              "status": "MEASURED",
+              "flags": []
+            },
+            "rank": 22643
+          }
+        },
+        "after": {
+          "lemma": "dekagram",
+          "unit": [
+            "dekagram"
+          ],
+          "unit_size": 1,
+          "kwjp": {
+            "status": "OBSERVED",
+            "F": 85,
+            "ARF": "28.71",
+            "1-DP": "0.01123",
+            "genres": [
+              "fakt",
+              "publicystyka"
+            ],
+            "row": 49026,
+            "ambiguous": false
+          },
+          "nkjp": {
+            "status": "PROPER_SHARED",
+            "rank": null,
+            "percentile": null,
+            "ambiguous": false
+          },
+          "measure": {
+            "value": 0.017383523,
+            "status": "MEASURED",
+            "flags": []
+          },
+          "rank": 22650,
+          "selected_unit": {
+            "pop0": false,
+            "pop": true
+          },
+          "kept_member": {
+            "pop0": false,
+            "pop": true
+          }
+        }
+      }
+    ]
+  },
+  "kwjp_full_control": {
+    "description": "Pełne wycofanie NKJP: nkjp=None zarówno w budowie grup, jak i ocenie członków; miara tylko KWJP. Badanie przyczyny, bez wdrożenia.",
+    "before": {
+      "ranked_units": 56864,
+      "cuts": {
+        "pop0": {
+          "lexemes": 19986,
+          "rank": 19401,
+          "reached": true,
+          "next_block": {
+            "units": 58,
+            "lexemes": 58,
+            "rank": 19402
+          }
+        },
+        "pop": {
+          "lexemes": 58155,
+          "rank": 56864,
+          "reached": false,
+          "next_block": null
+        }
+      },
+      "forms": {
+        "pop0": 563767,
+        "pop": 1298905
+      },
+      "kept_lexemes": {
+        "pop0": 19986,
+        "pop": 58155
+      }
+    },
+    "after": {
+      "ranked_units": 56863,
+      "cuts": {
+        "pop0": {
+          "lexemes": 19986,
+          "rank": 19401,
+          "reached": true,
+          "next_block": {
+            "units": 58,
+            "lexemes": 58,
+            "rank": 19402
+          }
+        },
+        "pop": {
+          "lexemes": 58154,
+          "rank": 56863,
+          "reached": false,
+          "next_block": null
+        }
+      },
+      "forms": {
+        "pop0": 563767,
+        "pop": 1298904
+      },
+      "kept_lexemes": {
+        "pop0": 19986,
+        "pop": 58154
+      }
+    },
+    "delta": {
+      "pop0": {
+        "added": [],
+        "removed": []
+      },
+      "pop": {
+        "added": [],
+        "removed": [
+          "dag"
+        ]
+      }
+    },
+    "traces": [
+      {
+        "key": [
+          "sgjp-20260823",
+          "daga"
+        ],
+        "before": {
+          "lemma": "daga",
+          "unit": [
+            "daga"
+          ],
+          "unit_size": 1,
+          "kwjp": {
+            "status": "OBSERVED",
+            "F": 49,
+            "ARF": "21.9",
+            "1-DP": "0.0076",
+            "genres": [
+              "fakt",
+              "publicystyka"
+            ],
+            "row": 55377,
+            "ambiguous": false
+          },
+          "nkjp": {
+            "status": "NOT_APPLICABLE",
+            "rank": null,
+            "percentile": null,
+            "ambiguous": false
+          },
+          "measure": {
+            "value": -0.221839323,
+            "status": "MEASURED",
+            "flags": []
+          },
+          "rank": 30853,
+          "selected_unit": {
+            "pop0": false,
+            "pop": true
+          },
+          "kept_member": {
+            "pop0": false,
+            "pop": true
+          }
+        },
+        "after": {
+          "lemma": "daga",
+          "eligible": false
+        }
+      },
+      {
+        "key": [
+          "sgjp-20260823",
+          "dekagram"
+        ],
+        "before": {
+          "lemma": "dekagram",
+          "unit": [
+            "dekagram"
+          ],
+          "unit_size": 1,
+          "kwjp": {
+            "status": "OBSERVED",
+            "F": 85,
+            "ARF": "28.71",
+            "1-DP": "0.01123",
+            "genres": [
+              "fakt",
+              "publicystyka"
+            ],
+            "row": 49026,
+            "ambiguous": false
+          },
+          "nkjp": {
+            "status": "NOT_APPLICABLE",
+            "rank": null,
+            "percentile": null,
+            "ambiguous": false
+          },
+          "measure": {
+            "value": 0.017383523,
+            "status": "MEASURED",
+            "flags": []
+          },
+          "rank": 25315,
+          "selected_unit": {
+            "pop0": false,
+            "pop": true
+          },
+          "kept_member": {
+            "pop0": false,
+            "pop": true
+          }
+        },
+        "after": {
+          "lemma": "dekagram",
+          "unit": [
+            "dekagram"
+          ],
+          "unit_size": 1,
+          "kwjp": {
+            "status": "OBSERVED",
+            "F": 85,
+            "ARF": "28.71",
+            "1-DP": "0.01123",
+            "genres": [
+              "fakt",
+              "publicystyka"
+            ],
+            "row": 49026,
+            "ambiguous": false
+          },
+          "nkjp": {
+            "status": "NOT_APPLICABLE",
+            "rank": null,
+            "percentile": null,
+            "ambiguous": false
+          },
+          "measure": {
+            "value": 0.017383523,
+            "status": "MEASURED",
+            "flags": []
+          },
+          "rank": 25315,
+          "selected_unit": {
+            "pop0": false,
+            "pop": true
+          },
+          "kept_member": {
+            "pop0": false,
+            "pop": true
+          }
+        }
+      }
+    ]
+  }
+}

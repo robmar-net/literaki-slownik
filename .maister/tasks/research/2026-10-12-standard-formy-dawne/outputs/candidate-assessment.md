@@ -150,6 +150,8 @@ Odtwarzanie: `round3_sources.py`, `round3_kwjp.py`, `round3_annotate.py`, `round
 
 ## 7. Co radzę po tej rundzie
 
+**Kontynuacja:** użytkownik przyjął wyniki tej rundy jako podstawę decyzji i zlecił celowany audyt. [Runda 4](targeted-audit.md) potwierdza paczkę, rozlicza wszystkie ubytki POP i rozdziela wcześniejsze 12 przypadków na 8 do osobnej decyzji o cofnięciu oraz 4 wstrzymania. Poniżej zachowano pierwotną rekomendację rundy 3. Wdrożenie nadal niezatwierdzone.
+
 Materiał wystarcza do konkretnej rozmowy o zmianie. **Rekomenduję przyjąć 2382 formy jako paczkę do przeglądu i omówienia**, bez automatycznego zatwierdzania jej do wydania. Ma jawne zakresy dowodu i ujawniony wpływ na wszystkie listy. Przed wdrożeniem trzeba uzgodnić, czy akceptujemy wynikające z obecnego rankingu ubytki POP; same dodatki STANDARD nie opisują całości skutku.
 
 Cofanie istniejących przyjęć należy rozpatrzyć osobno: najpierw właściwa analiza i możliwość innego żywego znaczenia, potem wpływ na POP. Dwunastka stanowi konkretną listę problemów z dowodem, a nie gotową czarną listę. Pozostałe 2367 form kierujemy do dalszej, celowanej oceny; nie blokujemy całej poprawy do czasu wyczerpania wszystkich możliwych przypadków.

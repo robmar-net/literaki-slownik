@@ -25,3 +25,13 @@
 - 2026-10-12T06:54:01Z: Synteza rundy 3 i walidacja zakończone. SQL: 2382 napisy / 7192 wskazane analizy, wszystkie odmowy wyłącznie za dawność; pełne macierze 404/3364 i 290. Bazowy POP/POP0 zgodny dokładnie, przeliczone dwa scenariusze oraz izolowany dag. Trzy istniejące testy progów i homonimów POP poprawne. Hash bazy bez zmian; kontrola JSON oraz lokalnych linków Markdown/HTML poprawna. Raport nie udaje pełnej ekspertyzy nierozstrzygniętych znaczeń. Bramka nowej fazy bez odpowiedzi; publikacja przygotowana, bez wdrożenia.
 
 - 2026-10-12T06:56:59Z: Raport rundy 3 i artefakty wysłano na main repo słownika, commit 67c06ecdef4ef5dac9734fa9d0acbe557c45eaa5. Opublikowano https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6119310098; odczyt API zgodny bajtowo z plikiem. Pierwszy odczyt API miał błąd sandboxa; jawne ponowienie z uprawnieniem sieciowym powiodło się. Bramka candidate_assessment nadal bez odpowiedzi, completed=null; dalsze kroki wyłącznie po omówieniu. Bez zmian generatora, polityki, list, wydania i wiki.
+
+2026-10-12T07:07:20Z — Przyjęto bramkę rundy 3 („ok, zrob tak”). Rozpoczęto celowany audyt wg planning/round4-plan.md. Szablony .codex/agents nieobecne; niezależne przeglądy powierzono zwykłym agentom wg framework §1, bez zmiany modelu.
+
+2026-10-12T07:16:59Z — Odtworzono całą deltę rundy3. Rozliczono2430ubytków POP; niezależny przegląd kodu potwierdził spójność z ADR. Poprawiono zakres kontroliKWJP i dodano osobne nkjp=None.11testów koordynatora i25testów recenzenta przeszło (częściowo te same). Przeglądy110rodzin i12zapisów w toku.
+
+## 2026-10-12T08:08:57Z — synteza i końcowa walidacja rundy 4
+
+Zakończono trzy tory i sprawdzono pokrycie delegacji. Wszystkie 110 rodzin / 2382 form pozostają w propozycji; pełne 2430 ubytków POP wyjaśnione. Ocena 12 zapisów: 8 / 24 analizy do osobnej decyzji o cofnięciu, 4 / 6 wstrzymanych. Policzono osobną wrażliwość 8 cofnięć: POP +2372/−2437, POP0 +481/−14. Walidacja źródeł, adnotacji, przyjętych analiz w bazie i hashów przeszła. Przerwano powolny odczyt badawczy i zastąpiono go równoważnym zapytaniem po indeksie; baza cały czas tylko do odczytu. Wyniki gotowe do publikacji i bramki omówienia. Faza nie jest oznaczona jako ukończona przed odpowiedzią użytkownika.
+
+2026-10-12T08:10:44Z: końcowy raport i dashboard odczytane w Playwright; podgląd wizualny i odsyłacze poprawne, brak błędów konsoli i przewijania poziomego. Produkcyjne pliki bez zmian; przygotowanie commita badawczego i publikacji do #4.

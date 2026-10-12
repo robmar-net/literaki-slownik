@@ -51,3 +51,13 @@ Kontrola obecnych przyjęć ujawnia 12 napisów bez właściwego dowodu w pierws
 Dokładnie odtworzone listy bazowe umożliwiły pełną symulację: STANDARD +2382; POP +2372 i −2430, netto −58; POP0 +481. Zmienia się próg obejmujący całe remisy przy limicie leksemów. Wariant cofnięcia 12 napisów dodatkowo zmienia ranking i dobór leksemów, m.in. usuwa odmianę dekagram z POP0. Wszystkie obowiązujące straże częstych form przechodzą, lecz nie obejmują całego ryzyka ubytków.
 
 Rekomendacja: omówić konkretną paczkę oraz skutki rankingu, a cofanie przyjęć potraktować osobno. Dalsze badanie powinno dotyczyć wskazanej granicy znaczenia lub rejestru. Nowa bramka dotyczy przyjęcia wyników do rozmowy, nie wdrożenia. [Pełny raport rundy 3](../outputs/candidate-assessment.md).
+
+## Runda 4 — weryfikacja konkretnych decyzji
+
+Użytkownik przyjął rundę 3 i zlecił zalecany audyt. Osobny przegląd potwierdził zakres wszystkich 110 rodzin i 2382 form; uzupełniono uzasadnienia utytułować i szewron. Pewność językowa pozostaje średnia: osobni agenci, ten sam model i częściowo te same źródła.
+
+Rozliczono wszystkie 2430 ubytków POP: 2422 przez blok remisu, 8 przez tę samą granicę przy ocenie wypełzły. Miary tracących członków są niezmienione. Dekagram był w POP0 dzięki grupie z daga i wyjątkowi najmocniejszego członka, nie własnej randze. Kontrole potwierdzają ten mechanizm; nie wykazano błędu implementacji.
+
+771 konkordancji 12 zapisów i 25 uzupełniających kontekstów zmieniło ocenę: 8 zapisów / 24 analizy kwalifikuje się do osobnej decyzji o cofnięciu, 4 zapisy / 6 analiz pozostają wstrzymane (sek, um, moko, tem). Nie rekomendujemy cofnięcia całej dwunastki. Wariant 2382 dodatków i 8 cofnięć daje POP +2372/−2437, POP0 +481/−14; 10 ubytków POP0 to dekagram.
+
+Rekomendacja: zachować metodę POP i rozpatrzyć paczkę dodatków jako gotowy wynik badawczy do decyzji wdrożeniowej. Cofnięcia i nowe znaczenia rozstrzygnąć osobno. [Raport rundy 4](../outputs/targeted-audit.md). Nie wdrożono zmian.

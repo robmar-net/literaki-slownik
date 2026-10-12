@@ -1,10 +1,11 @@
 {
   "orchestrator": {
     "workflow": "research",
-    "current_phase": "candidate_assessment",
+    "current_phase": "targeted_audit",
     "started_phase": "research_foundation",
     "completed_phases": [
-      "research_foundation"
+      "research_foundation",
+      "candidate_assessment"
     ],
     "failed_phases": [],
     "options": {
@@ -15,7 +16,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-12T00:04:14Z",
-    "updated": "2026-10-12T06:56:59Z",
+    "updated": "2026-10-12T08:10:44Z",
     "task_path": ".maister/tasks/research/2026-10-12-standard-formy-dawne"
   },
   "task": {
@@ -149,10 +150,84 @@
           "Przyjąć wyniki do omówienia",
           "Pogłębić wskazaną grupę"
         ],
+        "answer": "Przyjęto wyniki rundy 3 jako podstawę decyzji; użytkownik zlecił zalecany audyt POP, niezależny przegląd rodzin i osobno 12 obecnych przyjęć. Bez wdrożenia.",
+        "implementation_approved": false,
+        "user_response": "ok, zrob tak",
+        "answered_at": "2026-10-12T07:07:20Z"
+      },
+      "started": "2026-10-12T01:23:38Z",
+      "completed": "2026-10-12T07:07:20Z"
+    },
+    "targeted_audit": {
+      "summary": "Potwierdzono 110 rodzin i 2382 formy. Wyjaśniono wszystkie 2430 ubytków POP oraz zależność dag/dekagram. Z 12 zapisów: 8 / 24 analizy do osobnej decyzji o cofnięciu; 4 / 6 analiz wstrzymane. Wyniki zweryfikowane, bez wdrożenia.",
+      "decisions": [
+        "Tylko research; brak zgody na wdrożenie lub automatyczne cofnięcia.",
+        "Rekomendacja: zachować obecną metodę POP i rozpatrzyć paczkę 2382 dodatków w osobnej decyzji wdrożeniowej.",
+        "Cofnięcia oddzielnie; sek, um, moko i tem pozostają wstrzymane po nowych dowodach."
+      ],
+      "risks": [
+        "Średnia pewność ocen językowych; osobni agenci używają tego samego modelu i częściowo zależnych źródeł.",
+        "Um: granica archaizowania; sek: konflikt kwalifikacji; moko i tem: nowy sens wymaga własnej podstawy leksykalnej i morfologicznej.",
+        "POP jest ograniczonym rankingiem; prawidłowe dodatki do STANDARD mogą usuwać inne formy z POP.",
+        "Nie oszacowano błędu całej populacji; pomocnicze tropy Khan Academy i szkolnego PDF nie są pełnym zweryfikowanym dowodem."
+      ],
+      "artifacts": [
+        {
+          "path": "planning/round4-plan.md",
+          "label": "Plan celowanego audytu"
+        },
+        {
+          "path": "outputs/targeted-audit.md",
+          "html": "outputs/targeted-audit.html",
+          "label": "Wynik audytu i rekomendacja"
+        },
+        {
+          "path": "analysis/findings/round4/family-review.md",
+          "label": "Przegląd 110 rodzin"
+        },
+        {
+          "path": "analysis/findings/round4/family-review.json",
+          "label": "Macierz 110 rodzin i źródeł"
+        },
+        {
+          "path": "analysis/findings/round4/current-twelve.md",
+          "label": "Ocena 12 obecnych przyjęć"
+        },
+        {
+          "path": "analysis/findings/round4/current-twelve.json",
+          "label": "30 analiz i 796 adnotacji"
+        },
+        {
+          "path": "analysis/findings/round4/pop-method-review.md",
+          "label": "Niezależny przegląd metody POP"
+        },
+        {
+          "path": "analysis/findings/round4/pop-losses.json",
+          "label": "Przyczyny wszystkich 2430 ubytków"
+        },
+        {
+          "path": "analysis/findings/round4/dag-mechanism.json",
+          "label": "Dag i dekagram: ślady i kontrole"
+        },
+        {
+          "path": "analysis/findings/round4/eight-sensitivity.json",
+          "label": "Osobna wrażliwość na 8 cofnięć"
+        },
+        {
+          "path": "analysis/findings/round4/validation.json",
+          "label": "Walidacja kompletności i zgodności"
+        }
+      ],
+      "gate": {
+        "question": "Czy przyjmujesz wyniki audytu jako podstawę osobnej decyzji o wdrożeniu, czy pogłębiamy konkretny nierozstrzygnięty przypadek?",
+        "choices": [
+          "Przyjąć wyniki do osobnej decyzji",
+          "Pogłębić wskazany przypadek"
+        ],
         "answer": null,
         "implementation_approved": false
       },
-      "started": "2026-10-12T01:23:38Z",
+      "started": "2026-10-12T07:07:20Z",
       "completed": null
     }
   },
@@ -217,7 +292,14 @@
       "round3/pop-impact.json",
       "round3/sensitivity-pop-impact.json",
       "round3/dag-control.json",
-      "round3/validation.json"
+      "round3/validation.json",
+      "round4/family-review.json",
+      "round4/current-twelve.json",
+      "round4/pop-losses.json",
+      "round4/dag-mechanism.json",
+      "round4/pop-validation.json",
+      "round4/eight-sensitivity.json",
+      "round4/validation.json"
     ],
     "confidence_level": "high_for_counts_and_counterexamples_medium_for_register_unknown_population_error_rate",
     "gathering_strategy": {
@@ -238,13 +320,10 @@
       "synthesize": "completed"
     },
     "publication": {
-      "round": 3,
+      "round": 4,
       "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
-      "status": "published_and_verified",
-      "report_artifact": "outputs/candidate-assessment.md",
-      "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6119310098",
-      "report_commit": "67c06ecdef4ef5dac9734fa9d0acbe557c45eaa5",
-      "verified_at": "2026-10-12T06:56:59Z"
+      "status": "prepared",
+      "report_artifact": "outputs/targeted-audit.md"
     },
     "gate_history": [
       {
@@ -257,7 +336,7 @@
         "answered_at": "2026-10-12T00:27:15Z"
       }
     ],
-    "round": 3,
+    "round": 4,
     "publication_history": [
       {
         "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
@@ -273,6 +352,15 @@
         "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6115957580",
         "report_commit": "7666b28b5e700992c62960c90fdbcd408f71534c",
         "verified_at": "2026-10-12T01:09:42Z"
+      },
+      {
+        "round": 3,
+        "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
+        "status": "published_and_verified",
+        "report_artifact": "outputs/candidate-assessment.md",
+        "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6119310098",
+        "report_commit": "67c06ecdef4ef5dac9734fa9d0acbe557c45eaa5",
+        "verified_at": "2026-10-12T06:56:59Z"
       }
     ],
     "direction_decision": {
@@ -321,24 +409,73 @@
         "unsupported_evidence_words": 12
       },
       "recommendation": "Omówić konkretną paczkę i skutki rankingu; cofanie przyjęć rozpatrzyć osobno. Dalsze badanie celowane na wskazaną granicę."
+    },
+    "targeted_audit": {
+      "user_request": "ok, zrob tak",
+      "steps": {
+        "brief": "completed",
+        "plan": "completed",
+        "gather": "completed",
+        "synthesize": "completed"
+      },
+      "lanes": {
+        "pop": "coordinator",
+        "families": "family_review",
+        "current_twelve": "current_twelve_review"
+      },
+      "scope": "110 rodzin, 12 zapisów, pełne przyczyny ubytków POP i dag/dekagram",
+      "lane_status": {
+        "pop": "completed",
+        "families": "completed",
+        "current_twelve": "completed"
+      },
+      "result_counts": {
+        "families": 110,
+        "proposed_forms": 2382,
+        "explained_pop_losses": 2430,
+        "exact_contexts": 771,
+        "supplement_contexts": 25,
+        "withdrawal_candidates": 8,
+        "withdrawal_analyses": 24,
+        "holds": 4,
+        "held_analyses": 6
+      },
+      "recommendation": "Przyjąć audyt jako podstawę osobnych decyzji; dodatki przy zachowaniu metody POP, cofnięcia oddzielnie. Bez dalszego ogólnego poszerzania próbki."
     }
   },
   "verification_context": {
-    "last_status": "candidate_assessment_verified_awaiting_discussion",
-    "issues_found": [
-      "Nie było dostępnej przeglądarki CUA do wizualnego podglądu HTML; kontrola struktury i odsyłaczy wykonana lokalnie."
-    ],
+    "last_status": "round4_passed_awaiting_research_gate",
+    "issues_found": [],
     "fixes_applied": [
       "Naprawiono wybór kontroli przyjęć: odczyt accepted zamiast cache rejected.",
       "Uzupełniono 107. fragment populacji 4559 (informacyj); 492 szersze trafienia rozdzielono od właściwego mianownika.",
       "Skorygowano zakres przykładów, frazeologizm na umór oraz wcześniej zatwierdzoną książkowość.",
       "Oddzielono informację składniową z D. od formy naście w parserze badawczym.",
       "Poprawiono licznik 290 kontroli: odczyt defaultdict nie dodaje 19 uzupełnień.",
-      "Izolowana kontrola cofnięcia dag potwierdziła uboczny ubytek 10 form dekagram w POP0."
+      "Izolowana kontrola cofnięcia dag potwierdziła uboczny ubytek 10 form dekagram w POP0.",
+      "Rozdzielono kontrolę punktacji KWJP przy topologii NKJP od pełnego wycofania NKJP; obie policzone i niezależnie przejrzane.",
+      "Uzupełniono słabsze dowody dla utytułować i szewron; zakres 2382 form bez zmian.",
+      "Poprawiono dashboard wyświetlający obiekty zamiast opisów oraz przewijanie poziome.",
+      "Przyspieszono wyłącznie badawczą kontrolę 12 zapisów przez korelowane zapytanie po kluczu; pełna walidacja przeszła."
     ],
     "decisions_made": [
       "Odpowiedź „ok” rozstrzyga bramkę omówienia i przyjmuje rekomendowany kierunek; nie zatwierdza zmiany polityki wykonawczej ani list."
     ],
-    "reverify_count": 0
+    "reverify_count": 0,
+    "historical_limitations": [
+      "W rundzie 3 brakowało podglądu CUA; runda 4 ma rzeczywisty podgląd HTML i dashboardu przez Playwright."
+    ],
+    "limitations": [
+      "Średnia pewność ocen językowych; osobni agenci używają tego samego modelu i częściowo zależnych źródeł.",
+      "Um: granica archaizowania; sek: konflikt kwalifikacji; moko i tem: nowy sens wymaga własnej podstawy leksykalnej i morfologicznej.",
+      "POP jest ograniczonym rankingiem; prawidłowe dodatki do STANDARD mogą usuwać inne formy z POP.",
+      "Nie oszacowano błędu całej populacji; pomocnicze tropy Khan Academy i szkolnego PDF nie są pełnym zweryfikowanym dowodem."
+    ],
+    "round4": {
+      "coverage": "passed",
+      "validation": "analysis/findings/round4/validation.json",
+      "tests": "25 istniejących testów POP przeszło; dodatkowe 11 koordynatora częściowo się pokrywa.",
+      "visual_preview": "Końcowy HTML i dashboard odczytane w Playwright; zrzut sekcji 12 przyjęć obejrzany. Brak przewijania poziomego, obiektów w treści i błędów konsoli. Wszystkie lokalne odsyłacze obu raportów istnieją."
+    }
   }
 }

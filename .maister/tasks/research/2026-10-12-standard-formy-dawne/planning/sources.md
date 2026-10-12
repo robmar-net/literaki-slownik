@@ -84,3 +84,23 @@ Celowe uzupełnienia:
 - [Polskie Stowarzyszenie Aktuariuszy — aktuariat](https://actuary.org.pl/psa/aktuariat/): pierwotne dzisiejsze użycie nazwy zawodu. Nie jest osobnym źródłem fleksji ani poradą dotyczącą wykonywania zawodu.
 
 Pełne konteksty przeczytane w rundzie 3 pozostają lokalne. Metryki 2021/2022 mogą opisywać wydanie tekstu pierwotnie wcześniejszego; nie rozszerzamy deklarowanego okresu KWJP. Jedna osoba oceniająca, dobór celowy. Zależność WSJP/SGJP i anotacji korpusu ujawniono w raporcie. Podgląd CUA był niedostępny w poprzedniej rundzie; HTML nadal wymaga uczciwego rozdziału kontroli strukturalnej od wizualnej.
+
+## Rozszerzenie w rundzie 4
+
+Plan: [round4-plan.md](round4-plan.md). Dostęp: 2026-10-12. Tylko badania; produkcja bez zmian.
+
+| Kategoria | Faktyczne pokrycie |
+|---|---|
+| Kod | Odtworzenie ścieżki load_forms → units → measure → threshold → member_units/prune_members → forms_for, niezależny przegląd kodu i skryptu badawczego |
+| Dokumentacja | AGENTS, indeks projektu, ADR-007 i wcześniejsze decyzje STANDARD; zachowanie reguły (i), limitów i pełnych remisów |
+| Konfiguracja/testy | Niezmienione pop.json i pop-sources.json; 11 testów koordynatora i 25 recenzenta, z częściowym nakładaniem, wszystkie poprawne |
+| Przypięte dane | Dokładne zbiory bazowe, pełna delta 2382 dodatków, przyczyna każdej z 2430 utraconych form, izolacja dag, zamrożona populacja, osobne kontrole punktacji KWJP i całkowitego wyłączenia NKJP; nowa wrażliwość cofnięcia 8 zapisów |
+| Źródła pierwotne | Ponowny odczyt 324 konkordancji dla 109 rodzin plus WSJP dla surdut; 199 tabel SGJP, 7192 analizy i 15 621 odwołań; 771 ocen dokładnych zapisów i 25 dodatkowych kontekstów dla kontroli 12; celowane teksty pierwotne i słowniki |
+
+Pełne rejestry z URL, hashem, identyfikatorami dokumentów i ocenami: [rodziny](../analysis/findings/round4/family-review.json), [12 zapisów](../analysis/findings/round4/current-twelve.json).
+324 konteksty korzystają głównie z poprzedniego cache; 771 zawiera 120 wcześniejszych i 651 dodatkowych. Nie sumujemy tych liczb jako niezależnych obserwacji.
+Uzupełnienia obejmują UŚ (2005), sprawozdanie szkoły (2023), WSJP: szewron, dwoić się, naście, solenny, zasadny, szacowny, bad, sek i reż; ZPE, autorski artykuł Kiriła Marinowa (tom 2019, publikacja 2020), esej Mariusza Wilka i materiał kuratora wystawy o moko.
+
+Bezpośrednie pobranie części WSJP zwracało 403, a strony szkoły błąd DNS, również po ponowieniu poza sandboxem. Treści odczytano przez web; manifest odróżnia udany odczyt od brakującego lokalnego pliku.
+Khan Academy to tylko trop z indeksu (pełna strona pusta, data przekładu nieustalona); szkolny PDF z daga nie jest zweryfikowanym współczesnym poświadczeniem. Te ograniczenia nie są ukrytymi wyłączeniami całych wymaganych kategorii.
+Podgląd HTML przez narzędzie Playwright pluginu Maister działał po uruchomieniu autoryzowanego serwera wyłącznie na 127.0.0.1; protokół file był zablokowany. Poprawiono projekcję dashboardu, która wyświetlała obiekty zamiast opisów i powodowała przewijanie poziome.
