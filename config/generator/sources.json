@@ -846,6 +846,10 @@
     "release": {
       "path": "release.json",
       "sha256": "2a555ac3e912fc5b9627e8803b7a081addb6a3aa114736a9714d7028d7a67d45"
+    },
+    "standard-age-exceptions": {
+      "path": "standard-age-exceptions.json",
+      "sha256": "d41256afd1abc3b25651a25bfb8f67d5fd2e6a356e8a2eddebc723581ad9b580"
     }
   },
   "unavailable": [

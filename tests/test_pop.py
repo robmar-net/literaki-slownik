@@ -836,7 +836,7 @@ class PopConfigTests(unittest.TestCase):
     def setUp(self):
         self.work = tempfile.TemporaryDirectory()
         self.directory = Path(self.work.name)
-        self.base = load_json(self.ROOT / 'config/generator/pop.json')
+        self.base = load_json(self.ROOT / 'config/generator/pop-v2.json')
 
     def tearDown(self):
         self.work.cleanup()
@@ -856,8 +856,8 @@ class PopConfigTests(unittest.TestCase):
             load_config(self.write(config))
         self.assertEqual(raised.exception.code, 2, label)
 
-    def test_repository_config_is_valid_and_encodes_adr_007(self):
-        config = load_config(self.ROOT / 'config/generator/pop.json')
+    def test_historical_config_is_valid_and_encodes_adr_007(self):
+        config = load_config(self.ROOT / 'config/generator/pop-v2.json')
         self.assertEqual(config['version'], 'pop-v2')
         self.assertEqual(config['adr'], 'docs/adr/ADR-007-metoda-pop-v1.md')
         self.assertTrue((self.ROOT / config['adr']).is_file())
@@ -872,12 +872,12 @@ class PopConfigTests(unittest.TestCase):
         self.assertIs(config['proper_names_in_ranking'], False)
         self.assertEqual(config['must_include_pop0'], ['kot'])
         self.assertEqual(config['sampling']['version'], 'pop-quality-v1')
-        self.assertEqual(config['config_sha256'], sha256(self.ROOT / 'config/generator/pop.json'))
+        self.assertEqual(config['config_sha256'], sha256(self.ROOT / 'config/generator/pop-v2.json'))
         # ADR-007 wskazuje pop.json.
         adr = (self.ROOT / config['adr']).read_text(encoding='utf-8')
-        self.assertIn('config/generator/pop.json', adr)
+        self.assertIn('config/generator/pop-v2.json', adr)
         # Zapis kanoniczny: indent=2, ensure_ascii=False, newline.
-        text = (self.ROOT / 'config/generator/pop.json').read_text(encoding='utf-8')
+        text = (self.ROOT / 'config/generator/pop-v2.json').read_text(encoding='utf-8')
         self.assertEqual(text, json.dumps(self.base, indent=2, ensure_ascii=False) + '\n')
 
     def test_unknown_or_missing_key_is_code_2(self):
@@ -984,7 +984,7 @@ class PopConfigTests(unittest.TestCase):
         }
         for label, change in cases.items():
             self.assert_code_2(self.variant(change), label)
-        load_config(self.ROOT / 'config/generator/pop.json')
+        load_config(self.ROOT / 'config/generator/pop-v2.json')
         config = load_config(self.write(self.variant(lambda c: c.update(d3={'source': 'kwjp', 'field': 'F'},
                                                                           d4=None))))
         self.assertEqual((config['d3'], config['d4']), ({'source': 'kwjp', 'field': 'F'}, None))

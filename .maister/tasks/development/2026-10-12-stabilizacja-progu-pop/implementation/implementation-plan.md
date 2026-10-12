@@ -35,26 +35,26 @@ Docelowa granica POP, osiem cofnięć, wydanie GitHub Release i gra pozostają p
 
 ## G0 — trwały JSON decyzji
 
-- [ ] **0.1** Utrwalić identyczność wejść badania: hash zamrożonej bazy, SGJP, badawczych JSON-ów, 2382 napisów i 7192 trójek. Sprawdzić bez modyfikacji bazy, że każda trójka ma jedną analizę; ponowić wynik audytu `{1: 7192}`.
-- [ ] **0.2** Napisać test walidatora: poprawny przypadek oraz zły hash źródła, duplikat, brak rekordu, zły tag, obcy lemat, forma poza zakresem i konstrukcja bez właściwego klucza mają dawać odmowę bez częściowego dopuszczenia.
-- [ ] **0.3** Przenieść zatwierdzony zakres do `config/generator/standard-age-exceptions.json`: uporządkowane 2382 przypadki / 7192 dokładnych analiz, dowód rodziny, hash źródła i proveniencja badania. Wstrzymane rodziny oraz osiem cofnięć nie wchodzą.
-- [ ] **0.4** Dodać referencję `configurations.standard-age-exceptions` z SHA256 do `sources.json`. Walidator i `inspect-sources` muszą wykryć zmianę bez aktualizacji hasha.
-- [ ] **0.5** Uruchomić testy nowego walidatora i `tests/test_inputs.py`; zachować wynik w work log.
+- [x] **0.1** Utrwalić identyczność wejść badania: hash zamrożonej bazy, SGJP, badawczych JSON-ów, 2382 napisów i 7192 trójek. Sprawdzić bez modyfikacji bazy, że każda trójka ma jedną analizę; ponowić wynik audytu `{1: 7192}`.
+- [x] **0.2** Napisać test walidatora: poprawny przypadek oraz zły hash źródła, duplikat, brak rekordu, zły tag, obcy lemat, forma poza zakresem i konstrukcja bez właściwego klucza mają dawać odmowę bez częściowego dopuszczenia.
+- [x] **0.3** Przenieść zatwierdzony zakres do `config/generator/standard-age-exceptions.json`: uporządkowane 2382 przypadki / 7192 dokładnych analiz, dowód rodziny, hash źródła i proveniencja badania. Wstrzymane rodziny oraz osiem cofnięć nie wchodzą.
+- [x] **0.4** Dodać referencję `configurations.standard-age-exceptions` z SHA256 do `sources.json`. Walidator i `inspect-sources` muszą wykryć zmianę bez aktualizacji hasha.
+- [x] **0.5** Uruchomić testy nowego walidatora i `tests/test_inputs.py`; zachować wynik w work log.
 
 ## G1 — decyzje STANDARD z danych
 
-- [ ] **1.1** Testy najpierw: pojedynczy dopuszczony zapis, współczesne znaczenie innego homonimu, dawny wariant formy, konstrukcja z istniejących składników, inna odmowa gry/języka, BROAD bez zmiany. Testy powinny wykazać brak obsługi JSON-a przed zmianą kodu.
-- [ ] **1.2** Wczytać przypięty JSON w fazie `decisions`, zwalidować pełny zestaw kluczy i przekazać mapę dokładnych analiz do `materialize_assessments()` oraz `assess_diagnostic()`.
-- [ ] **1.3** Zastąpić tylko historyczny reject dla właściwej analizy STANDARD jawnie nazwaną regułą; zachować inne checks, semantyczną pozostałość, status BROAD, konstrukcje oraz wyliczanie członkostwa z bazy. Podnieść wersję polityki.
-- [ ] **1.4** Zakończyć fazę tylko, gdy każda pozycja JSON-a została użyta dokładnie raz i wyniki 2382/7192 są rozliczone. Zapisane oceny, raport decyzji, manifest i `explain` mają pokazywać tę samą podstawę. Stary przebieg odczytuje swoją zapisaną ocenę.
-- [ ] **1.5** Uruchomić skupione testy `tests/test_standard_age_exceptions.py`, `tests/test_decisions.py`, `tests/test_semantic_uses.py`, `tests/test_age_baseline.py`, `tests/test_inputs.py`, testy `explain`.
+- [x] **1.1** Testy najpierw: pojedynczy dopuszczony zapis, współczesne znaczenie innego homonimu, dawny wariant formy, konstrukcja z istniejących składników, inna odmowa gry/języka, BROAD bez zmiany. Testy powinny wykazać brak obsługi JSON-a przed zmianą kodu.
+- [x] **1.2** Wczytać przypięty JSON w fazie `decisions`, zwalidować pełny zestaw kluczy i przekazać mapę dokładnych analiz do `materialize_assessments()` oraz `assess_diagnostic()`.
+- [x] **1.3** Zastąpić tylko historyczny reject dla właściwej analizy STANDARD jawnie nazwaną regułą; zachować inne checks, semantyczną pozostałość, status BROAD, konstrukcje oraz wyliczanie członkostwa z bazy. Podnieść wersję polityki.
+- [x] **1.4** Zakończyć fazę tylko, gdy każda pozycja JSON-a została użyta dokładnie raz i wyniki 2382/7192 są rozliczone. Zapisane oceny, raport decyzji, manifest i `explain` mają pokazywać tę samą podstawę. Stary przebieg odczytuje swoją zapisaną ocenę.
+- [x] **1.5** Uruchomić skupione testy `tests/test_standard_age_exceptions.py`, `tests/test_decisions.py`, `tests/test_semantic_uses.py`, `tests/test_age_baseline.py`, `tests/test_inputs.py`, testy `explain`.
 
 ## G2 — stały próg POP
 
-- [ ] **2.1** Testy najpierw: próg włącznie z remisem, brak punktacji, własna punktacja członków, wyjątek najmocniejszego, grupa bez rozdzielnych danych, mieszana konfiguracja i odmowa przy naruszeniu podzbioru. Dodać test raportu i `explain pop`.
-- [ ] **2.2** Dodać `score` dla POP do `threshold()` i ścieżkę przycinania własną punktacją do `prune_members()`, zachowując obecną ścieżkę `count` dla POP0 i starej metody.
-- [ ] **2.3** Wersjonować konfigurację jako `pop-v3` z `score ≥ −1.042878629`; walidacja `pop-v2` nadal dopuszcza stary, przypięty układ. Raport, `LIMITATIONS.md`, pakiet i `explain pop` pokazują rodzaj progu oraz jego tymczasowy charakter.
-- [ ] **2.4** Dodać nowy ADR metody i linki; nie przepisywać historycznej decyzji ADR-007. Uruchomić skupione testy `test_pop.py`, `test_pop_v2.py`, `test_check_pop_package.py`.
+- [x] **2.1** Testy najpierw: próg włącznie z remisem, brak punktacji, własna punktacja członków, wyjątek najmocniejszego, grupa bez rozdzielnych danych, mieszana konfiguracja i odmowa przy naruszeniu podzbioru. Dodać test raportu i `explain pop`.
+- [x] **2.2** Dodać `score` dla POP do `threshold()` i ścieżkę przycinania własną punktacją do `prune_members()`, zachowując obecną ścieżkę `count` dla POP0 i starej metody.
+- [x] **2.3** Wersjonować konfigurację jako `pop-v3` z `score ≥ −1.042878629`; walidacja `pop-v2` nadal dopuszcza stary, przypięty układ. Raport, `LIMITATIONS.md`, pakiet i `explain pop` pokazują rodzaj progu oraz jego tymczasowy charakter.
+- [x] **2.4** Dodać nowy ADR metody i linki; nie przepisywać historycznej decyzji ADR-007. Uruchomić skupione testy `test_pop.py`, `test_pop_v2.py`, `test_check_pop_package.py`.
 
 ## G3 — pełne zbiory i odbiór
 

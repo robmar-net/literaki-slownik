@@ -1,6 +1,6 @@
 {
-  "version": "pop-v2",
-  "adr": "docs/adr/ADR-007-metoda-pop-v1.md",
+  "version": "pop-v3",
+  "adr": "docs/adr/ADR-008-pop-v3-staly-prog.md",
   "d1": "kwjp-standard",
   "d2": {
     "classes": [],
@@ -19,8 +19,8 @@
   },
   "d6": {
     "pop": {
-      "by": "count",
-      "value": 60000
+      "by": "score",
+      "value": -1.042878629
     },
     "pop0": {
       "by": "count",

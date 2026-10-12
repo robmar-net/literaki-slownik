@@ -20,13 +20,13 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-12T12:54:52Z",
-    "updated": "2026-10-12T13:44:55Z",
+    "updated": "2026-10-12T13:47:12Z",
     "task_path": ".maister/tasks/development/2026-10-12-stabilizacja-progu-pop"
   },
   "task": {
     "title": "2382 dodatki STANDARD i tymczasowa stabilizacja POP (#4, #6)",
     "description": "Trwale dodać dokładnie 2382 zatwierdzone formy do STANDARD, ustabilizować POP stałym progiem dzisiejszego cięcia, zaktualizować wiki. Osiem osobnych cofnięć i docelowa granica POP poza zakresem.",
-    "status": "planned_for_separate_implementation",
+    "status": "implementing",
     "tags": [
       "development",
       "pop",
@@ -72,7 +72,7 @@
     "plan_publication": {
       "issue_comment": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6125514977",
       "published_at": "2026-10-12T13:44:55Z",
-      "implementation": "deferred_by_owner"
+      "implementation": "approved_by_owner_2026-10-12T13:47:12Z"
     }
   },
   "phase_summaries": {
@@ -243,7 +243,8 @@
     "decisions_made": [
       "Scope #4/#6 zatwierdzony przez właściciela: 2382 dodatki STANDARD, stały próg POP, wiki; cofnięcia i docelowa granica później.",
       "Specyfikacja #4/#6 zatwierdzona przez właściciela odpowiedzią ok.",
-      "Właściciel zlecił publikację planu w #4 i odłożył implementację do osobnej pracy."
+      "Właściciel zlecił publikację planu w #4 i odłożył implementację do osobnej pracy.",
+      "Właściciel (2026-10-12T13:47Z): wykonać implementację z planu w #4, przebudować STANDARD, POP i POP0, zaktualizować wiki. Build obejmie też #5 (nie- v2), więc delty względem v30 mają dwie przyczyny."
     ],
     "reverify_count": 0
   }

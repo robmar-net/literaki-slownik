@@ -1,10 +1,10 @@
-"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v29)."""
+"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v30)."""
 from functools import lru_cache
 import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'approved-conditions-v29'
+VERSION = 'approved-conditions-v30'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -1097,6 +1097,29 @@ def contemporary_use_override(checks, frequency):
              'threshold':CONTEMPORARY_USE_MIN_NONFICTION,
              'message':'Forma pisana małymi literami ma współczesne użycie w tekstach nieliterackich KWJP; etykieta dawności nie wyklucza jej ze STANDARD.',
              'evidence':[ROUND4_DECISION, ROUND7_DECISION, 'https://kwjp.pl/']}
+            if c['rule_id']=='linguistic-historical-form-v1' and c['status']=='reject' else c for c in checks]
+
+
+STANDARD_AGE_EXCEPTION_RULE = 'linguistic-standard-age-exception-v1'
+STANDARD_AGE_EXCEPTIONS_CONFIG = 'config/generator/standard-age-exceptions.json'
+
+
+def standard_age_exception_override(checks, decision):
+    """STANDARD (#4): zatwierdzony wyjątek uchyla tylko odmowę dawności tej analizy.
+
+    `decision` pochodzi z przypiętego JSON-a (`standard_age_exceptions.decision_for`).
+    Inne odmowy zostają. Brak odmowy dawności to rozjazd danych, nie cichy wyjątek.
+    """
+    if not any(c['rule_id']=='linguistic-historical-form-v1' and c['status']=='reject' for c in checks):
+        raise GeneratorError('Wyjątek dawności STANDARD wskazuje analizę bez odmowy dawności; rozjazd danych',4,
+                             decision['word'])
+    return [{'rule_id':STANDARD_AGE_EXCEPTION_RULE,'status':'accept','replaces':c['rule_id'],
+             'source_label':c.get('source_label'),'decision_version':decision['decision_version'],
+             'family':decision['family'],'proof':decision['proof'],'confidence':decision['confidence'],
+             'reader_article_ids':decision['reader_article_ids'],'kwjp_documents':decision['kwjp_documents'],
+             'family_evidence':decision['family_evidence'],
+             'message':'Zatwierdzone współczesne użycie tej analizy (#4); etykieta dawności nie wyklucza jej ze STANDARD. Inne warunki osobno.',
+             'evidence':[STANDARD_AGE_EXCEPTIONS_CONFIG,'https://github.com/robmar-net/literaki-slownik/issues/4']}
             if c['rule_id']=='linguistic-historical-form-v1' and c['status']=='reject' else c for c in checks]
 
 
