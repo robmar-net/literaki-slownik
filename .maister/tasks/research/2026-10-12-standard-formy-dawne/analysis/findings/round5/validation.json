@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-12T10:57:55Z",
+  "checks": [
+    "Parsowanie 25 JSON",
+    "Niezmienione wejścia, konfiguracja i kod pomiaru zgodne z manifestem",
+    "300 zamrożonych ocen, 30 kontroli i próby dostępu do 55 źródeł",
+    "27 pełnych wariantów i 25 pól siatki na każdy STANDARD",
+    "Publiczne macierze bez surowych kontekstów left/right",
+    "Nagłówki wymagane i 56 odsyłaczy lokalnych Markdown",
+    "Zmiany śledzone tylko w zadaniu; git diff --check poprawny"
+  ],
+  "source_coverage": {
+    "required_categories": 5,
+    "covered": 5,
+    "external_quality_source_attempts": 55,
+    "relevant_fragments_read": 40,
+    "observed_access_limits": 15
+  },
+  "tests": "25 istniejących testów POP przeszło w niezależnym przeglądzie; nie powtarzano po samych zmianach raportowych.",
+  "limits": [
+    "Nie odtworzono niezależnie całego grafu i morfologii.",
+    "Zamrożone klasy zachowują historię sprzed korekt źródłowych.",
+    "Nie zbadano rozpoznawalności słów przez graczy."
+  ],
+  "implementation_changed": false,
+  "visual_preview": {
+    "checked_at": "2026-10-12T10:57:34Z",
+    "method": "Playwright pluginu Maister; lokalny serwer 127.0.0.1",
+    "report": "Końcowy HTML odczytany; 6 tabel, brak placeholderów i przewijania poziomego przy 1311px. Zrzut nagłówka obejrzany.",
+    "dashboard": "Bieżąca faza rundy5 i await approval; raport dostępny w artefaktach fazy. Szablon dashboardu bez zmian; główna karta Research Report wskazuje historyczny raport bazowy. Brak obiektów w tekście i przewijania poziomego.",
+    "console": "Po końcowych nawigacjach brak błędów; pierwsza próba miała wyłącznie brak favicon, raport otrzymał pustą ikonę."
+  }
+}

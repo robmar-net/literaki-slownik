@@ -1,0 +1,810 @@
+{
+  "reviewer": "/root/family_review",
+  "round": 5,
+  "lane": "A",
+  "created_at": "2026-10-12T10:52:36.244814+00:00",
+  "frozen_matrix": {
+    "path": "quality-a.json",
+    "first_sha256": "4637c012da04f6c639fdf383c2cc822b1453ec5aeec90735195447edb491aaad",
+    "current_sha256": "4637c012da04f6c639fdf383c2cc822b1453ec5aeec90735195447edb491aaad",
+    "assessment_sha256": "c655914d7f9d0f43b90803a62124d9cf28a38c49e6255e3a0d30aef52f7735fa",
+    "unchanged": true
+  },
+  "scope": "Po utrwaleniu ocen podjęto próbę otwarcia każdego uzupełniającego źródła. Zapis rozdziela otwarty właściwy fragment i sam indeksowany fragment po nieudanym open. Bez lokalnego cache i bez deklaracji pełnej lektury publikacji. Klasy, pewności, uzasadnienia i 316 konkordancji bez zmian; nadal bez rankingu ani ocen innych reviewerów.",
+  "summary": {
+    "cases": 35,
+    "source_urls": 36,
+    "access": {
+      "web_open_fragment": 23,
+      "web_search_extract_open_failed": 13
+    }
+  },
+  "cases": [
+    {
+      "id": "05f893e6f095",
+      "lemma": "lnica",
+      "sources": [
+        {
+          "url": "https://www.ogrod.uw.edu.pl/en/baza-wiedzy/lnica-pospolita-2/",
+          "title": "Ogród Botaniczny UW: Lnica pospolita",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść: opis rośliny, linie 10–25.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_open",
+          "first_assessment_read_scope": "opis rośliny, linie 10–25",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://www.ogrod.uw.edu.pl/en/baza-wiedzy/lnica-pospolita-2/",
+            "status": "read_fragment",
+            "result": "Otwarta treść: opis rośliny, linie 10–25."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "0ace985a31f5",
+      "lemma": "miodokwiat",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/66821/miodokwiat",
+          "title": "WSJP: miodokwiat",
+          "access": "web_search_extract_open_failed",
+          "read_scope": "Dwie próby open dokładnego URL: Internal Error; ostatnia 12.10.2026. Definicję odczytano tylko jako indeksowany fragment wyniku.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "definicja botaniczna i nota o użyciu; ponowny open nie zwrócił strony",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://wsjp.pl/haslo/podglad/66821/miodokwiat",
+            "status": "failed",
+            "result": "Dwie próby open dokładnego URL: Internal Error; ostatnia 12.10.2026. Definicję odczytano tylko jako indeksowany fragment wyniku."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "12b07960d8a0",
+      "lemma": "ostojowy",
+      "sources": [
+        {
+          "url": "https://bip2.lasy.gov.pl/pl/bip/px_dg~rdlp_torun~pop_bydgoszcz.pdf",
+          "title": "RDLP Toruń: program ochrony przyrody",
+          "access": "web_search_extract_open_failed",
+          "read_scope": "Open dokładnego PDF: Failed to fetch / Error fetching. Odczytano tylko indeksowany fragment s. 128.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "s. 128, przymiotnik przy charakterze siedliska",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://bip2.lasy.gov.pl/pl/bip/px_dg~rdlp_torun~pop_bydgoszcz.pdf",
+            "status": "failed",
+            "result": "Open dokładnego PDF: Failed to fetch / Error fetching. Odczytano tylko indeksowany fragment s. 128."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "12e2192b5654",
+      "lemma": "pyrex",
+      "sources": [
+        {
+          "url": "https://home.agh.edu.pl/~kakol/efizyka/w20/main20c.html",
+          "title": "AGH: Kondensator z dielektrykiem",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść: tabela 20.1, wiersz rodzaju szkła, linie 14–25.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "nazwa rodzaju szkła w tabeli",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://home.agh.edu.pl/~kakol/efizyka/w20/main20c.html",
+            "status": "read_fragment",
+            "result": "Otwarta treść: tabela 20.1, wiersz rodzaju szkła, linie 14–25."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "2409fdd66229",
+      "lemma": "obznajmiać",
+      "sources": [
+        {
+          "url": "https://dobryslownik.pl/slowo/obznajomi%C4%87/33126/",
+          "title": "Dobry słownik: obznajomić",
+          "access": "web_search_extract_open_failed",
+          "read_scope": "Open dokładnego hasła obznajomić: Cache miss. Kwalifikator oraz odpowiednik niedokonany odczytano tylko w indeksowanym fragmencie.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "kwalifikacja przestarzałe/książkowe oraz dokładny odpowiednik niedokonany",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://dobryslownik.pl/slowo/obznajomi%C4%87/33126/",
+            "status": "failed",
+            "result": "Open dokładnego hasła obznajomić: Cache miss. Kwalifikator oraz odpowiednik niedokonany odczytano tylko w indeksowanym fragmencie."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "2a9dddabc10c",
+      "lemma": "regnowski",
+      "sources": [
+        {
+          "url": "https://archiwum.bip.ugregnow.pl/PDF/GMINNA_STRATEGIA_ROZWIAZYWANIA_.PDF",
+          "title": "Gmina Regnów: strategia społeczna",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarty PDF: s. 10, linie 297–307; lokalny przymiotnik w opisie historii gminy.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "fragment o ziemi regnowskiej, nie nazwisku",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://archiwum.bip.ugregnow.pl/PDF/GMINNA_STRATEGIA_ROZWIAZYWANIA_.PDF",
+            "status": "read_fragment",
+            "result": "Otwarty PDF: s. 10, linie 297–307; lokalny przymiotnik w opisie historii gminy."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "2ea208140b73",
+      "lemma": "trzciański",
+      "sources": [
+        {
+          "url": "https://trzciana.pl/30-lat-od-reaktywacji-gminy-trzciana",
+          "title": "Gmina Trzciana: 30 lat od reaktywacji",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść: artykuł z 1.12.2024, linie 78–103, akapit o frakcji trzciańskiej.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_open_find",
+          "first_assessment_read_scope": "tekst z 1.12.2024, akapit o frakcji trzciańskiej",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://trzciana.pl/30-lat-od-reaktywacji-gminy-trzciana",
+            "status": "read_fragment",
+            "result": "Otwarta treść: artykuł z 1.12.2024, linie 78–103, akapit o frakcji trzciańskiej."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "3dbbf62fa68d",
+      "lemma": "prześmiardły",
+      "sources": [
+        {
+          "url": "https://teatrtv.vod.tvp.pl/85912644/kalkwerk",
+          "title": "TVP: Kalkwerk",
+          "access": "web_search_extract_open_failed",
+          "read_scope": "Open dokładnego URL TVP zwrócił tytuł i jedną pustą linię bez opisu spektaklu. Opis przeczytano tylko w indeksowanym fragmencie.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "opis stanu bohatera spektaklu; nie datowanie powstania leksemu",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://teatrtv.vod.tvp.pl/85912644/kalkwerk",
+            "status": "empty_body",
+            "result": "Open dokładnego URL TVP zwrócił tytuł i jedną pustą linię bez opisu spektaklu. Opis przeczytano tylko w indeksowanym fragmencie."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "3f187601f132",
+      "lemma": "grzbiecisty",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/110139/grzbiecista",
+          "title": "WSJP: grzbiecista",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść: hasło rzeczownikowe grzbiecista, definicja i odmiana, linie 4–77. Nie jest to dowód przymiotnika grzbiecisty.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "odrębny rzeczownik sportowy; źródło ostrzeżenia o grupowaniu, nie potwierdzenie przymiotnika",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://wsjp.pl/haslo/podglad/110139/grzbiecista",
+            "status": "read_fragment",
+            "result": "Otwarta treść: hasło rzeczownikowe grzbiecista, definicja i odmiana, linie 4–77. Nie jest to dowód przymiotnika grzbiecisty."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "45b199d0ccaa",
+      "lemma": "trójszereg",
+      "sources": [
+        {
+          "url": "https://edziennik.policja.gov.pl/DU_KGP/2013/18/oryginal/Zalacznik.pdf",
+          "title": "Policja: regulamin musztry",
+          "access": "web_search_extract_open_failed",
+          "read_scope": "Open dokładnego PDF Policji: Internal Error, bez treści. Definicję punktu 77 odczytano tylko jako indeksowany fragment.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "punkt 77, definicja szyku",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://edziennik.policja.gov.pl/DU_KGP/2013/18/oryginal/Zalacznik.pdf",
+            "status": "failed",
+            "result": "Open dokładnego PDF Policji: Internal Error, bez treści. Definicję punktu 77 odczytano tylko jako indeksowany fragment."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "626c6057fea4",
+      "lemma": "makiawelski",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/101329/makiaweliczny/5246953/wladca",
+          "title": "WSJP: makiaweliczny — władca",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść: hasło makiaweliczny, linie 9–39; kwalifikator książkowy dotyczy tego hasła, a dokładne makiawelski jest wskazanym synonimem. Dowód pośredni.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract_and_open",
+          "first_assessment_read_scope": "kwalifikator książkowy i relacja synonimii z dokładnym hasłem makiawelski",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://wsjp.pl/haslo/podglad/101329/makiaweliczny/5246953/wladca",
+            "status": "read_fragment",
+            "result": "Otwarta treść: hasło makiaweliczny, linie 9–39; kwalifikator książkowy dotyczy tego hasła, a dokładne makiawelski jest wskazanym synonimem. Dowód pośredni."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "65984c5b8ef7",
+      "lemma": "poprzekształcać",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/48872/poprzeksztalcac/5148079",
+          "title": "WSJP: poprzekształcać — równania",
+          "access": "web_search_extract_open_failed",
+          "read_scope": "Open URL bazowego: Cache miss; dwie próby URL znaczenia: Internal Error. Definicję, przykłady i odmianę odczytano tylko w indeksowanym fragmencie.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "definicja, przykłady z NKJP i odmiana; dwie próby open nie zwróciły strony",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://wsjp.pl/haslo/podglad/48872/poprzeksztalcac/5148079",
+            "status": "failed",
+            "result": "Open URL bazowego: Cache miss; dwie próby URL znaczenia: Internal Error. Definicję, przykłady i odmianę odczytano tylko w indeksowanym fragmencie."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "6c7127f12b6a",
+      "lemma": "autogen",
+      "sources": [
+        {
+          "url": "https://eckert.com.pl/kompendium/zasada-dzialania-oraz-zastosowanie-palnika-acetylenowo-tlenowego-w-przemysle.html",
+          "title": "Eckert: palnik acetylenowo-tlenowy",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść producenta: akapit o nazwie autogen, linie 53–57.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_open_find",
+          "first_assessment_read_scope": "akapit o nazwie autogen, linie 53–57",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://eckert.com.pl/kompendium/zasada-dzialania-oraz-zastosowanie-palnika-acetylenowo-tlenowego-w-przemysle.html",
+            "status": "read_fragment",
+            "result": "Otwarta treść producenta: akapit o nazwie autogen, linie 53–57."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "6d4996f166d6",
+      "lemma": "sczerstwieć",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/107945/sczerstwiec/5257825/o-pieczywie",
+          "title": "WSJP: sczerstwieć — o pieczywie",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść: definicja znaczenia o pieczywie, połączenia i przykłady, linie 1–27.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "definicja i przykłady zwykłego użycia",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://wsjp.pl/haslo/podglad/107945/sczerstwiec/5257825/o-pieczywie",
+            "status": "read_fragment",
+            "result": "Otwarta treść: definicja znaczenia o pieczywie, połączenia i przykłady, linie 1–27."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "7201b67ec27a",
+      "lemma": "trójwładza",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/79912/trojwladza",
+          "title": "WSJP: trójwładza",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść: definicja i przykłady z różnych zakresów instytucjonalnych, linie 4–47.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_open",
+          "first_assessment_read_scope": "definicja i przykłady z różnych zakresów instytucjonalnych",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://wsjp.pl/haslo/podglad/79912/trojwladza",
+            "status": "read_fragment",
+            "result": "Otwarta treść: definicja i przykłady z różnych zakresów instytucjonalnych, linie 4–47."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "7cd8d1888bb5",
+      "lemma": "eksplozywnie",
+      "sources": [
+        {
+          "url": "https://www.ogrod.uw.edu.pl/en/baza-wiedzy/niecierpek-gruczolowaty-3/",
+          "title": "Ogród Botaniczny UW: Niecierpek gruczołowaty",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść Ogrodu UW: opis owocu niecierpka, linie 38–46.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "własny opis otwierania owocu",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://www.ogrod.uw.edu.pl/en/baza-wiedzy/niecierpek-gruczolowaty-3/",
+            "status": "read_fragment",
+            "result": "Otwarta treść Ogrodu UW: opis owocu niecierpka, linie 38–46."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "7e38cef58fbb",
+      "lemma": "sekserka",
+      "sources": [
+        {
+          "url": "https://uwr.edu.pl/naukowcy/czym-sie-zajmujemy/beata-czyz-wszyscy-jestesmy-hipokrytami/",
+          "title": "UWr: wywiad z Beatą Czyż",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść wywiadu UWr: opis zawodu i czynności, linie 157–160.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "wyjaśnienie roli osoby sprawdzającej płeć pisklęcia",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://uwr.edu.pl/naukowcy/czym-sie-zajmujemy/beata-czyz-wszyscy-jestesmy-hipokrytami/",
+            "status": "read_fragment",
+            "result": "Otwarta treść wywiadu UWr: opis zawodu i czynności, linie 157–160."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "82ad097464e9",
+      "lemma": "mroczyć",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/82166/mroczyc/5204078/umysl",
+          "title": "WSJP: mroczyć — umysł",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść: znaczenie umysł, kwalifikator książkowy, definicja i przykłady, linie 6–28.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "kwalifikacja książkowa, definicja i współczesne przykłady",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://wsjp.pl/haslo/podglad/82166/mroczyc/5204078/umysl",
+            "status": "read_fragment",
+            "result": "Otwarta treść: znaczenie umysł, kwalifikator książkowy, definicja i przykłady, linie 6–28."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "8de604463362",
+      "lemma": "emblemacik",
+      "sources": [
+        {
+          "url": "https://jubileusz.grabski.edu.pl/zycie-szkoly/gazetka-szkolna",
+          "title": "Zespół Szkół im. Grabskiego: Gazetka szkolna",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść szkolnej gazety: Kleks 1999/2000, tekst o identyfikatorze, linie 814–837.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_open_find",
+          "first_assessment_read_scope": "Kleks 1999/2000, tekst o identyfikatorze, linie 814–837",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://jubileusz.grabski.edu.pl/zycie-szkoly/gazetka-szkolna",
+            "status": "read_fragment",
+            "result": "Otwarta treść szkolnej gazety: Kleks 1999/2000, tekst o identyfikatorze, linie 814–837."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "922bd325471a",
+      "lemma": "wyzyskiwaczka",
+      "sources": [
+        {
+          "url": "https://bip.amu.edu.pl/__data/assets/pdf_file/0026/655181/Wiejaczka-Elzbieta_Rozprawa-doktorska.pdf",
+          "title": "UAM: rozprawa Elżbiety Wiejaczki",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarty PDF: s. 117, linie 3707–3714; dokładna forma w tłumaczonym cytacie w rozprawie. Nie jest to niezależny pomiar popularności.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "fragment współczesnej rozprawy z nazwą kobiety wyzyskującej, w cytowanym opisie",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://bip.amu.edu.pl/__data/assets/pdf_file/0026/655181/Wiejaczka-Elzbieta_Rozprawa-doktorska.pdf",
+            "status": "read_fragment",
+            "result": "Otwarty PDF: s. 117, linie 3707–3714; dokładna forma w tłumaczonym cytacie w rozprawie. Nie jest to niezależny pomiar popularności."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "973d35b6fd79",
+      "lemma": "kraulowy",
+      "sources": [
+        {
+          "url": "https://www.spr3bielany.edu.pl/2010/04/11/bielanska-liga-plywacka/",
+          "title": "SP nr 3: Bielańska Liga Pływacka",
+          "access": "web_search_extract_open_failed",
+          "read_scope": "Open dokładnego URL szkolnej relacji: Internal Error, bez treści. Odczytano tylko indeksowany fragment relacji z zawodów 2011 r.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "własna relacja z zawodów z 2011 r.; nazwa stylu",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://www.spr3bielany.edu.pl/2010/04/11/bielanska-liga-plywacka/",
+            "status": "failed",
+            "result": "Open dokładnego URL szkolnej relacji: Internal Error, bez treści. Odczytano tylko indeksowany fragment relacji z zawodów 2011 r."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "9ae5242ee89c",
+      "lemma": "przegrywarka",
+      "sources": [
+        {
+          "url": "https://repozytorium.uwb.edu.pl/jspui/bitstream/11320/9554/1/BAJ_3_2003_B_Nowowiejski_rec_I_Bajerowa_Zarys_historii_jezyka_polskiego_1939-2000.pdf",
+          "title": "B. Nowowiejski: recenzja z własnymi przykładami słowotwórczymi",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarty PDF: s. 279, linie 124–133; własne przykłady słowotwórcze autora recenzji z 2003 r.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "s. 279, przykład nazwy urządzenia dodany przez autora recenzji",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://repozytorium.uwb.edu.pl/jspui/bitstream/11320/9554/1/BAJ_3_2003_B_Nowowiejski_rec_I_Bajerowa_Zarys_historii_jezyka_polskiego_1939-2000.pdf",
+            "status": "read_fragment",
+            "result": "Otwarty PDF: s. 279, linie 124–133; własne przykłady słowotwórcze autora recenzji z 2003 r."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "a730c1d4d6d2",
+      "lemma": "bednia",
+      "sources": [
+        {
+          "url": "https://ruj.uj.edu.pl/server/api/core/bitstreams/cfde60f4-ead3-4068-8f82-adefe0bfcadf/content",
+          "title": "LingVaria 2020 nr 2: analiza słowotwórstwa gwarowego",
+          "access": "web_search_extract_open_failed",
+          "read_scope": "Open dokładnego URL repozytorium UJ: Internal Error, bez treści. Odczytano tylko indeksowany fragment analizy materiału gwarowego.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "omówienie bedni w materiale słownika gwary orawskiej",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://ruj.uj.edu.pl/server/api/core/bitstreams/cfde60f4-ead3-4068-8f82-adefe0bfcadf/content",
+            "status": "failed",
+            "result": "Open dokładnego URL repozytorium UJ: Internal Error, bez treści. Odczytano tylko indeksowany fragment analizy materiału gwarowego."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "aa815d99bccc",
+      "lemma": "generatywność",
+      "sources": [
+        {
+          "url": "https://czasopisma.uksw.edu.pl/fp/article/view/1339",
+          "title": "K. Biel: Generatywność i jej przejawy w readaptacji społecznej skazanych",
+          "access": "web_search_extract_open_failed",
+          "read_scope": "Open dokładnego URL artykułu UKSW: Internal Error, bez treści. Odczytano tylko indeksowany abstrakt publikacji z 2017 r.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "abstrakt publikacji z 2017 r., definicja dziedzinowa",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://czasopisma.uksw.edu.pl/fp/article/view/1339",
+            "status": "failed",
+            "result": "Open dokładnego URL artykułu UKSW: Internal Error, bez treści. Odczytano tylko indeksowany abstrakt publikacji z 2017 r."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "ba787dd7f3a0",
+      "lemma": "praojcowski",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/97838/praojcowski",
+          "title": "WSJP: praojcowski",
+          "access": "web_search_extract_open_failed",
+          "read_scope": "Dwie próby open dokładnego hasła WSJP: Internal Error, bez treści. Definicję i przykłady odczytano tylko jako indeksowany fragment.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "definicja i przykłady; późniejszy open nie zwrócił strony",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://wsjp.pl/haslo/podglad/97838/praojcowski",
+            "status": "failed",
+            "result": "Dwie próby open dokładnego hasła WSJP: Internal Error, bez treści. Definicję i przykłady odczytano tylko jako indeksowany fragment."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "bd7482dc3a00",
+      "lemma": "kaszany",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/100304/kaszany",
+          "title": "WSJP: kaszany",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść: definicja, związek z kaszą spożywczą i przykłady kulinarne, linie 4–29.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract_and_open",
+          "first_assessment_read_scope": "definicja, kulinarne przykłady i odróżnienie od rzeczownika kaszana",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://wsjp.pl/haslo/podglad/100304/kaszany",
+            "status": "read_fragment",
+            "result": "Otwarta treść: definicja, związek z kaszą spożywczą i przykłady kulinarne, linie 4–29."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "c2cc0f3f8ef9",
+      "lemma": "genotypowy",
+      "sources": [
+        {
+          "url": "https://agro.icm.edu.pl/agro/element/bwmeta1.element.agro-article-83824604-5c3f-49b0-baf0-ade52f984926/c/3-9.PDF",
+          "title": "Genetica Polonica 35A, 1994",
+          "access": "web_search_extract_open_failed",
+          "read_scope": "Open dokładnego PDF AGRO: Internal Error, bez treści. Odczytano tylko indeksowany fragment tekstu Genetica Polonica 35A, 1994.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "zastosowanie dokładnego przymiotnika w tekście naukowym",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://agro.icm.edu.pl/agro/element/bwmeta1.element.agro-article-83824604-5c3f-49b0-baf0-ade52f984926/c/3-9.PDF",
+            "status": "failed",
+            "result": "Open dokładnego PDF AGRO: Internal Error, bez treści. Odczytano tylko indeksowany fragment tekstu Genetica Polonica 35A, 1994."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "cc30001bc158",
+      "lemma": "litologia",
+      "sources": [
+        {
+          "url": "https://geostanowiska.pgi.gov.pl/515",
+          "title": "PIG: Warstwy zakopiańskie w potoku Białym",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta karta PIG: pole litologia oraz opis geostanowiska, linie 61–72.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "opis własny geostanowiska, pole litologia",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://geostanowiska.pgi.gov.pl/515",
+            "status": "read_fragment",
+            "result": "Otwarta karta PIG: pole litologia oraz opis geostanowiska, linie 61–72."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "d2cc98fe5aa9",
+      "lemma": "kociarstwo",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/49410/kociarstwo/5148943/zwierzeta",
+          "title": "WSJP: kociarstwo — zwierzęta",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść: potoczny sens zbiorowy zwierząt, definicja i przykłady, linie 6–23.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract_and_open",
+          "first_assessment_read_scope": "potoczne znaczenie zbiorowe; odróżnione od sensu wojskowego",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://wsjp.pl/haslo/podglad/49410/kociarstwo/5148943/zwierzeta",
+            "status": "read_fragment",
+            "result": "Otwarta treść: potoczny sens zbiorowy zwierząt, definicja i przykłady, linie 6–23."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "d6cddcac712f",
+      "lemma": "wypaleniskowy",
+      "sources": [
+        {
+          "url": "https://ruj.uj.edu.pl/server/api/core/bitstreams/616c9d42-4ea9-4427-ae77-e90d7299f76a/content",
+          "title": "Prace Geograficzne, zeszyt 123",
+          "access": "web_search_extract_open_failed",
+          "read_scope": "Open dokładnego URL repozytorium UJ: URL is not accessible via this tool. Odczytano tylko indeksowany fragment opisu systemu upraw.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "użycie o systemie upraw w badaniu przekształceń środowiska",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://ruj.uj.edu.pl/server/api/core/bitstreams/616c9d42-4ea9-4427-ae77-e90d7299f76a/content",
+            "status": "failed",
+            "result": "Open dokładnego URL repozytorium UJ: URL is not accessible via this tool. Odczytano tylko indeksowany fragment opisu systemu upraw."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "d9173074f780",
+      "lemma": "dias",
+      "sources": [
+        {
+          "url": "https://pjs.ijp.pan.pl/Sstp/Supl.pdf",
+          "title": "IJP PAN: Słownik staropolski, suplement",
+          "access": "web_search_extract_open_failed",
+          "read_scope": "Open dokładnego PDF IJP PAN: HTTP 502 Bad Gateway. Odczytano tylko indeksowany fragment hasła Dias/Dyjas, s. 12.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "s. 12, hasło Dias/Dyjas i dawny sens diabeł",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://pjs.ijp.pan.pl/Sstp/Supl.pdf",
+            "status": "failed",
+            "result": "Open dokładnego PDF IJP PAN: HTTP 502 Bad Gateway. Odczytano tylko indeksowany fragment hasła Dias/Dyjas, s. 12."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "dfa964e93a9c",
+      "lemma": "ketoza",
+      "sources": [
+        {
+          "url": "https://zpe.gov.pl/a/nazewnictwo-i-wzory-cukrow/DDMNQHFFB",
+          "title": "ZPE: nazewnictwo i wzory cukrów",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść ZPE: podział monosacharydów i ketozy, linie 19–35.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "sens chemiczny",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://zpe.gov.pl/a/nazewnictwo-i-wzory-cukrow/DDMNQHFFB",
+            "status": "read_fragment",
+            "result": "Otwarta treść ZPE: podział monosacharydów i ketozy, linie 19–35."
+          },
+          "local_cache": false
+        },
+        {
+          "url": "https://ncez.pzh.gov.pl/zdrowe-odchudzanie/dieta-ketogeniczna-w-swietle-badan-naukowych/",
+          "title": "NCEŻ: Dieta ketogeniczna w świetle badań naukowych",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarta treść NCEŻ: sekcja Czym jest ketoza?, linie 65–68. Wyłącznie rozróżnienie znaczeń, bez porad zdrowotnych.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "akapit o sensie metabolicznym; bez formułowania porad zdrowotnych",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://ncez.pzh.gov.pl/zdrowe-odchudzanie/dieta-ketogeniczna-w-swietle-badan-naukowych/",
+            "status": "read_fragment",
+            "result": "Otwarta treść NCEŻ: sekcja Czym jest ketoza?, linie 65–68. Wyłącznie rozróżnienie znaczeń, bez porad zdrowotnych."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "f4984bb41820",
+      "lemma": "sabejczyk",
+      "sources": [
+        {
+          "url": "https://czasopisma.bg.ug.edu.pl/index.php/cywilizacja/article/download/9434/8469/13383",
+          "title": "R. Ożarowski: opis społeczności Iraku",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarty PDF: s. 190, linie 189–201; sabejczycy jako określenie wspólnoty religijnej Mandejczyków.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "s. 190, sabejczycy jako nazwa wyznawców; odrębne od etnonimu Sabejczycy",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://czasopisma.bg.ug.edu.pl/index.php/cywilizacja/article/download/9434/8469/13383",
+            "status": "read_fragment",
+            "result": "Otwarty PDF: s. 190, linie 189–201; sabejczycy jako określenie wspólnoty religijnej Mandejczyków."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "f82a0e7cad6d",
+      "lemma": "etnometodologia",
+      "sources": [
+        {
+          "url": "https://sylabus.uj.edu.pl/pl/document/3783e5b3-400d-4c2e-8f21-459a22066d5f.pdf",
+          "title": "UJ: sylabus Etnometodologia",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarty PDF: s. 1–2, nazwa przedmiotu, cykl 2024/25 oraz cele kształcenia, linie 1–77.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "karta przedmiotu, cykl 2024/25 i cele kształcenia",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://sylabus.uj.edu.pl/pl/document/3783e5b3-400d-4c2e-8f21-459a22066d5f.pdf",
+            "status": "read_fragment",
+            "result": "Otwarty PDF: s. 1–2, nazwa przedmiotu, cykl 2024/25 oraz cele kształcenia, linie 1–77."
+          },
+          "local_cache": false
+        }
+      ]
+    },
+    {
+      "id": "fa8a0d6b83fc",
+      "lemma": "prawostronność",
+      "sources": [
+        {
+          "url": "https://ore.edu.pl/wp-content/uploads/phocadownload/6latek/przed_progiem_01_07_13.pdf",
+          "title": "ORE: Przed progiem",
+          "access": "web_open_fragment",
+          "read_scope": "Otwarty PDF: s. 46, linie 1322–1330 oraz słowniczek s. 69, linie 1927–1929; znaczenie lateralizacji.",
+          "accessed": "2026-10-12",
+          "first_assessment_access": "web_search_extract",
+          "first_assessment_read_scope": "fragment o lateralizacji i dominacji strony ciała",
+          "open_attempt": {
+            "date": "2026-10-12",
+            "url": "https://ore.edu.pl/wp-content/uploads/phocadownload/6latek/przed_progiem_01_07_13.pdf",
+            "status": "read_fragment",
+            "result": "Otwarty PDF: s. 46, linie 1322–1330 oraz słowniczek s. 69, linie 1927–1929; znaczenie lateralizacji."
+          },
+          "local_cache": false
+        }
+      ]
+    }
+  ]
+}

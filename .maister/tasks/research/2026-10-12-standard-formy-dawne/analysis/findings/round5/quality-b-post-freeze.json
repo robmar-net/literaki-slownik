@@ -1,0 +1,603 @@
+{
+  "schema_version": 1,
+  "stage": "post-freeze verification",
+  "verified_at_utc": "2026-10-12T10:50:55.092907+00:00",
+  "frozen_matrix": "quality-b.json",
+  "frozen_matrix_sha256": "00b246f555dbc7686e85675e5b99c585373002509266be8288f06c021f26240d",
+  "frozen_classes_modified": false,
+  "prefreeze_access_record": "quality-b-source-access.json",
+  "summary": {
+    "original_source_urls": 19,
+    "original_urls_attempted": 19,
+    "original_urls_relevant_text_read": 16,
+    "sources_read_via_official_replacement": 1,
+    "sources_relevant_text_read_total": 17,
+    "sources_still_not_directly_verified": 2,
+    "html_sources_read": 14,
+    "pdf_relevant_fragments_read": 3,
+    "pdf_page_images_read": 0,
+    "supplementary_urls_opened": 2,
+    "supplementary_urls_with_usable_evidence": 1
+  },
+  "method_limits": [
+    "Odczytano właściwe fragmenty źródeł, nie wszystkie pełne dokumenty. Otwieranie web.run może korzystać z wersji w pamięci narzędzia; nie jest deklaracją pobrania bieżącej odpowiedzi serwera dla każdego URL.",
+    "Trzy PDF oceniono na podstawie tekstu uzyskanego przez open/find. Dwie próby renderu stron nie powiodły się.",
+    "Nie odczytano oryginalnych dzieł cytowanych we wszystkich hasłach WSJP. Oddzielono autorów opracowania od autorów poświadczeń.",
+    "Błędy narzędzia Cache miss i HTTP 403 są faktami dostępu, nie dowodami nieistnienia hasła.",
+    "Oryginalna macierz, jej liczniki i klasy są zamrożone. Korekty poniżej należą do późniejszej interpretacji."
+  ],
+  "sources": [
+    {
+      "case_id": "01c214d5e139",
+      "lemma": "przedryndać",
+      "original_url": "https://wsjp.pl/haslo/podglad/111647/przedryndac/5263631/500-km",
+      "original_url_open_attempted": true,
+      "verification_status": "niezweryfikowany_bezpośrednio",
+      "relevant_fragment_read": false,
+      "effective_read_url": null,
+      "access_method": "Nieudany web.open oraz curl; tylko wynik wyszukiwania dla pierwotnego URL",
+      "read_scope": "Pierwotny URL: brak odczytu strony. Nowy pomocniczy odczyt hasła zatelefonować: definicja i lista synonimów.",
+      "finding": "Znaczenie telefoniczne potwierdza relacja synonimii w odczytanym haśle zatelefonować. Znaczenie podróżne nadal znane z indeksowanego wyniku; wyłączone z wniosków opartych na bezpośrednim odczycie.",
+      "limits": [
+        "Nie przeczytano przykładu użycia samego przedryndać w znaczeniu telefonicznym. Relacja synonimii nie dowodzi zasięgu ani kwalifikatora rejestrowego tego hasła."
+      ],
+      "attempts": [
+        {
+          "method": "web.open i ponowienie po search_query",
+          "url": "https://wsjp.pl/haslo/podglad/111647/przedryndac/5263631/500-km",
+          "result": "Cache miss"
+        },
+        {
+          "method": "curl -fL, sandbox",
+          "url": "https://wsjp.pl/haslo/podglad/111647/przedryndac/5263631/500-km",
+          "result": "HTTP 403, curl exit 56"
+        },
+        {
+          "method": "curl -fL, ponowienie require_escalated",
+          "url": "https://wsjp.pl/haslo/podglad/111647/przedryndac/5263631/500-km",
+          "result": "HTTP 403, curl exit 56"
+        },
+        {
+          "method": "web.open alternatywnego oficjalnego adresu",
+          "url": "https://wsjp.pl/haslo/podglad/111647",
+          "result": "Cache miss"
+        },
+        {
+          "method": "web.open alternatywnego oficjalnego adresu",
+          "url": "https://wsjp.pl/haslo/do_druku/111647",
+          "result": "URL is not accessible via this tool"
+        },
+        {
+          "method": "web.open alternatywnego oficjalnego adresu",
+          "url": "https://wsjp.pl/haslo/do_druku/111647/przedryndac",
+          "result": "URL is not accessible via this tool"
+        },
+        {
+          "method": "web.open alternatywnego oficjalnego adresu",
+          "url": "https://www.wsjp.pl/haslo/podglad/111647/przedryndac/5263631/500-km",
+          "result": "URL is not accessible via this tool"
+        },
+        {
+          "method": "web.open alternatywnego oficjalnego adresu",
+          "url": "https://wsjp.pl/haslo/podglad/111647/przedryndac",
+          "result": "Internal Error"
+        },
+        {
+          "method": "web.open alternatywnego oficjalnego adresu",
+          "url": "https://wsjp.pl/haslo/podglad/111647/przedryndac/5263631",
+          "result": "Cache miss"
+        }
+      ]
+    },
+    {
+      "case_id": "1d430f06d01b",
+      "lemma": "siejba",
+      "original_url": "https://wsjp.pl/haslo/podglad/119994/siejba",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://wsjp.pl/haslo/podglad/119994/siejba",
+      "access_method": "web.open/find: tekst strony",
+      "read_scope": "WSJP: definicja, kwalifikator, połączenia, cytaty i metryki źródeł; linie 4–44.",
+      "finding": "Kwalifikator daw. i znaczenie siewu potwierdzone. Daty wydań 1988/2008 nie unieważniają ograniczenia stylistycznego.",
+      "limits": [
+        "Nie otwarto cytowanych książek. To odczyt kwalifikacji słownikowej i jej przykładów, nie niezależny audyt tych wydań."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://wsjp.pl/haslo/podglad/119994/siejba",
+          "result": "treść_odczytana"
+        }
+      ]
+    },
+    {
+      "case_id": "3593e4b4c08f",
+      "lemma": "kikować",
+      "original_url": "https://obserwatorium-mlodziezy.ujk.edu.pl/jednostki/kikowac/",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://obserwatorium-mlodziezy.ujk.edu.pl/jednostki/kikowac/",
+      "access_method": "web.open/find: tekst strony",
+      "read_scope": "UJK: hasło kikować, akapity definicji i historii znaczeń, przykłady 1–5 oraz podpis; linie 45–63.",
+      "finding": "Anna Wileczek, wpis 11.06.2024: usuwanie z gry/grupy oraz omówienie warszawskiego znaczenia obserwowania. Rozdzielenie sensów jest zasadne.",
+      "limits": [
+        "Nie otwarto przytoczonych forów i filmów; nie badano rozpowszechnienia wśród graczy."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://obserwatorium-mlodziezy.ujk.edu.pl/jednostki/kikowac/",
+          "result": "treść_odczytana"
+        }
+      ]
+    },
+    {
+      "case_id": "3d8dfc4a1807",
+      "lemma": "kozeta",
+      "original_url": "https://pl.wikisource.org/wiki/M._Arcta_S%C5%82ownik_ilustrowany_j%C4%99zyka_polskiego/K_%28ca%C5%82o%C5%9B%C4%87%29",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://pl.wikisource.org/wiki/M._Arcta_S%C5%82ownik_ilustrowany_j%C4%99zyka_polskiego/K_%28ca%C5%82o%C5%9B%C4%87%29",
+      "access_method": "web.open/find: tekst strony",
+      "read_scope": "Wikiźródła: metryka wydania 1916 oraz hasło Kozeta/Kozetka w części K, linia 3389.",
+      "finding": "Transkrypcja słownika Arcta potwierdza nazwę małej kanapy. Współczesny zakres nadal nierozstrzygnięty.",
+      "limits": [
+        "Odczytano transkrypcję, bez porównania ze skanem. Nie przeczytano całej części K."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://pl.wikisource.org/wiki/M._Arcta_S%C5%82ownik_ilustrowany_j%C4%99zyka_polskiego/K_%28ca%C5%82o%C5%9B%C4%87%29",
+          "result": "treść_odczytana"
+        }
+      ]
+    },
+    {
+      "case_id": "4352706bcdd0",
+      "lemma": "konklawista",
+      "original_url": "https://www.przewodnik-katolicki.pl/Archiwum/2004/Przewodnik-Katolicki-48-2004/Historia/Jak-wybierano-papiezy",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://www.przewodnik-katolicki.pl/Archiwum/2004/Przewodnik-Katolicki-48-2004/Historia/Jak-wybierano-papiezy",
+      "access_method": "web.open/find: tekst strony",
+      "read_scope": "Przewodnik Katolicki: autor/data oraz sekcja Wielkie dni, akapity o celach, posiłkach i głosowaniu; linie 9–32.",
+      "finding": "Artykuł Małgorzaty Jańczak z 28.10.2004 zawiera formy konklawistów, konklawiści i konklawista, w autorskiej narracji o wyborze papieża.",
+      "limits": [
+        "To poświadczenie użycia w tekście popularnohistorycznym, nie badanie poprawności wszystkich opisanych procedur ani znajomości terminu."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://www.przewodnik-katolicki.pl/Archiwum/2004/Przewodnik-Katolicki-48-2004/Historia/Jak-wybierano-papiezy",
+          "result": "treść_odczytana"
+        }
+      ]
+    },
+    {
+      "case_id": "50e9796273bd",
+      "lemma": "wiroid",
+      "original_url": "https://zpe.gov.pl/a/przeczytaj/DQN7i4ibO",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://zpe.gov.pl/a/przeczytaj/DQN7i4ibO",
+      "access_method": "web.open/find: tekst strony",
+      "read_scope": "ZPE: Wprowadzenie i Wiroidy, Budowa wiroidów, tabela nazw; linie 15–66.",
+      "finding": "Hasło występuje w objaśnieniu pojęcia i nazwach konkretnych wiroidów. Poświadczenie terminu biologicznego potwierdzone.",
+      "limits": [
+        "Weryfikowano użycie słowa, nie prawdziwość wszystkich tez biologicznych materiału."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://zpe.gov.pl/a/przeczytaj/DQN7i4ibO",
+          "result": "treść_odczytana"
+        }
+      ]
+    },
+    {
+      "case_id": "50e9796273bd",
+      "lemma": "wiroid",
+      "original_url": "https://www.gov.pl/web/piorin/regulowane-agrofagi-niekwarantannowe-dla-unii",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://www.gov.pl/web/piorin/regulowane-agrofagi-niekwarantannowe-dla-unii",
+      "access_method": "web.open/find: tekst strony",
+      "read_scope": "PIORiN: nagłówek Wirusy, wiroidy i fitoplazmy oraz nazwy odnośników, linie 107–110.",
+      "finding": "Strona instytucji używa polskich nazw wiroidów wrzecionowatości bulw ziemniaka i karłowatości chmielu.",
+      "limits": [
+        "Nie otwarto powiązanych ulotek PDF; tekst samej strony wystarcza jako dowód użycia. Nie oceniano aktualności regulacji."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://www.gov.pl/web/piorin/regulowane-agrofagi-niekwarantannowe-dla-unii",
+          "result": "treść_odczytana"
+        }
+      ]
+    },
+    {
+      "case_id": "5a83cca65701",
+      "lemma": "wiwera",
+      "original_url": "https://wsjp.pl/haslo/podglad/117600/wiwera",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://wsjp.pl/haslo/podglad/117600/wiwera",
+      "access_method": "web.open/find: tekst strony",
+      "read_scope": "WSJP: definicja i kwalifikator, trzy cytaty i ich metryki, odmiana; linie 1–49.",
+      "finding": "Potwierdzone hasło zoologiczne i przytoczony przez WSJP tekst prasowy z 29.03.2020.",
+      "limits": [
+        "Nie otwarto pierwotnego artykułu prasowego. Cytat pozostaje dowodem przekazanym przez słownik."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://wsjp.pl/haslo/podglad/117600/wiwera",
+          "result": "treść_odczytana"
+        }
+      ]
+    },
+    {
+      "case_id": "620b8070a7bc",
+      "lemma": "szampiter",
+      "original_url": "https://www.poradnikjezykowy.uw.edu.pl/wydania/poradnik_jezykowy.796.2022.07.3-U.Sokolska.pdf",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony_z_korektą",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://www.poradnikjezykowy.uw.edu.pl/wydania/poradnik_jezykowy.796.2022.07.3-U.Sokolska.pdf",
+      "access_method": "web.open/find: ekstrakcja tekstu PDF",
+      "read_scope": "PDF Sokólskiej: metryka autora i tytułu na pierwszej stronie; strona drukowana 45, PDF indeks 10, akapit 3. Czasownikowe nazwy czynności.",
+      "finding": "W omówieniu szampitrować autorka przywołuje rzeczownik szampiter w znaczeniu szampana za Słownikiem warszawskim.",
+      "limits": [
+        "Kwalifikatory rzad./żart. w nawiasie odnoszą się do omawianego czasownika; nie przenoszę ich automatycznie na rzeczownik. Odczyt ekstrakcji tekstu PDF; próba obrazu strony zakończona Cache miss."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://www.poradnikjezykowy.uw.edu.pl/wydania/poradnik_jezykowy.796.2022.07.3-U.Sokolska.pdf",
+          "result": "treść_odczytana"
+        },
+        {
+          "method": "web.screenshot",
+          "url": "https://www.poradnikjezykowy.uw.edu.pl/wydania/poradnik_jezykowy.796.2022.07.3-U.Sokolska.pdf",
+          "page_index": 10,
+          "result": "Cache miss; brak odczytu obrazu strony"
+        }
+      ]
+    },
+    {
+      "case_id": "620b8070a7bc",
+      "lemma": "szampiter",
+      "original_url": "https://smakipowiatupoznanskiego.pl/slownik-gwary-poznanskiej/",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://smakipowiatupoznanskiego.pl/slownik-gwary-poznanskiej/",
+      "access_method": "web.open/find: tekst strony",
+      "read_scope": "Słownik gwary poznańskiej: sekcja S/Ś, wiersz szampiter, linia 711.",
+      "finding": "Regionalny słownik rzeczywiście podaje znaczenie szamponu.",
+      "limits": [
+        "Wpis potwierdza rejestrację znaczenia regionalnego, nie aktualną częstość. Nie ustalono daty opracowania ani pełnej metodologii doboru haseł."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://smakipowiatupoznanskiego.pl/slownik-gwary-poznanskiej/",
+          "result": "treść_odczytana"
+        }
+      ]
+    },
+    {
+      "case_id": "775dee6ea4c2",
+      "lemma": "lunonauta",
+      "original_url": "https://www.urania.edu.pl/zasoby/ksiezyc-ludzie-i-slowa.html",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://www.urania.edu.pl/zasoby/ksiezyc-ludzie-i-slowa.html",
+      "access_method": "web.open/find: tekst strony",
+      "read_scope": "Urania: autor i wprowadzenie, akapit po depeszy Spychalskiego, metryka końcowa; linie 3–5, 35–38, 51–53.",
+      "finding": "Artykuł Wiesława Krajewskiego, Urania–PA 5/2009: objaśnienie określenia i własne użycie liczby mnogiej lunonauci.",
+      "limits": [
+        "Data została doprecyzowana po otwarciu. Nie twierdzę, że jest to poświadczenie najnowszego użycia lub zasięgu ogólnego."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://www.urania.edu.pl/zasoby/ksiezyc-ludzie-i-slowa.html",
+          "result": "treść_odczytana"
+        }
+      ]
+    },
+    {
+      "case_id": "8d48365673b3",
+      "lemma": "superstrat",
+      "original_url": "https://wsjp.pl/haslo/podglad/20796/substrat/5157958/w-jezykoznawstwie",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://wsjp.pl/haslo/podglad/20796/substrat/5157958/w-jezykoznawstwie",
+      "access_method": "web.open/find: tekst strony",
+      "read_scope": "WSJP substrat, znaczenie w językoznawstwie, sekcja Cytaty, linie 40–41.",
+      "finding": "Słownik przytacza zdanie Artura Rejtera z superstrat w opisie relacji języków.",
+      "limits": [
+        "To odczyt cytatu pod hasłem substrat, nie odrębnego hasła superstrat. Nie otwarto oryginalnej publikacji Rejtera."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://wsjp.pl/haslo/podglad/20796/substrat/5157958/w-jezykoznawstwie",
+          "result": "treść_odczytana"
+        }
+      ]
+    },
+    {
+      "case_id": "8e86654945a0",
+      "lemma": "profitka",
+      "original_url": "https://muzeumkresow.eu/eksponat/lichtarz-3/",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://muzeumkresow.eu/eksponat/lichtarz-3/",
+      "access_method": "curl HTTP 200 + HTMLParser: tekst pobranego HTML",
+      "read_scope": "Bezpośrednio pobrany HTML muzeum: tytuł Lichtarz i akapit konstrukcji od kolistej stopy do krawędzi wylewu.",
+      "finding": "Autorski opis eksponatu zawiera profitką i profitka jako nazwę części lichtarza.",
+      "limits": [
+        "Web open dwukrotnie nie udostępnił treści; curl zwrócił HTTP 200. Odczytano właściwy opis z HTML, bez datowania powstania tekstu."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://muzeumkresow.eu/eksponat/lichtarz-3/",
+          "result": "(400) Timeout fetching"
+        },
+        {
+          "method": "web.open retry",
+          "url": "https://muzeumkresow.eu/eksponat/lichtarz-3/",
+          "result": "Internal Error, bez dodatkowej przyczyny"
+        },
+        {
+          "method": "curl -fL",
+          "url": "https://muzeumkresow.eu/eksponat/lichtarz-3/",
+          "result": "HTTP 200; pobrano HTML; właściwy fragment odczytany"
+        }
+      ],
+      "local_cache": "tmp/research-issue4/round5/quality-b-verification/profitka.html",
+      "cache_sha256": "f4039c5a5a7df0e83e6d2c9d7208ca80f25f50e3802072889284a1513f9416aa"
+    },
+    {
+      "case_id": "9c7aa89f5463",
+      "lemma": "strzępiak",
+      "original_url": "https://pnbt.gov.pl/pliki-do-pobrania/otworz/a7b93254-3b32-4d4e-b9a5-c6641d00d381.pdf",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://pnbt.gov.pl/pliki-do-pobrania/otworz/a7b93254-3b32-4d4e-b9a5-c6641d00d381.pdf",
+      "access_method": "web.open/find: ekstrakcja tekstu PDF",
+      "read_scope": "PDF parku: tytuł wykazu na stronie PDF 1 oraz strona PDF 5, indeks 4, pozycje 215–224.",
+      "finding": "Potwierdzone nazwy dziesięciu strzępiaków w wykazie gatunków.",
+      "limits": [
+        "Odczyt ekstrakcji tekstu PDF. Próba obrazu strony zakończona Cache miss. Nie weryfikowano aktualności taksonomii i ochrony gatunkowej."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://pnbt.gov.pl/pliki-do-pobrania/otworz/a7b93254-3b32-4d4e-b9a5-c6641d00d381.pdf",
+          "result": "treść_odczytana"
+        },
+        {
+          "method": "web.screenshot",
+          "url": "https://pnbt.gov.pl/pliki-do-pobrania/otworz/a7b93254-3b32-4d4e-b9a5-c6641d00d381.pdf",
+          "page_index": 4,
+          "result": "Cache miss; brak odczytu obrazu strony"
+        }
+      ]
+    },
+    {
+      "case_id": "b3a72775882c",
+      "lemma": "ruptura",
+      "original_url": "https://wsjp.pl/haslo/podglad/50305/ruptura",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://wsjp.pl/haslo/podglad/50305/ruptura",
+      "access_method": "web.open/find: tekst strony",
+      "read_scope": "WSJP: definicja/kwalifikator, połączenia, cztery cytaty i ich metryki; linie 1–30.",
+      "finding": "Potwierdzony kwalifikator przest. dla przepukliny. Cytaty pokazują także użycie przenośne w wypowiedzi prasowej z 2003 r. z objaśnieniem redakcji.",
+      "limits": [
+        "Klasa marginalne nie oznacza braku późnych użyć. Nie otwarto oryginalnych źródeł cytatów; nie wolno wszystkich przykładów WSJP redukować do dawnej narracji."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://wsjp.pl/haslo/podglad/50305/ruptura",
+          "result": "treść_odczytana"
+        }
+      ]
+    },
+    {
+      "case_id": "ba86865d437f",
+      "lemma": "odwłóczyć",
+      "original_url": "https://wsjp.pl/haslo/podglad/124654/odwloczyc",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://wsjp.pl/haslo/podglad/124654/odwloczyc",
+      "access_method": "web.open/find: tekst strony",
+      "read_scope": "WSJP: definicja, kwalifikator, synonimy, cztery cytaty, aspekt; linie 1–31.",
+      "finding": "Kwalifikator przest. i znaczenie odłożenia w czasie potwierdzone.",
+      "limits": [
+        "Nie otwarto źródeł cytatów; daty wydań nie rozstrzygają daty powstania przytoczonych wypowiedzi."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://wsjp.pl/haslo/podglad/124654/odwloczyc",
+          "result": "treść_odczytana"
+        }
+      ]
+    },
+    {
+      "case_id": "c94dce620f5d",
+      "lemma": "bojownica",
+      "original_url": "https://wsjp.pl/haslo/podglad/129634/bojownica",
+      "original_url_open_attempted": true,
+      "verification_status": "niezweryfikowany_bezpośrednio",
+      "relevant_fragment_read": false,
+      "effective_read_url": null,
+      "access_method": "Nieudany web.open oraz curl; tylko wynik wyszukiwania dla pierwotnego URL",
+      "read_scope": "Pierwotny URL: brak odczytu strony. Otwarta alternatywna strona bojowniczka nie pokazuje oczekiwanego odsyłacza do bojownica.",
+      "finding": "Własne hasło i kwalifikator książk. nadal są widoczne tylko w wyniku wyszukiwania. Bezpośrednia weryfikacja tej tezy nie powiodła się.",
+      "limits": [
+        "Nie używać wysokiej pewności zamrożonej oceny jako dowodu pełnego odczytu. Do domknięcia źródła zachować w aktualnej syntezie jako nierozstrzygnięte źródłowo; brak dostępu nie dowodzi nieistnienia wyrazu."
+      ],
+      "attempts": [
+        {
+          "method": "web.open i ponowienie po search_query",
+          "url": "https://wsjp.pl/haslo/podglad/129634/bojownica",
+          "result": "Cache miss"
+        },
+        {
+          "method": "curl -fL, sandbox",
+          "url": "https://wsjp.pl/haslo/podglad/129634/bojownica",
+          "result": "HTTP 403, curl exit 56"
+        },
+        {
+          "method": "curl -fL, ponowienie require_escalated",
+          "url": "https://wsjp.pl/haslo/podglad/129634/bojownica",
+          "result": "HTTP 403, curl exit 56"
+        },
+        {
+          "method": "web.open alternatywnego oficjalnego adresu",
+          "url": "https://wsjp.pl/haslo/podglad/129634",
+          "result": "Cache miss"
+        },
+        {
+          "method": "web.open alternatywnego oficjalnego adresu",
+          "url": "https://wsjp.pl/haslo/do_druku/129634",
+          "result": "Cache miss"
+        },
+        {
+          "method": "web.open alternatywnego oficjalnego adresu",
+          "url": "https://wsjp.pl/haslo/do_druku/129634/bojownica",
+          "result": "Cache miss"
+        },
+        {
+          "method": "web.open alternatywnego oficjalnego adresu",
+          "url": "https://www.wsjp.pl/haslo/podglad/129634/bojownica",
+          "result": "URL is not accessible via this tool"
+        }
+      ]
+    },
+    {
+      "case_id": "f86d08de3445",
+      "lemma": "pęca",
+      "original_url": "https://repozytorium.amu.edu.pl/bitstream/10593/464/2/S%C5%81OWNIK.pdf",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony_z_ograniczeniem",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://repozytorium.amu.edu.pl/bitstreams/03e4a6b5-31c3-48e6-ac40-d4aaa4bcc98e/download",
+      "access_method": "web.open/find: ekstrakcja tekstu PDF",
+      "read_scope": "Nowy oficjalny PDF AMUR: strona tytułowa i strona drukowana 183, PDF indeks 183; także metryka repozytorium.",
+      "finding": "Jowita Żurawska-Chaszczewska, Słownik słownictwa rzemiosł skórzanych, Poznań 2010: pęca jako element sokolniczy, z historycznym wykazem rejestracji.",
+      "limits": [
+        "To potwierdzenie sensu i rejestracji, nie obecnego obiegu. Wniosek o współczesnej przydatności do szerokiego POP pozostaje niepewny. Nie przeczytano całości 228-stronicowego PDF ani wszystkich cytowanych słowników."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://repozytorium.amu.edu.pl/bitstream/10593/464/2/S%C5%81OWNIK.pdf",
+          "result": "URL is not accessible via this tool"
+        },
+        {
+          "method": "web.open",
+          "url": "https://repozytorium.amu.edu.pl/items/30659c4a-cabf-48a5-bd2f-7f342cad40d2",
+          "result": "odczyt metadanych i odnośnika SŁOWNIK.pdf"
+        },
+        {
+          "method": "web.click/open/find",
+          "url": "https://repozytorium.amu.edu.pl/bitstreams/03e4a6b5-31c3-48e6-ac40-d4aaa4bcc98e/download",
+          "result": "PDF otwarty; odczyt strony tytułowej i hasła pęca na s. 183"
+        }
+      ]
+    },
+    {
+      "case_id": "fee70e15020f",
+      "lemma": "pasywizacja",
+      "original_url": "https://informatorects.uw.edu.pl/pl/courses/view?prz_kod=3301-ZJ-WM-JF003",
+      "original_url_open_attempted": true,
+      "verification_status": "potwierdzony",
+      "relevant_fragment_read": true,
+      "effective_read_url": "https://informatorects.uw.edu.pl/pl/courses/view?prz_kod=3301-ZJ-WM-JF003",
+      "access_method": "web.open/find: tekst strony",
+      "read_scope": "Informator ECTS UW: cykle 2025Z/2026Z, opis i zakres tematów; linie 8–28.",
+      "finding": "Nazwa operacji składniowej występuje w dwóch miejscach opisu zajęć.",
+      "limits": [
+        "Aktualny program potwierdza użycie specjalistyczne; nie mierzy znajomości terminu w populacji."
+      ],
+      "attempts": [
+        {
+          "method": "web.open",
+          "url": "https://informatorects.uw.edu.pl/pl/courses/view?prz_kod=3301-ZJ-WM-JF003",
+          "result": "treść_odczytana"
+        }
+      ]
+    }
+  ],
+  "supplementary_sources": [
+    {
+      "lemma": "przedryndać",
+      "url": "https://wsjp.pl/haslo/podglad/33898/zatelefonowac",
+      "method": "web.open",
+      "read_scope": "definicja i relacje znaczeniowe, linie 1–21",
+      "supports": "przedryndać wymienione jako synonim zatelefonować",
+      "does_not_support": "częstość, przykład użycia przedryndać ani jego własny kwalifikator"
+    },
+    {
+      "lemma": "bojownica",
+      "url": "https://wsjp.pl/haslo/podglad/51404/bojowniczka/5151727/o-prawa-czlowieka",
+      "method": "web.open",
+      "read_scope": "definicja, cytaty i odmiana; sprawdzenie relacji",
+      "supports": null,
+      "does_not_support": "W odczytanej wersji brak odsyłacza bojownica, mimo obecności w wyniku wyszukiwania. Nie jest substytutem własnego hasła."
+    }
+  ],
+  "interpretation_updates": [
+    {
+      "lemma": "przedryndać",
+      "kind": "nowe_potwierdzenie_po_zamrożeniu",
+      "statement": "Telefonicznego znaczenia nie usuwam jako nieistniejącego: potwierdza je teraz otwarte hasło zatelefonować jako relację synonimii. Przypisuję nowy właściwy URL zamiast adresu znaczenia podróżnego. Nie wywodzę z samej tej relacji częstości ani kwalifikatora potoczności. Znaczenie podróżne nie uzyskało bezpośredniego potwierdzenia z powodu dostępu."
+    },
+    {
+      "lemma": "szampiter",
+      "kind": "korekta_nadinterpretacji",
+      "statement": "Wycofuję z bieżącej interpretacji automatyczne przypisanie rzeczownikowi kwalifikatora żartobliwości na podstawie nawiasu dotyczącego czasownika szampitrować. Potwierdzone: rzeczownik szampiter=szampan przywołany za SW oraz osobne regionalne szampiter=szampon."
+    },
+    {
+      "lemma": "bojownica",
+      "kind": "nierozstrzygnięta_weryfikacja",
+      "statement": "W bieżącej syntezie kwalifikacja książk. i pełne hasło nadal mają status tylko indeksowanego wyniku. Zamrożona wysoka pewność nie może być przedstawiana jako zakończona weryfikacja bezpośrednia. Propozycja robocza: niepewne źródłowo do uzyskania właściwego odczytu; bez zmiany klasy historycznej."
+    },
+    {
+      "lemma": "pęca",
+      "kind": "zawężenie_wniosku",
+      "statement": "Potwierdzenie nazwy i historycznych rejestracji nie rozstrzyga współczesnego obiegu. Dla decyzji o szerokim POP pozostawić niepewność. Autorstwo i tytuł po otwarciu: Jowita Żurawska-Chaszczewska, Słownik słownictwa rzemiosł skórzanych, Poznań 2010."
+    },
+    {
+      "lemma": "lunonauta",
+      "kind": "uzupełnienie_metryki",
+      "statement": "Po bezpośrednim odczycie ustalono: Wiesław Krajewski, Urania–PA 5/2009. Nie jest to poświadczenie tekstu z 2026 r."
+    },
+    {
+      "lemma": "ruptura",
+      "kind": "zastrzeżenie_interpretacyjne",
+      "statement": "Kwalifikator przest. pozostaje potwierdzony, lecz przykłady WSJP obejmują także późne użycie przenośne w prasie, objaśnione przez redakcję. Nie rozciągać opisu próby KWJP na wszystkie użycia słowa."
+    }
+  ]
+}

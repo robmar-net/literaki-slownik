@@ -1,0 +1,1090 @@
+{
+  "schema_version": 1,
+  "accessed_at": "2026-10-12",
+  "role": "Niezależny przegląd metodologii i źródeł; bez wdrożenia",
+  "status": "completed",
+  "outputs": [
+    "methodology-sources.md",
+    "methodology-sources.json"
+  ],
+  "requested_coverage": [
+    {
+      "category": "ADR/specyfikacja/mapowanie",
+      "status": "inspected",
+      "source_ids": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ]
+    },
+    {
+      "category": "KWJP: zakres i metryki",
+      "status": "inspected",
+      "source_ids": [
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5",
+        "L6",
+        "D1",
+        "D2"
+      ]
+    },
+    {
+      "category": "NKJP: źródło i zakres",
+      "status": "inspected",
+      "source_ids": [
+        "E6",
+        "E7",
+        "L4",
+        "L5"
+      ]
+    },
+    {
+      "category": "Publikacje pierwotne o dyspersji i znajomości",
+      "status": "inspected_with_access_limits",
+      "source_ids": [
+        "E8",
+        "E9",
+        "E10",
+        "E11"
+      ]
+    },
+    {
+      "category": "Kod obecnej metody",
+      "status": "inspected",
+      "source_ids": [
+        "L6",
+        "L7",
+        "L8"
+      ]
+    },
+    {
+      "category": "Zewnętrzne listy znajomości / Jasnopis / Logios",
+      "status": "user_excluded",
+      "reason": "BLOCKED w kontrakcie zadania; nie pobrano norm ani list słów"
+    }
+  ],
+  "sources": [
+    {
+      "id": "E1",
+      "url": "https://kwjp.pl/overview",
+      "kind": "official_documentation",
+      "read_scope": "Opis zakresu, struktury, okresu i anotacji",
+      "support": "KWJP100, okres 2011–2020, proporcje gatunków, brak rozmów i internetu w korpusie",
+      "limitations": [
+        "Opis korpusu, nie pomiar znajomości."
+      ]
+    },
+    {
+      "id": "E2",
+      "url": "https://kwjp.pl/lists/doc/about/",
+      "kind": "official_documentation",
+      "read_scope": "Pełny opis list i miar",
+      "support": "F/IPM/ARF/1-DP, automatyczna anotacja, próg publikacji globalnej F≥5",
+      "limitations": [
+        "Nie wybiera progu POP ani konkretnej minimalnej dyspersji."
+      ]
+    },
+    {
+      "id": "E3",
+      "url": "https://kwjp.pl/manual",
+      "kind": "official_documentation",
+      "read_scope": "Jednostki zapytań oraz orth/lemma/POS",
+      "support": "Wyszukiwanie segmentów i przypisanej analizy",
+      "limitations": [
+        "Zapytanie lemma/POS nie identyfikuje niezależnie znaczenia."
+      ]
+    },
+    {
+      "id": "E4",
+      "url": "https://korpusomat.readthedocs.io/pl/latest/mtas.html",
+      "kind": "official_documentation",
+      "read_scope": "Segmentacja oraz atrybuty zapytań",
+      "support": "Rozdzielanie części słów pisanych łącznie",
+      "limitations": [
+        "Zakres instrukcji określony przez autorów, nie dowód bezbłędnej anotacji."
+      ]
+    },
+    {
+      "id": "E5",
+      "url": "https://github.com/ipipan/kwjp100-varia",
+      "kind": "official_data_repository",
+      "read_scope": "README i dostępne rodzaje zasobów",
+      "support": "Pochodzenie list i próbki KWJP½M; dokumentacja danych",
+      "limitations": [
+        "Nie pobrano nowych zbiorów danych."
+      ]
+    },
+    {
+      "id": "E6",
+      "url": "https://zil.ipipan.waw.pl/NKJPNGrams",
+      "kind": "official_source",
+      "read_scope": "Pełny opis i deklaracja licencyjna",
+      "support": "N-gramy podkorpusu 300M, małe litery i podział białym znakiem",
+      "limitations": [
+        "Unigramy nie mają dokumentów, dat, gatunków ani sensów; bez redystrybucji surowego pliku."
+      ]
+    },
+    {
+      "id": "E7",
+      "url": "https://nkjp.pl/",
+      "kind": "official_documentation",
+      "read_scope": "Opis projektu i rodzajów tekstów",
+      "support": "NKJP obejmuje także rozmowy i internet",
+      "limitations": [
+        "Opis całego korpusu nie jest etykietą każdego unigramu."
+      ]
+    },
+    {
+      "id": "E8",
+      "url": "https://stgries.info/research/2020_STG_Dispersion_PHCL.pdf",
+      "title": "Analyzing Dispersion",
+      "author": "Stefan Th. Gries",
+      "year": 2020,
+      "kind": "author_publication",
+      "read_scope": "s. 103–104 definicje; s. 111–114 dyskusja walidacji i progów",
+      "support": "DP/DP_norm; rozdzielenie częstości i dyspersji; potrzeba walidacji progów",
+      "limitations": [
+        "Brak gotowej granicy dla polszczyzny lub gry."
+      ]
+    },
+    {
+      "id": "E9",
+      "url": "https://wrap.warwick.ac.uk/399/1/WRAP_Adelman_cdps4.pdf",
+      "title": "Contextual Diversity, Not Word Frequency, Determines Word-Naming and Lexical Decision Times",
+      "authors": [
+        "James S. Adelman",
+        "Gordon D. A. Brown",
+        "José F. Quesada"
+      ],
+      "year": 2006,
+      "kind": "author_accepted_manuscript",
+      "read_scope": "Abstrakt, metoda, główne wyniki",
+      "support": "Różnorodność dokumentów pomaga wyjaśniać czas identyfikacji słów",
+      "limitations": [
+        "Angielskie zadania psycholingwistyczne; brak kalibracji POP; nie pobrano danych eksperymentalnych."
+      ]
+    },
+    {
+      "id": "E10",
+      "url": "https://biblio.ugent.be/publication/8647817",
+      "title": "Word prevalence norms for 62,000 English lemmas",
+      "authors": [
+        "Marc Brysbaert",
+        "Paweł Mandera",
+        "Samantha F. McCormick",
+        "Emmanuel Keuleers"
+      ],
+      "year": 2019,
+      "kind": "authors_institutional_record",
+      "read_scope": "Abstrakt i metryka; pełny tekst oznaczony UGent only",
+      "support": "Znajomość u ludzi stanowi odrębny pomiar od częstości korpusowej",
+      "limitations": [
+        "Tylko twierdzenia z abstraktu; nie pobrano norm lub listy słów."
+      ]
+    },
+    {
+      "id": "E11",
+      "url": "https://aclanthology.org/L06-1006/",
+      "title": "New Approach to Frequency Dictionaries - Czech Example",
+      "author": "Jaroslava Hlaváčová",
+      "year": 2006,
+      "kind": "primary_publication_abstract",
+      "read_scope": "Abstrakt i metryka",
+      "support": "ARF stosowano do porządkowania słownika frekwencyjnego",
+      "limitations": [
+        "URL PDF ACL zwrócił Cache miss; brak twierdzeń o szczegółach wzoru z nieodczytanego PDF."
+      ]
+    },
+    {
+      "id": "L1",
+      "path": "docs/adr/ADR-007-metoda-pop-v1.md",
+      "read_scope": "Całość",
+      "sha256": "0e210bb491c8f45c9c67caee953d64fbe57f7582e3525b32211fafe06c18357b"
+    },
+    {
+      "id": "L2",
+      "path": ".maister/tasks/development/2026-10-11-slowniki-pop-pop0/implementation/spec.md",
+      "read_scope": "Całość, z uwagą o pierwszeństwie rewizji 2–4 ADR"
+    },
+    {
+      "id": "L3",
+      "path": "docs/generator/mapowanie-kwjp.md",
+      "read_scope": "Całość"
+    },
+    {
+      "id": "L4",
+      "path": "docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md",
+      "read_scope": "Całość; obowiązujące ograniczenia NKJP"
+    },
+    {
+      "id": "L5",
+      "path": "config/generator/pop-sources.json",
+      "read_scope": "Całość; przypięte wejścia"
+    },
+    {
+      "id": "L6",
+      "path": "literaki_slownik/kwjp.py",
+      "read_scope": "Całość; nazwy i typy metryk"
+    },
+    {
+      "id": "L7",
+      "path": "literaki_slownik/pop.py",
+      "read_scope": "kwjp_measures, units, measure, coverage, threshold, member_units, prune_members, forms_for, _build_pop; część odczytana w rundzie 4",
+      "sha256": "a159cf503f86072c595c0c893c0c1903b6958b992c8a3c4dcde7de78fd4c5b30"
+    },
+    {
+      "id": "L8",
+      "path": "config/generator/pop.json",
+      "read_scope": "Całość",
+      "sha256": "affcfab871ef499128e030318753678486353d667be32e3a9d24bc817aef9a60"
+    },
+    {
+      "id": "L9",
+      "path": ".maister/tasks/development/2026-10-11-slowniki-pop-pop0/analysis/pop-measure-report.md",
+      "read_scope": "Dodatek 2026-10-11 oraz identyfikacja użytej miary/obsługi braków"
+    }
+  ],
+  "observed_access_limits": [
+    {
+      "url": "https://nkjp.pl/index.php?page=0&lang=0",
+      "result": "web Internal Error",
+      "resolution": "Odczytano https://nkjp.pl/; wymagany opis NKJP dostępny."
+    },
+    {
+      "url": "https://aclanthology.org/L06-1006.pdf",
+      "result": "web Cache miss",
+      "resolution": "Wykorzystano tylko dostępny abstrakt; szczegóły ARF z oficjalnej dokumentacji KWJP."
+    },
+    {
+      "url": "https://biblio.ugent.be/publication/8647817",
+      "result": "Pełny tekst: UGent only",
+      "resolution": "Odczytano abstrakt; norm nie pobierano."
+    }
+  ],
+  "data_checks": {
+    "source_type": "existing_pinned_KWJP_files",
+    "read_only": true,
+    "decimal_tolerance": "0.0000001",
+    "method": "CSV gzip; dla każdego wiersza Decimal: porównaj 1-DP z 1−DP i z 1−DP_norm; policz sumę int(Decimal(freq)), freq<5 i równość freq/total_freq.",
+    "inputs": [
+      {
+        "id": "D1",
+        "path": "cache/kwjp/kwjp100-slowa-lemma-all.csv.gz",
+        "sha256": "5206e80669a054ad4d3c9d39b7643d13e75435afa3612a15d2847f39f42bb5fc",
+        "rows": 184917,
+        "one_minus_dp_mismatches": 0,
+        "one_minus_dp_norm_mismatches": 184917,
+        "sum_f": 81664894,
+        "f_below5": 0,
+        "total_freq_equals_f": 184917
+      },
+      {
+        "id": "D2",
+        "path": "cache/kwjp/kwjp100-slowa-lemma-fakt.csv.gz",
+        "sha256": "ee427e7461006ab968f5e7c4590332918071268447d5cccac5eb059ad1b4def0",
+        "rows": 164651,
+        "one_minus_dp_mismatches": 0,
+        "one_minus_dp_norm_mismatches": 164651,
+        "sum_f": 28579794,
+        "f_below5": 49474,
+        "total_freq_equals_f": 9723
+      }
+    ],
+    "interpretation": [
+      "1-DP odnosi się do DP, nie DP_norm.",
+      "Gatunkowe F<5 nie narusza globalnego progu publikacji.",
+      "Mianownik log-ipm obecnej implementacji to suma F listy all; total_freq jest częstością jednostki w całym korpusie."
+    ],
+    "total_freq_cross_list_check": {
+      "fakt_rows_checked": 164651,
+      "mismatches_against_all_F": 0
+    }
+  },
+  "research_recommendations": [
+    {
+      "id": "A",
+      "variant": "count_limits",
+      "parameters": [
+        60000,
+        70000,
+        80000
+      ],
+      "fixed": "pop-v2, pełna odmiana, obecne reguły grup i braków",
+      "measurement": "Oba STANDARD, pełne delty, próby pasm i pozalistowe",
+      "status": "research_only"
+    },
+    {
+      "id": "B",
+      "variant": "minimum_current_score",
+      "parameters": "Nie wybrano τ; mała jawna siatka i ten sam próg w obu STANDARD",
+      "conditions": [
+        "Porównać własny score członka z tym samym τ.",
+        "Pokazać osobno wyjątek najmocniejszego członka.",
+        "Rozdzielić obserwowane źródła, single_source i bound."
+      ],
+      "status": "research_only"
+    },
+    {
+      "id": "C",
+      "variant": "frequency_and_dispersion",
+      "parameters": "Nie wybrano f,d; siatka F≥f i DP_norm≤d lub osobny wariant ARF",
+      "conditions": [
+        "Nie sumować ARF/DP grup.",
+        "Zachować tożsamość jednostki dowodu i gatunku.",
+        "Braki/homonimy raportować osobno.",
+        "Liczba gatunków jest diagnostyką, nie liczbą dokumentów."
+      ],
+      "status": "research_only"
+    }
+  ],
+  "cautions": [
+    "Porównanie 60k/80k z wcześniejszego dodatku poprzedza aktualną metodę; późniejsze rewizje miały próbki i walidację.",
+    "kwjp-standard zmienia mianownik z populacją STANDARD; potrzebne też stałe kwjp-all lub wspólny zamrożony zbiór.",
+    "Pokrycie na danych rankingu nie jest niezależną walidacją ani miarą znajomości.",
+    "Stosowanie τ zamiast limitu nie usuwa zależności od topologii grup i imputacji.",
+    "Próbki warstwowe bez wag nie dają prostego oszacowania błędu populacji.",
+    "Oceniający powinni nie widzieć wariantu/rangi; stałe kontrole i próbka losowa są odrębnymi zbiorami."
+  ],
+  "no_mutations_to": [
+    "production_code",
+    "configuration",
+    "orchestrator_state",
+    "lists",
+    "git_history",
+    "issue_comments"
+  ],
+  "remaining_for_coordinator": [
+    "Pomiary wszystkich wariantów i obu STANDARD",
+    "Oceny próbek marginalnych i pozalistowych",
+    "Wybór kryterium z użytkownikiem"
+  ],
+  "arf_ratio_audit": {
+    "scope": "Wszystkie oryginalne wiersze lemma-all, także niedopasowane do SGJP i niedopuszczone w STANDARD; to rozkład danych, nie efekt na POP. Nie agregowano wierszy lub homonimów.",
+    "rows": 184917,
+    "quantile_method": "Najbliższa obserwacja indeks round((n−1)*q) w posortowanym wektorze.",
+    "pearson_log10_F_log10_ratio": -0.026910937268316646,
+    "overall_ARF_F_quantiles": {
+      "0": 0.002650429799426934,
+      "0.01": 0.05555555555555555,
+      "0.05": 0.16666666666666666,
+      "0.1": 0.25,
+      "0.25": 0.41375,
+      "0.5": 0.53,
+      "0.75": 0.6022727272727273,
+      "0.9": 0.6681818181818181,
+      "0.95": 0.7115,
+      "0.99": 0.7933333333333333,
+      "1": 0.968
+    },
+    "bins": [
+      {
+        "F_from": 5,
+        "F_to_exclusive": 10,
+        "rows": 57677,
+        "ARF_F_quantiles": {
+          "0": 0.1111111111111111,
+          "0.01": 0.125,
+          "0.05": 0.16666666666666666,
+          "0.1": 0.2,
+          "0.25": 0.4,
+          "0.5": 0.55,
+          "0.75": 0.6533333333333333,
+          "0.9": 0.7283333333333334,
+          "0.95": 0.76875,
+          "0.99": 0.8366666666666666,
+          "1": 0.968
+        },
+        "ratio_below": {
+          "0.001": 0,
+          "0.003": 0,
+          "0.01": 0,
+          "0.03": 0,
+          "0.1": 0,
+          "0.3": 8934
+        },
+        "examples_low_ratio": [
+          {
+            "lemma": "-pietierburg",
+            "pos": "interp",
+            "F": 9,
+            "ARF": 1.0,
+            "ARF_F": 0.1111111111111111
+          },
+          {
+            "lemma": "Aaiún",
+            "pos": "xxs",
+            "F": 9,
+            "ARF": 1.0,
+            "ARF_F": 0.1111111111111111
+          },
+          {
+            "lemma": "Achilleo",
+            "pos": "subst",
+            "F": 9,
+            "ARF": 1.0,
+            "ARF_F": 0.1111111111111111
+          },
+          {
+            "lemma": "Aiut",
+            "pos": "subst",
+            "F": 9,
+            "ARF": 1.0,
+            "ARF_F": 0.1111111111111111
+          },
+          {
+            "lemma": "Ajk",
+            "pos": "subst",
+            "F": 9,
+            "ARF": 1.0,
+            "ARF_F": 0.1111111111111111
+          }
+        ]
+      },
+      {
+        "F_from": 10,
+        "F_to_exclusive": 30,
+        "rows": 55196,
+        "ARF_F_quantiles": {
+          "0": 0.034482758620689655,
+          "0.01": 0.05368421052631579,
+          "0.05": 0.10684210526315789,
+          "0.1": 0.21833333333333335,
+          "0.25": 0.4040909090909091,
+          "0.5": 0.535,
+          "0.75": 0.6136842105263158,
+          "0.9": 0.6675,
+          "0.95": 0.696923076923077,
+          "0.99": 0.75,
+          "1": 0.8881818181818182
+        },
+        "ratio_below": {
+          "0.001": 0,
+          "0.003": 0,
+          "0.01": 0,
+          "0.03": 0,
+          "0.1": 2244,
+          "0.3": 8134
+        },
+        "examples_low_ratio": [
+          {
+            "lemma": "Agesilaos",
+            "pos": "subst",
+            "F": 29,
+            "ARF": 1.0,
+            "ARF_F": 0.034482758620689655
+          },
+          {
+            "lemma": "Firmington",
+            "pos": "subst",
+            "F": 29,
+            "ARF": 1.0,
+            "ARF_F": 0.034482758620689655
+          },
+          {
+            "lemma": "Hatice",
+            "pos": "subst",
+            "F": 29,
+            "ARF": 1.0,
+            "ARF_F": 0.034482758620689655
+          },
+          {
+            "lemma": "Makhfi",
+            "pos": "subst",
+            "F": 29,
+            "ARF": 1.0,
+            "ARF_F": 0.034482758620689655
+          },
+          {
+            "lemma": "Manicure",
+            "pos": "subst",
+            "F": 29,
+            "ARF": 1.0,
+            "ARF_F": 0.034482758620689655
+          }
+        ]
+      },
+      {
+        "F_from": 30,
+        "F_to_exclusive": 100,
+        "rows": 34939,
+        "ARF_F_quantiles": {
+          "0": 0.01063157894736842,
+          "0.01": 0.024634146341463416,
+          "0.05": 0.14814814814814814,
+          "0.1": 0.2741176470588235,
+          "0.25": 0.428125,
+          "0.5": 0.5345161290322581,
+          "0.75": 0.5919047619047619,
+          "0.9": 0.627741935483871,
+          "0.95": 0.645897435897436,
+          "0.99": 0.6806756756756757,
+          "1": 0.7862857142857143
+        },
+        "ratio_below": {
+          "0.001": 0,
+          "0.003": 0,
+          "0.01": 0,
+          "0.03": 512,
+          "0.1": 1309,
+          "0.3": 4017
+        },
+        "examples_low_ratio": [
+          {
+            "lemma": "Kady",
+            "pos": "subst",
+            "F": 95,
+            "ARF": 1.01,
+            "ARF_F": 0.01063157894736842
+          },
+          {
+            "lemma": "Kinnu",
+            "pos": "subst",
+            "F": 94,
+            "ARF": 1.01,
+            "ARF_F": 0.01074468085106383
+          },
+          {
+            "lemma": "Hijikata",
+            "pos": "subst",
+            "F": 92,
+            "ARF": 1.0,
+            "ARF_F": 0.010869565217391304
+          },
+          {
+            "lemma": "Dawud",
+            "pos": "subst",
+            "F": 98,
+            "ARF": 1.07,
+            "ARF_F": 0.010918367346938776
+          },
+          {
+            "lemma": "Stójkowy",
+            "pos": "subst",
+            "F": 95,
+            "ARF": 1.04,
+            "ARF_F": 0.010947368421052633
+          }
+        ]
+      },
+      {
+        "F_from": 100,
+        "F_to_exclusive": 300,
+        "rows": 18714,
+        "ARF_F_quantiles": {
+          "0": 0.004249084249084249,
+          "0.01": 0.028878504672897196,
+          "0.05": 0.2245,
+          "0.1": 0.32977653631284914,
+          "0.25": 0.44036697247706424,
+          "0.5": 0.5245967741935483,
+          "0.75": 0.57416,
+          "0.9": 0.6003211009174312,
+          "0.95": 0.6131875,
+          "0.99": 0.6371895424836601,
+          "1": 0.680873015873016
+        },
+        "ratio_below": {
+          "0.001": 0,
+          "0.003": 0,
+          "0.01": 82,
+          "0.03": 191,
+          "0.1": 420,
+          "0.3": 1512
+        },
+        "examples_low_ratio": [
+          {
+            "lemma": "Dukajski",
+            "pos": "subst",
+            "F": 273,
+            "ARF": 1.16,
+            "ARF_F": 0.004249084249084249
+          },
+          {
+            "lemma": "Verinder",
+            "pos": "subst",
+            "F": 268,
+            "ARF": 1.22,
+            "ARF_F": 0.004552238805970149
+          },
+          {
+            "lemma": "Dragonow",
+            "pos": "subst",
+            "F": 288,
+            "ARF": 1.34,
+            "ARF_F": 0.004652777777777778
+          },
+          {
+            "lemma": "Szczelba",
+            "pos": "subst",
+            "F": 246,
+            "ARF": 1.16,
+            "ARF_F": 0.004715447154471544
+          },
+          {
+            "lemma": "Mitrowicz",
+            "pos": "subst",
+            "F": 239,
+            "ARF": 1.13,
+            "ARF_F": 0.004728033472803347
+          }
+        ]
+      },
+      {
+        "F_from": 300,
+        "F_to_exclusive": 1000,
+        "rows": 10738,
+        "ARF_F_quantiles": {
+          "0": 0.002650429799426934,
+          "0.01": 0.07111739745403112,
+          "0.05": 0.268966613672496,
+          "0.1": 0.343535660091047,
+          "0.25": 0.429251968503937,
+          "0.5": 0.5046096654275093,
+          "0.75": 0.554099037138927,
+          "0.9": 0.58,
+          "0.95": 0.5907575757575758,
+          "0.99": 0.6078680203045685,
+          "1": 0.6390476190476191
+        },
+        "ratio_below": {
+          "0.001": 0,
+          "0.003": 3,
+          "0.01": 20,
+          "0.03": 50,
+          "0.1": 142,
+          "0.3": 692
+        },
+        "examples_low_ratio": [
+          {
+            "lemma": "Jarko",
+            "pos": "subst",
+            "F": 698,
+            "ARF": 1.85,
+            "ARF_F": 0.002650429799426934
+          },
+          {
+            "lemma": "Raahi",
+            "pos": "subst",
+            "F": 485,
+            "ARF": 1.35,
+            "ARF_F": 0.0027835051546391755
+          },
+          {
+            "lemma": "Kosoń",
+            "pos": "subst",
+            "F": 474,
+            "ARF": 1.36,
+            "ARF_F": 0.002869198312236287
+          },
+          {
+            "lemma": "Pańcia",
+            "pos": "subst",
+            "F": 406,
+            "ARF": 1.31,
+            "ARF_F": 0.003226600985221675
+          },
+          {
+            "lemma": "Rohow",
+            "pos": "subst",
+            "F": 437,
+            "ARF": 1.49,
+            "ARF_F": 0.0034096109839816934
+          }
+        ]
+      },
+      {
+        "F_from": 1000,
+        "F_to_exclusive": 10000,
+        "rows": 6718,
+        "ARF_F_quantiles": {
+          "0": 0.00398687448728466,
+          "0.01": 0.16394259580507806,
+          "0.05": 0.28483969465648856,
+          "0.1": 0.3359895757926741,
+          "0.25": 0.40390383048084755,
+          "0.5": 0.4727212717230231,
+          "0.75": 0.5274080717488788,
+          "0.9": 0.5569091934574167,
+          "0.95": 0.5679729221511847,
+          "0.99": 0.5849905482041587,
+          "1": 0.6089224952741021
+        },
+        "ratio_below": {
+          "0.001": 0,
+          "0.003": 0,
+          "0.01": 5,
+          "0.03": 11,
+          "0.1": 33,
+          "0.3": 411
+        },
+        "examples_low_ratio": [
+          {
+            "lemma": "Izzat",
+            "pos": "subst",
+            "F": 1219,
+            "ARF": 4.86,
+            "ARF_F": 0.00398687448728466
+          },
+          {
+            "lemma": "Roswita",
+            "pos": "subst",
+            "F": 1129,
+            "ARF": 5.53,
+            "ARF_F": 0.004898139946855624
+          },
+          {
+            "lemma": "Weichert",
+            "pos": "subst",
+            "F": 1051,
+            "ARF": 5.92,
+            "ARF_F": 0.005632730732635585
+          },
+          {
+            "lemma": "Tosiek",
+            "pos": "subst",
+            "F": 1758,
+            "ARF": 12.55,
+            "ARF_F": 0.007138794084186576
+          },
+          {
+            "lemma": "Znajda",
+            "pos": "subst",
+            "F": 1308,
+            "ARF": 9.81,
+            "ARF_F": 0.007500000000000001
+          }
+        ]
+      },
+      {
+        "F_from": 10000,
+        "F_to_exclusive": null,
+        "rows": 935,
+        "ARF_F_quantiles": {
+          "0": 0.15980490103675776,
+          "0.01": 0.23478583857582652,
+          "0.05": 0.3242966002344666,
+          "0.1": 0.35572890752718744,
+          "0.25": 0.41409452147446735,
+          "0.5": 0.48745433117265763,
+          "0.75": 0.537526066350711,
+          "0.9": 0.5635800495563904,
+          "0.95": 0.5761222339304531,
+          "0.99": 0.5960396562216674,
+          "1": 0.6437908306899718
+        },
+        "ratio_below": {
+          "0.001": 0,
+          "0.003": 0,
+          "0.01": 0,
+          "0.03": 0,
+          "0.1": 0,
+          "0.3": 34
+        },
+        "examples_low_ratio": [
+          {
+            "lemma": "pozycja",
+            "pos": "brev",
+            "F": 10610,
+            "ARF": 1695.53,
+            "ARF_F": 0.15980490103675776
+          },
+          {
+            "lemma": "artykuł",
+            "pos": "brev",
+            "F": 16695,
+            "ARF": 3011.46,
+            "ARF_F": 0.1803809523809524
+          },
+          {
+            "lemma": "Żyd",
+            "pos": "subst",
+            "F": 14464,
+            "ARF": 2733.04,
+            "ARF_F": 0.18895464601769912
+          },
+          {
+            "lemma": "żydowski",
+            "pos": "adj",
+            "F": 11623,
+            "ARF": 2209.12,
+            "ARF_F": 0.19006452723049125
+          },
+          {
+            "lemma": "ksiądz",
+            "pos": "subst",
+            "F": 21910,
+            "ARF": 4439.55,
+            "ARF_F": 0.20262665449566408
+          }
+        ]
+      }
+    ],
+    "grid": [
+      {
+        "min_ARF": 0,
+        "min_ARF_F": 0,
+        "rows_passing": 184917
+      },
+      {
+        "min_ARF": 0,
+        "min_ARF_F": 0.001,
+        "rows_passing": 184917
+      },
+      {
+        "min_ARF": 0,
+        "min_ARF_F": 0.003,
+        "rows_passing": 184914
+      },
+      {
+        "min_ARF": 0,
+        "min_ARF_F": 0.01,
+        "rows_passing": 184810
+      },
+      {
+        "min_ARF": 0,
+        "min_ARF_F": 0.03,
+        "rows_passing": 184153
+      },
+      {
+        "min_ARF": 0,
+        "min_ARF_F": 0.1,
+        "rows_passing": 180769
+      },
+      {
+        "min_ARF": 0,
+        "min_ARF_F": 0.3,
+        "rows_passing": 161183
+      },
+      {
+        "min_ARF": 1.1,
+        "min_ARF_F": 0,
+        "rows_passing": 176068
+      },
+      {
+        "min_ARF": 1.1,
+        "min_ARF_F": 0.001,
+        "rows_passing": 176068
+      },
+      {
+        "min_ARF": 1.1,
+        "min_ARF_F": 0.003,
+        "rows_passing": 176065
+      },
+      {
+        "min_ARF": 1.1,
+        "min_ARF_F": 0.01,
+        "rows_passing": 175984
+      },
+      {
+        "min_ARF": 1.1,
+        "min_ARF_F": 0.03,
+        "rows_passing": 175754
+      },
+      {
+        "min_ARF": 1.1,
+        "min_ARF_F": 0.1,
+        "rows_passing": 174475
+      },
+      {
+        "min_ARF": 1.1,
+        "min_ARF_F": 0.3,
+        "rows_passing": 161183
+      },
+      {
+        "min_ARF": 2,
+        "min_ARF_F": 0,
+        "rows_passing": 173407
+      },
+      {
+        "min_ARF": 2,
+        "min_ARF_F": 0.001,
+        "rows_passing": 173407
+      },
+      {
+        "min_ARF": 2,
+        "min_ARF_F": 0.003,
+        "rows_passing": 173407
+      },
+      {
+        "min_ARF": 2,
+        "min_ARF_F": 0.01,
+        "rows_passing": 173385
+      },
+      {
+        "min_ARF": 2,
+        "min_ARF_F": 0.03,
+        "rows_passing": 173200
+      },
+      {
+        "min_ARF": 2,
+        "min_ARF_F": 0.1,
+        "rows_passing": 172000
+      },
+      {
+        "min_ARF": 2,
+        "min_ARF_F": 0.3,
+        "rows_passing": 160213
+      },
+      {
+        "min_ARF": 3,
+        "min_ARF_F": 0,
+        "rows_passing": 157939
+      },
+      {
+        "min_ARF": 3,
+        "min_ARF_F": 0.001,
+        "rows_passing": 157939
+      },
+      {
+        "min_ARF": 3,
+        "min_ARF_F": 0.003,
+        "rows_passing": 157939
+      },
+      {
+        "min_ARF": 3,
+        "min_ARF_F": 0.01,
+        "rows_passing": 157928
+      },
+      {
+        "min_ARF": 3,
+        "min_ARF_F": 0.03,
+        "rows_passing": 157830
+      },
+      {
+        "min_ARF": 3,
+        "min_ARF_F": 0.1,
+        "rows_passing": 157071
+      },
+      {
+        "min_ARF": 3,
+        "min_ARF_F": 0.3,
+        "rows_passing": 148810
+      },
+      {
+        "min_ARF": 5,
+        "min_ARF_F": 0,
+        "rows_passing": 122299
+      },
+      {
+        "min_ARF": 5,
+        "min_ARF_F": 0.001,
+        "rows_passing": 122299
+      },
+      {
+        "min_ARF": 5,
+        "min_ARF_F": 0.003,
+        "rows_passing": 122299
+      },
+      {
+        "min_ARF": 5,
+        "min_ARF_F": 0.01,
+        "rows_passing": 122294
+      },
+      {
+        "min_ARF": 5,
+        "min_ARF_F": 0.03,
+        "rows_passing": 122251
+      },
+      {
+        "min_ARF": 5,
+        "min_ARF_F": 0.1,
+        "rows_passing": 121811
+      },
+      {
+        "min_ARF": 5,
+        "min_ARF_F": 0.3,
+        "rows_passing": 116166
+      },
+      {
+        "min_ARF": 10,
+        "min_ARF_F": 0,
+        "rows_passing": 85771
+      },
+      {
+        "min_ARF": 10,
+        "min_ARF_F": 0.001,
+        "rows_passing": 85771
+      },
+      {
+        "min_ARF": 10,
+        "min_ARF_F": 0.003,
+        "rows_passing": 85771
+      },
+      {
+        "min_ARF": 10,
+        "min_ARF_F": 0.01,
+        "rows_passing": 85770
+      },
+      {
+        "min_ARF": 10,
+        "min_ARF_F": 0.03,
+        "rows_passing": 85754
+      },
+      {
+        "min_ARF": 10,
+        "min_ARF_F": 0.1,
+        "rows_passing": 85538
+      },
+      {
+        "min_ARF": 10,
+        "min_ARF_F": 0.3,
+        "rows_passing": 82069
+      }
+    ]
+  },
+  "experimental_filter_review": {
+    "script": "analysis/round5_measure.py",
+    "first_result_invalid_for_method_judgment": {
+      "lexemes": 17894,
+      "forms": 391166,
+      "frequent_guard_missing": 9168
+    },
+    "issues": [
+      {
+        "id": "singleton_as_unknown",
+        "finding": "Brak subunit powodował row=None mimo własnej jednostki z KWJP.",
+        "reported_to_coordinator": true
+      },
+      {
+        "id": "aggregate_ratio_mismatch",
+        "finding": "ARF najlepszego wiersza podzielone przez zsumowane F nie jest ratio agregatu.",
+        "reported_to_coordinator": true
+      }
+    ],
+    "coordinator_response": "Korekta na oryginalne wiersze i OR wierszy o tej samej podstawie lematu; wyniki pierwszej sondy nie będą użyte w syntezie.",
+    "status": "correction_accepted_remeasurement_owned_by_coordinator",
+    "recommended_ARF_grid": [
+      1.1,
+      2,
+      3,
+      5,
+      10
+    ],
+    "recommended_ratio_grid": [
+      0,
+      0.01,
+      0.03,
+      0.1,
+      0.3
+    ],
+    "low_ratio_controls": [
+      0.001,
+      0.003
+    ],
+    "optional_own_F_grid": [
+      5,
+      10,
+      30
+    ],
+    "missingness_variants": [
+      "require_own_KWJP_and_report_unknown_separately",
+      "keep_baseline80k_membership_if_own_KWJP_is_missing_or_unreliable_and_label_fallback"
+    ],
+    "caution": "To parametry analizy wrażliwości, nie normy popularności."
+  }
+}

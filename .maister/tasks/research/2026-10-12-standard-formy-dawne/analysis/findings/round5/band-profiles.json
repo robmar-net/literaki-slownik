@@ -1,0 +1,146 @@
+{
+  "created_at": "2026-10-12T10:30:20Z",
+  "bands": {
+    "40000-50000": {
+      "lemmas": 9930,
+      "own_original_kwjp_lemmas": 9820,
+      "without_own_original_kwjp_lemmas": 110,
+      "own_F_sum_median_if_available": 30.0,
+      "best_original_row_ARF_median_if_available": 14.32,
+      "best_original_row_ARF_F_median_if_available": 0.5473993558776167,
+      "selected_group_flags_per_lemma": {
+        "single_source:kwjp": 1276,
+        "bound:kwjp": 98,
+        "nkjp_outdated": 6
+      },
+      "selected_group_statuses_per_lemma": {
+        "OBSERVED/OBSERVED": 8558,
+        "OBSERVED/PROPER_SHARED": 1239,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 37,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 98
+      },
+      "selected_group_genres_per_lemma": {
+        "3": 8265,
+        "2": 1440,
+        "1": 129
+      }
+    },
+    "50000-60000": {
+      "lemmas": 10295,
+      "own_original_kwjp_lemmas": 8845,
+      "without_own_original_kwjp_lemmas": 1450,
+      "own_F_sum_median_if_available": 12,
+      "best_original_row_ARF_median_if_available": 6.43,
+      "best_original_row_ARF_F_median_if_available": 0.5666666666666667,
+      "selected_group_flags_per_lemma": {
+        "single_source:kwjp": 1227,
+        "bound:kwjp": 1362
+      },
+      "selected_group_statuses_per_lemma": {
+        "OBSERVED/OBSERVED": 7706,
+        "OBSERVED/PROPER_SHARED": 1130,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 1362,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 97
+      },
+      "selected_group_genres_per_lemma": {
+        "2": 2821,
+        "3": 5681,
+        "1": 431
+      }
+    },
+    "60000-70000": {
+      "lemmas": 9837,
+      "own_original_kwjp_lemmas": 4856,
+      "without_own_original_kwjp_lemmas": 4981,
+      "own_F_sum_median_if_available": 7.0,
+      "best_original_row_ARF_median_if_available": 3.84,
+      "best_original_row_ARF_F_median_if_available": 0.5740000000000001,
+      "selected_group_flags_per_lemma": {
+        "bound:kwjp": 4741,
+        "single_source:kwjp": 836
+      },
+      "selected_group_statuses_per_lemma": {
+        "OBSERVED/OBSERVED": 4263,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 4741,
+        "OBSERVED/PROPER_SHARED": 685,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 151
+      },
+      "selected_group_genres_per_lemma": {
+        "3": 2390,
+        "2": 2072,
+        "1": 637
+      }
+    },
+    "70000-80000": {
+      "lemmas": 9881,
+      "own_original_kwjp_lemmas": 1472,
+      "without_own_original_kwjp_lemmas": 8409,
+      "own_F_sum_median_if_available": 6.0,
+      "best_original_row_ARF_median_if_available": 3.44,
+      "best_original_row_ARF_F_median_if_available": 0.562,
+      "selected_group_flags_per_lemma": {
+        "bound:kwjp": 7977,
+        "single_source:kwjp": 52
+      },
+      "selected_group_statuses_per_lemma": {
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 7977,
+        "OBSERVED/OBSERVED": 1852,
+        "OBSERVED/PROPER_SHARED": 52
+      },
+      "selected_group_genres_per_lemma": {
+        "2": 758,
+        "3": 832,
+        "1": 314
+      }
+    },
+    "80000-90000": {
+      "lemmas": 6814,
+      "own_original_kwjp_lemmas": 416,
+      "without_own_original_kwjp_lemmas": 6398,
+      "own_F_sum_median_if_available": 6.0,
+      "best_original_row_ARF_median_if_available": 3.115,
+      "best_original_row_ARF_F_median_if_available": 0.5133333333333333,
+      "selected_group_flags_per_lemma": {
+        "bound:kwjp": 6101,
+        "single_source:kwjp": 32
+      },
+      "selected_group_statuses_per_lemma": {
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 6101,
+        "OBSERVED/OBSERVED": 681,
+        "OBSERVED/PROPER_SHARED": 32
+      },
+      "selected_group_genres_per_lemma": {
+        "3": 357,
+        "2": 236,
+        "1": 120
+      }
+    },
+    "90000-100000": {
+      "lemmas": 5784,
+      "own_original_kwjp_lemmas": 188,
+      "without_own_original_kwjp_lemmas": 5596,
+      "own_F_sum_median_if_available": 6.0,
+      "best_original_row_ARF_median_if_available": 3.0,
+      "best_original_row_ARF_F_median_if_available": 0.4983333333333333,
+      "selected_group_flags_per_lemma": {
+        "bound:kwjp": 5316,
+        "single_source:kwjp": 34
+      },
+      "selected_group_statuses_per_lemma": {
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 5316,
+        "OBSERVED/OBSERVED": 434,
+        "OBSERVED/PROPER_SHARED": 34
+      },
+      "selected_group_genres_per_lemma": {
+        "1": 79,
+        "3": 281,
+        "2": 108
+      }
+    }
+  },
+  "notes": [
+    "Band unit is unique lemma base first appearing in the kept set.",
+    "Group counters may count more than once per lemma when separate selected groups share its base.",
+    "F sums distinct original rows of the same base; ARF/F always from one best original row."
+  ]
+}

@@ -1,9 +1,9 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-12T08:55:20Z",
+  "generated": "2026-10-12T10:58:59Z",
   "task": {
     "title": "STANDARD: formy dawne i współczesne użycie (#4)",
     "description": "Research przyczyn odmów, niezależnych miar współczesności i skutków wariantów; komentarz do ticketu; decyzje z właścicielem.",
-    "status": "completed",
+    "status": "awaiting_approval",
     "tags": [
       "research",
       "slownik",
@@ -12,14 +12,14 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "research",
     "path": "/Users/robmar/Projects/Literaki/literaki-slownik/.maister/tasks/research/2026-10-12-standard-formy-dawne",
-    "current_activity": "Audyt przyjęty do omówienia; decyzje o paczce, POP i cofnięciach otwarte"
+    "current_activity": "Wyniki kalibracji POP do omówienia; bez wdrożenia"
   },
   "characteristics": {
-    "runda": 4,
+    "runda": 5,
     "tryb": "Tylko research; wdrożenie niezatwierdzone",
     "pytanie": "Dlaczego współczesne słowa odpadają przez dawność i jaka niezależna od SJP.pl miara pozwala zmienić tę regułę z kontrolowanym ryzykiem?",
     "metody": "śledzenie przepływu, triangulacja, symulacja wyłącznie do odczytu, jawna próbka jakości",
-    "zakres bieżący": "110 rodzin, 12 zapisów, pełne przyczyny ubytków POP i dag/dekagram",
+    "zakres bieżący": "Obecne pop-v2, oba warianty STANDARD, pełne pomiary i próbka z kolejnych przedziałów.",
     "pewność": "Wysoka dla pomiarów; średnia dla ocen językowych"
   },
   "research_context": {
@@ -90,7 +90,15 @@ window.MAISTER_DATA = {
       "round4/dag-mechanism.json",
       "round4/pop-validation.json",
       "round4/eight-sensitivity.json",
-      "round4/validation.json"
+      "round4/validation.json",
+      "round5/baseline-measurements.json",
+      "round5/proposal-measurements.json",
+      "round5/quality-summary.json",
+      "round5/methodology-sources.json",
+      "round5/measurement-review.json",
+      "round5/quality-a-source-access.json",
+      "round5/quality-b-post-freeze.json",
+      "round5/validation.json"
     ],
     "confidence_level": "high_for_counts_and_counterexamples_medium_for_register_unknown_population_error_rate",
     "gathering_strategy": {
@@ -111,14 +119,11 @@ window.MAISTER_DATA = {
       "synthesize": "completed"
     },
     "publication": {
-      "round": 4,
+      "round": 5,
       "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
-      "status": "published_and_verified",
-      "report_artifact": "outputs/targeted-audit.md",
-      "comment_artifact": "outputs/issue-comment-round4.md",
-      "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6120344099",
-      "report_commit": "f9793b1120a3fedc422b32acf2cfd0b2cfb797fd",
-      "verified_at": "2026-10-12T08:14:50Z"
+      "status": "preparing",
+      "report_artifact": "outputs/pop-calibration.md",
+      "comment_artifact": "outputs/issue-comment-round5.md"
     },
     "gate_history": [
       {
@@ -131,7 +136,7 @@ window.MAISTER_DATA = {
         "answered_at": "2026-10-12T00:27:15Z"
       }
     ],
-    "round": 4,
+    "round": 5,
     "publication_history": [
       {
         "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
@@ -156,6 +161,16 @@ window.MAISTER_DATA = {
         "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6119310098",
         "report_commit": "67c06ecdef4ef5dac9734fa9d0acbe557c45eaa5",
         "verified_at": "2026-10-12T06:56:59Z"
+      },
+      {
+        "round": 4,
+        "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
+        "status": "published_and_verified",
+        "report_artifact": "outputs/targeted-audit.md",
+        "comment_artifact": "outputs/issue-comment-round4.md",
+        "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6120344099",
+        "report_commit": "f9793b1120a3fedc422b32acf2cfd0b2cfb797fd",
+        "verified_at": "2026-10-12T08:14:50Z"
       }
     ],
     "direction_decision": {
@@ -252,7 +267,7 @@ window.MAISTER_DATA = {
         "Osobne cofnięcia i cztery wstrzymania"
       ],
       "first_question": "Czy akceptujemy rotację POP przy obecnej metodzie, czy najpierw rozstrzygamy potrzebę stabilniejszego składu?",
-      "recommendation": "Ponownie skalibrować granicę POP na obecnej metodzie: porównać większe limity i kryterium siły dowodów użycia. Poprawność algorytmu nie zatwierdza limitu 60k. Dodatki STANDARD i cofnięcia pozostają osobnymi decyzjami.",
+      "recommendation": "Nie wybierać teraz 70k/80k/0,05 jako optimum. Uzgodnić zakres POP i jawne wymagania dowodowe; stałe obecne cięcie rozpatrywać tylko jako osobny wariant stabilizacji.",
       "answer": null,
       "candidate_batch_approved": false,
       "implementation_approved": false,
@@ -274,7 +289,7 @@ window.MAISTER_DATA = {
       "pop_boundary_review": {
         "recorded_at": "2026-10-12T08:55:08Z",
         "user_request": "a, to moze podniesc limit POP? ten limit jest sztuczny, budowa POP powinna byc merytoryczna, moze ta granica jest w zlym miejscu?",
-        "status": "discussion_recommendation_no_new_measurement",
+        "status": "research_ready_for_discussion",
         "findings": [
           "Pierwotne porównanie 60k/80k używało percentyli i available-only, przed log-ipm i przycinaniem członków.",
           "Przy obecnej propozycji następny cały blok wymaga 59909+116=60025 miejsc przed przycinaniem; to arytmetyka istniejącego pomiaru, nie nowa symulacja.",
@@ -288,6 +303,67 @@ window.MAISTER_DATA = {
         "artifact": "outputs/targeted-audit.md#9-korekta-rekomendacji-granica-pop",
         "implementation_approved": false
       }
+    },
+    "pop_calibration": {
+      "user_request": "zrob teraz to badanie",
+      "steps": {
+        "brief": "completed",
+        "plan": "completed",
+        "gather": "completed",
+        "synthesize": "completed"
+      },
+      "question": "Czy podniesienie limitu poprawia POP i czy lepiej określać jego skład progiem siły dowodów użycia?",
+      "scope": "Obecne pop-v2, oba warianty STANDARD, pełne pomiary i próbka z kolejnych przedziałów.",
+      "implementation_approved": false,
+      "lanes": {
+        "measurement": "coordinator",
+        "methodology": "pop_method_review",
+        "quality": [
+          "family_review: quality-a",
+          "current_twelve_review: quality-b",
+          "coordinator: crosscheck-30"
+        ]
+      },
+      "gathering_strategy": {
+        "categories": [
+          "codebase",
+          "project_decisions",
+          "config_tests",
+          "pinned_data",
+          "primary_sources_and_contexts"
+        ],
+        "count": 5,
+        "stop": "Pełne porównanie wariantów; ocenione wszystkie pozycje z zapisanej próby; jawne niepewności; weryfikacja pomiaru i raportu."
+      },
+      "measurement_status": "completed_and_independently_verified",
+      "contexts": {
+        "queries": 300,
+        "returned_contexts": 1342,
+        "access_errors": 0,
+        "sampling": "first page, reviewers up to 3 distinct documents plus followups",
+        "read_annotations": 632,
+        "distinct_sentences": 621,
+        "distinct_documents": 386,
+        "zero_results": 68
+      },
+      "lane_status": {
+        "measurement": "completed",
+        "methodology": "completed",
+        "quality_a": "completed",
+        "quality_b": "completed",
+        "source_access_audit": "completed_with_observed_limits"
+      },
+      "result_counts": {
+        "variants_per_standard": 27,
+        "standard_scenarios": 2,
+        "dispersion_grid_cells_per_standard": 25,
+        "assessed_lemmas": 300,
+        "crosscheck_cases": 30,
+        "crosscheck_agreement": 22,
+        "external_quality_sources": 55,
+        "external_quality_fragments_read": 40
+      },
+      "recommendation": "Nie wybierać teraz 70k/80k/0,05 jako optimum. Uzgodnić zakres POP i jawne wymagania dowodowe; stałe obecne cięcie rozpatrywać tylko jako osobny wariant stabilizacji."
     }
   },
   "phases": [
@@ -513,6 +589,73 @@ window.MAISTER_DATA = {
       "status": "completed"
     },
     {
+      "summary": "27 wariantów na dwóch STANDARD; 300 ocen, 632 adnotacje i 30 kontroli. Brak uzasadnienia jednej granicy 70k/80k/0,05. Stały próg obecnego cięcia usuwa zbadane wypychanie. Wyniki gotowe do omówienia; bez wdrożenia.",
+      "decisions": [
+        "Skorygowano zalecenie zachowania 60k: poprawność algorytmu nie uzasadnia wartości limitu.",
+        "Rekomendacja do omówienia: jawne wymagania dowodowe i rozmiar wynikowy; stabilizacja oddzielnie od poszerzenia.",
+        "Nie zatwierdzono progu, paczki STANDARD, cofnięć ani wdrożenia."
+      ],
+      "risks": [
+        "Nie wyznaczono optymalnego progu ani znajomości słów przez graczy.",
+        "Osobne tory tego samego modelu; pierwsze konteksty, 29 pierwotnych ocen niskiej pewności i 8/30 różnic.",
+        "15/55 uzupełniających źródeł z obserwowanym ograniczeniem bezpośredniego odczytu; klasy zamrożone przed późniejszymi korektami."
+      ],
+      "artifacts": [
+        {
+          "path": "planning/round5-plan.md",
+          "label": "Plan kalibracji POP"
+        },
+        {
+          "path": "outputs/pop-calibration.md",
+          "html": "outputs/pop-calibration.html",
+          "label": "Wyniki i rekomendacja granicy POP"
+        },
+        {
+          "path": "analysis/synthesis-round5.md",
+          "label": "Synteza i zakres wniosków"
+        },
+        {
+          "path": "analysis/findings/round5/baseline-measurements.json",
+          "label": "27 wariantów: obecny STANDARD"
+        },
+        {
+          "path": "analysis/findings/round5/proposal-measurements.json",
+          "label": "27 wariantów: proponowany STANDARD"
+        },
+        {
+          "path": "analysis/findings/round5/quality-summary.json",
+          "label": "300 ocen i 30 powtórnych kontroli"
+        },
+        {
+          "path": "analysis/findings/round5/methodology-sources.md",
+          "label": "Metodologia i źródła"
+        },
+        {
+          "path": "analysis/findings/round5/measurement-review.md",
+          "label": "Niezależna kontrola pomiaru"
+        },
+        {
+          "path": "analysis/findings/round5/validation.json",
+          "label": "Kompletność i walidacja"
+        }
+      ],
+      "gate": {
+        "question": "Czy przyjmujesz wyniki jako podstawę omówienia kryterium POP, czy potrzebne jest pogłębienie konkretnej luki?",
+        "choices": [
+          "Przyjąć wyniki i omówić kryterium POP",
+          "Pogłębić wskazaną lukę"
+        ],
+        "answer": null,
+        "implementation_approved": false
+      },
+      "started": "2026-10-12T10:12:07Z",
+      "completed": null,
+      "id": "pop_calibration",
+      "name": "Merytoryczna granica POP",
+      "icon_hint": "analysis",
+      "status": "awaiting_approval"
+    },
+    {
       "id": "solution_generation",
       "name": "Brainstorming",
       "status": "skipped",
@@ -526,7 +669,7 @@ window.MAISTER_DATA = {
     }
   ],
   "verification": {
-    "status": "round4_passed_research_accepted_for_discussion",
+    "status": "round5_passed_research_awaiting_discussion",
     "issues": [],
     "fixes": [],
     "reverify_count": 0

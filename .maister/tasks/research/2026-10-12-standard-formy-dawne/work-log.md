@@ -43,3 +43,13 @@ Zakończono trzy tory i sprawdzono pokrycie delegacji. Wszystkie 110 rodzin / 23
 2026-10-12T08:41:36Z: odczyt kodu w odpowiedzi na pytanie o pipeline i trwałość. Maister Codebase Analysis: wąska analiza inline, bez delegacji i bez zmian produkcyjnych. Ustalono integrację w decisions, istniejące mechanizmy hashów/zapisu/peer-build, ograniczenia semantic-uses i bieżącej symulacji. Zapisano propozycję rejestru dowodu wieku i wymagania odbioru. Brak nowej zgody na paczkę, cofnięcia, metodę POP lub wdrożenie. Testów nie uruchamiano; tylko dokumentacja.
 
 - 2026-10-12T08:55:08Z: Użytkownik zakwestionował limit POP. Odczytano ADR-007 i pierwotne porównanie progów: 60k/80k poprzedza log-ipm i późniejsze filtrowanie. Skorygowano rekomendację na ponowną kalibrację; 60025 to wyłącznie suma istniejącego progu 59909 i następnego bloku 116, bez nowej symulacji. Historia i wyniki zachowane; bez zmiany ADR, konfiguracji, list lub zgody na wdrożenie.
+
+- 2026-10-12T10:12:07Z: Użytkownik zlecił kalibrację POP. Wznowiono jako pop_calibration, runda 5; poprzednie fazy i bramki zachowane. Plan zapisany przed pomiarami. Brak specjalistów .codex/agents i osobnych standardów potwierdzony; koordynacja inline, niezależny tor metodologii delegowany zgodnie z frameworkiem. Produkcja bez zmian.
+
+- 2026-10-12T10:31:12Z: Pomiary27wariantów dla2STANDARD oraz siatki25, odtworzenie niezależne zgodne. Pierwsza sonda dyspersji miała błędy singletonów i agregatów ARF/F; poprawiona przed oceną próby, błędne wyniki zachowane lokalnie. Poprawiono też opisowy licznik unknown wariantów KWJP, bez zmiany składów. Pobrano300zapytań/1342konteksty po jawnym zezwoleniu sieciowym (pierwsza próba sandboxDNS); wszystkie odczyty poprawne. Trwają dwa ślepe przeglądy150+150 i kontrola30.
+
+- 2026-10-12T10:56:16Z — Runda 5: 27 wariantów × 2 STANDARD, siatki 25 pól, 300 ślepych ocen + 30 kontroli. 632 adnotacje / 386 dokumentów; zweryfikowano próby dostępu do 55 uzupełnień (40 odczytanych, 15 ograniczeń). Niezależny pomiar i walidacja kompletności poprawne. Synteza koryguje zalecenie zachowania 60k; nie wybiera arbitralnego 70k/80k/0,05. Oczekiwanie na omówienie wyników, bez zgody wdrożeniowej.
+
+- 2026-10-12T10:57:34Z — Końcowy raport i dashboard sprawdzone w Playwright; zrzut raportu obejrzany, brak poziomego przewijania i końcowych błędów konsoli. Karta główna wskazuje rundę 5. Żadne pliki produkcyjne niezmienione.
+
+- 2026-10-12T10:58:59Z — Korekta zapisu podglądu: zachowano niezmieniony szablon dashboardu wymagany przez Maister; raport rundy 5 jest w artefaktach bieżącej fazy, karta Research Report pozostaje historyczna. Uporządkowano kolejność sekcji podsumowania dwóch raportów B, bez zmian ocen i ich hashy.

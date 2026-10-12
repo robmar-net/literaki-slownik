@@ -1,0 +1,471 @@
+{
+  "schema_version": 1,
+  "scope": "Uzupełnienie zakresu dostępu do źródeł zewnętrznych; bez zmiany zamrożonych klas, uzasadnień lub macierzy.",
+  "frozen_matrix": "quality-b.json",
+  "frozen_matrix_sha256": "00b246f555dbc7686e85675e5b99c585373002509266be8288f06c021f26240d",
+  "audit_created_at_utc": "2026-10-12T10:43:50.315727+00:00",
+  "original_evidence_date": "2026-10-12",
+  "summary": {
+    "lemma_cases": 17,
+    "source_urls": 19,
+    "directly_opened_urls": 0,
+    "search_result_urls": 19,
+    "indexed_html_urls": 16,
+    "indexed_pdf_urls": 3,
+    "fully_read_external_sources": 0
+  },
+  "global_limitations": [
+    "Wszystkie wymienione źródła odczytano poprzez wyniki search_query, przed zamrożeniem ocen. Nie otwarto bezpośrednio żadnego z tych URL ani PDF.",
+    "Rozszerzony wynik wyszukiwania może zawierać znaczny fragment hasła lub artykułu, ale nie jest tożsamy z bezpośrednim odczytem całej strony.",
+    "Nie obserwowano błędu dostępu źródła w tych wynikach. Dostępności bezpośredniej nie sprawdzano; brak próby nie oznacza ani potwierdzonej dostępności, ani blokady.",
+    "Audyt opisuje wykonany dostęp. Nie ponawiano wyszukiwań i nie dodawano nowego materiału do zamrożonych ocen.",
+    "Liczniki dotyczą tylko dodatkowych źródeł zewnętrznych. Nie zmieniają osobnych liczników pobranych i przeczytanych konkordancji KWJP.",
+    "Wpis źródła w macierzy nie jest deklaracją przeczytania całego dokumentu; ten plik doprecyzowuje wcześniejsze ogólne read_scope."
+  ],
+  "cases": [
+    {
+      "id": "01c214d5e139",
+      "lemma": "przedryndać",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/111647/przedryndac/5263631/500-km",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "rozszerzona_treść_indeksowana",
+          "query": "site:wsjp.pl \"przedryndać\"",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Wynik zawierał definicję znaczenia dotyczącego przejechania trasy, przykłady i odmianę.",
+          "access_limitations": [
+            "Wskazany URL dotyczy znaczenia podróżnego. Nie potwierdza sam znaczenia telefonicznego. Nie otwarto bezpośrednio hasła ani źródeł jego cytatów."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "1d430f06d01b",
+      "lemma": "siejba",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/119994/siejba",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "rozszerzona_treść_indeksowana",
+          "query": "site:wsjp.pl \"siejba\"",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Widoczne były kwalifikator daw., definicja siewu, przykłady i odmiana.",
+          "access_limitations": [
+            "Nie otwarto bezpośrednio hasła ani źródeł cytatów. Daty cytatów nie dowodzą zwykłego współczesnego rejestru wyrazu."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "3593e4b4c08f",
+      "lemma": "kikować",
+      "sources": [
+        {
+          "url": "https://obserwatorium-mlodziezy.ujk.edu.pl/jednostki/kikowac/",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "krótki_fragment",
+          "query": "\"kikować\" słownik -site:sjp.pl -site:szarada.net",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Fragment opracowania rozróżniał usuwanie z gry lub grupy i starsze warszawskie znaczenie obserwowania.",
+          "access_limitations": [
+            "Nie odczytano całego artykułu. Fragment nie jest pomiarem rozpowszechnienia ani pełnym opisem odmiany."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "3d8dfc4a1807",
+      "lemma": "kozeta",
+      "sources": [
+        {
+          "url": "https://pl.wikisource.org/wiki/M._Arcta_S%C5%82ownik_ilustrowany_j%C4%99zyka_polskiego/K_%28ca%C5%82o%C5%9B%C4%87%29",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "rozszerzona_treść_indeksowana",
+          "query": "\"kozeta\" słownik -site:sjp.pl -site:szarada.net -site:scrabble123.pl",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Wynik zawierał transkrypcję kilku haseł Arcta, w tym nazwę małej sofy.",
+          "access_limitations": [
+            "Odczytano indeksowany tekst transkrypcji historycznego źródła, bez sprawdzenia skanu i bez bezpośredniego otwarcia. Nie jest to dowód aktualnego obiegu."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "4352706bcdd0",
+      "lemma": "konklawista",
+      "sources": [
+        {
+          "url": "https://www.przewodnik-katolicki.pl/Archiwum/2004/Przewodnik-Katolicki-48-2004/Historia/Jak-wybierano-papiezy",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "krótki_fragment",
+          "query": "\"konklawista\" site:pl -site:sjp.pl -site:szarada.net -site:poocoo.pl -site:slowaimysli.org",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Fragment artykułu przypisanego Małgorzacie Jańczak zawierał formy konklawista i konklawistów w opisie wyboru papieża.",
+          "access_limitations": [
+            "Nie odczytano całego artykułu. Rok 2004 pochodził z wyniku i adresu archiwum, bez osobnego sprawdzenia wydania."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "50e9796273bd",
+      "lemma": "wiroid",
+      "sources": [
+        {
+          "url": "https://zpe.gov.pl/a/przeczytaj/DQN7i4ibO",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "rozszerzona_treść_indeksowana",
+          "query": "\"wiroid\" site:gov.pl",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Wynik materiału ZPE zawierał wstęp i część dotyczącą budowy i infekcji wiroidów.",
+          "access_limitations": [
+            "Nie otwarto całego materiału, ćwiczeń ani mediów. Odczyt obejmował wyłącznie tekst zwrócony w wyniku wyszukiwania."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        },
+        {
+          "url": "https://www.gov.pl/web/piorin/regulowane-agrofagi-niekwarantannowe-dla-unii",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "rozszerzona_treść_indeksowana",
+          "query": "\"wiroid\" site:gov.pl",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Wynik strony PIORiN zawierał kategorie wykazu i polskie nazwy wiroidów przy odnośnikach do plików.",
+          "access_limitations": [
+            "Nie otwarto strony bezpośrednio ani powiązanych plików PDF. To dowód użycia nazwy; nie badano aktualności regulacji."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "5a83cca65701",
+      "lemma": "wiwera",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/117600/wiwera",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "rozszerzona_treść_indeksowana",
+          "query": "site:wsjp.pl \"wiwera\"",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Widoczne były kwalifikator zool., definicja, przykłady, w tym cytat przypisany prasie z 2020 r., i odmiana.",
+          "access_limitations": [
+            "Nie otwarto hasła ani cytowanego artykułu. Cytat jest poświadczeniem przekazanym przez słownik, bez niezależnego sprawdzenia oryginału."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "620b8070a7bc",
+      "lemma": "szampiter",
+      "sources": [
+        {
+          "url": "https://www.poradnikjezykowy.uw.edu.pl/wydania/poradnik_jezykowy.796.2022.07.3-U.Sokolska.pdf",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "pdf",
+          "observed_scope": "indeksowany_fragment_pdf",
+          "query": "\"szampiter\" słownik -site:sjp.pl -site:szarada.net",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": false,
+          "observed_content": "Fragment analizy U. Sokólskiej o języku Boya-Żeleńskiego zestawiał szampiter ze znaczeniem szampan; indeksowany tekst zawierał numer strony 45.",
+          "access_limitations": [
+            "Nie pobrano ani nie otwarto PDF. Nie wykonano renderu ani sprawdzenia numeracji stron; numer pochodzi z wyciągu indeksu. Materiał dotyczy użycia historycznego."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        },
+        {
+          "url": "https://smakipowiatupoznanskiego.pl/slownik-gwary-poznanskiej/",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "krótki_fragment",
+          "query": "\"szampiter\" słownik -site:sjp.pl -site:szarada.net",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Fragment słownika gwary poznańskiej podawał szampiter jako szampon.",
+          "access_limitations": [
+            "Nie otwarto całej strony. Nie zweryfikowano autorstwa i datowania słownika poza informacją wyniku. Sam wpis regionalny nie dowodzi szerokiego współczesnego zasięgu."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "775dee6ea4c2",
+      "lemma": "lunonauta",
+      "sources": [
+        {
+          "url": "https://www.urania.edu.pl/zasoby/ksiezyc-ludzie-i-slowa.html",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "rozszerzona_treść_indeksowana",
+          "query": "\"lunonauta\" site:edu.pl",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Fragment artykułu Uranii Księżyc, ludzie i słowa zawierał lunonauta i lunonauci w narracji o lądowaniu Apollo.",
+          "access_limitations": [
+            "Nie otwarto pełnego artykułu ani nie zweryfikowano jego daty powstania. Historyczny temat nie rozstrzyga wieku wyrazu; fragment nie mierzy obecnej częstości."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "8d48365673b3",
+      "lemma": "superstrat",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/20796/substrat/5157958/w-jezykoznawstwie",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "rozszerzona_treść_indeksowana",
+          "query": "site:wsjp.pl \"superstrat\"",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "W indeksowanej treści hasła substrat widoczny był cytat zestawiający superstrat z innymi relacjami języków.",
+          "access_limitations": [
+            "To cytat pod innym hasłem, nie odrębny artykuł hasłowy superstrat. Nie otwarto hasła ani cytowanej pracy Artura Rejtera."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "8e86654945a0",
+      "lemma": "profitka",
+      "sources": [
+        {
+          "url": "https://muzeumkresow.eu/eksponat/lichtarz-3/",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "krótki_fragment",
+          "query": "\"profitka\" muzeum",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Fragment muzealnego opisu lichtarza używał profitka jako nazwy jego części; widoczny był też kontekst pozyskania eksponatu.",
+          "access_limitations": [
+            "Nie otwarto pełnej karty katalogowej i nie zweryfikowano daty tekstu. Poświadczenie dotyczy rejestru muzealnego."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "9c7aa89f5463",
+      "lemma": "strzępiak",
+      "sources": [
+        {
+          "url": "https://pnbt.gov.pl/pliki-do-pobrania/otworz/a7b93254-3b32-4d4e-b9a5-c6641d00d381.pdf",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "pdf",
+          "observed_scope": "indeksowany_fragment_pdf",
+          "query": "\"strzępiak\" site:gov.pl",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": false,
+          "observed_content": "Indeksowany fragment wykazu PN Bory Tucholskie zawierał nazwy strzępiaków w pozycjach oznaczonych 215–224.",
+          "access_limitations": [
+            "Nie pobrano ani nie otwarto PDF, nie sprawdzono wizualnie numeracji i nie przeczytano całego wykazu. Numery pozycji pochodzą z ekstrakcji w wyniku wyszukiwania."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "b3a72775882c",
+      "lemma": "ruptura",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/50305/ruptura",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "rozszerzona_treść_indeksowana",
+          "query": "site:wsjp.pl \"ruptura\"",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Widoczne były kwalifikator przest., znaczenie przepukliny, przykłady i odmiana.",
+          "access_limitations": [
+            "Nie otwarto bezpośrednio hasła ani cytowanych dzieł. Odczyt obejmował tekst hasła zwrócony przez wyszukiwarkę."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "ba86865d437f",
+      "lemma": "odwłóczyć",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/124654/odwloczyc",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "rozszerzona_treść_indeksowana",
+          "query": "site:wsjp.pl \"odwłóczyć\"",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Widoczne były kwalifikator przest., znaczenie odsunięcia w czasie, synonimy, przykłady i odmiana.",
+          "access_limitations": [
+            "Nie otwarto hasła ani cytowanych dzieł. Data aktualizacji hasła nie oznacza daty powstania przytoczonych użyć."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "c94dce620f5d",
+      "lemma": "bojownica",
+      "sources": [
+        {
+          "url": "https://wsjp.pl/haslo/podglad/129634/bojownica",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "rozszerzona_treść_indeksowana",
+          "query": "site:wsjp.pl \"bojownica\"",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Widoczne były kwalifikator książk., definicja kobiety walczącej o idee, przykłady i odmiana.",
+          "access_limitations": [
+            "Nie otwarto hasła ani oryginalnych źródeł cytatów. Nie sprawdzono rozkładu użyć poza zwróconym tekstem."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "f86d08de3445",
+      "lemma": "pęca",
+      "sources": [
+        {
+          "url": "https://repozytorium.amu.edu.pl/bitstream/10593/464/2/S%C5%81OWNIK.pdf",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "pdf",
+          "observed_scope": "indeksowany_fragment_pdf",
+          "query": "\"pęca\" słownik -site:sjp.pl -site:szarada.net -site:poocoo.pl",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": false,
+          "observed_content": "Fragment opracowania leksykalnego definiował element sokolniczego wyposażenia ptaka i zestawiał jego historyczne rejestracje słownikowe.",
+          "access_limitations": [
+            "Nie pobrano ani nie otwarto PDF. Nie zweryfikowano pełnego tytułu i autorstwa; UAM wskazuje tu repozytorium hostujące, nie ustaloną afiliację autorów. Fragment nie dowodzi współczesnego użycia specjalistycznego."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    },
+    {
+      "id": "fee70e15020f",
+      "lemma": "pasywizacja",
+      "sources": [
+        {
+          "url": "https://informatorects.uw.edu.pl/pl/courses/view?prz_kod=3301-ZJ-WM-JF003",
+          "accessed": "2026-10-12",
+          "access_mode": "wynik_wyszukiwania",
+          "tool_operation": "web.run.search_query",
+          "source_format": "html",
+          "observed_scope": "rozszerzona_treść_indeksowana",
+          "query": "\"pasywizacja\" site:edu.pl",
+          "direct_open_attempted": false,
+          "full_source_read": false,
+          "pdf_downloaded_or_rendered": null,
+          "observed_content": "Wynik opisu zajęć UW z gramatyki i analizy składniowej wymieniał pasywizację jako operację; widoczne były cykle 2025Z i 2026Z.",
+          "access_limitations": [
+            "Nie otwarto całej karty kursu. Użycie w programie zajęć potwierdza termin, lecz nie mierzy znajomości słowa wśród studentów ani graczy."
+          ],
+          "direct_source_availability": "nie_sprawdzono",
+          "access_error_observed": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "cache_sha256": "40d39e9f8167a968d2f9e4545b06282a8110d2219c458ea14685eaa5fd65244d",
+  "database_expected_sha256": "85b23ca5cfaae273ec869f84fab643a87685c455606d8b21df4aec918f3a338c",
+  "config_sha256": "affcfab871ef499128e030318753678486353d667be32e3a9d24bc817aef9a60",
+  "source_manifest_sha256": "9af206787e0288ff09c280fac18f05080e7552db55f076920601fb4a16e12934",
+  "production_code_sha256": "a159cf503f86072c595c0c893c0c1903b6958b992c8a3c4dcde7de78fd4c5b30",
+  "proposal_sha256": "5574c35aedd5b91576d896fad094d43a1ae9c176227959b25545595a137bc9f3",
+  "script_sha256": "46f847b377572bbd8babb35bd5d03578de7c50620fd603b1e2d6cd6c92eb5474",
+  "started_at": "2026-10-12T10:15:40Z",
+  "read_only_database": "/Users/robmar/Projects/Literaki/literaki-slownik/data/work/lists-v30-20261010-165826-a/build.sqlite",
+  "finished_at": "2026-10-12T10:18:43Z",
+  "database_verified_sha256": "85b23ca5cfaae273ec869f84fab643a87685c455606d8b21df4aec918f3a338c",
+  "diagnostics_corrected_at": "2026-10-12T10:23:59Z",
+  "unknown_count_corrected_at": "2026-10-12T10:31:12Z"
+}

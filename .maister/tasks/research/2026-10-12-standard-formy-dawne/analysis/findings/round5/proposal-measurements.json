@@ -1,0 +1,1212 @@
+{
+  "created_at": "2026-10-12T10:17:37Z",
+  "research_only": true,
+  "scenario": "proposal",
+  "standard_forms": 3092576,
+  "variants": {
+    "count-40000": {
+      "units": 27262,
+      "lexemes_before_pruning": 39999,
+      "lexemes": 32230,
+      "lemmas": 30603,
+      "forms": 838862,
+      "sha256_forms": "8ea05754e83d52f0538c0c28cf5e409c296147f4c400d0469f1f2994b61e2832",
+      "last_score": -0.268414178,
+      "cut_rank": 27262,
+      "next_block": {
+        "units": 21,
+        "lexemes": 24,
+        "rank": 27263
+      },
+      "pruned_lexemes": 7769,
+      "head_exceptions_units": 205,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 5542,
+        "OBSERVED/OBSERVED": 21701,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 4,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 15
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 5557,
+        "nkjp_outdated": 16,
+        "bound:kwjp": 4
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73043871,
+          "total": 74542063,
+          "coverage": 0.979901
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73043871,
+          "total": 81664894,
+          "coverage": 0.894434
+        }
+      },
+      "versus_published": {
+        "added": 2187,
+        "removed": 390575
+      },
+      "frequent_guard_missing": 2,
+      "policy": {
+        "kind": "count",
+        "cap": 40000,
+        "pruning": "current-rank"
+      }
+    },
+    "count-50000": {
+      "units": 36047,
+      "lexemes_before_pruning": 49995,
+      "lexemes": 42466,
+      "lemmas": 40553,
+      "forms": 1039820,
+      "sha256_forms": "3e8fc74399cea2109013d00ae889e21f5589c7eeae37287145f0eee86477dcd9",
+      "last_score": -0.674740755,
+      "cut_rank": 36047,
+      "next_block": {
+        "units": 8,
+        "lexemes": 10,
+        "rank": 36048
+      },
+      "pruned_lexemes": 7529,
+      "head_exceptions_units": 130,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 6606,
+        "OBSERVED/OBSERVED": 29289,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 100,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 52
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 6658,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 100
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73371250,
+          "total": 74542063,
+          "coverage": 0.984293
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73371250,
+          "total": 81664894,
+          "coverage": 0.898443
+        }
+      },
+      "versus_published": {
+        "added": 2309,
+        "removed": 189739
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "count",
+        "cap": 50000,
+        "pruning": "current-rank"
+      }
+    },
+    "count-60000": {
+      "units": 45059,
+      "lexemes_before_pruning": 59909,
+      "lexemes": 52921,
+      "lemmas": 50776,
+      "forms": 1227192,
+      "sha256_forms": "535ab16598fefbdf85af96437f05bea151d58514776e5d781526638731ad3136",
+      "last_score": -1.038965961,
+      "cut_rank": 45059,
+      "next_block": {
+        "units": 108,
+        "lexemes": 116,
+        "rank": 45060
+      },
+      "pruned_lexemes": 6988,
+      "head_exceptions_units": 143,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 7518,
+        "OBSERVED/OBSERVED": 36011,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 1381,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 149
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 7667,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 1381
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73494436,
+          "total": 74542063,
+          "coverage": 0.985946
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73494436,
+          "total": 81664894,
+          "coverage": 0.899951
+        }
+      },
+      "versus_published": {
+        "added": 2372,
+        "removed": 2430
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "count",
+        "cap": 60000,
+        "pruning": "current-rank"
+      }
+    },
+    "count-60025": {
+      "units": 45167,
+      "lexemes_before_pruning": 60025,
+      "lexemes": 53033,
+      "lemmas": 50886,
+      "forms": 1229622,
+      "sha256_forms": "f56cfed69725f7dd2acfafa15574538e29c26dc6b990e6c93d8b92bb85e4ce4b",
+      "last_score": -1.042878629,
+      "cut_rank": 45167,
+      "next_block": null,
+      "pruned_lexemes": 6992,
+      "head_exceptions_units": 144,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 7518,
+        "OBSERVED/OBSERVED": 36051,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 1449,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 149
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 7667,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 1449
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73494822,
+          "total": 74542063,
+          "coverage": 0.985951
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73494822,
+          "total": 81664894,
+          "coverage": 0.899956
+        }
+      },
+      "versus_published": {
+        "added": 2372,
+        "removed": 0
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "count",
+        "cap": 60025,
+        "pruning": "current-rank"
+      }
+    },
+    "count-65000": {
+      "units": 49648,
+      "lexemes_before_pruning": 64876,
+      "lexemes": 58117,
+      "lemmas": 55884,
+      "forms": 1328302,
+      "sha256_forms": "cfcb83a36221cd343a39c97342c683c6e95c81e222bfe4b5849ffa6f8377dfd7",
+      "last_score": -1.172099905,
+      "cut_rank": 49648,
+      "next_block": {
+        "units": 425,
+        "lexemes": 456,
+        "rank": 49649
+      },
+      "pruned_lexemes": 6759,
+      "head_exceptions_units": 181,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 7836,
+        "OBSERVED/OBSERVED": 38176,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 3419,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 217
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 8053,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 3419
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73518840,
+          "total": 74542063,
+          "coverage": 0.986273
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73518840,
+          "total": 81664894,
+          "coverage": 0.90025
+        }
+      },
+      "versus_published": {
+        "added": 101052,
+        "removed": 0
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "count",
+        "cap": 65000,
+        "pruning": "current-rank"
+      }
+    },
+    "count-70000": {
+      "units": 54034,
+      "lexemes_before_pruning": 69570,
+      "lexemes": 63047,
+      "lemmas": 60724,
+      "forms": 1427316,
+      "sha256_forms": "e0a63bda8c85f787f0f4fe12c44fd175f6302540ef818584735552d134e0540c",
+      "last_score": -1.277526588,
+      "cut_rank": 54034,
+      "next_block": {
+        "units": 690,
+        "lexemes": 741,
+        "rank": 54035
+      },
+      "pruned_lexemes": 6523,
+      "head_exceptions_units": 195,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 8061,
+        "OBSERVED/OBSERVED": 39527,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 6146,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 300
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 8361,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 6146
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73532675,
+          "total": 74542063,
+          "coverage": 0.986459
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73532675,
+          "total": 81664894,
+          "coverage": 0.90042
+        }
+      },
+      "versus_published": {
+        "added": 200066,
+        "removed": 0
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "count",
+        "cap": 70000,
+        "pruning": "current-rank"
+      }
+    },
+    "count-75000": {
+      "units": 58053,
+      "lexemes_before_pruning": 73831,
+      "lexemes": 67353,
+      "lemmas": 64992,
+      "forms": 1518425,
+      "sha256_forms": "bafec4f4185372982eddc94f34e3b55b3348be552a70db119051e84820bb56e4",
+      "last_score": -1.373469351,
+      "cut_rank": 58053,
+      "next_block": {
+        "units": 1394,
+        "lexemes": 1472,
+        "rank": 58054
+      },
+      "pruned_lexemes": 6478,
+      "head_exceptions_units": 227,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 8061,
+        "OBSERVED/OBSERVED": 40339,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 9353,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 300
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 8361,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 9353
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73538688,
+          "total": 74542063,
+          "coverage": 0.986539
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73538688,
+          "total": 81664894,
+          "coverage": 0.900493
+        }
+      },
+      "versus_published": {
+        "added": 291175,
+        "removed": 0
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "count",
+        "cap": 75000,
+        "pruning": "current-rank"
+      }
+    },
+    "count-80000": {
+      "units": 63326,
+      "lexemes_before_pruning": 79381,
+      "lexemes": 73029,
+      "lemmas": 70605,
+      "forms": 1639065,
+      "sha256_forms": "f21b24bce34cb3b2de65f9808308cab2fef7d3c3ef4b4b19903d2770d68c48ea",
+      "last_score": -1.490510954,
+      "cut_rank": 63326,
+      "next_block": {
+        "units": 2634,
+        "lexemes": 2750,
+        "rank": 63327
+      },
+      "pruned_lexemes": 6352,
+      "head_exceptions_units": 234,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 8061,
+        "OBSERVED/OBSERVED": 40964,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 14001,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 300
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 8361,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 14001
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73543197,
+          "total": 74542063,
+          "coverage": 0.9866
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73543197,
+          "total": 81664894,
+          "coverage": 0.900548
+        }
+      },
+      "versus_published": {
+        "added": 411815,
+        "removed": 0
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "count",
+        "cap": 80000,
+        "pruning": "current-rank"
+      }
+    },
+    "count-90000": {
+      "units": 69732,
+      "lexemes_before_pruning": 86035,
+      "lexemes": 79884,
+      "lemmas": 77419,
+      "forms": 1779591,
+      "sha256_forms": "533ef635d17daead5e3b8dc314363ac080fc72711659bba2df0bfdcc32005bf0",
+      "last_score": -1.630924259,
+      "cut_rank": 69732,
+      "next_block": {
+        "units": 5298,
+        "lexemes": 5460,
+        "rank": 69733
+      },
+      "pruned_lexemes": 6151,
+      "head_exceptions_units": 208,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 8061,
+        "OBSERVED/OBSERVED": 41375,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 19996,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 300
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 8361,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 19996
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73546077,
+          "total": 74542063,
+          "coverage": 0.986639
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73546077,
+          "total": 81664894,
+          "coverage": 0.900584
+        }
+      },
+      "versus_published": {
+        "added": 552341,
+        "removed": 0
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "count",
+        "cap": 90000,
+        "pruning": "current-rank"
+      }
+    },
+    "count-100000": {
+      "units": 75132,
+      "lexemes_before_pruning": 91599,
+      "lexemes": 85701,
+      "lemmas": 83203,
+      "forms": 1897423,
+      "sha256_forms": "dc2943ea3de0ecfe3c019ba98bb34394ea85ad2ee9c64a2c1452b6e9299d0d82",
+      "last_score": -1.762544976,
+      "cut_rank": 75132,
+      "next_block": {
+        "units": 9496,
+        "lexemes": 9731,
+        "rank": 75133
+      },
+      "pruned_lexemes": 5898,
+      "head_exceptions_units": 164,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 8061,
+        "OBSERVED/OBSERVED": 41563,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 25208,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 300
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 8361,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 25208
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73547280,
+          "total": 74542063,
+          "coverage": 0.986655
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73547280,
+          "total": 81664894,
+          "coverage": 0.900598
+        }
+      },
+      "versus_published": {
+        "added": 670173,
+        "removed": 0
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "count",
+        "cap": 100000,
+        "pruning": "current-rank"
+      }
+    },
+    "score-baseline60k": {
+      "units": 45167,
+      "lexemes_before_pruning": 60025,
+      "lexemes": 53033,
+      "lemmas": 50886,
+      "forms": 1229622,
+      "sha256_forms": "f56cfed69725f7dd2acfafa15574538e29c26dc6b990e6c93d8b92bb85e4ce4b",
+      "last_score": -1.042878629,
+      "cut_rank": 45167,
+      "next_block": null,
+      "pruned_lexemes": 6992,
+      "head_exceptions_units": 144,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 7518,
+        "OBSERVED/OBSERVED": 36051,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 1449,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 149
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 7667,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 1449
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73494822,
+          "total": 74542063,
+          "coverage": 0.985951
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73494822,
+          "total": 81664894,
+          "coverage": 0.899956
+        }
+      },
+      "versus_published": {
+        "added": 2372,
+        "removed": 0
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "score",
+        "minimum_score": -1.042878629,
+        "label": "baseline60k",
+        "pruning": "own-score-plus-existing-exceptions"
+      },
+      "rank_pruning_comparison": {
+        "own_score_only_extra_members": 0,
+        "rank_only_extra_members": 0
+      }
+    },
+    "score-0.1": {
+      "units": 43819,
+      "lexemes_before_pruning": 58556,
+      "lexemes": 51467,
+      "lemmas": 49356,
+      "forms": 1200233,
+      "sha256_forms": "86c5938395d99a0f241aee497ebdef907f0f1e594b13ef8184f13d1e2622abd6",
+      "last_score": -0.997872582,
+      "cut_rank": 43819,
+      "next_block": null,
+      "pruned_lexemes": 7089,
+      "head_exceptions_units": 149,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 7396,
+        "OBSERVED/OBSERVED": 35271,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 1027,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 125
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 7521,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 1027
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73484514,
+          "total": 74542063,
+          "coverage": 0.985813
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73484514,
+          "total": 81664894,
+          "coverage": 0.89983
+        }
+      },
+      "versus_published": {
+        "added": 2362,
+        "removed": 29379
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "score",
+        "minimum_score": -1.0,
+        "label": "0.1",
+        "pruning": "own-score-plus-existing-exceptions"
+      },
+      "rank_pruning_comparison": {
+        "own_score_only_extra_members": 0,
+        "rank_only_extra_members": 0
+      }
+    },
+    "score-0.075": {
+      "units": 47894,
+      "lexemes_before_pruning": 62983,
+      "lexemes": 56080,
+      "lemmas": 53879,
+      "forms": 1290225,
+      "sha256_forms": "c7dba9fc128b728255b792369d98e04c04c13e4c0889d344b482f6622a18007a",
+      "last_score": -1.123168176,
+      "cut_rank": 47894,
+      "next_block": null,
+      "pruned_lexemes": 6903,
+      "head_exceptions_units": 179,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 7666,
+        "OBSERVED/OBSERVED": 37432,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 2625,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 171
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 7837,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 2625
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73509915,
+          "total": 74542063,
+          "coverage": 0.986153
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73509915,
+          "total": 81664894,
+          "coverage": 0.900141
+        }
+      },
+      "versus_published": {
+        "added": 62975,
+        "removed": 0
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "score",
+        "minimum_score": -1.1249387366083,
+        "label": "0.075",
+        "pruning": "own-score-plus-existing-exceptions"
+      },
+      "rank_pruning_comparison": {
+        "own_score_only_extra_members": 0,
+        "rank_only_extra_members": 0
+      }
+    },
+    "score-0.05": {
+      "units": 54824,
+      "lexemes_before_pruning": 70416,
+      "lexemes": 63883,
+      "lemmas": 61552,
+      "forms": 1445446,
+      "sha256_forms": "c328931db472cd96eaee0bf90c6e4d005037823606644902cbe6854fbf1a4314",
+      "last_score": -1.297835513,
+      "cut_rank": 54824,
+      "next_block": null,
+      "pruned_lexemes": 6533,
+      "head_exceptions_units": 204,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 8061,
+        "OBSERVED/OBSERVED": 39689,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 6774,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 300
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 8361,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 6774
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73533914,
+          "total": 74542063,
+          "coverage": 0.986475
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73533914,
+          "total": 81664894,
+          "coverage": 0.900435
+        }
+      },
+      "versus_published": {
+        "added": 218196,
+        "removed": 0
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "score",
+        "minimum_score": -1.3010299956639813,
+        "label": "0.05",
+        "pruning": "own-score-plus-existing-exceptions"
+      },
+      "rank_pruning_comparison": {
+        "own_score_only_extra_members": 0,
+        "rank_only_extra_members": 0
+      }
+    },
+    "score-0.025": {
+      "units": 69659,
+      "lexemes_before_pruning": 85959,
+      "lexemes": 79810,
+      "lemmas": 77345,
+      "forms": 1778693,
+      "sha256_forms": "7aa1ea032165182c5375f7dd46c2ab759fbeb15082d4d64ee026069a46a6d756",
+      "last_score": -1.594648925,
+      "cut_rank": 69659,
+      "next_block": null,
+      "pruned_lexemes": 6149,
+      "head_exceptions_units": 207,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 8061,
+        "OBSERVED/OBSERVED": 41302,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 19996,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 300
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 8361,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 19996
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73545537,
+          "total": 74542063,
+          "coverage": 0.986631
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73545537,
+          "total": 81664894,
+          "coverage": 0.900577
+        }
+      },
+      "versus_published": {
+        "added": 551443,
+        "removed": 0
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "score",
+        "minimum_score": -1.6020599913279623,
+        "label": "0.025",
+        "pruning": "own-score-plus-existing-exceptions"
+      },
+      "rank_pruning_comparison": {
+        "own_score_only_extra_members": 0,
+        "rank_only_extra_members": 0
+      }
+    },
+    "score-0.01": {
+      "units": 84628,
+      "lexemes_before_pruning": 101330,
+      "lexemes": 96009,
+      "lemmas": 93448,
+      "forms": 2095928,
+      "sha256_forms": "8ed5aa0c03af096e0a00143faa7c8cfb8f962092851e2db52557330049531590",
+      "last_score": -1.802135599,
+      "cut_rank": 84628,
+      "next_block": null,
+      "pruned_lexemes": 5321,
+      "head_exceptions_units": 0,
+      "selected_unit_statuses": {
+        "OBSERVED/PROPER_SHARED": 8061,
+        "OBSERVED/OBSERVED": 41645,
+        "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD/OBSERVED": 34622,
+        "OBSERVED/NOT_IN_PUBLISHED_LIST": 300
+      },
+      "selected_unit_flags": {
+        "single_source:kwjp": 8361,
+        "nkjp_outdated": 22,
+        "bound:kwjp": 34622
+      },
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73547695,
+          "total": 74542063,
+          "coverage": 0.98666
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73547695,
+          "total": 81664894,
+          "coverage": 0.900604
+        }
+      },
+      "versus_published": {
+        "added": 868678,
+        "removed": 0
+      },
+      "frequent_guard_missing": 0,
+      "policy": {
+        "kind": "score",
+        "minimum_score": -2.0,
+        "label": "0.01",
+        "pruning": "own-score-plus-existing-exceptions"
+      },
+      "rank_pruning_comparison": {
+        "own_score_only_extra_members": 0,
+        "rank_only_extra_members": 0
+      }
+    },
+    "dispersion-arf3-ratio0.1": {
+      "policy": {
+        "kind": "diagnostic-filter-count80000",
+        "min_ARF": 3,
+        "min_ARF_F": 0.1,
+        "unknown": "not_selected_separately_counted",
+        "evidence": "OR original KWJP rows; all candidates share lemma base"
+      },
+      "lexemes": 55708,
+      "forms": 1260036,
+      "sha256_forms": "3fc2b0f753686a88c8e6ea595bb779dd361bc3c318b66c3c812f5fac55c88b01",
+      "unknown_lexemes": 15196,
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73520972,
+          "total": 74542063,
+          "coverage": 0.986302
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73520972,
+          "total": 81664894,
+          "coverage": 0.900276
+        }
+      },
+      "versus_published": {
+        "added": 74044,
+        "removed": 41258
+      },
+      "frequent_guard_missing": 0
+    },
+    "dispersion-arf3-ratio0.3": {
+      "policy": {
+        "kind": "diagnostic-filter-count80000",
+        "min_ARF": 3,
+        "min_ARF_F": 0.3,
+        "unknown": "not_selected_separately_counted",
+        "evidence": "OR original KWJP rows; all candidates share lemma base"
+      },
+      "lexemes": 54255,
+      "forms": 1246674,
+      "sha256_forms": "ea76af1aa42d6b52fff76da2cb0ddfcb21e474378f4e5c4e5c3b6e1195c6ded1",
+      "unknown_lexemes": 15196,
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 72666119,
+          "total": 74542063,
+          "coverage": 0.974834
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 72666119,
+          "total": 81664894,
+          "coverage": 0.889809
+        }
+      },
+      "versus_published": {
+        "added": 72863,
+        "removed": 53439
+      },
+      "frequent_guard_missing": 332
+    },
+    "dispersion-arf10-ratio0.1": {
+      "policy": {
+        "kind": "diagnostic-filter-count80000",
+        "min_ARF": 10,
+        "min_ARF_F": 0.1,
+        "unknown": "not_selected_separately_counted",
+        "evidence": "OR original KWJP rows; all candidates share lemma base"
+      },
+      "lexemes": 41361,
+      "forms": 978054,
+      "sha256_forms": "06114f9b5d261cb720c1b9ff9b14976d985635898bbaa5b32a24efa2379ffdf3",
+      "unknown_lexemes": 15196,
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73347020,
+          "total": 74542063,
+          "coverage": 0.983968
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73347020,
+          "total": 81664894,
+          "coverage": 0.898146
+        }
+      },
+      "versus_published": {
+        "added": 3138,
+        "removed": 252334
+      },
+      "frequent_guard_missing": 2
+    },
+    "dispersion-arf10-ratio0.3": {
+      "policy": {
+        "kind": "diagnostic-filter-count80000",
+        "min_ARF": 10,
+        "min_ARF_F": 0.3,
+        "unknown": "not_selected_separately_counted",
+        "evidence": "OR original KWJP rows; all candidates share lemma base"
+      },
+      "lexemes": 40444,
+      "forms": 969706,
+      "sha256_forms": "890f381ebd36f0c334c9e2f70d06f0f85a238d03f27de3dcb9672a131a8ed29b",
+      "unknown_lexemes": 15196,
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 72462664,
+          "total": 74542063,
+          "coverage": 0.972104
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 72462664,
+          "total": 81664894,
+          "coverage": 0.887317
+        }
+      },
+      "versus_published": {
+        "added": 3109,
+        "removed": 260653
+      },
+      "frequent_guard_missing": 350
+    },
+    "dispersion-arf3-ratio0.1-keep-unknown": {
+      "policy": {
+        "kind": "diagnostic-filter-count80000",
+        "min_ARF": 3,
+        "min_ARF_F": 0.1,
+        "unknown": "kept",
+        "evidence": "OR original KWJP rows; all candidates share lemma base"
+      },
+      "lexemes": 70904,
+      "forms": 1605675,
+      "sha256_forms": "72fba29e265338235d4acf9e6b339130a3a27cb5f5eb34832cf075d410cd1b86",
+      "unknown_lexemes": 15196,
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73520972,
+          "total": 74542063,
+          "coverage": 0.986302
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73520972,
+          "total": 81664894,
+          "coverage": 0.900276
+        }
+      },
+      "versus_published": {
+        "added": 387442,
+        "removed": 9017
+      },
+      "frequent_guard_missing": 0
+    },
+    "dispersion-arf3-ratio0.3-keep-unknown": {
+      "policy": {
+        "kind": "diagnostic-filter-count80000",
+        "min_ARF": 3,
+        "min_ARF_F": 0.3,
+        "unknown": "kept",
+        "evidence": "OR original KWJP rows; all candidates share lemma base"
+      },
+      "lexemes": 69451,
+      "forms": 1592356,
+      "sha256_forms": "83b364d1b9d471848258ebb6167182ab58771cdee202f22d518b29243b2b6d1d",
+      "unknown_lexemes": 15196,
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 72666119,
+          "total": 74542063,
+          "coverage": 0.974834
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 72666119,
+          "total": 81664894,
+          "coverage": 0.889809
+        }
+      },
+      "versus_published": {
+        "added": 386261,
+        "removed": 21155
+      },
+      "frequent_guard_missing": 331
+    },
+    "dispersion-arf10-ratio0.1-keep-unknown": {
+      "policy": {
+        "kind": "diagnostic-filter-count80000",
+        "min_ARF": 10,
+        "min_ARF_F": 0.1,
+        "unknown": "kept",
+        "evidence": "OR original KWJP rows; all candidates share lemma base"
+      },
+      "lexemes": 56557,
+      "forms": 1324337,
+      "sha256_forms": "2ce2d8d1513f655aca5208f94efedce54c0e2ef8aed2d3e0b04cf5fe8f95abf2",
+      "unknown_lexemes": 15196,
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73347020,
+          "total": 74542063,
+          "coverage": 0.983968
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73347020,
+          "total": 81664894,
+          "coverage": 0.898146
+        }
+      },
+      "versus_published": {
+        "added": 316651,
+        "removed": 219564
+      },
+      "frequent_guard_missing": 2
+    },
+    "dispersion-arf10-ratio0.3-keep-unknown": {
+      "policy": {
+        "kind": "diagnostic-filter-count80000",
+        "min_ARF": 10,
+        "min_ARF_F": 0.3,
+        "unknown": "kept",
+        "evidence": "OR original KWJP rows; all candidates share lemma base"
+      },
+      "lexemes": 55640,
+      "forms": 1316016,
+      "sha256_forms": "95fe73c00d414618dd32f65661bc1653dd09d7d538d8e472945daeffe097ac9a",
+      "unknown_lexemes": 15196,
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 72462664,
+          "total": 74542063,
+          "coverage": 0.972104
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 72462664,
+          "total": 81664894,
+          "coverage": 0.887317
+        }
+      },
+      "versus_published": {
+        "added": 316622,
+        "removed": 227856
+      },
+      "frequent_guard_missing": 349
+    },
+    "kwjp-F10-ARF3-ratio0.1": {
+      "policy": {
+        "kind": "absolute-own-kwjp",
+        "min_F": 10,
+        "min_ARF": 3,
+        "min_ARF_F": 0.1,
+        "unknown": "not_selected",
+        "evidence": "OR original KWJP rows; all candidates share lemma base"
+      },
+      "lexemes": 49215,
+      "forms": 1125063,
+      "sha256_forms": "cee0776d13d3aabde15d9af45cdf53d9967b0036dac5a1311a15dc7159e10823",
+      "unknown_lexemes": 154310,
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73472424,
+          "total": 74542063,
+          "coverage": 0.985651
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73472424,
+          "total": 81664894,
+          "coverage": 0.899682
+        }
+      },
+      "versus_published": {
+        "added": 15388,
+        "removed": 117575
+      },
+      "frequent_guard_missing": 1
+    },
+    "kwjp-F20-ARF5-ratio0.1": {
+      "policy": {
+        "kind": "absolute-own-kwjp",
+        "min_F": 20,
+        "min_ARF": 5,
+        "min_ARF_F": 0.1,
+        "unknown": "not_selected",
+        "evidence": "OR original KWJP rows; all candidates share lemma base"
+      },
+      "lexemes": 41029,
+      "forms": 953651,
+      "sha256_forms": "8d25c17f3a10492f205c765643caa43e84ded213cf3730fce37a249cd1fd0bb7",
+      "unknown_lexemes": 154310,
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 73342068,
+          "total": 74542063,
+          "coverage": 0.983902
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 73342068,
+          "total": 81664894,
+          "coverage": 0.898086
+        }
+      },
+      "versus_published": {
+        "added": 3339,
+        "removed": 276938
+      },
+      "frequent_guard_missing": 3
+    },
+    "kwjp-F50-ARF10-ratio0.1": {
+      "policy": {
+        "kind": "absolute-own-kwjp",
+        "min_F": 50,
+        "min_ARF": 10,
+        "min_ARF_F": 0.1,
+        "unknown": "not_selected",
+        "evidence": "OR original KWJP rows; all candidates share lemma base"
+      },
+      "lexemes": 30645,
+      "forms": 720593,
+      "sha256_forms": "e1bfff7c8808eb9490f7f688a6e5b7dd94d07f636bd07f23f392e237cd399395",
+      "unknown_lexemes": 154310,
+      "coverage": {
+        "kwjp-standard": {
+          "denominator": "kwjp-standard",
+          "covered": 72938131,
+          "total": 74542063,
+          "coverage": 0.978483
+        },
+        "kwjp-all": {
+          "denominator": "kwjp-all",
+          "covered": 72938131,
+          "total": 81664894,
+          "coverage": 0.893139
+        }
+      },
+      "versus_published": {
+        "added": 1886,
+        "removed": 508543
+      },
+      "frequent_guard_missing": 5
+    }
+  },
+  "pop0": {
+    "forms": 388990,
+    "sha256_forms": "37f49af15855e267f79a41d760eb86e7fc6c2c2825e6d8739d1b3bcd07d547a3"
+  },
+  "fixed_score_thresholds": {
+    "baseline60k": -1.042878629,
+    "0.1": -1.0,
+    "0.075": -1.1249387366083,
+    "0.05": -1.3010299956639813,
+    "0.025": -1.6020599913279623,
+    "0.01": -2.0
+  },
+  "corrected_at": "2026-10-12T10:22:56Z",
+  "diagnostic_correction": "Original rows for singleton and pooled lemmas; ARF/F from the same row. Earlier diagnostic invalid, archived locally.",
+  "unknown_count_corrected_at": "2026-10-12T10:31:12Z"
+}

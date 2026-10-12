@@ -1,0 +1,1794 @@
+{
+  "cases": [
+    {
+      "lemma": "alogiczność",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "alogiczność"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "alogiczność"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 6,
+          "forms_examples": [
+            "alogiczności",
+            "alogicznościach",
+            "alogicznościami",
+            "alogicznościom",
+            "alogicznością"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "008fc90b9a0c"
+    },
+    {
+      "lemma": "przedryndać",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "przedryndać"
+          ],
+          "pos": "verb",
+          "group_members": [
+            "przedryndać"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 45,
+          "forms_examples": [
+            "nieprzedryndań",
+            "przedrynda",
+            "przedryndacie",
+            "przedryndaj",
+            "przedryndajcie"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "01c214d5e139"
+    },
+    {
+      "lemma": "pies",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "pies:Sm1"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "pies:Sm1",
+            "pies:Sm2",
+            "psi:A",
+            "psi:S",
+            "psieć",
+            "psio"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 17916,
+            "ARF": "5022.83",
+            "1-DP": "0.43807",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 531,
+            "ambiguous": true
+          },
+          "nkjp_group_status": "PROPER_SHARED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 16496,
+            "ARF": "5022.83",
+            "1-DP": "0.43807",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 531,
+            "ambiguous": true
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "single_source:kwjp"
+          ],
+          "standard_forms_count": 11,
+          "forms_examples": [
+            "pies",
+            "psa",
+            "psach",
+            "psami",
+            "psem"
+          ]
+        },
+        {
+          "key": [
+            "sgjp-20260823",
+            "pies:Sm2"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "pies:Sm1",
+            "pies:Sm2",
+            "psi:A",
+            "psi:S",
+            "psieć",
+            "psio"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 17916,
+            "ARF": "5022.83",
+            "1-DP": "0.43807",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 531,
+            "ambiguous": true
+          },
+          "nkjp_group_status": "PROPER_SHARED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 16496,
+            "ARF": "5022.83",
+            "1-DP": "0.43807",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 531,
+            "ambiguous": true
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "single_source:kwjp"
+          ],
+          "standard_forms_count": 10,
+          "forms_examples": [
+            "pies",
+            "psa",
+            "psach",
+            "psami",
+            "psem"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [
+        {
+          "row": 531,
+          "unit": "pies",
+          "pos": "subst",
+          "F": 16496,
+          "ARF": "5022.83",
+          "DP": "0.56193",
+          "DP_norm": "0.562",
+          "status": "AMBIGUOUS"
+        }
+      ],
+      "id": "03f17483ad49"
+    },
+    {
+      "lemma": "dekagram",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "dekagram"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "daga",
+            "dekagram"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 134,
+            "ARF": "28.71",
+            "1-DP": "0.01123",
+            "genres": [
+              "fakt",
+              "publicystyka"
+            ],
+            "row": 49026,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 85,
+            "ARF": "28.71",
+            "1-DP": "0.01123",
+            "genres": [
+              "fakt",
+              "publicystyka"
+            ],
+            "row": 49026,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "SHARED_DOMINANT",
+          "score_flags": [],
+          "standard_forms_count": 11,
+          "forms_examples": [
+            "dag",
+            "dekagram",
+            "dekagrama",
+            "dekagramach",
+            "dekagramami"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [
+        {
+          "row": 49026,
+          "unit": "dekagram",
+          "pos": "brev",
+          "F": 61,
+          "ARF": "28.71",
+          "DP": "0.98877",
+          "DP_norm": "0.9889",
+          "status": "EXACT_CANDIDATE"
+        },
+        {
+          "row": 79606,
+          "unit": "dekagram",
+          "pos": "subst",
+          "F": 24,
+          "ARF": "11.24",
+          "DP": "0.98533",
+          "DP_norm": "0.98546",
+          "status": "EXACT_CANDIDATE"
+        }
+      ],
+      "id": "04c6cf082f04"
+    },
+    {
+      "lemma": "absolutysta",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "absolutysta"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "absolutysta"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 7,
+            "ARF": "3.72",
+            "1-DP": "0.00448",
+            "genres": [
+              "fakt"
+            ],
+            "row": 148168,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 7,
+            "ARF": "3.72",
+            "1-DP": "0.00448",
+            "genres": [
+              "fakt"
+            ],
+            "row": 148168,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [],
+          "standard_forms_count": 11,
+          "forms_examples": [
+            "absolutysta",
+            "absolutystach",
+            "absolutystami",
+            "absolutysto",
+            "absolutystom"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [
+        {
+          "row": 148168,
+          "unit": "absolutysta",
+          "pos": "subst",
+          "F": 7,
+          "ARF": "3.72",
+          "DP": "0.99552",
+          "DP_norm": "0.99565",
+          "status": "EXACT_CANDIDATE"
+        }
+      ],
+      "id": "04c92f533fc0"
+    },
+    {
+      "lemma": "pomiaukiwać",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "pomiaukiwać"
+          ],
+          "pos": "verb",
+          "group_members": [
+            "pomiaukiwać"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 59,
+          "forms_examples": [
+            "niepomiaukiwań",
+            "niepomiaukująca",
+            "niepomiaukujące",
+            "niepomiaukujący",
+            "niepomiaukującą"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "05d37d815762"
+    },
+    {
+      "lemma": "lnica",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "lnica"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "lnica"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 10,
+          "forms_examples": [
+            "lnic",
+            "lnica",
+            "lnicach",
+            "lnicami",
+            "lnice"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "05f893e6f095"
+    },
+    {
+      "lemma": "margarynowy",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "margarynowy"
+          ],
+          "pos": "adj",
+          "group_members": [
+            "margarynowy"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 11,
+          "forms_examples": [
+            "margarynowa",
+            "margarynowe",
+            "margarynowego",
+            "margarynowej",
+            "margarynowemu"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "075ac1fbf60f"
+    },
+    {
+      "lemma": "katechumenat",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "katechumenat"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "katechumenat"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 8,
+            "ARF": "4.1",
+            "1-DP": "0.00402",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 142323,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 8,
+            "ARF": "4.1",
+            "1-DP": "0.00402",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 142323,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [],
+          "standard_forms_count": 10,
+          "forms_examples": [
+            "katechumenacie",
+            "katechumenat",
+            "katechumenatach",
+            "katechumenatami",
+            "katechumenatem"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [
+        {
+          "row": 142323,
+          "unit": "katechumenat",
+          "pos": "subst",
+          "F": 8,
+          "ARF": "4.1",
+          "DP": "0.99598",
+          "DP_norm": "0.99611",
+          "status": "EXACT_CANDIDATE"
+        }
+      ],
+      "id": "0775c043d408"
+    },
+    {
+      "lemma": "mszyć",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "mszyć"
+          ],
+          "pos": "verb",
+          "group_members": [
+            "msza",
+            "mszyć"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 5385,
+            "ARF": "2033.59",
+            "1-DP": "0.34584",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 1823,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [],
+          "standard_forms_count": 100,
+          "forms_examples": [
+            "mszeni",
+            "mszenia",
+            "mszeniach",
+            "mszeniami",
+            "mszenie"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "077b2248c7f3"
+    },
+    {
+      "lemma": "partykuła",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "partykuła"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "partykuła"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 20,
+            "ARF": "10.82",
+            "1-DP": "0.01063",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 87159,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 20,
+            "ARF": "10.82",
+            "1-DP": "0.01063",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 87159,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [],
+          "standard_forms_count": 10,
+          "forms_examples": [
+            "partykule",
+            "partykuł",
+            "partykuła",
+            "partykułach",
+            "partykułami"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [
+        {
+          "row": 87159,
+          "unit": "partykuła",
+          "pos": "subst",
+          "F": 20,
+          "ARF": "10.82",
+          "DP": "0.98937",
+          "DP_norm": "0.9895",
+          "status": "EXACT_CANDIDATE"
+        }
+      ],
+      "id": "07f655da873f"
+    },
+    {
+      "lemma": "transkrypcyjny",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "transkrypcyjny"
+          ],
+          "pos": "adj",
+          "group_members": [
+            "transkrypcyjny"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 7,
+          "forms_examples": [
+            "transkrypcyjna",
+            "transkrypcyjne",
+            "transkrypcyjnej",
+            "transkrypcyjni",
+            "transkrypcyjny"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "084738579b81"
+    },
+    {
+      "lemma": "nienudny",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "nienudny"
+          ],
+          "pos": "adj",
+          "group_members": [
+            "nienudny"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 11,
+          "forms_examples": [
+            "nienudna",
+            "nienudne",
+            "nienudnego",
+            "nienudnej",
+            "nienudnemu"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "09fa9728fb5f"
+    },
+    {
+      "lemma": "odbąknąć",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "odbąknąć"
+          ],
+          "pos": "verb",
+          "group_members": [
+            "odbąknąć"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 78,
+          "forms_examples": [
+            "nieodbąknięci",
+            "nieodbąknięcia",
+            "nieodbąknięcie",
+            "nieodbąknięciem",
+            "nieodbąknięciom"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "0a98f37bc774"
+    },
+    {
+      "lemma": "miodokwiat",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "miodokwiat"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "miodokwiat"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 10,
+          "forms_examples": [
+            "miodokwiat",
+            "miodokwiatach",
+            "miodokwiatami",
+            "miodokwiatem",
+            "miodokwiatom"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "0ace985a31f5"
+    },
+    {
+      "lemma": "hoja",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "hoja"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "hoja"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 20,
+            "ARF": "3.01",
+            "1-DP": "0.00098",
+            "genres": [
+              "fakt",
+              "fikcja"
+            ],
+            "row": 88863,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "PROPER_SHARED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 20,
+            "ARF": "3.01",
+            "1-DP": "0.00098",
+            "genres": [
+              "fakt",
+              "fikcja"
+            ],
+            "row": 88863,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "PROPER_SHARED",
+          "score_flags": [
+            "single_source:kwjp"
+          ],
+          "standard_forms_count": 10,
+          "forms_examples": [
+            "hoi",
+            "hoj",
+            "hoja",
+            "hojach",
+            "hojami"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [
+        {
+          "row": 88863,
+          "unit": "hoja",
+          "pos": "subst",
+          "F": 20,
+          "ARF": "3.01",
+          "DP": "0.99902",
+          "DP_norm": "0.99915",
+          "status": "EXACT_CANDIDATE"
+        }
+      ],
+      "id": "0b638ddbe860"
+    },
+    {
+      "lemma": "szybkościomierz",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "szybkościomierz"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "szybkościomierz"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 5,
+            "ARF": "2.41",
+            "1-DP": "0.00618",
+            "genres": [
+              "fakt",
+              "fikcja"
+            ],
+            "row": 169785,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 5,
+            "ARF": "2.41",
+            "1-DP": "0.00618",
+            "genres": [
+              "fakt",
+              "fikcja"
+            ],
+            "row": 169785,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [],
+          "standard_forms_count": 1,
+          "forms_examples": [
+            "szybkościomierz"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [
+        {
+          "row": 169785,
+          "unit": "szybkościomierz",
+          "pos": "subst",
+          "F": 5,
+          "ARF": "2.41",
+          "DP": "0.99382",
+          "DP_norm": "0.99395",
+          "status": "EXACT_CANDIDATE"
+        }
+      ],
+      "id": "0e2e5a40cc68"
+    },
+    {
+      "lemma": "podminować",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "podminować"
+          ],
+          "pos": "verb",
+          "group_members": [
+            "podminowany",
+            "podminować"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 51,
+            "ARF": "28.31",
+            "1-DP": "0.0368",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 57100,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 51,
+            "ARF": "28.31",
+            "1-DP": "0.0368",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 57100,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "SHARED_DOMINANT",
+          "score_flags": [],
+          "standard_forms_count": 68,
+          "forms_examples": [
+            "niepodminowana",
+            "niepodminowane",
+            "niepodminowanej",
+            "niepodminowani",
+            "niepodminowania"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [
+        {
+          "row": 57100,
+          "unit": "podminować",
+          "pos": "ppas",
+          "F": 46,
+          "ARF": "28.31",
+          "DP": "0.9632",
+          "DP_norm": "0.96333",
+          "status": "EXACT_CANDIDATE"
+        },
+        {
+          "row": 176978,
+          "unit": "podminować",
+          "pos": "inf",
+          "F": 5,
+          "ARF": "4.28",
+          "DP": "0.99586",
+          "DP_norm": "0.99599",
+          "status": "EXACT_CANDIDATE"
+        }
+      ],
+      "id": "0fd668d13f4b"
+    },
+    {
+      "lemma": "zabobonnie",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "zabobonnie"
+          ],
+          "pos": "adv",
+          "group_members": [
+            "zabobonnie"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 5,
+            "ARF": "3.92",
+            "1-DP": "0.0055",
+            "genres": [
+              "fakt",
+              "fikcja"
+            ],
+            "row": 167017,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 5,
+            "ARF": "3.92",
+            "1-DP": "0.0055",
+            "genres": [
+              "fakt",
+              "fikcja"
+            ],
+            "row": 167017,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [],
+          "standard_forms_count": 1,
+          "forms_examples": [
+            "zabobonnie"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [
+        {
+          "row": 167017,
+          "unit": "zabobonnie",
+          "pos": "adv",
+          "F": 5,
+          "ARF": "3.92",
+          "DP": "0.9945",
+          "DP_norm": "0.99463",
+          "status": "EXACT_CANDIDATE"
+        }
+      ],
+      "id": "107aee1ee32b"
+    },
+    {
+      "lemma": "biseks",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "biseks"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "biseks"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 5,
+            "ARF": "2.8",
+            "1-DP": "0.0034",
+            "genres": [
+              "fakt",
+              "fikcja"
+            ],
+            "row": 176535,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 5,
+            "ARF": "2.8",
+            "1-DP": "0.0034",
+            "genres": [
+              "fakt",
+              "fikcja"
+            ],
+            "row": 176535,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [],
+          "standard_forms_count": 11,
+          "forms_examples": [
+            "biseks",
+            "biseksa",
+            "biseksach",
+            "biseksami",
+            "biseksem"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [
+        {
+          "row": 176535,
+          "unit": "biseks",
+          "pos": "subst",
+          "F": 5,
+          "ARF": "2.8",
+          "DP": "0.9966",
+          "DP_norm": "0.99673",
+          "status": "EXACT_CANDIDATE"
+        }
+      ],
+      "id": "10e041a28e70"
+    },
+    {
+      "lemma": "demistyfikować",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "demistyfikować"
+          ],
+          "pos": "verb",
+          "group_members": [
+            "demistyfikować"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 5,
+            "ARF": "2.66",
+            "1-DP": "0.00359",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 178917,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 5,
+            "ARF": "2.66",
+            "1-DP": "0.00359",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 178917,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [],
+          "standard_forms_count": 26,
+          "forms_examples": [
+            "demistyfikowali",
+            "demistyfikowana",
+            "demistyfikowane",
+            "demistyfikowani",
+            "demistyfikowano"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [
+        {
+          "row": 178917,
+          "unit": "demistyfikować",
+          "pos": "pact",
+          "F": 5,
+          "ARF": "2.66",
+          "DP": "0.99641",
+          "DP_norm": "0.99654",
+          "status": "EXACT_CANDIDATE"
+        }
+      ],
+      "id": "11be36d214c5"
+    },
+    {
+      "lemma": "pilarz",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "pilarz:Sm1"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "pilarz:Sm1",
+            "pilarz:Sm2"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 23,
+            "ARF": "11.79",
+            "1-DP": "0.00385",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 82017,
+            "ambiguous": true
+          },
+          "nkjp_group_status": "PROPER_SHARED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 23,
+            "ARF": "11.79",
+            "1-DP": "0.00385",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 82017,
+            "ambiguous": true
+          },
+          "nkjp_own_status": "PROPER_SHARED",
+          "score_flags": [
+            "single_source:kwjp"
+          ],
+          "standard_forms_count": 11,
+          "forms_examples": [
+            "pilarz",
+            "pilarza",
+            "pilarzach",
+            "pilarzami",
+            "pilarze"
+          ]
+        },
+        {
+          "key": [
+            "sgjp-20260823",
+            "pilarz:Sm2"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "pilarz:Sm1",
+            "pilarz:Sm2"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 23,
+            "ARF": "11.79",
+            "1-DP": "0.00385",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 82017,
+            "ambiguous": true
+          },
+          "nkjp_group_status": "PROPER_SHARED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 23,
+            "ARF": "11.79",
+            "1-DP": "0.00385",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 82017,
+            "ambiguous": true
+          },
+          "nkjp_own_status": "PROPER_SHARED",
+          "score_flags": [
+            "single_source:kwjp"
+          ],
+          "standard_forms_count": 11,
+          "forms_examples": [
+            "pilarz",
+            "pilarza",
+            "pilarzach",
+            "pilarzami",
+            "pilarze"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [
+        {
+          "row": 82017,
+          "unit": "pilarz",
+          "pos": "subst",
+          "F": 23,
+          "ARF": "11.79",
+          "DP": "0.99615",
+          "DP_norm": "0.99628",
+          "status": "AMBIGUOUS"
+        }
+      ],
+      "id": "129820a48800"
+    },
+    {
+      "lemma": "ostojowy",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "ostojowy"
+          ],
+          "pos": "adj",
+          "group_members": [
+            "ostojowy"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 11,
+          "forms_examples": [
+            "ostojowa",
+            "ostojowe",
+            "ostojowego",
+            "ostojowej",
+            "ostojowemu"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "12b07960d8a0"
+    },
+    {
+      "lemma": "fermentownia",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "fermentownia"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "fermentownia"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 9,
+          "forms_examples": [
+            "fermentowni",
+            "fermentownia",
+            "fermentowniach",
+            "fermentowniami",
+            "fermentownie"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "12c0722267be"
+    },
+    {
+      "lemma": "pyrex",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "pyrex"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "pyrex"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 9,
+          "forms_examples": [
+            "pyreksach",
+            "pyreksami",
+            "pyreksem",
+            "pyreksie",
+            "pyreksom"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "12e2192b5654"
+    },
+    {
+      "lemma": "nieruchawość",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "nieruchawość"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "nieruchawość"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 4,
+          "forms_examples": [
+            "nieruchawości",
+            "nieruchawościom",
+            "nieruchawością",
+            "nieruchawość"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "135bd9567b99"
+    },
+    {
+      "lemma": "nieuprzejmość",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "nieuprzejmość"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "nieuprzejmość"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 27,
+            "ARF": "14.58",
+            "1-DP": "0.01575",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 75050,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 27,
+            "ARF": "14.58",
+            "1-DP": "0.01575",
+            "genres": [
+              "fakt",
+              "fikcja",
+              "publicystyka"
+            ],
+            "row": 75050,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [],
+          "standard_forms_count": 3,
+          "forms_examples": [
+            "nieuprzejmości",
+            "nieuprzejmością",
+            "nieuprzejmość"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [
+        {
+          "row": 75050,
+          "unit": "nieuprzejmość",
+          "pos": "subst",
+          "F": 27,
+          "ARF": "14.58",
+          "DP": "0.98425",
+          "DP_norm": "0.98438",
+          "status": "EXACT_CANDIDATE"
+        }
+      ],
+      "id": "1393e615f104"
+    },
+    {
+      "lemma": "wirusowość",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "wirusowość"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "wirusowość"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 6,
+          "forms_examples": [
+            "wirusowości",
+            "wirusowościach",
+            "wirusowościami",
+            "wirusowościom",
+            "wirusowością"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "14d022ee166c"
+    },
+    {
+      "lemma": "treściwie",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "treściwie"
+          ],
+          "pos": "adv",
+          "group_members": [
+            "treściwie"
+          ],
+          "kwjp_group": {
+            "status": "OBSERVED",
+            "F": 26,
+            "ARF": "15.21",
+            "1-DP": "0.02037",
+            "genres": [
+              "fakt",
+              "fikcja"
+            ],
+            "row": 76905,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "OBSERVED",
+            "F": 26,
+            "ARF": "15.21",
+            "1-DP": "0.02037",
+            "genres": [
+              "fakt",
+              "fikcja"
+            ],
+            "row": 76905,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [],
+          "standard_forms_count": 3,
+          "forms_examples": [
+            "najtreściwiej",
+            "treściwie",
+            "treściwiej"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [
+        {
+          "row": 76905,
+          "unit": "treściwie",
+          "pos": "adv",
+          "F": 26,
+          "ARF": "15.21",
+          "DP": "0.97963",
+          "DP_norm": "0.97976",
+          "status": "EXACT_CANDIDATE"
+        }
+      ],
+      "id": "15066988861b"
+    },
+    {
+      "lemma": "zgorzknialec",
+      "evidence": [
+        {
+          "key": [
+            "sgjp-20260823",
+            "zgorzknialec"
+          ],
+          "pos": "subst",
+          "group_members": [
+            "zgorzknialec"
+          ],
+          "kwjp_group": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_group_status": "OBSERVED",
+          "kwjp_own": {
+            "status": "ABSENT_OR_BELOW_PUBLICATION_THRESHOLD",
+            "F": null,
+            "ARF": null,
+            "1-DP": null,
+            "genres": null,
+            "row": null,
+            "ambiguous": false
+          },
+          "nkjp_own_status": "OBSERVED",
+          "score_flags": [
+            "bound:kwjp"
+          ],
+          "standard_forms_count": 12,
+          "forms_examples": [
+            "zgorzknialca",
+            "zgorzknialcach",
+            "zgorzknialcami",
+            "zgorzknialce",
+            "zgorzknialcem"
+          ]
+        }
+      ],
+      "original_kwjp_rows": [],
+      "id": "15e2bbfc32d5"
+    }
+  ]
+}

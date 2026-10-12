@@ -1,0 +1,179 @@
+{
+  "grid": [
+    {
+      "ARF": 1.1,
+      "ARF_F": 0,
+      "observed_pass_lexemes": 57615,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 72811
+    },
+    {
+      "ARF": 1.1,
+      "ARF_F": 0.01,
+      "observed_pass_lexemes": 57615,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 72811
+    },
+    {
+      "ARF": 1.1,
+      "ARF_F": 0.03,
+      "observed_pass_lexemes": 57612,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 72808
+    },
+    {
+      "ARF": 1.1,
+      "ARF_F": 0.1,
+      "observed_pass_lexemes": 57529,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 72725
+    },
+    {
+      "ARF": 1.1,
+      "ARF_F": 0.3,
+      "observed_pass_lexemes": 55723,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 70919
+    },
+    {
+      "ARF": 2,
+      "ARF_F": 0,
+      "observed_pass_lexemes": 57414,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 72610
+    },
+    {
+      "ARF": 2,
+      "ARF_F": 0.01,
+      "observed_pass_lexemes": 57414,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 72610
+    },
+    {
+      "ARF": 2,
+      "ARF_F": 0.03,
+      "observed_pass_lexemes": 57412,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 72608
+    },
+    {
+      "ARF": 2,
+      "ARF_F": 0.1,
+      "observed_pass_lexemes": 57339,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 72535
+    },
+    {
+      "ARF": 2,
+      "ARF_F": 0.3,
+      "observed_pass_lexemes": 55637,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 70833
+    },
+    {
+      "ARF": 3,
+      "ARF_F": 0,
+      "observed_pass_lexemes": 55764,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 70960
+    },
+    {
+      "ARF": 3,
+      "ARF_F": 0.01,
+      "observed_pass_lexemes": 55764,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 70960
+    },
+    {
+      "ARF": 3,
+      "ARF_F": 0.03,
+      "observed_pass_lexemes": 55764,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 70960
+    },
+    {
+      "ARF": 3,
+      "ARF_F": 0.1,
+      "observed_pass_lexemes": 55708,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 70904
+    },
+    {
+      "ARF": 3,
+      "ARF_F": 0.3,
+      "observed_pass_lexemes": 54255,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 69451
+    },
+    {
+      "ARF": 5,
+      "ARF_F": 0,
+      "observed_pass_lexemes": 49808,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 65004
+    },
+    {
+      "ARF": 5,
+      "ARF_F": 0.01,
+      "observed_pass_lexemes": 49808,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 65004
+    },
+    {
+      "ARF": 5,
+      "ARF_F": 0.03,
+      "observed_pass_lexemes": 49808,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 65004
+    },
+    {
+      "ARF": 5,
+      "ARF_F": 0.1,
+      "observed_pass_lexemes": 49772,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 64968
+    },
+    {
+      "ARF": 5,
+      "ARF_F": 0.3,
+      "observed_pass_lexemes": 48569,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 63765
+    },
+    {
+      "ARF": 10,
+      "ARF_F": 0,
+      "observed_pass_lexemes": 41379,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 56575
+    },
+    {
+      "ARF": 10,
+      "ARF_F": 0.01,
+      "observed_pass_lexemes": 41379,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 56575
+    },
+    {
+      "ARF": 10,
+      "ARF_F": 0.03,
+      "observed_pass_lexemes": 41379,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 56575
+    },
+    {
+      "ARF": 10,
+      "ARF_F": 0.1,
+      "observed_pass_lexemes": 41361,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 56557
+    },
+    {
+      "ARF": 10,
+      "ARF_F": 0.3,
+      "observed_pass_lexemes": 40444,
+      "unknown_lexemes": 15196,
+      "keep_unknown_lexemes": 55640
+    }
+  ]
+}

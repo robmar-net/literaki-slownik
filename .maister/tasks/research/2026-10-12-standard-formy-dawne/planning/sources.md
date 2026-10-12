@@ -104,3 +104,25 @@ Uzupełnienia obejmują UŚ (2005), sprawozdanie szkoły (2023), WSJP: szewron, 
 Bezpośrednie pobranie części WSJP zwracało 403, a strony szkoły błąd DNS, również po ponowieniu poza sandboxem. Treści odczytano przez web; manifest odróżnia udany odczyt od brakującego lokalnego pliku.
 Khan Academy to tylko trop z indeksu (pełna strona pusta, data przekładu nieustalona); szkolny PDF z daga nie jest zweryfikowanym współczesnym poświadczeniem. Te ograniczenia nie są ukrytymi wyłączeniami całych wymaganych kategorii.
 Podgląd HTML przez narzędzie Playwright pluginu Maister działał po uruchomieniu autoryzowanego serwera wyłącznie na 127.0.0.1; protokół file był zablokowany. Poprawiono projekcję dashboardu, która wyświetlała obiekty zamiast opisów i powodowała przewijanie poziome.
+
+## Rozszerzenie w rundzie 5
+
+Plan: [round5-plan.md](round5-plan.md). Dostęp: 2026-10-12. Wszystkie pięć wymaganych kategorii pokryto; nie wyłączono żadnej decyzją agenta. Źródła nieosiągalne mają zapis faktycznej próby.
+
+| Kategoria | Faktyczne pokrycie |
+|---|---|
+| Kod | Obecne grupowanie, punktacja, przycinanie i pokrycie w pop.py; skrypty pomiaru i niezależnego odtworzenia; pełne profile pasm |
+| Decyzje projektu | ADR-007, ADR-006, specyfikacja POP/POP0, stary pomiar 60k/80k, przeglądy kolejnych rewizji; historia nie jest równoważna walidacji aktualnej granicy |
+| Konfiguracja/testy | Przypięte niezmienione pop.json i pop-sources.json; 25 istniejących testów poprawnych, bez powtarzania po zmianach wyłącznie raportowych |
+| Przypięte dane | Oba STANDARD; 27 pełnych wariantów na każdy; 25 pól dyspersji na każdy; dokładna reprodukcja opublikowanego POP; 300 haseł i pełne 6 pasm |
+| Źródła pierwotne | Dokumentacja KWJP/Korpusomat/NKJP, cztery publikacje metodologiczne z jawnym zakresem; 300 zapytań KWJP, 1342 pobrane wyniki, 632 adnotacje odczytu z 386 dokumentów; słowniki i własne teksty instytucji |
+
+[Metodologia i bibliografia](../analysis/findings/round5/methodology-sources.md) rozróżniają fragmenty publikacji od abstraktów. Brysbaert: pełny tekst ograniczony do UGent; Hlaváčová: pobranie PDF nie powiodło się. Wnioski z tych pozycji ograniczono do abstraktów. Nie pobrano zewnętrznych list znajomości słów.
+
+Próby kontekstowe mają komplet 300 rozpoznanych odpowiedzi, w tym 68 zerowych; początkowy błąd DNS sandboxa ustąpił po autoryzowanym ponowieniu. Faktycznie odczytano 632 wyniki: 622 pary hasło–zdanie i 621 różnych zdań; kilka wyników przypada na to samo zdanie. Nie są to wszystkie 1342 pobrane konkordancje.
+
+Pierwsze oceny A/B utrwalono przed ujawnieniem pasm. Uzupełniono 52 hasła z 55 adresów: A 35/36, B 17/19. Po kontroli dostępu właściwy fragment odczytano dla 40 źródeł; 15 pozostaje dowodem pośrednim z indeksu po odnotowanych błędach. Nie utożsamiamy tych 15 z otwartą treścią. [Audyt A](../analysis/findings/round5/quality-a-source-access.json), [pierwszy dostęp B](../analysis/findings/round5/quality-b-source-access.json), [kontrola B po zamrożeniu](../analysis/findings/round5/quality-b-post-freeze.md).
+
+Kontrola B odczytała 16 oryginalnych adresów i jeden zastępczy oficjalny PDF AMUR; przedryndać i bojownica miały błędy web oraz HTTP 403 również poza sandboxem. Osobno otwarte zatelefonować potwierdziło relację synonimii. Poprawiono zbyt szeroki transfer kwalifikatora przy szampitrze. Trzy PDF odczytano tekstowo; dwie próby renderu stron nie powiodły się. A ma 23 otwarte fragmenty i 13 konkretnych ograniczeń. Nie deklarujemy przeczytania całych publikacji ani własnych tekstów cytowanych przez każdy słownik.
+
+[Niezależna kontrola pomiaru](../analysis/findings/round5/measurement-review.md) i [agregacja ocen](../analysis/findings/round5/quality-summary.json) przeszły. Kontrola zaczynała od grafu i morfologii w cache, bez niezależnej odbudowy tych wejść. Wymagane kategorie są pokryte; pozostałe luki dotyczą pojedynczych źródeł i zakresu wnioskowania, jawnie ograniczając pewność.

@@ -1,0 +1,531 @@
+{
+  "reviewer": "coordinator",
+  "scope": "Thirty preselected cases; no ranks/strata/membership consulted. Same model; partial lane observations were visible during work, no lane class decisions read.",
+  "cases": [
+    {
+      "id": "008fc90b9a0c",
+      "lemma": "alogiczność",
+      "class": "ograniczone",
+      "rationale": "Abstrakcyjny termin w opisie sztuki i narracji; dwa zgodne użycia różnych autorów.",
+      "confidence": "medium",
+      "reviewed_contexts": [
+        {
+          "document_id": "136117",
+          "sentence": "text_structure.xml/para_271/sent_11"
+        },
+        {
+          "document_id": "136457",
+          "sentence": "text_structure.xml/para_677/sent_1"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22alogiczno%C5%9B%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "01c214d5e139",
+      "lemma": "przedryndać",
+      "class": "niepewne",
+      "rationale": "Brak kontekstów i własnego KWJP w próbie; nie ustalono aktualnego rejestru.",
+      "confidence": "low",
+      "reviewed_contexts": [],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22przedrynda%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "03f17483ad49",
+      "lemma": "pies",
+      "class": "ogólne",
+      "rationale": "Zwykła nazwa zwierzęcia; dostępny kontekst zgodny, mocny własny wiersz z wariantami SGJP.",
+      "confidence": "high",
+      "reviewed_contexts": [
+        {
+          "document_id": "136036",
+          "sentence": "text_structure.xml/para_229/sent_11"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22pies%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "04c6cf082f04",
+      "lemma": "dekagram",
+      "class": "ogólne",
+      "rationale": "Zwykła jednostka masy. Odróżniono pełny rzeczownik od skrótu dkg w jednym z kontekstów.",
+      "confidence": "high",
+      "reviewed_contexts": [
+        {
+          "document_id": "136065",
+          "sentence": "text_structure.xml/para_283/sent_2"
+        },
+        {
+          "document_id": "136116",
+          "sentence": "text_structure.xml/para_454/sent_5"
+        },
+        {
+          "document_id": "136183",
+          "sentence": "text_structure.xml/para_561/sent_7"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22dekagram%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "04c92f533fc0",
+      "lemma": "absolutysta",
+      "class": "ograniczone",
+      "rationale": "Wyraz dyskusji filozoficznej i eseju; zgodne użycia kilku autorów.",
+      "confidence": "medium",
+      "reviewed_contexts": [
+        {
+          "document_id": "136153",
+          "sentence": "text_structure.xml/para_418/sent_15"
+        },
+        {
+          "document_id": "136224",
+          "sentence": "text_structure.xml/para_221/sent_8"
+        },
+        {
+          "document_id": "136298",
+          "sentence": "text_structure.xml/para_211/sent_6"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22absolutysta%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "05d37d815762",
+      "lemma": "pomiaukiwać",
+      "class": "ogólne",
+      "rationale": "Zwykły opis odgłosu kota w trzech powieściach; brak opublikowanego własnego wiersza nie przekreśla użycia.",
+      "confidence": "medium",
+      "reviewed_contexts": [
+        {
+          "document_id": "136601",
+          "sentence": "text_structure.xml/para_1510/sent_6"
+        },
+        {
+          "document_id": "136451",
+          "sentence": "text_structure.xml/para_2532/sent_3"
+        },
+        {
+          "document_id": "136411",
+          "sentence": "text_structure.xml/para_2721/sent_4"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22pomiaukiwa%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "05f893e6f095",
+      "lemma": "lnica",
+      "class": "niepewne",
+      "rationale": "Brak kontekstu; możliwe zastosowanie botaniczne wymaga osobnego potwierdzenia.",
+      "confidence": "low",
+      "reviewed_contexts": [],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22lnica%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "075ac1fbf60f",
+      "lemma": "margarynowy",
+      "class": "ogólne",
+      "rationale": "Przejrzysty przymiotnik od margaryny, użyty w opisie branży spożywczej; tylko jeden kontekst.",
+      "confidence": "medium",
+      "reviewed_contexts": [
+        {
+          "document_id": "201066",
+          "sentence": "text_structure.xml/para_7/sent_1"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22margarynowy%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "0775c043d408",
+      "lemma": "katechumenat",
+      "class": "ograniczone",
+      "rationale": "Termin religijny, zgodnie użyty przez trzech autorów; tematyczne ograniczenie nie przesądza wykluczenia.",
+      "confidence": "high",
+      "reviewed_contexts": [
+        {
+          "document_id": "136156",
+          "sentence": "text_structure.xml/para_193/sent_10"
+        },
+        {
+          "document_id": "136325",
+          "sentence": "text_structure.xml/para_206/sent_5"
+        },
+        {
+          "document_id": "136678",
+          "sentence": "text_structure.xml/para_1411/sent_1"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22katechumenat%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "077b2248c7f3",
+      "lemma": "mszyć",
+      "class": "błędne_dopasowanie",
+      "rationale": "Oba odczytane trafienia sportowe mają zapis mszył w miejscu oczekiwanego ruszył. To nie dowód czasownika mszyć; nie orzeka o istnieniu leksemu.",
+      "confidence": "high",
+      "reviewed_contexts": [
+        {
+          "document_id": "164874",
+          "sentence": "text_structure.xml/para_9/sent_3"
+        },
+        {
+          "document_id": "164906",
+          "sentence": "text_structure.xml/para_5/sent_5"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22mszy%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "07f655da873f",
+      "lemma": "partykuła",
+      "class": "ograniczone",
+      "rationale": "Termin gramatyczny, także w publicystyce i narracji; szkolna znajomość nie była mierzona.",
+      "confidence": "high",
+      "reviewed_contexts": [
+        {
+          "document_id": "136068",
+          "sentence": "text_structure.xml/para_659/sent_5"
+        },
+        {
+          "document_id": "136094",
+          "sentence": "text_structure.xml/para_402/sent_3"
+        },
+        {
+          "document_id": "136058",
+          "sentence": "text_structure.xml/para_182/sent_5"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22partyku%C5%82a%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "084738579b81",
+      "lemma": "transkrypcyjny",
+      "class": "ograniczone",
+      "rationale": "Przymiotnik metodologiczny w tekście o muzyce; tylko jeden zgodny kontekst.",
+      "confidence": "medium",
+      "reviewed_contexts": [
+        {
+          "document_id": "141795",
+          "sentence": "text_structure.xml/para_6/sent_2"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22transkrypcyjny%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "09fa9728fb5f",
+      "lemma": "nienudny",
+      "class": "ogólne",
+      "rationale": "Przejrzysta negacja używana o jedzeniu, czytaniu i miejscu w trzech tekstach.",
+      "confidence": "medium",
+      "reviewed_contexts": [
+        {
+          "document_id": "136223",
+          "sentence": "text_structure.xml/para_666/sent_1"
+        },
+        {
+          "document_id": "136371",
+          "sentence": "text_structure.xml/para_310/sent_10"
+        },
+        {
+          "document_id": "136552",
+          "sentence": "text_structure.xml/para_1475/sent_3"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22nienudny%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "0a98f37bc774",
+      "lemma": "odbąknąć",
+      "class": "ogólne",
+      "rationale": "Zwykły potoczny opis krótkiej odpowiedzi w trzech tekstach.",
+      "confidence": "medium",
+      "reviewed_contexts": [
+        {
+          "document_id": "136528",
+          "sentence": "text_structure.xml/para_5/sent_1"
+        },
+        {
+          "document_id": "136431",
+          "sentence": "text_structure.xml/para_110/sent_20"
+        },
+        {
+          "document_id": "143765",
+          "sentence": "text_structure.xml/para_10/sent_1"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22odb%C4%85kn%C4%85%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "0ace985a31f5",
+      "lemma": "miodokwiat",
+      "class": "niepewne",
+      "rationale": "Brak kontekstów i własnego KWJP; bez dodatkowego źródła nie klasyfikuję znajomości ani rejestru.",
+      "confidence": "low",
+      "reviewed_contexts": [],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22miodokwiat%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "0b638ddbe860",
+      "lemma": "hoja",
+      "class": "ograniczone",
+      "rationale": "Nazwa rośliny ozdobnej, poświadczona w powieści i czasopiśmie ogrodniczym.",
+      "confidence": "medium",
+      "reviewed_contexts": [
+        {
+          "document_id": "136525",
+          "sentence": "text_structure.xml/para_484/sent_1"
+        },
+        {
+          "document_id": "143473",
+          "sentence": "text_structure.xml/para_4/sent_1"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22hoja%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "0e2e5a40cc68",
+      "lemma": "szybkościomierz",
+      "class": "ogólne",
+      "rationale": "Zwykła nazwa przyrządu, zgodnie użyta w trzech tekstach; F5 to słaby ilościowo, ale poprawny dowód.",
+      "confidence": "high",
+      "reviewed_contexts": [
+        {
+          "document_id": "136004",
+          "sentence": "text_structure.xml/para_400/sent_3"
+        },
+        {
+          "document_id": "136046",
+          "sentence": "text_structure.xml/para_245/sent_13"
+        },
+        {
+          "document_id": "136603",
+          "sentence": "text_structure.xml/para_2060/sent_2"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22szybko%C5%9Bciomierz%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "0fd668d13f4b",
+      "lemma": "podminować",
+      "class": "ogólne",
+      "rationale": "Współczesne użycia przenośne i przymiotnikowe; własne wiersze dotyczą różnych form gramatycznych.",
+      "confidence": "medium",
+      "reviewed_contexts": [
+        {
+          "document_id": "136029",
+          "sentence": "text_structure.xml/para_119/sent_3"
+        },
+        {
+          "document_id": "136075",
+          "sentence": "text_structure.xml/para_722/sent_1"
+        },
+        {
+          "document_id": "136038",
+          "sentence": "text_structure.xml/para_650/sent_7"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22podminowa%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "107aee1ee32b",
+      "lemma": "zabobonnie",
+      "class": "ogólne",
+      "rationale": "Przejrzysty opis sposobu myślenia w trzech różnych tekstach.",
+      "confidence": "medium",
+      "reviewed_contexts": [
+        {
+          "document_id": "136001",
+          "sentence": "text_structure.xml/para_693/sent_1"
+        },
+        {
+          "document_id": "136320",
+          "sentence": "text_structure.xml/para_1/sent_9"
+        },
+        {
+          "document_id": "136309",
+          "sentence": "text_structure.xml/para_455/sent_1"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22zabobonnie%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "10e041a28e70",
+      "lemma": "biseks",
+      "class": "ograniczone",
+      "rationale": "Potoczne skrócenie nazwy osoby biseksualnej, zgodnie użyte w trzech tekstach; ocena rejestru, nie osoby.",
+      "confidence": "medium",
+      "reviewed_contexts": [
+        {
+          "document_id": "136263",
+          "sentence": "text_structure.xml/para_692/sent_3"
+        },
+        {
+          "document_id": "136282",
+          "sentence": "text_structure.xml/para_133/sent_1"
+        },
+        {
+          "document_id": "136338",
+          "sentence": "text_structure.xml/para_1152/sent_14"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22biseks%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "11be36d214c5",
+      "lemma": "demistyfikować",
+      "class": "ograniczone",
+      "rationale": "Wyraz eseistyki i krytyki; trzy zgodne użycia, sam rejestr książkowy nie wyklucza POP.",
+      "confidence": "medium",
+      "reviewed_contexts": [
+        {
+          "document_id": "136075",
+          "sentence": "text_structure.xml/para_467/sent_4"
+        },
+        {
+          "document_id": "136161",
+          "sentence": "text_structure.xml/para_405/sent_3"
+        },
+        {
+          "document_id": "136082",
+          "sentence": "text_structure.xml/para_542/sent_5"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22demistyfikowa%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "129820a48800",
+      "lemma": "pilarz",
+      "class": "ograniczone",
+      "rationale": "Nazwa zawodu poświadczona dwa razy; trzecie trafienie to nazwisko piłkarza i nie jest dowodem tego znaczenia.",
+      "confidence": "high",
+      "reviewed_contexts": [
+        {
+          "document_id": "136183",
+          "sentence": "text_structure.xml/para_523/sent_5"
+        },
+        {
+          "document_id": "136793",
+          "sentence": "text_structure.xml/para_10/sent_6"
+        },
+        {
+          "document_id": "151682",
+          "sentence": "text_structure.xml/para_4/sent_1"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22pilarz%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "12b07960d8a0",
+      "lemma": "ostojowy",
+      "class": "niepewne",
+      "rationale": "Brak kontekstów i własnego KWJP; zakres użycia nieustalony.",
+      "confidence": "low",
+      "reviewed_contexts": [],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22ostojowy%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "12c0722267be",
+      "lemma": "fermentownia",
+      "class": "niepewne",
+      "rationale": "Przejrzysta budowa sugeruje zakład/pomieszczenie, ale bez kontekstu nie potwierdzam rejestru.",
+      "confidence": "low",
+      "reviewed_contexts": [],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22fermentownia%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "12e2192b5654",
+      "lemma": "pyrex",
+      "class": "niepewne",
+      "rationale": "Bez kontekstu nie rozstrzygam użycia pospolitego i nazwy handlowej.",
+      "confidence": "low",
+      "reviewed_contexts": [],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22pyrex%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "135bd9567b99",
+      "lemma": "nieruchawość",
+      "class": "ogólne",
+      "rationale": "Przejrzysta nazwa cechy użyta o osobach w trzech tekstach.",
+      "confidence": "medium",
+      "reviewed_contexts": [
+        {
+          "document_id": "136320",
+          "sentence": "text_structure.xml/para_174/sent_2"
+        },
+        {
+          "document_id": "136756",
+          "sentence": "text_structure.xml/para_1719/sent_3"
+        },
+        {
+          "document_id": "137896",
+          "sentence": "text_structure.xml/para_4/sent_9"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22nieruchawo%C5%9B%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "1393e615f104",
+      "lemma": "nieuprzejmość",
+      "class": "ogólne",
+      "rationale": "Zwykła cecha zachowania, trzy zgodne konteksty różnych autorów.",
+      "confidence": "high",
+      "reviewed_contexts": [
+        {
+          "document_id": "136059",
+          "sentence": "text_structure.xml/para_1301/sent_3"
+        },
+        {
+          "document_id": "136114",
+          "sentence": "text_structure.xml/para_38/sent_4"
+        },
+        {
+          "document_id": "136119",
+          "sentence": "text_structure.xml/para_1203/sent_12"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22nieuprzejmo%C5%9B%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "14d022ee166c",
+      "lemma": "wirusowość",
+      "class": "ograniczone",
+      "rationale": "Termin opisujący rozchodzenie się informacji w mediach społecznościowych; jeden kontekst.",
+      "confidence": "medium",
+      "reviewed_contexts": [
+        {
+          "document_id": "162693",
+          "sentence": "text_structure.xml/para_9/sent_5"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22wirusowo%C5%9B%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "15066988861b",
+      "lemma": "treściwie",
+      "class": "ogólne",
+      "rationale": "Zwykły opis sposobu wypowiedzi; trzy zgodne użycia, jeden w cytowanym starszym instruktażu.",
+      "confidence": "high",
+      "reviewed_contexts": [
+        {
+          "document_id": "136108",
+          "sentence": "text_structure.xml/para_879/sent_1"
+        },
+        {
+          "document_id": "136095",
+          "sentence": "text_structure.xml/para_1102/sent_1"
+        },
+        {
+          "document_id": "136090",
+          "sentence": "text_structure.xml/para_174/sent_2"
+        }
+      ],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22tre%C5%9Bciwie%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "id": "15e2bbfc32d5",
+      "lemma": "zgorzknialec",
+      "class": "niepewne",
+      "rationale": "Brak kontekstów; sama znajomość podstawy zgorzkniały nie dowodzi rozpowszechnienia tego derywatu.",
+      "confidence": "low",
+      "reviewed_contexts": [],
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Blemma%3D%22zgorzknialec%22%5D&per_page=10&chosen_corpora=balanced"
+    }
+  ]
+}
