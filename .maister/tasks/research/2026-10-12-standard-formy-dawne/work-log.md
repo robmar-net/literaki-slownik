@@ -53,3 +53,5 @@ Zakończono trzy tory i sprawdzono pokrycie delegacji. Wszystkie 110 rodzin / 23
 - 2026-10-12T10:57:34Z — Końcowy raport i dashboard sprawdzone w Playwright; zrzut raportu obejrzany, brak poziomego przewijania i końcowych błędów konsoli. Karta główna wskazuje rundę 5. Żadne pliki produkcyjne niezmienione.
 
 - 2026-10-12T10:58:59Z — Korekta zapisu podglądu: zachowano niezmieniony szablon dashboardu wymagany przez Maister; raport rundy 5 jest w artefaktach bieżącej fazy, karta Research Report pozostaje historyczna. Uporządkowano kolejność sekcji podsumowania dwóch raportów B, bez zmian ocen i ich hashy.
+
+- 2026-10-12T11:02:34Z — Raport wypchnięto w ed6fbb00a5a331aaf07a2d8bf446517e7f8d4fa2. Opublikowano rundę 5: https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6122924101; odczyt API zgodny z plikiem komentarza. Serwer podglądu zatrzymany. Pytanie o status i „ok, kontynuuj” dotyczą dokończenia zapisu publikacji, nie zatwierdzenia kryterium lub wdrożenia. Bramka omówienia wyników pozostaje otwarta.

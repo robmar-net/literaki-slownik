@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-12T10:58:59Z",
+  "generated": "2026-10-12T11:02:34Z",
   "task": {
     "title": "STANDARD: formy dawne i współczesne użycie (#4)",
     "description": "Research przyczyn odmów, niezależnych miar współczesności i skutków wariantów; komentarz do ticketu; decyzje z właścicielem.",
@@ -121,9 +121,14 @@ window.MAISTER_DATA = {
     "publication": {
       "round": 5,
       "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
-      "status": "preparing",
+      "status": "published_and_verified",
       "report_artifact": "outputs/pop-calibration.md",
-      "comment_artifact": "outputs/issue-comment-round5.md"
+      "comment_artifact": "outputs/issue-comment-round5.md",
+      "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6122924101",
+      "report_commit": "ed6fbb00a5a331aaf07a2d8bf446517e7f8d4fa2",
+      "verified_at": "2026-10-12T11:02:34Z",
+      "comment_sha256": "a480947aa6165bc2fdd9c69b76d92d71ced3fd342371b582b1828509892ad774",
+      "verification": "Treść API zgodna; pominięto wyłącznie końcowy znak nowej linii dodawany przez gh --jq."
     },
     "gate_history": [
       {
@@ -363,7 +368,8 @@ window.MAISTER_DATA = {
         "external_quality_sources": 55,
         "external_quality_fragments_read": 40
       },
-      "recommendation": "Nie wybierać teraz 70k/80k/0,05 jako optimum. Uzgodnić zakres POP i jawne wymagania dowodowe; stałe obecne cięcie rozpatrywać tylko jako osobny wariant stabilizacji."
+      "recommendation": "Nie wybierać teraz 70k/80k/0,05 jako optimum. Uzgodnić zakres POP i jawne wymagania dowodowe; stałe obecne cięcie rozpatrywać tylko jako osobny wariant stabilizacji.",
+      "publication_complete": true
     }
   },
   "phases": [
@@ -637,6 +643,10 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/findings/round5/validation.json",
           "label": "Kompletność i walidacja"
+        },
+        {
+          "path": "outputs/issue-comment-round5.md",
+          "label": "Opublikowany komentarz rundy 5"
         }
       ],
       "gate": {
