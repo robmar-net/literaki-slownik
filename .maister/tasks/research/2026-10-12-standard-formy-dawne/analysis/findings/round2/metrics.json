@@ -1,0 +1,313 @@
+{
+  "qualified_lemma_ids": 1580,
+  "noarch_lemma_ids": 404,
+  "all_forms": 4559,
+  "noarch_forms": 3364,
+  "only_arch_lemma_ids": 1176,
+  "labels_noarch": {
+    "przest.": 2082,
+    "przest.,rzad.": 43,
+    "daw.": 1021,
+    "książk.,przest.": 9,
+    "pot.,przest.": 1,
+    "przest.,hom.": 5,
+    "daw.,flis.": 9,
+    "daw.,hom.": 3,
+    "przest.,paleont.": 8,
+    "daw.,rzad.": 100,
+    "daw.,pszcz.": 6,
+    "przest.,muz.": 1,
+    "przest.,żart.": 10,
+    "przest.,reg.": 44,
+    "daw.,środ.": 5,
+    "daw.,przest.": 21,
+    "przest.,char.": 1,
+    "daw.,rzad.,anat.": 1,
+    "daw.,praw.": 5,
+    "niezal.,przest.": 1,
+    "przest.,anat.": 1
+  },
+  "strata": {
+    "D_nf_5_29": 661,
+    "A_no_published_form": 2587,
+    "C_nf_1_4": 111,
+    "B_fiction_only": 5
+  },
+  "derived_only_forms": 186,
+  "forms_with_multiple_eligible_lids": 5,
+  "source_hashes": {
+    "cache/kwjp/kwjp100-slowa-orth-all.csv.gz": "95e27d103250f23533bf5b87accf846fb489d2b5ea3914950857163a22ae4a5a",
+    "cache/kwjp/kwjp100-slowa-orth-fakt.csv.gz": "5299fa7c72ac57820d0248e510c95f272f60639695b1abe718beb825eee400bb",
+    "cache/kwjp/kwjp100-slowa-orth-publicystyka.csv.gz": "f5dda9f1c7c36b2cf4c89d38e924425c7d24bb425b1e5ad68b616d560245ade6",
+    "cache/kwjp/kwjp100-slowa-orth-fikcja.csv.gz": "4f88136ffc9beca8917538726cc00f7688945389a787f09bc746e6bcf7423b8d",
+    "cache/kwjp/kwjp100-slowa-lemma-all.csv.gz": "5206e80669a054ad4d3c9d39b7643d13e75435afa3612a15d2847f39f42bb5fc",
+    "cache/kwjp/kwjp100-slowa-lemma-fakt.csv.gz": "ee427e7461006ab968f5e7c4590332918071268447d5cccac5eb059ad1b4def0",
+    "cache/kwjp/kwjp100-slowa-lemma-publicystyka.csv.gz": "1e03e221b97ffb67aeadf6294aa381a308f8ece0a896d13de0141844c9543f4e",
+    "cache/kwjp/kwjp100-slowa-lemma-fikcja.csv.gz": "cd9e6628acfce40837c4e8308031e24c8ffadde6944a52ab26ffacbbaa7000ec"
+  },
+  "candidate_details_sha256": "d319fbe57c3fd19ac5980796c494e5b72d37843d86d08f1eb14dd589b22507f7",
+  "grid": [
+    {
+      "lemma_nf": 10,
+      "form_nf": 0,
+      "new_forms": 6988,
+      "no_published_orth_all": 5648,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 10,
+      "form_nf": 1,
+      "new_forms": 1326,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 10,
+      "form_nf": 5,
+      "new_forms": 1034,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 10,
+      "form_nf": 10,
+      "new_forms": 467,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 10,
+      "form_nf": 20,
+      "new_forms": 127,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 20,
+      "form_nf": 0,
+      "new_forms": 4550,
+      "no_published_orth_all": 3536,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 20,
+      "form_nf": 1,
+      "new_forms": 1008,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 20,
+      "form_nf": 5,
+      "new_forms": 832,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 20,
+      "form_nf": 10,
+      "new_forms": 400,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 20,
+      "form_nf": 20,
+      "new_forms": 124,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 30,
+      "form_nf": 0,
+      "new_forms": 3364,
+      "no_published_orth_all": 2587,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 30,
+      "form_nf": 1,
+      "new_forms": 772,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 30,
+      "form_nf": 5,
+      "new_forms": 661,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 30,
+      "form_nf": 10,
+      "new_forms": 346,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 30,
+      "form_nf": 20,
+      "new_forms": 109,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 50,
+      "form_nf": 0,
+      "new_forms": 2336,
+      "no_published_orth_all": 1801,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 50,
+      "form_nf": 1,
+      "new_forms": 531,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 50,
+      "form_nf": 5,
+      "new_forms": 466,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 50,
+      "form_nf": 10,
+      "new_forms": 256,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 50,
+      "form_nf": 20,
+      "new_forms": 90,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 100,
+      "form_nf": 0,
+      "new_forms": 1368,
+      "no_published_orth_all": 1065,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 100,
+      "form_nf": 1,
+      "new_forms": 299,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 100,
+      "form_nf": 5,
+      "new_forms": 268,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 100,
+      "form_nf": 10,
+      "new_forms": 156,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 100,
+      "form_nf": 20,
+      "new_forms": 54,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 300,
+      "form_nf": 0,
+      "new_forms": 524,
+      "no_published_orth_all": 454,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 300,
+      "form_nf": 1,
+      "new_forms": 67,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 300,
+      "form_nf": 5,
+      "new_forms": 60,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 300,
+      "form_nf": 10,
+      "new_forms": 33,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    },
+    {
+      "lemma_nf": 300,
+      "form_nf": 20,
+      "new_forms": 14,
+      "no_published_orth_all": 0,
+      "forms_arch": 0
+    }
+  ],
+  "extra": [
+    {
+      "both_nf_genres_at_least": 1,
+      "new_forms": 3346,
+      "no_published_form": 2575
+    },
+    {
+      "both_nf_genres_at_least": 5,
+      "new_forms": 3284,
+      "no_published_form": 2528
+    },
+    {
+      "both_nf_genres_at_least": 10,
+      "new_forms": 2941,
+      "no_published_form": 2291
+    },
+    {
+      "both_nf_genres_at_least": 20,
+      "new_forms": 1961,
+      "no_published_form": 1533
+    },
+    {
+      "both_nf_genres_at_least": 30,
+      "new_forms": 1533,
+      "no_published_form": 1209
+    },
+    {
+      "one_nf_genre_f30_max_dp": 0.5,
+      "new_forms": 83,
+      "no_published_form": 76
+    },
+    {
+      "one_nf_genre_f30_max_dp": 0.7,
+      "new_forms": 240,
+      "no_published_form": 229
+    },
+    {
+      "one_nf_genre_f30_max_dp": 0.8,
+      "new_forms": 413,
+      "no_published_form": 379
+    },
+    {
+      "one_nf_genre_f30_max_dp": 0.9,
+      "new_forms": 1144,
+      "no_published_form": 934
+    },
+    {
+      "one_nf_genre_f30_max_dp": 0.95,
+      "new_forms": 2009,
+      "no_published_form": 1566
+    }
+  ]
+}

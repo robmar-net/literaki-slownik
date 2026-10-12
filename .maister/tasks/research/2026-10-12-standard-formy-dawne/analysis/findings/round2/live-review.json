@@ -1,0 +1,3623 @@
+{
+  "method": "Jeden badacz. Wszystkie 257 odpowiedzi; pierwsze 3 konteksty każdej niepustej odpowiedzi, 7 jawnych rozszerzeń do 10. Kolejność wyszukiwarki nie jest losowa. Ocena dotyczy użycia, nie dopuszczalności.",
+  "summary": {
+    "queries": 257,
+    "positive_queries": 208,
+    "inspected_contexts": 643,
+    "sample_strata": {
+      "A_no_published_form": {
+        "sample": 50,
+        "positive": 7
+      },
+      "B_fiction_only": {
+        "sample": 5,
+        "positive": 5
+      },
+      "C_nf_1_4": {
+        "sample": 50,
+        "positive": 50
+      },
+      "D_nf_5_29": {
+        "sample": 50,
+        "positive": 50
+      }
+    }
+  },
+  "cases": [
+    {
+      "word": "admiratorem",
+      "lane": "D_nf_5_29",
+      "total_live": 12,
+      "inspected": 3,
+      "documents_inspected": [
+        "136007",
+        "136095",
+        "136342"
+      ],
+      "category": "autorskie",
+      "note": "Opisy współczesnych i historycznych zwolenników; rejestr książkowy.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22admiratorem%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "adwersarza",
+      "lane": "current_accepted",
+      "total_live": 56,
+      "inspected": 3,
+      "documents_inspected": [
+        "136035",
+        "136048",
+        "136100"
+      ],
+      "category": "autorskie",
+      "note": "Sztuka i polityka; żywe użycie książkowe.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22adwersarza%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "aeroplany",
+      "lane": "outside_lemma30",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136139",
+        "136455"
+      ],
+      "category": "historyczne",
+      "note": "Cytat i proza o dawnych samolotach; nacechowana dawna nazwa.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22aeroplany%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "aeroplanów",
+      "lane": "outside_lemma30",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136088",
+        "136420",
+        "136474"
+      ],
+      "category": "historyczne",
+      "note": "Biografia, historyczne konstrukcje samolotów i proza.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22aeroplan%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "aktuariusz",
+      "lane": "outside_lemma30",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "151480",
+        "182980",
+        "183841"
+      ],
+      "category": "autorskie",
+      "note": "Ubezpieczenia i zawody regulowane; mocny dowód żywego fachowego znaczenia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22aktuariusz%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "aliści",
+      "lane": "diagnostic",
+      "total_live": 25,
+      "inspected": 3,
+      "documents_inspected": [
+        "136116",
+        "136188"
+      ],
+      "category": "mieszane",
+      "note": "Dawny styl listu i współczesny komentarz literacki; nie da się zrównać każdego użycia z cytatem.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ali%C5%9Bci%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "atencja",
+      "lane": "D_nf_5_29",
+      "total_live": 16,
+      "inspected": 3,
+      "documents_inspected": [
+        "136077",
+        "136079",
+        "136179"
+      ],
+      "category": "autorskie",
+      "note": "Dziennik podróży i polityka strategiczna; uwaga/szacunek.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22atencja%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "atencji",
+      "lane": "D_nf_5_29",
+      "total_live": 46,
+      "inspected": 3,
+      "documents_inspected": [
+        "136029",
+        "136057",
+        "136077"
+      ],
+      "category": "autorskie",
+      "note": "Szacunek/uwaga w eseju, opisie życia i polityce.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22atencji%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "atencję",
+      "lane": "D_nf_5_29",
+      "total_live": 14,
+      "inspected": 3,
+      "documents_inspected": [
+        "136079",
+        "136463"
+      ],
+      "category": "autorskie",
+      "note": "Uwaga strategiczna/militarna i okazywanie względów.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22atencj%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "braccy",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22braccy%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "bursę",
+      "lane": "C_nf_1_4",
+      "total_live": 11,
+      "inspected": 3,
+      "documents_inspected": [
+        "136139",
+        "136505",
+        "136630"
+      ],
+      "category": "mieszane",
+      "note": "Internat oraz pojemnik liturgiczny; ten sam napis nie dowodzi tego samego znaczenia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22burs%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "bębniarze",
+      "lane": "D_nf_5_29",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136085",
+        "138822",
+        "141649"
+      ],
+      "category": "autorskie",
+      "note": "Muzycy we współczesnym reportażu i recenzji, także tag artykułu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22b%C4%99bniarze%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "bębniarzem",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136242",
+        "138733"
+      ],
+      "category": "autorskie",
+      "note": "Muzyka jazzowa, wykonawcy; dwa pierwsze użycia w tej samej książce.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22b%C4%99bniarzem%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "bębniarzy",
+      "lane": "D_nf_5_29",
+      "total_live": 12,
+      "inspected": 3,
+      "documents_inspected": [
+        "136228",
+        "136552",
+        "136634"
+      ],
+      "category": "autorskie",
+      "note": "Koncert, wspomnienie muzyków oraz proza.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22b%C4%99bniarzy%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "ciżbą",
+      "lane": "B_fiction_only",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136561",
+        "136594"
+      ],
+      "category": "literackie",
+      "note": "Proza o wyraźnie podwyższonym rejestrze; nie dowodzi neutralności ani nieistnienia żywego użycia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ci%C5%BCb%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "cykliści",
+      "lane": "current_accepted",
+      "total_live": 37,
+      "inspected": 3,
+      "documents_inspected": [
+        "136061",
+        "136183",
+        "136246"
+      ],
+      "category": "mieszane",
+      "note": "Historia wojska/sportu i współczesny komentarz polityczny.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22cykli%C5%9Bci%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "cześci",
+      "lane": "D_nf_5_29",
+      "total_live": 5,
+      "inspected": 5,
+      "documents_inspected": [
+        "136204",
+        "136361",
+        "196675",
+        "196732",
+        "212103"
+      ],
+      "category": "blad_lub_cytat",
+      "note": "Wszystkie 5: cztery prawdopodobne błędy zapisu części i tytuł dawnego wiersza; automatyczna anotacja cześć zaciera różnicę.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22cze%C5%9Bci%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "czynownikach",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22czynownikach%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "denominacja",
+      "lane": "C_nf_1_4",
+      "total_live": 7,
+      "inspected": 3,
+      "documents_inspected": [
+        "136049",
+        "136175",
+        "136229"
+      ],
+      "category": "mieszane",
+      "note": "Waluta oraz wyznanie; licznik jednego lematu obejmuje różne znaczenia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22denominacja%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "desperacja",
+      "lane": "diagnostic",
+      "total_live": 64,
+      "inspected": 3,
+      "documents_inspected": [
+        "136029",
+        "136035",
+        "136058"
+      ],
+      "category": "autorskie",
+      "note": "Współczesne eseje i biografia; żywe znaczenie rozpaczy.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22desperacja%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "desperację",
+      "lane": "D_nf_5_29",
+      "total_live": 40,
+      "inspected": 3,
+      "documents_inspected": [
+        "136075",
+        "136085",
+        "136168"
+      ],
+      "category": "mieszane",
+      "note": "Dawne przytoczenie oraz współczesny opis migrantów i filozofii.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22desperacj%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "desperacyj",
+      "lane": "diagnostic",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22desperacyj%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "destynacja",
+      "lane": "D_nf_5_29",
+      "total_live": 8,
+      "inspected": 3,
+      "documents_inspected": [
+        "136337",
+        "136721"
+      ],
+      "category": "mieszane",
+      "note": "Dwa metajęzykowe przytoczenia oraz autorskie użycie; samo omawianie wyrazu nie wystarczy.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22destynacja%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "diariuszu",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136036",
+        "136347",
+        "137896"
+      ],
+      "category": "autorskie",
+      "note": "Krytyka literacka i opis dziennika; żywe użycie książkowe.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22diariuszu%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "dinozaur",
+      "lane": "diagnostic",
+      "total_live": 25,
+      "inspected": 3,
+      "documents_inspected": [
+        "136122",
+        "136254",
+        "136330"
+      ],
+      "category": "autorskie",
+      "note": "Porównanie oraz metafora człowieka z minionej epoki; nie dowodzi dawności leksemu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22dinozaur%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "dobywał",
+      "lane": "outside_lemma30",
+      "total_live": 34,
+      "inspected": 3,
+      "documents_inspected": [
+        "136114",
+        "136371",
+        "136554"
+      ],
+      "category": "mieszane",
+      "note": "Szabla, dźwięk i zapach; inne zakresy znaczenia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22dobywa%C5%82%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "donacje",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136394",
+        "137044",
+        "141280"
+      ],
+      "category": "autorskie",
+      "note": "Historyczne nadania i darowizny do instytucji; potencjalnie różne zakresy znaczenia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22donacje%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "doradztwem",
+      "lane": "current_accepted",
+      "total_live": 49,
+      "inspected": 3,
+      "documents_inspected": [
+        "136051",
+        "136187",
+        "136226"
+      ],
+      "category": "autorskie",
+      "note": "Inwestycje, polityka i kultura.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22doradztwem%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "dostawczym",
+      "lane": "current_accepted",
+      "total_live": 46,
+      "inspected": 3,
+      "documents_inspected": [
+        "136071",
+        "136096",
+        "136521"
+      ],
+      "category": "autorskie",
+      "note": "Samochód w reportażu, poradniku i prozie.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22dostawczym%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "dramę",
+      "lane": "outside_lemma30",
+      "total_live": 8,
+      "inspected": 3,
+      "documents_inspected": [
+        "136180",
+        "136207",
+        "136579"
+      ],
+      "category": "mieszane",
+      "note": "Konflikt pracowniczy, religijne zdarzenie i ćwiczenie teatralne; odnowione znaczenia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22dram%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "dwoiły",
+      "lane": "C_nf_1_4",
+      "total_live": 8,
+      "inspected": 3,
+      "documents_inspected": [
+        "136252",
+        "136467",
+        "136505"
+      ],
+      "category": "autorskie",
+      "note": "Frazeologizm oraz opis roślin; nie tylko jedno znaczenie czasownika.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22dwoi%C5%82y%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "dyktatowi",
+      "lane": "current_accepted",
+      "total_live": 45,
+      "inspected": 3,
+      "documents_inspected": [
+        "136029",
+        "136054"
+      ],
+      "category": "autorskie",
+      "note": "Polityka i zależność artystyczna; różne dziedziny.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22dyktatowi%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "dystrykt",
+      "lane": "D_nf_5_29",
+      "total_live": 13,
+      "inspected": 3,
+      "documents_inspected": [
+        "136118",
+        "136145",
+        "136302"
+      ],
+      "category": "mieszane",
+      "note": "Okupacyjny podział i współczesny rejon kultury oraz administracja zagraniczna.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22dystrykt%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "dystryktu",
+      "lane": "current_accepted",
+      "total_live": 73,
+      "inspected": 3,
+      "documents_inspected": [
+        "136108"
+      ],
+      "category": "historyczne",
+      "note": "3 pierwsze w jednym dokumencie o okupacji; nie dowodzą całego zakresu współczesnego leksemu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22dystryktu%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "dziatwo",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22dziatwo%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "dżdżu",
+      "lane": "diagnostic",
+      "total_live": 25,
+      "inspected": 3,
+      "documents_inspected": [
+        "136046",
+        "136079",
+        "136200"
+      ],
+      "category": "frazeologia",
+      "note": "Jak kania dżdżu w żywej prozie niefikcjonalnej; nie dowodzi swobodnego paradygmatu deszcz.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22d%C5%BCd%C5%BCu%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "edukowanie",
+      "lane": "current_accepted",
+      "total_live": 31,
+      "inspected": 3,
+      "documents_inspected": [
+        "136005",
+        "136070",
+        "136221"
+      ],
+      "category": "autorskie",
+      "note": "Historia idei, współczesna edukacja i zdrowie.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22edukowanie%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "edukować",
+      "lane": "current_accepted",
+      "total_live": 129,
+      "inspected": 3,
+      "documents_inspected": [
+        "136033",
+        "136035",
+        "136036"
+      ],
+      "category": "autorskie",
+      "note": "Kultura, zdrowie i instytucje; żywe użycie.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22edukowa%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "edukowałoś",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22edukowa%C5%82o%C5%9B%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "ekscytacja",
+      "lane": "current_accepted",
+      "total_live": 93,
+      "inspected": 3,
+      "documents_inspected": [
+        "136085",
+        "136113"
+      ],
+      "category": "autorskie",
+      "note": "Stan poznawczy i relacje; ta sama rodzina co odrzucone ekscytacją.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ekscytacja%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "ekskrementu",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ekskrementu%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "eksplikacją",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136036",
+        "136067",
+        "136099"
+      ],
+      "category": "autorskie",
+      "note": "Krytyka literacka i rozważanie filozoficzne; rejestr specjalistyczny/książkowy.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22eksplikacj%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "familia",
+      "lane": "diagnostic",
+      "total_live": 43,
+      "inspected": 3,
+      "documents_inspected": [
+        "136070",
+        "136077",
+        "136082"
+      ],
+      "category": "mieszane",
+      "note": "Dwa polskie użycia rodziny oraz cytat hiszpański; napis nie wystarcza.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22familia%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "familiach",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136188",
+        "136593",
+        "176998"
+      ],
+      "category": "mieszane",
+      "note": "Znaczenie nazwiska/rodziny i współczesne rodziny morsujących; data wydania 2021 nie jest datą pierwszej publikacji.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22familiach%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "familii",
+      "lane": "current_accepted",
+      "total_live": 121,
+      "inspected": 3,
+      "documents_inspected": [
+        "136029",
+        "136070"
+      ],
+      "category": "autorskie",
+      "note": "Rodzina w biografii i opisie literackim; człon tej samej rodziny co odrzucone familia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22familii%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "fantazmatem",
+      "lane": "current_accepted",
+      "total_live": 39,
+      "inspected": 3,
+      "documents_inspected": [
+        "136075"
+      ],
+      "category": "autorskie",
+      "note": "Wszystkie pierwsze 3 w jednym eseju; specjalistyczny rejestr.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22fantazmatem%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "fantazmatów",
+      "lane": "current_accepted",
+      "total_live": 61,
+      "inspected": 3,
+      "documents_inspected": [
+        "136029",
+        "136075"
+      ],
+      "category": "autorskie",
+      "note": "Eseje o sztuce i literaturze.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22fantazmat%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "ferowania",
+      "lane": "outside_lemma30",
+      "total_live": 16,
+      "inspected": 3,
+      "documents_inspected": [
+        "136029",
+        "136036"
+      ],
+      "category": "frazeologia",
+      "note": "Ferowanie sądów/wyroków w autorskich analizach.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ferowania%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "finalny",
+      "lane": "current_accepted",
+      "total_live": 85,
+      "inspected": 3,
+      "documents_inspected": [
+        "136049",
+        "136050",
+        "136079"
+      ],
+      "category": "autorskie",
+      "note": "Smak, strategia i historia instytucji; żywy przymiotnik.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22finalny%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "forpoczta",
+      "lane": "D_nf_5_29",
+      "total_live": 10,
+      "inspected": 3,
+      "documents_inspected": [
+        "136272",
+        "136372",
+        "136446"
+      ],
+      "category": "autorskie",
+      "note": "Przenośne użycie w polityce i opisie przyrody.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22forpoczta%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "forpocztę",
+      "lane": "D_nf_5_29",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136033",
+        "136357",
+        "136603"
+      ],
+      "category": "autorskie",
+      "note": "Przenośne opisy organizacji i przyrody oraz oddział wojskowy.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22forpoczt%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "franciszkana",
+      "lane": "A_no_published_form",
+      "total_live": 1,
+      "inspected": 1,
+      "documents_inspected": [
+        "136010"
+      ],
+      "category": "niepewne",
+      "note": "Żartobliwy opis wyglądu; nietypowy wariant nazwy zakonnika wymaga osobnej oceny.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22franciszkana%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "frukta",
+      "lane": "outside_lemma30",
+      "total_live": 14,
+      "inspected": 3,
+      "documents_inspected": [
+        "136001",
+        "136087"
+      ],
+      "category": "autorskie",
+      "note": "Korzyści i owoce w eseju; świadomie nacechowane użycie.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22frukta%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "garsonierę",
+      "lane": "outside_lemma30",
+      "total_live": 8,
+      "inspected": 3,
+      "documents_inspected": [
+        "136042",
+        "136121",
+        "136238"
+      ],
+      "category": "autorskie",
+      "note": "Współczesne mieszkanie oraz opis rynku historycznego.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22garsonier%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "gawiedź",
+      "lane": "current_accepted",
+      "total_live": 68,
+      "inspected": 3,
+      "documents_inspected": [
+        "136010",
+        "136070",
+        "136103"
+      ],
+      "category": "autorskie",
+      "note": "Nacechowana nazwa grupy w historii, reportażu i wspomnieniu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22gawied%C5%BA%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "generyczny",
+      "lane": "diagnostic",
+      "total_live": 3,
+      "inspected": 3,
+      "documents_inspected": [
+        "136834",
+        "144556",
+        "144598"
+      ],
+      "category": "autorskie",
+      "note": "3 trafienia: proza i dwa teksty informatyczne; żywe fachowe/przenośne użycia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22generyczny%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "giezła",
+      "lane": "outside_lemma30",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136363",
+        "136561",
+        "138008"
+      ],
+      "category": "mieszane",
+      "note": "Strój kelnerów i proza historyczna/fantasy; dawny przedmiot nadal można nazywać.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22giez%C5%82a%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "glanc",
+      "lane": "outside_lemma30",
+      "total_live": 11,
+      "inspected": 3,
+      "documents_inspected": [
+        "136010",
+        "136591"
+      ],
+      "category": "frazeologia",
+      "note": "Na glanc w zwykłej narracji i dialogu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22glanc%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "gojem",
+      "lane": "C_nf_1_4",
+      "total_live": 7,
+      "inspected": 3,
+      "documents_inspected": [
+        "136304",
+        "136418",
+        "136786"
+      ],
+      "category": "mieszane",
+      "note": "Opis religijny, proza i współczesne porównanie; nacechowanie nie równa się dawności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22gojem%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "gojowi",
+      "lane": "A_no_published_form",
+      "total_live": 2,
+      "inspected": 2,
+      "documents_inspected": [
+        "136201",
+        "136803"
+      ],
+      "category": "historyczne",
+      "note": "Opis stosunków społecznych i proza historyczna; obecność słowa, bez dowodu neutralnego rejestru.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22gojowi%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "guwernantek",
+      "lane": "D_nf_5_29",
+      "total_live": 13,
+      "inspected": 3,
+      "documents_inspected": [
+        "136065",
+        "136078",
+        "136107"
+      ],
+      "category": "historyczne",
+      "note": "Historia cukru, biografia i dawna edukacja.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22guwernantek%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "guwernantką",
+      "lane": "D_nf_5_29",
+      "total_live": 11,
+      "inspected": 3,
+      "documents_inspected": [
+        "136088",
+        "136095",
+        "136134"
+      ],
+      "category": "historyczne",
+      "note": "Biografie i dawna edukacja; wiek instytucji oddzielny od współczesności nazwy.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22guwernantk%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "guwerner",
+      "lane": "outside_lemma30",
+      "total_live": 10,
+      "inspected": 3,
+      "documents_inspected": [
+        "136188",
+        "136429"
+      ],
+      "category": "mieszane",
+      "note": "Historia oraz współczesny dialog powieściowy; potrzebne rozstrzygnięcie zakresu znaczenia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22guwerner%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "harcówki",
+      "lane": "outside_lemma30",
+      "total_live": 8,
+      "inspected": 3,
+      "documents_inspected": [
+        "136299",
+        "136762",
+        "147354"
+      ],
+      "category": "autorskie",
+      "note": "Harcerstwo, powieść i pamiątka wyprawy; współczesna instytucja.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22harc%C3%B3wki%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "hulaką",
+      "lane": "outside_lemma30",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136121",
+        "136303",
+        "136400"
+      ],
+      "category": "mieszane",
+      "note": "Biografia, dawny cytat i opis postaci; ekspresywność.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22hulak%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "industrialny",
+      "lane": "diagnostic",
+      "total_live": 32,
+      "inspected": 3,
+      "documents_inspected": [
+        "136054",
+        "136062",
+        "136199"
+      ],
+      "category": "autorskie",
+      "note": "Esej historyczny i współczesny krajobraz; znaczenie przemysłowy.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22industrialny%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "insurekcyjnej",
+      "lane": "D_nf_5_29",
+      "total_live": 12,
+      "inspected": 3,
+      "documents_inspected": [
+        "136075",
+        "136159",
+        "136268"
+      ],
+      "category": "autorskie",
+      "note": "Krytyka kultury i współczesna polityka historyczna.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22insurekcyjnej%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "inszą",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136252",
+        "136361",
+        "141655"
+      ],
+      "category": "stylizacja",
+      "note": "Cytaty i historyczna receptura; odczytane konteksty nie dowodzą neutralnego wariantu inna.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22insz%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "iże",
+      "lane": "diagnostic",
+      "total_live": 100,
+      "inspected": 3,
+      "documents_inspected": [
+        "136594"
+      ],
+      "category": "stylizacja",
+      "note": "Pierwsze 3 trafienia z jednej powieści; nie dowodzą neutralnego współczesnego spójnika.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22i%C5%BCe%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "jagnięcinę",
+      "lane": "D_nf_5_29",
+      "total_live": 24,
+      "inspected": 3,
+      "documents_inspected": [
+        "136125",
+        "136180"
+      ],
+      "category": "autorskie",
+      "note": "Restauracja, zakupy i gotowanie; zwykła współczesna nazwa mięsa.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22jagni%C4%99cin%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "jakoż",
+      "lane": "diagnostic",
+      "total_live": 10,
+      "inspected": 3,
+      "documents_inspected": [
+        "136099",
+        "136119"
+      ],
+      "category": "mieszane",
+      "note": "Dawny list oraz dwie autorskie wypowiedzi eseistyczne; źródła nie pozwalają mówić wyłącznie o cytatach.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22jako%C5%BC%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "kajet",
+      "lane": "C_nf_1_4",
+      "total_live": 25,
+      "inspected": 3,
+      "documents_inspected": [
+        "136039",
+        "136483"
+      ],
+      "category": "mieszane",
+      "note": "Żartobliwy komentarz sportowy oraz proza; WSJP oznacza leksem jako przestarzały.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22kajet%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "kajety",
+      "lane": "C_nf_1_4",
+      "total_live": 10,
+      "inspected": 3,
+      "documents_inspected": [
+        "136305",
+        "136370",
+        "136483"
+      ],
+      "category": "historyczne",
+      "note": "Reportaż i proza o dawnych realiach; sama data nowej książki nie wystarcza.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22kajety%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "kalkulatorzy",
+      "lane": "diagnostic",
+      "total_live": 1,
+      "inspected": 1,
+      "documents_inspected": [
+        "136482"
+      ],
+      "category": "historyczne",
+      "note": "Jedno wyliczenie dawnego personelu; żywe osobowe znaczenie istnieje osobno w WSJP.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22kalkulatorzy%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "kinematografów",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136133",
+        "136198"
+      ],
+      "category": "cytaty",
+      "note": "Pierwsze 3 trafienia w dawnych przytoczeniach; brak zwykłego autorskiego użycia w tej części.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22kinematograf%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "klasztora",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 5,
+      "documents_inspected": [
+        "136628",
+        "147177",
+        "163979",
+        "210343"
+      ],
+      "category": "frazeologia",
+      "note": "Dwa użycia stylizowane i trzy przysłowiowe; SGJP oznacza tę końcówkę jako dawną.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22klasztora%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "konfuzja",
+      "lane": "D_nf_5_29",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136063",
+        "136145",
+        "136215"
+      ],
+      "category": "autorskie",
+      "note": "Zdezorientowanie autora oraz konflikt polityczny.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22konfuzja%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "konfuzji",
+      "lane": "current_accepted",
+      "total_live": 36,
+      "inspected": 3,
+      "documents_inspected": [
+        "136033",
+        "136059",
+        "136068"
+      ],
+      "category": "autorskie",
+      "note": "Żywe użycie książkowe w kilku kontekstach.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22konfuzji%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "konkludowała",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136007",
+        "136035",
+        "136364"
+      ],
+      "category": "autorskie",
+      "note": "Czasownik w narracji komentującej cudzą wypowiedź; cytowany jest wniosek, nie sama forma czasownika.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22konkludowa%C5%82a%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "konsultorzy",
+      "lane": "A_no_published_form",
+      "total_live": 3,
+      "inspected": 3,
+      "documents_inspected": [
+        "136347",
+        "202397"
+      ],
+      "category": "autorskie",
+      "note": "Biografia i prasa; doradcy. Pierwsze dwa trafienia z jednego dokumentu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22konsultorzy%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "księżny",
+      "lane": "B_fiction_only",
+      "total_live": 5,
+      "inspected": 5,
+      "documents_inspected": [
+        "136448",
+        "136592",
+        "136628",
+        "136754"
+      ],
+      "category": "stylizacja",
+      "note": "5 trafień: dawna odmiana w prozie historycznej, także nazwy postaci literackich.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ksi%C4%99%C5%BCny%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "kurortach",
+      "lane": "current_accepted",
+      "total_live": 58,
+      "inspected": 3,
+      "documents_inspected": [
+        "136042",
+        "136065",
+        "136095"
+      ],
+      "category": "autorskie",
+      "note": "Porównanie, historia handlu i współczesny reportaż.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22kurortach%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "kursorzy",
+      "lane": "diagnostic",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22kursorzy%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "kurtyzanę",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136289",
+        "136364",
+        "136592"
+      ],
+      "category": "mieszane",
+      "note": "Reportaż o procedurach hotelowych, opis roli scenicznej i historyczny dialog.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22kurtyzan%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "lazarety",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136394",
+        "136466",
+        "136535"
+      ],
+      "category": "historyczne",
+      "note": "Opisy historii szpitali wojskowych, w tym cytat.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22lazarety%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "letnisk",
+      "lane": "D_nf_5_29",
+      "total_live": 7,
+      "inspected": 3,
+      "documents_inspected": [
+        "136174",
+        "136260"
+      ],
+      "category": "mieszane",
+      "note": "Opis dawnych miejsc wypoczynku i cytowane rozkłady komunikacji.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22letnisk%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "letniskami",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22letniskami%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "maluczkimi",
+      "lane": "D_nf_5_29",
+      "total_live": 7,
+      "inspected": 3,
+      "documents_inspected": [
+        "136002",
+        "136341",
+        "136489"
+      ],
+      "category": "mieszane",
+      "note": "Religijna metafora i opis pogardy społecznej; żywy nacechowany wyraz.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22maluczkimi%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "marnotrawna",
+      "lane": "C_nf_1_4",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136174",
+        "136453",
+        "136480"
+      ],
+      "category": "autorskie",
+      "note": "Metafora pamięci i współczesna córka marnotrawna.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22marnotrawna%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "marnotrawne",
+      "lane": "C_nf_1_4",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136035",
+        "136054",
+        "136278"
+      ],
+      "category": "mieszane",
+      "note": "Dialog i analityczny opis eksperymentów/potrzeb; nie tylko przypowieść.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22marnotrawne%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "marnotrawnych",
+      "lane": "C_nf_1_4",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136207",
+        "136450",
+        "136457"
+      ],
+      "category": "autorskie",
+      "note": "Religijne odwołanie, potoczna obelga i przenośny powrót.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22marnotrawnych%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "metrowie",
+      "lane": "diagnostic",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22metrowie%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "mezalianse",
+      "lane": "D_nf_5_29",
+      "total_live": 7,
+      "inspected": 3,
+      "documents_inspected": [
+        "136055",
+        "136338",
+        "136471"
+      ],
+      "category": "autorskie",
+      "note": "Rodzinne zdarzenia i żartobliwe porównanie par; żywe użycie przenośne.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22mezalianse%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "moderowana",
+      "lane": "outside_lemma30",
+      "total_live": 8,
+      "inspected": 3,
+      "documents_inspected": [
+        "136043",
+        "136084",
+        "136600"
+      ],
+      "category": "autorskie",
+      "note": "Proces polityczny, obyczaj i współczesna dyskusja; żywy imiesłów.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22moderowana%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "mokradle",
+      "lane": "C_nf_1_4",
+      "total_live": 7,
+      "inspected": 3,
+      "documents_inspected": [
+        "136244",
+        "136383",
+        "136509"
+      ],
+      "category": "autorskie",
+      "note": "Cytat poezji, współczesny reportaż z quadem i proza; liczba pojedyncza ma realne użycie.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22mokradle%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "monastyczne",
+      "lane": "D_nf_5_29",
+      "total_live": 10,
+      "inspected": 3,
+      "documents_inspected": [
+        "136009",
+        "136033"
+      ],
+      "category": "historyczne",
+      "note": "Autorski opis historii religii i tytuł reguł; nie dawna fleksja.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22monastyczne%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "monastycznymi",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22monastycznymi%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "monastyrze",
+      "lane": "C_nf_1_4",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136383",
+        "136418"
+      ],
+      "category": "mieszane",
+      "note": "Powieść historyczna i współczesny reportaż podróżny.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22monastyrze%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "możnego",
+      "lane": "D_nf_5_29",
+      "total_live": 20,
+      "inspected": 3,
+      "documents_inspected": [
+        "136009",
+        "136081"
+      ],
+      "category": "historyczne",
+      "note": "Rody historyczne i opis społeczny; nie dowodzi neutralności współczesnego tytułu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22mo%C5%BCnego%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "najmożniejszą",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22najmo%C5%BCniejsz%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "najnadobniejszy",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22najnadobniejszy%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "najostatniejsi",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22najostatniejsi%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "najotylszych",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22najotylszych%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "najwarowniejsze",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22najwarowniejsze%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "napitkiem",
+      "lane": "D_nf_5_29",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136039",
+        "136062",
+        "136312"
+      ],
+      "category": "autorskie",
+      "note": "Nacechowana nazwa napoju; także opis literatury.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22napitkiem%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "natenczas",
+      "lane": "outside_lemma30",
+      "total_live": 19,
+      "inspected": 3,
+      "documents_inspected": [
+        "136009",
+        "136103",
+        "136260"
+      ],
+      "category": "autorskie",
+      "note": "Nacechowana autorska narracja, także opis ochrony przyrody; nie tylko dawny cytat.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22natenczas%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "nawarzył",
+      "lane": "outside_lemma30",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136252",
+        "136492",
+        "136678"
+      ],
+      "category": "frazeologia",
+      "note": "Nawarzyć piwa jako metafora problemu; rozdzielony aglutynant w jednym wyniku.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22nawarzy%C5%82%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "nazad",
+      "lane": "diagnostic",
+      "total_live": 73,
+      "inspected": 3,
+      "documents_inspected": [
+        "136068",
+        "136090",
+        "136103"
+      ],
+      "category": "autorskie",
+      "note": "Nacechowana narracja i utrwalone tam/w te i nazad; współczesne użycie istnieje.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22nazad%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "naście",
+      "lane": "D_nf_5_29",
+      "total_live": 39,
+      "inspected": 3,
+      "documents_inspected": [
+        "136038",
+        "136051",
+        "136104"
+      ],
+      "category": "autorskie",
+      "note": "Potoczny opis liczby lat w wywiadzie, podziękowaniu i reportażu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22na%C5%9Bcie%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "negocjatorów",
+      "lane": "current_accepted",
+      "total_live": 30,
+      "inspected": 3,
+      "documents_inspected": [
+        "136062",
+        "136167"
+      ],
+      "category": "autorskie",
+      "note": "Opisy rokowań; historia zdarzeń nie czyni odmiany dawną.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22negocjator%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "niemielsza",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22niemielsza%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "nienajotylszym",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22nienajotylszym%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "nienominowane",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22nienominowane%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "niepojmaniach",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22niepojmaniach%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "nierządnicę",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136137",
+        "136549"
+      ],
+      "category": "mieszane",
+      "note": "Objaśnienie greckiego słowa i silnie nacechowane dialogi; nie dowodzi neutralności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22nierz%C4%85dnic%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "nieszacowniejsi",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22nieszacowniejsi%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "nieutytułowaną",
+      "lane": "A_no_published_form",
+      "total_live": 1,
+      "inspected": 1,
+      "documents_inspected": [
+        "136107"
+      ],
+      "category": "autorskie",
+      "note": "Opis kobiety bez tytułu w książce historycznej; historyczny temat nie oznacza dawnej gramatyki.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22nieutytu%C5%82owan%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "niezbędnik",
+      "lane": "diagnostic",
+      "total_live": 21,
+      "inspected": 3,
+      "documents_inspected": [
+        "136050",
+        "136091",
+        "136350"
+      ],
+      "category": "autorskie",
+      "note": "Narzędzie fajkowe, wyposażenie turystyczne i zbiór notatek.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22niezb%C4%99dnik%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "niezbędnikiem",
+      "lane": "A_no_published_form",
+      "total_live": 3,
+      "inspected": 3,
+      "documents_inspected": [
+        "136007",
+        "136050",
+        "166448"
+      ],
+      "category": "autorskie",
+      "note": "Narzędzie fajkowe i przenośny poradnik; trzecie trafienie dotyczy nazwy publikacji.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22niezb%C4%99dnikiem%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "niezbędników",
+      "lane": "C_nf_1_4",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136050",
+        "136085",
+        "136311"
+      ],
+      "category": "autorskie",
+      "note": "Przybory fajkowe, fotograficzne i przenośna potrzeba; różne żywe znaczenia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22niezb%C4%99dnik%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "nominuje",
+      "lane": "D_nf_5_29",
+      "total_live": 17,
+      "inspected": 3,
+      "documents_inspected": [
+        "136010",
+        "136037",
+        "136063"
+      ],
+      "category": "autorskie",
+      "note": "Nagroda architektoniczna, antysemicka metafora i nagrody muzyczne; zwykłe użycie czasownika.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22nominuje%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "nominujesz",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22nominujesz%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "oberża",
+      "lane": "C_nf_1_4",
+      "total_live": 8,
+      "inspected": 3,
+      "documents_inspected": [
+        "136055",
+        "136103",
+        "136291"
+      ],
+      "category": "mieszane",
+      "note": "Tytuł filmu oraz opis współczesnego lokalu i historii domu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ober%C5%BCa%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "oberżę",
+      "lane": "C_nf_1_4",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136714",
+        "136754",
+        "138743"
+      ],
+      "category": "historyczne",
+      "note": "Dawne podróże, proza historyczna i biografia artysty.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ober%C5%BC%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "obliguje",
+      "lane": "current_accepted",
+      "total_live": 72,
+      "inspected": 3,
+      "documents_inspected": [
+        "136004",
+        "136005",
+        "136093"
+      ],
+      "category": "autorskie",
+      "note": "Prawo i zobowiązania umowne; żywy czasownik.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22obliguje%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "obyczajność",
+      "lane": "D_nf_5_29",
+      "total_live": 7,
+      "inspected": 3,
+      "documents_inspected": [
+        "136035",
+        "136097",
+        "136120"
+      ],
+      "category": "mieszane",
+      "note": "Autorski opis prawa i kultury oraz dawny antysemicki cytat.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22obyczajno%C5%9B%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "odstawce",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136090",
+        "136342",
+        "136613"
+      ],
+      "category": "autorskie",
+      "note": "Statek, polityka i sytuacja postaci; głównie utrwalone wyrażenie.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22odstawce%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "odzienie",
+      "lane": "diagnostic",
+      "total_live": 78,
+      "inspected": 3,
+      "documents_inspected": [
+        "136002",
+        "136084",
+        "136095"
+      ],
+      "category": "autorskie",
+      "note": "Opis strojów religijnych i szkolnych; dawna etykieta WSJP nie równa się brakowi użycia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22odzienie%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "okazjonalnie",
+      "lane": "current_accepted",
+      "total_live": 131,
+      "inspected": 3,
+      "documents_inspected": [
+        "136035",
+        "136048",
+        "136050"
+      ],
+      "category": "autorskie",
+      "note": "Wystawianie sztuk, palenie i przesył gazu; zwykły przysłówek.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22okazjonalnie%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "onemu",
+      "lane": "A_no_published_form",
+      "total_live": 4,
+      "inspected": 3,
+      "documents_inspected": [
+        "136309",
+        "136422",
+        "136448"
+      ],
+      "category": "stylizacja",
+      "note": "Dawny cytat i stylizowana proza; brak zwykłego użycia w odczytanej części.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22onemu%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "opierunku",
+      "lane": "outside_lemma30",
+      "total_live": 7,
+      "inspected": 3,
+      "documents_inspected": [
+        "136070",
+        "136468",
+        "136469"
+      ],
+      "category": "frazeologia",
+      "note": "Wikt i opierunek w kilku narracjach; nie dowodzi swobodnego pełnego paradygmatu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22opierunku%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "opłotkiem",
+      "lane": "A_no_published_form",
+      "total_live": 1,
+      "inspected": 1,
+      "documents_inspected": [
+        "137622"
+      ],
+      "category": "literackie",
+      "note": "Pojedyncze poetyckie użycie ogrodzenia; brak podstaw do oceny całego paradygmatu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22op%C5%82otkiem%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "otylszymi",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22otylszymi%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "ośm",
+      "lane": "B_fiction_only",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136628"
+      ],
+      "category": "stylizacja",
+      "note": "Pierwsze 3 trafienia w Matce Makrynie; wariant osiem, nie dowód zwykłej współczesnej odmiany.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22o%C5%9Bm%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "ośmset",
+      "lane": "B_fiction_only",
+      "total_live": 5,
+      "inspected": 5,
+      "documents_inspected": [
+        "136628"
+      ],
+      "category": "stylizacja",
+      "note": "Wszystkie 5 trafień w jednym dokumencie, Matka Makryna; stylizowana pisownia liczebnika.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22o%C5%9Bmset%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "pachołkowie",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136007",
+        "136427",
+        "136538"
+      ],
+      "category": "mieszane",
+      "note": "Historyczne realia oraz pogardliwy opis pomocników.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22pacho%C5%82kowie%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "piekielniejszy",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22piekielniejszy%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "pierworodnej",
+      "lane": "D_nf_5_29",
+      "total_live": 14,
+      "inspected": 3,
+      "documents_inspected": [
+        "136089",
+        "136178"
+      ],
+      "category": "mieszane",
+      "note": "Pierwsza córka i przenośne znaczenie pierwotności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22pierworodnej%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "podorędziem",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22podor%C4%99dziem%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "podołku",
+      "lane": "outside_lemma30",
+      "total_live": 47,
+      "inspected": 3,
+      "documents_inspected": [
+        "136042",
+        "136113",
+        "136114"
+      ],
+      "category": "autorskie",
+      "note": "Telefon i opis pozycji ciała, obok dawnego cytatu; żywa forma.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22podo%C5%82ku%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "pojazdowej",
+      "lane": "outside_lemma30",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136627",
+        "138896",
+        "150535"
+      ],
+      "category": "autorskie",
+      "note": "Mechanika, opinia sądowa i technika; żywy termin.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22pojazdowej%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "pojmano",
+      "lane": "outside_lemma30",
+      "total_live": 13,
+      "inspected": 3,
+      "documents_inspected": [
+        "136009",
+        "136012",
+        "136214"
+      ],
+      "category": "mieszane",
+      "note": "Historia i współczesne porwanie w Syrii w 2013.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22pojmano%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "pomsta",
+      "lane": "C_nf_1_4",
+      "total_live": 24,
+      "inspected": 3,
+      "documents_inspected": [
+        "136572"
+      ],
+      "category": "cytaty",
+      "note": "Pierwsze 3 trafienia powtarzają biblijną formułę w jednej powieści.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22pomsta%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "poniektóre",
+      "lane": "C_nf_1_4",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136075",
+        "136260"
+      ],
+      "category": "mieszane",
+      "note": "Cytat i autorskie opisy; słowo nacechowane, nie tylko dawna mowa.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22poniekt%C3%B3re%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "poniektórym",
+      "lane": "C_nf_1_4",
+      "total_live": 8,
+      "inspected": 3,
+      "documents_inspected": [
+        "136131",
+        "136397",
+        "136663"
+      ],
+      "category": "mieszane",
+      "note": "Przytoczenie i autorska narracja; żywy nacechowany zaimek.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22poniekt%C3%B3rym%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "pospołu",
+      "lane": "current_accepted",
+      "total_live": 106,
+      "inspected": 3,
+      "documents_inspected": [
+        "136054",
+        "136095"
+      ],
+      "category": "mieszane",
+      "note": "Dawny cytat i autorskie narracje; żywe użycie książkowe.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22pospo%C5%82u%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "postura",
+      "lane": "D_nf_5_29",
+      "total_live": 33,
+      "inspected": 3,
+      "documents_inspected": [
+        "136091",
+        "136113",
+        "136253"
+      ],
+      "category": "autorskie",
+      "note": "Budowa ciała oraz szczególna technika unieruchomienia; różne znaczenia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22postura%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "potańcówki",
+      "lane": "current_accepted",
+      "total_live": 60,
+      "inspected": 3,
+      "documents_inspected": [
+        "136036",
+        "136055",
+        "136076"
+      ],
+      "category": "mieszane",
+      "note": "Wspomnienia, cytat i opis lokalu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22pota%C5%84c%C3%B3wki%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "powiadacie",
+      "lane": "C_nf_1_4",
+      "total_live": 16,
+      "inspected": 3,
+      "documents_inspected": [
+        "136119",
+        "136142",
+        "136249"
+      ],
+      "category": "mieszane",
+      "note": "Współczesny zwrot do redakcji oraz cytaty; żywy zabieg retoryczny.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22powiadacie%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "powiadała",
+      "lane": "D_nf_5_29",
+      "total_live": 12,
+      "inspected": 3,
+      "documents_inspected": [
+        "136035",
+        "136058",
+        "136062"
+      ],
+      "category": "autorskie",
+      "note": "Wprowadzenie cudzej wypowiedzi i legenda; żywy czasownik narracji.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22powiada%C5%82a%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "powijak",
+      "lane": "diagnostic",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22powijak%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "powijaku",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22powijaku%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "prawili",
+      "lane": "C_nf_1_4",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136114",
+        "136394",
+        "136461"
+      ],
+      "category": "mieszane",
+      "note": "Autorska narracja i dawne/dialektalne cytaty.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22prawili%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "preferowaliśmy",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22preferowali%C5%9Bmy%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "preferowany",
+      "lane": "current_accepted",
+      "total_live": 35,
+      "inspected": 3,
+      "documents_inspected": [
+        "136070",
+        "136113"
+      ],
+      "category": "autorskie",
+      "note": "Sztuka, kultura i osobiste upodobania; żywy imiesłów.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22preferowany%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "preferowanych",
+      "lane": "current_accepted",
+      "total_live": 39,
+      "inspected": 3,
+      "documents_inspected": [
+        "136096",
+        "136124",
+        "136153"
+      ],
+      "category": "autorskie",
+      "note": "Marketing, polityka i gospodarka; zwykły imiesłów.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22preferowanych%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "preferowałeś",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22preferowa%C5%82e%C5%9B%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "preferująca",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136153",
+        "136456",
+        "159121"
+      ],
+      "category": "autorskie",
+      "note": "Tekst o polityce, proza i organizacja nauki; zwykłe użycie imiesłowu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22preferuj%C4%85ca%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "prowadzać",
+      "lane": "outside_lemma30",
+      "total_live": 21,
+      "inspected": 3,
+      "documents_inspected": [
+        "136120",
+        "136162",
+        "136253"
+      ],
+      "category": "mieszane",
+      "note": "Dawny cytat i współczesna narracja o osobach i zwierzęciu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22prowadza%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "proweniencji",
+      "lane": "current_accepted",
+      "total_live": 142,
+      "inspected": 3,
+      "documents_inspected": [
+        "136035",
+        "136036",
+        "136039"
+      ],
+      "category": "autorskie",
+      "note": "Pochodzenie polityczne i literackie; książkowość.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22proweniencji%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "pryncypiami",
+      "lane": "D_nf_5_29",
+      "total_live": 10,
+      "inspected": 3,
+      "documents_inspected": [
+        "136007",
+        "136229",
+        "136272"
+      ],
+      "category": "autorskie",
+      "note": "Zasady polityczne, religijne i moralne; rejestr książkowy.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22pryncypiami%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "pryncypiów",
+      "lane": "current_accepted",
+      "total_live": 45,
+      "inspected": 3,
+      "documents_inspected": [
+        "136007",
+        "136054",
+        "136088"
+      ],
+      "category": "autorskie",
+      "note": "Zasady polityczne/społeczne; rejestr książkowy.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22pryncypi%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "przekupniów",
+      "lane": "outside_lemma30",
+      "total_live": 22,
+      "inspected": 3,
+      "documents_inspected": [
+        "136060",
+        "136223",
+        "136565"
+      ],
+      "category": "mieszane",
+      "note": "Metafora turystów, Biblia i opis targu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przekupni%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "przekąsem",
+      "lane": "current_accepted",
+      "total_live": 413,
+      "inspected": 3,
+      "documents_inspected": [
+        "136002",
+        "136075"
+      ],
+      "category": "frazeologia",
+      "note": "Z przekąsem w autorskiej narracji; żywe utrwalone użycie.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przek%C4%85sem%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "przekąsie",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przek%C4%85sie%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "przeliśmy",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przeli%C5%9Bmy%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "przesłonionymi",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przes%C5%82onionymi%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "przysłonionego",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przys%C5%82onionego%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "przysłonionej",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przys%C5%82onionej%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "przytuliskom",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przytuliskom%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "przywdziania",
+      "lane": "outside_lemma30",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136397",
+        "136414",
+        "136599"
+      ],
+      "category": "autorskie",
+      "note": "Strój, proza i koszulka reprezentacji; żywe książkowe użycie.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przywdziania%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "przywdziewał",
+      "lane": "outside_lemma30",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136128",
+        "136204",
+        "136320"
+      ],
+      "category": "autorskie",
+      "note": "Strój i metafora; jeden wynik z odłączonym -em.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przywdziewa%C5%82%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "półsiostry",
+      "lane": "outside_lemma30",
+      "total_live": 7,
+      "inspected": 3,
+      "documents_inspected": [
+        "136104"
+      ],
+      "category": "autorskie",
+      "note": "Wszystkie 3 w jednym reportażu o ustalaniu pokrewieństwa.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22p%C3%B3%C5%82siostry%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "radośne",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rado%C5%9Bne%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "rarytasami",
+      "lane": "C_nf_1_4",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136260",
+        "136394",
+        "136496"
+      ],
+      "category": "mieszane",
+      "note": "Lasy, kulinarny cytat i przedmioty antykwaryczne; żywa metafora.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rarytasami%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "rarytasu",
+      "lane": "C_nf_1_4",
+      "total_live": 10,
+      "inspected": 3,
+      "documents_inspected": [
+        "136603",
+        "136683"
+      ],
+      "category": "mieszane",
+      "note": "Nazwa przysmaku oraz dwukrotnie składnik tytułu publikacji.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rarytasu%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "reintegrację",
+      "lane": "D_nf_5_29",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136047",
+        "136048",
+        "139762"
+      ],
+      "category": "autorskie",
+      "note": "Współczesna polityka postsowiecka; termin specjalistyczny.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22reintegracj%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "rozbójnikami",
+      "lane": "C_nf_1_4",
+      "total_live": 7,
+      "inspected": 3,
+      "documents_inspected": [
+        "136335",
+        "136390",
+        "136566"
+      ],
+      "category": "mieszane",
+      "note": "Dawny cytat, dialog i opis historii; różne funkcje jednego napisu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rozb%C3%B3jnikami%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "rozgorzało",
+      "lane": "C_nf_1_4",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136202",
+        "136754",
+        "136760"
+      ],
+      "category": "autorskie",
+      "note": "Powstanie, uczucie i starcie; także przenośne użycie.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rozgorza%C5%82o%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "rozpukowi",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rozpukowi%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "rozpuku",
+      "lane": "current_accepted",
+      "total_live": 95,
+      "inspected": 3,
+      "documents_inspected": [
+        "136055",
+        "136091",
+        "136095"
+      ],
+      "category": "frazeologia",
+      "note": "Do rozpuku w żywej narracji; nie dowód swobodnego rzeczownika.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rozpuku%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "ruchawka",
+      "lane": "outside_lemma30",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136223",
+        "136230",
+        "136353"
+      ],
+      "category": "mieszane",
+      "note": "Historia i metajęzykowy komentarz; współczesność neutralnego znaczenia nieustalona.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ruchawka%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "rzyć",
+      "lane": "outside_lemma30",
+      "total_live": 20,
+      "inspected": 3,
+      "documents_inspected": [
+        "136116",
+        "136265"
+      ],
+      "category": "cytaty",
+      "note": "Odczytane fragmenty to list/wiersz i metajęzykowe omówienie; regionalizm nie jest sam w sobie zakazem.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rzy%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "salonki",
+      "lane": "D_nf_5_29",
+      "total_live": 11,
+      "inspected": 3,
+      "documents_inspected": [
+        "136062",
+        "136112",
+        "136312"
+      ],
+      "category": "mieszane",
+      "note": "Scena filmowa, współczesny zapis rozmowy i proza historyczna.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22salonki%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "schadzek",
+      "lane": "current_accepted",
+      "total_live": 103,
+      "inspected": 3,
+      "documents_inspected": [
+        "136032",
+        "136080",
+        "136116"
+      ],
+      "category": "autorskie",
+      "note": "Spotkania miłosne i opis literatury.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22schadzek%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "sek",
+      "lane": "current_accepted",
+      "total_live": 303,
+      "inspected": 10,
+      "documents_inspected": [
+        "136160",
+        "136246",
+        "136262",
+        "136472",
+        "136503"
+      ],
+      "category": "obcy_dowod",
+      "note": "10 odczytanych: 8 skrótów sekund i 2 urwane wyrazy. Żaden nie dowodzi rzeczownika przyjmowanego w bazie. Nie oceniono pozostałych 293 trafień.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sek%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "siedm",
+      "lane": "C_nf_1_4",
+      "total_live": 14,
+      "inspected": 3,
+      "documents_inspected": [
+        "136252",
+        "136260",
+        "136628"
+      ],
+      "category": "stylizacja",
+      "note": "Baśń, dawny cytat i Matka Makryna; dawny wariant liczebnika.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22siedm%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "sierocińcem",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136161",
+        "136580"
+      ],
+      "category": "mieszane",
+      "note": "Historia ewakuacji oraz dialog powieściowy; współczesne użycie przy przest. w WSJP.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sieroci%C5%84cem%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "skarbówka",
+      "lane": "current_accepted",
+      "total_live": 73,
+      "inspected": 3,
+      "documents_inspected": [
+        "136210",
+        "136261",
+        "136290"
+      ],
+      "category": "autorskie",
+      "note": "Potoczna nazwa urzędu w autorskich tekstach.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22skarb%C3%B3wka%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "sklepikarz",
+      "lane": "current_accepted",
+      "total_live": 53,
+      "inspected": 3,
+      "documents_inspected": [
+        "136050",
+        "136076",
+        "136081"
+      ],
+      "category": "mieszane",
+      "note": "Zwykłe opisy osób i dawny cytat.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sklepikarz%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "solennym",
+      "lane": "C_nf_1_4",
+      "total_live": 10,
+      "inspected": 3,
+      "documents_inspected": [
+        "136002",
+        "136185",
+        "136333"
+      ],
+      "category": "autorskie",
+      "note": "Opis śpiewu, zapewnienia i stylu akademickiego; książkowe użycia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22solennym%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "sotnie",
+      "lane": "D_nf_5_29",
+      "total_live": 16,
+      "inspected": 3,
+      "documents_inspected": [
+        "136071",
+        "136101"
+      ],
+      "category": "mieszane",
+      "note": "Współczesne zorganizowane grupy i opisy działań UPA.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sotnie%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "sotnię",
+      "lane": "C_nf_1_4",
+      "total_live": 10,
+      "inspected": 3,
+      "documents_inspected": [
+        "136165",
+        "136422",
+        "136561"
+      ],
+      "category": "mieszane",
+      "note": "Współczesna metafora polityczna i odniesienie do organizacji historycznej.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sotni%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "sposobiła",
+      "lane": "outside_lemma30",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136007",
+        "136055",
+        "136628"
+      ],
+      "category": "mieszane",
+      "note": "Autorski opis pracy i historii oraz stylizacja; rozdzielone -m w konkordancji.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sposobi%C5%82a%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "spożytkuje",
+      "lane": "outside_lemma30",
+      "total_live": 8,
+      "inspected": 3,
+      "documents_inspected": [
+        "136069",
+        "136180",
+        "136298"
+      ],
+      "category": "autorskie",
+      "note": "Pieniądze i jedzenie; zwykła forma czasownika.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22spo%C5%BCytkuje%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "spękane",
+      "lane": "D_nf_5_29",
+      "total_live": 32,
+      "inspected": 3,
+      "documents_inspected": [
+        "136029",
+        "136032"
+      ],
+      "category": "autorskie",
+      "note": "Opis ścian, dzieł i skóry; zwykły imiesłów.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sp%C4%99kane%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "starożytniejszy",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22staro%C5%BCytniejszy%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "surdut",
+      "lane": "diagnostic",
+      "total_live": 80,
+      "inspected": 3,
+      "documents_inspected": [
+        "136042",
+        "136094",
+        "136176"
+      ],
+      "category": "mieszane",
+      "note": "Historyczny strój, kostium sceniczny i współczesne wspomnienie muzyka.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22surdut%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "surdutach",
+      "lane": "D_nf_5_29",
+      "total_live": 12,
+      "inspected": 3,
+      "documents_inspected": [
+        "136149",
+        "136220",
+        "136320"
+      ],
+      "category": "mieszane",
+      "note": "Dawne ubrania, poezja i proza historyczna.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22surdutach%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "surdutów",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136252",
+        "136599"
+      ],
+      "category": "historyczne",
+      "note": "Opisy ubioru, w tym cytaty; współczesność nazwy trzeba oddzielić od wieku stroju.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22surdut%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "suweniry",
+      "lane": "outside_lemma30",
+      "total_live": 8,
+      "inspected": 3,
+      "documents_inspected": [
+        "136039",
+        "136188",
+        "136312"
+      ],
+      "category": "autorskie",
+      "note": "Esej, współczesne podróże i proza historyczna.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22suweniry%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "szacownemu",
+      "lane": "C_nf_1_4",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136156",
+        "136466",
+        "136508"
+      ],
+      "category": "autorskie",
+      "note": "Współczesny komentarz i dialogi; nacechowanie grzecznościowe/ironiczne.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22szacownemu%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "szacownych",
+      "lane": "current_accepted",
+      "total_live": 46,
+      "inspected": 3,
+      "documents_inspected": [
+        "136009",
+        "136065",
+        "136070"
+      ],
+      "category": "autorskie",
+      "note": "Komentarz o lekarzach, dawne postaci i budowle; nie tylko cytaty.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22szacownych%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "szata",
+      "lane": "current_accepted",
+      "total_live": 95,
+      "inspected": 3,
+      "documents_inspected": [
+        "136029",
+        "136039",
+        "136070"
+      ],
+      "category": "autorskie",
+      "note": "Oprawa książki, ubiór i metafora wina.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22szata%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "szatę",
+      "lane": "current_accepted",
+      "total_live": 183,
+      "inspected": 3,
+      "documents_inspected": [
+        "136029",
+        "136033",
+        "136042"
+      ],
+      "category": "mieszane",
+      "note": "Metafora, ubiór religijny i historyczna opowieść.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22szat%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "szczętu",
+      "lane": "D_nf_5_29",
+      "total_live": 52,
+      "inspected": 3,
+      "documents_inspected": [
+        "136012",
+        "136032",
+        "136095"
+      ],
+      "category": "frazeologia",
+      "note": "Utrwalone do szczętu; brak dowodu całej odmiany rzeczownika.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22szcz%C4%99tu%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "szewronu",
+      "lane": "outside_lemma30",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "195374",
+        "196363",
+        "197790"
+      ],
+      "category": "autorskie",
+      "note": "Współczesne logo samochodu; może być inne znaczenie niż dawne oznaczenie munduru.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22szewronu%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "sztobrów",
+      "lane": "outside_lemma30",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136096"
+      ],
+      "category": "autorskie",
+      "note": "3 pierwsze w jednym poradniku uprawy; współczesny termin fachowy.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sztobr%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "sztorcem",
+      "lane": "C_nf_1_4",
+      "total_live": 8,
+      "inspected": 3,
+      "documents_inspected": [
+        "136029",
+        "136244"
+      ],
+      "category": "mieszane",
+      "note": "Opis autorski i dwa cytaty poezji; nie utożsamiać z całym paradygmatem sztorc.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sztorcem%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "służebnic",
+      "lane": "C_nf_1_4",
+      "total_live": 7,
+      "inspected": 3,
+      "documents_inspected": [
+        "136041",
+        "136197",
+        "136580"
+      ],
+      "category": "mieszane",
+      "note": "Opis instytucji religijnych i nazwa zgromadzenia; ocena zależy od znaczenia i nazwy.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22s%C5%82u%C5%BCebnic%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "trocho",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22trocho%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "trzykroć",
+      "lane": "diagnostic",
+      "total_live": 55,
+      "inspected": 3,
+      "documents_inspected": [
+        "136062",
+        "136139",
+        "136142"
+      ],
+      "category": "mieszane",
+      "note": "Dwa cytaty poezji oraz żartobliwe autorskie użycie.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22trzykro%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "ubezpieczyciel",
+      "lane": "current_accepted",
+      "total_live": 129,
+      "inspected": 3,
+      "documents_inspected": [
+        "136051",
+        "136098",
+        "136158"
+      ],
+      "category": "autorskie",
+      "note": "Ubezpieczenie podróży, firma i rozliczenie świadczenia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ubezpieczyciel%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "ubogaci",
+      "lane": "outside_lemma30",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136142",
+        "136413",
+        "147993"
+      ],
+      "category": "autorskie",
+      "note": "Żart, dialog o twórczości i komentarz o dziecku; żywe nacechowane użycie.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ubogaci%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "ukradkami",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ukradkami%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "umorach",
+      "lane": "diagnostic",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22umorach%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "umór",
+      "lane": "current_accepted",
+      "total_live": 84,
+      "inspected": 3,
+      "documents_inspected": [
+        "136029",
+        "136039",
+        "136051"
+      ],
+      "category": "frazeologia",
+      "note": "Na umór: zwykłe narracje i cytat; nie do umoru i nie dowód umorach.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22um%C3%B3r%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "upakowanych",
+      "lane": "outside_lemma30",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136158",
+        "136241"
+      ],
+      "category": "autorskie",
+      "note": "Współczesny opis anatomii; zwykły imiesłów.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22upakowanych%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "ustankiem",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ustankiem%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "utytułowane",
+      "lane": "D_nf_5_29",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136889",
+        "138339",
+        "141566"
+      ],
+      "category": "autorskie",
+      "note": "Nagrody filmowe i sportowe oraz dyplomy; odnowione/rozszerzone znaczenia.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22utytu%C5%82owane%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "uzurpacjo",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22uzurpacjo%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "uzurpację",
+      "lane": "D_nf_5_29",
+      "total_live": 12,
+      "inspected": 3,
+      "documents_inspected": [
+        "136001",
+        "136007"
+      ],
+      "category": "autorskie",
+      "note": "Rozważania o przyrodzie i sporze narodowym; rejestr książkowy.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22uzurpacj%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "walniejszymi",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22walniejszymi%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "warzonych",
+      "lane": "C_nf_1_4",
+      "total_live": 7,
+      "inspected": 3,
+      "documents_inspected": [
+        "136039",
+        "136466",
+        "136762"
+      ],
+      "category": "autorskie",
+      "note": "Piwo, zioła i miód pitny; należy rozdzielić znaczenia gotowania i produkcji napojów.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22warzonych%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "warzyć",
+      "lane": "outside_lemma30",
+      "total_live": 16,
+      "inspected": 3,
+      "documents_inspected": [
+        "136252",
+        "136266",
+        "136313"
+      ],
+      "category": "mieszane",
+      "note": "Opis gotowania oraz dawne cytaty/realia; rozdzielić od warzenia piwa dziś.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22warzy%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "wcześne",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wcze%C5%9Bne%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "wieczerzy",
+      "lane": "current_accepted",
+      "total_live": 221,
+      "inspected": 3,
+      "documents_inspected": [
+        "136029",
+        "136036"
+      ],
+      "category": "mieszane",
+      "note": "Biblijne odniesienia oraz współczesny posiłek w reportażu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wieczerzy%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "wiela",
+      "lane": "B_fiction_only",
+      "total_live": 11,
+      "inspected": 10,
+      "documents_inspected": [
+        "136455",
+        "136461"
+      ],
+      "category": "regionalne",
+      "note": "10 odczytanych trafień w śląskich dialogach dwóch powieści; nie są neutralną polszczyzną. Sam regionalizm nie jest automatycznym zakazem STANDARD.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wiela%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "wojaż",
+      "lane": "C_nf_1_4",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136282",
+        "136642",
+        "148048"
+      ],
+      "category": "autorskie",
+      "note": "Podróż wojskowa, wyjazd firmowy i opis podróży; żywe użycia książkowe/żartobliwe.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22woja%C5%BC%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "wolontariacki",
+      "lane": "diagnostic",
+      "total_live": 2,
+      "inspected": 2,
+      "documents_inspected": [
+        "136317"
+      ],
+      "category": "autorskie",
+      "note": "Dwa trafienia jednego reportażu o współczesnej Ukrainie.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wolontariacki%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "wolontariacką",
+      "lane": "D_nf_5_29",
+      "total_live": 7,
+      "inspected": 3,
+      "documents_inspected": [
+        "136002",
+        "136033",
+        "136334"
+      ],
+      "category": "autorskie",
+      "note": "Kampania i praca społeczna; wyraźne użycia współczesne.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wolontariack%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "wyedukowani",
+      "lane": "D_nf_5_29",
+      "total_live": 22,
+      "inspected": 3,
+      "documents_inspected": [
+        "136033",
+        "136037",
+        "136097"
+      ],
+      "category": "autorskie",
+      "note": "Współczesne grupy społeczne i pracownicy.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wyedukowani%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "wynegocjowaniu",
+      "lane": "D_nf_5_29",
+      "total_live": 8,
+      "inspected": 3,
+      "documents_inspected": [
+        "136082",
+        "136196",
+        "139728"
+      ],
+      "category": "autorskie",
+      "note": "Umowa z wydawcą, polityka i bezpieczeństwo; zwykły odsłownik.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wynegocjowaniu%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "wynegocjowanym",
+      "lane": "D_nf_5_29",
+      "total_live": 7,
+      "inspected": 3,
+      "documents_inspected": [
+        "136105",
+        "147344",
+        "165663"
+      ],
+      "category": "autorskie",
+      "note": "Polityka i opis warunków; zwykła forma imiesłowu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wynegocjowanym%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "wynegocjować",
+      "lane": "current_accepted",
+      "total_live": 128,
+      "inspected": 3,
+      "documents_inspected": [
+        "136008",
+        "136032",
+        "136098"
+      ],
+      "category": "autorskie",
+      "note": "Polityka i zakup urządzenia; zwykły czasownik.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wynegocjowa%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "wysługę",
+      "lane": "D_nf_5_29",
+      "total_live": 19,
+      "inspected": 3,
+      "documents_inspected": [
+        "136346",
+        "136389",
+        "136451"
+      ],
+      "category": "frazeologia",
+      "note": "Współczesne i historyczne świadczenia za wysługę lat.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wys%C5%82ug%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "wywre",
+      "lane": "diagnostic",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wywre%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "władna",
+      "lane": "D_nf_5_29",
+      "total_live": 17,
+      "inspected": 3,
+      "documents_inspected": [
+        "136183",
+        "136259",
+        "136265"
+      ],
+      "category": "autorskie",
+      "note": "Uprawnienia instytucji oraz przenośne możliwości poezji/postaci.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22w%C5%82adna%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "włościach",
+      "lane": "current_accepted",
+      "total_live": 97,
+      "inspected": 3,
+      "documents_inspected": [
+        "136032",
+        "136070"
+      ],
+      "category": "mieszane",
+      "note": "Opis malarstwa, biografii i literatury; rejestr książkowy/historyczny.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22w%C5%82o%C5%9Bciach%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "włościanie",
+      "lane": "D_nf_5_29",
+      "total_live": 20,
+      "inspected": 3,
+      "documents_inspected": [
+        "136114",
+        "136259",
+        "136260"
+      ],
+      "category": "historyczne",
+      "note": "Historia polowań i dziesięcin oraz dawny cytat.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22w%C5%82o%C5%9Bcianie%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "zafrasowany",
+      "lane": "outside_lemma30",
+      "total_live": 29,
+      "inspected": 3,
+      "documents_inspected": [
+        "136055",
+        "136238",
+        "136350"
+      ],
+      "category": "autorskie",
+      "note": "Postać, klient i piłkarz; autorskie określenie stanu.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zafrasowany%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "zagustował",
+      "lane": "outside_lemma30",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136186",
+        "136258",
+        "136449"
+      ],
+      "category": "autorskie",
+      "note": "Współczesna polityka, wspomnienie i dialog.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zagustowa%C5%82%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "zamtuz",
+      "lane": "outside_lemma30",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136337",
+        "136593",
+        "136599"
+      ],
+      "category": "mieszane",
+      "note": "Metajęzykowe wyliczenie i proza historyczna; brak neutralnego użycia w tej części.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zamtuz%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "zapowiednika",
+      "lane": "D_nf_5_29",
+      "total_live": 12,
+      "inspected": 3,
+      "documents_inspected": [
+        "142932"
+      ],
+      "category": "autorskie",
+      "note": "Specjalistyczny opis rezerwatu; 3 pierwsze trafienia w jednym artykule.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zapowiednika%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "zasadny",
+      "lane": "current_accepted",
+      "total_live": 68,
+      "inspected": 3,
+      "documents_inspected": [
+        "136059",
+        "136117",
+        "136132"
+      ],
+      "category": "autorskie",
+      "note": "Ocena lęku i argumentu; zwykły przymiotnik.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zasadny%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "zasłonionemu",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zas%C5%82onionemu%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "zasłonionym",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zas%C5%82onionym%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "zbożniejszych",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zbo%C5%BCniejszych%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "zbój",
+      "lane": "D_nf_5_29",
+      "total_live": 33,
+      "inspected": 3,
+      "documents_inspected": [
+        "136038",
+        "136140"
+      ],
+      "category": "autorskie",
+      "note": "Opis postaci i metafora zabawki; wyraz ekspresywny.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zb%C3%B3j%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "zbójca",
+      "lane": "C_nf_1_4",
+      "total_live": 23,
+      "inspected": 3,
+      "documents_inspected": [
+        "136754"
+      ],
+      "category": "historyczne",
+      "note": "Pierwsze 3 trafienia w jednej powieści historycznej; silna koncentracja źródła.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zb%C3%B3jca%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "zdradliwie",
+      "lane": "outside_lemma30",
+      "total_live": 8,
+      "inspected": 3,
+      "documents_inspected": [
+        "136021",
+        "136042",
+        "136401"
+      ],
+      "category": "mieszane",
+      "note": "Autorskie opisy i dawny cytat; przysłówek żywy.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zdradliwie%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "zeloty",
+      "lane": "D_nf_5_29",
+      "total_live": 5,
+      "inspected": 3,
+      "documents_inspected": [
+        "136236",
+        "136390"
+      ],
+      "category": "mieszane",
+      "note": "Współczesny aktywista technologiczny i historyczne stronnictwo.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zeloty%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "zelotów",
+      "lane": "D_nf_5_29",
+      "total_live": 30,
+      "inspected": 3,
+      "documents_inspected": [
+        "136214",
+        "136226",
+        "136390"
+      ],
+      "category": "mieszane",
+      "note": "Współczesna metafora żarliwości i historyczne stronnictwo.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zelot%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "zwierzchnością",
+      "lane": "C_nf_1_4",
+      "total_live": 6,
+      "inspected": 3,
+      "documents_inspected": [
+        "136007",
+        "136234",
+        "136418"
+      ],
+      "category": "mieszane",
+      "note": "Zwierzchnictwo kościelne, dawny cytat, przenośny opis zachowania.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zwierzchno%C5%9Bci%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "ócz",
+      "lane": "D_nf_5_29",
+      "total_live": 9,
+      "inspected": 3,
+      "documents_inspected": [
+        "136067",
+        "136188",
+        "136282"
+      ],
+      "category": "mieszane",
+      "note": "Cytaty i nacechowana narracja; źródłowo dawny wariant oczu, nie dowód neutralnej odmiany.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22%C3%B3cz%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "żeż",
+      "lane": "outside_lemma30",
+      "total_live": 11,
+      "inspected": 10,
+      "documents_inspected": [
+        "136077",
+        "136306",
+        "136430",
+        "136556",
+        "136562",
+        "136691",
+        "136727",
+        "136795"
+      ],
+      "category": "obcy_dowod",
+      "note": "10 trafień partykuły/wykrzyknienia, nie rozkaźnika dawnego żec, którego dotyczy analizowany kandydat.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22%C5%BCe%C5%BC%22%5D&per_page=10&chosen_corpora=balanced"
+    },
+    {
+      "word": "żyzniejszego",
+      "lane": "A_no_published_form",
+      "total_live": 0,
+      "inspected": 0,
+      "documents_inspected": [],
+      "category": "brak_trafien",
+      "note": "Wyszukiwarka nie zwróciła dokładnego napisu. To brak dowodu w tej sondzie, nie rozstrzygnięcie dopuszczalności.",
+      "eligibility_decision": null,
+      "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22%C5%BCyzniejszego%22%5D&per_page=10&chosen_corpora=balanced"
+    }
+  ]
+}

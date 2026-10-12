@@ -1,0 +1,7172 @@
+{
+  "seed": "issue4-round2-form-v1:",
+  "strata": {
+    "D_nf_5_29": {
+      "population": 661,
+      "sample": 50
+    },
+    "A_no_published_form": {
+      "population": 2587,
+      "sample": 50
+    },
+    "C_nf_1_4": {
+      "population": 111,
+      "sample": 50
+    },
+    "B_fiction_only": {
+      "population": 5,
+      "sample": 5
+    }
+  },
+  "cases": [
+    {
+      "word": "gojowi",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "goj",
+          "goj",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "goj",
+          "goj",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "przysłonionego",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "przysłonić",
+          "przysłonić",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "przysłonić",
+          "przysłonić",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "konsultorzy",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "konsultor",
+          "konsultor",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "konsultor",
+          "konsultor",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "przysłonionej",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "przysłonić",
+          "przysłonić",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "przysłonić",
+          "przysłonić",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "walniejszymi",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "walny",
+          "walny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "walny",
+          "walny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "ukradkami",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "ukradek",
+          "ukradek",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "ukradek",
+          "ukradek",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "podorędziem",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "podorędzie",
+          "podorędzie",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "podorędzie",
+          "podorędzie",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "przytuliskom",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "przytulisko",
+          "przytulisko",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "przytulisko",
+          "przytulisko",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "trocho",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "trocha",
+          "trocha",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "trocha",
+          "trocha",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "ustankiem",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "ustanek",
+          "ustanek",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "ustanek",
+          "ustanek",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "przeliśmy",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "przeć:Vi~zeję",
+          "przeć",
+          "praet",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "przeć:Vi~zeję",
+          "przeć",
+          "praet",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "zbożniejszych",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "zbożny",
+          "zbożny",
+          "adj",
+          "przest.,rzad.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "zbożny",
+          "zbożny",
+          "adj",
+          "przest.,rzad.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "rozpukowi",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "rozpuk",
+          "rozpuk",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "rozpuk",
+          "rozpuk",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "piekielniejszy",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "piekielny",
+          "piekielny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "piekielny",
+          "piekielny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "starożytniejszy",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "starożytny",
+          "starożytny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "starożytny",
+          "starożytny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "preferowałeś",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "preferować",
+          "preferować",
+          "praet",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "preferować",
+          "preferować",
+          "praet",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "zasłonionemu",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "zasłonić",
+          "zasłonić",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "zasłonić",
+          "zasłonić",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "przesłonionymi",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "przesłonić",
+          "przesłonić",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "przesłonić",
+          "przesłonić",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "opłotkiem",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "opłotek",
+          "opłotek",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "opłotek",
+          "opłotek",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "letniskami",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "letnisko",
+          "letnisko",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "letnisko",
+          "letnisko",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "franciszkana",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "franciszkan",
+          "franciszkan",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "franciszkan",
+          "franciszkan",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "najmożniejszą",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "możny:A",
+          "możny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "możny:A",
+          "możny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "dziatwo",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "dziatwa",
+          "dziatwa",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "dziatwa",
+          "dziatwa",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "niepojmaniach",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "pojmać",
+          "pojmać",
+          "ger",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "pojmać",
+          "pojmać",
+          "ger",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "braccy",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "bracki",
+          "bracki",
+          "adj",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "bracki",
+          "bracki",
+          "adj",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "otylszymi",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "otyły:A",
+          "otyły",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "otyły:A",
+          "otyły",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "edukowałoś",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "edukować",
+          "edukować",
+          "praet",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "edukować",
+          "edukować",
+          "praet",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "nienajotylszym",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "otyły:A",
+          "otyły",
+          "adj",
+          "daw.",
+          1
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "otyły:A",
+          "otyły",
+          "adj",
+          "daw.",
+          1
+        ]
+      ]
+    },
+    {
+      "word": "nieutytułowaną",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "utytułować",
+          "utytułować",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "utytułować",
+          "utytułować",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "najostatniejsi",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "ostatni:A",
+          "ostatni",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "ostatni:A",
+          "ostatni",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "nienominowane",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "nominować",
+          "nominować",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "nominować",
+          "nominować",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "niemielsza",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "miałki",
+          "miałki",
+          "adj",
+          "przest.,reg.",
+          1
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "miałki",
+          "miałki",
+          "adj",
+          "przest.,reg.",
+          1
+        ]
+      ]
+    },
+    {
+      "word": "monastycznymi",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "monastyczny",
+          "monastyczny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "monastyczny",
+          "monastyczny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "radośne",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "radośny",
+          "radośny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "radośny",
+          "radośny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "nieszacowniejsi",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "szacowny",
+          "szacowny",
+          "adj",
+          "daw.",
+          1
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "szacowny",
+          "szacowny",
+          "adj",
+          "daw.",
+          1
+        ]
+      ]
+    },
+    {
+      "word": "najwarowniejsze",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "warowny",
+          "warowny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "warowny",
+          "warowny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "powijaku",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "powijak",
+          "powijak",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "powijak",
+          "powijak",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "przekąsie",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "przekąs",
+          "przekąs",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "przekąs",
+          "przekąs",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "preferowaliśmy",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "preferować",
+          "preferować",
+          "praet",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "preferować",
+          "preferować",
+          "praet",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "najnadobniejszy",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "nadobny",
+          "nadobny",
+          "adj",
+          "daw.,przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "nadobny",
+          "nadobny",
+          "adj",
+          "daw.,przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "zasłonionym",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "zasłonić",
+          "zasłonić",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "zasłonić",
+          "zasłonić",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "żyzniejszego",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "żyzny",
+          "żyzny",
+          "adj",
+          "daw.,rzad.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "żyzny",
+          "żyzny",
+          "adj",
+          "daw.,rzad.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "uzurpacjo",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "uzurpacja",
+          "uzurpacja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "uzurpacja",
+          "uzurpacja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "wcześne",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "wcześny",
+          "wcześny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "wcześny",
+          "wcześny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "nominujesz",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "nominować",
+          "nominować",
+          "fin",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "nominować",
+          "nominować",
+          "fin",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "ekskrementu",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "ekskrement",
+          "ekskrement",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "ekskrement",
+          "ekskrement",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "czynownikach",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "czynownik",
+          "czynownik",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "czynownik",
+          "czynownik",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "najotylszych",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "otyły:A",
+          "otyły",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "otyły:A",
+          "otyły",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "onemu",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "on:A",
+          "on",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "on:A",
+          "on",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "niezbędnikiem",
+      "stratum": "A_no_published_form",
+      "orth": {},
+      "eligible_analyses": [
+        [
+          "niezbędnik",
+          "niezbędnik",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "niezbędnik",
+          "niezbędnik",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "ośmset",
+      "stratum": "B_fiction_only",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "1.0",
+          "DP": "0.99887",
+          "DP_norm": "0.999",
+          "1-DP": "0.00113",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 5,
+          "ipm": "0.21",
+          "ARF": "1.01",
+          "DP": "0.99617",
+          "DP_norm": "0.99912",
+          "1-DP": "0.00383",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "osiemset",
+          "osiemset",
+          "num",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "osiemset",
+          "osiemset",
+          "num",
+          "daw.",
+          0
+        ],
+        [
+          "ośmset",
+          "ośmset",
+          "num",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "ciżbą",
+      "stratum": "B_fiction_only",
+      "orth": {
+        "all": {
+          "freq": 6,
+          "ipm": "0.07",
+          "ARF": "4.23",
+          "DP": "0.99483",
+          "DP_norm": "0.99496",
+          "1-DP": "0.00517",
+          "total_freq": "6.0"
+        },
+        "fikcja": {
+          "freq": 6,
+          "ipm": "0.25",
+          "ARF": "4.25",
+          "DP": "0.98248",
+          "DP_norm": "0.98539",
+          "1-DP": "0.01752",
+          "total_freq": "6.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "ciżba",
+          "ciżba",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "ciżba",
+          "ciżba",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "księżny",
+      "stratum": "B_fiction_only",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "3.33",
+          "DP": "0.9957",
+          "DP_norm": "0.99583",
+          "1-DP": "0.0043",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 5,
+          "ipm": "0.21",
+          "ARF": "3.31",
+          "DP": "0.98541",
+          "DP_norm": "0.98833",
+          "1-DP": "0.01459",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "księżna",
+          "księżna",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "księżna",
+          "księżna",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "wiela",
+      "stratum": "B_fiction_only",
+      "orth": {
+        "all": {
+          "freq": 11,
+          "ipm": "0.14",
+          "ARF": "3.01",
+          "DP": "0.99697",
+          "DP_norm": "0.9971",
+          "1-DP": "0.00303",
+          "total_freq": "11.0"
+        },
+        "fikcja": {
+          "freq": 11,
+          "ipm": "0.46",
+          "ARF": "3.04",
+          "DP": "0.98973",
+          "DP_norm": "0.99266",
+          "1-DP": "0.01027",
+          "total_freq": "11.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "wiele:Npl",
+          "wiele",
+          "num",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "wiele:Npl",
+          "wiele",
+          "num",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "ośm",
+      "stratum": "B_fiction_only",
+      "orth": {
+        "all": {
+          "freq": 6,
+          "ipm": "0.07",
+          "ARF": "1.0",
+          "DP": "0.99887",
+          "DP_norm": "0.999",
+          "1-DP": "0.00113",
+          "total_freq": "6.0"
+        },
+        "fikcja": {
+          "freq": 6,
+          "ipm": "0.25",
+          "ARF": "1.02",
+          "DP": "0.99617",
+          "DP_norm": "0.99912",
+          "1-DP": "0.00383",
+          "total_freq": "6.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "osiem",
+          "osiem",
+          "num",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "osiem",
+          "osiem",
+          "num",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "eksplikacją",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "3.27",
+          "DP": "0.99283",
+          "DP_norm": "0.99296",
+          "1-DP": "0.00717",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.89",
+          "DP": "0.98061",
+          "DP_norm": "0.98115",
+          "1-DP": "0.01939",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99877",
+          "DP_norm": "1.00172",
+          "1-DP": "0.00123",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "eksplikacja",
+          "eksplikacja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "eksplikacja",
+          "eksplikacja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "bębniarzem",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "2.77",
+          "DP": "0.99478",
+          "DP_norm": "0.99491",
+          "1-DP": "0.00522",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.0",
+          "DP": "0.99665",
+          "DP_norm": "0.9972",
+          "1-DP": "0.00335",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "2.34",
+          "DP": "0.9863",
+          "DP_norm": "0.98922",
+          "1-DP": "0.0137",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "bębniarz",
+          "bębniarz",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "bębniarz",
+          "bębniarz",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "rozbójnikami",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 7,
+          "ipm": "0.09",
+          "ARF": "4.96",
+          "DP": "0.98936",
+          "DP_norm": "0.98949",
+          "1-DP": "0.01064",
+          "total_freq": "7.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.58",
+          "DP": "0.99333",
+          "DP_norm": "0.99388",
+          "1-DP": "0.00667",
+          "total_freq": "7.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99988",
+          "DP_norm": "1.00007",
+          "1-DP": "0.00012",
+          "total_freq": "7.0"
+        },
+        "fikcja": {
+          "freq": 4,
+          "ipm": "0.17",
+          "ARF": "2.32",
+          "DP": "0.97199",
+          "DP_norm": "0.97487",
+          "1-DP": "0.02801",
+          "total_freq": "7.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "rozbójnik",
+          "rozbójnik",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "rozbójnik",
+          "rozbójnik",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "surdutów",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "3.21",
+          "DP": "0.99719",
+          "DP_norm": "0.99732",
+          "1-DP": "0.00281",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.0",
+          "DP": "0.99784",
+          "DP_norm": "0.99839",
+          "1-DP": "0.00216",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "2.7",
+          "DP": "0.99305",
+          "DP_norm": "0.99599",
+          "1-DP": "0.00695",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "surdut",
+          "surdut",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "surdut",
+          "surdut",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "poniektóre",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 9,
+          "ipm": "0.11",
+          "ARF": "6.16",
+          "DP": "0.99145",
+          "DP_norm": "0.99158",
+          "1-DP": "0.00855",
+          "total_freq": "9.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.38",
+          "DP": "0.99116",
+          "DP_norm": "0.9917",
+          "1-DP": "0.00884",
+          "total_freq": "9.0"
+        },
+        "fikcja": {
+          "freq": 5,
+          "ipm": "0.21",
+          "ARF": "3.01",
+          "DP": "0.98152",
+          "DP_norm": "0.98442",
+          "1-DP": "0.01848",
+          "total_freq": "9.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "poniektóry",
+          "poniektóry",
+          "adj",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "poniektóry",
+          "poniektóry",
+          "adj",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "dwoiły",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 8,
+          "ipm": "0.1",
+          "ARF": "5.68",
+          "DP": "0.99511",
+          "DP_norm": "0.99524",
+          "1-DP": "0.00489",
+          "total_freq": "8.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99784",
+          "DP_norm": "0.99839",
+          "1-DP": "0.00216",
+          "total_freq": "8.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.01",
+          "DP": "0.99814",
+          "DP_norm": "0.99833",
+          "1-DP": "0.00186",
+          "total_freq": "8.0"
+        },
+        "fikcja": {
+          "freq": 5,
+          "ipm": "0.21",
+          "ARF": "3.83",
+          "DP": "0.98822",
+          "DP_norm": "0.99114",
+          "1-DP": "0.01178",
+          "total_freq": "8.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "dwoić",
+          "dwoić",
+          "praet",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "dwoić",
+          "dwoić",
+          "praet",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "sotnię",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 10,
+          "ipm": "0.12",
+          "ARF": "3.73",
+          "DP": "0.99606",
+          "DP_norm": "0.99619",
+          "1-DP": "0.00394",
+          "total_freq": "10.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.94",
+          "DP": "0.99629",
+          "DP_norm": "0.99684",
+          "1-DP": "0.00371",
+          "total_freq": "10.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99829",
+          "DP_norm": "0.99848",
+          "1-DP": "0.00171",
+          "total_freq": "10.0"
+        },
+        "fikcja": {
+          "freq": 7,
+          "ipm": "0.29",
+          "ARF": "2.14",
+          "DP": "0.9931",
+          "DP_norm": "0.99604",
+          "1-DP": "0.0069",
+          "total_freq": "10.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "sotnia",
+          "sotnia",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "sotnia",
+          "sotnia",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "prawili",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 9,
+          "ipm": "0.11",
+          "ARF": "5.19",
+          "DP": "0.99273",
+          "DP_norm": "0.99286",
+          "1-DP": "0.00727",
+          "total_freq": "9.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.68",
+          "DP": "0.99666",
+          "DP_norm": "0.99721",
+          "1-DP": "0.00334",
+          "total_freq": "9.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99917",
+          "DP_norm": "0.99936",
+          "1-DP": "0.00083",
+          "total_freq": "9.0"
+        },
+        "fikcja": {
+          "freq": 6,
+          "ipm": "0.25",
+          "ARF": "3.75",
+          "DP": "0.98032",
+          "DP_norm": "0.98322",
+          "1-DP": "0.01968",
+          "total_freq": "9.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "prawić",
+          "prawić",
+          "praet",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "prawić",
+          "prawić",
+          "praet",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "powiadacie",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 16,
+          "ipm": "0.2",
+          "ARF": "6.93",
+          "DP": "0.98876",
+          "DP_norm": "0.98889",
+          "1-DP": "0.01124",
+          "total_freq": "16.0"
+        },
+        "fakt": {
+          "freq": 3,
+          "ipm": "0.11",
+          "ARF": "2.01",
+          "DP": "0.99242",
+          "DP_norm": "0.99297",
+          "1-DP": "0.00758",
+          "total_freq": "16.0"
+        },
+        "fikcja": {
+          "freq": 13,
+          "ipm": "0.54",
+          "ARF": "5.65",
+          "DP": "0.97091",
+          "DP_norm": "0.97378",
+          "1-DP": "0.02909",
+          "total_freq": "16.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "powiadać",
+          "powiadać",
+          "fin",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "powiadać",
+          "powiadać",
+          "fin",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "rozgorzało",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 6,
+          "ipm": "0.07",
+          "ARF": "3.67",
+          "DP": "0.9936",
+          "DP_norm": "0.99373",
+          "1-DP": "0.0064",
+          "total_freq": "6.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99942",
+          "DP_norm": "0.99997",
+          "1-DP": "0.00058",
+          "total_freq": "6.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99929",
+          "DP_norm": "0.99948",
+          "1-DP": "0.00071",
+          "total_freq": "6.0"
+        },
+        "fikcja": {
+          "freq": 4,
+          "ipm": "0.17",
+          "ARF": "2.67",
+          "DP": "0.97985",
+          "DP_norm": "0.98275",
+          "1-DP": "0.02015",
+          "total_freq": "6.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "rozgorzeć",
+          "rozgorzeć",
+          "praet",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "rozgorzeć",
+          "rozgorzeć",
+          "praet",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "służebnic",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 7,
+          "ipm": "0.09",
+          "ARF": "5.61",
+          "DP": "0.99454",
+          "DP_norm": "0.99467",
+          "1-DP": "0.00546",
+          "total_freq": "7.0"
+        },
+        "fakt": {
+          "freq": 3,
+          "ipm": "0.11",
+          "ARF": "2.5",
+          "DP": "0.9956",
+          "DP_norm": "0.99615",
+          "1-DP": "0.0044",
+          "total_freq": "7.0"
+        },
+        "fikcja": {
+          "freq": 4,
+          "ipm": "0.17",
+          "ARF": "3.49",
+          "DP": "0.98672",
+          "DP_norm": "0.98964",
+          "1-DP": "0.01328",
+          "total_freq": "7.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "służebnica",
+          "służebnica",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "służebnica",
+          "służebnica",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "inszą",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "3.54",
+          "DP": "0.99548",
+          "DP_norm": "0.99561",
+          "1-DP": "0.00452",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 3,
+          "ipm": "0.11",
+          "ARF": "2.25",
+          "DP": "0.99155",
+          "DP_norm": "0.99209",
+          "1-DP": "0.00845",
+          "total_freq": "5.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99808",
+          "DP_norm": "0.99827",
+          "1-DP": "0.00192",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99704",
+          "DP_norm": "0.99999",
+          "1-DP": "0.00296",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "inszy:A",
+          "inszy",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "insza",
+          "insza",
+          "subst",
+          "daw.",
+          0
+        ],
+        [
+          "inszy:A",
+          "inszy",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "wojaż",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 6,
+          "ipm": "0.07",
+          "ARF": "4.31",
+          "DP": "0.99557",
+          "DP_norm": "0.9957",
+          "1-DP": "0.00443",
+          "total_freq": "6.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.63",
+          "DP": "0.99621",
+          "DP_norm": "0.99676",
+          "1-DP": "0.00379",
+          "total_freq": "6.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.0",
+          "DP": "0.99809",
+          "DP_norm": "0.99828",
+          "1-DP": "0.00191",
+          "total_freq": "6.0"
+        },
+        "fikcja": {
+          "freq": 2,
+          "ipm": "0.08",
+          "ARF": "1.82",
+          "DP": "0.99179",
+          "DP_norm": "0.99472",
+          "1-DP": "0.00821",
+          "total_freq": "6.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "wojaż",
+          "wojaż",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "wojaż",
+          "wojaż",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "kurtyzanę",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "3.49",
+          "DP": "0.99585",
+          "DP_norm": "0.99598",
+          "1-DP": "0.00415",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.81",
+          "DP": "0.99552",
+          "DP_norm": "0.99607",
+          "1-DP": "0.00448",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "2.04",
+          "DP": "0.99125",
+          "DP_norm": "0.99418",
+          "1-DP": "0.00875",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "kurtyzana",
+          "kurtyzana",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "kurtyzana",
+          "kurtyzana",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "denominacja",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 7,
+          "ipm": "0.09",
+          "ARF": "4.67",
+          "DP": "0.99438",
+          "DP_norm": "0.99451",
+          "1-DP": "0.00562",
+          "total_freq": "7.0"
+        },
+        "fakt": {
+          "freq": 3,
+          "ipm": "0.11",
+          "ARF": "1.74",
+          "DP": "0.99444",
+          "DP_norm": "0.99499",
+          "1-DP": "0.00556",
+          "total_freq": "7.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99954",
+          "DP_norm": "0.99973",
+          "1-DP": "0.00046",
+          "total_freq": "7.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "2.79",
+          "DP": "0.98812",
+          "DP_norm": "0.99104",
+          "1-DP": "0.01188",
+          "total_freq": "7.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "denominacja",
+          "denominacja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "denominacja",
+          "denominacja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "familiach",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "4.51",
+          "DP": "0.99837",
+          "DP_norm": "0.9985",
+          "1-DP": "0.00163",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99821",
+          "DP_norm": "0.99876",
+          "1-DP": "0.00179",
+          "total_freq": "5.0"
+        },
+        "publicystyka": {
+          "freq": 3,
+          "ipm": "0.1",
+          "ARF": "2.06",
+          "DP": "0.99969",
+          "DP_norm": "0.99988",
+          "1-DP": "0.00031",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99699",
+          "DP_norm": "0.99994",
+          "1-DP": "0.00301",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "familia",
+          "familia",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "familia",
+          "familia",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "odstawce",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "3.59",
+          "DP": "0.99374",
+          "DP_norm": "0.99387",
+          "1-DP": "0.00626",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.89",
+          "DP": "0.99141",
+          "DP_norm": "0.99195",
+          "1-DP": "0.00859",
+          "total_freq": "5.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99893",
+          "DP_norm": "0.99912",
+          "1-DP": "0.00107",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 2,
+          "ipm": "0.08",
+          "ARF": "1.08",
+          "DP": "0.99027",
+          "DP_norm": "0.9932",
+          "1-DP": "0.00973",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "odstawka",
+          "odstawka",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "odstawka",
+          "odstawka",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "preferująca",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "3.37",
+          "DP": "0.99669",
+          "DP_norm": "0.99682",
+          "1-DP": "0.00331",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99588",
+          "DP_norm": "0.99643",
+          "1-DP": "0.00412",
+          "total_freq": "5.0"
+        },
+        "publicystyka": {
+          "freq": 3,
+          "ipm": "0.1",
+          "ARF": "2.07",
+          "DP": "0.99723",
+          "DP_norm": "0.99742",
+          "1-DP": "0.00277",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.997",
+          "DP_norm": "0.99995",
+          "1-DP": "0.003",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "preferować",
+          "preferować",
+          "pact",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "preferować",
+          "preferować",
+          "pact",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "zwierzchnością",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 6,
+          "ipm": "0.07",
+          "ARF": "3.87",
+          "DP": "0.99289",
+          "DP_norm": "0.99302",
+          "1-DP": "0.00711",
+          "total_freq": "6.0"
+        },
+        "fakt": {
+          "freq": 3,
+          "ipm": "0.11",
+          "ARF": "1.55",
+          "DP": "0.98997",
+          "DP_norm": "0.99051",
+          "1-DP": "0.01003",
+          "total_freq": "6.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "2.84",
+          "DP": "0.98784",
+          "DP_norm": "0.99076",
+          "1-DP": "0.01216",
+          "total_freq": "6.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "zwierzchność",
+          "zwierzchność",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "zwierzchność",
+          "zwierzchność",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "nierządnicę",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "2.73",
+          "DP": "0.99697",
+          "DP_norm": "0.9971",
+          "1-DP": "0.00303",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99806",
+          "DP_norm": "0.99861",
+          "1-DP": "0.00194",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 4,
+          "ipm": "0.17",
+          "ARF": "1.53",
+          "DP": "0.99204",
+          "DP_norm": "0.99498",
+          "1-DP": "0.00796",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "nierządnica",
+          "nierządnica",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "nierządnica",
+          "nierządnica",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "kajet",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 25,
+          "ipm": "0.31",
+          "ARF": "14.78",
+          "DP": "0.98254",
+          "DP_norm": "0.98267",
+          "1-DP": "0.01746",
+          "total_freq": "25.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.96",
+          "DP": "0.99746",
+          "DP_norm": "0.99801",
+          "1-DP": "0.00254",
+          "total_freq": "25.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99813",
+          "DP_norm": "0.99832",
+          "1-DP": "0.00187",
+          "total_freq": "25.0"
+        },
+        "fikcja": {
+          "freq": 22,
+          "ipm": "0.92",
+          "ARF": "12.53",
+          "DP": "0.94607",
+          "DP_norm": "0.94887",
+          "1-DP": "0.05393",
+          "total_freq": "25.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "kajet",
+          "kajet",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "kajet",
+          "kajet",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "zbójca",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 23,
+          "ipm": "0.28",
+          "ARF": "2.03",
+          "DP": "0.99832",
+          "DP_norm": "0.99845",
+          "1-DP": "0.00168",
+          "total_freq": "23.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99859",
+          "DP_norm": "0.99878",
+          "1-DP": "0.00141",
+          "total_freq": "23.0"
+        },
+        "fikcja": {
+          "freq": 22,
+          "ipm": "0.92",
+          "ARF": "1.08",
+          "DP": "0.99601",
+          "DP_norm": "0.99896",
+          "1-DP": "0.00399",
+          "total_freq": "23.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "zbójca",
+          "zbójca",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "zbójca",
+          "zbójca",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "lazarety",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "2.99",
+          "DP": "0.99423",
+          "DP_norm": "0.99436",
+          "1-DP": "0.00577",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99725",
+          "DP_norm": "0.9978",
+          "1-DP": "0.00275",
+          "total_freq": "5.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99897",
+          "DP_norm": "0.99916",
+          "1-DP": "0.00103",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "2.12",
+          "DP": "0.98495",
+          "DP_norm": "0.98786",
+          "1-DP": "0.01505",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "lazaret",
+          "lazaret",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "lazaret",
+          "lazaret",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "niezbędników",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 6,
+          "ipm": "0.07",
+          "ARF": "4.5",
+          "DP": "0.99288",
+          "DP_norm": "0.99301",
+          "1-DP": "0.00712",
+          "total_freq": "6.0"
+        },
+        "fakt": {
+          "freq": 3,
+          "ipm": "0.11",
+          "ARF": "1.76",
+          "DP": "0.99412",
+          "DP_norm": "0.99467",
+          "1-DP": "0.00588",
+          "total_freq": "6.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.9989",
+          "DP_norm": "0.99909",
+          "1-DP": "0.0011",
+          "total_freq": "6.0"
+        },
+        "fikcja": {
+          "freq": 2,
+          "ipm": "0.08",
+          "ARF": "1.57",
+          "DP": "0.98417",
+          "DP_norm": "0.98708",
+          "1-DP": "0.01583",
+          "total_freq": "6.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "niezbędnik",
+          "niezbędnik",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "niezbędnik",
+          "niezbędnik",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "klasztora",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "2.4",
+          "DP": "0.99805",
+          "DP_norm": "0.99818",
+          "1-DP": "0.00195",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99937",
+          "DP_norm": "0.99992",
+          "1-DP": "0.00063",
+          "total_freq": "5.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.96",
+          "DP": "0.99831",
+          "DP_norm": "0.9985",
+          "1-DP": "0.00169",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 2,
+          "ipm": "0.08",
+          "ARF": "1.0",
+          "DP": "0.99617",
+          "DP_norm": "0.99912",
+          "1-DP": "0.00383",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "klasztor",
+          "klasztor",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "klasztor",
+          "klasztor",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "rarytasu",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 10,
+          "ipm": "0.12",
+          "ARF": "5.12",
+          "DP": "0.99563",
+          "DP_norm": "0.99576",
+          "1-DP": "0.00437",
+          "total_freq": "10.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99951",
+          "DP_norm": "1.00006",
+          "1-DP": "0.00049",
+          "total_freq": "10.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.58",
+          "DP": "0.99799",
+          "DP_norm": "0.99818",
+          "1-DP": "0.00201",
+          "total_freq": "10.0"
+        },
+        "fikcja": {
+          "freq": 7,
+          "ipm": "0.29",
+          "ARF": "2.65",
+          "DP": "0.98819",
+          "DP_norm": "0.99111",
+          "1-DP": "0.01181",
+          "total_freq": "10.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "rarytas",
+          "rarytas",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "rarytas",
+          "rarytas",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "poniektórym",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 8,
+          "ipm": "0.1",
+          "ARF": "4.01",
+          "DP": "0.99598",
+          "DP_norm": "0.99611",
+          "1-DP": "0.00402",
+          "total_freq": "8.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.78",
+          "DP": "0.99577",
+          "DP_norm": "0.99632",
+          "1-DP": "0.00423",
+          "total_freq": "8.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.74",
+          "DP": "0.99827",
+          "DP_norm": "0.99846",
+          "1-DP": "0.00173",
+          "total_freq": "8.0"
+        },
+        "fikcja": {
+          "freq": 4,
+          "ipm": "0.17",
+          "ARF": "2.01",
+          "DP": "0.99349",
+          "DP_norm": "0.99643",
+          "1-DP": "0.00651",
+          "total_freq": "8.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "poniektóry",
+          "poniektóry",
+          "adj",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "poniektóry",
+          "poniektóry",
+          "adj",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "warzonych",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 7,
+          "ipm": "0.09",
+          "ARF": "2.62",
+          "DP": "0.99506",
+          "DP_norm": "0.99519",
+          "1-DP": "0.00494",
+          "total_freq": "7.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99802",
+          "DP_norm": "0.99857",
+          "1-DP": "0.00198",
+          "total_freq": "7.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.43",
+          "DP": "0.99849",
+          "DP_norm": "0.99868",
+          "1-DP": "0.00151",
+          "total_freq": "7.0"
+        },
+        "fikcja": {
+          "freq": 4,
+          "ipm": "0.17",
+          "ARF": "2.15",
+          "DP": "0.98741",
+          "DP_norm": "0.99033",
+          "1-DP": "0.01259",
+          "total_freq": "7.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "warzyć",
+          "warzyć",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "warzyć",
+          "warzyć",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "sierocińcem",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "2.0",
+          "DP": "0.9971",
+          "DP_norm": "0.99723",
+          "1-DP": "0.0029",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99557",
+          "DP_norm": "0.99612",
+          "1-DP": "0.00443",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 4,
+          "ipm": "0.17",
+          "ARF": "1.01",
+          "DP": "0.99544",
+          "DP_norm": "0.99839",
+          "1-DP": "0.00456",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "sierociniec",
+          "sierociniec",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "sierociniec",
+          "sierociniec",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "siedm",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 14,
+          "ipm": "0.17",
+          "ARF": "3.01",
+          "DP": "0.99701",
+          "DP_norm": "0.99714",
+          "1-DP": "0.00299",
+          "total_freq": "14.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.69",
+          "DP": "0.99471",
+          "DP_norm": "0.99526",
+          "1-DP": "0.00529",
+          "total_freq": "14.0"
+        },
+        "fikcja": {
+          "freq": 12,
+          "ipm": "0.5",
+          "ARF": "1.04",
+          "DP": "0.99617",
+          "DP_norm": "0.99912",
+          "1-DP": "0.00383",
+          "total_freq": "14.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "siedem",
+          "siedem",
+          "num",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "siedem",
+          "siedem",
+          "num",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "kajety",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 10,
+          "ipm": "0.12",
+          "ARF": "5.65",
+          "DP": "0.99177",
+          "DP_norm": "0.9919",
+          "1-DP": "0.00823",
+          "total_freq": "10.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.33",
+          "DP": "0.99569",
+          "DP_norm": "0.99624",
+          "1-DP": "0.00431",
+          "total_freq": "10.0"
+        },
+        "fikcja": {
+          "freq": 8,
+          "ipm": "0.33",
+          "ARF": "4.88",
+          "DP": "0.97723",
+          "DP_norm": "0.98012",
+          "1-DP": "0.02277",
+          "total_freq": "10.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "kajet",
+          "kajet",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "kajet",
+          "kajet",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "solennym",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 10,
+          "ipm": "0.12",
+          "ARF": "6.18",
+          "DP": "0.99182",
+          "DP_norm": "0.99195",
+          "1-DP": "0.00818",
+          "total_freq": "10.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.01",
+          "DP": "0.99139",
+          "DP_norm": "0.99193",
+          "1-DP": "0.00861",
+          "total_freq": "10.0"
+        },
+        "fikcja": {
+          "freq": 6,
+          "ipm": "0.25",
+          "ARF": "4.24",
+          "DP": "0.9825",
+          "DP_norm": "0.98541",
+          "1-DP": "0.0175",
+          "total_freq": "10.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "solenny",
+          "solenny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "solenny",
+          "solenny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "oberżę",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 6,
+          "ipm": "0.07",
+          "ARF": "4.47",
+          "DP": "0.99549",
+          "DP_norm": "0.99562",
+          "1-DP": "0.00451",
+          "total_freq": "6.0"
+        },
+        "publicystyka": {
+          "freq": 3,
+          "ipm": "0.1",
+          "ARF": "2.32",
+          "DP": "0.9974",
+          "DP_norm": "0.99759",
+          "1-DP": "0.0026",
+          "total_freq": "6.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "1.94",
+          "DP": "0.98783",
+          "DP_norm": "0.99075",
+          "1-DP": "0.01217",
+          "total_freq": "6.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "oberża",
+          "oberża",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "oberża",
+          "oberża",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "bursę",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 11,
+          "ipm": "0.14",
+          "ARF": "6.26",
+          "DP": "0.99373",
+          "DP_norm": "0.99386",
+          "1-DP": "0.00627",
+          "total_freq": "11.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99797",
+          "DP_norm": "0.99852",
+          "1-DP": "0.00203",
+          "total_freq": "11.0"
+        },
+        "publicystyka": {
+          "freq": 3,
+          "ipm": "0.1",
+          "ARF": "2.14",
+          "DP": "0.99791",
+          "DP_norm": "0.9981",
+          "1-DP": "0.00209",
+          "total_freq": "11.0"
+        },
+        "fikcja": {
+          "freq": 7,
+          "ipm": "0.29",
+          "ARF": "3.83",
+          "DP": "0.98366",
+          "DP_norm": "0.98657",
+          "1-DP": "0.01634",
+          "total_freq": "11.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "bursa",
+          "bursa",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "bursa",
+          "bursa",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "gojem",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 7,
+          "ipm": "0.09",
+          "ARF": "2.73",
+          "DP": "0.99367",
+          "DP_norm": "0.9938",
+          "1-DP": "0.00633",
+          "total_freq": "7.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.0",
+          "DP": "0.99346",
+          "DP_norm": "0.99401",
+          "1-DP": "0.00654",
+          "total_freq": "7.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "1.07",
+          "DP": "0.98631",
+          "DP_norm": "0.98923",
+          "1-DP": "0.01369",
+          "total_freq": "7.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "goj",
+          "goj",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "goj",
+          "goj",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "diariuszu",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "3.47",
+          "DP": "0.99488",
+          "DP_norm": "0.99501",
+          "1-DP": "0.00512",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.49",
+          "DP": "0.99065",
+          "DP_norm": "0.99119",
+          "1-DP": "0.00935",
+          "total_freq": "5.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.93",
+          "DP": "0.99776",
+          "DP_norm": "0.99795",
+          "1-DP": "0.00224",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99645",
+          "DP_norm": "0.9994",
+          "1-DP": "0.00355",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "diariusz",
+          "diariusz",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "diariusz",
+          "diariusz",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "marnotrawne",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 6,
+          "ipm": "0.07",
+          "ARF": "4.33",
+          "DP": "0.99443",
+          "DP_norm": "0.99456",
+          "1-DP": "0.00557",
+          "total_freq": "6.0"
+        },
+        "fakt": {
+          "freq": 3,
+          "ipm": "0.11",
+          "ARF": "2.5",
+          "DP": "0.99063",
+          "DP_norm": "0.99117",
+          "1-DP": "0.00937",
+          "total_freq": "6.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "1.97",
+          "DP": "0.99224",
+          "DP_norm": "0.99518",
+          "1-DP": "0.00776",
+          "total_freq": "6.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "marnotrawny",
+          "marnotrawny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "marnotrawny",
+          "marnotrawny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "monastyrze",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 9,
+          "ipm": "0.11",
+          "ARF": "6.08",
+          "DP": "0.99411",
+          "DP_norm": "0.99424",
+          "1-DP": "0.00589",
+          "total_freq": "9.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99741",
+          "DP_norm": "0.99796",
+          "1-DP": "0.00259",
+          "total_freq": "9.0"
+        },
+        "publicystyka": {
+          "freq": 3,
+          "ipm": "0.1",
+          "ARF": "1.28",
+          "DP": "0.99551",
+          "DP_norm": "0.9957",
+          "1-DP": "0.00449",
+          "total_freq": "9.0"
+        },
+        "fikcja": {
+          "freq": 5,
+          "ipm": "0.21",
+          "ARF": "3.76",
+          "DP": "0.98849",
+          "DP_norm": "0.99141",
+          "1-DP": "0.01151",
+          "total_freq": "9.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "monastyr",
+          "monastyr",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "monastyr",
+          "monastyr",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "oberża",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 8,
+          "ipm": "0.1",
+          "ARF": "4.3",
+          "DP": "0.99092",
+          "DP_norm": "0.99105",
+          "1-DP": "0.00908",
+          "total_freq": "8.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.74",
+          "DP": "0.99116",
+          "DP_norm": "0.9917",
+          "1-DP": "0.00884",
+          "total_freq": "8.0"
+        },
+        "fikcja": {
+          "freq": 4,
+          "ipm": "0.17",
+          "ARF": "2.92",
+          "DP": "0.97973",
+          "DP_norm": "0.98263",
+          "1-DP": "0.02027",
+          "total_freq": "8.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "oberża",
+          "oberża",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "oberża",
+          "oberża",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "mokradle",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 7,
+          "ipm": "0.09",
+          "ARF": "3.4",
+          "DP": "0.99331",
+          "DP_norm": "0.99344",
+          "1-DP": "0.00669",
+          "total_freq": "7.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.87",
+          "DP": "0.99022",
+          "DP_norm": "0.99076",
+          "1-DP": "0.00978",
+          "total_freq": "7.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.04",
+          "DP": "0.99829",
+          "DP_norm": "0.99848",
+          "1-DP": "0.00171",
+          "total_freq": "7.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "2.0",
+          "DP": "0.99101",
+          "DP_norm": "0.99394",
+          "1-DP": "0.00899",
+          "total_freq": "7.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "mokradło",
+          "mokradło",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "mokradło",
+          "mokradło",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "szacownemu",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "2.63",
+          "DP": "0.99493",
+          "DP_norm": "0.99506",
+          "1-DP": "0.00507",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99802",
+          "DP_norm": "0.99857",
+          "1-DP": "0.00198",
+          "total_freq": "5.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99538",
+          "DP_norm": "0.99557",
+          "1-DP": "0.00462",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "1.96",
+          "DP": "0.99073",
+          "DP_norm": "0.99366",
+          "1-DP": "0.00927",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "szacowny",
+          "szacowny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "szacowny",
+          "szacowny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "pachołkowie",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "1.63",
+          "DP": "0.99359",
+          "DP_norm": "0.99372",
+          "1-DP": "0.00641",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99454",
+          "DP_norm": "0.99509",
+          "1-DP": "0.00546",
+          "total_freq": "5.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99863",
+          "DP_norm": "0.99882",
+          "1-DP": "0.00137",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "1.4",
+          "DP": "0.98641",
+          "DP_norm": "0.98933",
+          "1-DP": "0.01359",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "pachołek:Sm1",
+          "pachołek",
+          "subst",
+          "przest.,rzad.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "pachołek:Sm1",
+          "pachołek",
+          "subst",
+          "przest.,rzad.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "sztorcem",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 8,
+          "ipm": "0.1",
+          "ARF": "5.13",
+          "DP": "0.99381",
+          "DP_norm": "0.99394",
+          "1-DP": "0.00619",
+          "total_freq": "8.0"
+        },
+        "fakt": {
+          "freq": 3,
+          "ipm": "0.11",
+          "ARF": "1.58",
+          "DP": "0.98901",
+          "DP_norm": "0.98955",
+          "1-DP": "0.01099",
+          "total_freq": "8.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99839",
+          "DP_norm": "0.99858",
+          "1-DP": "0.00161",
+          "total_freq": "8.0"
+        },
+        "fikcja": {
+          "freq": 4,
+          "ipm": "0.17",
+          "ARF": "2.88",
+          "DP": "0.99404",
+          "DP_norm": "0.99698",
+          "1-DP": "0.00596",
+          "total_freq": "8.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "sztorc",
+          "sztorc",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "sztorc",
+          "sztorc",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "rarytasami",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 6,
+          "ipm": "0.07",
+          "ARF": "4.22",
+          "DP": "0.99432",
+          "DP_norm": "0.99445",
+          "1-DP": "0.00568",
+          "total_freq": "6.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.7",
+          "DP": "0.99411",
+          "DP_norm": "0.99466",
+          "1-DP": "0.00589",
+          "total_freq": "6.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99777",
+          "DP_norm": "0.99796",
+          "1-DP": "0.00223",
+          "total_freq": "6.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "1.88",
+          "DP": "0.99042",
+          "DP_norm": "0.99335",
+          "1-DP": "0.00958",
+          "total_freq": "6.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "rarytas",
+          "rarytas",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "rarytas",
+          "rarytas",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "marnotrawnych",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 6,
+          "ipm": "0.07",
+          "ARF": "3.86",
+          "DP": "0.99573",
+          "DP_norm": "0.99586",
+          "1-DP": "0.00427",
+          "total_freq": "6.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99818",
+          "DP_norm": "0.99873",
+          "1-DP": "0.00182",
+          "total_freq": "6.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.45",
+          "DP": "0.99727",
+          "DP_norm": "0.99746",
+          "1-DP": "0.00273",
+          "total_freq": "6.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "2.17",
+          "DP": "0.99095",
+          "DP_norm": "0.99388",
+          "1-DP": "0.00905",
+          "total_freq": "6.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "marnotrawny",
+          "marnotrawny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "marnotrawny",
+          "marnotrawny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "konkludowała",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "3.29",
+          "DP": "0.99518",
+          "DP_norm": "0.99531",
+          "1-DP": "0.00482",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 3,
+          "ipm": "0.11",
+          "ARF": "2.27",
+          "DP": "0.98968",
+          "DP_norm": "0.99022",
+          "1-DP": "0.01032",
+          "total_freq": "5.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99919",
+          "DP_norm": "0.99938",
+          "1-DP": "0.00081",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99691",
+          "DP_norm": "0.99986",
+          "1-DP": "0.00309",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "konkludować",
+          "konkludować",
+          "praet",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "konkludować",
+          "konkludować",
+          "praet",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "kinematografów",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "3.3",
+          "DP": "0.9964",
+          "DP_norm": "0.99653",
+          "1-DP": "0.0036",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.24",
+          "DP": "0.99306",
+          "DP_norm": "0.99361",
+          "1-DP": "0.00694",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99603",
+          "DP_norm": "0.99898",
+          "1-DP": "0.00397",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "kinematograf",
+          "kinematograf",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "kinematograf",
+          "kinematograf",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "donacje",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "3.31",
+          "DP": "0.99694",
+          "DP_norm": "0.99707",
+          "1-DP": "0.00306",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.54",
+          "DP": "0.99538",
+          "DP_norm": "0.99593",
+          "1-DP": "0.00462",
+          "total_freq": "5.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.39",
+          "DP": "0.99705",
+          "DP_norm": "0.99724",
+          "1-DP": "0.00295",
+          "total_freq": "5.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99865",
+          "DP_norm": "1.0016",
+          "1-DP": "0.00135",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "donacja",
+          "donacja",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "donacja",
+          "donacja",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "marnotrawna",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 9,
+          "ipm": "0.11",
+          "ARF": "6.05",
+          "DP": "0.99459",
+          "DP_norm": "0.99472",
+          "1-DP": "0.00541",
+          "total_freq": "9.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99834",
+          "DP_norm": "0.99889",
+          "1-DP": "0.00166",
+          "total_freq": "9.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.22",
+          "DP": "0.99775",
+          "DP_norm": "0.99794",
+          "1-DP": "0.00225",
+          "total_freq": "9.0"
+        },
+        "fikcja": {
+          "freq": 6,
+          "ipm": "0.25",
+          "ARF": "3.8",
+          "DP": "0.98634",
+          "DP_norm": "0.98926",
+          "1-DP": "0.01366",
+          "total_freq": "9.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "marnotrawny",
+          "marnotrawny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "marnotrawny",
+          "marnotrawny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "pomsta",
+      "stratum": "C_nf_1_4",
+      "orth": {
+        "all": {
+          "freq": 24,
+          "ipm": "0.3",
+          "ARF": "7.67",
+          "DP": "0.99475",
+          "DP_norm": "0.99488",
+          "1-DP": "0.00525",
+          "total_freq": "24.0"
+        },
+        "fakt": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99811",
+          "DP_norm": "0.99866",
+          "1-DP": "0.00189",
+          "total_freq": "24.0"
+        },
+        "publicystyka": {
+          "freq": 3,
+          "ipm": "0.1",
+          "ARF": "1.08",
+          "DP": "0.99869",
+          "DP_norm": "0.99888",
+          "1-DP": "0.00131",
+          "total_freq": "24.0"
+        },
+        "fikcja": {
+          "freq": 20,
+          "ipm": "0.83",
+          "ARF": "6.02",
+          "DP": "0.98601",
+          "DP_norm": "0.98893",
+          "1-DP": "0.01399",
+          "total_freq": "24.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "pomsta",
+          "pomsta",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "pomsta",
+          "pomsta",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "wysługę",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 19,
+          "ipm": "0.23",
+          "ARF": "11.28",
+          "DP": "0.99344",
+          "DP_norm": "0.99357",
+          "1-DP": "0.00656",
+          "total_freq": "19.0"
+        },
+        "fakt": {
+          "freq": 6,
+          "ipm": "0.21",
+          "ARF": "2.13",
+          "DP": "0.9944",
+          "DP_norm": "0.99495",
+          "1-DP": "0.0056",
+          "total_freq": "19.0"
+        },
+        "publicystyka": {
+          "freq": 12,
+          "ipm": "0.42",
+          "ARF": "7.32",
+          "DP": "0.98963",
+          "DP_norm": "0.98981",
+          "1-DP": "0.01037",
+          "total_freq": "19.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99687",
+          "DP_norm": "0.99982",
+          "1-DP": "0.00313",
+          "total_freq": "19.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "wysługa",
+          "wysługa",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "wysługa",
+          "wysługa",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "zbój",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 33,
+          "ipm": "0.41",
+          "ARF": "15.99",
+          "DP": "0.9797",
+          "DP_norm": "0.97983",
+          "1-DP": "0.0203",
+          "total_freq": "33.0"
+        },
+        "fakt": {
+          "freq": 11,
+          "ipm": "0.39",
+          "ARF": "6.05",
+          "DP": "0.9868",
+          "DP_norm": "0.98734",
+          "1-DP": "0.0132",
+          "total_freq": "33.0"
+        },
+        "publicystyka": {
+          "freq": 9,
+          "ipm": "0.31",
+          "ARF": "3.4",
+          "DP": "0.99553",
+          "DP_norm": "0.99572",
+          "1-DP": "0.00447",
+          "total_freq": "33.0"
+        },
+        "fikcja": {
+          "freq": 13,
+          "ipm": "0.54",
+          "ARF": "8.05",
+          "DP": "0.95223",
+          "DP_norm": "0.95505",
+          "1-DP": "0.04777",
+          "total_freq": "33.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "zbój",
+          "zbój",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "zbój",
+          "zbój",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "letnisk",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 7,
+          "ipm": "0.09",
+          "ARF": "3.36",
+          "DP": "0.99727",
+          "DP_norm": "0.9974",
+          "1-DP": "0.00273",
+          "total_freq": "7.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.68",
+          "DP": "0.99252",
+          "DP_norm": "0.99307",
+          "1-DP": "0.00748",
+          "total_freq": "7.0"
+        },
+        "publicystyka": {
+          "freq": 3,
+          "ipm": "0.1",
+          "ARF": "1.13",
+          "DP": "0.99972",
+          "DP_norm": "0.99991",
+          "1-DP": "0.00028",
+          "total_freq": "7.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "letnisko",
+          "letnisko",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "letnisko",
+          "letnisko",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "atencja",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 16,
+          "ipm": "0.2",
+          "ARF": "9.92",
+          "DP": "0.98646",
+          "DP_norm": "0.98659",
+          "1-DP": "0.01354",
+          "total_freq": "16.0"
+        },
+        "fakt": {
+          "freq": 6,
+          "ipm": "0.21",
+          "ARF": "4.5",
+          "DP": "0.9848",
+          "DP_norm": "0.98534",
+          "1-DP": "0.0152",
+          "total_freq": "16.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99799",
+          "DP_norm": "0.99818",
+          "1-DP": "0.00201",
+          "total_freq": "16.0"
+        },
+        "fikcja": {
+          "freq": 9,
+          "ipm": "0.38",
+          "ARF": "5.48",
+          "DP": "0.97459",
+          "DP_norm": "0.97747",
+          "1-DP": "0.02541",
+          "total_freq": "16.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "atencja",
+          "atencja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "atencja",
+          "atencja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "ócz",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 9,
+          "ipm": "0.11",
+          "ARF": "5.88",
+          "DP": "0.99315",
+          "DP_norm": "0.99328",
+          "1-DP": "0.00685",
+          "total_freq": "9.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "1.71",
+          "DP": "0.98927",
+          "DP_norm": "0.98981",
+          "1-DP": "0.01073",
+          "total_freq": "9.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99967",
+          "DP_norm": "0.99986",
+          "1-DP": "0.00033",
+          "total_freq": "9.0"
+        },
+        "fikcja": {
+          "freq": 4,
+          "ipm": "0.17",
+          "ARF": "2.61",
+          "DP": "0.98994",
+          "DP_norm": "0.99287",
+          "1-DP": "0.01006",
+          "total_freq": "9.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "oko:Sn_col",
+          "oko",
+          "subst",
+          "daw.,rzad.,anat.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "oko:Sn_col",
+          "oko",
+          "subst",
+          "daw.,rzad.,anat.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "admiratorem",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 12,
+          "ipm": "0.15",
+          "ARF": "9.52",
+          "DP": "0.98979",
+          "DP_norm": "0.98992",
+          "1-DP": "0.01021",
+          "total_freq": "12.0"
+        },
+        "fakt": {
+          "freq": 5,
+          "ipm": "0.18",
+          "ARF": "2.74",
+          "DP": "0.9819",
+          "DP_norm": "0.98244",
+          "1-DP": "0.0181",
+          "total_freq": "12.0"
+        },
+        "publicystyka": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "3.52",
+          "DP": "0.99717",
+          "DP_norm": "0.99736",
+          "1-DP": "0.00283",
+          "total_freq": "12.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "2.07",
+          "DP": "0.9903",
+          "DP_norm": "0.99323",
+          "1-DP": "0.0097",
+          "total_freq": "12.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "admirator",
+          "admirator",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "admirator",
+          "admirator",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "wyedukowani",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 22,
+          "ipm": "0.27",
+          "ARF": "13.43",
+          "DP": "0.9878",
+          "DP_norm": "0.98793",
+          "1-DP": "0.0122",
+          "total_freq": "22.0"
+        },
+        "fakt": {
+          "freq": 12,
+          "ipm": "0.42",
+          "ARF": "8.32",
+          "DP": "0.97622",
+          "DP_norm": "0.97676",
+          "1-DP": "0.02378",
+          "total_freq": "22.0"
+        },
+        "publicystyka": {
+          "freq": 10,
+          "ipm": "0.35",
+          "ARF": "5.97",
+          "DP": "0.9891",
+          "DP_norm": "0.98928",
+          "1-DP": "0.0109",
+          "total_freq": "22.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "wyedukować",
+          "wyedukować",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "wyedukować",
+          "wyedukować",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "desperację",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 41,
+          "ipm": "0.51",
+          "ARF": "25.83",
+          "DP": "0.96715",
+          "DP_norm": "0.96728",
+          "1-DP": "0.03285",
+          "total_freq": "41.0"
+        },
+        "fakt": {
+          "freq": 12,
+          "ipm": "0.42",
+          "ARF": "9.17",
+          "DP": "0.96741",
+          "DP_norm": "0.96794",
+          "1-DP": "0.03259",
+          "total_freq": "41.0"
+        },
+        "publicystyka": {
+          "freq": 10,
+          "ipm": "0.35",
+          "ARF": "5.98",
+          "DP": "0.98885",
+          "DP_norm": "0.98903",
+          "1-DP": "0.01115",
+          "total_freq": "41.0"
+        },
+        "fikcja": {
+          "freq": 19,
+          "ipm": "0.79",
+          "ARF": "12.12",
+          "DP": "0.94077",
+          "DP_norm": "0.94355",
+          "1-DP": "0.05923",
+          "total_freq": "41.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "desperacja",
+          "desperacja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "desperacja",
+          "desperacja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "bębniarzy",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 12,
+          "ipm": "0.15",
+          "ARF": "8.53",
+          "DP": "0.99359",
+          "DP_norm": "0.99372",
+          "1-DP": "0.00641",
+          "total_freq": "12.0"
+        },
+        "fakt": {
+          "freq": 3,
+          "ipm": "0.11",
+          "ARF": "1.81",
+          "DP": "0.99778",
+          "DP_norm": "0.99833",
+          "1-DP": "0.00222",
+          "total_freq": "12.0"
+        },
+        "publicystyka": {
+          "freq": 3,
+          "ipm": "0.1",
+          "ARF": "2.5",
+          "DP": "0.99851",
+          "DP_norm": "0.9987",
+          "1-DP": "0.00149",
+          "total_freq": "12.0"
+        },
+        "fikcja": {
+          "freq": 6,
+          "ipm": "0.25",
+          "ARF": "4.13",
+          "DP": "0.98269",
+          "DP_norm": "0.9856",
+          "1-DP": "0.01731",
+          "total_freq": "12.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "bębniarz",
+          "bębniarz",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "bębniarz",
+          "bębniarz",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "wynegocjowanym",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 7,
+          "ipm": "0.09",
+          "ARF": "5.06",
+          "DP": "0.99631",
+          "DP_norm": "0.99644",
+          "1-DP": "0.00369",
+          "total_freq": "7.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.47",
+          "DP": "0.99475",
+          "DP_norm": "0.9953",
+          "1-DP": "0.00525",
+          "total_freq": "7.0"
+        },
+        "publicystyka": {
+          "freq": 5,
+          "ipm": "0.17",
+          "ARF": "3.77",
+          "DP": "0.9948",
+          "DP_norm": "0.99499",
+          "1-DP": "0.0052",
+          "total_freq": "7.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "wynegocjować",
+          "wynegocjować",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "wynegocjować",
+          "wynegocjować",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "pryncypiami",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 10,
+          "ipm": "0.12",
+          "ARF": "7.43",
+          "DP": "0.99352",
+          "DP_norm": "0.99365",
+          "1-DP": "0.00648",
+          "total_freq": "10.0"
+        },
+        "fakt": {
+          "freq": 6,
+          "ipm": "0.21",
+          "ARF": "3.26",
+          "DP": "0.98589",
+          "DP_norm": "0.98643",
+          "1-DP": "0.01411",
+          "total_freq": "10.0"
+        },
+        "publicystyka": {
+          "freq": 3,
+          "ipm": "0.1",
+          "ARF": "1.68",
+          "DP": "0.99761",
+          "DP_norm": "0.9978",
+          "1-DP": "0.00239",
+          "total_freq": "10.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99768",
+          "DP_norm": "1.00063",
+          "1-DP": "0.00232",
+          "total_freq": "10.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "pryncypium",
+          "pryncypium",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "pryncypium",
+          "pryncypium",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "włościanie",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 20,
+          "ipm": "0.25",
+          "ARF": "10.58",
+          "DP": "0.98824",
+          "DP_norm": "0.98837",
+          "1-DP": "0.01176",
+          "total_freq": "20.0"
+        },
+        "fakt": {
+          "freq": 16,
+          "ipm": "0.56",
+          "ARF": "8.35",
+          "DP": "0.97278",
+          "DP_norm": "0.97331",
+          "1-DP": "0.02722",
+          "total_freq": "20.0"
+        },
+        "publicystyka": {
+          "freq": 3,
+          "ipm": "0.1",
+          "ARF": "1.48",
+          "DP": "0.99643",
+          "DP_norm": "0.99662",
+          "1-DP": "0.00357",
+          "total_freq": "20.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.9968",
+          "DP_norm": "0.99975",
+          "1-DP": "0.0032",
+          "total_freq": "20.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "włościanin",
+          "włościanin",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "włościanin",
+          "włościanin",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "monastyczne",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 10,
+          "ipm": "0.12",
+          "ARF": "5.91",
+          "DP": "0.99541",
+          "DP_norm": "0.99554",
+          "1-DP": "0.00459",
+          "total_freq": "10.0"
+        },
+        "fakt": {
+          "freq": 7,
+          "ipm": "0.25",
+          "ARF": "3.73",
+          "DP": "0.98889",
+          "DP_norm": "0.98943",
+          "1-DP": "0.01111",
+          "total_freq": "10.0"
+        },
+        "publicystyka": {
+          "freq": 3,
+          "ipm": "0.1",
+          "ARF": "1.78",
+          "DP": "0.99805",
+          "DP_norm": "0.99824",
+          "1-DP": "0.00195",
+          "total_freq": "10.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "monastyczny",
+          "monastyczny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "monastyczny",
+          "monastyczny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "powiadała",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 12,
+          "ipm": "0.15",
+          "ARF": "7.43",
+          "DP": "0.99226",
+          "DP_norm": "0.99239",
+          "1-DP": "0.00774",
+          "total_freq": "12.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.96",
+          "DP": "0.99158",
+          "DP_norm": "0.99212",
+          "1-DP": "0.00842",
+          "total_freq": "12.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.97",
+          "DP": "0.99732",
+          "DP_norm": "0.99751",
+          "1-DP": "0.00268",
+          "total_freq": "12.0"
+        },
+        "fikcja": {
+          "freq": 6,
+          "ipm": "0.25",
+          "ARF": "4.02",
+          "DP": "0.98698",
+          "DP_norm": "0.9899",
+          "1-DP": "0.01302",
+          "total_freq": "12.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "powiadać",
+          "powiadać",
+          "praet",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "powiadać",
+          "powiadać",
+          "praet",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "obyczajność",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 7,
+          "ipm": "0.09",
+          "ARF": "5.08",
+          "DP": "0.99487",
+          "DP_norm": "0.995",
+          "1-DP": "0.00513",
+          "total_freq": "7.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.97",
+          "DP": "0.9913",
+          "DP_norm": "0.99184",
+          "1-DP": "0.0087",
+          "total_freq": "7.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.9998",
+          "DP_norm": "0.99999",
+          "1-DP": "0.0002",
+          "total_freq": "7.0"
+        },
+        "fikcja": {
+          "freq": 2,
+          "ipm": "0.08",
+          "ARF": "1.82",
+          "DP": "0.99318",
+          "DP_norm": "0.99612",
+          "1-DP": "0.00682",
+          "total_freq": "7.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "obyczajność",
+          "obyczajność",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "obyczajność",
+          "obyczajność",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "bębniarze",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 9,
+          "ipm": "0.11",
+          "ARF": "6.47",
+          "DP": "0.99741",
+          "DP_norm": "0.99754",
+          "1-DP": "0.00259",
+          "total_freq": "9.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.89",
+          "DP": "0.9963",
+          "DP_norm": "0.99685",
+          "1-DP": "0.0037",
+          "total_freq": "9.0"
+        },
+        "publicystyka": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.23",
+          "DP": "0.99856",
+          "DP_norm": "0.99875",
+          "1-DP": "0.00144",
+          "total_freq": "9.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99736",
+          "DP_norm": "1.00031",
+          "1-DP": "0.00264",
+          "total_freq": "9.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "bębniarz",
+          "bębniarz",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "bębniarz",
+          "bębniarz",
+          "depr",
+          "przest.",
+          0
+        ],
+        [
+          "bębniarz",
+          "bębniarz",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "wolontariacką",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 7,
+          "ipm": "0.09",
+          "ARF": "3.51",
+          "DP": "0.99535",
+          "DP_norm": "0.99548",
+          "1-DP": "0.00465",
+          "total_freq": "7.0"
+        },
+        "fakt": {
+          "freq": 3,
+          "ipm": "0.11",
+          "ARF": "2.78",
+          "DP": "0.99036",
+          "DP_norm": "0.9909",
+          "1-DP": "0.00964",
+          "total_freq": "7.0"
+        },
+        "publicystyka": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.23",
+          "DP": "0.99643",
+          "DP_norm": "0.99662",
+          "1-DP": "0.00357",
+          "total_freq": "7.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "wolontariacki",
+          "wolontariacki",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "wolontariacki",
+          "wolontariacki",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "zapowiednika",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 12,
+          "ipm": "0.15",
+          "ARF": "1.0",
+          "DP": "0.99976",
+          "DP_norm": "0.99989",
+          "1-DP": "0.00024",
+          "total_freq": "12.0"
+        },
+        "fakt": {
+          "freq": 12,
+          "ipm": "0.42",
+          "ARF": "1.0",
+          "DP": "0.99931",
+          "DP_norm": "0.99986",
+          "1-DP": "0.00069",
+          "total_freq": "12.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "zapowiednik",
+          "zapowiednik",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "zapowiednik",
+          "zapowiednik",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "wynegocjowaniu",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 8,
+          "ipm": "0.1",
+          "ARF": "5.91",
+          "DP": "0.99617",
+          "DP_norm": "0.9963",
+          "1-DP": "0.00383",
+          "total_freq": "8.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.93",
+          "DP": "0.99406",
+          "DP_norm": "0.99461",
+          "1-DP": "0.00594",
+          "total_freq": "8.0"
+        },
+        "publicystyka": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "3.01",
+          "DP": "0.99507",
+          "DP_norm": "0.99526",
+          "1-DP": "0.00493",
+          "total_freq": "8.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "wynegocjować",
+          "wynegocjować",
+          "ger",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "wynegocjować",
+          "wynegocjować",
+          "ger",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "cześci",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "2.8",
+          "DP": "0.99623",
+          "DP_norm": "0.99636",
+          "1-DP": "0.00377",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.6",
+          "DP": "0.99042",
+          "DP_norm": "0.99096",
+          "1-DP": "0.00958",
+          "total_freq": "5.0"
+        },
+        "publicystyka": {
+          "freq": 3,
+          "ipm": "0.1",
+          "ARF": "2.36",
+          "DP": "0.99884",
+          "DP_norm": "0.99903",
+          "1-DP": "0.00116",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "cześć:S",
+          "cześć",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "cześć:S",
+          "cześć",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "władna",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 17,
+          "ipm": "0.21",
+          "ARF": "11.49",
+          "DP": "0.98866",
+          "DP_norm": "0.98879",
+          "1-DP": "0.01134",
+          "total_freq": "17.0"
+        },
+        "fakt": {
+          "freq": 7,
+          "ipm": "0.25",
+          "ARF": "4.88",
+          "DP": "0.98244",
+          "DP_norm": "0.98298",
+          "1-DP": "0.01756",
+          "total_freq": "17.0"
+        },
+        "publicystyka": {
+          "freq": 7,
+          "ipm": "0.24",
+          "ARF": "5.21",
+          "DP": "0.99532",
+          "DP_norm": "0.99551",
+          "1-DP": "0.00468",
+          "total_freq": "17.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "2.07",
+          "DP": "0.98806",
+          "DP_norm": "0.99098",
+          "1-DP": "0.01194",
+          "total_freq": "17.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "władny",
+          "władny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "władny",
+          "władny",
+          "adj",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "zelotów",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 30,
+          "ipm": "0.37",
+          "ARF": "5.54",
+          "DP": "0.99396",
+          "DP_norm": "0.99409",
+          "1-DP": "0.00604",
+          "total_freq": "30.0"
+        },
+        "fakt": {
+          "freq": 26,
+          "ipm": "0.92",
+          "ARF": "2.62",
+          "DP": "0.98777",
+          "DP_norm": "0.98831",
+          "1-DP": "0.01223",
+          "total_freq": "30.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.22",
+          "DP": "0.99663",
+          "DP_norm": "0.99682",
+          "1-DP": "0.00337",
+          "total_freq": "30.0"
+        },
+        "fikcja": {
+          "freq": 2,
+          "ipm": "0.08",
+          "ARF": "1.0",
+          "DP": "0.99811",
+          "DP_norm": "1.00106",
+          "1-DP": "0.00189",
+          "total_freq": "30.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "zelota",
+          "zelota",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "zelota",
+          "zelota",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "jagnięcinę",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 24,
+          "ipm": "0.3",
+          "ARF": "14.53",
+          "DP": "0.99034",
+          "DP_norm": "0.99047",
+          "1-DP": "0.00966",
+          "total_freq": "24.0"
+        },
+        "fakt": {
+          "freq": 13,
+          "ipm": "0.46",
+          "ARF": "7.22",
+          "DP": "0.98496",
+          "DP_norm": "0.9855",
+          "1-DP": "0.01504",
+          "total_freq": "24.0"
+        },
+        "publicystyka": {
+          "freq": 10,
+          "ipm": "0.35",
+          "ARF": "6.6",
+          "DP": "0.98918",
+          "DP_norm": "0.98936",
+          "1-DP": "0.01082",
+          "total_freq": "24.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99815",
+          "DP_norm": "1.0011",
+          "1-DP": "0.00185",
+          "total_freq": "24.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "jagnięcina",
+          "jagnięcina",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "jagnięcina",
+          "jagnięcina",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "reintegrację",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 6,
+          "ipm": "0.07",
+          "ARF": "4.43",
+          "DP": "0.99792",
+          "DP_norm": "0.99805",
+          "1-DP": "0.00208",
+          "total_freq": "6.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "3.72",
+          "DP": "0.99702",
+          "DP_norm": "0.99757",
+          "1-DP": "0.00298",
+          "total_freq": "6.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.81",
+          "DP": "0.99707",
+          "DP_norm": "0.99726",
+          "1-DP": "0.00293",
+          "total_freq": "6.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "reintegracja",
+          "reintegracja",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "reintegracja",
+          "reintegracja",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "pierworodnej",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 14,
+          "ipm": "0.17",
+          "ARF": "9.22",
+          "DP": "0.98877",
+          "DP_norm": "0.9889",
+          "1-DP": "0.01123",
+          "total_freq": "14.0"
+        },
+        "fakt": {
+          "freq": 5,
+          "ipm": "0.18",
+          "ARF": "2.78",
+          "DP": "0.98884",
+          "DP_norm": "0.98938",
+          "1-DP": "0.01116",
+          "total_freq": "14.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.91",
+          "DP": "0.99723",
+          "DP_norm": "0.99742",
+          "1-DP": "0.00277",
+          "total_freq": "14.0"
+        },
+        "fikcja": {
+          "freq": 7,
+          "ipm": "0.29",
+          "ARF": "4.33",
+          "DP": "0.97851",
+          "DP_norm": "0.98141",
+          "1-DP": "0.02149",
+          "total_freq": "14.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "pierworodny:A",
+          "pierworodny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "pierworodny:A",
+          "pierworodny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "szczętu",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 52,
+          "ipm": "0.64",
+          "ARF": "28.11",
+          "DP": "0.96556",
+          "DP_norm": "0.96569",
+          "1-DP": "0.03444",
+          "total_freq": "52.0"
+        },
+        "fakt": {
+          "freq": 19,
+          "ipm": "0.67",
+          "ARF": "10.32",
+          "DP": "0.95975",
+          "DP_norm": "0.96028",
+          "1-DP": "0.04025",
+          "total_freq": "52.0"
+        },
+        "publicystyka": {
+          "freq": 6,
+          "ipm": "0.21",
+          "ARF": "4.59",
+          "DP": "0.99408",
+          "DP_norm": "0.99427",
+          "1-DP": "0.00592",
+          "total_freq": "52.0"
+        },
+        "fikcja": {
+          "freq": 27,
+          "ipm": "1.13",
+          "ARF": "14.87",
+          "DP": "0.93821",
+          "DP_norm": "0.94099",
+          "1-DP": "0.06179",
+          "total_freq": "52.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "szczęt",
+          "szczęt",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "szcząt",
+          "szcząt",
+          "subst",
+          "daw.",
+          0
+        ],
+        [
+          "szczęt",
+          "szczęt",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "maluczkimi",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 7,
+          "ipm": "0.09",
+          "ARF": "4.35",
+          "DP": "0.99509",
+          "DP_norm": "0.99522",
+          "1-DP": "0.00491",
+          "total_freq": "7.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.26",
+          "DP": "0.99439",
+          "DP_norm": "0.99494",
+          "1-DP": "0.00561",
+          "total_freq": "7.0"
+        },
+        "publicystyka": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "3.27",
+          "DP": "0.99297",
+          "DP_norm": "0.99315",
+          "1-DP": "0.00703",
+          "total_freq": "7.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99848",
+          "DP_norm": "1.00143",
+          "1-DP": "0.00152",
+          "total_freq": "7.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "maluczki",
+          "maluczki",
+          "adj",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "maluczki",
+          "maluczki",
+          "adj",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "atencji",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 47,
+          "ipm": "0.58",
+          "ARF": "28.62",
+          "DP": "0.96485",
+          "DP_norm": "0.96498",
+          "1-DP": "0.03515",
+          "total_freq": "47.0"
+        },
+        "fakt": {
+          "freq": 16,
+          "ipm": "0.56",
+          "ARF": "12.86",
+          "DP": "0.96449",
+          "DP_norm": "0.96502",
+          "1-DP": "0.03551",
+          "total_freq": "47.0"
+        },
+        "publicystyka": {
+          "freq": 10,
+          "ipm": "0.35",
+          "ARF": "6.36",
+          "DP": "0.98779",
+          "DP_norm": "0.98797",
+          "1-DP": "0.01221",
+          "total_freq": "47.0"
+        },
+        "fikcja": {
+          "freq": 21,
+          "ipm": "0.88",
+          "ARF": "11.56",
+          "DP": "0.93772",
+          "DP_norm": "0.94049",
+          "1-DP": "0.06228",
+          "total_freq": "47.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "atencja",
+          "atencja",
+          "subst",
+          "przest.",
+          0
+        ],
+        [
+          "atencja",
+          "atencja",
+          "subst",
+          "przest.,hom.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "atencja",
+          "atencja",
+          "subst",
+          "przest.",
+          0
+        ],
+        [
+          "atencja",
+          "atencja",
+          "subst",
+          "przest.,hom.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "surdutach",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 12,
+          "ipm": "0.15",
+          "ARF": "8.12",
+          "DP": "0.99126",
+          "DP_norm": "0.99139",
+          "1-DP": "0.00874",
+          "total_freq": "12.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.45",
+          "DP": "0.99179",
+          "DP_norm": "0.99233",
+          "1-DP": "0.00821",
+          "total_freq": "12.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.58",
+          "DP": "0.99736",
+          "DP_norm": "0.99755",
+          "1-DP": "0.00264",
+          "total_freq": "12.0"
+        },
+        "fikcja": {
+          "freq": 6,
+          "ipm": "0.25",
+          "ARF": "3.32",
+          "DP": "0.98329",
+          "DP_norm": "0.9862",
+          "1-DP": "0.01671",
+          "total_freq": "12.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "surdut",
+          "surdut",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "surdut",
+          "surdut",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "nominuje",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 19,
+          "ipm": "0.23",
+          "ARF": "11.13",
+          "DP": "0.98897",
+          "DP_norm": "0.9891",
+          "1-DP": "0.01103",
+          "total_freq": "19.0"
+        },
+        "fakt": {
+          "freq": 9,
+          "ipm": "0.32",
+          "ARF": "5.11",
+          "DP": "0.97949",
+          "DP_norm": "0.98003",
+          "1-DP": "0.02051",
+          "total_freq": "19.0"
+        },
+        "publicystyka": {
+          "freq": 10,
+          "ipm": "0.35",
+          "ARF": "5.64",
+          "DP": "0.98917",
+          "DP_norm": "0.98935",
+          "1-DP": "0.01083",
+          "total_freq": "19.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "nominować",
+          "nominować",
+          "fin",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "nominować",
+          "nominować",
+          "fin",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "konfuzja",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 9,
+          "ipm": "0.11",
+          "ARF": "4.74",
+          "DP": "0.99455",
+          "DP_norm": "0.99468",
+          "1-DP": "0.00545",
+          "total_freq": "9.0"
+        },
+        "fakt": {
+          "freq": 6,
+          "ipm": "0.21",
+          "ARF": "4.07",
+          "DP": "0.98953",
+          "DP_norm": "0.99007",
+          "1-DP": "0.01047",
+          "total_freq": "9.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.09",
+          "DP": "0.99766",
+          "DP_norm": "0.99785",
+          "1-DP": "0.00234",
+          "total_freq": "9.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.9968",
+          "DP_norm": "0.99975",
+          "1-DP": "0.0032",
+          "total_freq": "9.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "konfuzja",
+          "konfuzja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "konfuzja",
+          "konfuzja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "zeloty",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 5,
+          "ipm": "0.06",
+          "ARF": "2.15",
+          "DP": "0.99724",
+          "DP_norm": "0.99737",
+          "1-DP": "0.00276",
+          "total_freq": "5.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "1.84",
+          "DP": "0.99377",
+          "DP_norm": "0.99432",
+          "1-DP": "0.00623",
+          "total_freq": "5.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99839",
+          "DP_norm": "0.99858",
+          "1-DP": "0.00161",
+          "total_freq": "5.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "zelota",
+          "zelota",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "zelota",
+          "zelota",
+          "depr",
+          "daw.",
+          0
+        ],
+        [
+          "zelota",
+          "zelota",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "sotnie",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 17,
+          "ipm": "0.21",
+          "ARF": "7.21",
+          "DP": "0.99165",
+          "DP_norm": "0.99178",
+          "1-DP": "0.00835",
+          "total_freq": "17.0"
+        },
+        "fakt": {
+          "freq": 12,
+          "ipm": "0.42",
+          "ARF": "3.86",
+          "DP": "0.98524",
+          "DP_norm": "0.98578",
+          "1-DP": "0.01476",
+          "total_freq": "17.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.64",
+          "DP": "0.99898",
+          "DP_norm": "0.99917",
+          "1-DP": "0.00102",
+          "total_freq": "17.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "2.38",
+          "DP": "0.99048",
+          "DP_norm": "0.99341",
+          "1-DP": "0.00952",
+          "total_freq": "17.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "sotnia",
+          "sotnia",
+          "subst",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "sotnia",
+          "sotnia",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "atencję",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 14,
+          "ipm": "0.17",
+          "ARF": "7.79",
+          "DP": "0.99189",
+          "DP_norm": "0.99202",
+          "1-DP": "0.00811",
+          "total_freq": "14.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.0",
+          "DP": "0.9972",
+          "DP_norm": "0.99775",
+          "1-DP": "0.0028",
+          "total_freq": "14.0"
+        },
+        "publicystyka": {
+          "freq": 6,
+          "ipm": "0.21",
+          "ARF": "3.04",
+          "DP": "0.99558",
+          "DP_norm": "0.99577",
+          "1-DP": "0.00442",
+          "total_freq": "14.0"
+        },
+        "fikcja": {
+          "freq": 6,
+          "ipm": "0.25",
+          "ARF": "3.71",
+          "DP": "0.98113",
+          "DP_norm": "0.98403",
+          "1-DP": "0.01887",
+          "total_freq": "14.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "atencja",
+          "atencja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "atencja",
+          "atencja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "dystrykt",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 13,
+          "ipm": "0.16",
+          "ARF": "8.63",
+          "DP": "0.9921",
+          "DP_norm": "0.99223",
+          "1-DP": "0.0079",
+          "total_freq": "13.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.21",
+          "DP": "0.99413",
+          "DP_norm": "0.99468",
+          "1-DP": "0.00587",
+          "total_freq": "13.0"
+        },
+        "publicystyka": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "1.88",
+          "DP": "0.99559",
+          "DP_norm": "0.99578",
+          "1-DP": "0.00441",
+          "total_freq": "13.0"
+        },
+        "fikcja": {
+          "freq": 5,
+          "ipm": "0.21",
+          "ARF": "4.09",
+          "DP": "0.9855",
+          "DP_norm": "0.98842",
+          "1-DP": "0.0145",
+          "total_freq": "13.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "dystrykt",
+          "dystrykt",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "dystrykt",
+          "dystrykt",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "napitkiem",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 9,
+          "ipm": "0.11",
+          "ARF": "5.8",
+          "DP": "0.99166",
+          "DP_norm": "0.99179",
+          "1-DP": "0.00834",
+          "total_freq": "9.0"
+        },
+        "fakt": {
+          "freq": 5,
+          "ipm": "0.18",
+          "ARF": "2.14",
+          "DP": "0.99035",
+          "DP_norm": "0.99089",
+          "1-DP": "0.00965",
+          "total_freq": "9.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99999",
+          "DP_norm": "1.00018",
+          "1-DP": "1e-05",
+          "total_freq": "9.0"
+        },
+        "fikcja": {
+          "freq": 3,
+          "ipm": "0.13",
+          "ARF": "1.93",
+          "DP": "0.98321",
+          "DP_norm": "0.98612",
+          "1-DP": "0.01679",
+          "total_freq": "9.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "napitek",
+          "napitek",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "napitek",
+          "napitek",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "salonki",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 11,
+          "ipm": "0.14",
+          "ARF": "6.69",
+          "DP": "0.99443",
+          "DP_norm": "0.99456",
+          "1-DP": "0.00557",
+          "total_freq": "11.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.56",
+          "DP": "0.99376",
+          "DP_norm": "0.99431",
+          "1-DP": "0.00624",
+          "total_freq": "11.0"
+        },
+        "publicystyka": {
+          "freq": 5,
+          "ipm": "0.17",
+          "ARF": "3.56",
+          "DP": "0.99605",
+          "DP_norm": "0.99624",
+          "1-DP": "0.00395",
+          "total_freq": "11.0"
+        },
+        "fikcja": {
+          "freq": 2,
+          "ipm": "0.08",
+          "ARF": "1.2",
+          "DP": "0.99329",
+          "DP_norm": "0.99623",
+          "1-DP": "0.00671",
+          "total_freq": "11.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "salonka",
+          "salonka",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "salonka",
+          "salonka",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "postura",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 33,
+          "ipm": "0.41",
+          "ARF": "18.01",
+          "DP": "0.97078",
+          "DP_norm": "0.97091",
+          "1-DP": "0.02922",
+          "total_freq": "33.0"
+        },
+        "fakt": {
+          "freq": 10,
+          "ipm": "0.35",
+          "ARF": "6.36",
+          "DP": "0.98272",
+          "DP_norm": "0.98326",
+          "1-DP": "0.01728",
+          "total_freq": "33.0"
+        },
+        "publicystyka": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "3.59",
+          "DP": "0.993",
+          "DP_norm": "0.99318",
+          "1-DP": "0.007",
+          "total_freq": "33.0"
+        },
+        "fikcja": {
+          "freq": 19,
+          "ipm": "0.79",
+          "ARF": "10.44",
+          "DP": "0.92989",
+          "DP_norm": "0.93264",
+          "1-DP": "0.07011",
+          "total_freq": "33.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "postura",
+          "postura",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "postura",
+          "postura",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "utytułowane",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 9,
+          "ipm": "0.11",
+          "ARF": "4.52",
+          "DP": "0.99527",
+          "DP_norm": "0.9954",
+          "1-DP": "0.00473",
+          "total_freq": "9.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.51",
+          "DP": "0.99873",
+          "DP_norm": "0.99928",
+          "1-DP": "0.00127",
+          "total_freq": "9.0"
+        },
+        "publicystyka": {
+          "freq": 5,
+          "ipm": "0.17",
+          "ARF": "1.86",
+          "DP": "0.99325",
+          "DP_norm": "0.99343",
+          "1-DP": "0.00675",
+          "total_freq": "9.0"
+        },
+        "fikcja": {
+          "freq": 2,
+          "ipm": "0.08",
+          "ARF": "1.57",
+          "DP": "0.99357",
+          "DP_norm": "0.99651",
+          "1-DP": "0.00643",
+          "total_freq": "9.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "utytułować",
+          "utytułować",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "utytułowana",
+          "utytułowana",
+          "subst",
+          "daw.",
+          0
+        ],
+        [
+          "utytułowany",
+          "utytułowany",
+          "depr",
+          "daw.",
+          0
+        ],
+        [
+          "utytułować",
+          "utytułować",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "forpocztę",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 9,
+          "ipm": "0.11",
+          "ARF": "7.31",
+          "DP": "0.98874",
+          "DP_norm": "0.98887",
+          "1-DP": "0.01126",
+          "total_freq": "9.0"
+        },
+        "fakt": {
+          "freq": 3,
+          "ipm": "0.11",
+          "ARF": "2.82",
+          "DP": "0.99438",
+          "DP_norm": "0.99493",
+          "1-DP": "0.00562",
+          "total_freq": "9.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.8",
+          "DP": "0.99662",
+          "DP_norm": "0.99681",
+          "1-DP": "0.00338",
+          "total_freq": "9.0"
+        },
+        "fikcja": {
+          "freq": 4,
+          "ipm": "0.17",
+          "ARF": "3.37",
+          "DP": "0.97257",
+          "DP_norm": "0.97545",
+          "1-DP": "0.02743",
+          "total_freq": "9.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "forpoczta",
+          "forpoczta",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "forpoczta",
+          "forpoczta",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "naście",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 40,
+          "ipm": "0.49",
+          "ARF": "21.19",
+          "DP": "0.97202",
+          "DP_norm": "0.97215",
+          "1-DP": "0.02798",
+          "total_freq": "40.0"
+        },
+        "fakt": {
+          "freq": 13,
+          "ipm": "0.46",
+          "ARF": "6.68",
+          "DP": "0.97232",
+          "DP_norm": "0.97285",
+          "1-DP": "0.02768",
+          "total_freq": "40.0"
+        },
+        "publicystyka": {
+          "freq": 10,
+          "ipm": "0.35",
+          "ARF": "6.23",
+          "DP": "0.9887",
+          "DP_norm": "0.98888",
+          "1-DP": "0.0113",
+          "total_freq": "40.0"
+        },
+        "fikcja": {
+          "freq": 17,
+          "ipm": "0.71",
+          "ARF": "9.7",
+          "DP": "0.95163",
+          "DP_norm": "0.95445",
+          "1-DP": "0.04837",
+          "total_freq": "40.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "naście",
+          "naście",
+          "num",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "naście",
+          "naście",
+          "num",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "forpoczta",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 10,
+          "ipm": "0.12",
+          "ARF": "6.5",
+          "DP": "0.99189",
+          "DP_norm": "0.99202",
+          "1-DP": "0.00811",
+          "total_freq": "10.0"
+        },
+        "fakt": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.51",
+          "DP": "0.99563",
+          "DP_norm": "0.99618",
+          "1-DP": "0.00437",
+          "total_freq": "10.0"
+        },
+        "publicystyka": {
+          "freq": 6,
+          "ipm": "0.21",
+          "ARF": "3.45",
+          "DP": "0.98822",
+          "DP_norm": "0.9884",
+          "1-DP": "0.01178",
+          "total_freq": "10.0"
+        },
+        "fikcja": {
+          "freq": 2,
+          "ipm": "0.08",
+          "ARF": "1.89",
+          "DP": "0.99186",
+          "DP_norm": "0.99479",
+          "1-DP": "0.00814",
+          "total_freq": "10.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "forpoczta",
+          "forpoczta",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "forpoczta",
+          "forpoczta",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "destynacja",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 8,
+          "ipm": "0.1",
+          "ARF": "4.44",
+          "DP": "0.99663",
+          "DP_norm": "0.99676",
+          "1-DP": "0.00337",
+          "total_freq": "8.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "2.32",
+          "DP": "0.99729",
+          "DP_norm": "0.99784",
+          "1-DP": "0.00271",
+          "total_freq": "8.0"
+        },
+        "publicystyka": {
+          "freq": 3,
+          "ipm": "0.1",
+          "ARF": "2.74",
+          "DP": "0.99676",
+          "DP_norm": "0.99695",
+          "1-DP": "0.00324",
+          "total_freq": "8.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.9957",
+          "DP_norm": "0.99865",
+          "1-DP": "0.0043",
+          "total_freq": "8.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "destynacja",
+          "destynacja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "destynacja",
+          "destynacja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "spękane",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 32,
+          "ipm": "0.39",
+          "ARF": "17.54",
+          "DP": "0.97357",
+          "DP_norm": "0.9737",
+          "1-DP": "0.02643",
+          "total_freq": "32.0"
+        },
+        "fakt": {
+          "freq": 7,
+          "ipm": "0.25",
+          "ARF": "5.26",
+          "DP": "0.98731",
+          "DP_norm": "0.98785",
+          "1-DP": "0.01269",
+          "total_freq": "32.0"
+        },
+        "publicystyka": {
+          "freq": 6,
+          "ipm": "0.21",
+          "ARF": "3.64",
+          "DP": "0.99685",
+          "DP_norm": "0.99704",
+          "1-DP": "0.00315",
+          "total_freq": "32.0"
+        },
+        "fikcja": {
+          "freq": 19,
+          "ipm": "0.79",
+          "ARF": "10.06",
+          "DP": "0.92926",
+          "DP_norm": "0.93201",
+          "1-DP": "0.07074",
+          "total_freq": "32.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "spękać",
+          "spękać",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "spękać",
+          "spękać",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "guwernantką",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 11,
+          "ipm": "0.14",
+          "ARF": "6.11",
+          "DP": "0.9904",
+          "DP_norm": "0.99053",
+          "1-DP": "0.0096",
+          "total_freq": "11.0"
+        },
+        "fakt": {
+          "freq": 3,
+          "ipm": "0.11",
+          "ARF": "1.54",
+          "DP": "0.99493",
+          "DP_norm": "0.99548",
+          "1-DP": "0.00507",
+          "total_freq": "11.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.96",
+          "DP": "0.99916",
+          "DP_norm": "0.99935",
+          "1-DP": "0.00084",
+          "total_freq": "11.0"
+        },
+        "fikcja": {
+          "freq": 6,
+          "ipm": "0.25",
+          "ARF": "3.87",
+          "DP": "0.97449",
+          "DP_norm": "0.97737",
+          "1-DP": "0.02551",
+          "total_freq": "11.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "guwernantka",
+          "guwernantka",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "guwernantka",
+          "guwernantka",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "guwernantek",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 13,
+          "ipm": "0.16",
+          "ARF": "7.96",
+          "DP": "0.99148",
+          "DP_norm": "0.99161",
+          "1-DP": "0.00852",
+          "total_freq": "13.0"
+        },
+        "fakt": {
+          "freq": 7,
+          "ipm": "0.25",
+          "ARF": "3.8",
+          "DP": "0.98909",
+          "DP_norm": "0.98963",
+          "1-DP": "0.01091",
+          "total_freq": "13.0"
+        },
+        "publicystyka": {
+          "freq": 1,
+          "ipm": "0.03",
+          "ARF": "1.0",
+          "DP": "0.99839",
+          "DP_norm": "0.99858",
+          "1-DP": "0.00161",
+          "total_freq": "13.0"
+        },
+        "fikcja": {
+          "freq": 5,
+          "ipm": "0.21",
+          "ARF": "3.89",
+          "DP": "0.986",
+          "DP_norm": "0.98892",
+          "1-DP": "0.014",
+          "total_freq": "13.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "guwernantka",
+          "guwernantka",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "guwernantka",
+          "guwernantka",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "mezalianse",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 7,
+          "ipm": "0.09",
+          "ARF": "4.66",
+          "DP": "0.99515",
+          "DP_norm": "0.99528",
+          "1-DP": "0.00485",
+          "total_freq": "7.0"
+        },
+        "fakt": {
+          "freq": 4,
+          "ipm": "0.14",
+          "ARF": "3.64",
+          "DP": "0.99257",
+          "DP_norm": "0.99312",
+          "1-DP": "0.00743",
+          "total_freq": "7.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.35",
+          "DP": "0.99792",
+          "DP_norm": "0.99811",
+          "1-DP": "0.00208",
+          "total_freq": "7.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99491",
+          "DP_norm": "0.99785",
+          "1-DP": "0.00509",
+          "total_freq": "7.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "mezalians",
+          "mezalians",
+          "subst",
+          "przest.,żart.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "mezalians",
+          "mezalians",
+          "subst",
+          "przest.,żart.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "uzurpację",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 13,
+          "ipm": "0.16",
+          "ARF": "5.52",
+          "DP": "0.98991",
+          "DP_norm": "0.99004",
+          "1-DP": "0.01009",
+          "total_freq": "13.0"
+        },
+        "fakt": {
+          "freq": 7,
+          "ipm": "0.25",
+          "ARF": "3.59",
+          "DP": "0.98096",
+          "DP_norm": "0.9815",
+          "1-DP": "0.01904",
+          "total_freq": "13.0"
+        },
+        "publicystyka": {
+          "freq": 5,
+          "ipm": "0.17",
+          "ARF": "2.96",
+          "DP": "0.99344",
+          "DP_norm": "0.99362",
+          "1-DP": "0.00656",
+          "total_freq": "13.0"
+        },
+        "fikcja": {
+          "freq": 1,
+          "ipm": "0.04",
+          "ARF": "1.0",
+          "DP": "0.99632",
+          "DP_norm": "0.99927",
+          "1-DP": "0.00368",
+          "total_freq": "13.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "uzurpacja",
+          "uzurpacja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "uzurpacja",
+          "uzurpacja",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "możnego",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 20,
+          "ipm": "0.25",
+          "ARF": "10.8",
+          "DP": "0.98364",
+          "DP_norm": "0.98377",
+          "1-DP": "0.01636",
+          "total_freq": "20.0"
+        },
+        "fakt": {
+          "freq": 8,
+          "ipm": "0.28",
+          "ARF": "3.86",
+          "DP": "0.98257",
+          "DP_norm": "0.98311",
+          "1-DP": "0.01743",
+          "total_freq": "20.0"
+        },
+        "publicystyka": {
+          "freq": 2,
+          "ipm": "0.07",
+          "ARF": "1.44",
+          "DP": "0.99749",
+          "DP_norm": "0.99768",
+          "1-DP": "0.00251",
+          "total_freq": "20.0"
+        },
+        "fikcja": {
+          "freq": 10,
+          "ipm": "0.42",
+          "ARF": "5.65",
+          "DP": "0.96828",
+          "DP_norm": "0.97114",
+          "1-DP": "0.03172",
+          "total_freq": "20.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "możny:A",
+          "możny",
+          "adj",
+          "daw.",
+          0
+        ],
+        [
+          "możny:S",
+          "możny",
+          "subst",
+          "przest.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "możny:A",
+          "możny",
+          "adj",
+          "daw.",
+          0
+        ],
+        [
+          "możny:S",
+          "możny",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "insurekcyjnej",
+      "stratum": "D_nf_5_29",
+      "orth": {
+        "all": {
+          "freq": 12,
+          "ipm": "0.15",
+          "ARF": "6.83",
+          "DP": "0.99137",
+          "DP_norm": "0.9915",
+          "1-DP": "0.00863",
+          "total_freq": "12.0"
+        },
+        "fakt": {
+          "freq": 9,
+          "ipm": "0.32",
+          "ARF": "4.23",
+          "DP": "0.9797",
+          "DP_norm": "0.98024",
+          "1-DP": "0.0203",
+          "total_freq": "12.0"
+        },
+        "publicystyka": {
+          "freq": 3,
+          "ipm": "0.1",
+          "ARF": "2.57",
+          "DP": "0.99574",
+          "DP_norm": "0.99593",
+          "1-DP": "0.00426",
+          "total_freq": "12.0"
+        }
+      },
+      "eligible_analyses": [
+        [
+          "insurekcyjny",
+          "insurekcyjny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ],
+      "all_historical_candidate_analyses": [
+        [
+          "insurekcyjny",
+          "insurekcyjny",
+          "adj",
+          "daw.",
+          0
+        ]
+      ]
+    }
+  ]
+}

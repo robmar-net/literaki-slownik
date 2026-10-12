@@ -1,0 +1,865 @@
+{
+  "checked_at": "2026-10-12T01:04:54Z",
+  "status": "passed",
+  "structural_census": 1580,
+  "form_sample": 155,
+  "live_queries": 257,
+  "inspected_live_contexts": 643,
+  "public_sample_contexts": 107,
+  "dependent_accepted_words_independently_rechecked": 290,
+  "database_sha256": "85b23ca5cfaae273ec869f84fab643a87685c455606d8b21df4aec918f3a338c",
+  "standard_sha256": "a432c7c51100f611ab2aaf7d712cf2af9a5354383cf3eb7fd271577ecb19d877",
+  "source_hashes_verified": 10,
+  "examples": {
+    "sek": [
+      {
+        "tag": "subst:sg:nom:m3",
+        "status": "accept",
+        "checks": [
+          {
+            "evidence": [
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round7-contemporary-use-lowercase-decision.md",
+              "https://kwjp.pl/"
+            ],
+            "message": "Forma pisana małymi literami ma współczesne użycie w tekstach nieliterackich KWJP; etykieta dawności nie wyklucza jej ze STANDARD.",
+            "nonfiction_frequency": 301,
+            "replaces": "linguistic-historical-form-v1",
+            "rule_id": "linguistic-contemporary-use-kwjp-v2",
+            "source_label": "daw.",
+            "status": "accept",
+            "threshold": 30
+          }
+        ]
+      },
+      {
+        "tag": "subst:sg:acc:m3",
+        "status": "accept",
+        "checks": [
+          {
+            "evidence": [
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round7-contemporary-use-lowercase-decision.md",
+              "https://kwjp.pl/"
+            ],
+            "message": "Forma pisana małymi literami ma współczesne użycie w tekstach nieliterackich KWJP; etykieta dawności nie wyklucza jej ze STANDARD.",
+            "nonfiction_frequency": 301,
+            "replaces": "linguistic-historical-form-v1",
+            "rule_id": "linguistic-contemporary-use-kwjp-v2",
+            "source_label": "daw.",
+            "status": "accept",
+            "threshold": 30
+          }
+        ]
+      },
+      {
+        "tag": "brev:pun",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/categories.json",
+              "docs/generator/ortografia.md"
+            ],
+            "message": "Źródłowa analiza jest skrótem; nie utożsamiamy skrótu ze skrótowcem rzeczownikowym.",
+            "rule_id": "game-abbreviation-v1",
+            "status": "reject"
+          }
+        ]
+      }
+    ],
+    "cześci": [
+      {
+        "tag": "subst:pl:gen:f",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "subst:pl:nom:f",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "subst:pl:acc:f",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "subst:pl:voc:f",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "subst:sg:dat:f",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "subst:sg:loc:f",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "subst:sg:gen:f",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "subst:sg:voc:f",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      }
+    ],
+    "desperacja": [
+      {
+        "tag": "subst:sg:nom:f",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      }
+    ],
+    "desperacji": [
+      {
+        "tag": "subst:pl:gen:f",
+        "status": "accept",
+        "checks": [
+          {
+            "evidence": [
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round7-contemporary-use-lowercase-decision.md",
+              "https://kwjp.pl/"
+            ],
+            "message": "Forma pisana małymi literami ma współczesne użycie w tekstach nieliterackich KWJP; etykieta dawności nie wyklucza jej ze STANDARD.",
+            "nonfiction_frequency": 166,
+            "replaces": "linguistic-historical-form-v1",
+            "rule_id": "linguistic-contemporary-use-kwjp-v2",
+            "source_label": "przest.,hom.",
+            "status": "accept",
+            "threshold": 30
+          }
+        ]
+      },
+      {
+        "tag": "subst:sg:dat:f",
+        "status": "accept",
+        "checks": [
+          {
+            "evidence": [
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round7-contemporary-use-lowercase-decision.md",
+              "https://kwjp.pl/"
+            ],
+            "message": "Forma pisana małymi literami ma współczesne użycie w tekstach nieliterackich KWJP; etykieta dawności nie wyklucza jej ze STANDARD.",
+            "nonfiction_frequency": 166,
+            "replaces": "linguistic-historical-form-v1",
+            "rule_id": "linguistic-contemporary-use-kwjp-v2",
+            "source_label": "przest.",
+            "status": "accept",
+            "threshold": 30
+          }
+        ]
+      },
+      {
+        "tag": "subst:sg:loc:f",
+        "status": "accept",
+        "checks": [
+          {
+            "evidence": [
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round7-contemporary-use-lowercase-decision.md",
+              "https://kwjp.pl/"
+            ],
+            "message": "Forma pisana małymi literami ma współczesne użycie w tekstach nieliterackich KWJP; etykieta dawności nie wyklucza jej ze STANDARD.",
+            "nonfiction_frequency": 166,
+            "replaces": "linguistic-historical-form-v1",
+            "rule_id": "linguistic-contemporary-use-kwjp-v2",
+            "source_label": "przest.",
+            "status": "accept",
+            "threshold": 30
+          }
+        ]
+      },
+      {
+        "tag": "subst:sg:gen:f",
+        "status": "accept",
+        "checks": [
+          {
+            "evidence": [
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round7-contemporary-use-lowercase-decision.md",
+              "https://kwjp.pl/"
+            ],
+            "message": "Forma pisana małymi literami ma współczesne użycie w tekstach nieliterackich KWJP; etykieta dawności nie wyklucza jej ze STANDARD.",
+            "nonfiction_frequency": 166,
+            "replaces": "linguistic-historical-form-v1",
+            "rule_id": "linguistic-contemporary-use-kwjp-v2",
+            "source_label": "przest.",
+            "status": "accept",
+            "threshold": 30
+          }
+        ]
+      }
+    ],
+    "ekscytacja": [
+      {
+        "tag": "subst:sg:nom:f",
+        "status": "accept",
+        "checks": [
+          {
+            "evidence": [
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round7-contemporary-use-lowercase-decision.md",
+              "https://kwjp.pl/"
+            ],
+            "message": "Forma pisana małymi literami ma współczesne użycie w tekstach nieliterackich KWJP; etykieta dawności nie wyklucza jej ze STANDARD.",
+            "nonfiction_frequency": 42,
+            "replaces": "linguistic-historical-form-v1",
+            "rule_id": "linguistic-contemporary-use-kwjp-v2",
+            "source_label": "przest.",
+            "status": "accept",
+            "threshold": 30
+          }
+        ]
+      }
+    ],
+    "ekscytacją": [
+      {
+        "tag": "subst:sg:inst:f",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      }
+    ],
+    "niezbędnik": [
+      {
+        "tag": "subst:sg:nom:m3",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "subst:sg:acc:m3",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      }
+    ],
+    "wywre": [
+      {
+        "tag": "fin:sg:ter:perf",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      }
+    ],
+    "ośm": [
+      {
+        "tag": "num:pl:nom:m2:rec:ncol",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "num:pl:nom:m3:rec:ncol",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "num:pl:nom:f:rec:ncol",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "num:pl:nom:n:rec:ncol",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "num:pl:acc:m2:rec:ncol",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "num:pl:acc:m3:rec:ncol",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "num:pl:acc:f:rec:ncol",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "num:pl:acc:n:rec:ncol",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "num:pl:voc:m2:rec:ncol",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "num:pl:voc:m3:rec:ncol",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "num:pl:voc:f:rec:ncol",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "num:pl:voc:n:rec:ncol",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      }
+    ],
+    "aktuariusz": [
+      {
+        "tag": "subst:sg:nom:m1",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      }
+    ],
+    "moderowana": [
+      {
+        "tag": "adj:sg:nom:f:pos",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "adj:sg:voc:f:pos",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "daw.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "ppas:sg:nom:f:imperf:aff",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "ppas:sg:voc:f:imperf:aff",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      }
+    ],
+    "upakowanych": [
+      {
+        "tag": "ppas:pl:acc:m1:perf:aff",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "ppas:pl:gen:m1:perf:aff",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "ppas:pl:gen:m2:perf:aff",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "ppas:pl:gen:m3:perf:aff",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "ppas:pl:gen:f:perf:aff",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "ppas:pl:gen:n:perf:aff",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "ppas:pl:loc:m1:perf:aff",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "ppas:pl:loc:m2:perf:aff",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "ppas:pl:loc:m3:perf:aff",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "ppas:pl:loc:f:perf:aff",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      },
+      {
+        "tag": "ppas:pl:loc:n:perf:aff",
+        "status": "reject",
+        "checks": [
+          {
+            "evidence": [
+              "config/generator/policy.json",
+              ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md"
+            ],
+            "message": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+            "rule_id": "linguistic-historical-form-v1",
+            "source_label": "przest.",
+            "status": "reject"
+          }
+        ]
+      }
+    ]
+  },
+  "limits": [
+    "Walidacja obliczeń i zapisanych decyzji nie jest niezależnym drugim przeglądem językoznawczym.",
+    "Nie ocenia prawidłowości wszystkich 303 trafień sek."
+  ],
+  "research_script_sha256": {
+    "annotate_round2.py": "ff8ab4bf807de0f2a83f327732bc67273de691dc574e1096e1843e4f8d2f4b29",
+    "control_probe.py": "ef6950e7d3f6ade8cf9d3e0a2d791c2769229f13aa36ebadbf02ac1cf6feed70",
+    "evidence_probe.py": "09c358d528692af047a76ba831c77f3651b3783eb4b358b11f24b89ff897c8c0",
+    "expanded_probe.py": "04bf7bb990ae277ea09a80843a15096084738faccb352e54ba82d8470f6b52a1",
+    "followup.py": "71f590989da464c86e29acb97fff1ea9ab5302308c55ff76ce11edd8255d9fa5",
+    "kwjp_live_probe.py": "fe093d9235663b727e505e93904a6e6cede395d4ea0340bb58de01a72802d62c",
+    "measure.py": "790521237b2ee6e6d1c41edf51758d3e1eca3da13bb58ad12a8d3107df910b63",
+    "sgjp_review.py": "e5d6eba24af3582b8f96894255a9af9a499e1e3d6319163836a9bcb443042feb",
+    "validate_round2.py": "acaad00fa7a0d9f661783765a7e1f21855e4e1cc01e8c7adf314244ee281e124"
+  }
+}

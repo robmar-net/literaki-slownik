@@ -1,0 +1,563 @@
+{
+  "accessed": "2026-10-12",
+  "queries": 40,
+  "articles": 47,
+  "method": "Celowa kontrola publicznego czytnika: nagłówek, kwalifikatory przy formach, glosy i ograniczenia. Własne notatki, nie nowe dane generatora. Baza online nie musi odpowiadać eksportowi 20260823. Przegląd nie ustala pochodzenia wszystkich kwalifikatorów.",
+  "cases": [
+    {
+      "word": "akcesorium",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=akcesorium&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "1c811d4fadbeaba7c0bb934b65ef72b8dd4369d6ebe0b8da2dab6766db687d64",
+      "articles": [
+        {
+          "id": 23062,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=23062&variant=0",
+          "response_sha256": "166b113f77af6fec45fc9cff4bf703cb9726465b814befe68483c6bd0a0a8fe1"
+        }
+      ],
+      "observation": "Nagłówek daw.; pełna liczba pojedyncza i mnoga. Istnienie tabeli nie dowodzi współczesności lp."
+    },
+    {
+      "word": "atencja",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=atencja&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "15ca3e4f9b15ad1e2e3ab5050995bf4eb7b177e0d1e6423f09763552d36139e6",
+      "articles": [
+        {
+          "id": 18022,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=18022&variant=0",
+          "response_sha256": "9ad0b7fd74ce6bd985af3411a22486024d0c3bdefdaeb7f89aa23f78347fab4e"
+        }
+      ],
+      "observation": "Nagłówek przest.; atencyj osobno char. arch. Rozdzielone poziomy kwalifikacji."
+    },
+    {
+      "word": "bakier",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=bakier&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "684c8adb21c7adeda3bd9b96389fa4d3ecf34d07add379749b8f1a707ed0e88c",
+      "articles": [
+        {
+          "id": 73621,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=73621&variant=0",
+          "response_sha256": "4944c864fb0bc6695f069729fa1f378de873cf84d4c6159fd2ddfd943cf0d4d7"
+        }
+      ],
+      "observation": "Daw., flis.; nota ogranicza dzisiejsze użycie do na bakier, choć tabela jest pełna."
+    },
+    {
+      "word": "cugiel",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=cugiel&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "940484f7ed097ab140f2ef72b9aeebe07bac3e483a5b235c7ed8076ce009ce44",
+      "articles": [
+        {
+          "id": 26165,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=26165&variant=0",
+          "response_sha256": "be0fdf4a36880c508b015881442aa0c5d4a0ae3d63a0ee233479e4aef7dcebca"
+        }
+      ],
+      "observation": "Przest., objaśnienie odsyła do cugle; pełna lp. nie rozstrzyga dzisiejszego ograniczenia liczby."
+    },
+    {
+      "word": "desperacja",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=desperacja&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "ba754a6067282e5c7ffd098fecc0f610edfff9e0833aa7ef356acfbabf4de734",
+      "articles": [
+        {
+          "id": 27040,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=27040&variant=0",
+          "response_sha256": "2f85bb9ae62fd9bf196fd75e03b806101ba99e8d211cda6cbf036f4b95cff98c"
+        }
+      ],
+      "observation": "Przest. w nagłówku, desperacyj char. arch. w tabeli. Wysoka pozycja częstości nie usuwa kwalifikatora."
+    },
+    {
+      "word": "dinozaur",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=dinozaur&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "f248e026ec98dbfd8b3d45caa3d759ce3edaaa60f02d8fadc89d78009255a422",
+      "articles": [
+        {
+          "id": 4078,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=4078&variant=0",
+          "response_sha256": "0081b4b9e646a053bc65c8838818fb6b7c9a4f353535d40eb0fdcd6d17acf0f1"
+        }
+      ],
+      "observation": "Przest. i paleont. w nagłówku; rodzaj m2. Nie należy interpretować wieku zwierzęcia jako wieku jego nazwy."
+    },
+    {
+      "word": "dokument",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=dokument&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "91284bae28533535c2028b36982643b596f9855b8a7509d96bfca9c2bfd5dcb7",
+      "articles": [
+        {
+          "id": 3202,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=3202&variant=0",
+          "response_sha256": "5834d92d2b5c6ad6074085a1ed9d0e67e28771be4e7a5cc6c9dae0c92e5dfc16"
+        }
+      ],
+      "observation": "Leksem bez dawności w nagłówku; dokumenta jako dawny wariant liczby mnogiej."
+    },
+    {
+      "word": "familia",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=familia&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "0918de4bf3875f0050f2f88e6c5e4604ed7243665d9c501ddac88f8654cb03c6",
+      "articles": [
+        {
+          "id": 29801,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=29801&variant=0",
+          "response_sha256": "41eaa1886e049805ad2b21e80ff0795c9be39eb121fd868ce716b449a5a73e8f"
+        }
+      ],
+      "observation": "Przest. w nagłówku; familij ma oddzielne char. arch."
+    },
+    {
+      "word": "generyczny",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=generyczny&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "d0e1f3e3e732f6c94149e377f27bd34ad7207c60029febbb624ca05f90d1dbbc",
+      "articles": [
+        {
+          "id": 108785,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=108785&variant=0",
+          "response_sha256": "5ea1d24f854b2ec37eb2e532ac455a8452c7dc5e02e86de155e9a735bae6cb65"
+        }
+      ],
+      "observation": "Przest. w nagłówku, zwykła tabela przymiotnika; sprzeczność z żywymi znaczeniami wymaga dowodu semantycznego."
+    },
+    {
+      "word": "industrialny",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=industrialny&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "e86fdd3cc5d479b8ccc84e83039fb07c0a8d411c75daef42182824c694537218",
+      "articles": [
+        {
+          "id": 111758,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=111758&variant=0",
+          "response_sha256": "ae0f93263310826c88994885d7340c03dfd90421b124e6c618775bf695cfa922"
+        }
+      ],
+      "observation": "Przest. w nagłówku mimo współczesnych użyć; czytnik potwierdza, że to nie tylko błąd odczytu eksportu."
+    },
+    {
+      "word": "kajet",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=kajet&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "6b79433da7767fd2873fb6b454ebad5f277d1e23cfc2873951eb1557fe3730eb",
+      "articles": [
+        {
+          "id": 35106,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=35106&variant=0",
+          "response_sha256": "ea0b39335cff54a611b08c139b18a682cc741cd2e41efbb3595837cd0f0dac07"
+        }
+      ],
+      "observation": "Przest. w nagłówku, pełna odmiana; WSJP także oznacza dawność."
+    },
+    {
+      "word": "klasztor",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=klasztor&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "802629743b260f9af21d30e7eafe0446bb4d80978e1e599c54af948ff57b06c5",
+      "articles": [
+        {
+          "id": 3048,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=3048&variant=0",
+          "response_sha256": "da4e8c0d2d010180ca386a8aa60fbd4bbb8fabc113666f7e6455adad4a36b8c5"
+        }
+      ],
+      "observation": "Klasztora ma daw. przy konkretnej formie, klasztoru bez tego oznaczenia."
+    },
+    {
+      "word": "kursor",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=kursor&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "ce0092b143d64c1e490f4eb7739860f805d39710b1c4c5794b8f8acfc7e1e82c",
+      "articles": [
+        {
+          "id": 39051,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=39051&variant=0",
+          "response_sha256": "f178ed9724686ceddcfbe762e69b57a70848b6ffe8f0df031d1e561330e9da15"
+        },
+        {
+          "id": 39052,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=39052&variant=0",
+          "response_sha256": "2b8a437c2aeb9493ae0364f9f39abfc61c4d39b41891e4654b6f5c5a011fe5cd"
+        },
+        {
+          "id": 66898,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=66898&variant=0",
+          "response_sha256": "4b2552b9a49878243f5e7309c256523c02a020f6b6f9ec194217c19f1e3d006f"
+        }
+      ],
+      "observation": "Trzy leksemy: posłaniec m1 daw., koń m2 daw., znak ekranowy m3. Kursorzy należy do osobowego posłańca."
+    },
+    {
+      "word": "manowiec",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=manowiec&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "7b244a5be0d433c578fa86109f003986d667773d98dc6d92e9ae86efa5840e2e",
+      "articles": [
+        {
+          "id": 40850,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=40850&variant=0",
+          "response_sha256": "142f893ee9a53eaf5fa2c771c6d968728bd94417ff12b21c48b4b560ca5687de"
+        }
+      ],
+      "observation": "Daw.; objaśnienie manowce i pełna lp. Nie dowodzi współczesności manowca."
+    },
+    {
+      "word": "metr",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=metr&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "47742d6f62812281747430508007d420a97128f3d3e6c23c1654a0bd6edf5e8d",
+      "articles": [
+        {
+          "id": 1773,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=1773&variant=0",
+          "response_sha256": "639521a8897981f9350d4943f5998567abef602345e7365e12f9352f3b39366b"
+        },
+        {
+          "id": 66941,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=66941&variant=0",
+          "response_sha256": "2baf65128ec6ad96463aebfdaef37f99362237e97a2a6359e9a19575448e5b6d"
+        },
+        {
+          "id": 83455,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=83455&variant=0",
+          "response_sha256": "ae736b8f44c881850007169064bbf59f89f897ea3f10d20c9d799e867aaadccc"
+        }
+      ],
+      "observation": "Jednostka długości, nauczyciel m1 przest. i metrum. Metrowie należy do nauczyciela."
+    },
+    {
+      "word": "miałki",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=mia%C5%82ki&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "13f79f33d02c5d6eed866efdb417c5ebb15bb8e10277e1ef29e163bc43ae09b8",
+      "articles": [
+        {
+          "id": 122041,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=122041&variant=0",
+          "response_sha256": "0ba57980e95b1001b5d2afc536b707dd17300ae7dfb01a7bf09cce7c6c8e63f6"
+        }
+      ],
+      "observation": "Brak dawności nagłówka; odsyłacz do mielszy. Sam odsyłacz nie rozstrzyga dzisiejszej kwalifikacji stopnia wyższego."
+    },
+    {
+      "word": "niezbędnik",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=niezb%C4%99dnik&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "3ecaa3160934ffcf06af367fd06b03dad0645c6e032b6bc0eade1fad52ca0499",
+      "articles": [
+        {
+          "id": 113,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=113&variant=0",
+          "response_sha256": "5c0c271eb48b659c4a13d69a7b61efe8a812a5a7603c7e9864446ee0a0e462c4"
+        }
+      ],
+      "observation": "Daw. w nagłówku i pełna odmiana; współczesne konteksty wskazują narzędzie/zestaw."
+    },
+    {
+      "word": "osiem",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=osiem&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "cd1d3fccb898b5a48c0a26d1dfb0d7a2cbad7d89c221c78f7ae51f4d86fb282b",
+      "articles": [
+        {
+          "id": 90127,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=90127&variant=0",
+          "response_sha256": "fd21a4c0d7141bfe43f41667fa83631a54f7766d2199831477973cce85fbcc37"
+        }
+      ],
+      "observation": "Ośm ma daw. przy wariancie. Duża frekwencja osiem nie jest dowodem wariantu ośm."
+    },
+    {
+      "word": "otyły",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=oty%C5%82y&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "a27b82ff8f4be1a18d4e892442b7f2082374a1b8a5eaac5a4e950a61fd3fa350",
+      "articles": [
+        {
+          "id": 13161,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=13161&variant=0",
+          "response_sha256": "ba10596f441b95cf78da41015792a1010ef037effd77cb31ae498db346e4986f"
+        },
+        {
+          "id": 129567,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=129567&variant=0",
+          "response_sha256": "8729d994067cac050bf0be314e801dd9fe82f6ca9c414ef3392b30b6911c5e90"
+        }
+      ],
+      "observation": "Osobno rzeczownik i przymiotnik; odsyłacz do otylszy. Nie oceniono wieku stopnia wyższego na podstawie samego rodzica."
+    },
+    {
+      "word": "podorędzie",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=podor%C4%99dzie&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "fb6fdfa00ffe7b554d37b5ad8c60745f2ae4c500e47eea6009065750258bd36f",
+      "articles": [
+        {
+          "id": 48994,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=48994&variant=0",
+          "response_sha256": "662f81a2d87bab378f6ceaee6684979ae6a503bcc0dddc04cd1f9e1c5196a802"
+        }
+      ],
+      "observation": "Daw. i pełna odmiana, bez dowodu użycia wszystkich form w obecnym języku."
+    },
+    {
+      "word": "porachunek",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=porachunek&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "1cca77d15a2f3b9226c928b85b53835485d0c79cef0128826730d20f0a551fef",
+      "articles": [
+        {
+          "id": 49760,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=49760&variant=0",
+          "response_sha256": "78df2d7d5f59447468bfed757f104ac9c99697b527b81c378b54bbfc79cea91b"
+        }
+      ],
+      "observation": "Przest., glosa rachunek; trzeba oddzielić od dzisiejszych porachunków w sensie konfliktu."
+    },
+    {
+      "word": "powijak",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=powijak&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "2f2be8059004ad5e5f3d476c6ccd7c3c0a43f7f933ed1eb8604911b6f7c1a469",
+      "articles": [
+        {
+          "id": 50112,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=50112&variant=0",
+          "response_sha256": "5ba56303cfa0d4c8a24f34c86313aba15eb0a8d69993429b0ba071988179a639"
+        }
+      ],
+      "observation": "Przest.; nazwa płótna i pełna lp. WSJP opisuje również ten przedmiot, osobno od figuratywnych powijaków."
+    },
+    {
+      "word": "preferować",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=preferowa%C4%87&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "20879fd833bdb9f6a4ed9cb45513c856759fab835399890a601f1d5ee2624ac7",
+      "articles": [
+        {
+          "id": 260027,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=260027&variant=0",
+          "response_sha256": "e860e0febba4a7b76377e43eeb504749c9ecd17b93656e8af23f7d669292aa54"
+        }
+      ],
+      "observation": "Przest. w nagłówku; odsyłacze do imiesłowów i odsłownika. Potwierdza rzeczywistą etykietę źródła."
+    },
+    {
+      "word": "przechwałka",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=przechwa%C5%82ka&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "cc78429cfb25586326c153f339b8a223b8807a3979cefdebc6122d48aa15f628",
+      "articles": [
+        {
+          "id": 50988,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=50988&variant=0",
+          "response_sha256": "4d6d1aa2738683b0fda1993413b11e04f375e00c57832efbe227ab6a1b948928"
+        }
+      ],
+      "observation": "Daw. nad kilkoma znaczeniami: groźba/obraza oraz przechwalanie. Nie dowodzi dawności każdego znaczenia."
+    },
+    {
+      "word": "przyjaźny",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=przyja%C5%BAny&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "0a54fd017d3a7bb1a0b114e3fc7af8a59e1bf84eedee6f0c44c78c5c99e08a32",
+      "articles": [
+        {
+          "id": 138049,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=138049&variant=0",
+          "response_sha256": "de36144283348100c2fcda67fe0b45815af49a2cc96ddfa2f9fe4515e2ad84b8"
+        }
+      ],
+      "observation": "Dawny wariant pisowni z ź; nie mylić ze współczesnym przyjazny."
+    },
+    {
+      "word": "radośny",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=rado%C5%9Bny&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "4178d38b885dba96d2eb60980b5221c76beeab16c0db45e70da0fedb6cfc5d49",
+      "articles": [
+        {
+          "id": 139132,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=139132&variant=0",
+          "response_sha256": "6bd61686b7d3a615d4c8a55723eee1f48cb170ddc2ae2b3f4a701a40d5c8db7a"
+        }
+      ],
+      "observation": "Dawny wariant pisowni z ś; nie mylić ze współczesnym radosny."
+    },
+    {
+      "word": "rozpuk",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=rozpuk&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "feab276d9dd4bc1965a9d2cfbdab8662b54a88d19c664aefcd1cbcf0e0ef1613",
+      "articles": [
+        {
+          "id": 54175,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=54175&variant=0",
+          "response_sha256": "84946b4cb0f1a7f319d8dedfee220850430c1bf3aa2cd4e01d3e84432e8c8f9c"
+        }
+      ],
+      "observation": "Daw.; nota wskazuje współczesne do rozpuku. Pełna tabela nie uzasadnia rozpukowi."
+    },
+    {
+      "word": "siedem",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=siedem&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "16a100125e92c062480ddc8ca9edcb6d8fcc400caa17870b01a53ddc1d9336a1",
+      "articles": [
+        {
+          "id": 90154,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=90154&variant=0",
+          "response_sha256": "6638d7e6e908943736e7df48f7c94f2f47b79d0946606a5ce4a4dd982f399608"
+        }
+      ],
+      "observation": "Siedm ma daw. przy wariancie; siedem nie ma tego oznaczenia."
+    },
+    {
+      "word": "sołtyska",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=so%C5%82tyska&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "b1c58d2eddc9de66f172c4334a0689823f02140e2d9e2659817ea735ece464b1",
+      "articles": [
+        {
+          "id": 56579,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=56579&variant=0",
+          "response_sha256": "9d38b88073a38495309a831154f479f55977c8b0a0ec81b05ef475fe76d231d1"
+        }
+      ],
+      "observation": "Przest. w nagłówku; czytnik nie rozdziela tu współczesnej pani sołtys od dawnej żony sołtysa tak jak WSJP."
+    },
+    {
+      "word": "sztaluga",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=sztaluga&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "fac30032049cc643623ace6757ff76183053cdfdfb878648cd7cc1f61bb3f42c",
+      "articles": [
+        {
+          "id": 58772,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=58772&variant=0",
+          "response_sha256": "4c71230f54228e863832f84876795b39732f856bb145c3d95873865ec7378a37"
+        }
+      ],
+      "observation": "Daw. i glosa sztalugi; współczesną lp. potwierdzają WSJP i niezależny odczyt kontekstu."
+    },
+    {
+      "word": "szuwar",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=szuwar&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "718e13654dbdcd7db9c4df1454ca04b7400764cc0bccb4047f17417a5e126ed5",
+      "articles": [
+        {
+          "id": 58909,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=58909&variant=0",
+          "response_sha256": "b2196c38b3e11785e76f1dbf5a00cf2505bf3f90123a11d8de803c1ca1941952"
+        }
+      ],
+      "observation": "Przest. i glosa szuwary; WSJP wskazuje zwykle liczbę mnogą, co nie oznacza wyłącznie mnogiej."
+    },
+    {
+      "word": "ukradek",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=ukradek&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "0d11db06d512bb3cff007a0a3edbd300a38b529cf7e4f7ecce01bd92be47d398",
+      "articles": [
+        {
+          "id": 61025,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=61025&variant=0",
+          "response_sha256": "3f4e1d6fcb229121cb2d2f52d7d2627866dd2dd1e2c281da58f8545ea403ae6c"
+        }
+      ],
+      "observation": "Daw.; nota ogranicza dzisiejsze użycie do ukradkiem i z ukradka mimo pełnej tabeli."
+    },
+    {
+      "word": "umór",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=um%C3%B3r&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "c73af0b139aad279863659fab8e38ee97405d7dad933224adb436699db6fe87a",
+      "articles": [
+        {
+          "id": 61110,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=61110&variant=0",
+          "response_sha256": "d1279aed85b6067b629947cce091e6301cc1ac297b4909a70ff2b6f23b8e8d96"
+        }
+      ],
+      "observation": "Daw.; nota wskazuje na umór. Poprawia wcześniejsze mylne do umoru; brak dowodu umorach."
+    },
+    {
+      "word": "wolontariacki",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=wolontariacki&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "aa5c6fbd14e8a54dafc3fa290e5961cb6f09182152034fb5bbc5ae0abf4542b0",
+      "articles": [
+        {
+          "id": 1005298,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=1005298&variant=0",
+          "response_sha256": "e57792d92a1ef3bbe7bc108488d9413adc52dfbb5c0e77904030c42c4a2efc4d"
+        }
+      ],
+      "observation": "Daw. w nagłówku; WSJP i teksty XXI wieku dokumentują żywe znaczenie."
+    },
+    {
+      "word": "wynegocjować",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=wynegocjowa%C4%87&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "2295b0daf75c32de05ca50cddae9a4a3c88673adde751b888c3ec15d8f333792",
+      "articles": [
+        {
+          "id": 257540,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=257540&variant=0",
+          "response_sha256": "5345ff2be04ae6b5e7afec8306e315ca46d8b74a4f2feb6fc67b20f0a201ccc4"
+        }
+      ],
+      "observation": "Przest. w nagłówku; bieżąca etykieta źródła, nie wyłącznie pomyłka parsera eksportu."
+    },
+    {
+      "word": "wywrzeć",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=wywrze%C4%87&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "3cc810424d8a0b659faf66a36efa17610631693c084206b5b52af14e07dcd045",
+      "articles": [
+        {
+          "id": 268872,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=268872&variant=0",
+          "response_sha256": "678f74ebf32ef0668f94978f939de7ec71d36e41049d289f7bdc1ff29d7b6b87"
+        },
+        {
+          "id": 268873,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=268873&variant=0",
+          "response_sha256": "26dd1ac7d900071792001f112470b81371a14e074acecbf85686414b44c37716"
+        }
+      ],
+      "observation": "Dwa czasowniki: dawny nieprzechodni o wygotowaniu (wywre, wywrzał) i przechodni o wpływie (wywrze, wywarł). Konkretne potwierdzenie błędu przenoszenia frekwencji między homonimami."
+    },
+    {
+      "word": "wyłącznie",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=wy%C5%82%C4%85cznie&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "5296e7bea2b9540e2df8a810dd13ada134749b309beacf315c817b9441f787be",
+      "articles": [
+        {
+          "id": 171781,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=171781&variant=0",
+          "response_sha256": "906b5106abcbfabe983a10f3b84b6ffd40287c94d553fdd18abd354fd99e1e84"
+        },
+        {
+          "id": 1200244,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=1200244&variant=0",
+          "response_sha256": "f79230e1c686d70e3d306ad433d0af77934be124bb80a9fa3ad825cac3f51e12"
+        }
+      ],
+      "observation": "Osobno przysłówek odprzymiotnikowy z odsyłaczem do wyłączniej oraz nieodmienna partykuła. Nie przenosić popularności partykuły na stopniowanie przysłówka."
+    },
+    {
+      "word": "zapęd",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=zap%C4%99d&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "71ebe33cb91ca7dcb0f1db6926bab2714398cd9f1f2160e6fbe97536dcca3060",
+      "articles": [
+        {
+          "id": 64500,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=64500&variant=0",
+          "response_sha256": "88504b461f2cba15ef9433f60baac067974969e6df5247763cd23510e1f18c26"
+        }
+      ],
+      "observation": "Daw.; glosa pęd/impet i pełna odmiana. Oddzielić to znaczenie od współczesnych zapędów."
+    },
+    {
+      "word": "zarośle",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=zaro%C5%9Ble&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "72c1014a14ee793a0a3e00372242f9be9cdacd9484627adfe066c52136912ccc",
+      "articles": [
+        {
+          "id": 64527,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=64527&variant=0",
+          "response_sha256": "9a2d706bb8be67b167500cd779c73a3c42d8bfe9daa9e7bc33dc13613da1d430"
+        }
+      ],
+      "observation": "Przest.; glosa zarośla i tabela lp. WSJP obecne zarośla opisuje jako pluralia tantum."
+    },
+    {
+      "word": "zasłonić",
+      "search_url": "https://sgjp.pl/edycja/ajax/search-by-form/?exponent=zas%C5%82oni%C4%87&query_params=%7B%22sort_rules%22%3A%5B%22a_fronte%22%5D%2C%22filter%22%3A%7B%7D%2C%22visible_vocabs%22%3A%5B%22SGJP%22%2C%22miejscowo%C5%9Bci%22%2C%22nazwiska%22%5D%2C%22reader%22%3Atrue%7D&columns=%5B%22entry%22%2C%22abbr_pos%22%2C%22genders%22%5D",
+      "search_response_sha256": "64cfa417540d7b43091ebe03cb9a725584ebd62882340568661194f871726bdc",
+      "articles": [
+        {
+          "id": 271105,
+          "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=271105&variant=0",
+          "response_sha256": "709acb472347542d632711766ed72621db0c53fde7eff4d04e21261518cfb523"
+        }
+      ],
+      "observation": "Nagłówek bez dawności; zasłoniono, zasłonienie, zasłonieni oznaczone przest. przy wariantach, inne formy bez tej etykiety."
+    }
+  ]
+}

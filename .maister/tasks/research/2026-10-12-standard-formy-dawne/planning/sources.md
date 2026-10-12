@@ -11,7 +11,7 @@ Liczby pochodzą z przypiętego wydania; kontrola znaczeń jest próbkowa.
 
 ## Open Questions / Risks
 - Nie badano całych konkordancji KWJP100 ani wszystkich znaczeń 3364 kandydatów; przeprowadzono zaplanowany przegląd próbki.
-- Użycie po 2020 oraz udział rzeczywistych archaizmów w całej populacji pozostają nieustalone.
+- Użycie po 2020 potwierdzono punktowo w rundzie 2; udział rzeczywistych archaizmów w całej populacji pozostaje nieustalony.
 
 ## Pokrycie
 | Kategoria | Odczytane źródła i rola | Status |
@@ -41,3 +41,22 @@ Użytkownik wykluczył dalszy workflow implementacyjny. Reguły, wydanie i wiki 
 
 ## Atrybucje
 KWJP: IPI PAN, autorzy i cytowanie według kwjp.pl/overview, CC BY 4.0 dla publicznych danych repo; własne pomiary i oceny. SGJP: autorzy i warunki według repozytoryjnego ATTRIBUTIONS.md. NKJP: Zespół Inżynierii Lingwistycznej IPI PAN / Narodowy Korpus Języka Polskiego, „N-grams from the balanced subcorpus of the National Corpus of Polish”, CC BY — wersja nieokreślona; szczegółowe obowiązujące atrybucje i opis zmian w [ATTRIBUTIONS.md](../../../../../ATTRIBUTIONS.md). Autorzy źródeł nie popierają tego projektu; nie redystrybuujemy surowych danych NKJP.
+
+## Rozszerzenie w rundzie 2
+
+Plan: [expanded-plan.md](expanded-plan.md). Wszystkie osiem torów wykonano. Spis i siatka mają pełne pokrycie ilościowe, ocena semantyczna pozostaje próbkowa.
+
+| Tor | Artefakt i pokrycie |
+|---|---|
+| Pełny spis i wrażliwość | [census-1580.json](../analysis/findings/round2/census-1580.json), [metrics.json](../analysis/findings/round2/metrics.json): 1580 grup, 30 par progów, 10 wariantów |
+| Warstwy i kontrole | [sample-forms.json](../analysis/findings/round2/sample-forms.json): 155 form; [current-override.json](../analysis/findings/round2/current-override.json) i [controls.json](../analysis/findings/round2/controls.json): 40+40 |
+| Publiczny KWJP½M | Skan całych 5500 plików; 492 fragmenty z dowolnym z 389160 kandydatów; z nich 107 dotyczy 4559 dodatków lematowych. Przeczytano wszystkie 107, w tym 106 z formami z podzbioru bez arch. |
+| Pełna wyszukiwarka KWJP | [Manifest 257 zapytań](../analysis/findings/round2/kwjp-live-inventory.json), [643 odczytane konkordancje](../analysis/findings/round2/live-review.json); wliczone zaakceptowane formy rodzin, np. familii/konfuzji/preferowany/wynegocjować/ekscytacja |
+| SGJP i WSJP | [40 haseł / 47 artykułów](../analysis/findings/round2/sgjp-review.json); [macierz 24 kontroli WSJP](../analysis/findings/round2/dictionary-evidence.md) z adresami i własną oceną |
+| Kwalifikatory | Czytnik SGJP oraz przypięty eksport Kuźni 61daf78; ustalono utratę poziomu etykiety i wskazano ograniczenia historii redakcyjnej |
+| Aktualność | ARiMR 2025, Senat 2024, UJ 2024, IPN 2025; odczytane źródła pierwotne, punktowe kontrprzykłady |
+| Synteza i kontrola | [Raport](../outputs/research-report.md), [walidacja](../analysis/findings/round2/validation.json), HTML i dashboard |
+
+Wyszukiwarka KWJP początkowo nie pokazywała wyników przy niepełnych parametrach; prawidłowe zapytanie zawiera `per_page=10` i `chosen_corpora=balanced`. Sandbox odmawiał DNS w skrypcie; autoryzowane ponowienie zadziałało. Czytnik SGJP wymagał pełnego `query_params`; pusty zwracał 502. Nie uznano tych błędów za dowód braku formy. Końcowe 257 odpowiedzi KWJP mają rozpoznany licznik, w tym 49 z zerem.
+
+Publiczne manifesty zawierają identyfikatory, metryki, bibliografię, hashe i własne notatki. Pełne odpowiedzi czytnika i konkordancje są lokalnym cache, nie częścią publikowanego repo. Zapis SGJP służy kontroli badawczej; nie zmienia wcześniejszego statusu potencjalnego wejścia metadanych do generatora.

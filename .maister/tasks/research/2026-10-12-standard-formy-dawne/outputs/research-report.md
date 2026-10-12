@@ -1,32 +1,46 @@
-# STANDARD: formy dawne i słowa żywe — research #4
+# STANDARD: formy dawne i słowa żywe — pogłębiony research #4
 
 ## TL;DR
-Problem istnieje, ale nie wynika z pominięcia publicystyki: próg 30 działa na dokładną formę, nie leksem.
-Samo obniżenie progu lub przejście na leksem daje wyraźne błędy i nie rozwiązuje całego problemu.
-Rekomendacja do rozmowy: oddzielić współczesność znaczenia od współczesności formy odmiany.
-Badanie zakończono; zatwierdzenie wniosków i wybór kryteriów pozostają u właściciela.
+Szersze badanie potwierdza błędne uproszczenie: częstość napisu nie dowodzi współczesności konkretnego znaczenia i odmiany.
+Zbadano pełne 1580 grup, próbkę 155 nowych form i 80 kontroli, 107 fragmentów KWJP½M oraz 643 konkordancje pełnej wyszukiwarki.
+Żywe słowa bywają oznaczone jako dawne, ale automatyczne przejście na lemat wpuszcza też dawne formy i obce znaczenia.
+Materiał wystarcza do rozmowy o kryterium; nie uzasadnia przyjęcia całego przyrostu ani konkretnego nowego progu.
 
 ## Key Decisions
-- Wykonano tylko research. Nie zmieniono reguł, konfiguracji, list, wydania ani wiki.
-- Wszystkie scenariusze są dodatkowymi wyjątkami: zachowują obecne przyjęcia i inne odmowy.
-- SJP.pl służy wyłącznie jako końcowa miara; nie wybiera kandydatów, progów ani próbki.
+- Tylko research: nie zmieniono reguł, list, konfiguracji ani wydania. Nie wybrano nowego kryterium STANDARD.
+- Scenariusze dodają wyjątek do obecnej polityki; nie cofają obecnych przyjęć. Nie są pełnym projektem jej zastąpienia.
+- SJP.pl pozostaje benchmarkiem, bez wpływu na dobór próbki i kryteriów badania.
+- [Pierwsza runda](research-report-round1.md) i [pierwszy komentarz](https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6115542830) zostają zachowane; poniżej szersze dowody i jawne korekty.
 
 ## Open Questions / Risks
-- Czy STANDARD ma obejmować żywe słowa książkowe i nazwy dawnych przedmiotów?
-- Jak dopuścić współczesną odmianę leksemu bez archaicznych form i obcych znaczeń?
-- Miara lemma+POS, nawet z rozproszeniem, nie rozpoznaje znaczenia; nie jest gotową polityką.
+- Jakie dowody mają uchylać dawną etykietę dla konkretnego znaczenia i jego współczesnej odmiany?
+- Jak traktować formy żywe wyłącznie we frazeologizmach i archaizujące użycia autorskie?
+- Nie ma pełnego audytu znaczeń wszystkich 3364 kandydatów ani niezależnego drugiego anotatora. Nie znamy odsetka błędów przyszłej reguły.
 
-## Pytanie, metoda i zakres
-Dlaczego reguła dawności odrzuca zwykłe dziś słowa i jaka niezależna miara mogłaby ją poprawić? Prześledzono kod, testy, decyzje i konfiguracje. Zbadano cały zbiór analiz zamrożonego wydania, dla których jedyną przeszkodą pozostaje dawność; przeliczono unikalne nowe napisy. Potem porównano je z top 2000 braków SJP. Przejrzano deterministyczną próbkę 40 grup lematowych, kolejną próbkę 30 grup po wykryciu ryzyka oraz publiczne konteksty KWJP½M. Oficjalną dokumentację sprawdzono 2026-10-12.
+## 1. Co dokładnie zbadano
 
-Baza: `data/work/lists-v30-20261010-165826-a` użyta w wydaniu **LL-PL v29**, polityka `approved-conditions-v29`, STANDARD **3 090 194** form. W nazwach lokalnego buildu, pakietu i polityki występują różne numery; nie są zamienne. SHA256 bazy `85b23ca5…3a338c`, listy `a432c7c5…19d877` zgadzają się z przypiętym manifestem POP. Pełne dane i identyfikatory: [measurements.json](../analysis/findings/measurements.json).
+Pytanie: dlaczego STANDARD odrzuca współczesne słowa przez dawność i co można uznać za wiarygodny kontrdowód? Użytkownik zażądał poszerzenia próby przed decyzją. [Plan rundy 2](../planning/expanded-plan.md) zapisano przed nowymi wynikami.
 
-## 1. Przyczyna
-[decisions.py:19](../../../../../literaki_slownik/decisions.py) sumuje **orth**, małe litery, **fakt + publicystyka**. [policy.py:1086](../../../../../literaki_slownik/policy.py) przy ≥30 zastępuje tylko odmowę dawności. Reguła dotyczy dokładnej formy, a nie całej odmiany. Runda 7 chroni przed dowodem typu „Ali” → dawny spójnik ali. [Diagnoza kodu](../analysis/findings/code-and-policy.md).
+Baza pozostaje ta sama: lokalny build `lists-v30-20261010-165826-a`, wydanie **LL-PL v29**, polityka `approved-conditions-v29`, STANDARD **3 090 194** form. Numery buildu i wydania nie są zamienne. Dane i hashe: [pomiary bazowe](../analysis/findings/measurements.json), [runda 2](../analysis/findings/round2/metrics.json).
 
-Natomiast [wiki braków SJP](https://github.com/robmar-net/literaki-slownik/wiki/Brakujace-slowa-SJP.pl) pokazuje **orth_lc / all**: także fikcję i zapis wielką literą. To inne liczby.
+| Tor | Wykonany zakres | Co można z niego wnioskować |
+|---|---|---|
+| Pełny spis | 1580 identyfikatorów SGJP, 4559 nowych napisów; podzbiór 404/3364 bez arch. | Dokładny skład i źródłowe oznaczenia; nie pełna ekspertyza znaczeń |
+| Wrażliwość | 30 par progów oraz 10 wariantów gatunków/rozproszenia | Skala wpływu parametrów, bez wyboru najlepszego progu |
+| Próbka form | 155 deterministycznie dobranych form z 4 warstw | Kontrprzykłady i luki dowodowe, bez nieważonego odsetka jakości |
+| Kontrole | 40 obecnych przyjęć zależnych od wyjątku i 40 odrzuceń poza scenariuszem lemma≥30 | Ryzyka istniejącej reguły i braki proponowanego zakresu |
+| KWJP½M | Skan 5500 plików, 11 108 fragmentów; odczyt wszystkich 107 trafionych fragmentów populacji 4559 | Pełne pokrycie tej publicznej próbki, nie całego korpusu |
+| Wyszukiwarka KWJP | 257 zapytań, 643 odczytane konkordancje | Użycia konkretnych form i kontrola kontekstu |
+| Słowniki | 40 celowych haseł SGJP, 47 artykułów; 24 wiersze porównań WSJP oraz kontrole rundy 1 | Rozdział znaczeń, odmiany i kwalifikatorów |
+| Nowsze teksty | Punktowe źródła urzędowe i akademickie z lat 2024–2025 | Kontrdowód braku dzisiejszego użycia, bez reprezentatywnej frekwencji |
 
-| Forma | Liczba z miary wiki | Małe litery: fakt + publicystyka | Lemma+POS: fakt + publicystyka |
+Próbka 155 = 50 + 5 + 50 + 50; warstwa „tylko fikcja” liczy zaledwie 5 form, więc zbadano całą. Seed: `issue4-round2-form-v1:`. W pełnej wyszukiwarce czytano pierwsze 3 konteksty każdego niepustego wyniku; 7 przypadków rozszerzono do 10. Kolejność nie jest losowa i często skupia książki/historyczne teksty. 107 fragmentów i 643 konkordancje mogą się pokrywać — nie sumujemy ich jako niezależnych obserwacji. Jeden badacz, jawne notatki, bez pozorowania zbioru rozstrzygniętych dopuszczeń. [Próbka](../analysis/findings/round2/sample-forms.json), [wszystkie oceny KWJP](../analysis/findings/round2/live-review.json), [fragmenty KWJP½M](../analysis/findings/round2/context-review.json).
+
+## 2. Przyczyna pozostaje potwierdzona
+
+Obecna reguła sumuje **dokładną formę pisaną małymi literami, fakt + publicystykę**. Przy ≥30 uchyla jedynie odmowę dawności. Nie pomija publicystyki. Miara wiki obejmuje też fikcję i zapis wielkimi literami. [Kod i polityka](../analysis/findings/code-and-policy.md).
+
+| Forma | Miara wiki: orth_lc/all | Dokładna forma: fakt + publicystyka | Lemma+POS: fakt + publicystyka |
 |---|---:|---:|---:|
 | desperacja | 67 | 28 | 233 |
 | ekscytacją | 71 | 21 | 219 |
@@ -36,62 +50,93 @@ Natomiast [wiki braków SJP](https://github.com/robmar-net/literaki-slownik/wiki
 | surdut | 82 | 19 | 58 |
 | aliści | 65 | 12 | 31 |
 | jakoż | 61 | 7 | 41 |
-| iże | 102 | 0 | 1 |
+| iże | 102 | 0 opublikowanych | 1 |
 
-Przykład niespójnej odmiany: `desperacji` jest w STANDARD (166 wystąpień nieliterackich), ale `desperacja` nie; `ekscytacja` jest (42), ale `ekscytacją` nie. To zachowanie zgodne z obecną regułą, nie błąd sumowania.
+`Desperacji` jest przyjęte, `desperacja` odrzucone; `ekscytacja` przyjęte, `ekscytacją` odrzucone. Kontrola rodzin słów i kontekstów potwierdza, że licznik dokładnej odmiany rozcina żywe paradygmaty. Z kolei **615/2000** z ticketu oznacza napisy z dawną analizą w benchmarku, nie 615 udowodnionych błędów.
 
-615/2000 z ticketu potwierdzono. Jest to **liczba napisów z dawną analizą w próbce braków**, a nie liczba błędów. Wymienienie „nazwy własnej + dawności” może łączyć powody z różnych homonimów.
+## 3. Pełny spis zastępuje pierwsze oszacowanie
 
-## 2. Ile doszłoby do STANDARD
-Wyniki dokładne dla poniższych symulacji na przypiętej bazie. To nie build ani prognoza zatwierdzonego wydania. Wszystkie inne warunki pozostają, a nowy wyjątek jest dodany do obecnego. Jednostka: unikalna forma do gry, nie leksem.
+W całej populacji 1580 grup **1176 daje wyłącznie dodatki z arch.**; 404 ma choć jeden dodatek bez tej etykiety. To ustalenie strukturalne z pełnych danych, mocniejsze od wcześniejszego 35/40 w próbce. Nie nazywamy go odsetkiem niezależnie potwierdzonych archaizmów. [Spis wszystkich grup](../analysis/findings/round2/census-1580.json).
 
-| Dodatkowe złagodzenie | Nowe formy | Odzysk z top 2000 braków SJP |
+Wyłączenie dodatków z arch. zmniejsza przyrost z **4559 do 3364**, ale nie rozwiązuje problemu. Dawność bywa oznaczona także przez daw./przest. przy konkretnej końcówce, np. `dokumenta`, `klasztora`, `zasłonionemu`; sama blokada arch. je przepuszcza.
+
+| Dowód dokładnej formy w przypiętych listach KWJP | Formy w populacji 3364 | Zbadane formy |
 |---|---:|---:|
-| Obecny próg 30 — kontrola | 0 | 0 |
-| Dokładna forma: nieliterackie ≥20 | 131 | 130 |
-| Dokładna forma: nieliterackie ≥10 | 487 | 323 |
-| Dokładna forma: nieliterackie ≥5 | 1193 | 405 |
-| Dokładna forma: cały KWJP ≥30 | 150 | 149 |
-| Lemma+POS: nieliterackie ≥30 | 4559 | 307 |
-| Lemma+POS: nieliterackie ≥100 | 2150 | 126 |
-| Lemma+POS: gatunek nieliteracki ≥30 i DP_norm≤0,9 | 1793 | 89 |
-| Lemma+POS ≥30, ale zachować blokadę arch. | 3364 | 307 |
-| Całkowicie zdjąć tylko odmowę dawności | 389160 | 615 |
+| Brak publikowanego wiersza małoliterowego orth/all | 2587 | 50 |
+| Publikowana tylko w fikcji | 5 | 5 |
+| Fakt + publicystyka 1–4 | 111 | 50 |
+| Fakt + publicystyka 5–29 | 661 | 50 |
 
-Próg 20 nadal pomija `niezbędnik` i `familia`, a wpuszcza `nazad` i `trzykroć`. Cały KWJP wpuszcza `iże`: 100 małoliterowych wystąpień w fikcji, brak opublikowanego małoliterowego wystąpienia w fakt/publicystyka. Próg lemma ≥100 nadal pomija `niezbędnik` i nie chroni dawnych odmian. Dyspersja ogranicza skupiska, ale wpuszcza `desperacyj`; nie zastępuje oceny znaczenia ani formy.
+**Brak wiersza nie oznacza zera użyć.** Spośród 50 form pierwszej warstwy wyszukiwarka znalazła 7, m.in. `niezbędnikiem`, `konsultorzy`, `nieutytułowaną`, ale także stylizowane `onemu`. Pozostałe 43 są niepotwierdzone w tej sondzie, a nie automatycznie błędne. Publikowany próg list dotyczy częstości całego korpusu. Bieżąca wyszukiwarka jest osobnym pomiarem, nie nadpisuje przypiętych CSV.
 
-## 3. Ile w tym archaizmów: wynik próbki
-W wariancie lemma ≥30 **35 z 40 wylosowanych grup daje wyłącznie formę oznaczoną przez SGJP jako arch.**, np. `technologij`, `infolinij`, `telekomunikacyj`. W 76 dodatkach tej próbki 36 ma jawne arch. (dodatkowo `familij`). To źródłowa klasyfikacja i kontrola form, nie niezależna ekspertyza całej populacji; nie przeliczamy tego odsetka na 4559 dodatków.
+## 4. Ważne kontrprzykłady po obu stronach
 
-W całej tej symulacji aż **3779/4559** nowych form nie ma opublikowanego małoliterowego wiersza orth/all. Brak wiersza nie oznacza nieistnienia formy, ale pokazuje, jak dużo przyjęć wynika wyłącznie z przeniesienia dowodu leksemu.
+| Rodzaj problemu | Dowód | Wniosek |
+|---|---|---|
+| Żywe znaczenie pod dawną etykietą | Sołtyska: WSJP rozdziela panią sołtys i dawną żonę sołtysa; KWJP i ARiMR używają pierwszego znaczenia | Odrzucenie całego napisu z powodu starego znaczenia gubi współczesne słowo |
+| Żywy język fachowy | Wolontariacką, generyczny, industrialny, jagnięcinę mają zwykłe autorskie użycia | Dawna etykieta nie jest wystarczającym opisem dzisiejszego zakresu |
+| Rzadka odmiana współczesnego słowa | Niezbędnikiem ma 3 trafienia wyszukiwarki; przytulisko ma współczesne znaczenia WSJP, choć przytuliskom nie znaleziono | Wymaganie osobnego progu dla każdej regularnej formy tworzy luki |
+| Homonim o innej odmianie | SGJP wywrzeć „wygotować się”: wywre/wywrzał; wywrzeć wpływ: wywrze/wywarł | Popularność lemma+POS może ratować obcy leksem |
+| Zachowany frazeologizm | Na umór, do rozpuku, jak kania dżdżu | Żywa konkretna forma nie daje dowodu całego swobodnego paradygmatu |
+| Nazwa starego przedmiotu | Surdut, powijak; IPN używa niezbędnikiem o dawnym wyposażeniu | Wiek przedmiotu i wiek sposobu mówienia to różne rzeczy |
+| Literówka udająca formę | Cześci: 4 z 5 kontekstów wyglądają na błędne części, piąty to dawny tytuł wiersza | Także anotacja lemma+POS może utrwalać błąd |
+| Dane z innego zastosowania | Żeż w 10 obejrzanych kontekstach jest partykułą/wykrzyknieniem, kandydat dotyczy żec | Identyczny napis nie jest dowodem analizowanego czasownika |
 
-Zachowanie blokady arch. zatrzymuje 1195 dodatków. Pozostałe 3364 nadal obejmują np. `ośm`, `niewiela`, `wywre` oraz wymagające rozdzielenia homonimów `metrowie` i `kursorzy`. Nie można jednak odrzucać wszystkich takich przykładów mechanicznie: [WSJP dokumentuje kalkulatorzy w żywym znaczeniu osoby](https://wsjp.pl/haslo/podglad/18446/kalkulator/1895592/bezwzgledny).
+Adresy źródeł, identyfikatory i ograniczenia: [kontrola słownikowa i nowsze teksty](../analysis/findings/round2/dictionary-evidence.md), [notatki z konkordancji](../analysis/findings/round2/live-review.json).
 
-Pełne 70 grup, sposób losowania, oceny i zastrzeżenia: [przegląd próbek](../analysis/findings/sample-review.md).
+Skan KWJP½M przyniósł 83 fragmenty z użyciem autorskim, 9 z nazwami własnymi, 9 z cytatem/stylizacją i 6 z innymi problemami. **83 nie oznacza 83 zatwierdzonych słów**: fragment może zawierać kilka kandydatów, temat historyczny lub książkowy rejestr. Oceniono każde trafienie; surowych tekstów nie publikujemy.
 
-## 4. Co znaczy niezależny dowód współczesności
-[KWJP](https://kwjp.pl/overview) opisuje piśmiennictwo 2011–2020. [Miary list](https://kwjp.pl/lists/doc/about/) pozwalają badać częstość i rozproszenie, ale anotacja jest automatyczna. Lemma+POS może łączyć różne znaczenia; licznik nie rozróżnia cytatu i użycia. Dane gatunkowe 1–4 są poprawne — próg publikacji 5 dotyczy całego korpusu.
+## 5. Co ujawniły kontrole obecnej reguły
 
-Przegląd 5500 plików KWJP½M dał 12 właściwych kontekstów rodzin przykładów ticketu: są żywe `desperacji` i `ekscytację`, stylizowane `iże`, a także `jakoż` w dawnym języku wewnątrz książki zaklasyfikowanej jako fakt. Próbka sugeruje cytat, lecz pełnego pochodzenia tego fragmentu nie ustalono. `Niezbędnik` wielką literą w odsyłaczu nie dowodzi zwykłego rzeczownika. Metryczki i własne oceny: [context-review.json](../analysis/findings/context-review.json).
+**290 napisów jest obecnie przyjętych dzięki wyjątkowi częstościowemu i bez innej zaakceptowanej analizy.** Łącznie 2301 napisów ma jakąkolwiek analizę z tym wyjątkiem, ale 2011 przyjęłoby się również inną drogą. Dopiero 290 jest właściwym mianownikiem dla badania skutku zniesienia obecnego wyjątku. [Pomiar](../analysis/findings/round2/current-override.json).
 
-Źródła słownikowe ujawniają różnicę między rejestrem a dawnością: [desperacja](https://wsjp.pl/haslo/podglad/47650/desperacja/5147287/rozpacz) i [familia](https://wsjp.pl/haslo/podglad/12840/familia/5180478/wielodzietna) są w WSJP książkowe; [odzienie](https://wsjp.pl/haslo/podglad/89359/odzienie) — przestarzałe; [surdut](https://wsjp.pl/haslo/podglad/71964/surdut/5193113/marynarka) opisuje dawny przedmiot. To nie są równoważne przesłanki odrzucenia.
+Deterministyczna próbka 40 z tych 290 obejmuje wyraźnie żywe `edukować`, `ubezpieczyciel`, `dostawczym`, `wynegocjować`, `zasadny`, `finalny`. Nie ma podstaw do prostego usunięcia wyjątku.
 
-[NKJP 1-gramy](https://zil.ipipan.waw.pl/NKJPNGrams) są starsze, małoliterowe, bez kontekstu i rozdziału znaczeń. Po istniejącym czyszczeniu mają `jakoż` 413, `aliści` 268, `desperacja` 121: nie należy z tego robić skali współczesności. [ADR-006](../../../../../docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md) dopuszcza dane do POP/POP0; użycie ich do kwalifikacji STANDARD wymaga osobnej decyzji o zakresie.
+Jednocześnie **sek** jest przyjęte jako dawny rzeczownik z licznikiem NF=301. W 10 obejrzanych kontekstach wyszukiwarki jest 8 skrótów sekund i 2 urwane wyrazy; żaden nie dowodzi tego rzeczownika. Baza poprawnie odrzuca analizę skrótu, lecz jej częstość przenosi na dawną analizę rzeczownikową. To potwierdzona słabość dowodu, nie ustalenie, że przeczytano wszystkie 303 trafienia. [Walidacja przykładów](../analysis/findings/round2/validation.json).
 
-„Niezależne” oznacza tu niezależność od SJP.pl. KWJP używa SGJP w anotacji, a WSJP często cytuje NKJP; tych źródeł nie należy liczyć jako całkowicie niezależnych głosów. [Szczegóły i źródła](../analysis/findings/external-evidence.md).
+Próba 40 odrzuceń spoza lemma≥30 wykazała też `aktuariusz`, `moderowana`, `upakowanych`, `pojazdowej`, `harcówki`, `spożytkuje` w żywych kontekstach. Poprawa nie może polegać wyłącznie na akceptacji 3364 kandydatów: taki zakres nadal pomija trafne przypadki. Nie każda z pozostałych odmów jest błędem — w tej samej próbie są dawne cytaty, rejestr książkowy i obce znaczenia.
 
-## 5. Wniosek i rekomendacja do decyzji
-**Nie rekomenduję obecnie żadnego z prostych progów jako samodzielnej reguły produkcyjnej.** Dane wystarczają do odrzucenia automatycznego przejścia na leksem i do potwierdzenia wad obecnej miary. Nie wystarczają do uczciwego ogłoszenia, że wszystkie 3364 dodatki są dobre.
+## 6. Progi zmieniają liczbę, ale nie usuwają przyczyny
 
-Rekomenduję kryterium dwuczęściowe: dodatni dowód współczesnego znaczenia/leksemu oraz osobną kontrolę współczesnej formy. Częstość, publicystyka i rozproszenie mogą wyłaniać kandydatów. Ostateczny dowód powinien rozdzielać homonimy i nie przenosić się na dawną odmianę. Dopuszczenie książkowości lub nazw dawnych przedmiotów jest decyzją o charakterze STANDARD.
+Poniżej dodatkowe formy przy zachowaniu obecnych przyjęć, pozostałych odmów oraz blokady arch. **L** to częstość pary lemma+POS w fakt/publicystyka; **F** — dokładnego małoliterowego napisu. POS oznacza kategorię z danych, np. fin i praet są liczone oddzielnie. Ta para nie identyfikuje znaczenia ani pełnego leksemu SGJP.
 
-Alternatywy do rozmowy: zachować obecną regułę (znane braki zostaną), obniżyć próg (mała i policzalna zmiana, ale także archaizmy), albo opracować kontrolę leksemu i formy (najlepiej odpowiada problemowi, wymaga dodatkowej pracy dowodowej). Ostatni kierunek jest rekomendacją, nie zatwierdzoną decyzją.
+| Minimalne L | Bez minimum F | F≥1 | F≥5 | F≥10 | F≥20 |
+|---|---:|---:|---:|---:|---:|
+| 10 | 6988 | 1326 | 1034 | 467 | 127 |
+| 20 | 4550 | 1008 | 832 | 400 | 124 |
+| 30 | 3364 | 772 | 661 | 346 | 109 |
+| 50 | 2336 | 531 | 466 | 256 | 90 |
+| 100 | 1368 | 299 | 268 | 156 | 54 |
+| 300 | 524 | 67 | 60 | 33 | 14 |
 
-Po ustaleniu znaczenia „słowo żywe” warto pogłębić ocenę konkretnych kandydatów, szczególnie homonimów i odmiany. Dalsze dowolne obniżanie progów ma mniejszą wartość. POP/POP0 wymagają osobnego ponownego pomiaru po zmianie STANDARD: limity i ranking mogą zmienić skład, więc nie dodajemy mechanicznie powyższych przyrostów do ich liczebności.
+Nawet L≥300 pozostawia **454/524** dodatków bez publikowanego wiersza dokładnej formy. Warunek co najmniej 30 wystąpień lematowych w **każdym** z dwóch gatunków pozostawia 1533 dodatki, w tym 1209 bez takiego wiersza. Dyspersja DP_norm≤0,9 w jednym gatunku z F lematowym≥30 daje 1144 dodatki bez arch., z czego 934 bez publikowanego wiersza formy. To przeniesienie dowodu częstego członu na resztę paradygmatu; rozproszenie leksemu nie rozpoznaje dawnej końcówki. [Wszystkie 40 sond](../analysis/findings/round2/metrics.json).
 
-## Pokrycie, pewność i odtwarzanie
-Wszystkie pięć zaplanowanych kategorii sprawdzono: kod; decyzje/dokumentacja; konfiguracja/testy; przypięte dane; zewnętrzne źródła pierwotne. [Rejestr](../planning/sources.md). Nie kontaktowano się z autorami danych. Nie importowano nowego źródła.
+Sam próg dokładnej formy ≥20/10/5 dodawał odpowiednio 131/487/1193 form w rundzie 1. Cały KWJP≥30 dodawał 150, w tym `iże`. Nie rekomendujemy żadnej liczby jako gotowej odpowiedzi. Wybranie jej przed ustaleniem, które użycia są pożądane, byłoby strojeniem do przykładów.
 
-**Wysoka pewność**: przyczyna, różnica miar, skutki dokładnie opisanych sond. **Średnia**: interpretacja małej próbki i zalecany kierunek. **Nieustalone**: udział rzeczywistych archaizmów w całej nowej populacji, rozdział wszystkich znaczeń, użycie po 2020.
+## 7. Co trzeba rozdzielić w kryterium
 
-Odtwarzanie z katalogu repo: `python3 .maister/tasks/research/2026-10-12-standard-formy-dawne/analysis/measure.py`, następnie `analysis/followup.py` i `analysis/evidence_probe.py` z tego samego katalogu zadania. Wymagają lokalnej przypiętej bazy, cache KWJP/NKJP i benchmarku; nie pobierają nowych danych. Baza otwierana `mode=ro`, a probe nie zmienia list. Hashe zweryfikowano, kontrola obecnego progu dała 0 zmian; istniejące 6 testów reguły przeszło. Kontrolne zapytania dla przykładów odtworzyły frekwencje i statusy ([walidacja](../analysis/findings/validation.json)).
+Rekomendacja do rozmowy: **oceniać współczesność znaczenia i zakresu odmiany osobno**. Regularna współczesna forma może być rzadka; archaiczna końcówka nie staje się współczesna dzięki popularności innej formy. Ograniczony frazeologizm potrzebuje oceny właściwego zakresu, a nie automatycznego rozszerzenia na cały rzeczownik.
+
+Książkowość, rzadkość, potoczność i regionalność same w sobie **już nie wykluczają** w obecnej polityce. Nie stawiamy ponownie tej ogólnej decyzji. Do uzgodnienia pozostaje sposób podważania dodatkowej etykiety dawności oraz ocena użyć archaizujących. `Aliści`, `jakoż`, `nazad`, `trzykroć` mają także współczesne autorskie użycia nacechowane; nie można wszystkich ich trafień nazwać dawnym cytatem.
+
+[Zasady redakcyjne WSJP](https://pliki.wsjp.pl/zasady_opracowania_wsjp.pdf), §2.7 i §2.11, wspierają rozróżnienie wieku przedmiotu, rejestru i formy. Dopuszczają też regularne formy potencjalne w paradygmatach. To argument przeciw wymaganiu wysokiej frekwencji każdego przypadku, nie automatyczna zgoda na wszystkie tabele SGJP. Fleksja WSJP korzysta z SGJP; źródła te nie są niezależnymi głosami. KWJP również używa powiązanej anotacji.
+
+Pełny eksport spłaszcza kwalifikatory leksemu, odmiany i końcówki. Bieżący czytnik pomaga to badać, ale nie zapewnia automatycznie zgodności ze snapshotem i nowego wejścia do generatora. Wykonalność automatycznego rozdziału poziomów pozostaje osobnym problemem. [Dowody formatu i źródeł](../analysis/findings/round2/dictionary-evidence.md).
+
+## 8. Pewność, luki i następny krok
+
+**Wysoka pewność**: mechanizm obecnej reguły, liczby na przypiętych danych, istnienie obu rodzajów kontrprzykładów, rozdział wskazanych homonimów i wariantów. **Średnia pewność**: ocena rejestru pojedynczych kontekstów i rekomendowany kierunek. **Nieustalone**: dokładny udział błędów w 3364 formach, zachowanie przyszłej reguły na całym słowniku, jej utrzymanie i koszt pełnej kontroli znaczeń.
+
+KWJP opisuje piśmiennictwo 2011–2020; punktowe źródła z lat 2024–2025 częściowo zamykają lukę aktualności. Nie zastępują współczesnego reprezentatywnego korpusu ani mowy. Datę wydania książki 2021 trzeba sprawdzać z datą pierwszej publikacji — np. jeden z odczytanych rekordów ma pierwszą publikację w 2012. NKJP pozostaje starszą kontrolą z rundy 1, bez dodawania pozornej niezależności i bez zmiany zakresu ADR-006.
+
+**Dalsze zwiększanie losowej próbki nie jest teraz najważniejszym krokiem.** Materiał wystarcza do omówienia granic STANDARD. Po ich uzgodnieniu potrzebny będzie przegląd kandydatów według przyjętej definicji i osobna walidacja proponowanej reguły, również na obecnych przyjęciach. W tej rundzie nie wydajemy listy zatwierdzonych dodatków ani nie podajemy pozornego odsetka skuteczności.
+
+Korekty rundy 1: pełne 1176/1580 zastępuje małe 35/40 jako opis źródłowych grup; nie zakładamy, że pojedyncze `przechwałka/sztaluga/szuwar` są z zasady dawne; poprawny frazeologizm to **na umór**, nie do umoru. Szczegóły pozostają jawne w aneksie.
+
+## Pokrycie i odtwarzanie
+
+Wszystkie pięć wymaganych kategorii źródeł sprawdzono i rozszerzono: kod; dokumentację; konfigurację/testy; przypięte dane; zewnętrzne źródła pierwotne. [Rejestr źródeł](../planning/sources.md). Nie pozostał niezbadany obowiązkowy tor; częściowa niedostępność stron i wyszukiwań jest opisana w aneksie. Surowe odpowiedzi oraz pełne konteksty pozostają w ignorowanym `tmp/`.
+
+Z katalogu repo uruchamia się skrypty w katalogu zadania `analysis/`: bazowe `measure.py`, `followup.py`, `evidence_probe.py`; następnie `expanded_probe.py`, `control_probe.py`, `kwjp_live_probe.py`, `annotate_round2.py`, `sgjp_review.py`, `validate_round2.py`. Wymagają przypiętych danych i opisanych cache. Probe KWJP odczytuje publiczną wyszukiwarkę, jeżeli cache nie istnieje; jej wyniki mogą się zmienić. Manifest SGJP korzysta z zachowanych odpowiedzi, a dokładne adresy do ponowienia są w JSON. Baza jest otwierana tylko do odczytu.
+
+Walidacja sprawdza rozłączne warstwy, zgodność spisu i siatki, odtworzenie 4559/3364, kontrolne decyzje bazy, kompletność notatek oraz hashe źródeł. Pierwsza runda zawiera wynik 6 istniejących testów reguły; w rundzie 2 nie zmieniono kodu produkcyjnego. Badanie i publikacja wyników nie zatwierdzają polityki. Faza Maister oczekuje na omówienie i decyzję właściciela.

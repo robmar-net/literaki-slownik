@@ -1,0 +1,611 @@
+{
+  "rejected_outside_lemma30_with_nf_evidence": [
+    {
+      "word": "garsonierę",
+      "nf": 5,
+      "all": 8,
+      "standard": false,
+      "analyses": [
+        [
+          "garsoniera",
+          "garsoniera",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "opierunku",
+      "nf": 3,
+      "all": 7,
+      "standard": false,
+      "analyses": [
+        [
+          "opierunek",
+          "opierunek",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "zagustował",
+      "nf": 3,
+      "all": 9,
+      "standard": false,
+      "analyses": [
+        [
+          "zagustować",
+          "zagustować",
+          "praet",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "pojmano",
+      "nf": 8,
+      "all": 13,
+      "standard": false,
+      "analyses": [
+        [
+          "pojmać",
+          "pojmać",
+          "imps",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "przywdziania",
+      "nf": 3,
+      "all": 5,
+      "standard": false,
+      "analyses": [
+        [
+          "przywdziać",
+          "przywdziać",
+          "ger",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "hulaką",
+      "nf": 5,
+      "all": 6,
+      "standard": false,
+      "analyses": [
+        [
+          "hulaka",
+          "hulaka",
+          "subst",
+          "pot.,przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "dramę",
+      "nf": 5,
+      "all": 8,
+      "standard": false,
+      "analyses": [
+        [
+          "drama",
+          "drama",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "frukta",
+      "nf": 11,
+      "all": 14,
+      "standard": false,
+      "analyses": [
+        [
+          "frukt",
+          "frukt",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "glanc",
+      "nf": 2,
+      "all": 11,
+      "standard": false,
+      "analyses": [
+        [
+          "glanc",
+          "glanc",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "sztobrów",
+      "nf": 9,
+      "all": 9,
+      "standard": false,
+      "analyses": [
+        [
+          "sztober",
+          "sztober",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "natenczas",
+      "nf": 11,
+      "all": 19,
+      "standard": false,
+      "analyses": [
+        [
+          "natenczas",
+          "natenczas",
+          "adv",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "upakowanych",
+      "nf": 7,
+      "all": 9,
+      "standard": false,
+      "analyses": [
+        [
+          "upakować",
+          "upakować",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "prowadzać",
+      "nf": 10,
+      "all": 21,
+      "standard": false,
+      "analyses": [
+        [
+          "prowadzać",
+          "prowadzać",
+          "inf",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "pojazdowej",
+      "nf": 4,
+      "all": 5,
+      "standard": false,
+      "analyses": [
+        [
+          "pojazdowy",
+          "pojazdowy",
+          "adj",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "zafrasowany",
+      "nf": 9,
+      "all": 29,
+      "standard": false,
+      "analyses": [
+        [
+          "zafrasować",
+          "zafrasować",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "ferowania",
+      "nf": 12,
+      "all": 16,
+      "standard": false,
+      "analyses": [
+        [
+          "ferować",
+          "ferować",
+          "ger",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "nawarzył",
+      "nf": 4,
+      "all": 9,
+      "standard": false,
+      "analyses": [
+        [
+          "nawarzyć",
+          "nawarzyć",
+          "praet",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "guwerner",
+      "nf": 3,
+      "all": 10,
+      "standard": false,
+      "analyses": [
+        [
+          "guwerner",
+          "guwerner",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "harcówki",
+      "nf": 7,
+      "all": 8,
+      "standard": false,
+      "analyses": [
+        [
+          "harcówka",
+          "harcówka",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "rzyć",
+      "nf": 4,
+      "all": 20,
+      "standard": false,
+      "analyses": [
+        [
+          "rzyć",
+          "rzyć",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "sposobiła",
+      "nf": 2,
+      "all": 6,
+      "standard": false,
+      "analyses": [
+        [
+          "sposobić",
+          "sposobić",
+          "praet",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "ruchawka",
+      "nf": 6,
+      "all": 10,
+      "standard": false,
+      "analyses": [
+        [
+          "ruchawka",
+          "ruchawka",
+          "subst",
+          "pot.,przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "warzyć",
+      "nf": 13,
+      "all": 16,
+      "standard": false,
+      "analyses": [
+        [
+          "warzyć",
+          "warzyć",
+          "inf",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "giezła",
+      "nf": 3,
+      "all": 5,
+      "standard": false,
+      "analyses": [
+        [
+          "giezło",
+          "giezło",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "podołku",
+      "nf": 10,
+      "all": 47,
+      "standard": false,
+      "analyses": [
+        [
+          "podołek",
+          "podołek",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "suweniry",
+      "nf": 5,
+      "all": 8,
+      "standard": false,
+      "analyses": [
+        [
+          "suwenir",
+          "suwenir",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "aeroplany",
+      "nf": 3,
+      "all": 6,
+      "standard": false,
+      "analyses": [
+        [
+          "aeroplan",
+          "aeroplan",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "aktuariusz",
+      "nf": 5,
+      "all": 5,
+      "standard": false,
+      "analyses": [
+        [
+          "aktuariusz",
+          "aktuariusz",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "spożytkuje",
+      "nf": 6,
+      "all": 8,
+      "standard": false,
+      "analyses": [
+        [
+          "spożytkować",
+          "spożytkować",
+          "fin",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "półsiostry",
+      "nf": 7,
+      "all": 7,
+      "standard": false,
+      "analyses": [
+        [
+          "półsiostra",
+          "półsiostra",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "szewronu",
+      "nf": 5,
+      "all": 5,
+      "standard": false,
+      "analyses": [
+        [
+          "szewron",
+          "szewron",
+          "subst",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "przekupniów",
+      "nf": 14,
+      "all": 22,
+      "standard": false,
+      "analyses": [
+        [
+          "przekupień",
+          "przekupień",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "moderowana",
+      "nf": 6,
+      "all": 8,
+      "standard": false,
+      "analyses": [
+        [
+          "moderowany",
+          "moderowany",
+          "adj",
+          "daw.",
+          0
+        ],
+        [
+          "moderować",
+          "moderować",
+          "ppas",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "przywdziewał",
+      "nf": 5,
+      "all": 6,
+      "standard": false,
+      "analyses": [
+        [
+          "przywdziewać",
+          "przywdziewać",
+          "praet",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "dobywał",
+      "nf": 6,
+      "all": 34,
+      "standard": false,
+      "analyses": [
+        [
+          "dobywać",
+          "dobywać",
+          "praet",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "ubogaci",
+      "nf": 4,
+      "all": 5,
+      "standard": false,
+      "analyses": [
+        [
+          "ubogacić",
+          "ubogacić",
+          "fin",
+          "daw.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "zdradliwie",
+      "nf": 3,
+      "all": 8,
+      "standard": false,
+      "analyses": [
+        [
+          "zdradliwie",
+          "zdradliwie",
+          "adv",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "zamtuz",
+      "nf": 3,
+      "all": 9,
+      "standard": false,
+      "analyses": [
+        [
+          "zamtuz",
+          "zamtuz",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "aeroplanów",
+      "nf": 1,
+      "all": 5,
+      "standard": false,
+      "analyses": [
+        [
+          "aeroplan",
+          "aeroplan",
+          "subst",
+          "przest.",
+          0
+        ]
+      ]
+    },
+    {
+      "word": "żeż",
+      "nf": 2,
+      "all": 11,
+      "standard": false,
+      "analyses": [
+        [
+          "żec",
+          "żec",
+          "impt",
+          "daw.,niezal.",
+          0
+        ]
+      ]
+    }
+  ]
+}
