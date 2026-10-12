@@ -162,3 +162,5 @@ Dodatki obejmują m.in. 8 form `desperacja`, 8 form `familia` i 10 form `niezbę
 Przy ocenie POP nie wystarczy zmiana netto −58: 2372 formy wchodzą, 2430 wypada. Wśród tracących członków są `anyżowy`, `szybkościomierz` i `żelatynowy`; pozostają w STANDARD. [Pełny wykaz](../analysis/findings/round4/pop-losses.json). Poprawność rankingu nie przesądza, czy ten skutek jest pożądany dla graczy.
 
 Pierwszy temat rozmowy: akceptacja tej rotacji przy zachowaniu obecnej metody albo osobne rozstrzygnięcie wymagań stabilności POP. Rekomendacja pozostaje za obecną metodą w zakresie tego ticketu; nie dostrajać limitu do przykładów. Decyzja użytkownika jest otwarta.
+
+Uzupełnienie na pytanie użytkownika o pipeline: [analiza integracji, trwałości, powtarzalności, dokumentacji i wpływu](../analysis/codebase-analysis.md). Oddziela istniejący kod od proponowanego rejestru ocen i wyjaśnia, że symulacja nie zastępuje pełnego builda nowej polityki. Wdrożenie pozostaje niezatwierdzone.

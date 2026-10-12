@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-12T08:32:30Z",
+  "generated": "2026-10-12T08:41:36Z",
   "task": {
     "title": "STANDARD: formy dawne i współczesne użycie (#4)",
     "description": "Research przyczyn odmów, niezależnych miar współczesności i skutków wariantów; komentarz do ticketu; decyzje z właścicielem.",
@@ -255,7 +255,15 @@ window.MAISTER_DATA = {
       "recommendation": "Dodatki mają uzasadnienie. Zachować metodę POP w tym zakresie, jeśli jej rotacja jest akceptowana; nie dopasowywać limitu do wybranych przykładów. Cofnięcia oddzielnie.",
       "answer": null,
       "candidate_batch_approved": false,
-      "implementation_approved": false
+      "implementation_approved": false,
+      "technical_clarification": {
+        "recorded_at": "2026-10-12T08:41:36Z",
+        "user_request": "czyli w ktorym dokladnie miescu naszych pipeline wprowadzamy zmiane, jak ona bedzie persystentna i powatrzalna, jak bedzie udokumentowana, na co wplywa?",
+        "artifact": "analysis/codebase-analysis.md",
+        "status": "proposed_not_approved",
+        "summary": "Etap decisions, warunek wieku przy konkretnej analizie; wersjonowany rejestr z przypięciem źródeł i celów, zapis w bazie, wspólna diagnostyka, niezależny peer-build. Obecne liczby są symulacją wymagającą potwierdzenia produkcyjnym buildem.",
+        "implementation_approved": false
+      }
     }
   },
   "phases": [
@@ -456,6 +464,10 @@ window.MAISTER_DATA = {
         {
           "path": "outputs/issue-comment-round4.md",
           "label": "Opublikowany komentarz rundy 4"
+        },
+        {
+          "path": "analysis/codebase-analysis.md",
+          "label": "Miejsce zmiany, trwałość i odtwarzanie — propozycja"
         }
       ],
       "gate": {

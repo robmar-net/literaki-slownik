@@ -17,7 +17,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-12T00:04:14Z",
-    "updated": "2026-10-12T08:32:29Z",
+    "updated": "2026-10-12T08:41:36Z",
     "task_path": ".maister/tasks/research/2026-10-12-standard-formy-dawne"
   },
   "task": {
@@ -221,6 +221,10 @@
         {
           "path": "outputs/issue-comment-round4.md",
           "label": "Opublikowany komentarz rundy 4"
+        },
+        {
+          "path": "analysis/codebase-analysis.md",
+          "label": "Miejsce zmiany, trwałość i odtwarzanie — propozycja"
         }
       ],
       "gate": {
@@ -471,7 +475,15 @@
       "recommendation": "Dodatki mają uzasadnienie. Zachować metodę POP w tym zakresie, jeśli jej rotacja jest akceptowana; nie dopasowywać limitu do wybranych przykładów. Cofnięcia oddzielnie.",
       "answer": null,
       "candidate_batch_approved": false,
-      "implementation_approved": false
+      "implementation_approved": false,
+      "technical_clarification": {
+        "recorded_at": "2026-10-12T08:41:36Z",
+        "user_request": "czyli w ktorym dokladnie miescu naszych pipeline wprowadzamy zmiane, jak ona bedzie persystentna i powatrzalna, jak bedzie udokumentowana, na co wplywa?",
+        "artifact": "analysis/codebase-analysis.md",
+        "status": "proposed_not_approved",
+        "summary": "Etap decisions, warunek wieku przy konkretnej analizie; wersjonowany rejestr z przypięciem źródeł i celów, zapis w bazie, wspólna diagnostyka, niezależny peer-build. Obecne liczby są symulacją wymagającą potwierdzenia produkcyjnym buildem.",
+        "implementation_approved": false
+      }
     }
   },
   "verification_context": {
