@@ -60,3 +60,27 @@ Plan: [expanded-plan.md](expanded-plan.md). Wszystkie osiem torów wykonano. Spi
 Wyszukiwarka KWJP początkowo nie pokazywała wyników przy niepełnych parametrach; prawidłowe zapytanie zawiera `per_page=10` i `chosen_corpora=balanced`. Sandbox odmawiał DNS w skrypcie; autoryzowane ponowienie zadziałało. Czytnik SGJP wymagał pełnego `query_params`; pusty zwracał 502. Nie uznano tych błędów za dowód braku formy. Końcowe 257 odpowiedzi KWJP mają rozpoznany licznik, w tym 49 z zerem.
 
 Publiczne manifesty zawierają identyfikatory, metryki, bibliografię, hashe i własne notatki. Pełne odpowiedzi czytnika i konkordancje są lokalnym cache, nie częścią publikowanego repo. Zapis SGJP służy kontroli badawczej; nie zmienia wcześniejszego statusu potencjalnego wejścia metadanych do generatora.
+
+## Rozszerzenie w rundzie 3
+
+Plan: [candidate-assessment-plan.md](candidate-assessment-plan.md). Wszystkie pięć kategorii ponownie pokryto; źródła z poprzednich rund zachowano. Dostęp 2026-10-12.
+
+| Kategoria | Uzupełnienie |
+|---|---|
+| Kod | `pop.py`: odczyt `_lexicon`, `units`, `member_units`, `measure`, `threshold`, `prune_members`, `forms_for`, `frequent_guard`; `constructions.py`: składniki i reguły istniejących konstrukcji; `schema.sql`: pochodzenie analizy |
+| Dokumentacja | Przyjęty kierunek, zasady STANDARD, ADR-006 i ADR-007; brak zmiany warunków użycia NKJP lub przyjęcia nowego źródła produkcyjnego |
+| Konfiguracje/testy | Przypięte `pop.json` i `pop-sources.json`; odczyt testów progów/remisów/homonimów, 3 odpowiednie istniejące testy POP uruchomione poprawnie |
+| Dane | Wszystkie 290 zależnych przyjęć i ich analizy; macierz 404/3364; pełne historyczne analizy badanych rodzin; dokładne odtworzenie opublikowanych POP/POP0; dwa scenariusze i izolowana kontrola `dag` |
+| Źródła pierwotne | 501 wyszukań SGJP, 207 pełnych tabel, 309 sond KWJP, 730 ręcznie ocenionych konkordancji; celowe uzupełnienia WSJP i źródło zawodowe |
+
+Manifesty, oceny i pomiary: [katalog rundy 3](../analysis/findings/round3/). 501 odpowiedzi SGJP i 309 sond KWJP zakończono bez błędu dostępu. Początkowe błędy DNS w sandboxie rozwiązano jawnym ponowieniem z dostępem sieciowym. Nie wyłączono żadnego wymaganego toru.
+
+Celowe uzupełnienia:
+- [WSJP — gawiedź](https://wsjp.pl/haslo/podglad/75561/gawiedz), [jagnięcina — mięso](https://wsjp.pl/haslo/podglad/57581/jagniecina/5160693/mieso), [pryncypium](https://wsjp.pl/haslo/podglad/87307/pryncypium), [szuwar](https://wsjp.pl/haslo/podglad/72148/szuwar): obie liczby; uwaga „zwykle” opisuje przewagę użyć, nie zakaz odmiany.
+- [WSJP — surdut, marynarka](https://wsjp.pl/haslo/podglad/71964/surdut/5193113/marynarka): dawny przedmiot, bez etykiety dawnego wyrazu; przykłady i pełna odmiana. Pierwsza próba odczytu podstrony nie powiodła się, poprawny adres znaleziono w wyszukiwaniu i odczytano.
+- [WSJP — edukować](https://wsjp.pl/haslo/podglad/98423/edukowac/5239639/w-jakiejs-dziedzinie), [preferować](https://wsjp.pl/haslo/podglad/39378/preferowac), [wynegocjować](https://wsjp.pl/haslo/podglad/21191/wynegocjowac), [moderować czat](https://wsjp.pl/haslo/podglad/78447/moderowac/5196592/czat): współczesne znaczenia i odpowiednie części odmiany.
+- [WSJP — negocjator](https://wsjp.pl/haslo/podglad/21205/negocjator), [negocjacja](https://wsjp.pl/haslo/podglad/21192/negocjacja): kontrola współczesnego znaczenia i liczby pojedynczej; odczyt nie oznacza automatycznego dodania całej rodziny do propozycji.
+- [WSJP — warzyć piwo](https://wsjp.pl/haslo/podglad/97671/warzyc/5238423/piwo): współczesne znaczenie przechodnie. [Zafrasować](https://wsjp.pl/haslo/podglad/88943/zafrasowac) i [zafrasować się](https://wsjp.pl/haslo/podglad/92641/zafrasowac-sie): także WSJP kwalifikuje jako przestarzałe; konflikt pozostaje otwarty.
+- [Polskie Stowarzyszenie Aktuariuszy — aktuariat](https://actuary.org.pl/psa/aktuariat/): pierwotne dzisiejsze użycie nazwy zawodu. Nie jest osobnym źródłem fleksji ani poradą dotyczącą wykonywania zawodu.
+
+Pełne konteksty przeczytane w rundzie 3 pozostają lokalne. Metryki 2021/2022 mogą opisywać wydanie tekstu pierwotnie wcześniejszego; nie rozszerzamy deklarowanego okresu KWJP. Jedna osoba oceniająca, dobór celowy. Zależność WSJP/SGJP i anotacji korpusu ujawniono w raporcie. Podgląd CUA był niedostępny w poprzedniej rundzie; HTML nadal wymaga uczciwego rozdziału kontroli strukturalnej od wizualnej.

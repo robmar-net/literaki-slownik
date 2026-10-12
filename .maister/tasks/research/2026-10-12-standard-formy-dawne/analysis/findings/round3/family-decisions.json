@@ -1,0 +1,3922 @@
+[
+  {
+    "lemma_id": "admirator",
+    "status": "propose",
+    "article_ids": [
+      17228
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Opisy współczesnych i historycznych zwolenników; rejestr książkowy.",
+    "reviewed_words": [
+      "admiratorem"
+    ],
+    "documents": [
+      "136007",
+      "136095",
+      "136342"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "admiratorem",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22admiratorem%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "adwersarz",
+    "status": "propose",
+    "article_ids": [
+      17241
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Sztuka i polityka; żywe użycie książkowe.",
+    "reviewed_words": [
+      "adwersarza"
+    ],
+    "documents": [
+      "136035",
+      "136048",
+      "136100"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "adwersarza",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22adwersarza%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "aktuariusz",
+    "status": "propose",
+    "article_ids": [
+      17069
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Ubezpieczenia i zawody regulowane; mocny dowód żywego fachowego znaczenia.",
+    "reviewed_words": [
+      "aktuariusz"
+    ],
+    "documents": [
+      "151480",
+      "182980",
+      "183841"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "aktuariusz",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22aktuariusz%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "primary_dictionary_or_author",
+        "url": "https://actuary.org.pl/psa/aktuariat/"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "atencja",
+    "status": "propose",
+    "article_ids": [
+      18022
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Dziennik podróży i polityka strategiczna; uwaga/szacunek.; Szacunek/uwaga w eseju, opisie życia i polityce.; Uwaga strategiczna/militarna i okazywanie względów.",
+    "reviewed_words": [
+      "atencja",
+      "atencji",
+      "atencję"
+    ],
+    "documents": [
+      "136029",
+      "136057",
+      "136077",
+      "136079",
+      "136179",
+      "136463"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "atencja",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22atencja%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "atencji",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22atencji%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "atencję",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22atencj%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "aukcja",
+    "status": "propose",
+    "article_ids": [
+      9147
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Publiczna i internetowa sprzedaż w trybie aukcji.",
+    "reviewed_words": [
+      "aukcja",
+      "aukcjach",
+      "aukcje",
+      "aukcji",
+      "aukcję"
+    ],
+    "documents": [
+      "136025",
+      "136035",
+      "136042",
+      "136050",
+      "136051",
+      "136054",
+      "136112",
+      "136123",
+      "136128",
+      "136266"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "aukcja",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22aukcja%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "aukcjach",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22aukcjach%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "aukcje",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22aukcje%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "aukcji",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22aukcji%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "aukcję",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22aukcj%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "aukcyjny",
+    "status": "propose",
+    "article_ids": [
+      97053
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Związany z obrotem aukcyjnym i domami aukcyjnymi.",
+    "reviewed_words": [
+      "aukcyjnych",
+      "aukcyjnym"
+    ],
+    "documents": [
+      "136042",
+      "136050",
+      "136065",
+      "136070"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "aukcyjnych",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22aukcyjnych%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "aukcyjnym",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22aukcyjnym%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "bębniarz",
+    "status": "propose",
+    "article_ids": [
+      25326
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Muzycy we współczesnym reportażu i recenzji, także tag artykułu.; Muzyka jazzowa, wykonawcy; dwa pierwsze użycia w tej samej książce.; Koncert, wspomnienie muzyków oraz proza.",
+    "reviewed_words": [
+      "bębniarze",
+      "bębniarzem",
+      "bębniarzy"
+    ],
+    "documents": [
+      "136085",
+      "136228",
+      "136242",
+      "136552",
+      "136634",
+      "138733",
+      "138822",
+      "141649"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "bębniarze",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22b%C4%99bniarze%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "bębniarzem",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22b%C4%99bniarzem%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "bębniarzy",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22b%C4%99bniarzy%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "denominacja",
+    "status": "propose",
+    "article_ids": [
+      9564
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Dzisiejsze wyznania religijne i zmiana jednostki pieniężnej.",
+    "reviewed_words": [
+      "denominacji"
+    ],
+    "documents": [
+      "136008",
+      "136033"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "denominacji",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22denominacji%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "desperacja",
+    "status": "propose",
+    "article_ids": [
+      27040
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Współczesne eseje i biografia; żywe znaczenie rozpaczy.",
+    "reviewed_words": [
+      "desperacja"
+    ],
+    "documents": [
+      "136029",
+      "136035",
+      "136058"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "desperacja",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22desperacja%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "diariusz",
+    "status": "propose",
+    "article_ids": [
+      27210
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Krytyka literacka i opis dziennika; żywe użycie książkowe.",
+    "reviewed_words": [
+      "diariuszu"
+    ],
+    "documents": [
+      "136036",
+      "136347",
+      "137896"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "diariuszu",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22diariuszu%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "dinozaur",
+    "status": "propose",
+    "article_ids": [
+      4078
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Porównanie oraz metafora człowieka z minionej epoki; nie dowodzi dawności leksemu.",
+    "reviewed_words": [
+      "dinozaur"
+    ],
+    "documents": [
+      "136122",
+      "136254",
+      "136330"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "dinozaur",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22dinozaur%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "domniemywać",
+    "status": "propose",
+    "article_ids": [
+      263299
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Wnioskować o czymś; autorskie rozumowanie.",
+    "reviewed_words": [
+      "domniemywać"
+    ],
+    "documents": [
+      "136035",
+      "136051"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "domniemywać",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22domniemywa%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "donacja",
+    "status": "propose",
+    "article_ids": [
+      27466
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Historyczne nadania i darowizny do instytucji; potencjalnie różne zakresy znaczenia.",
+    "reviewed_words": [
+      "donacje"
+    ],
+    "documents": [
+      "136394",
+      "137044",
+      "141280"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "donacje",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22donacje%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "doradztwo",
+    "status": "propose",
+    "article_ids": [
+      27512
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Inwestycje, polityka i kultura.",
+    "reviewed_words": [
+      "doradztwem"
+    ],
+    "documents": [
+      "136051",
+      "136187",
+      "136226"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "doradztwem",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22doradztwem%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "dostawczy",
+    "status": "propose",
+    "article_ids": [
+      104456
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Samochód w reportażu, poradniku i prozie.",
+    "reviewed_words": [
+      "dostawczym"
+    ],
+    "documents": [
+      "136071",
+      "136096",
+      "136521"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "dostawczym",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22dostawczym%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "dwoić",
+    "status": "propose",
+    "article_ids": [
+      271610
+    ],
+    "scope": "czasownik i odsłownik we współczesnym znaczeniu, bez niepotwierdzonego zakresu biernego",
+    "meaning_note": "Frazeologizm oraz opis roślin; nie tylko jedno znaczenie czasownika.",
+    "reviewed_words": [
+      "dwoiły"
+    ],
+    "documents": [
+      "136252",
+      "136467",
+      "136505"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "dwoiły",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22dwoi%C5%82y%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false,
+    "exclude_pos": [
+      "ppas"
+    ]
+  },
+  {
+    "lemma_id": "dyktat",
+    "status": "propose",
+    "article_ids": [
+      28161
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Polityka i zależność artystyczna; różne dziedziny.",
+    "reviewed_words": [
+      "dyktatowi"
+    ],
+    "documents": [
+      "136029",
+      "136054"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "dyktatowi",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22dyktatowi%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "edukować",
+    "status": "propose",
+    "article_ids": [
+      258258
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Historia idei, współczesna edukacja i zdrowie.; Kultura, zdrowie i instytucje; żywe użycie.",
+    "reviewed_words": [
+      "edukowanie",
+      "edukować"
+    ],
+    "documents": [
+      "136005",
+      "136033",
+      "136035",
+      "136036",
+      "136070",
+      "136221"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "edukowanie",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22edukowanie%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "edukować",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22edukowa%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "primary_dictionary_or_author",
+        "url": "https://wsjp.pl/haslo/podglad/98423/edukowac/5239639/w-jakiejs-dziedzinie"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "ekscytacja",
+    "status": "propose",
+    "article_ids": [
+      28948
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Stan poznawczy i relacje; ta sama rodzina co odrzucone ekscytacją.",
+    "reviewed_words": [
+      "ekscytacja"
+    ],
+    "documents": [
+      "136085",
+      "136113"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "ekscytacja",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ekscytacja%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "eksplikacja",
+    "status": "propose",
+    "article_ids": [
+      28995
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Krytyka literacka i rozważanie filozoficzne; rejestr specjalistyczny/książkowy.",
+    "reviewed_words": [
+      "eksplikacją"
+    ],
+    "documents": [
+      "136036",
+      "136067",
+      "136099"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "eksplikacją",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22eksplikacj%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "estyma",
+    "status": "propose",
+    "article_ids": [
+      29541
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Szacunek i uznanie; żywy rejestr książkowy.",
+    "reviewed_words": [
+      "estymą"
+    ],
+    "documents": [
+      "136002",
+      "136042"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "estymą",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22estym%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "ewangelizować",
+    "status": "propose",
+    "article_ids": [
+      262220
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Głosić wiarę; współczesne działanie religijne.",
+    "reviewed_words": [
+      "ewangelizować"
+    ],
+    "documents": [
+      "136002",
+      "136033"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "ewangelizować",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ewangelizowa%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "familia",
+    "status": "propose",
+    "article_ids": [
+      29801
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Rodzina w biografii i opisie literackim; człon tej samej rodziny co odrzucone familia.",
+    "reviewed_words": [
+      "familii"
+    ],
+    "documents": [
+      "136029",
+      "136070"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "familii",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22familii%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "fantazmat",
+    "status": "propose",
+    "article_ids": [
+      29832
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Wszystkie pierwsze 3 w jednym eseju; specjalistyczny rejestr.; Eseje o sztuce i literaturze.",
+    "reviewed_words": [
+      "fantazmatem",
+      "fantazmatów"
+    ],
+    "documents": [
+      "136029",
+      "136075"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "fantazmatem",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22fantazmatem%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "fantazmatów",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22fantazmat%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "feta",
+    "status": "propose",
+    "article_ids": [
+      8294
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Świętowanie; nie ser ani slangowa nazwa narkotyku.",
+    "reviewed_words": [
+      "feta"
+    ],
+    "documents": [
+      "136029",
+      "136046"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "feta",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22feta%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "finalny",
+    "status": "propose",
+    "article_ids": [
+      107683
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Smak, strategia i historia instytucji; żywy przymiotnik.",
+    "reviewed_words": [
+      "finalny"
+    ],
+    "documents": [
+      "136049",
+      "136050",
+      "136079"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "finalny",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22finalny%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "forpoczta",
+    "status": "propose",
+    "article_ids": [
+      30581
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Przenośne użycie w polityce i opisie przyrody.; Przenośne opisy organizacji i przyrody oraz oddział wojskowy.",
+    "reviewed_words": [
+      "forpoczta",
+      "forpocztę"
+    ],
+    "documents": [
+      "136033",
+      "136272",
+      "136357",
+      "136372",
+      "136446",
+      "136603"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "forpoczta",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22forpoczta%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "forpocztę",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22forpoczt%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "frukt",
+    "status": "hold",
+    "article_ids": [
+      30794
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Użycia świadomie nacechowane; brak rozstrzygnięcia współczesnego swobodnego zakresu.",
+    "reviewed_words": [
+      "frukta"
+    ],
+    "documents": [
+      "136001",
+      "136087"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "frukta",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22frukta%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "garsoniera",
+    "status": "propose",
+    "article_ids": [
+      31212
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Współczesne mieszkanie oraz opis rynku historycznego.",
+    "reviewed_words": [
+      "garsonierę"
+    ],
+    "documents": [
+      "136042",
+      "136121",
+      "136238"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "garsonierę",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22garsonier%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "gawiedź",
+    "status": "propose",
+    "article_ids": [
+      31252
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Nacechowana nazwa grupy w historii, reportażu i wspomnieniu.",
+    "reviewed_words": [
+      "gawiedź"
+    ],
+    "documents": [
+      "136010",
+      "136070",
+      "136103"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "gawiedź",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22gawied%C5%BA%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "primary_dictionary_or_author",
+        "url": "https://wsjp.pl/haslo/podglad/75561/gawiedz"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "gehenna",
+    "status": "propose",
+    "article_ids": [
+      7539
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Przenośne ciężkie doświadczenie.",
+    "reviewed_words": [
+      "gehenna",
+      "gehennę"
+    ],
+    "documents": [
+      "136035",
+      "136051",
+      "136062"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "gehenna",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22gehenna%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "gehennę",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22gehenn%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "generyczny",
+    "status": "propose",
+    "article_ids": [
+      108785
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "3 trafienia: proza i dwa teksty informatyczne; żywe fachowe/przenośne użycia.",
+    "reviewed_words": [
+      "generyczny"
+    ],
+    "documents": [
+      "136834",
+      "144556",
+      "144598"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "generyczny",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22generyczny%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "harcówka",
+    "status": "propose",
+    "article_ids": [
+      32864
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Harcerstwo, powieść i pamiątka wyprawy; współczesna instytucja.",
+    "reviewed_words": [
+      "harcówki"
+    ],
+    "documents": [
+      "136299",
+      "136762",
+      "147354"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "harcówki",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22harc%C3%B3wki%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "hospicjum",
+    "status": "propose",
+    "article_ids": [
+      33468
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Współczesna placówka opieki nad ciężko chorymi.",
+    "reviewed_words": [
+      "hospicjum",
+      "hospicjów"
+    ],
+    "documents": [
+      "136005",
+      "136033",
+      "136035",
+      "136077"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "hospicjum",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22hospicjum%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "hospicjów",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22hospicj%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "industrialny",
+    "status": "propose",
+    "article_ids": [
+      111758
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Esej historyczny i współczesny krajobraz; znaczenie przemysłowy.",
+    "reviewed_words": [
+      "industrialny"
+    ],
+    "documents": [
+      "136054",
+      "136062",
+      "136199"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "industrialny",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22industrialny%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "instrumentarium",
+    "status": "propose",
+    "article_ids": [
+      34142
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Zestaw środków i narzędzi, także pojęciowych.",
+    "reviewed_words": [
+      "instrumentarium"
+    ],
+    "documents": [
+      "135998",
+      "136029"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "instrumentarium",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22instrumentarium%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "insurekcyjny",
+    "status": "propose",
+    "article_ids": [
+      111981
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Krytyka kultury i współczesna polityka historyczna.",
+    "reviewed_words": [
+      "insurekcyjnej"
+    ],
+    "documents": [
+      "136075",
+      "136159",
+      "136268"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "insurekcyjnej",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22insurekcyjnej%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "jagnięcina",
+    "status": "propose",
+    "article_ids": [
+      34481
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Restauracja, zakupy i gotowanie; zwykła współczesna nazwa mięsa.",
+    "reviewed_words": [
+      "jagnięcinę"
+    ],
+    "documents": [
+      "136125",
+      "136180"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "jagnięcinę",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22jagni%C4%99cin%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "primary_dictionary_or_author",
+        "url": "https://wsjp.pl/haslo/podglad/57581/jagniecina/5160693/mieso"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "komercja",
+    "status": "propose",
+    "article_ids": [
+      36986
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Działalność podporządkowana sprzedaży i zyskowi.",
+    "reviewed_words": [
+      "komercji"
+    ],
+    "documents": [
+      "136029",
+      "136035"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "komercji",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22komercji%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "konfuzja",
+    "status": "propose",
+    "article_ids": [
+      37234
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Zdezorientowanie autora oraz konflikt polityczny.; Żywe użycie książkowe w kilku kontekstach.",
+    "reviewed_words": [
+      "konfuzja",
+      "konfuzji"
+    ],
+    "documents": [
+      "136033",
+      "136059",
+      "136063",
+      "136068",
+      "136145",
+      "136215"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "konfuzja",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22konfuzja%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "konfuzji",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22konfuzji%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "konkludować",
+    "status": "propose",
+    "article_ids": [
+      257097
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Czasownik w narracji komentującej cudzą wypowiedź; cytowany jest wniosek, nie sama forma czasownika.",
+    "reviewed_words": [
+      "konkludowała"
+    ],
+    "documents": [
+      "136007",
+      "136035",
+      "136364"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "konkludowała",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22konkludowa%C5%82a%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "konsens",
+    "status": "propose",
+    "article_ids": [
+      37329
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Osiągnięte porozumienie, zgodność opinii.",
+    "reviewed_words": [
+      "konsensu"
+    ],
+    "documents": [
+      "136153",
+      "136268"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "konsensu",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22konsensu%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "konsultor",
+    "status": "propose",
+    "article_ids": [
+      37369
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Biografia i prasa; doradcy. Pierwsze dwa trafienia z jednego dokumentu.",
+    "reviewed_words": [
+      "konsultorzy"
+    ],
+    "documents": [
+      "136347",
+      "202397"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "konsultorzy",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22konsultorzy%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "kurort",
+    "status": "propose",
+    "article_ids": [
+      3526
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Porównanie, historia handlu i współczesny reportaż.",
+    "reviewed_words": [
+      "kurortach"
+    ],
+    "documents": [
+      "136042",
+      "136065",
+      "136095"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "kurortach",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22kurortach%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "ludzko",
+    "status": "propose",
+    "article_ids": [
+      164976
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "W sposób właściwy człowiekowi albo życzliwy; samodzielny przysłówek.",
+    "reviewed_words": [
+      "ludzko"
+    ],
+    "documents": [
+      "136037",
+      "136043",
+      "136058",
+      "136117",
+      "136189",
+      "136198",
+      "136254",
+      "136266"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "ludzko",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ludzko%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "marnotrawny",
+    "status": "propose",
+    "article_ids": [
+      121345
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Metafora pamięci i współczesna córka marnotrawna.; Religijne odwołanie, potoczna obelga i przenośny powrót.",
+    "reviewed_words": [
+      "marnotrawna",
+      "marnotrawnych"
+    ],
+    "documents": [
+      "136174",
+      "136207",
+      "136450",
+      "136453",
+      "136457",
+      "136480"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "marnotrawna",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22marnotrawna%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "marnotrawnych",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22marnotrawnych%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "mezalians",
+    "status": "propose",
+    "article_ids": [
+      3971
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Rodzinne zdarzenia i żartobliwe porównanie par; żywe użycie przenośne.",
+    "reviewed_words": [
+      "mezalianse"
+    ],
+    "documents": [
+      "136055",
+      "136338",
+      "136471"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "mezalianse",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22mezalianse%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "mikrob",
+    "status": "propose",
+    "article_ids": [
+      3983
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Drobny organizm; opis biologiczny.",
+    "reviewed_words": [
+      "mikroby",
+      "mikrobów"
+    ],
+    "documents": [
+      "136010",
+      "136098",
+      "136115",
+      "136241"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "mikroby",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22mikroby%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "mikrobów",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22mikrob%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "moderowany",
+    "status": "hold",
+    "article_ids": [
+      123110
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Konteksty dowodzą imiesłowu czasownika; nie dawnego samodzielnego przymiotnika.",
+    "reviewed_words": [
+      "moderowana"
+    ],
+    "documents": [
+      "136043",
+      "136084",
+      "136600"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "moderowana",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22moderowana%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "moderować",
+    "status": "propose",
+    "article_ids": [
+      260014
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Proces polityczny, obyczaj i współczesna dyskusja; żywy imiesłów.",
+    "reviewed_words": [
+      "moderowana"
+    ],
+    "documents": [
+      "136043",
+      "136084",
+      "136600"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "moderowana",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22moderowana%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "primary_dictionary_or_author",
+        "url": "https://wsjp.pl/haslo/podglad/78447/moderowac/5196592/czat"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "mokradło",
+    "status": "propose",
+    "article_ids": [
+      11582
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Cytat poezji, współczesny reportaż z quadem i proza; liczba pojedyncza ma realne użycie.",
+    "reviewed_words": [
+      "mokradle"
+    ],
+    "documents": [
+      "136244",
+      "136383",
+      "136509"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "mokradle",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22mokradle%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "napitek",
+    "status": "propose",
+    "article_ids": [
+      43438
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Nacechowana nazwa napoju; także opis literatury.",
+    "reviewed_words": [
+      "napitkiem"
+    ],
+    "documents": [
+      "136039",
+      "136062",
+      "136312"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "napitkiem",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22napitkiem%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "natenczas",
+    "status": "hold",
+    "article_ids": [
+      91444
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Użycia archaizujące wymagają rozstrzygnięcia granicy.",
+    "reviewed_words": [
+      "natenczas"
+    ],
+    "documents": [
+      "136009",
+      "136103",
+      "136260"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "natenczas",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22natenczas%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "nazad",
+    "status": "hold",
+    "article_ids": [
+      91728
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Frazeologia i stylizacja; nie przyjmujemy całego zakresu bez rozstrzygnięcia.",
+    "reviewed_words": [
+      "nazad"
+    ],
+    "documents": [
+      "136068",
+      "136090",
+      "136103"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "nazad",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22nazad%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "naście",
+    "status": "propose",
+    "article_ids": [
+      90123
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Potoczny opis liczby lat w wywiadzie, podziękowaniu i reportażu.",
+    "reviewed_words": [
+      "naście"
+    ],
+    "documents": [
+      "136038",
+      "136051",
+      "136104"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "naście",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22na%C5%9Bcie%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "negocjator",
+    "status": "propose",
+    "article_ids": [
+      4416
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Opisy rokowań; historia zdarzeń nie czyni odmiany dawną.",
+    "reviewed_words": [
+      "negocjatorów"
+    ],
+    "documents": [
+      "136062",
+      "136167"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "negocjatorów",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22negocjator%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "primary_dictionary_or_author",
+        "url": "https://wsjp.pl/haslo/podglad/21205/negocjator"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "niezbędnik",
+    "status": "propose",
+    "article_ids": [
+      113
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Narzędzie fajkowe, wyposażenie turystyczne i zbiór notatek.; Narzędzie fajkowe i przenośny poradnik; trzecie trafienie dotyczy nazwy publikacji.; Przybory fajkowe, fotograficzne i przenośna potrzeba; różne żywe znaczenia.",
+    "reviewed_words": [
+      "niezbędnik",
+      "niezbędnikiem",
+      "niezbędników"
+    ],
+    "documents": [
+      "136007",
+      "136050",
+      "136085",
+      "136091",
+      "136311",
+      "136350",
+      "166448"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "niezbędnik",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22niezb%C4%99dnik%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "niezbędnikiem",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22niezb%C4%99dnikiem%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "niezbędników",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22niezb%C4%99dnik%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "nominować",
+    "status": "propose",
+    "article_ids": [
+      259361
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Nagroda architektoniczna, antysemicka metafora i nagrody muzyczne; zwykłe użycie czasownika.",
+    "reviewed_words": [
+      "nominuje"
+    ],
+    "documents": [
+      "136010",
+      "136037",
+      "136063"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "nominuje",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22nominuje%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "obligować",
+    "status": "propose",
+    "article_ids": [
+      257266
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Prawo i zobowiązania umowne; żywy czasownik.",
+    "reviewed_words": [
+      "obliguje"
+    ],
+    "documents": [
+      "136004",
+      "136005",
+      "136093"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "obliguje",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22obliguje%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "odpad",
+    "status": "propose",
+    "article_ids": [
+      45303
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Pozostałość, zwłaszcza odpad przemysłowy.",
+    "reviewed_words": [
+      "odpad"
+    ],
+    "documents": [
+      "136053",
+      "136075"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "odpad",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22odpad%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "odstawka",
+    "status": "limited",
+    "article_ids": [
+      45399
+    ],
+    "scope": [
+      "odstawce",
+      "odstawkę"
+    ],
+    "meaning_note": "Statek, polityka i sytuacja postaci; głównie utrwalone wyrażenie.",
+    "reviewed_words": [
+      "odstawce"
+    ],
+    "documents": [
+      "136090",
+      "136342",
+      "136613"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "odstawce",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22odstawce%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "odzienie",
+    "status": "hold",
+    "article_ids": [
+      45475
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "WSJP także przest.; konflikt wymaga osobnego rozstrzygnięcia.",
+    "reviewed_words": [
+      "odzienie"
+    ],
+    "documents": [
+      "136002",
+      "136084",
+      "136095"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "odzienie",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22odzienie%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "okazjonalnie",
+    "status": "propose",
+    "article_ids": [
+      166650
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Wystawianie sztuk, palenie i przesył gazu; zwykły przysłówek.",
+    "reviewed_words": [
+      "okazjonalnie"
+    ],
+    "documents": [
+      "136035",
+      "136048",
+      "136050"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "okazjonalnie",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22okazjonalnie%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "okazjonalny",
+    "status": "propose",
+    "article_ids": [
+      128193
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Występujący od czasu do czasu albo związany z okazją.",
+    "reviewed_words": [
+      "okazjonalne",
+      "okazjonalnego",
+      "okazjonalnych"
+    ],
+    "documents": [
+      "136029",
+      "136050",
+      "136055",
+      "136096",
+      "136098",
+      "136178"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "okazjonalne",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22okazjonalne%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "okazjonalnego",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22okazjonalnego%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "okazjonalnych",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22okazjonalnych%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "podołek",
+    "status": "propose",
+    "article_ids": [
+      48999
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Telefon i opis pozycji ciała, obok dawnego cytatu; żywa forma.",
+    "reviewed_words": [
+      "podołku"
+    ],
+    "documents": [
+      "136042",
+      "136113",
+      "136114"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "podołku",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22podo%C5%82ku%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "pojazdowy",
+    "status": "propose",
+    "article_ids": [
+      133209
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Mechanika, opinia sądowa i technika; żywy termin.",
+    "reviewed_words": [
+      "pojazdowej"
+    ],
+    "documents": [
+      "136627",
+      "138896",
+      "150535"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "pojazdowej",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22pojazdowej%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "postura",
+    "status": "propose",
+    "article_ids": [
+      8168
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Budowa ciała oraz szczególna technika unieruchomienia; różne znaczenia.",
+    "reviewed_words": [
+      "postura"
+    ],
+    "documents": [
+      "136091",
+      "136113",
+      "136253"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "postura",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22postura%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "powiadać",
+    "status": "propose",
+    "article_ids": [
+      250633
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Wprowadzenie cudzej wypowiedzi i legenda; żywy czasownik narracji.",
+    "reviewed_words": [
+      "powiadała"
+    ],
+    "documents": [
+      "136035",
+      "136058",
+      "136062"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "powiadała",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22powiada%C5%82a%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "preferować",
+    "status": "propose",
+    "article_ids": [
+      260027
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Sztuka, kultura i osobiste upodobania; żywy imiesłów.; Marketing, polityka i gospodarka; zwykły imiesłów.; Tekst o polityce, proza i organizacja nauki; zwykłe użycie imiesłowu.",
+    "reviewed_words": [
+      "preferowany",
+      "preferowanych",
+      "preferująca"
+    ],
+    "documents": [
+      "136070",
+      "136096",
+      "136113",
+      "136124",
+      "136153",
+      "136456",
+      "159121"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "preferowany",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22preferowany%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "preferowanych",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22preferowanych%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "preferująca",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22preferuj%C4%85ca%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "primary_dictionary_or_author",
+        "url": "https://wsjp.pl/haslo/podglad/39378/preferowac"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "prezydencja",
+    "status": "propose",
+    "article_ids": [
+      50576
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Sprawowanie przewodnictwa, w szczególności w UE.",
+    "reviewed_words": [
+      "prezydencja",
+      "prezydencji",
+      "prezydencję"
+    ],
+    "documents": [
+      "136001",
+      "136027",
+      "136342",
+      "168265"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "prezydencja",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22prezydencja%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "prezydencji",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22prezydencji%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "prezydencję",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22prezydencj%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "prokreacja",
+    "status": "propose",
+    "article_ids": [
+      9141
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Wydawanie potomstwa.",
+    "reviewed_words": [
+      "prokreacji"
+    ],
+    "documents": [
+      "136033",
+      "136042"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "prokreacji",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22prokreacji%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "proweniencja",
+    "status": "propose",
+    "article_ids": [
+      50855
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Pochodzenie polityczne i literackie; książkowość.",
+    "reviewed_words": [
+      "proweniencji"
+    ],
+    "documents": [
+      "136035",
+      "136036",
+      "136039"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "proweniencji",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22proweniencji%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "pryncypium",
+    "status": "propose",
+    "article_ids": [
+      50937
+    ],
+    "scope": "współczesna odmiana w obu liczbach",
+    "meaning_note": "Zasada lub wartość podstawowa. Zwykle lm nie wyklucza lp: WSJP podaje obie, z przykładem lp; KWJP potwierdza także autorskie użycie pryncypium.",
+    "reviewed_words": [
+      "pryncypiami",
+      "pryncypiów"
+    ],
+    "documents": [
+      "136007",
+      "136054",
+      "136088",
+      "136229",
+      "136272"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "pryncypiami",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22pryncypiami%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "pryncypiów",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22pryncypi%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "pryncypium",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22pryncypium%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "primary_dictionary_or_author",
+        "url": "https://wsjp.pl/haslo/podglad/87307/pryncypium"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "przechwałka",
+    "status": "propose",
+    "article_ids": [
+      50988
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Przechwalanie się, nie dawna pogróżka. Dzisiejsza liczba pojedyncza w różnych powieściach.",
+    "reviewed_words": [
+      "przechwałka",
+      "przechwałkę"
+    ],
+    "documents": [
+      "136425",
+      "136569",
+      "136585"
+    ],
+    "evidence": [
+      {
+        "kind": "dictionary_review",
+        "path": "../round2/dictionary-evidence.md"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "przechwałka",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przechwa%C5%82ka%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "przechwałkę",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przechwa%C5%82k%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "przytulisko",
+    "status": "propose",
+    "article_ids": [
+      51828
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Miejsce schronienia i pobytu; współczesne użycia dosłowne i przenośne.",
+    "reviewed_words": [
+      "przytulisko",
+      "przytuliska"
+    ],
+    "documents": [
+      "136006",
+      "136032",
+      "136055",
+      "136156"
+    ],
+    "evidence": [
+      {
+        "kind": "dictionary_review",
+        "path": "../round2/dictionary-evidence.md"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "przytulisko",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przytulisko%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "przytuliska",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przytuliska%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "przywdziać",
+    "status": "propose",
+    "article_ids": [
+      252639
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Strój, proza i koszulka reprezentacji; żywe książkowe użycie.",
+    "reviewed_words": [
+      "przywdziania"
+    ],
+    "documents": [
+      "136397",
+      "136414",
+      "136599"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "przywdziania",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przywdziania%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "przywdziewać",
+    "status": "propose",
+    "article_ids": [
+      256075
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Strój i metafora; jeden wynik z odłączonym -em.",
+    "reviewed_words": [
+      "przywdziewał"
+    ],
+    "documents": [
+      "136128",
+      "136204",
+      "136320"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "przywdziewał",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przywdziewa%C5%82%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "przywództwo",
+    "status": "propose",
+    "article_ids": [
+      51852
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Przewodzenie grupie lub państwu.",
+    "reviewed_words": [
+      "przywództwa",
+      "przywództwem",
+      "przywództwie",
+      "przywództwo"
+    ],
+    "documents": [
+      "136002",
+      "136027",
+      "136029",
+      "136035",
+      "136054",
+      "136105",
+      "136235"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "przywództwa",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przyw%C3%B3dztwa%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "przywództwem",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przyw%C3%B3dztwem%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "przywództwie",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przyw%C3%B3dztwie%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "przywództwo",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22przyw%C3%B3dztwo%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "półsiostra",
+    "status": "hold",
+    "article_ids": [
+      52558
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Pierwsze trzy przykłady pochodzą z jednego dokumentu.",
+    "reviewed_words": [
+      "półsiostry"
+    ],
+    "documents": [
+      "136104"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "półsiostry",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22p%C3%B3%C5%82siostry%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "rarytas",
+    "status": "propose",
+    "article_ids": [
+      1929
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Rzadki, ceniony obiekt lub przysmak.",
+    "reviewed_words": [
+      "rarytas",
+      "rarytasem",
+      "rarytasy"
+    ],
+    "documents": [
+      "136029",
+      "136065",
+      "136080",
+      "136091",
+      "136094",
+      "136142"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "rarytas",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rarytas%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "rarytasem",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rarytasem%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "rarytasy",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rarytasy%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "reintegracja",
+    "status": "propose",
+    "article_ids": [
+      53385
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Współczesna polityka postsowiecka; termin specjalistyczny.",
+    "reviewed_words": [
+      "reintegrację"
+    ],
+    "documents": [
+      "136047",
+      "136048",
+      "139762"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "reintegrację",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22reintegracj%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "resentyment",
+    "status": "propose",
+    "article_ids": [
+      53594
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Utrwalona niechęć i uraza; termin używany we współczesnej analizie.",
+    "reviewed_words": [
+      "resentyment",
+      "resentymentem",
+      "resentymentu",
+      "resentymenty",
+      "resentymentów"
+    ],
+    "documents": [
+      "136001",
+      "136029",
+      "136035",
+      "136037",
+      "136075",
+      "136085"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "resentyment",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22resentyment%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "resentymentem",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22resentymentem%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "resentymentu",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22resentymentu%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "resentymenty",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22resentymenty%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "resentymentów",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22resentyment%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "rozbój",
+    "status": "propose",
+    "article_ids": [
+      4924
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Współczesna nazwa czynu przestępnego.",
+    "reviewed_words": [
+      "rozboje",
+      "rozboju",
+      "rozbojów",
+      "rozbój"
+    ],
+    "documents": [
+      "136029",
+      "136095",
+      "136104",
+      "136120",
+      "136129",
+      "136201",
+      "136235"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "rozboje",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rozboje%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "rozboju",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rozboju%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "rozbojów",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rozboj%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "rozbój",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rozb%C3%B3j%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "rozgorzeć",
+    "status": "propose",
+    "article_ids": [
+      268792
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Powstanie, uczucie i starcie; także przenośne użycie.",
+    "reviewed_words": [
+      "rozgorzało"
+    ],
+    "documents": [
+      "136202",
+      "136754",
+      "136760"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "rozgorzało",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22rozgorza%C5%82o%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "schadzka",
+    "status": "propose",
+    "article_ids": [
+      6560
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Spotkania miłosne i opis literatury.",
+    "reviewed_words": [
+      "schadzek"
+    ],
+    "documents": [
+      "136032",
+      "136080",
+      "136116"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "schadzek",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22schadzek%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "siedzisko",
+    "status": "propose",
+    "article_ids": [
+      55683
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Część mebla do siedzenia.",
+    "reviewed_words": [
+      "siedzisk",
+      "siedziska",
+      "siedziskiem",
+      "siedzisko"
+    ],
+    "documents": [
+      "136094",
+      "136119",
+      "136121",
+      "136122",
+      "136140",
+      "136260",
+      "136261"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "siedzisk",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22siedzisk%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "siedziska",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22siedziska%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "siedziskiem",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22siedziskiem%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "siedzisko",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22siedzisko%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "skarbówka",
+    "status": "propose",
+    "article_ids": [
+      55905
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Potoczna nazwa urzędu w autorskich tekstach.",
+    "reviewed_words": [
+      "skarbówka"
+    ],
+    "documents": [
+      "136210",
+      "136261",
+      "136290"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "skarbówka",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22skarb%C3%B3wka%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "sklepikarz",
+    "status": "propose",
+    "article_ids": [
+      5237
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Osoba prowadząca mały sklep.",
+    "reviewed_words": [
+      "sklepikarz",
+      "sklepikarze",
+      "sklepikarzy"
+    ],
+    "documents": [
+      "136029",
+      "136031",
+      "136050",
+      "136070",
+      "136076",
+      "136095"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "sklepikarz",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sklepikarz%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "sklepikarze",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sklepikarze%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "sklepikarzy",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sklepikarzy%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "solenny",
+    "status": "propose",
+    "article_ids": [
+      144385
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Opis śpiewu, zapewnienia i stylu akademickiego; książkowe użycia.",
+    "reviewed_words": [
+      "solennym"
+    ],
+    "documents": [
+      "136002",
+      "136185",
+      "136333"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "solennym",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22solennym%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "sołtyska",
+    "status": "propose",
+    "article_ids": [
+      56579
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Kobieta pełniąca urząd sołtysa, w reportażach i prasie. Oddzielone dawne znaczenie żony sołtysa.",
+    "reviewed_words": [
+      "sołtyska",
+      "sołtyską"
+    ],
+    "documents": [
+      "136119",
+      "136292",
+      "161105",
+      "187278"
+    ],
+    "evidence": [
+      {
+        "kind": "dictionary_review",
+        "path": "../round2/dictionary-evidence.md"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "sołtyska",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22so%C5%82tyska%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "sołtyską",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22so%C5%82tysk%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "spożytkować",
+    "status": "propose",
+    "article_ids": [
+      258250
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Pieniądze i jedzenie; zwykła forma czasownika.",
+    "reviewed_words": [
+      "spożytkuje"
+    ],
+    "documents": [
+      "136069",
+      "136180",
+      "136298"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "spożytkuje",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22spo%C5%BCytkuje%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "spękać",
+    "status": "hold",
+    "article_ids": [
+      253103
+    ],
+    "scope": "nierozstrzygnięte mapowanie",
+    "meaning_note": "Czytnik pełnej odmiany nie łączy badanego spękany z imiesłowem tego leksemu. Potrzebna odrębna ocena przymiotnika; nie przenosimy dowodu automatycznie na czasownik.",
+    "reviewed_words": [
+      "spękane"
+    ],
+    "documents": [
+      "136029",
+      "136032"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "spękane",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sp%C4%99kane%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "surdut",
+    "status": "propose",
+    "article_ids": [
+      57738
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Dzisiejsza nazwa dawnego stroju: WSJP rozdziela znaczenia, podaje pełną odmianę bez etykiety dawności. Teksty Krajewskiego 2007 i Żukrowskiego 1995, nie data przedmiotu.",
+    "reviewed_words": [],
+    "documents": [
+      "WSJP:NKJP:Krajewski:2007",
+      "WSJP:NKJP:Żukrowski:1995"
+    ],
+    "evidence": [
+      {
+        "kind": "dictionary_review",
+        "path": "../round2/dictionary-evidence.md"
+      },
+      {
+        "kind": "primary_dictionary_or_author",
+        "url": "https://wsjp.pl/haslo/podglad/71964/surdut/5193113/marynarka"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "suwenir",
+    "status": "propose",
+    "article_ids": [
+      57785
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Esej, współczesne podróże i proza historyczna.",
+    "reviewed_words": [
+      "suweniry"
+    ],
+    "documents": [
+      "136039",
+      "136188",
+      "136312"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "suweniry",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22suweniry%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "szacowny",
+    "status": "propose",
+    "article_ids": [
+      147006
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Współczesny komentarz i dialogi; nacechowanie grzecznościowe/ironiczne.; Komentarz o lekarzach, dawne postaci i budowle; nie tylko cytaty.",
+    "reviewed_words": [
+      "szacownemu",
+      "szacownych"
+    ],
+    "documents": [
+      "136009",
+      "136065",
+      "136070",
+      "136156",
+      "136466",
+      "136508"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "szacownemu",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22szacownemu%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "szacownych",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22szacownych%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "szata",
+    "status": "propose",
+    "article_ids": [
+      8367
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Oprawa książki, ubiór i metafora wina.",
+    "reviewed_words": [
+      "szata"
+    ],
+    "documents": [
+      "136029",
+      "136039",
+      "136070"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "szata",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22szata%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "szewron",
+    "status": "propose",
+    "article_ids": [
+      58426
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Współczesne logo samochodu; może być inne znaczenie niż dawne oznaczenie munduru.",
+    "reviewed_words": [
+      "szewronu"
+    ],
+    "documents": [
+      "195374",
+      "196363",
+      "197790"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "szewronu",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22szewronu%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "sztaluga",
+    "status": "propose",
+    "article_ids": [
+      58772
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Stojak malarski; współczesna liczba pojedyncza w różnych tekstach.",
+    "reviewed_words": [
+      "sztaluga",
+      "sztalugę"
+    ],
+    "documents": [
+      "136010",
+      "136094",
+      "136447",
+      "136494"
+    ],
+    "evidence": [
+      {
+        "kind": "dictionary_review",
+        "path": "../round2/dictionary-evidence.md"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "sztaluga",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sztaluga%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "sztalugę",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sztalug%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "sztober",
+    "status": "hold",
+    "article_ids": [
+      58792
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Pierwsze trzy przykłady pochodzą z jednego poradnika.",
+    "reviewed_words": [
+      "sztobrów"
+    ],
+    "documents": [
+      "136096"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "sztobrów",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22sztobr%C3%B3w%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "szuwar",
+    "status": "propose",
+    "article_ids": [
+      58909
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Roślinność nadwodna. Karczewski 2019 oraz przykład Kapuścińskiego w WSJP; nie dawny cytat w KWJP dla szuwarem.",
+    "reviewed_words": [
+      "szuwar"
+    ],
+    "documents": [
+      "136031",
+      "WSJP:NKJP:Kapuściński:2004"
+    ],
+    "evidence": [
+      {
+        "kind": "dictionary_review",
+        "path": "../round2/dictionary-evidence.md"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "szuwar",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22szuwar%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "primary_dictionary_or_author",
+        "url": "https://wsjp.pl/haslo/podglad/72148/szuwar"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "szwaczka",
+    "status": "propose",
+    "article_ids": [
+      6689
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Osoba zawodowo szyjąca.",
+    "reviewed_words": [
+      "szwaczek",
+      "szwaczki"
+    ],
+    "documents": [
+      "136029",
+      "136035",
+      "136070",
+      "136072"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "szwaczek",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22szwaczek%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "szwaczki",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22szwaczki%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "ubezpieczyciel",
+    "status": "propose",
+    "article_ids": [
+      5577
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Ubezpieczenie podróży, firma i rozliczenie świadczenia.",
+    "reviewed_words": [
+      "ubezpieczyciel"
+    ],
+    "documents": [
+      "136051",
+      "136098",
+      "136158"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "ubezpieczyciel",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ubezpieczyciel%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "ubogacić",
+    "status": "propose",
+    "article_ids": [
+      269273
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Żart, dialog o twórczości i komentarz o dziecku; żywe nacechowane użycie.",
+    "reviewed_words": [
+      "ubogaci"
+    ],
+    "documents": [
+      "136142",
+      "136413",
+      "147993"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "ubogaci",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22ubogaci%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "uniwersum",
+    "status": "propose",
+    "article_ids": [
+      61146
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Świat lub spójny zbiór przedstawianych zjawisk.",
+    "reviewed_words": [
+      "uniwersum"
+    ],
+    "documents": [
+      "136036",
+      "136054"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "uniwersum",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22uniwersum%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "upakować",
+    "status": "propose",
+    "article_ids": [
+      257617
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Współczesny opis anatomii; zwykły imiesłów.",
+    "reviewed_words": [
+      "upakowanych"
+    ],
+    "documents": [
+      "136158",
+      "136241"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "upakowanych",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22upakowanych%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "utytułowana",
+    "status": "hold",
+    "article_ids": [
+      79039
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Konteksty imiesłowu nie dowodzą dawnego rzeczownika.",
+    "reviewed_words": [
+      "utytułowane"
+    ],
+    "documents": [
+      "136889",
+      "138339",
+      "141566"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "utytułowane",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22utytu%C5%82owane%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "utytułowany",
+    "status": "hold",
+    "article_ids": [
+      79038
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Konteksty imiesłowu nie dowodzą dawnego rzeczownika.",
+    "reviewed_words": [
+      "utytułowane"
+    ],
+    "documents": [
+      "136889",
+      "138339",
+      "141566"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "utytułowane",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22utytu%C5%82owane%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "utytułować",
+    "status": "propose",
+    "article_ids": [
+      258968
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Opis kobiety bez tytułu w książce historycznej; historyczny temat nie oznacza dawnej gramatyki.; Nagrody filmowe i sportowe oraz dyplomy; odnowione/rozszerzone znaczenia.",
+    "reviewed_words": [
+      "nieutytułowaną",
+      "utytułowane"
+    ],
+    "documents": [
+      "136107",
+      "136889",
+      "138339",
+      "141566"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "nieutytułowaną",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22nieutytu%C5%82owan%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "utytułowane",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22utytu%C5%82owane%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "uzurpacja",
+    "status": "propose",
+    "article_ids": [
+      61401
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Rozważania o przyrodzie i sporze narodowym; rejestr książkowy.",
+    "reviewed_words": [
+      "uzurpację"
+    ],
+    "documents": [
+      "136001",
+      "136007"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "uzurpację",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22uzurpacj%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "warzyć",
+    "status": "propose",
+    "article_ids": [
+      274401
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Piwo, zioła i miód pitny; należy rozdzielić znaczenia gotowania i produkcji napojów.",
+    "reviewed_words": [
+      "warzonych"
+    ],
+    "documents": [
+      "136039",
+      "136466",
+      "136762"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "warzonych",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22warzonych%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "primary_dictionary_or_author",
+        "url": "https://wsjp.pl/haslo/podglad/97671/warzyc/5238423/piwo"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "widomy",
+    "status": "propose",
+    "article_ids": [
+      152330
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Dający się rozpoznać, dostrzec, np. dowód; rejestr książkowy.",
+    "reviewed_words": [
+      "widomy"
+    ],
+    "documents": [
+      "136036",
+      "136108"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "widomy",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22widomy%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "wiekowo",
+    "status": "propose",
+    "article_ids": [
+      171370
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Pod względem wieku.",
+    "reviewed_words": [
+      "wiekowo"
+    ],
+    "documents": [
+      "136031",
+      "136104"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "wiekowo",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wiekowo%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "wojaż",
+    "status": "propose",
+    "article_ids": [
+      4932
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Podróż wojskowa, wyjazd firmowy i opis podróży; żywe użycia książkowe/żartobliwe.",
+    "reviewed_words": [
+      "wojaż"
+    ],
+    "documents": [
+      "136282",
+      "136642",
+      "148048"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "wojaż",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22woja%C5%BC%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "wolontariacki",
+    "status": "propose",
+    "article_ids": [
+      1005298
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Dwa trafienia jednego reportażu o współczesnej Ukrainie.; Kampania i praca społeczna; wyraźne użycia współczesne.",
+    "reviewed_words": [
+      "wolontariacki",
+      "wolontariacką"
+    ],
+    "documents": [
+      "136002",
+      "136033",
+      "136317",
+      "136334"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "wolontariacki",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wolontariacki%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "wolontariacką",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wolontariack%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "wybranka",
+    "status": "propose",
+    "article_ids": [
+      14466
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Wybrana partnerka.",
+    "reviewed_words": [
+      "wybrankę"
+    ],
+    "documents": [
+      "136004",
+      "136070"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "wybrankę",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wybrank%C4%99%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "wyedukować",
+    "status": "propose",
+    "article_ids": [
+      258264
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Współczesne grupy społeczne i pracownicy.",
+    "reviewed_words": [
+      "wyedukowani"
+    ],
+    "documents": [
+      "136033",
+      "136037",
+      "136097"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "wyedukowani",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wyedukowani%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "wynegocjować",
+    "status": "propose",
+    "article_ids": [
+      257540
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Umowa z wydawcą, polityka i bezpieczeństwo; zwykły odsłownik.; Polityka i opis warunków; zwykła forma imiesłowu.; Polityka i zakup urządzenia; zwykły czasownik.",
+    "reviewed_words": [
+      "wynegocjowaniu",
+      "wynegocjowanym",
+      "wynegocjować"
+    ],
+    "documents": [
+      "136008",
+      "136032",
+      "136082",
+      "136098",
+      "136105",
+      "136196",
+      "139728",
+      "147344",
+      "165663"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "wynegocjowaniu",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wynegocjowaniu%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "wynegocjowanym",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wynegocjowanym%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "wynegocjować",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22wynegocjowa%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "primary_dictionary_or_author",
+        "url": "https://wsjp.pl/haslo/podglad/21191/wynegocjowac"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "władny",
+    "status": "propose",
+    "article_ids": [
+      153356
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Uprawnienia instytucji oraz przenośne możliwości poezji/postaci.",
+    "reviewed_words": [
+      "władna"
+    ],
+    "documents": [
+      "136183",
+      "136259",
+      "136265"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "władna",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22w%C5%82adna%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "zafrasować",
+    "status": "hold",
+    "article_ids": [
+      260676
+    ],
+    "scope": "konflikt rejestru i zakresu",
+    "meaning_note": "WSJP także kwalifikuje jako przest. Konteksty zafrasowany nie rozstrzygają pełnej rodziny ani granicy rejestru.",
+    "reviewed_words": [
+      "zafrasowany"
+    ],
+    "documents": [
+      "136055",
+      "136238",
+      "136350"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "zafrasowany",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zafrasowany%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "primary_dictionary_or_author",
+        "url": "https://wsjp.pl/haslo/podglad/88943/zafrasowac"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "zagościć",
+    "status": "propose",
+    "article_ids": [
+      269684
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Pojawić się u kogoś lub w jakimś miejscu, także przenośnie.",
+    "reviewed_words": [
+      "zagoszczą",
+      "zagości",
+      "zagościć",
+      "zagościł",
+      "zagościła",
+      "zagościły"
+    ],
+    "documents": [
+      "136001",
+      "136002",
+      "136050",
+      "136053",
+      "136070",
+      "136103",
+      "136115",
+      "136129",
+      "136144",
+      "136183",
+      "136206",
+      "136255"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "zagoszczą",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zagoszcz%C4%85%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "zagości",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zago%C5%9Bci%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "zagościć",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zago%C5%9Bci%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "zagościł",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zago%C5%9Bci%C5%82%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "zagościła",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zago%C5%9Bci%C5%82a%22%5D&per_page=10&chosen_corpora=balanced"
+      },
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "zagościły",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zago%C5%9Bci%C5%82y%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "zagustować",
+    "status": "propose",
+    "article_ids": [
+      261660
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Współczesna polityka, wspomnienie i dialog.",
+    "reviewed_words": [
+      "zagustował"
+    ],
+    "documents": [
+      "136186",
+      "136258",
+      "136449"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "zagustował",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zagustowa%C5%82%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "zapowiednik",
+    "status": "hold",
+    "article_ids": [
+      64473
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Pierwsze trzy przykłady pochodzą z jednego artykułu.",
+    "reviewed_words": [
+      "zapowiednika"
+    ],
+    "documents": [
+      "142932"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "zapowiednika",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zapowiednika%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "zasadny",
+    "status": "propose",
+    "article_ids": [
+      156357
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Ocena lęku i argumentu; zwykły przymiotnik.",
+    "reviewed_words": [
+      "zasadny"
+    ],
+    "documents": [
+      "136059",
+      "136117",
+      "136132"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "zasadny",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zasadny%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "zaszaleć",
+    "status": "propose",
+    "article_ids": [
+      268329
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Pozwolić sobie na bardziej intensywną zabawę lub działanie.",
+    "reviewed_words": [
+      "zaszaleć"
+    ],
+    "documents": [
+      "136121",
+      "136162"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "context-review.json",
+        "word": "zaszaleć",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zaszale%C4%87%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  },
+  {
+    "lemma_id": "zbój",
+    "status": "propose",
+    "article_ids": [
+      5206
+    ],
+    "scope": "współczesna odmiana potwierdzonego znaczenia, bez dodatkowo dawnych wariantów",
+    "meaning_note": "Opis postaci i metafora zabawki; wyraz ekspresywny.",
+    "reviewed_words": [
+      "zbój"
+    ],
+    "documents": [
+      "136038",
+      "136140"
+    ],
+    "evidence": [
+      {
+        "kind": "kwjp_review",
+        "path": "../round2/live-review.json",
+        "word": "zbój",
+        "url": "https://kwjp.pl/query_corpus/21/?query=%5Borth%3D%22zb%C3%B3j%22%5D&per_page=10&chosen_corpora=balanced"
+      }
+    ],
+    "confidence": "medium",
+    "implementation_approved": false
+  }
+]

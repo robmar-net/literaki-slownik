@@ -1,9 +1,9 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-12T01:18:39Z",
+  "generated": "2026-10-12T06:54:01Z",
   "task": {
     "title": "STANDARD: formy dawne i współczesne użycie (#4)",
     "description": "Research przyczyn odmów, niezależnych miar współczesności i skutków wariantów; komentarz do ticketu; decyzje z właścicielem.",
-    "status": "completed",
+    "status": "awaiting_approval",
     "tags": [
       "research",
       "slownik",
@@ -12,7 +12,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "research",
     "path": "/Users/robmar/Projects/Literaki/literaki-slownik/.maister/tasks/research/2026-10-12-standard-formy-dawne",
-    "current_activity": "Research zakończony; kierunek przyjęty, wdrożenie niezatwierdzone"
+    "current_activity": "Wyniki oceny kandydatów i wpływ na POP do omówienia"
   },
   "characteristics": {
     "research_type": "mixed",
@@ -62,7 +62,20 @@ window.MAISTER_DATA = {
       "round2/sgjp-review.json",
       "round2/dictionary-evidence.md",
       "round2/current-override.json",
-      "round2/validation.json"
+      "round2/validation.json",
+      "round3/family-decisions.json",
+      "round3/candidate-matrix.json",
+      "round3/current-review.json",
+      "round3/context-review.json",
+      "round3/sgjp-manifest.json",
+      "round3/full-tables-manifest.json",
+      "round3/kwjp-manifest.json",
+      "round3/proposal.json",
+      "round3/pop-baseline.json",
+      "round3/pop-impact.json",
+      "round3/sensitivity-pop-impact.json",
+      "round3/dag-control.json",
+      "round3/validation.json"
     ],
     "confidence_level": "high_for_counts_and_counterexamples_medium_for_register_unknown_population_error_rate",
     "gathering_strategy": {
@@ -83,12 +96,10 @@ window.MAISTER_DATA = {
       "synthesize": "completed"
     },
     "publication": {
-      "round": 2,
+      "round": 3,
       "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
-      "status": "published_and_verified",
-      "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6115957580",
-      "report_commit": "7666b28b5e700992c62960c90fdbcd408f71534c",
-      "verified_at": "2026-10-12T01:09:42Z"
+      "status": "prepared",
+      "report_artifact": "outputs/candidate-assessment.md"
     },
     "gate_history": [
       {
@@ -101,7 +112,7 @@ window.MAISTER_DATA = {
         "answered_at": "2026-10-12T00:27:15Z"
       }
     ],
-    "round": 2,
+    "round": 3,
     "publication_history": [
       {
         "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
@@ -109,6 +120,14 @@ window.MAISTER_DATA = {
         "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6115542830",
         "report_commit": "58396d7a967236de9f479250aff8802dbc078f0b",
         "round": 1
+      },
+      {
+        "round": 2,
+        "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
+        "status": "published_and_verified",
+        "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6115957580",
+        "report_commit": "7666b28b5e700992c62960c90fdbcd408f71534c",
+        "verified_at": "2026-10-12T01:09:42Z"
       }
     ],
     "direction_decision": {
@@ -133,6 +152,30 @@ window.MAISTER_DATA = {
       "artifact": "outputs/issue-comment-direction.md",
       "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6116044652",
       "verified_at": "2026-10-12T01:18:39Z"
+    },
+    "completion_history": [
+      {
+        "completed": "2026-10-12T01:18:39Z",
+        "round": 2
+      }
+    ],
+    "candidate_assessment": {
+      "user_request": "ok, idzmy",
+      "steps": {
+        "brief": "completed",
+        "plan": "completed",
+        "gather": "completed",
+        "synthesize": "completed"
+      },
+      "scope": "404 grupy / 3364 formy, 290 zależnych przyjęć, kontrole i pełne rodziny potwierdzonych kandydatów.",
+      "result_counts": {
+        "new_words": 2382,
+        "families_with_additions": 110,
+        "previous_candidates_remaining": 2367,
+        "current_words_reviewed": 290,
+        "unsupported_evidence_words": 12
+      },
+      "recommendation": "Omówić konkretną paczkę i skutki rankingu; cofanie przyjęć rozpatrzyć osobno. Dalsze badanie celowane na wskazaną granicę."
     }
   },
   "phases": [
@@ -202,6 +245,70 @@ window.MAISTER_DATA = {
       "status": "completed"
     },
     {
+      "summary": "Propozycja 2382 form / 110 rodzin: 997 ze starej paczki i 1385 spoza niej. Wszystkie 290 przyjęć sprawdzone; 12 bez zgodnego dowodu w wybranych kontekstach. POP +2372/−2430, POP0 +481. Wyniki gotowe do omówienia.",
+      "decisions": [
+        "Tylko research; paczka i wdrożenie niezatwierdzone.",
+        "Główny scenariusz zachowuje obecne przyjęcia; cofnięcie 12 jest osobną analizą wrażliwości.",
+        "Nie dobrano progu frekwencji; dowód dotyczy znaczenia i właściwej odmiany."
+      ],
+      "risks": [
+        "Jeden badacz; średnia pewność oceny znaczeń i rejestru.",
+        "2367 dawnych kandydatów poza propozycją nie jest zbiorowo odrzucone.",
+        "POP nie rośnie monotonicznie wraz ze STANDARD; ubytki wymagają omówienia.",
+        "Brak zatwierdzonego produkcyjnego mapowania czytnika do snapshotu."
+      ],
+      "artifacts": [
+        {
+          "path": "planning/candidate-assessment-plan.md",
+          "label": "Plan rundy 3"
+        },
+        {
+          "path": "outputs/candidate-assessment.md",
+          "html": "outputs/candidate-assessment.html",
+          "label": "Ocena kandydatów i wpływ"
+        },
+        {
+          "path": "analysis/findings/round3/proposal.json",
+          "label": "2382 formy i zakresy rodzin"
+        },
+        {
+          "path": "analysis/findings/round3/candidate-matrix.json",
+          "label": "404 grupy / 3364 formy"
+        },
+        {
+          "path": "analysis/findings/round3/current-review.json",
+          "label": "Kontrola 290 przyjęć"
+        },
+        {
+          "path": "analysis/findings/round3/pop-impact.json",
+          "label": "Pełna delta POP/POP0"
+        },
+        {
+          "path": "analysis/findings/round3/sensitivity-pop-impact.json",
+          "label": "Wrażliwość na cofnięcie 12"
+        },
+        {
+          "path": "analysis/findings/round3/validation.json",
+          "label": "Walidacja 7192 analiz"
+        }
+      ],
+      "gate": {
+        "question": "Czy przyjmujesz wyniki rundy 3 jako podstawę rozmowy o paczce i skutkach dla POP, czy najpierw pogłębiamy wskazaną grupę?",
+        "choices": [
+          "Przyjąć wyniki do omówienia",
+          "Pogłębić wskazaną grupę"
+        ],
+        "answer": null,
+        "implementation_approved": false
+      },
+      "started": "2026-10-12T01:23:38Z",
+      "completed": null,
+      "id": "candidate_assessment",
+      "name": "Ocena kandydatów i wpływu",
+      "icon_hint": "analysis",
+      "status": "awaiting_approval"
+    },
+    {
       "id": "solution_generation",
       "name": "Brainstorming",
       "status": "skipped",
@@ -215,7 +322,7 @@ window.MAISTER_DATA = {
     }
   ],
   "verification": {
-    "status": "research_completed_direction_accepted_no_implementation",
+    "status": "candidate_assessment_verified_awaiting_discussion",
     "issues": [
       "Nie było dostępnej przeglądarki CUA do wizualnego podglądu HTML; kontrola struktury i odsyłaczy wykonana lokalnie."
     ],

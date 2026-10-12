@@ -149,6 +149,8 @@ Nie wybrano żadnego z badanych progów ani całej paczki 3364 form. Do dalszego
 
 ## Pokrycie i odtwarzanie
 
+**Kontynuacja po uzgodnieniu kierunku:** [runda 3 — ocena kandydatów i pomiar wpływu](candidate-assessment.md). Zawiera propozycję 2382 form, kontrolę wszystkich 290 zależnych przyjęć i pełną symulację POP/POP0. Powyższe rozdziały zachowują wyniki oraz decyzję z rundy 2.
+
 Wszystkie pięć wymaganych kategorii źródeł sprawdzono i rozszerzono: kod; dokumentację; konfigurację/testy; przypięte dane; zewnętrzne źródła pierwotne. [Rejestr źródeł](../planning/sources.md). Nie pozostał niezbadany obowiązkowy tor; częściowa niedostępność stron i wyszukiwań jest opisana w aneksie. Surowe odpowiedzi oraz pełne konteksty pozostają w ignorowanym `tmp/`.
 
 Z katalogu repo uruchamia się skrypty w katalogu zadania `analysis/`: bazowe `measure.py`, `followup.py`, `evidence_probe.py`; następnie `expanded_probe.py`, `control_probe.py`, `kwjp_live_probe.py`, `annotate_round2.py`, `sgjp_review.py`, `validate_round2.py`. Wymagają przypiętych danych i opisanych cache. Probe KWJP odczytuje publiczną wyszukiwarkę, jeżeli cache nie istnieje; jej wyniki mogą się zmienić. Manifest SGJP korzysta z zachowanych odpowiedzi, a dokładne adresy do ponowienia są w JSON. Baza jest otwierana tylko do odczytu.

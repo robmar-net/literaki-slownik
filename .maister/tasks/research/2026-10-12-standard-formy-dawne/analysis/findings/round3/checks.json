@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-10-12T06:54:01Z",
+  "existing_tests": {
+    "command": "python3 -m unittest tests.test_pop.PopRankingTests.test_threshold_never_splits_a_block_of_equal_measure tests.test_pop.PopPruneTests.test_rare_member_pulled_in_by_shared_form_leaves_pop0_but_stays_in_pop_by_own_rank tests.test_pop.PopPruneTests.test_group_without_own_evidence_stays_whole_and_f_is_never_copied",
+    "passed": 3
+  },
+  "json_and_local_links": "passed",
+  "html_structural": "passed",
+  "html_visual": "not_available_previous_browser_probe",
+  "database_and_proposed_analyses": "validation.json",
+  "isolated_dag_control": "dag-control.json"
+}

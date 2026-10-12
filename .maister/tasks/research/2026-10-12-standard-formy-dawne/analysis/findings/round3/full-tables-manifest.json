@@ -1,0 +1,1051 @@
+{
+  "relations": [
+    "imiesłów przymiotnikowy bierny",
+    "imiesłów przymiotnikowy czynny",
+    "odsłownik",
+    "przymiotnik stopnia najwyższego",
+    "przymiotnik stopnia wyższego",
+    "przymiotnik „zanegowany”",
+    "przysłówek stopnia najwyższego",
+    "przysłówek stopnia równego",
+    "przysłówek stopnia wyższego",
+    "przysłówek „zanegowany”"
+  ],
+  "articles": [
+    {
+      "id": 113,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=113&variant=1",
+      "sha256": "4232bca011504894b997369515a727c8a7389caa9510016fc1a7f3f2cf2c6347"
+    },
+    {
+      "id": 1929,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=1929&variant=1",
+      "sha256": "c6f536d1753665d46ca624ae8a363f4f74c0a4bc2767b5125fa84f63cd5a6525"
+    },
+    {
+      "id": 3526,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=3526&variant=1",
+      "sha256": "c0d0badf8ec14de0ec6da4daf1be30d836d78bffefec09f1f92c1be6a9089d15"
+    },
+    {
+      "id": 3971,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=3971&variant=1",
+      "sha256": "69b3f03c6ab9d0cc9457f612e65a8553c8308f397fafd2d6c4a8d797649b033a"
+    },
+    {
+      "id": 3983,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=3983&variant=1",
+      "sha256": "eb97c68ccc3d0141fd0cf6de166ed375b58da47acedef6c097deae4cd060f759"
+    },
+    {
+      "id": 4078,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=4078&variant=1",
+      "sha256": "3deb110dd8fa4e20d70b3aac86efe2e8f1882df009b8ecb4a920e9513d504d06"
+    },
+    {
+      "id": 4416,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=4416&variant=1",
+      "sha256": "c2d2833a35ffbf1d708883c9a070730d2c3670826507f3b80664f7ef92a53ae0"
+    },
+    {
+      "id": 4924,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=4924&variant=1",
+      "sha256": "9ba14e9edd2c07085c733b409d8d9c6a6e636cff1995f4e7bc08fd68daa2ec4c"
+    },
+    {
+      "id": 4932,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=4932&variant=1",
+      "sha256": "3362e6c870a63d2d9292b12ec12b83960997e033dc4b230d973f5074826f0f3f"
+    },
+    {
+      "id": 5206,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=5206&variant=1",
+      "sha256": "0df0e301ef1728ab187d51222819404b82b35bee8fb810b8adc878f2824f1b5e"
+    },
+    {
+      "id": 5237,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=5237&variant=1",
+      "sha256": "2ac074a69e99d79c0b01e2dacf5504e9ef055bd9f2b49802181605f0736cdcc8"
+    },
+    {
+      "id": 5577,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=5577&variant=1",
+      "sha256": "80ea12a771afc713d219787cba2f00c4b9072de9db911c847d42b11b04d5bd86"
+    },
+    {
+      "id": 6560,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=6560&variant=1",
+      "sha256": "8ace96ff6c7fbd091c46a5009ff8e4f281bb92271efdea9a894bc03baf04fe3a"
+    },
+    {
+      "id": 6689,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=6689&variant=1",
+      "sha256": "5f90af067a8ccefcbfe4183db6af9566a3d1df66b281a5130abcfc998c35a806"
+    },
+    {
+      "id": 7539,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=7539&variant=1",
+      "sha256": "36baad04f2a2d10c5b5822a8b722def8dc19a2c842b74a88c1b467e1c76204ed"
+    },
+    {
+      "id": 8168,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=8168&variant=1",
+      "sha256": "9cf90d6cf84b2e7a0fc9741f6f6eaec98b697cc6ace5614e0d5bb775d93ca291"
+    },
+    {
+      "id": 8294,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=8294&variant=1",
+      "sha256": "f18afc98e84dee3fc0c41ea108cd80f0221eaaad6cfa649daa7c472fcdf29679"
+    },
+    {
+      "id": 8367,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=8367&variant=1",
+      "sha256": "60908ea5b4d7d82301d924e3712e59b3e9d89b678faf308b79dd293bac9767a1"
+    },
+    {
+      "id": 9141,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=9141&variant=1",
+      "sha256": "c37f9c5928e96f2c0a0775b828ea3b964dec43717f718cb44ad71c0073ee9958"
+    },
+    {
+      "id": 9147,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=9147&variant=1",
+      "sha256": "50fb0814778cb0f9375d92b413d5ad6bce0ba4c3d585795ab7acf04421816e89"
+    },
+    {
+      "id": 9564,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=9564&variant=1",
+      "sha256": "faa5dd5174be3826afaf12389a1be7565cd8274cd52f1663d54ac89b876b050a"
+    },
+    {
+      "id": 11582,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=11582&variant=1",
+      "sha256": "0d86acded6e535f48ad97c96f561259fd4a443aa43588e5e30aaf6380a4bf880"
+    },
+    {
+      "id": 14466,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=14466&variant=1",
+      "sha256": "0d01b860d45c19b9ddad4fb0fd879d8e24d16b60cc3cdeeb024078c47a2c3e50"
+    },
+    {
+      "id": 17069,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=17069&variant=1",
+      "sha256": "974943411b173275f0b28d24ec5ac1e1c5a9ea2233c10219d86f88f06f1b6db5"
+    },
+    {
+      "id": 17228,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=17228&variant=1",
+      "sha256": "36051b90b32d6dbffa8bb9b394256206f04605fbd755e43e7f9718a98bc91323"
+    },
+    {
+      "id": 17241,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=17241&variant=1",
+      "sha256": "210e77af21f8b35e78caefb6b77222e16ce271cc89726dbe1f484e48c7c4bbc5"
+    },
+    {
+      "id": 18022,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=18022&variant=1",
+      "sha256": "bd7517b5f910924188306005e8f23bcd3efae0cf1b8bed095c0c8151b296dab7"
+    },
+    {
+      "id": 25326,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=25326&variant=1",
+      "sha256": "ee7888a336370af22882623ce5de982a60b862eca0529eb08d626329ea53579f"
+    },
+    {
+      "id": 27040,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=27040&variant=1",
+      "sha256": "b8261d174228ca7b738d0a5ed18152295587132306813cef4488604d00a22d49"
+    },
+    {
+      "id": 27210,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=27210&variant=1",
+      "sha256": "301a400acc9b61b8ad45b223ed76415da4ec0da0d637d636e6c8dbfe3a9c07d4"
+    },
+    {
+      "id": 27466,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=27466&variant=1",
+      "sha256": "3ba57a46c8789fcbd34ef8f03acab1bccabcd9c2cd6b9a87ab874b32eb76d878"
+    },
+    {
+      "id": 27512,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=27512&variant=1",
+      "sha256": "ef8143e698c70f293a59672b7c1d6d85f4e776497b6b9d36b95a86cc4d45746e"
+    },
+    {
+      "id": 28161,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=28161&variant=1",
+      "sha256": "7f2e3cdcc856c91c0384a04b3779fd6cb5c969dee9b7acd96733697e55830060"
+    },
+    {
+      "id": 28948,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=28948&variant=1",
+      "sha256": "40d91902dff2cfba5ce786a4ce02b6d1569010d652476da38be26c1944710704"
+    },
+    {
+      "id": 28995,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=28995&variant=1",
+      "sha256": "7e08c1bdf4f16ba6700e040692b0414670e6705fcc1d35ac5bb51bfae6969d15"
+    },
+    {
+      "id": 29541,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=29541&variant=1",
+      "sha256": "275ae61637b477c1ffc07130d81293b0358ce9ac17c974d1a40e399eb7e18c08"
+    },
+    {
+      "id": 29801,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=29801&variant=1",
+      "sha256": "33f51ea178d0f88f77b67eeb1a43c4017be1a009a0a78e88fe8f5a181ecaa58c"
+    },
+    {
+      "id": 29832,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=29832&variant=1",
+      "sha256": "49fd152257e9eb5729a9dbbff11cdf2cba396d71e9320a33248a3d07f3b19781"
+    },
+    {
+      "id": 30581,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=30581&variant=1",
+      "sha256": "e3186fd411a7ecb6a529623b759c98fce0e0653dfcab28e306089877c38a3e81"
+    },
+    {
+      "id": 31212,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=31212&variant=1",
+      "sha256": "114650d5317dd6d16c668ea7df010cbf5845d77ee66bb7cc5e43f9ea27cf07e0"
+    },
+    {
+      "id": 31252,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=31252&variant=1",
+      "sha256": "ea28d0493a72cb553a587bf8d9147735335e4417f451dd87f379c3968ca003fb"
+    },
+    {
+      "id": 32864,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=32864&variant=1",
+      "sha256": "08363edae571f72d8e003b2d62f29e218d714907bff3fc821dbde325ab892a60"
+    },
+    {
+      "id": 33468,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=33468&variant=1",
+      "sha256": "d1227af8a5320f2db69d323aa7b696fffdbd6ba44aeeecf03f1ecc767663a906"
+    },
+    {
+      "id": 34142,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=34142&variant=1",
+      "sha256": "397f7484c902c9560ce19d31154c4fa72467edc2fd8847417fc48b4b3ac8111c"
+    },
+    {
+      "id": 34481,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=34481&variant=1",
+      "sha256": "0741d46f424a6a4eae050f2cf78ec7c4233438379e7c057efca61f494de12b79"
+    },
+    {
+      "id": 36986,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=36986&variant=1",
+      "sha256": "4c54a11392214deb7195dab089213afac0a4f5f6ef89ecd520cdc4a765c21408"
+    },
+    {
+      "id": 37234,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=37234&variant=1",
+      "sha256": "7c411a472f629cedcf8e73089dbac752768396292c4dabeb9a0a75540ffca028"
+    },
+    {
+      "id": 37329,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=37329&variant=1",
+      "sha256": "dbf92e0703bed2de027c91dec2ee8a421000a571d367189143ad76a4c2201b9d"
+    },
+    {
+      "id": 37369,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=37369&variant=1",
+      "sha256": "a96287e64401a9eef776b810cf92c8d480b46e6c84a510569642f54ac5e121e7"
+    },
+    {
+      "id": 43438,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=43438&variant=1",
+      "sha256": "1050936ee9b6e459a6ee646006b1a0015e5706d60dec0de2280ab92ba3012973"
+    },
+    {
+      "id": 45303,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=45303&variant=1",
+      "sha256": "a9bdc28a5aec0e4a38695f9e770c6bf96bed2de185ab20ddd480cdd862537a14"
+    },
+    {
+      "id": 45399,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=45399&variant=1",
+      "sha256": "82a51935c8e63352d2e8f15f5eca7e76d517c2c6250510d70f769ba25efe4847"
+    },
+    {
+      "id": 48999,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=48999&variant=1",
+      "sha256": "589cbf4b81e03eb604e8a29970863e1b60fb875490cb23cfc8950d332faba917"
+    },
+    {
+      "id": 50576,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=50576&variant=1",
+      "sha256": "1af8983b51a3b32e741d9e2375a59e52b82483b7f730d0b2dcb8317482e171be"
+    },
+    {
+      "id": 50855,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=50855&variant=1",
+      "sha256": "76595d3b78d1fb2c6651604a7c91956410753b2ffed0515dd2f44e840d7bd35b"
+    },
+    {
+      "id": 50937,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=50937&variant=1",
+      "sha256": "75c5a0379d70ec0ca4f93846ec0cf0d0d7a49a335b36593100d5aee59efd6a22"
+    },
+    {
+      "id": 50988,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=50988&variant=1",
+      "sha256": "4b4f1e690ff6a29c5e67c57b878dda22a14440454e722c54c55306ab873c645b"
+    },
+    {
+      "id": 51828,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=51828&variant=1",
+      "sha256": "4e3b862dce2e3ac91448f28ee411eb7a1ce6e07ad936d79137cf71ae2dee8ba9"
+    },
+    {
+      "id": 51852,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=51852&variant=1",
+      "sha256": "ed8d6306b8682cb9c0c62bb900e63c25255bb653e9e90a1349bfdff924498bef"
+    },
+    {
+      "id": 53385,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=53385&variant=1",
+      "sha256": "fe99d27de58c4da4243747b2413589a27c928da73f1a24f6aa3863f5fa44d588"
+    },
+    {
+      "id": 53594,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=53594&variant=1",
+      "sha256": "80f63f120d908714550d14b5e8e0427b7e90db4ba878bfee44dc096c888b5127"
+    },
+    {
+      "id": 55683,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=55683&variant=1",
+      "sha256": "6dab5b49b04ba9ec889820dfb89844e31e94c17132b25ee17394cab7b4770fba"
+    },
+    {
+      "id": 55905,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=55905&variant=1",
+      "sha256": "db440740583ea54e7fb31a75f735e8cedb92fc59b7f17425084fbea97f9acb19"
+    },
+    {
+      "id": 56579,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=56579&variant=1",
+      "sha256": "26fe21542ddbf13d14cca7d605915dd59933fad34e4b5cc5de4a0b5db52f23fd"
+    },
+    {
+      "id": 57738,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=57738&variant=1",
+      "sha256": "f3c63df9887322f60414daefa05888e60c9e6c71fdbdf800d6e403ba4d7886a6"
+    },
+    {
+      "id": 57785,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=57785&variant=1",
+      "sha256": "ae423678c7a4a524df31b1a87d52dc2bdd11a9dae52a8d2ef181b70162dc5b42"
+    },
+    {
+      "id": 58426,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=58426&variant=1",
+      "sha256": "563fd272c47db6c5c296ba90faa576c7f14fdfcbb53e6c8b9d42ff2eb294e5c8"
+    },
+    {
+      "id": 58772,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=58772&variant=1",
+      "sha256": "69100a823a738c80910618fab6e3427bbf1cf191b5980f936cca98c56e7b93f7"
+    },
+    {
+      "id": 58909,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=58909&variant=1",
+      "sha256": "82226d9c74fcf25d831cf9841a596db96012c985f40f1ca3a24280c96b153dfd"
+    },
+    {
+      "id": 61146,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=61146&variant=1",
+      "sha256": "7c24888139b20f946228858462b62770d6028b6fe3093956dc08c27f12677b37"
+    },
+    {
+      "id": 61401,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=61401&variant=1",
+      "sha256": "17f95d38bc620a256a6f31584320040fdbe9cab5c922cbfca7577649344b0c68"
+    },
+    {
+      "id": 90123,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=90123&variant=1",
+      "sha256": "898fdb5a750b037315fa16da4b1a3d1e07ca0aedb9baa049bfaabedf0740edf6"
+    },
+    {
+      "id": 97053,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=97053&variant=1",
+      "sha256": "dc0a716d4413b35fb368b0a677df86ac54752b9958c6aea70368117088bacf18"
+    },
+    {
+      "id": 104456,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=104456&variant=1",
+      "sha256": "ac9b943bf5ffb6c039a68c67b86ecd1c04ae63b77da5f4be83efbe459105bdd7"
+    },
+    {
+      "id": 107683,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=107683&variant=1",
+      "sha256": "2eab8a8e9d0ccda227e83e6d00e79edfcdb75f26efb4b0a730ea7272dfe2ae46"
+    },
+    {
+      "id": 108785,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=108785&variant=1",
+      "sha256": "67ae10f594ae7fde1e9af82a2c8192e20be35a5426c57b8fdc73fcba3f97e79d"
+    },
+    {
+      "id": 111758,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=111758&variant=1",
+      "sha256": "de237e978a040bdd87302cbd16d50b565f645242489cd121d6fa50e918f8f620"
+    },
+    {
+      "id": 111981,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=111981&variant=1",
+      "sha256": "a727f759a4e3845eb0a514b7771f7c67d3aaba650ba64cdd0d69e7ba2912da38"
+    },
+    {
+      "id": 121345,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=121345&variant=1",
+      "sha256": "19276ffcb2f2dc31fa0fe3030d89e257458bba66e4792b2026d23002e48c8422"
+    },
+    {
+      "id": 128193,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=128193&variant=1",
+      "sha256": "f7457fbd4c95660f49caa16c683b1a436aedd9e95feb2c0b1b671a58969f5f85"
+    },
+    {
+      "id": 133209,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=133209&variant=1",
+      "sha256": "1025cdaac60bd29379d8e44d121b39029b08a01e82d5eee9972a81c91d744cfe"
+    },
+    {
+      "id": 144385,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=144385&variant=1",
+      "sha256": "90778af5c95801ad91ee73208346f3ba028fb4808d96f9e1399c05fca9920214"
+    },
+    {
+      "id": 147006,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=147006&variant=1",
+      "sha256": "f72f67b5a485d32fbe2dcf42af7a049d4754438fd9dc67f899a248e1e7fe1d6d"
+    },
+    {
+      "id": 152330,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=152330&variant=1",
+      "sha256": "69bce8253a2e8e000bbffc80da599923ea5e5da0ec5f3c3bafaaa713fa735683"
+    },
+    {
+      "id": 153356,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=153356&variant=1",
+      "sha256": "d128ebebe51044317014fcd884de6be845b3a4fd29c6a2ebcb73bccf1f3fa815"
+    },
+    {
+      "id": 156357,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=156357&variant=1",
+      "sha256": "c8ee206c64ed067d7c96309155f9b0308d2b7e5b1cb8b3df118ed9b0e573c800"
+    },
+    {
+      "id": 159282,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=159282&variant=1",
+      "sha256": "d3abae05b7effa10728097aa6b3aa877154b125d009f457909657514b0be936d"
+    },
+    {
+      "id": 159336,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=159336&variant=1",
+      "sha256": "18cf42e79a1862f83e9d9d210a3e99ae6b2c10f658e4f0399387344b7e6ce715"
+    },
+    {
+      "id": 159536,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=159536&variant=1",
+      "sha256": "22228cc6ed4bea580a374b560e51c62e8c2695ffda6ad5f399e512765b6acf8f"
+    },
+    {
+      "id": 162260,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=162260&variant=1",
+      "sha256": "6c99b7fbc1d437d0f283560c285620ddd718efc1905d957014c2417df3830759"
+    },
+    {
+      "id": 162470,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=162470&variant=1",
+      "sha256": "8d9403bb530e710db42f256f7bc3f329a5974fca784e508df4dfd639d78bb3d2"
+    },
+    {
+      "id": 164976,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=164976&variant=1",
+      "sha256": "75089216f533d6245d03ad95ee84611b8fd93d3d379c6062cee4475f1b5313e3"
+    },
+    {
+      "id": 165201,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=165201&variant=1",
+      "sha256": "8781fe7e5277b844971ead1ca378c1cea2950391325e3ef99723a7031a81ff00"
+    },
+    {
+      "id": 166650,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=166650&variant=1",
+      "sha256": "ad409fa2522df945d14382c6bca2e98ecebb953f3c87168ef4d9708b1a7e1abc"
+    },
+    {
+      "id": 169713,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=169713&variant=1",
+      "sha256": "29d254a163350a75948a1d92198f08e962d0fb930660c1a0820d52d847513da0"
+    },
+    {
+      "id": 170279,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=170279&variant=1",
+      "sha256": "fc22e20297af8bd069462b095da030bfc1eae4a28ac98299c1df796c0a10fad0"
+    },
+    {
+      "id": 171353,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=171353&variant=1",
+      "sha256": "27cd72b16e59af3d0cea3fc70903e382b20b3fd0929002a92f7aa52a9b3ea647"
+    },
+    {
+      "id": 171370,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=171370&variant=1",
+      "sha256": "b672e1183404d27326d380e875558dfb57d94726b799837bd0d0657abcabd520"
+    },
+    {
+      "id": 171524,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=171524&variant=1",
+      "sha256": "d1c90eab6277d96a50ae81f238a58bcc0c95fc1a063b3f3da6e24b2d76cf16f7"
+    },
+    {
+      "id": 172065,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=172065&variant=1",
+      "sha256": "cd5ce398f6c0a2346ad668a1130c02a23f2e91cba353378032c4030c322def05"
+    },
+    {
+      "id": 173321,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=173321&variant=1",
+      "sha256": "6ca362bcb00d65792e2f73b0c3b4040583014b54d3ec0e760877dedb379bfe74"
+    },
+    {
+      "id": 173502,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=173502&variant=1",
+      "sha256": "a6d30cc60b33d6502e922917becb659d1831c5f61ceaa399a78074cce7cf9337"
+    },
+    {
+      "id": 173601,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=173601&variant=1",
+      "sha256": "d7244e84792e9323fba78b626efeff188946ef4a3cb76f45a287ec3184df8f31"
+    },
+    {
+      "id": 177051,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=177051&variant=1",
+      "sha256": "de549bc79e8809497a7b1f083f50aed355b1670c751787c11beba1d244768698"
+    },
+    {
+      "id": 184424,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=184424&variant=1",
+      "sha256": "d1e400800af8daeab74cfbbd4afe3f98a05e92638bb2d75e028c3f9dcc9c44ab"
+    },
+    {
+      "id": 187644,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=187644&variant=1",
+      "sha256": "ab586bcbb26d771e871e7d6d8dff5bbdd126de1feb08c4cb8ef9715a3580fbbf"
+    },
+    {
+      "id": 188741,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=188741&variant=1",
+      "sha256": "63a6e48e0e9024433bf739da949a35cc4503d4d68625074cc813df46a20953dc"
+    },
+    {
+      "id": 191712,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=191712&variant=1",
+      "sha256": "aea23f8653e815fab7b4247bed48de6adf1249225cd0e4bb4c6ac90e3b399210"
+    },
+    {
+      "id": 191934,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=191934&variant=1",
+      "sha256": "b6b2fc510af0970126710ebe2317919cc3a8512507722c139c7dbaf7ac79f614"
+    },
+    {
+      "id": 201272,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=201272&variant=1",
+      "sha256": "a388ed38930cd163c4d6cc1e6b2f1acb6fccdc36494fb8a89d181c134824c96c"
+    },
+    {
+      "id": 207078,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=207078&variant=1",
+      "sha256": "c9464bcf2528ef8e8faceebb779980c376b236c7b0adf9e7670d4e980a900533"
+    },
+    {
+      "id": 212076,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=212076&variant=1",
+      "sha256": "f7d7786fe9ce1928daeb77fecc3092ccfb8cd6561079fd792d0077ab621b2bdf"
+    },
+    {
+      "id": 223224,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=223224&variant=1",
+      "sha256": "73d1c1fe52f3c1a2aa2c967560c0549231f6646668f490ad49e93bfac7bbaeb2"
+    },
+    {
+      "id": 225835,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=225835&variant=1",
+      "sha256": "65fd173bdde4f41615812ea25b89f560efd3ecfe033feaac79e93f97c6a043d0"
+    },
+    {
+      "id": 232164,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=232164&variant=1",
+      "sha256": "28f9e8ad487c6dc45db661eaba0bd5e5492573fbf04a73ddcb6838b2cd2fd0d1"
+    },
+    {
+      "id": 235155,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=235155&variant=1",
+      "sha256": "33c36db59ccaf920f876350b6659331ecd11ed0fba4d23377af7bc5c15fc7275"
+    },
+    {
+      "id": 239976,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=239976&variant=1",
+      "sha256": "4c2f1cb074d0f063ea48b73be54fa66f8784a410143e9293f243923b9f9fe188"
+    },
+    {
+      "id": 240186,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=240186&variant=1",
+      "sha256": "8d63fe3d0478e1f9d3c3606feaa840ece6481906e1c44db64dda923789fe94aa"
+    },
+    {
+      "id": 242691,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=242691&variant=1",
+      "sha256": "e30625b9578a17e37094d4fc613d275bf28cab99aef014e6cab2a019e9b43f05"
+    },
+    {
+      "id": 242916,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=242916&variant=1",
+      "sha256": "57accd16be4039c9e53fe21c9eb6bdae7e129d1d3e3e88dd71ada393888ee8e3"
+    },
+    {
+      "id": 244102,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=244102&variant=1",
+      "sha256": "ea564294c9dbd4735f99cd89728bb1d1685e4150bd54cc7ce48d480f4f59543c"
+    },
+    {
+      "id": 247156,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=247156&variant=1",
+      "sha256": "5529e3047d7de38fcae544a2d39ef9d57579f2a1a58e87deb9f428fd1c34ec5f"
+    },
+    {
+      "id": 247720,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=247720&variant=1",
+      "sha256": "fdf86f70dcafb546574ea5109c68be612a8f1cb16c84a9de09fd94946f188233"
+    },
+    {
+      "id": 248808,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=248808&variant=1",
+      "sha256": "383dce6f8fc031f48b0779f0135a743163fda12ce43a59729cc35aab4c6486e2"
+    },
+    {
+      "id": 248962,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=248962&variant=1",
+      "sha256": "afe55e32e01530c8ce2943096847eecc525d28117cb0534c5d6f2383c1bba952"
+    },
+    {
+      "id": 249502,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=249502&variant=1",
+      "sha256": "3115d82f9492002debfbf2aaa6e8e50fd5f04fca52d318cd7aee4c73dbbf9442"
+    },
+    {
+      "id": 250633,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=250633&variant=1",
+      "sha256": "a7849e273a04b4b9b8488010dc5dc92d1658f8ef3b95be4ed2ec4317346b34d6"
+    },
+    {
+      "id": 252639,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=252639&variant=1",
+      "sha256": "28188c608209f93c6aa2e1be29f1561b151961726d664dc864e9728116b2fb67"
+    },
+    {
+      "id": 256075,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=256075&variant=1",
+      "sha256": "d9cdd6708658bba9dcb5105b92cde0a60d5b57dc0a521f6ed464023c810e7980"
+    },
+    {
+      "id": 257097,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=257097&variant=1",
+      "sha256": "cc4a42b37da740aeb49855a8cac1078d1da2238ec06e123c1d53d5ad34e00e01"
+    },
+    {
+      "id": 257266,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=257266&variant=1",
+      "sha256": "eb619de64bff10ae40287c44e8934d675e5a8a4f2d426bc058304755c0c95246"
+    },
+    {
+      "id": 257540,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=257540&variant=1",
+      "sha256": "c28cc31ee73033537c6124883c270ed20e6ae8643c405bb2431a04518d4f5919"
+    },
+    {
+      "id": 257617,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=257617&variant=1",
+      "sha256": "be596ea4845ffc409d0f90120cc10c0beca7b1e0a0a3b09b0ce73a75d6248a02"
+    },
+    {
+      "id": 258250,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=258250&variant=1",
+      "sha256": "d955e6f763d06c4a1a778028c72d927b866c122cd9498a3b9be0d249b3bda052"
+    },
+    {
+      "id": 258258,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=258258&variant=1",
+      "sha256": "90d169998989db7c91bae009e99b1d49ac0691f6f40edb519f47c17229e8059e"
+    },
+    {
+      "id": 258264,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=258264&variant=1",
+      "sha256": "d894874aff07b66d8b5bc91039be8b5de5e90e24b7877e100ad260a2b063c6fe"
+    },
+    {
+      "id": 258968,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=258968&variant=1",
+      "sha256": "04ca4a44622a93b02fac6a37b410b5f99260d9b38d72ff23f962726de8d4a9af"
+    },
+    {
+      "id": 259361,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=259361&variant=1",
+      "sha256": "5cf7ce59c76002e30ddd4847fb8f1b8b2af01d115201c7fd3de04a955978b66b"
+    },
+    {
+      "id": 260014,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=260014&variant=1",
+      "sha256": "b14454834cd205f83a18ce345b31c3dc5633ba3c3f0d2f957db9ced54f13da77"
+    },
+    {
+      "id": 260027,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=260027&variant=1",
+      "sha256": "9879ad02d2d77b35a5a7d968662134d6520804e2c29732ad567f1da2a783a789"
+    },
+    {
+      "id": 261660,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=261660&variant=1",
+      "sha256": "0ea117d35fb5fd6fad08842a7cc6f02a521eeb8639696305b149115caa18ad33"
+    },
+    {
+      "id": 262220,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=262220&variant=1",
+      "sha256": "2a210620d78ac7fe2a0977e37612aec0ad76a5da518e057c08f3ec7089769ded"
+    },
+    {
+      "id": 263299,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=263299&variant=1",
+      "sha256": "39879f5ab88c17daa640904fd6a09d3c8d0c311178ca545abacb01b93104e406"
+    },
+    {
+      "id": 268329,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=268329&variant=1",
+      "sha256": "0d92c2a9ef0024b97d7a7261ab6bf7a7bc2a138c557b4813429645f859725a9f"
+    },
+    {
+      "id": 268792,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=268792&variant=1",
+      "sha256": "ec5dd18eaaf479446b4521f2dfba0a4df8cd1da74e0c9a31ffcdb57325f984cb"
+    },
+    {
+      "id": 269273,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=269273&variant=1",
+      "sha256": "5848e9f8fc06b765231ab62ebca9c182afee94c57580d1db7ba7a2c54989b606"
+    },
+    {
+      "id": 269684,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=269684&variant=1",
+      "sha256": "c9ae3a60a8cd6c273483f7f243953acb0248b60557a4fb0619eb581bb62af72c"
+    },
+    {
+      "id": 271610,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=271610&variant=1",
+      "sha256": "cec9ea3cdcad62b192bb9f8da6d48e73e4ba09865266333274a6631526337342"
+    },
+    {
+      "id": 274401,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=274401&variant=1",
+      "sha256": "cfcb3db7c353bc178ee8b111c2a51d3c84fdf09e4a8f5a510d1f90c4a709f555"
+    },
+    {
+      "id": 301621,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=301621&variant=1",
+      "sha256": "def2bf35d1d66bf6165ae37eaaacf6b3f21749d83d374d94e03592d81c30455d"
+    },
+    {
+      "id": 301622,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=301622&variant=1",
+      "sha256": "482e6d49472d387100ed5d4a34888976a30284af70c98e1011949e4b1c8718a1"
+    },
+    {
+      "id": 301623,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=301623&variant=1",
+      "sha256": "51ceed24c2ea9acbce6b63131adbf9c24309e85b9fb8dcd247ce6ff1e8080260"
+    },
+    {
+      "id": 306649,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=306649&variant=1",
+      "sha256": "28608b3fdd078240f70842ee219a638f8746fc777d7cc94cc0788b64e7499a72"
+    },
+    {
+      "id": 306650,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=306650&variant=1",
+      "sha256": "b4d668a6324e2401cb4567cc1fa5e7853eac673534dd02643f00a885b6c0078f"
+    },
+    {
+      "id": 314479,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=314479&variant=1",
+      "sha256": "b47cb94c2d20ca231cc6f28b21a016d3ff3f60b396b2bc4e3f61d167c2cb0f14"
+    },
+    {
+      "id": 314480,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=314480&variant=1",
+      "sha256": "013abcd0a82cd39b8564089bcc3dee43dec80d1ec12501fab53129db8aebb81f"
+    },
+    {
+      "id": 314481,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=314481&variant=1",
+      "sha256": "5281bccc7b4b6dba4581e11886c97603f54cceebd98700119f08709fa3f0fd3c"
+    },
+    {
+      "id": 316887,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=316887&variant=1",
+      "sha256": "14327bc215a2f66eafe96f7b39106503f6f09361cb568d48c3180c6c912e0b93"
+    },
+    {
+      "id": 316888,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=316888&variant=1",
+      "sha256": "884a8b0b6d68c9bd9bd38593a6d983f7b869b11315c78075b64d718c46e41af4"
+    },
+    {
+      "id": 317269,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=317269&variant=1",
+      "sha256": "7760298a511bc8b013b83d736565a286f68be794afbc611a53727961d65c35ab"
+    },
+    {
+      "id": 317270,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=317270&variant=1",
+      "sha256": "f931776d4bbd28a1f7e010b3ff14dddaf41af07f355975b30522dbbc631d3ee2"
+    },
+    {
+      "id": 317271,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=317271&variant=1",
+      "sha256": "ce3726d3380ddf0524296599324b5f9c01c7faa22978df39125d60823bbd7735"
+    },
+    {
+      "id": 317920,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=317920&variant=1",
+      "sha256": "593c44761555473ac9fb2f6052b3450db510d10521e0747881454a1c8df118c2"
+    },
+    {
+      "id": 317921,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=317921&variant=1",
+      "sha256": "b4a190fdbdc3bbce308042debf4c02c26a3a89d57aa6dbeef653ab2c5444f348"
+    },
+    {
+      "id": 318094,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=318094&variant=1",
+      "sha256": "3364bcb82adb71a00a0ca24b26a2c72478e88c7c877a52a44f30e018f09a46fc"
+    },
+    {
+      "id": 318095,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=318095&variant=1",
+      "sha256": "9d191123813a25e8a8f72f3a63933ad19a7f458506ee88bd37d1953dd3cfd77c"
+    },
+    {
+      "id": 319541,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=319541&variant=1",
+      "sha256": "8649e8cca4c3f1f568d98532e4f5bd785df93bdf49f255a19b6b86f74a705b20"
+    },
+    {
+      "id": 319542,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=319542&variant=1",
+      "sha256": "fc967a9121c0f42a74a81a31d94138c0ea04df5d03c460a63fda53f6c179d3b0"
+    },
+    {
+      "id": 319557,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=319557&variant=1",
+      "sha256": "ed2c8f510540f540c277403db6759f34d8bd66868c41e90f97e49aad45aaae18"
+    },
+    {
+      "id": 319558,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=319558&variant=1",
+      "sha256": "0680ad678328b8b44e93bb649f7338c9f576dfab38fea4d6857a043d8ecae49f"
+    },
+    {
+      "id": 319559,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=319559&variant=1",
+      "sha256": "f7f0f9e0f4039a609646385edb85ec35203531cc6fe8ec2cc8d4079046a938b6"
+    },
+    {
+      "id": 319573,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=319573&variant=1",
+      "sha256": "b62bdc52de0ea978f7c3f06205a1db9926275bb52ecaf90547116e539a0a8fec"
+    },
+    {
+      "id": 319574,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=319574&variant=1",
+      "sha256": "bf1f2b2cd8f0f7df5a631ef57cbcdc6ea8f1c108da39b21953b317052735f89d"
+    },
+    {
+      "id": 321172,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=321172&variant=1",
+      "sha256": "5efd4a2bde36318a56d37753501dcb78a9255167ffb2beebd90ce996107c452f"
+    },
+    {
+      "id": 321173,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=321173&variant=1",
+      "sha256": "77f49ddb2accb1ea9ccbceecbed93d3d41298fda9a7ac22e192a38f6096c0ce0"
+    },
+    {
+      "id": 322113,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=322113&variant=1",
+      "sha256": "39361becc6bb933bbf7cc0a5dd3c2d96d516b793530bcff3da062da5800424b2"
+    },
+    {
+      "id": 322114,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=322114&variant=1",
+      "sha256": "c4771da2664a8678f5c5bff69bbc28fb2c988fd57bbc567a2e3bc0e3d2dc57d0"
+    },
+    {
+      "id": 322115,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=322115&variant=1",
+      "sha256": "66dc82d72c82be9901ef524ca0d96962108126287198b67a3f5c8a51611523df"
+    },
+    {
+      "id": 323604,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=323604&variant=1",
+      "sha256": "0582da06ed9f081e613780a85fe92b837e05cc205b7c4011f35d67336f3f2d8c"
+    },
+    {
+      "id": 323605,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=323605&variant=1",
+      "sha256": "602a1a16d1a79258e362234a09bd6c3b1906270bfe6c8572f8be3da52332b8e0"
+    },
+    {
+      "id": 323606,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=323606&variant=1",
+      "sha256": "2a619f012b5bca5f773622eaf985140017a941a772a07d17bb60b972d1f1a6ea"
+    },
+    {
+      "id": 323637,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=323637&variant=1",
+      "sha256": "683716bcd59c162d217cf2136f138b5cdcbf549d18b8eafb2c74cf288c609f6f"
+    },
+    {
+      "id": 323638,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=323638&variant=1",
+      "sha256": "c5504a0e1cf9b0e5dbfafb0efc26319056ad999b3f64ba2bb973cea9078aca76"
+    },
+    {
+      "id": 323639,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=323639&variant=1",
+      "sha256": "354e31b00de62fc795cfb42a28f3e19715598c7c56978776f0ecc63143ac09a8"
+    },
+    {
+      "id": 327363,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=327363&variant=1",
+      "sha256": "9bb0a12e2ae6acb9efabc6f2a6933a123838404d0cac09cf66d147c7196dade5"
+    },
+    {
+      "id": 328715,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=328715&variant=1",
+      "sha256": "f248e3282df94fb13502c05ef52bc53f11ec7df6db9c48c5ed6279d8fc37ace7"
+    },
+    {
+      "id": 328716,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=328716&variant=1",
+      "sha256": "069adb800775134d949dd94b4491fd9d71d3d87b4ec5bb72cdccfeebf1d279d2"
+    },
+    {
+      "id": 328717,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=328717&variant=1",
+      "sha256": "db3e97304741d59d9eee1d01f0d7ed3174085d3d67e37a0857d4e0958ebe4cf0"
+    },
+    {
+      "id": 331382,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=331382&variant=1",
+      "sha256": "96b1958a1bff2dc4aa335ef9260a58c5fb85d83a95dba7abc55c5368fcf6ed5c"
+    },
+    {
+      "id": 331383,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=331383&variant=1",
+      "sha256": "0e488a6331864073279071efaa125db254c524dc47b9b7f5cf4c7e716c0addbd"
+    },
+    {
+      "id": 331384,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=331384&variant=1",
+      "sha256": "91e5a6f21f52f38f0caba8b552ef54c6731102bce3fcf6c54bc9e4d581e519ad"
+    },
+    {
+      "id": 343991,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=343991&variant=1",
+      "sha256": "618f97e8a6d06c3e594e25093b78ac39c667311fb3b87bb890d6a3f57695b879"
+    },
+    {
+      "id": 344994,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=344994&variant=1",
+      "sha256": "53eb5df799f75e6637f2e1dc5c8d18eb0502ed2878fbf22568532ed0dbcf2f39"
+    },
+    {
+      "id": 346011,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=346011&variant=1",
+      "sha256": "c1426b6735db460c9cacc715e6f64e66e435cb123fa7247868b35c7095acd8e9"
+    },
+    {
+      "id": 346012,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=346012&variant=1",
+      "sha256": "a61f4a6abbb59ded6aca95edfc1de3679216b9f2f7bc554187feef75ebadd792"
+    },
+    {
+      "id": 346864,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=346864&variant=1",
+      "sha256": "1963cb143f9859afe8806d74c0fc2349a465d28920f3e8f3b7106919888f7baf"
+    },
+    {
+      "id": 350784,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=350784&variant=1",
+      "sha256": "c844c470dd814751e090a4f7d7c23c0f2a9e1c9b92ddf276f59ae5c13c310fce"
+    },
+    {
+      "id": 350785,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=350785&variant=1",
+      "sha256": "d2879dd9809c3c54841c073072f008a34cbc275601ccbfb205f05cfd41d86814"
+    },
+    {
+      "id": 350786,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=350786&variant=1",
+      "sha256": "58a8998afb37e45fcd3098107e1892ee01f3b95897a780ef0c41366a801ba5d0"
+    },
+    {
+      "id": 356501,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=356501&variant=1",
+      "sha256": "c681bb6cedc24fd0f56c140c39918a41c2e77a62f1b5ddf0559b1d842fc554b3"
+    },
+    {
+      "id": 356502,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=356502&variant=1",
+      "sha256": "647e11deabc3764ee81afaeaf2134427665bc3580b0aaadb7c7f974382df6ce8"
+    },
+    {
+      "id": 356503,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=356503&variant=1",
+      "sha256": "fc707cb14ff387123b6909f89afe43f2194c375061194d6ebb22d3b26344a39d"
+    },
+    {
+      "id": 1005298,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=1005298&variant=1",
+      "sha256": "800416e3e9250d51ec7815ffdbc2df3d2468f1982d80b181bd95c11a67651d88"
+    },
+    {
+      "id": 1005299,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=1005299&variant=1",
+      "sha256": "69889936f322c4dd8456b2ccf0c463a945c5e09bb7487438b849f20f46883746"
+    },
+    {
+      "id": 1005300,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=1005300&variant=1",
+      "sha256": "771dbc39e174f3b6d1e545db5d8ab4004902c0b82804a0e10eba706962238a04"
+    },
+    {
+      "id": 1005303,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=1005303&variant=1",
+      "sha256": "2e7d7a7c805d299c29e54cc59d64cd17f84937d7ccb59b25af22a21545527ae9"
+    },
+    {
+      "id": 1008937,
+      "url": "https://sgjp.pl/edycja/ajax/inflection-tables/?lexeme_id=1008937&variant=1",
+      "sha256": "ce7722bf83ddac8b185ae30ce21c7d3df5f075114c2b32d40abca1baac1defd0"
+    }
+  ]
+}

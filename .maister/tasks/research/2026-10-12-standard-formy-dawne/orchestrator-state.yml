@@ -1,7 +1,7 @@
 {
   "orchestrator": {
     "workflow": "research",
-    "current_phase": "completion_and_handoff",
+    "current_phase": "candidate_assessment",
     "started_phase": "research_foundation",
     "completed_phases": [
       "research_foundation"
@@ -15,14 +15,13 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-12T00:04:14Z",
-    "updated": "2026-10-12T01:18:39Z",
-    "task_path": ".maister/tasks/research/2026-10-12-standard-formy-dawne",
-    "completed": "2026-10-12T01:18:39Z"
+    "updated": "2026-10-12T06:54:01Z",
+    "task_path": ".maister/tasks/research/2026-10-12-standard-formy-dawne"
   },
   "task": {
     "title": "STANDARD: formy dawne i współczesne użycie (#4)",
     "description": "Research przyczyn odmów, niezależnych miar współczesności i skutków wariantów; komentarz do ticketu; decyzje z właścicielem.",
-    "status": "completed",
+    "status": "awaiting_approval",
     "tags": [
       "research",
       "slownik",
@@ -91,6 +90,66 @@
       },
       "started": "2026-10-12T00:04:14Z",
       "completed": "2026-10-12T01:18:10Z"
+    },
+    "candidate_assessment": {
+      "summary": "Propozycja 2382 form / 110 rodzin: 997 ze starej paczki i 1385 spoza niej. Wszystkie 290 przyjęć sprawdzone; 12 bez zgodnego dowodu w wybranych kontekstach. POP +2372/−2430, POP0 +481. Wyniki gotowe do omówienia.",
+      "decisions": [
+        "Tylko research; paczka i wdrożenie niezatwierdzone.",
+        "Główny scenariusz zachowuje obecne przyjęcia; cofnięcie 12 jest osobną analizą wrażliwości.",
+        "Nie dobrano progu frekwencji; dowód dotyczy znaczenia i właściwej odmiany."
+      ],
+      "risks": [
+        "Jeden badacz; średnia pewność oceny znaczeń i rejestru.",
+        "2367 dawnych kandydatów poza propozycją nie jest zbiorowo odrzucone.",
+        "POP nie rośnie monotonicznie wraz ze STANDARD; ubytki wymagają omówienia.",
+        "Brak zatwierdzonego produkcyjnego mapowania czytnika do snapshotu."
+      ],
+      "artifacts": [
+        {
+          "path": "planning/candidate-assessment-plan.md",
+          "label": "Plan rundy 3"
+        },
+        {
+          "path": "outputs/candidate-assessment.md",
+          "html": "outputs/candidate-assessment.html",
+          "label": "Ocena kandydatów i wpływ"
+        },
+        {
+          "path": "analysis/findings/round3/proposal.json",
+          "label": "2382 formy i zakresy rodzin"
+        },
+        {
+          "path": "analysis/findings/round3/candidate-matrix.json",
+          "label": "404 grupy / 3364 formy"
+        },
+        {
+          "path": "analysis/findings/round3/current-review.json",
+          "label": "Kontrola 290 przyjęć"
+        },
+        {
+          "path": "analysis/findings/round3/pop-impact.json",
+          "label": "Pełna delta POP/POP0"
+        },
+        {
+          "path": "analysis/findings/round3/sensitivity-pop-impact.json",
+          "label": "Wrażliwość na cofnięcie 12"
+        },
+        {
+          "path": "analysis/findings/round3/validation.json",
+          "label": "Walidacja 7192 analiz"
+        }
+      ],
+      "gate": {
+        "question": "Czy przyjmujesz wyniki rundy 3 jako podstawę rozmowy o paczce i skutkach dla POP, czy najpierw pogłębiamy wskazaną grupę?",
+        "choices": [
+          "Przyjąć wyniki do omówienia",
+          "Pogłębić wskazaną grupę"
+        ],
+        "answer": null,
+        "implementation_approved": false
+      },
+      "started": "2026-10-12T01:23:38Z",
+      "completed": null
     }
   },
   "research_context": {
@@ -141,7 +200,20 @@
       "round2/sgjp-review.json",
       "round2/dictionary-evidence.md",
       "round2/current-override.json",
-      "round2/validation.json"
+      "round2/validation.json",
+      "round3/family-decisions.json",
+      "round3/candidate-matrix.json",
+      "round3/current-review.json",
+      "round3/context-review.json",
+      "round3/sgjp-manifest.json",
+      "round3/full-tables-manifest.json",
+      "round3/kwjp-manifest.json",
+      "round3/proposal.json",
+      "round3/pop-baseline.json",
+      "round3/pop-impact.json",
+      "round3/sensitivity-pop-impact.json",
+      "round3/dag-control.json",
+      "round3/validation.json"
     ],
     "confidence_level": "high_for_counts_and_counterexamples_medium_for_register_unknown_population_error_rate",
     "gathering_strategy": {
@@ -162,12 +234,10 @@
       "synthesize": "completed"
     },
     "publication": {
-      "round": 2,
+      "round": 3,
       "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
-      "status": "published_and_verified",
-      "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6115957580",
-      "report_commit": "7666b28b5e700992c62960c90fdbcd408f71534c",
-      "verified_at": "2026-10-12T01:09:42Z"
+      "status": "prepared",
+      "report_artifact": "outputs/candidate-assessment.md"
     },
     "gate_history": [
       {
@@ -180,7 +250,7 @@
         "answered_at": "2026-10-12T00:27:15Z"
       }
     ],
-    "round": 2,
+    "round": 3,
     "publication_history": [
       {
         "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
@@ -188,6 +258,14 @@
         "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6115542830",
         "report_commit": "58396d7a967236de9f479250aff8802dbc078f0b",
         "round": 1
+      },
+      {
+        "round": 2,
+        "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
+        "status": "published_and_verified",
+        "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6115957580",
+        "report_commit": "7666b28b5e700992c62960c90fdbcd408f71534c",
+        "verified_at": "2026-10-12T01:09:42Z"
       }
     ],
     "direction_decision": {
@@ -212,17 +290,44 @@
       "artifact": "outputs/issue-comment-direction.md",
       "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6116044652",
       "verified_at": "2026-10-12T01:18:39Z"
+    },
+    "completion_history": [
+      {
+        "completed": "2026-10-12T01:18:39Z",
+        "round": 2
+      }
+    ],
+    "candidate_assessment": {
+      "user_request": "ok, idzmy",
+      "steps": {
+        "brief": "completed",
+        "plan": "completed",
+        "gather": "completed",
+        "synthesize": "completed"
+      },
+      "scope": "404 grupy / 3364 formy, 290 zależnych przyjęć, kontrole i pełne rodziny potwierdzonych kandydatów.",
+      "result_counts": {
+        "new_words": 2382,
+        "families_with_additions": 110,
+        "previous_candidates_remaining": 2367,
+        "current_words_reviewed": 290,
+        "unsupported_evidence_words": 12
+      },
+      "recommendation": "Omówić konkretną paczkę i skutki rankingu; cofanie przyjęć rozpatrzyć osobno. Dalsze badanie celowane na wskazaną granicę."
     }
   },
   "verification_context": {
-    "last_status": "research_completed_direction_accepted_no_implementation",
+    "last_status": "candidate_assessment_verified_awaiting_discussion",
     "issues_found": [
       "Nie było dostępnej przeglądarki CUA do wizualnego podglądu HTML; kontrola struktury i odsyłaczy wykonana lokalnie."
     ],
     "fixes_applied": [
       "Naprawiono wybór kontroli przyjęć: odczyt accepted zamiast cache rejected.",
       "Uzupełniono 107. fragment populacji 4559 (informacyj); 492 szersze trafienia rozdzielono od właściwego mianownika.",
-      "Skorygowano zakres przykładów, frazeologizm na umór oraz wcześniej zatwierdzoną książkowość."
+      "Skorygowano zakres przykładów, frazeologizm na umór oraz wcześniej zatwierdzoną książkowość.",
+      "Oddzielono informację składniową z D. od formy naście w parserze badawczym.",
+      "Poprawiono licznik 290 kontroli: odczyt defaultdict nie dodaje 19 uzupełnień.",
+      "Izolowana kontrola cofnięcia dag potwierdziła uboczny ubytek 10 form dekagram w POP0."
     ],
     "decisions_made": [
       "Odpowiedź „ok” rozstrzyga bramkę omówienia i przyjmuje rekomendowany kierunek; nie zatwierdza zmiany polityki wykonawczej ani list."

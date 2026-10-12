@@ -1,0 +1,81 @@
+{
+  "method": "pop-v2",
+  "standard_forms": 3090193,
+  "ranked_units": 84597,
+  "relevant_lexemes": 236594,
+  "frequent_guard": {
+    "source_id": "KWJP100-kwjp100-slowa-orth-all",
+    "ranked_forms": 50000,
+    "pop": {
+      "top": 20000,
+      "checked": 20000,
+      "missing": 0
+    },
+    "pop0": {
+      "top": 5000,
+      "checked": 5000,
+      "missing": 0
+    }
+  },
+  "thresholds": {
+    "pop0": {
+      "lexemes": 19997,
+      "rank": 11637,
+      "reached": true,
+      "next_block": {
+        "units": 8,
+        "lexemes": 10,
+        "rank": 11638
+      }
+    },
+    "pop": {
+      "lexemes": 59990,
+      "rank": 45137,
+      "reached": true,
+      "next_block": {
+        "units": 54,
+        "lexemes": 60,
+        "rank": 45138
+      }
+    }
+  },
+  "lists": {
+    "pop0": {
+      "forms": 388498,
+      "units": 11637,
+      "lexemes": 13895,
+      "sha256_uncompressed": "54f16ba263df9bf6275f59cd8115258234c5f09b388451f510735107971ec381"
+    },
+    "pop": {
+      "forms": 1227249,
+      "units": 45137,
+      "lexemes": 53001,
+      "sha256_uncompressed": "e0de2aa346889ebd9ab3c6407764c7845a7c180922c9d4b6bfa33c1341244d2e"
+    }
+  },
+  "intervention": "Usunięto wyłącznie dag z bazowego STANDARD; bez proponowanych dodatków i innych cofnięć.",
+  "deltas": {
+    "pop0": {
+      "added": [],
+      "removed": [
+        "dag",
+        "dekagram",
+        "dekagrama",
+        "dekagramach",
+        "dekagramami",
+        "dekagramem",
+        "dekagramie",
+        "dekagramom",
+        "dekagramowi",
+        "dekagramy",
+        "dekagramów"
+      ]
+    },
+    "pop": {
+      "added": [],
+      "removed": [
+        "dag"
+      ]
+    }
+  }
+}

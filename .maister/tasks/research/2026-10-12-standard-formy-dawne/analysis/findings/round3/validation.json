@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "checked_proposed_words": 2382,
+  "checked_proposed_analyses": 7192,
+  "all_proposed_analyses_reject_only_history": true,
+  "matrix_groups": 404,
+  "matrix_unique_words": 3364,
+  "current_words": 290,
+  "negative_controls": [
+    "desperacyj",
+    "atencyj",
+    "dokumenta",
+    "klasztora",
+    "wywre",
+    "umorach",
+    "premiów",
+    "zasłonionemu",
+    "mielszy",
+    "spękany",
+    "konkludowany"
+  ],
+  "positive_controls": [
+    "desperacja",
+    "ekscytacją",
+    "niezbędnik",
+    "sołtyska",
+    "sztaluga",
+    "szuwar",
+    "przechwałka",
+    "pryncypium",
+    "naście",
+    "aktuariusz",
+    "moderowana"
+  ],
+  "database_sha256_after_simulation": "85b23ca5cfaae273ec869f84fab643a87685c455606d8b21df4aec918f3a338c",
+  "review_limit": "Ocena semantyki przez jednego badacza; SQL nie dowodzi trafności tej oceny.",
+  "checked_at": "2026-10-12T06:42:20Z"
+}

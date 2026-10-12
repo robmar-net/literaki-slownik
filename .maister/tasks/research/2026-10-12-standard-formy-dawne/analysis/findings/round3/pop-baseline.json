@@ -1,0 +1,60 @@
+{
+  "method": "pop-v2",
+  "standard_forms": 3090194,
+  "ranked_units": 84597,
+  "relevant_lexemes": 236595,
+  "frequent_guard": {
+    "source_id": "KWJP100-kwjp100-slowa-orth-all",
+    "ranked_forms": 50000,
+    "pop": {
+      "top": 20000,
+      "checked": 20000,
+      "missing": 0
+    },
+    "pop0": {
+      "top": 5000,
+      "checked": 5000,
+      "missing": 0
+    }
+  },
+  "lists": {
+    "pop0": {
+      "forms": 388509,
+      "units": 11638,
+      "lexemes": 13896,
+      "sha256_uncompressed": "594a3bd67a426ec3a71dc55c483b91815f765c67291f27c89f335568098e276e"
+    },
+    "pop": {
+      "forms": 1227250,
+      "units": 45137,
+      "lexemes": 53002,
+      "sha256_uncompressed": "d846b7f0ec03b9da2b3ce39cdcdee1efac5fc8d683e0d1caf0d770cd544aebd7"
+    }
+  },
+  "baseline_matches_published_lists": true,
+  "database_sha256": "85b23ca5cfaae273ec869f84fab643a87685c455606d8b21df4aec918f3a338c",
+  "config_sha256": "affcfab871ef499128e030318753678486353d667be32e3a9d24bc817aef9a60",
+  "published_manifest_sha256": "2a4bcc78d049f555c61be9d0ce89c7c26d896225d8d35aeb5eead0c72504e8e8",
+  "thresholds": {
+    "pop0": {
+      "lexemes": 19999,
+      "rank": 11638,
+      "reached": true,
+      "next_block": {
+        "units": 8,
+        "lexemes": 10,
+        "rank": 11639
+      }
+    },
+    "pop": {
+      "lexemes": 59991,
+      "rank": 45137,
+      "reached": true,
+      "next_block": {
+        "units": 54,
+        "lexemes": 60,
+        "rank": 45138
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@
 Wyjaśniono przyczynę: różna jednostka i różne źródła miary, nie brak publicystyki.
 Zmiana na lemma+POS przenosi dowód współczesności na dawne formy.
 Użytkownik przyjął kierunek oceny znaczenia i współczesnej odmiany; nie zatwierdzono wdrożenia nowej polityki.
+Runda 3 daje propozycję 2382 form i ujawnia ubytki POP mimo wzrostu STANDARD; szczegóły poniżej.
 
 ## Key Decisions
 - Wykluczone przez użytkownika: implementacja, brainstorming i projekt.
@@ -38,3 +39,15 @@ Wysoka pewność dotyczy mechanizmu, policzonego składu i konkretnych kontrprzy
 ## Wynik omówienia
 
 Użytkownik odpowiedział „ok” na rekomendację przyjęcia zasady jako kierunku dalszej rozmowy. Współczesne znaczenie uzasadnia odpowiadającą mu współczesną odmianę, również rzadką; nie przenosimy dowodu na dawne końcówki, inne znaczenia ani cały paradygmat formy zachowanej tylko we frazeologizmie. Książkowość pozostaje dopuszczalna. Frekwencja służy do wyszukiwania i porządkowania kandydatów; trzeba sprawdzić znaczenie, odmianę oraz użycia autorskie w różnych tekstach. Nie przyjęto nowego progu ani paczki 3364 form. Bramka researchu rozstrzygnięta; szczegóły i dalsze pytania w §9 [raportu](../outputs/research-report.md).
+
+## Ocena kandydatów — runda 3
+
+Po „ok, idzmy” oceniono zakres 404 grup oraz wszystkie 290 przyjęć zależnych od wyjątku. Uzupełniono 309 zapytań / 730 konkordancji, 501 wyszukań SGJP i 207 pełnych tabel. Szczegółowe 125 rekordów rodzin daje 2382 nowe formy ze 110 rodzin; 997 pochodzi z poprzednich 3364, a 1385 spoza tej paczki. Pozostałe 2367 nie jest zbiorowo odrzucone. Macierz jest pełnym spisem statusów, nie pełną ekspertyzą wszystkich znaczeń.
+
+Przełożenie zasady na konkretną paczkę jest wykonalne badawczo: znaczenie, właściwa tabela i utrwalona analiza muszą się zgadzać. SQL potwierdził, że wszystkie 7192 wskazane analizy dodatków odpadają wyłącznie przez dawność. Nie rozstrzyga to niezależnie oceny językowej; ta pozostaje oceną jednego badacza o średniej pewności.
+
+Kontrola obecnych przyjęć ujawnia 12 napisów bez właściwego dowodu w pierwszych 10 kontekstach. Nie dowodzi nieistnienia słów. Moko nie uzasadnia wołacza od moka, a ludzko ma poprawne samodzielne użycia mimo części trafień będących członami złożeń. Dlatego cofnięcia wymagają odrębnych decyzji.
+
+Dokładnie odtworzone listy bazowe umożliwiły pełną symulację: STANDARD +2382; POP +2372 i −2430, netto −58; POP0 +481. Zmienia się próg obejmujący całe remisy przy limicie leksemów. Wariant cofnięcia 12 napisów dodatkowo zmienia ranking i dobór leksemów, m.in. usuwa odmianę dekagram z POP0. Wszystkie obowiązujące straże częstych form przechodzą, lecz nie obejmują całego ryzyka ubytków.
+
+Rekomendacja: omówić konkretną paczkę oraz skutki rankingu, a cofanie przyjęć potraktować osobno. Dalsze badanie powinno dotyczyć wskazanej granicy znaczenia lub rejestru. Nowa bramka dotyczy przyjęcia wyników do rozmowy, nie wdrożenia. [Pełny raport rundy 3](../outputs/candidate-assessment.md).
