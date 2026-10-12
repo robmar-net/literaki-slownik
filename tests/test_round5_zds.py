@@ -1,13 +1,14 @@
 """Runda 5 (2026-10-08): ZDS §1/§5 jako zasady gry."""
 import gzip
 import hashlib
+import sqlite3
 import tempfile
 import unittest
 from pathlib import Path
 from literaki_slownik.build import build
 from literaki_slownik.canonical import load_json
 from literaki_slownik.constructions import (mobile_aglt_candidates, nie_degree_candidates,
-                                            pred_particle_candidates)
+                                            nie_indeclinable_lemmas, pred_particle_candidates)
 from literaki_slownik.decisions import assess_diagnostic, assessment
 from literaki_slownik.explain import explain
 from literaki_slownik.policy import source_game_checks
@@ -70,6 +71,34 @@ class Round5Tests(unittest.TestCase):
         self.assertEqual(nie_degree_candidates(source('niemiły', 'adj:sg:nom:m1:pos', 'niemiły'), exists), [])
         self.assertEqual(nie_degree_candidates(source('jutro', 'adv', 'jutro'), exists), [])
 
+    def test_nie_skips_pronouns_and_indeclinable(self):
+        # #5: „nie ta”, „nie fair” piszemy osobno; v1 tworzyła nieta, niewideo.
+        exists = set().__contains__
+        for original, lemma in (('ta', 'ten'), ('żadna', 'żaden'), ('naszego', 'nasz'), ('któryś', 'któryś'),
+                                ('sama', 'sam:A')):
+            self.assertEqual(nie_degree_candidates(source(original, 'adj:sg:nom:f:pos', lemma), exists), [], original)
+        wideo = source('wideo', 'adj:sg:nom:n:pos', 'wideo:A')
+        self.assertEqual(nie_degree_candidates(wideo, exists, frozenset({'wideo'})), [])
+        self.assertEqual(nie_degree_candidates(source('super', 'adv:pos', 'super:D'), exists, frozenset({'super'})), [])
+        self.assertEqual(nie_degree_candidates(source('tak', 'adv:pos', 'tak:D'), exists), [])
+        self.assertEqual(len(nie_degree_candidates(wideo, exists)), 1)
+        for original, tag, lemma, word in (('tani', 'adj:sg:nom:m1:pos', 'tani', 'nietani'),
+                                           ('bielszy', 'adj:sg:nom:m1:com', 'biały', 'niebielszy')):
+            found = nie_degree_candidates(source(original, tag, lemma), exists, frozenset({'wideo'}))
+            self.assertEqual([(c['original'], c['rule_id']) for c in found], [(word, 'nie-prefix-degree-v2')])
+
+    def test_indeclinable_adjectives_from_source_forms(self):
+        db = sqlite3.connect(':memory:')
+        db.executescript('''create table lexeme (id integer primary key, lemma_id text);
+            create table surface_form (id integer primary key, original text);
+            create table interpretation (id integer primary key, form_id int, lexeme_id int, tag text);
+            insert into lexeme values (1,'wideo:A'),(2,'tani'),(3,'wideo:S'),(4,'drogi');
+            insert into surface_form values (1,'wideo'),(2,'tani'),(3,'taniej'),(4,'tania');
+            insert into interpretation values (1,1,1,'adj:sg:nom:n:pos'),(2,1,1,'adj:pl:gen:f:pos'),
+              (3,2,2,'adj:sg:nom:m1:pos'),(4,4,2,'adj:sg:nom:f:pos'),(5,1,3,'subst:sg:nom:n'),
+              (6,3,4,'adj:sg:nom:m1:com');''')
+        self.assertEqual(nie_indeclinable_lemmas(db), frozenset({'wideo'}))
+
     def test_explain_matches_build_for_contemporary_use(self):
         with tempfile.TemporaryDirectory() as directory:
             directory = Path(directory)
@@ -90,7 +119,7 @@ class Round5Tests(unittest.TestCase):
                 self.assertIn(word, standard, word)
             for word in ('trzebaż', 'niedroższy'):
                 self.assertEqual([d['rule_id'] for d in explain(run, word, 'standard')['derivations']],
-                                 ['pred-particle-ze-v1' if word == 'trzebaż' else 'nie-prefix-degree-v1'], word)
+                                 ['pred-particle-ze-v1' if word == 'trzebaż' else 'nie-prefix-degree-v2'], word)
             value = explain(run, 'wraz', 'standard')
             self.assertEqual([a['assessment']['membership']['standard']['status'] for a in value['analyses']],
                              ['accept'])

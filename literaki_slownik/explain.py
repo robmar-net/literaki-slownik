@@ -11,7 +11,7 @@ from .inputs import GeneratorError
 from .links import availability
 from .policy import assess_profile, VERSION
 from .sgjp import expand_tag, tag_errata
-from .constructions import pred_particle_candidates, nie_degree_candidates, impt_particle_candidates, impt_double_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, mobile_aglt_candidates, mobile_by_sequence_candidates, personal_aglt_candidates, spelling_variant_candidates, BY_AGLT_ENDINGS
+from .constructions import pred_particle_candidates, nie_degree_candidates, nie_indeclinable_lemmas, impt_particle_candidates, impt_double_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, mobile_aglt_candidates, mobile_by_sequence_candidates, personal_aglt_candidates, spelling_variant_candidates, BY_AGLT_ENDINGS
 
 
 def _construction_sources(db, key):
@@ -40,8 +40,9 @@ def _derivations(db, key):
             candidates.extend(pred_particle_candidates(source))
     if key.startswith('nie') and len(key) > 3:
         exists = lambda original: db.execute('select 1 from surface_form where original=?', (original,)).fetchone() is not None
+        indeclinable = nie_indeclinable_lemmas(db)
         for source in _construction_sources(db, key[3:]):
-            candidates.extend(nie_degree_candidates(source, exists))
+            candidates.extend(nie_degree_candidates(source, exists, indeclinable))
     for ending in list(BY_AGLT_ENDINGS.values()) + ['e'+x for x in BY_AGLT_ENDINGS.values()]:
         if not key.endswith(ending) or len(key) <= len(ending):
             continue

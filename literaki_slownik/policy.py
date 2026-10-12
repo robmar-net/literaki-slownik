@@ -93,7 +93,7 @@ CONFIRMED_CONSTRUCTOR_RULES = frozenset({
     'documented-spelling-variant-v1', 'impt-single-particle-v1', 'impt-double-particle-v1', 'by-aglt-nwok-v1', 'preposition-n-source-v1',
     'mobile-by-host-aglt-v1', 'mobile-source-host-aglt-v1', 'mobile-host-by-sequence-v1', 'personal-host-aglt-v1',
     # Runda 5 (ZDS §5).
-    'pred-particle-ze-v1', 'nie-prefix-degree-v1',
+    'pred-particle-ze-v1', 'nie-prefix-degree-v2',
 })
 
 # Pełne identyfikatory rozdzielają mieszkańca od tanecznego homonimu m2.

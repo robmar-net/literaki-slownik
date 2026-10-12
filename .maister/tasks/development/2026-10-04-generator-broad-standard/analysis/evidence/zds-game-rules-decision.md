@@ -26,7 +26,7 @@ Przykłady wymienione w ZDS traktujemy jako wiążące.
 - `trzeba`, `można` + `-że`/`-ż` (`trzebaż`): ZDS §5 dopuszcza, a u nas nie.
 - `nie-` z przymiotnikami i przysłówkami w stopniu wyższym i najwyższym (`niedroższy`, `nienajdrożej`): ZDS §5 i pisownia 2026 dopuszczają, a u nas brak (około 10,5 tys. słów).
 
-Reguły: `game-zds-named-exclusion-v1` (desa, spodeń i inne przykłady ZDS), `abc` w `ABBREVIATION_NOUN_LEMMAS`, hosty `bodaj`/`bogdaj`, konstruktory `pred-particle-ze-v1` i `nie-prefix-degree-v1`. Przy `nie-` lematy zaczynające się od „nie” pomijamy, bo mogą być już zaprzeczone, np. `nieniebieski` nie powstaje. Testy: `tests/test_round5_zds.py`.
+Reguły: `game-zds-named-exclusion-v1` (desa, spodeń i inne przykłady ZDS), `abc` w `ABBREVIATION_NOUN_LEMMAS`, hosty `bodaj`/`bogdaj`, konstruktory `pred-particle-ze-v1` i `nie-prefix-degree-v1`. Przy `nie-` lematy zaczynające się od „nie” pomijamy, bo mogą być już zaprzeczone, np. `nieniebieski` nie powstaje. Testy: `tests/test_round5_zds.py`. Zawężenie `nie-` (v2, #5): [nie-prefix-v2-decision.md](nie-prefix-v2-decision.md).
 
 Przy okazji poprawiono błąd z rundy 4: `explain` liczył ocenę bez frekwencji KWJP, więc dla `wraz` pokazywał w STANDARD odmowę.
 

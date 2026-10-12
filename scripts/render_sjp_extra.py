@@ -14,6 +14,7 @@ from render_sjp_missing import VARIANTS, lemmas, num
 SOURCES = {
     'sgjp': 'SGJP',
     'nie-prefix-degree-v1': 'nie- + słowo z SGJP',
+    'nie-prefix-degree-v2': 'nie- + słowo z SGJP',
     'impt-single-particle-v1': 'rozkaźnik z -że/-ż',
     'impt-double-particle-v1': 'rozkaźnik z dwiema partykułami',
     'mobile-host-by-sequence-v1': 'pisownia z „by” (2026)',

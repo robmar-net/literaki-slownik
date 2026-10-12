@@ -186,7 +186,13 @@ def impt_double_particle_candidates(source):
 
 PRED_PARTICLE_RULE = 'pred-particle-ze-v1'
 PRED_PARTICLE_HOSTS = frozenset({'trzeba', 'można'})
-NIE_DEGREE_RULE = 'nie-prefix-degree-v1'
+NIE_DEGREE_RULE = 'nie-prefix-degree-v2'
+# #5: zaimki przymiotne i przysłówki zaimkowe mają w SGJP tagi adj/adv, a nie z zaimkiem
+# piszemy osobno („nie ten”, „nie tak”). Zamknięta klasa; porównujemy bazę lematu bez znacznika homonimu.
+NIE_PRONOMINAL_LEMMAS = frozenset('''ten tamten ów ow tenże ówże tamtenże sam taki takiż takowy owaki siaki
+    jaki jakiś jakikolwiek jakiż jakowy który którykolwiek któryś któryż czyj czyjś czyjkolwiek czyjże
+    każdy żaden wszystek wszelki mój twój swój nasz wasz
+    tak tako jak owak owako siak nijak nijako samo'''.split())
 ZDS_DECISION = '.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/zds-game-rules-decision.md'
 
 
@@ -205,16 +211,29 @@ def pred_particle_candidates(source):
              'evidence': [ZDS_DECISION]}]
 
 
-def nie_degree_candidates(source, exists):
+def nie_indeclinable_lemmas(db):
+    """Bazy lematów adj z jedną formą przy wielu tagach (wideo:A → wideo): nieodmienne.
+
+    Baza obejmuje też przysłówek do pary (super:D). Jeden wiersz to za mało: niepełny
+    leksem (np. uzupełnienie) nie dowodzi nieodmienności.
+    """
+    return frozenset(lemma.split(':', 1)[0] for (lemma,) in db.execute(
+        "select l.lemma_id from interpretation i join lexeme l on l.id=i.lexeme_id where i.tag like 'adj:%' "
+        "group by l.id having count(distinct i.form_id)=1 and count(distinct i.tag)>1"))
+
+
+def nie_degree_candidates(source, exists, indeclinable=frozenset()):
     """ZDS §5 i pisownia 2026: nie- łącznie z przymiotnikiem lub przysłówkiem w każdym stopniu.
 
     Stopień równy tylko wtedy, gdy źródło nie ma już takiego napisu (SGJP zwykle ma przeczenia
     w stopniu równym jako osobne hasła). Lematy na nie- pomijamy: mogą być już zaprzeczone.
+    Bez zaimków przymiotnych i przymiotników nieodmiennych: z nimi nie piszemy osobno (#5).
     """
     _validate_source(source)
     if source['raw_tag'].split(':', 1)[0] not in {'adj', 'adv'} or source['original'] != source['original'].lower():
         return []
-    if source['lemma_id'].startswith('nie'):
+    base = source['lemma_id'].split(':', 1)[0]
+    if source['lemma_id'].startswith('nie') or base in indeclinable or base in NIE_PRONOMINAL_LEMMAS:
         return []
     original = 'nie' + source['original']
     results = []
@@ -567,8 +586,9 @@ def materialize_confirmed_candidates(db, batch_size=10000):
         for candidate in pred_particle_candidates(dict(zip(SOURCE_FIELDS,row))):
             save(candidate)
     exists = lambda original: db.execute('select 1 from surface_form where original=?', (original,)).fetchone() is not None
+    indeclinable = nie_indeclinable_lemmas(db)
     for row in db.execute(select + " where i.tag like 'adj:%' or i.tag like 'adv:%' order by i.source_id,i.first_row").fetchall():
-        for candidate in nie_degree_candidates(dict(zip(SOURCE_FIELDS,row)), exists):
+        for candidate in nie_degree_candidates(dict(zip(SOURCE_FIELDS,row)), exists, indeclinable):
             save(candidate)
     import json
     hashes={sid:json.loads(metadata).get('sha256') for sid,metadata in db.execute('select source_id,metadata from source_artifact')}
