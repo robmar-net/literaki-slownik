@@ -13,7 +13,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-12T00:04:14Z",
-    "updated": "2026-10-12T00:20:23Z",
+    "updated": "2026-10-12T00:22:07Z",
     "task_path": ".maister/tasks/research/2026-10-12-standard-formy-dawne"
   },
   "task": {
@@ -50,6 +50,10 @@
         {
           "path": "analysis/findings/sample-review.md",
           "label": "Przegląd próbek"
+        },
+        {
+          "path": "outputs/issue-comment.md",
+          "label": "Komentarz w zgłoszeniu #4"
         }
       ],
       "gate": {
@@ -126,8 +130,9 @@
     },
     "publication": {
       "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
-      "status": "prepared",
-      "comment_url": null
+      "status": "published_and_verified",
+      "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6115542830",
+      "report_commit": "58396d7a967236de9f479250aff8802dbc078f0b"
     }
   },
   "verification_context": {
