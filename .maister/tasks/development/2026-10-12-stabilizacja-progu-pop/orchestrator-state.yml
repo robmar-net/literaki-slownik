@@ -1,7 +1,7 @@
 {
   "orchestrator": {
     "workflow": "development",
-    "current_phase": "implementation_planning",
+    "current_phase": "implementation",
     "started_phase": "codebase_analysis",
     "completed_phases": [
       "codebase_analysis",
@@ -9,7 +9,8 @@
       "tdd_red",
       "ui_mockups",
       "requirements_specification",
-      "specification_audit"
+      "specification_audit",
+      "implementation_planning"
     ],
     "failed_phases": [],
     "options": {
@@ -19,13 +20,13 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-12T12:54:52Z",
-    "updated": "2026-10-12T13:32:33Z",
+    "updated": "2026-10-12T13:44:55Z",
     "task_path": ".maister/tasks/development/2026-10-12-stabilizacja-progu-pop"
   },
   "task": {
     "title": "2382 dodatki STANDARD i tymczasowa stabilizacja POP (#4, #6)",
     "description": "Trwale dodać dokładnie 2382 zatwierdzone formy do STANDARD, ustabilizować POP stałym progiem dzisiejszego cięcia, zaktualizować wiki. Osiem osobnych cofnięć i docelowa granica POP poza zakresem.",
-    "status": "awaiting_plan_decision",
+    "status": "planned_for_separate_implementation",
     "tags": [
       "development",
       "pop",
@@ -67,7 +68,12 @@
     "applicable_standards": [
       "AGENTS.md",
       "docs/runbook-wiki.md"
-    ]
+    ],
+    "plan_publication": {
+      "issue_comment": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6125514977",
+      "published_at": "2026-10-12T13:44:55Z",
+      "implementation": "deferred_by_owner"
+    }
   },
   "phase_summaries": {
     "codebase_analysis": {
@@ -200,7 +206,7 @@
       "completed": "2026-10-12T13:32:33Z"
     },
     "implementation_planning": {
-      "summary": "Sześć sekwencyjnych grup: JSON, STANDARD, POP, pełny odbiór, dokumentacja/wiki, finalizacja.",
+      "summary": "Sześć sekwencyjnych grup: JSON, STANDARD, POP, pełny odbiór, dokumentacja/wiki, finalizacja. Plan opublikowano w #4; wykonanie odłożono do osobnego zadania.",
       "decisions": [
         "Testy przed kodem; dokładny diff i dwa przebiegi przed wiki."
       ],
@@ -211,6 +217,10 @@
         {
           "path": "implementation/implementation-plan.md",
           "label": "Plan implementacji"
+        },
+        {
+          "path": "implementation/implementation-plan.html",
+          "label": "Plan implementacji HTML"
         }
       ],
       "gate": {
@@ -219,10 +229,11 @@
           "Zatwierdź plan i rozpocznij implementację",
           "Wskaż korekty planu"
         ],
-        "answer": null
+        "answer": "Właściciel: opublikować plan w #4; implementację wykona osobno. Nie jest to zgoda na uruchomienie implementacji w tym kroku.",
+        "answered_at": "2026-10-12T13:44:55Z"
       },
       "started": "2026-10-12T13:32:33Z",
-      "completed": null
+      "completed": "2026-10-12T13:44:55Z"
     }
   },
   "verification_context": {
@@ -231,7 +242,8 @@
     "fixes_applied": [],
     "decisions_made": [
       "Scope #4/#6 zatwierdzony przez właściciela: 2382 dodatki STANDARD, stały próg POP, wiki; cofnięcia i docelowa granica później.",
-      "Specyfikacja #4/#6 zatwierdzona przez właściciela odpowiedzią ok."
+      "Specyfikacja #4/#6 zatwierdzona przez właściciela odpowiedzią ok.",
+      "Właściciel zlecił publikację planu w #4 i odłożył implementację do osobnej pracy."
     ],
     "reverify_count": 0
   }

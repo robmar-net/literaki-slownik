@@ -1,12 +1,12 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-12T13:32:33Z",
+  "generated": "2026-10-12T13:44:55Z",
   "task": {
     "title": "2382 dodatki STANDARD i tymczasowa stabilizacja POP (#4, #6)",
     "type": "development",
-    "status": "awaiting_plan_decision",
+    "status": "planned_for_separate_implementation",
     "description": "Trwale dodać dokładnie 2382 zatwierdzone formy do STANDARD, ustabilizować POP stałym progiem dzisiejszego cięcia, zaktualizować wiki. Osiem osobnych cofnięć i docelowa granica POP poza zakresem.",
     "path": ".maister/tasks/development/2026-10-12-stabilizacja-progu-pop",
-    "current_activity": "Plan gotowy do zatwierdzenia"
+    "current_activity": "Plan opublikowany w #4; implementacja osobno"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -149,11 +149,11 @@ window.MAISTER_DATA = {
       "id": "phase-7",
       "name": "Plan implementacji",
       "icon_hint": "build",
-      "status": "awaiting_approval",
+      "status": "completed",
       "started": "2026-10-12T13:32:33Z",
-      "completed": null,
+      "completed": "2026-10-12T13:44:55Z",
       "skip_reason": null,
-      "summary": "Sześć sekwencyjnych grup: JSON, STANDARD, POP, pełny odbiór, dokumentacja/wiki, finalizacja.",
+      "summary": "Sześć sekwencyjnych grup: JSON, STANDARD, POP, pełny odbiór, dokumentacja/wiki, finalizacja. Plan opublikowano w #4; wykonanie odłożono do osobnego zadania.",
       "decisions": [
         "Testy przed kodem; dokładny diff i dwa przebiegi przed wiki."
       ],
@@ -164,6 +164,10 @@ window.MAISTER_DATA = {
         {
           "path": "implementation/implementation-plan.md",
           "label": "Plan implementacji"
+        },
+        {
+          "path": "implementation/implementation-plan.html",
+          "label": "Plan implementacji HTML"
         }
       ],
       "gate": {
@@ -172,7 +176,7 @@ window.MAISTER_DATA = {
           "Zatwierdź plan i rozpocznij implementację",
           "Wskaż korekty planu"
         ],
-        "answer": null
+        "answer": "Właściciel: opublikować plan w #4; implementację wykona osobno. Nie jest to zgoda na uruchomienie implementacji w tym kroku."
       }
     },
     {

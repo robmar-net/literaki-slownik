@@ -95,3 +95,7 @@ python3 scripts/check_pop_package.py --pop-dir <nowy-pop-a> --standard <nowy-a>/
 ## Wycofanie
 
 Nie kasować ani nie modyfikować historycznych katalogów i wydań. Na niepowodzeniu zostawić poprzednie manifesty jako operacyjny punkt odniesienia, oznaczyć nowy przebieg jako nieprzyjęty i poprawić kod/JSON w nowej rewizji. Każdy ponowny build używa nowego katalogu. Cofnięcie opublikowanego wydania lub zmian wiki wymaga odrębnej decyzji właściciela.
+
+## Status planu
+
+Plan opublikowano w [komentarzu #4](https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6125514977) 2026-10-12T13:44:55Z. Właściciel wykona implementację osobno. Wszystkie kroki G0–G5 pozostają niewykonane.
