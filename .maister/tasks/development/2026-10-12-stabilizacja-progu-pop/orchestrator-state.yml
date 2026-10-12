@@ -1,13 +1,15 @@
 {
   "orchestrator": {
     "workflow": "development",
-    "current_phase": "requirements_specification",
+    "current_phase": "implementation_planning",
     "started_phase": "codebase_analysis",
     "completed_phases": [
       "codebase_analysis",
       "gap_and_scope_analysis",
       "tdd_red",
-      "ui_mockups"
+      "ui_mockups",
+      "requirements_specification",
+      "specification_audit"
     ],
     "failed_phases": [],
     "options": {
@@ -17,13 +19,13 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-12T12:54:52Z",
-    "updated": "2026-10-12T13:06:35Z",
+    "updated": "2026-10-12T13:32:33Z",
     "task_path": ".maister/tasks/development/2026-10-12-stabilizacja-progu-pop"
   },
   "task": {
     "title": "2382 dodatki STANDARD i tymczasowa stabilizacja POP (#4, #6)",
     "description": "Trwale dodać dokładnie 2382 zatwierdzone formy do STANDARD, ustabilizować POP stałym progiem dzisiejszego cięcia, zaktualizować wiki. Osiem osobnych cofnięć i docelowa granica POP poza zakresem.",
-    "status": "awaiting_spec_decision",
+    "status": "awaiting_plan_decision",
     "tags": [
       "development",
       "pop",
@@ -160,7 +162,8 @@
         },
         {
           "path": "implementation/spec.md",
-          "label": "Specyfikacja"
+          "label": "Specyfikacja",
+          "html": "implementation/spec.html"
         }
       ],
       "gate": {
@@ -169,9 +172,56 @@
           "Zatwierdź specyfikację i przejdź do planu",
           "Wskaż korekty specyfikacji"
         ],
-        "answer": null
+        "answer": "Właściciel: ok — zatwierdzono specyfikację.",
+        "answered_at": "2026-10-12T13:32:33Z"
       },
       "started": "2026-10-12T13:06:35Z",
+      "completed": "2026-10-12T13:32:33Z"
+    },
+    "specification_audit": {
+      "summary": "Audyt passed; 0 otwartych blokad. Doprecyzowano klucze analiz, historyczny explain i K9.",
+      "decisions": [
+        "7192/7192 wskazań ma jedno dopasowanie w bazie badania."
+      ],
+      "risks": [
+        "Pełny build musi ponowić kontrolę na nowych wejściach."
+      ],
+      "artifacts": [
+        {
+          "path": "verification/spec-audit.md",
+          "label": "Audyt specyfikacji"
+        }
+      ],
+      "gate": {
+        "question": null,
+        "answer": null
+      },
+      "started": "2026-10-12T13:32:33Z",
+      "completed": "2026-10-12T13:32:33Z"
+    },
+    "implementation_planning": {
+      "summary": "Sześć sekwencyjnych grup: JSON, STANDARD, POP, pełny odbiór, dokumentacja/wiki, finalizacja.",
+      "decisions": [
+        "Testy przed kodem; dokładny diff i dwa przebiegi przed wiki."
+      ],
+      "risks": [
+        "K9 wymaga przeglądu próbek przed verify/export; rozbieżność diffu zatrzymuje pracę."
+      ],
+      "artifacts": [
+        {
+          "path": "implementation/implementation-plan.md",
+          "label": "Plan implementacji"
+        }
+      ],
+      "gate": {
+        "question": "Czy zatwierdzasz ten plan wykonania, w tym pełne buildy i aktualizację wiki po pomiarze?",
+        "choices": [
+          "Zatwierdź plan i rozpocznij implementację",
+          "Wskaż korekty planu"
+        ],
+        "answer": null
+      },
+      "started": "2026-10-12T13:32:33Z",
       "completed": null
     }
   },
@@ -180,7 +230,8 @@
     "issues_found": [],
     "fixes_applied": [],
     "decisions_made": [
-      "Scope #4/#6 zatwierdzony przez właściciela: 2382 dodatki STANDARD, stały próg POP, wiki; cofnięcia i docelowa granica później."
+      "Scope #4/#6 zatwierdzony przez właściciela: 2382 dodatki STANDARD, stały próg POP, wiki; cofnięcia i docelowa granica później.",
+      "Specyfikacja #4/#6 zatwierdzona przez właściciela odpowiedzią ok."
     ],
     "reverify_count": 0
   }

@@ -1,12 +1,12 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-12T13:06:35Z",
+  "generated": "2026-10-12T13:32:33Z",
   "task": {
     "title": "2382 dodatki STANDARD i tymczasowa stabilizacja POP (#4, #6)",
     "type": "development",
-    "status": "awaiting_spec_decision",
+    "status": "awaiting_plan_decision",
     "description": "Trwale dodać dokładnie 2382 zatwierdzone formy do STANDARD, ustabilizować POP stałym progiem dzisiejszego cięcia, zaktualizować wiki. Osiem osobnych cofnięć i docelowa granica POP poza zakresem.",
     "path": ".maister/tasks/development/2026-10-12-stabilizacja-progu-pop",
-    "current_activity": "Specyfikacja gotowa do przeglądu"
+    "current_activity": "Plan gotowy do zatwierdzenia"
   },
   "characteristics": {
     "has_reproducible_defect": false,
@@ -96,9 +96,9 @@ window.MAISTER_DATA = {
       "id": "phase-5",
       "name": "Wymagania i specyfikacja",
       "icon_hint": "build",
-      "status": "awaiting_approval",
+      "status": "completed",
       "started": "2026-10-12T13:03:39Z",
-      "completed": null,
+      "completed": "2026-10-12T13:32:33Z",
       "skip_reason": null,
       "summary": "Specyfikacja dokładnych wyjątków wieku STANDARD, mieszanego progu POP/POP0, pełnego odbioru i wiki.",
       "decisions": [
@@ -116,45 +116,64 @@ window.MAISTER_DATA = {
         },
         {
           "path": "implementation/spec.md",
-          "label": "Specyfikacja"
+          "label": "Specyfikacja",
+          "html": "implementation/spec.html"
         }
       ],
-      "gate": {
-        "question": "Czy zatwierdzasz tę specyfikację jako podstawę audytu i planu implementacji?",
-        "choices": [
-          "Zatwierdź specyfikację i przejdź do planu",
-          "Wskaż korekty specyfikacji"
-        ],
-        "answer": null
-      }
+      "gate": null
     },
     {
       "id": "phase-6",
       "name": "Audyt specyfikacji",
       "icon_hint": "build",
-      "status": "pending",
-      "started": null,
-      "completed": null,
+      "status": "completed",
+      "started": "2026-10-12T13:32:33Z",
+      "completed": "2026-10-12T13:32:33Z",
       "skip_reason": null,
-      "summary": null,
-      "decisions": [],
-      "risks": [],
-      "artifacts": [],
+      "summary": "Audyt passed; 0 otwartych blokad. Doprecyzowano klucze analiz, historyczny explain i K9.",
+      "decisions": [
+        "7192/7192 wskazań ma jedno dopasowanie w bazie badania."
+      ],
+      "risks": [
+        "Pełny build musi ponowić kontrolę na nowych wejściach."
+      ],
+      "artifacts": [
+        {
+          "path": "verification/spec-audit.md",
+          "label": "Audyt specyfikacji"
+        }
+      ],
       "gate": null
     },
     {
       "id": "phase-7",
       "name": "Plan implementacji",
       "icon_hint": "build",
-      "status": "pending",
-      "started": null,
+      "status": "awaiting_approval",
+      "started": "2026-10-12T13:32:33Z",
       "completed": null,
       "skip_reason": null,
-      "summary": null,
-      "decisions": [],
-      "risks": [],
-      "artifacts": [],
-      "gate": null
+      "summary": "Sześć sekwencyjnych grup: JSON, STANDARD, POP, pełny odbiór, dokumentacja/wiki, finalizacja.",
+      "decisions": [
+        "Testy przed kodem; dokładny diff i dwa przebiegi przed wiki."
+      ],
+      "risks": [
+        "K9 wymaga przeglądu próbek przed verify/export; rozbieżność diffu zatrzymuje pracę."
+      ],
+      "artifacts": [
+        {
+          "path": "implementation/implementation-plan.md",
+          "label": "Plan implementacji"
+        }
+      ],
+      "gate": {
+        "question": "Czy zatwierdzasz ten plan wykonania, w tym pełne buildy i aktualizację wiki po pomiarze?",
+        "choices": [
+          "Zatwierdź plan i rozpocznij implementację",
+          "Wskaż korekty planu"
+        ],
+        "answer": null
+      }
     },
     {
       "id": "phase-8",
