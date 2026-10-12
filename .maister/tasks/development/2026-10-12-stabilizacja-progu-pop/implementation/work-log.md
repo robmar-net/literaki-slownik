@@ -24,3 +24,5 @@
 - `pop-v3`: POP `score ≥ −1.042878629` (remis włącznie, brak punktacji poza), przycinanie własną punktacją; POP0 `count 20000`; jawna kontrola `POP0 ⊆ POP`. `config/generator/pop-v2.json` = bajtowa kopia wydanej konfiguracji (hash zgodny z manifestem pop-v2). ADR-008; ADR-007 tylko link.
 - P1 zmierzone na wydanym STANDARD v29: POP i POP0 bajtowo równe wydanemu pop-v2 (1 227 250 / 388 509), straż 0 braków, checker OK.
 - Testy: 19 nowych; cały zestaw 442 OK.
+- 3.1: 442 OK, kod zacommitowany `0560f20` (push). Pełny build LL-PL uruchomiony w tle: `data/work/lists-v31-20261012-162111-a` (v30 trwał ok. 12,5 h, w tym reports ~8 h).
+- 4.1–4.2: `docs/generator/wyjatki-dawnosci-standard.md` (nowy), `cli.md` (pop-v3, odtworzenie pop-v2), `runbook-wiki.md` (opis pop-v3), nota w planie, INDEX. Liczby po buildzie dopisać w G4.3.

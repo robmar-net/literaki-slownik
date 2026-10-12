@@ -39,7 +39,7 @@
    - liczby słów: `wc -l <run>/lists/broad.txt <run>/lists/standard.txt`;
    - wersja polityki: `VERSION` w `literaki_slownik/policy.py` (musi być zgodna z `policy_version` w `<run>/reports/decisions.json`);
    - porównanie z SJP.pl: wynik `scripts/benchmark_sjp.py`; strona brakujących słów: `scripts/sjp_missing_top.py` + `scripts/render_sjp_missing.py`; strona słów spoza SJP.pl: `scripts/sjp_extra_top.py` + `scripts/render_sjp_extra.py`; bez ręcznych zmian.
-   - POP/POP0: formy i leksemy z `counts` w `release-manifest.json` pakietu (dziś POP 1 227 250 / 53 002, POP0 388 509 / 13 896), progi i przycięcia z `reports/thresholds.json`; wersja `pop-v2`, link do [Release pop-v2](https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v2), metoda [ADR-007](adr/ADR-007-metoda-pop-v1.md). Strony `Slownik-POP` i `Slownik-POP0` idą tą samą procedurą.
+   - POP/POP0: formy i leksemy z `counts` w `release-manifest.json` pakietu, progi i przycięcia z `reports/thresholds.json`. Wydane: `pop-v2` (POP 1 227 250 / 53 002, POP0 388 509 / 13 896), [Release pop-v2](https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v2), metoda [ADR-007](adr/ADR-007-metoda-pop-v1.md). Metoda robocza `pop-v3`: [ADR-008](adr/ADR-008-pop-v3-staly-prog.md), opis niżej. Strony `Slownik-POP` i `Slownik-POP0` idą tą samą procedurą.
    Przy liczbach podaj wersję i datę. Dopóki `verify` nie odbierze wydania, pisz „wersja robocza”.
 3. Przykład przy filtrze sprawdź w liście albo przez `python3 -m literaki_slownik explain --run-dir <run> --word <słowo>`. Dla POP/POP0: `explain ... --variant pop|pop0 --pop-dir <pakiet>`. Przykład „odpada” nie może być na liście, a przykład „zostaje” musi na niej być.
 4. Lista kontrolna przed commitem:
@@ -53,6 +53,13 @@
    git -C wiki-literaki-slownik commit -m "wiki: <co się zmieniło> (v<NN>)"
    git -C wiki-literaki-slownik push
    ```
+
+## Opis POP przy metodzie `pop-v3`
+- **Kryterium:** POP to słowa o punktacji użycia co najmniej progu (`thresholds.json`: `by: score`, `score`), nie „60 000 najczęstszych leksemów”. Liczbę leksemów podaj jako wynik, nie jako limit. POP0 nadal: 20 000 leksemów.
+- **Tymczasowość:** przy progu napisz, że to stała tymczasowa (cięcie wydanego pop-v2), a docelowy próg ustala [#6](https://github.com/robmar-net/literaki-slownik/issues/6). Link do #6 bierz z `provisional` w `thresholds.json`.
+- **Status:** dopóki pakiet `pop-v3` nie przejdzie odbioru i nie ma Release, stan na stronie to wydane `pop-v2` (liczby, link, „limit 60 000 leksemów” jako opis tego wydania). Nową metodę opisz osobnym punktem „wersja robocza” z liczbami i datą przebiegu.
+- **Po wydaniu `pop-v3`:** zamień stan na nowe liczby i link; opis limitu 60 000 przenieś do `Historia-zmian`.
+- **Przykład:** słowo „zostaje” sprawdź przez `explain --variant pop`; dla przyciętego członka grupy podaj powód `PRUNED_WEAK_MEMBER`.
 
 ## Open Questions / Risks
 - Wiki nie ma testów ani CI, więc zestarzeje się po cichu. Jedyną ochroną jest ta procedura w kroku, który zmienia słowniki (zob. `AGENTS.md`).

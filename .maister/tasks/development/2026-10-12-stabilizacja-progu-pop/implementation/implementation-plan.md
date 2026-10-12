@@ -58,7 +58,7 @@ Docelowa granica POP, osiem cofnięć, wydanie GitHub Release i gra pozostają p
 
 ## G3 — pełne zbiory i odbiór
 
-- [ ] **3.1** Przed pełnym buildem uruchomić pełny zestaw testów lokalnych oraz kontrolę pinów i czystości kodu. Zacommitować kod, bo `verify` wymaga zgodnego `code_identity` bez dirty w pakiecie.
+- [x] **3.1** Przed pełnym buildem uruchomić pełny zestaw testów lokalnych oraz kontrolę pinów i czystości kodu. Zacommitować kod, bo `verify` wymaga zgodnego `code_identity` bez dirty w pakiecie.
 - [ ] **3.2** Z tych samych przypiętych wejść wykonać dwa nowe przebiegi LL-PL w oddzielnych katalogach. Porównać kanoniczne raporty, dokładny zbiór STANDARD z bazą v30: +2382/0, odpowiednie ślady 7192 ocen i 11 dodatnich oraz 11 ujemnych kontroli. BROAD bez nieplanowanych zmian.
 - [ ] **3.3** Wygenerować i ocenić próbki jakości nowego przebiegu. Do K9 przygotować przegląd związany hashami; brak zatwierdzonego przeglądu oznacza brak `verify/export` i brak twierdzenia o wydanej liście.
 - [ ] **3.4** Po K9 uruchomić `verify` na dwóch przebiegach, następnie `export` do nowego katalogu. Sprawdzić status FROZEN, piny i brak zmian starych przebiegów. Aktualizować `config/generator/pop-sources.json` wyłącznie na hash nowego, zweryfikowanego STANDARD.
@@ -67,8 +67,8 @@ Docelowa granica POP, osiem cofnięć, wydanie GitHub Release i gra pozostają p
 
 ## G4 — trwała dokumentacja i wiki
 
-- [ ] **4.1** Uzupełnić dokumentację wyjątku STANDARD: jak edytować JSON, przypiąć hash, uruchomić nowy build, sprawdzić dokładne dopasowanie i dlaczego nie wystarczy dopisać formy do gotowej listy.
-- [ ] **4.2** Zaktualizować opis POP, CLI i ADR; oznaczyć stałą jako tymczasową i podlinkować otwarty #6. W `docs/runbook-wiki.md` dopisać sposób opisu nowej metody.
+- [x] **4.1** Uzupełnić dokumentację wyjątku STANDARD: jak edytować JSON, przypiąć hash, uruchomić nowy build, sprawdzić dokładne dopasowanie i dlaczego nie wystarczy dopisać formy do gotowej listy.
+- [x] **4.2** Zaktualizować opis POP, CLI i ADR; oznaczyć stałą jako tymczasową i podlinkować otwarty #6. W `docs/runbook-wiki.md` dopisać sposób opisu nowej metody.
 - [ ] **4.3** W klonie wiki zaktualizować STANDARD, POP, POP0 i `Historia-zmian` na podstawie rzeczywistych manifestów. `Home` tylko jeżeli zmienia się opis/stany. Zachować stare wydane liczby i linki, gdy nowe listy są jedynie robocze. Przykłady sprawdzić w listach.
 - [ ] **4.4** Sprawdzić linki, hashe, liczby, stan git wiki i długość stron; commit/push wiki według runbooka. Nie publikować nowego wydania bez osobnej decyzji.
 

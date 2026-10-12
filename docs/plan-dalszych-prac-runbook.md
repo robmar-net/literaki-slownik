@@ -43,7 +43,8 @@ Pliki planu mają również historyczne dopiski. Przy wznowieniu czytać najnows
 - Ostatnia wykonana pełna suita: 247 testów generatora i 5 audytu, wszystkie przeszły (2026-10-08). To wynik historyczny, nie zastępstwo za testy przyszłych zmian.
 - Maister: `development`, `phase_8`, zadanie `in_progress`; G7 ukończone 2026-10-08, G8–G9 oczekują. W głównym planie zaznaczono 15 z 36 pozycji (21 otwartych, stan 2026-10-08), lecz to nie miara czasu: dotyczą dużych etapów pełnych przebiegów i odbioru. Nie zamykać częściowych G3–G6 na podstawie liczby checkboxów.
 - Dostępne komendy publicznego CLI: `inspect-sources`, `build`, `explain`, `verify`, `export`, `pop` (opis: `docs/generator/cli.md`). Wydanie LL-PL v29 przeszło verify K1–K10 i export. Nie ma zmiany działającej gry.
-- POP/POP0 wydane 2026-10-11: [Release pop-v1](https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v1). POP 1 219 614 form / 51 805 leksemów, POP0 380 489 / 13 181. Metoda: [ADR-007](adr/ADR-007-metoda-pop-v1.md) rew. 3.
+- POP/POP0 wydane 2026-10-11: [Release pop-v2](https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v2). POP 1 227 250 form / 53 002 leksemów, POP0 388 509 / 13 896. Metoda: [ADR-007](adr/ADR-007-metoda-pop-v1.md) rew. 4 (limit 60 000 leksemów POP). Wycofane pop-v1 (rew. 3): POP 1 219 614 / 51 805, POP0 380 489 / 13 181.
+- Nota 2026-10-12: kod ma metodę `pop-v3` ([ADR-008](adr/ADR-008-pop-v3-staly-prog.md)): POP = stały próg punktacji ≥ −1,042878629 zamiast limitu 60 000, tymczasowo do [#6](https://github.com/robmar-net/literaki-slownik/issues/6); POP0 bez zmian. STANDARD ma dostać 2 382 formy z wyjątków dawności #4 (pomiar na zamrożonym v30; nowy build w toku) ([opis](generator/wyjatki-dawnosci-standard.md)). Obie zmiany są robocze, dopóki nowy przebieg nie przejdzie odbioru i wydania; wydane pozostają LL-PL v29 i pop-v2.
 
 ## 3. Granice pracy i źródeł
 
