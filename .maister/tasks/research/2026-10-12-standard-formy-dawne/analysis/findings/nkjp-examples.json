@@ -1,0 +1,24 @@
+{
+  "rule": "strip-edges-keep-dot",
+  "rule_id": "nkjp-clean-strip-edges-keep-dot-v1",
+  "lines": 5364398,
+  "total": 246153378,
+  "matched": 3359,
+  "forms": {
+    "ali": 936,
+    "jakoż": 413,
+    "sek": 548,
+    "aliści": 268,
+    "trzykroć": 217,
+    "familia": 206,
+    "odzienie": 219,
+    "niezbędnik": 147,
+    "desperacja": 121,
+    "nazad": 106,
+    "surdut": 105,
+    "iże": 54,
+    "ekscytacją": 19
+  },
+  "source": "https://zil.ipipan.waw.pl/NKJPNGrams",
+  "source_sha256": "73af49094621b2f86b594beba783c14aee8c8212f1aff3d61f281ab5d99e3dc9"
+}

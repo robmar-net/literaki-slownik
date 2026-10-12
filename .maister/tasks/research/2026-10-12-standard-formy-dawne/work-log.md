@@ -1,0 +1,6 @@
+# Dziennik researchu
+
+- 2026-10-12T00:04:14Z: odczytano research, framework, metodologię, konfigurację i instrukcje repo. Brak `.codex/agents/` w repo i workspace: specjaliści planowania/zbierania/syntezy realizowani w głównym kontekście. Workspace nie ma `.maister/config.yml` ani `.maister/docs/INDEX.md`; użyto istniejących plików repo słownika. Dependabot serwera: brak otwartych PR.
+- 2026-10-12T00:10:09Z: potwierdzono sumę 615 i rozbieżność miar; 6 istniejących testów OK. Odczytano 5500 publicznych próbek KWJP; surowe teksty pozostają lokalnie. Sprawdzono zewnętrzne źródła i NKJP; bez aktywacji w generatorze.
+- 2026-10-12T00:11:26Z: pierwszy skrypt sond zatrzymał się na DP_norm przechowywanym jako napis; poprawiono jawną konwersję float, zachowano kosztowny odczyt kandydatów i wznowiono pomiar. Bez zmiany źródeł.
+- 2026-10-12T00:20:23Z: raport, synteza i próbki gotowe. Potwierdzono hashe bazy/listy i dwóch CSV sondy. Kontrolne oceny 23 słów i 6 testów istniejącej reguły zgodne. Sprawdzenie wszystkich lokalnych linków i JSON poprawne. HTML wygenerowany; podgląd Playwright niedostępny, bo profil przeglądarki jest używany przez inną instancję — nie naruszano jej pracy. Bramka researchu pozostaje otwarta; żadnej decyzji o zmianie składu list.

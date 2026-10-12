@@ -1,0 +1,509 @@
+{
+  "reason": "Wstępna próbka wykazała przenoszenie dowodu żywego leksemu na archaiczne formy.",
+  "scope": "Dodatkowy wyjątek lemma+POS NF≥30, bez etykiety arch.; stare przyjęcia zachowane.",
+  "new_forms": 3364,
+  "matched_lemma_ids": 404,
+  "lemma30_matched_lemma_ids": 1580,
+  "blocked_arch_only_forms": 1195,
+  "top2000_recovered": 307,
+  "sample": [
+    {
+      "lemma": "przechwałka",
+      "count": 5,
+      "forms": [
+        "przechwałce",
+        "przechwałka",
+        "przechwałko",
+        "przechwałką",
+        "przechwałkę"
+      ],
+      "labels": [
+        "daw."
+      ]
+    },
+    {
+      "lemma": "zbój",
+      "count": 10,
+      "forms": [
+        "zbój",
+        "zbója",
+        "zbójach",
+        "zbójami",
+        "zbóje",
+        "zbójem",
+        "zbójom",
+        "zbójowi",
+        "zbóju",
+        "zbójów"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "trupa",
+      "count": 3,
+      "forms": [
+        "trupo",
+        "trupą",
+        "trupę"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "okazjonalny",
+      "count": 8,
+      "forms": [
+        "okazjonalna",
+        "okazjonalnej",
+        "okazjonalnemu",
+        "okazjonalni",
+        "okazjonalny",
+        "okazjonalnym",
+        "okazjonalnymi",
+        "okazjonalną"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "porachunek",
+      "count": 3,
+      "forms": [
+        "porachunek",
+        "porachunkiem",
+        "porachunku"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "rozbój",
+      "count": 6,
+      "forms": [
+        "rozboi",
+        "rozbojach",
+        "rozbojami",
+        "rozbojem",
+        "rozbojom",
+        "rozbojowi"
+      ],
+      "labels": [
+        "niezal.,przest.",
+        "przest."
+      ]
+    },
+    {
+      "lemma": "wynegocjować",
+      "count": 27,
+      "forms": [
+        "niewynegocjowań",
+        "wynegocjowali",
+        "wynegocjowana",
+        "wynegocjowanego",
+        "wynegocjowanej",
+        "wynegocjowanemu",
+        "wynegocjowani",
+        "wynegocjowania",
+        "wynegocjowanie",
+        "wynegocjowaniem",
+        "wynegocjowaniom",
+        "wynegocjowaniu",
+        "wynegocjowany",
+        "wynegocjowanych",
+        "wynegocjowanym",
+        "wynegocjowanymi",
+        "wynegocjowaną",
+        "wynegocjowała",
+        "wynegocjowałam",
+        "wynegocjowałaś"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "umór",
+      "count": 9,
+      "forms": [
+        "umorach",
+        "umorami",
+        "umorem",
+        "umorom",
+        "umorowi",
+        "umoru",
+        "umory",
+        "umorze",
+        "umorów"
+      ],
+      "labels": [
+        "daw."
+      ]
+    },
+    {
+      "lemma": "powijak",
+      "count": 5,
+      "forms": [
+        "powijak",
+        "powijaka",
+        "powijakiem",
+        "powijakowi",
+        "powijaku"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "metr:Sm1",
+      "count": 1,
+      "forms": [
+        "metrowie"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "zapęd",
+      "count": 5,
+      "forms": [
+        "zapęd",
+        "zapędem",
+        "zapędowi",
+        "zapędu",
+        "zapędzie"
+      ],
+      "labels": [
+        "daw."
+      ]
+    },
+    {
+      "lemma": "hulanka",
+      "count": 10,
+      "forms": [
+        "hulance",
+        "hulanek",
+        "hulanka",
+        "hulankach",
+        "hulankami",
+        "hulanki",
+        "hulanko",
+        "hulankom",
+        "hulanką",
+        "hulankę"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "marnotrawny",
+      "count": 11,
+      "forms": [
+        "marnotrawna",
+        "marnotrawne",
+        "marnotrawnego",
+        "marnotrawnej",
+        "marnotrawnemu",
+        "marnotrawni",
+        "marnotrawny",
+        "marnotrawnych",
+        "marnotrawnym",
+        "marnotrawnymi",
+        "marnotrawną"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "zbożny",
+      "count": 36,
+      "forms": [
+        "najzbożniejsi",
+        "najzbożniejsza",
+        "najzbożniejsze",
+        "najzbożniejszej",
+        "najzbożniejszy",
+        "najzbożniejszym",
+        "najzbożniejszą",
+        "niezbożniejsi",
+        "niezbożniejsza",
+        "niezbożniejsze",
+        "niezbożniejszej",
+        "niezbożniejszy",
+        "niezbożniejszym",
+        "niezbożniejszą",
+        "zbożna",
+        "zbożne",
+        "zbożnego",
+        "zbożnej",
+        "zbożnemu",
+        "zbożni"
+      ],
+      "labels": [
+        "przest.",
+        "przest.,rzad."
+      ]
+    },
+    {
+      "lemma": "wywrzeć:Vp~rę~zę",
+      "count": 37,
+      "forms": [
+        "niewywrzenia",
+        "niewywrzeniach",
+        "niewywrzeniami",
+        "niewywrzenie",
+        "niewywrzeniem",
+        "niewywrzeniom",
+        "niewywrzeniu",
+        "niewywrzeń",
+        "wywre",
+        "wywrecie",
+        "wywremy",
+        "wywresz",
+        "wywrzał",
+        "wywrzała",
+        "wywrzałam",
+        "wywrzałaś",
+        "wywrzałem",
+        "wywrzałeś",
+        "wywrzało",
+        "wywrzałom"
+      ],
+      "labels": [
+        "daw."
+      ]
+    },
+    {
+      "lemma": "prokreacja",
+      "count": 8,
+      "forms": [
+        "prokreacja",
+        "prokreacjach",
+        "prokreacjami",
+        "prokreacje",
+        "prokreacjo",
+        "prokreacjom",
+        "prokreacją",
+        "prokreację"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "zarośle",
+      "count": 3,
+      "forms": [
+        "zarośle",
+        "zaroślem",
+        "zaroślu"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "chrobry",
+      "count": 11,
+      "forms": [
+        "chrobra",
+        "chrobre",
+        "chrobrego",
+        "chrobrej",
+        "chrobremu",
+        "chrobry",
+        "chrobrych",
+        "chrobrym",
+        "chrobrymi",
+        "chrobrzy",
+        "chrobrą"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "wonia",
+      "count": 3,
+      "forms": [
+        "wonia",
+        "wonio",
+        "wonię"
+      ],
+      "labels": [
+        "daw."
+      ]
+    },
+    {
+      "lemma": "kursor:Sm1",
+      "count": 1,
+      "forms": [
+        "kursorzy"
+      ],
+      "labels": [
+        "daw."
+      ]
+    },
+    {
+      "lemma": "bracki",
+      "count": 11,
+      "forms": [
+        "braccy",
+        "bracka",
+        "bracki",
+        "brackich",
+        "brackie",
+        "brackiego",
+        "brackiej",
+        "brackiemu",
+        "brackim",
+        "brackimi",
+        "bracką"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "pojmać",
+      "count": 16,
+      "forms": [
+        "niepojmania",
+        "niepojmaniach",
+        "niepojmaniami",
+        "niepojmanie",
+        "niepojmaniem",
+        "niepojmaniom",
+        "niepojmaniu",
+        "niepojmań",
+        "pojmania",
+        "pojmaniach",
+        "pojmaniami",
+        "pojmanie",
+        "pojmaniem",
+        "pojmaniom",
+        "pojmaniu",
+        "pojmań"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "kalkulator:Sm1",
+      "count": 1,
+      "forms": [
+        "kalkulatorzy"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "aukcja",
+      "count": 4,
+      "forms": [
+        "aukcjami",
+        "aukcjo",
+        "aukcjom",
+        "aukcją"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "niewiele:Npl",
+      "count": 2,
+      "forms": [
+        "niewiela",
+        "niewielą"
+      ],
+      "labels": [
+        "daw."
+      ]
+    },
+    {
+      "lemma": "zaświat",
+      "count": 5,
+      "forms": [
+        "zaświat",
+        "zaświata",
+        "zaświatem",
+        "zaświatu",
+        "zaświecie"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "rzezimieszek",
+      "count": 10,
+      "forms": [
+        "rzezimieszek",
+        "rzezimieszka",
+        "rzezimieszkach",
+        "rzezimieszkami",
+        "rzezimieszkiem",
+        "rzezimieszkom",
+        "rzezimieszkowi",
+        "rzezimieszkowie",
+        "rzezimieszku",
+        "rzezimieszków"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "bohema",
+      "count": 9,
+      "forms": [
+        "bohem",
+        "bohema",
+        "bohemach",
+        "bohemami",
+        "bohemie",
+        "bohemo",
+        "bohemom",
+        "bohemą",
+        "bohemę"
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "manowiec",
+      "count": 5,
+      "forms": [
+        "manowca",
+        "manowcem",
+        "manowcowi",
+        "manowcu",
+        "manowiec"
+      ],
+      "labels": [
+        "daw."
+      ]
+    },
+    {
+      "lemma": "osiem",
+      "count": 1,
+      "forms": [
+        "ośm"
+      ],
+      "labels": [
+        "daw."
+      ]
+    }
+  ]
+}

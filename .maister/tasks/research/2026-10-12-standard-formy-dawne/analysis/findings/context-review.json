@@ -1,0 +1,359 @@
+{
+  "source": "https://github.com/ipipan/kwjp100-varia/tree/26d82bd8b906dfed1cfcf8f903b1650b56daeabf/KWJP%C2%BDM",
+  "source_sha256": "aedad77022508fe10d0d537e6a082884b8e7a97d4836a184ff744a5261db55b1",
+  "files_inspected": 5500,
+  "hits": [
+    {
+      "file": "samples/136430_sample.json",
+      "sample_index": 0,
+      "matches": [
+        "familii"
+      ],
+      "bibliography": {
+        "id": "136430",
+        "meta_author": "Magdalena Parys",
+        "meta_title": "Książę",
+        "meta_editor": "",
+        "meta_main_title": "",
+        "meta_published": "2020",
+        "meta_first_published": "2020",
+        "meta_publisher": "Wydawnictwo Agora",
+        "meta_pubplace": "Warszawa",
+        "meta_isbn": "9788326833700",
+        "meta_issn": "",
+        "meta_pubnumber": "",
+        "meta_topic": "powieść, thriller",
+        "meta_kwjp_type": "typ_fikcja",
+        "meta_kwjp_channel": "kanal_ksiazka",
+        "meta_label": "parys-książę"
+      },
+      "review": "żywe_nacechowane",
+      "note": "Rodzina w narracji o współczesnym życiu; fikcja."
+    },
+    {
+      "file": "samples/136715_sample.json",
+      "sample_index": 0,
+      "matches": [
+        "surduta"
+      ],
+      "bibliography": {
+        "id": "136715",
+        "meta_author": "Magdalena Kopeć",
+        "meta_title": "Trzy zimy",
+        "meta_editor": "",
+        "meta_main_title": "",
+        "meta_published": "2019",
+        "meta_first_published": "2019",
+        "meta_publisher": "Lira Wydawnictwo",
+        "meta_pubplace": "Warszawa",
+        "meta_isbn": "9788366229907",
+        "meta_issn": "",
+        "meta_pubnumber": "",
+        "meta_topic": "powieść historyczna, powieść obyczajowa",
+        "meta_kwjp_type": "typ_fikcja",
+        "meta_kwjp_channel": "kanal_ksiazka",
+        "meta_label": "kopeć-trzy-zimy"
+      },
+      "review": "historyczny_desygnat",
+      "note": "Ubranie w powieści historycznej; to nie dowodzi neutralnego rejestru."
+    },
+    {
+      "file": "samples/136888_sample.json",
+      "sample_index": 0,
+      "matches": [
+        "odzienia"
+      ],
+      "bibliography": {
+        "id": "136888",
+        "meta_author": "Mieczysław Wojtasik",
+        "meta_title": "Pod czujnym okiem Erosa",
+        "meta_editor": "",
+        "meta_main_title": "Akant",
+        "meta_published": "2018",
+        "meta_first_published": "",
+        "meta_publisher": "Towarzystwo Inicjatyw Kulturalnych",
+        "meta_pubplace": "Bydgoszcz",
+        "meta_isbn": "",
+        "meta_issn": "1429-9054",
+        "meta_pubnumber": "4/2018",
+        "meta_topic": "",
+        "meta_kwjp_type": "typ_fikcja",
+        "meta_kwjp_channel": "kanal_prasa_miesiecznik",
+        "meta_label": "akant_2018-04"
+      },
+      "review": "nacechowane",
+      "note": "Eseistyczny opis używa odzienia; nie rozstrzyga jego neutralności."
+    },
+    {
+      "file": "samples/208998_sample.json",
+      "sample_index": 0,
+      "matches": [
+        "familijne"
+      ],
+      "bibliography": {
+        "id": "208998",
+        "meta_author": "bcm, tvn24",
+        "meta_title": "Załamany Biedroń: Nie ma nadziei dla tego kraju",
+        "meta_editor": "",
+        "meta_main_title": "Fakt",
+        "meta_published": "2017-12-10",
+        "meta_first_published": "",
+        "meta_publisher": "Ringier Axel Springer Polska",
+        "meta_pubplace": "Warszawa",
+        "meta_isbn": "",
+        "meta_issn": "1731-7118",
+        "meta_pubnumber": "2017-12-10",
+        "meta_topic": "",
+        "meta_kwjp_type": "typ_publicystyka",
+        "meta_kwjp_channel": "kanal_prasa_dziennik",
+        "meta_label": "fakt_2017-12-10"
+      },
+      "review": "nietrafienie",
+      "note": "familijne jest innym leksemem; wyłączone z 12 właściwych trafień."
+    },
+    {
+      "file": "samples/136485_sample.json",
+      "sample_index": 1,
+      "matches": [
+        "odzienie"
+      ],
+      "bibliography": {
+        "id": "136485",
+        "meta_author": "Grzegorz Hybiak",
+        "meta_title": "Stowarzyszenie aniołów",
+        "meta_editor": "",
+        "meta_main_title": "",
+        "meta_published": "2013",
+        "meta_first_published": "2013",
+        "meta_publisher": "Wydawnictwo Internetowe e-bookowo",
+        "meta_pubplace": "Będzin",
+        "meta_isbn": "9788378591702",
+        "meta_issn": "",
+        "meta_pubnumber": "",
+        "meta_topic": "powieść",
+        "meta_kwjp_type": "typ_fikcja",
+        "meta_kwjp_channel": "kanal_ksiazka",
+        "meta_label": "hybiak-stowarzyszenie-aniołów"
+      },
+      "review": "stylizacja",
+      "note": "Scena z tronem i strażnikami; słowo odzienie jest częścią nacechowanej narracji."
+    },
+    {
+      "file": "samples/136594_sample.json",
+      "sample_index": 9,
+      "matches": [
+        "iże"
+      ],
+      "bibliography": {
+        "id": "136594",
+        "meta_author": "Danuta Noszczyńska",
+        "meta_title": "Pod dwiema kosami czyli przedśmiertne zapiski Żywotnego Mariana",
+        "meta_editor": "",
+        "meta_main_title": "",
+        "meta_published": "2012",
+        "meta_first_published": "2012",
+        "meta_publisher": "SOL",
+        "meta_pubplace": "Grójec",
+        "meta_isbn": "9788362405596",
+        "meta_issn": "",
+        "meta_pubnumber": "",
+        "meta_topic": "powieść obyczajowa",
+        "meta_kwjp_type": "typ_fikcja",
+        "meta_kwjp_channel": "kanal_ksiazka",
+        "meta_label": "noszczyńska-pod-dwiema-kosami-czyli-przedśmiertne-zapiski"
+      },
+      "review": "stylizacja",
+      "note": "iże w stylizowanej wypowiedzi bohatera, obok gwarowych i dawnych środków."
+    },
+    {
+      "file": "samples/228537_sample.json",
+      "sample_index": 0,
+      "matches": [
+        "familia"
+      ],
+      "bibliography": {
+        "id": "228537",
+        "meta_author": "Agnieszka Hałas",
+        "meta_title": "Dwie karty",
+        "meta_editor": "",
+        "meta_main_title": "Esensja",
+        "meta_published": "2011-03-08",
+        "meta_first_published": "",
+        "meta_publisher": "Konrad Wągrowski",
+        "meta_pubplace": "Warszawa",
+        "meta_isbn": "",
+        "meta_issn": "1641-3547",
+        "meta_pubnumber": "03/2011",
+        "meta_topic": "",
+        "meta_kwjp_type": "typ_fikcja",
+        "meta_kwjp_channel": "kanal_prasa_miesiecznik",
+        "meta_label": "esensja_2011-03"
+      },
+      "review": "żywe_nacechowane",
+      "note": "familia oznacza rodzinę w narracji fikcyjnej."
+    },
+    {
+      "file": "samples/142821_sample.json",
+      "sample_index": 0,
+      "matches": [
+        "desperacji"
+      ],
+      "bibliography": {
+        "id": "142821",
+        "meta_author": "Rozmawiały Bożena Aksamit I Dorota Frontczak",
+        "meta_title": "Japonka",
+        "meta_editor": "",
+        "meta_main_title": "Duży Format",
+        "meta_published": "2012-07-18",
+        "meta_first_published": "",
+        "meta_publisher": "Agora",
+        "meta_pubplace": "Warszawa",
+        "meta_isbn": "",
+        "meta_issn": "1643-9910",
+        "meta_pubnumber": "2012-07-18",
+        "meta_topic": "",
+        "meta_kwjp_type": "typ_fakt",
+        "meta_kwjp_channel": "kanal_prasa_tygodnik",
+        "meta_label": "duży-format_2012-07-18"
+      },
+      "review": "żywe",
+      "note": "desperacji w wywiadzie o szukaniu szkoły, gatunek fakt."
+    },
+    {
+      "file": "samples/140696_sample.json",
+      "sample_index": 0,
+      "matches": [
+        "ekscytację"
+      ],
+      "bibliography": {
+        "id": "140696",
+        "meta_author": "Katarzyna",
+        "meta_title": "MAGICZNE BARWY WIELKANOCY",
+        "meta_editor": "",
+        "meta_main_title": "Gwiazdy Mówią",
+        "meta_published": "2015-04-05",
+        "meta_first_published": "",
+        "meta_publisher": "Wydawnictwo Te-Jot",
+        "meta_pubplace": "Warszawa",
+        "meta_isbn": "",
+        "meta_issn": "1234-687X",
+        "meta_pubnumber": "14/2015",
+        "meta_topic": "",
+        "meta_kwjp_type": "typ_fakt",
+        "meta_kwjp_channel": "kanal_prasa_tygodnik",
+        "meta_label": "gwiazdy-mówią_2015-14"
+      },
+      "review": "żywe",
+      "note": "ekscytację w opisie oddziaływania barw, gatunek fakt."
+    },
+    {
+      "file": "samples/138284_sample.json",
+      "sample_index": 0,
+      "matches": [
+        "desperacji"
+      ],
+      "bibliography": {
+        "id": "138284",
+        "meta_author": "Sebastian Chosiński, Karolina Ćwiek-Rogalska, Piotr Dobry, Grzegorz Fortuna, Jarosław Loretz",
+        "meta_title": "Esensja ogląda: Luty 2014",
+        "meta_editor": "",
+        "meta_main_title": "Esensja",
+        "meta_published": "2013-09",
+        "meta_first_published": "",
+        "meta_publisher": "Konrad Wągrowski",
+        "meta_pubplace": "Warszawa",
+        "meta_isbn": "",
+        "meta_issn": "1641-3547",
+        "meta_pubnumber": "02/2014",
+        "meta_topic": "",
+        "meta_kwjp_type": "typ_fikcja",
+        "meta_kwjp_channel": "kanal_prasa_miesiecznik",
+        "meta_label": "esensja_2014-02"
+      },
+      "review": "żywe",
+      "note": "desperacji w recenzji filmu; próbka przypisana do fikcji mimo recenzenckiej treści."
+    },
+    {
+      "file": "samples/136342_sample.json",
+      "sample_index": 11,
+      "matches": [
+        "familii"
+      ],
+      "bibliography": {
+        "id": "136342",
+        "meta_author": "Piotr Głuchowski, Jacek Hołub",
+        "meta_title": "Imperator. Sekrety ojca Rydzyka",
+        "meta_editor": "",
+        "meta_main_title": "",
+        "meta_published": "2019",
+        "meta_first_published": "2013",
+        "meta_publisher": "Wydawnictwo Agora",
+        "meta_pubplace": "Warszawa",
+        "meta_isbn": "9788326830365",
+        "meta_issn": "",
+        "meta_pubnumber": "",
+        "meta_topic": "biografia",
+        "meta_kwjp_type": "typ_fakt",
+        "meta_kwjp_channel": "kanal_ksiazka",
+        "meta_label": "głuchowski-imperator-sekrety-ojca-rydzyka"
+      },
+      "review": "żywe_nacechowane",
+      "note": "familii w metaforycznym określeniu środowiska Radia Maryja, biografia."
+    },
+    {
+      "file": "samples/136252_sample.json",
+      "sample_index": 1,
+      "matches": [
+        "jakoż"
+      ],
+      "bibliography": {
+        "id": "136252",
+        "meta_author": "Dominika Skiba",
+        "meta_title": "Cyganeria artystyczna i cyganowanie w romantycznej Warszawie",
+        "meta_editor": "",
+        "meta_main_title": "",
+        "meta_published": "2016",
+        "meta_first_published": "2016",
+        "meta_publisher": "Wydawnictwo Ossolineum",
+        "meta_pubplace": "Warszawa",
+        "meta_isbn": "9788365588555",
+        "meta_issn": "",
+        "meta_pubnumber": "",
+        "meta_topic": "literaturoznawstwo",
+        "meta_kwjp_type": "typ_fakt",
+        "meta_kwjp_channel": "kanal_ksiazka",
+        "meta_label": "skiba-cyganeria-artystyczna-i-cyganowanie-w-romantycznej"
+      },
+      "review": "dawny_język",
+      "note": "jakoż obok onych/nieochędożone/absentować w pracy historycznej; prawdopodobny cytat, wymaga pełnego tekstu do potwierdzenia."
+    },
+    {
+      "file": "samples/136378_sample.json",
+      "sample_index": 2,
+      "matches": [
+        "Niezbędnik"
+      ],
+      "bibliography": {
+        "id": "136378",
+        "meta_author": "Piotr Ambroziewicz",
+        "meta_title": "Złote lata polskiej chuliganerii 1950-1960",
+        "meta_editor": "",
+        "meta_main_title": "",
+        "meta_published": "2018",
+        "meta_first_published": "2018",
+        "meta_publisher": "Wydawnictwo Naukowe PWN",
+        "meta_pubplace": "Warszawa",
+        "meta_isbn": "9788301199616",
+        "meta_issn": "",
+        "meta_pubnumber": "",
+        "meta_topic": "historia XX wiek, socjologia",
+        "meta_kwjp_type": "typ_fakt",
+        "meta_kwjp_channel": "kanal_ksiazka",
+        "meta_label": "ambroziewicz-złote-lata-polskiej-chuliganerii-1950-1960"
+      },
+      "review": "niejednoznaczne",
+      "note": "Niezbędnik w nawiasie i wielką literą; odsyłacz/nazwa, brak dowodu zwykłego użycia."
+    }
+  ],
+  "scope": "Własny jakościowy przegląd małej publicznej próbki, bez statystycznej ekstrapolacji i bez redystrybucji tekstów."
+}

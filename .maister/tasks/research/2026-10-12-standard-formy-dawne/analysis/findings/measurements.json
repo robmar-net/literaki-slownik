@@ -1,0 +1,5291 @@
+{
+  "created": "2026-10-12T00:11:55Z",
+  "run": "data/work/lists-v30-20261010-165826-a",
+  "method": "replace only historical rejections within one otherwise accepted persisted analysis; unique new game_key; monotone scenarios",
+  "standard": 3090194,
+  "possible_new_forms": 389160,
+  "historical_forms_already_standard": 18012,
+  "benchmark_history_top2000": 615,
+  "benchmark_run": "data/work/lists-v30-20261010-165826-a",
+  "scenarios": {
+    "form-nf-5": {
+      "new_forms": 1193,
+      "top2000_recovered": 405,
+      "top2000_history_recovered": 405,
+      "source_lemma_ids_in_new_forms": 593,
+      "no_published_lowercase_form": 0,
+      "top_forms": [
+        [
+          "powiadasz",
+          15,
+          92
+        ],
+        [
+          "surdut",
+          19,
+          80
+        ],
+        [
+          "sia",
+          6,
+          79
+        ],
+        [
+          "odzienie",
+          28,
+          78
+        ],
+        [
+          "oberży",
+          14,
+          76
+        ],
+        [
+          "nazad",
+          21,
+          73
+        ],
+        [
+          "ekscytacją",
+          21,
+          71
+        ],
+        [
+          "prawił",
+          19,
+          70
+        ],
+        [
+          "bawialni",
+          14,
+          64
+        ],
+        [
+          "desperacja",
+          28,
+          64
+        ],
+        [
+          "wydyszał",
+          5,
+          64
+        ],
+        [
+          "hola",
+          18,
+          63
+        ],
+        [
+          "odczepnego",
+          18,
+          63
+        ],
+        [
+          "podorędziu",
+          29,
+          62
+        ],
+        [
+          "pantałyku",
+          20,
+          61
+        ],
+        [
+          "odzienia",
+          20,
+          60
+        ],
+        [
+          "dwakroć",
+          19,
+          59
+        ],
+        [
+          "rozstaju",
+          28,
+          56
+        ],
+        [
+          "prawić",
+          13,
+          55
+        ],
+        [
+          "trzykroć",
+          24,
+          55
+        ],
+        [
+          "kamasze",
+          26,
+          54
+        ],
+        [
+          "gorzałki",
+          15,
+          53
+        ],
+        [
+          "szczętu",
+          25,
+          52
+        ],
+        [
+          "wychudzona",
+          20,
+          52
+        ],
+        [
+          "żywnie",
+          25,
+          52
+        ],
+        [
+          "niewiastę",
+          28,
+          51
+        ],
+        [
+          "zbójców",
+          20,
+          51
+        ],
+        [
+          "srebrno",
+          26,
+          50
+        ],
+        [
+          "surducie",
+          17,
+          49
+        ],
+        [
+          "szacowny",
+          29,
+          49
+        ],
+        [
+          "tyn",
+          12,
+          49
+        ],
+        [
+          "desperacją",
+          14,
+          48
+        ],
+        [
+          "dobył",
+          8,
+          48
+        ],
+        [
+          "guwernantki",
+          20,
+          48
+        ],
+        [
+          "posturą",
+          22,
+          48
+        ],
+        [
+          "próżnicy",
+          15,
+          48
+        ],
+        [
+          "siedzisku",
+          9,
+          48
+        ],
+        [
+          "atencji",
+          26,
+          47
+        ],
+        [
+          "dobywa",
+          17,
+          47
+        ],
+        [
+          "jednako",
+          25,
+          47
+        ],
+        [
+          "nadobne",
+          25,
+          47
+        ],
+        [
+          "podołku",
+          10,
+          47
+        ],
+        [
+          "prywatki",
+          25,
+          47
+        ],
+        [
+          "tera",
+          13,
+          47
+        ],
+        [
+          "dwoił",
+          19,
+          46
+        ],
+        [
+          "sklepikarza",
+          19,
+          45
+        ],
+        [
+          "takowej",
+          27,
+          45
+        ],
+        [
+          "wparował",
+          6,
+          45
+        ],
+        [
+          "wprzódy",
+          25,
+          45
+        ],
+        [
+          "guwernantka",
+          18,
+          44
+        ]
+      ]
+    },
+    "form-nf-10": {
+      "new_forms": 487,
+      "top2000_recovered": 323,
+      "top2000_history_recovered": 323,
+      "source_lemma_ids_in_new_forms": 309,
+      "no_published_lowercase_form": 0,
+      "top_forms": [
+        [
+          "powiadasz",
+          15,
+          92
+        ],
+        [
+          "surdut",
+          19,
+          80
+        ],
+        [
+          "odzienie",
+          28,
+          78
+        ],
+        [
+          "oberży",
+          14,
+          76
+        ],
+        [
+          "nazad",
+          21,
+          73
+        ],
+        [
+          "ekscytacją",
+          21,
+          71
+        ],
+        [
+          "prawił",
+          19,
+          70
+        ],
+        [
+          "bawialni",
+          14,
+          64
+        ],
+        [
+          "desperacja",
+          28,
+          64
+        ],
+        [
+          "hola",
+          18,
+          63
+        ],
+        [
+          "odczepnego",
+          18,
+          63
+        ],
+        [
+          "podorędziu",
+          29,
+          62
+        ],
+        [
+          "pantałyku",
+          20,
+          61
+        ],
+        [
+          "odzienia",
+          20,
+          60
+        ],
+        [
+          "dwakroć",
+          19,
+          59
+        ],
+        [
+          "rozstaju",
+          28,
+          56
+        ],
+        [
+          "prawić",
+          13,
+          55
+        ],
+        [
+          "trzykroć",
+          24,
+          55
+        ],
+        [
+          "kamasze",
+          26,
+          54
+        ],
+        [
+          "gorzałki",
+          15,
+          53
+        ],
+        [
+          "szczętu",
+          25,
+          52
+        ],
+        [
+          "wychudzona",
+          20,
+          52
+        ],
+        [
+          "żywnie",
+          25,
+          52
+        ],
+        [
+          "niewiastę",
+          28,
+          51
+        ],
+        [
+          "zbójców",
+          20,
+          51
+        ],
+        [
+          "srebrno",
+          26,
+          50
+        ],
+        [
+          "surducie",
+          17,
+          49
+        ],
+        [
+          "szacowny",
+          29,
+          49
+        ],
+        [
+          "tyn",
+          12,
+          49
+        ],
+        [
+          "desperacją",
+          14,
+          48
+        ],
+        [
+          "guwernantki",
+          20,
+          48
+        ],
+        [
+          "posturą",
+          22,
+          48
+        ],
+        [
+          "próżnicy",
+          15,
+          48
+        ],
+        [
+          "atencji",
+          26,
+          47
+        ],
+        [
+          "dobywa",
+          17,
+          47
+        ],
+        [
+          "jednako",
+          25,
+          47
+        ],
+        [
+          "nadobne",
+          25,
+          47
+        ],
+        [
+          "podołku",
+          10,
+          47
+        ],
+        [
+          "prywatki",
+          25,
+          47
+        ],
+        [
+          "tera",
+          13,
+          47
+        ],
+        [
+          "dwoił",
+          19,
+          46
+        ],
+        [
+          "sklepikarza",
+          19,
+          45
+        ],
+        [
+          "takowej",
+          27,
+          45
+        ],
+        [
+          "wprzódy",
+          25,
+          45
+        ],
+        [
+          "guwernantka",
+          18,
+          44
+        ],
+        [
+          "posturze",
+          15,
+          44
+        ],
+        [
+          "dinozaura",
+          24,
+          43
+        ],
+        [
+          "familia",
+          19,
+          43
+        ],
+        [
+          "skonfundowany",
+          12,
+          43
+        ],
+        [
+          "marnotrawny",
+          21,
+          42
+        ]
+      ]
+    },
+    "form-nf-20": {
+      "new_forms": 131,
+      "top2000_recovered": 130,
+      "top2000_history_recovered": 130,
+      "source_lemma_ids_in_new_forms": 113,
+      "no_published_lowercase_form": 0,
+      "top_forms": [
+        [
+          "odzienie",
+          28,
+          78
+        ],
+        [
+          "nazad",
+          21,
+          73
+        ],
+        [
+          "ekscytacją",
+          21,
+          71
+        ],
+        [
+          "desperacja",
+          28,
+          64
+        ],
+        [
+          "podorędziu",
+          29,
+          62
+        ],
+        [
+          "pantałyku",
+          20,
+          61
+        ],
+        [
+          "odzienia",
+          20,
+          60
+        ],
+        [
+          "rozstaju",
+          28,
+          56
+        ],
+        [
+          "trzykroć",
+          24,
+          55
+        ],
+        [
+          "kamasze",
+          26,
+          54
+        ],
+        [
+          "szczętu",
+          25,
+          52
+        ],
+        [
+          "wychudzona",
+          20,
+          52
+        ],
+        [
+          "żywnie",
+          25,
+          52
+        ],
+        [
+          "niewiastę",
+          28,
+          51
+        ],
+        [
+          "zbójców",
+          20,
+          51
+        ],
+        [
+          "srebrno",
+          26,
+          50
+        ],
+        [
+          "szacowny",
+          29,
+          49
+        ],
+        [
+          "guwernantki",
+          20,
+          48
+        ],
+        [
+          "posturą",
+          22,
+          48
+        ],
+        [
+          "atencji",
+          26,
+          47
+        ],
+        [
+          "jednako",
+          25,
+          47
+        ],
+        [
+          "nadobne",
+          25,
+          47
+        ],
+        [
+          "prywatki",
+          25,
+          47
+        ],
+        [
+          "takowej",
+          27,
+          45
+        ],
+        [
+          "wprzódy",
+          25,
+          45
+        ],
+        [
+          "dinozaura",
+          24,
+          43
+        ],
+        [
+          "marnotrawny",
+          21,
+          42
+        ],
+        [
+          "pohybel",
+          22,
+          42
+        ],
+        [
+          "takową",
+          27,
+          42
+        ],
+        [
+          "desperację",
+          22,
+          41
+        ],
+        [
+          "rzezimieszków",
+          23,
+          41
+        ],
+        [
+          "wybranką",
+          28,
+          41
+        ],
+        [
+          "naście",
+          23,
+          40
+        ],
+        [
+          "bursy",
+          28,
+          39
+        ],
+        [
+          "dwoi",
+          25,
+          39
+        ],
+        [
+          "gminu",
+          28,
+          39
+        ],
+        [
+          "powiadali",
+          24,
+          39
+        ],
+        [
+          "fety",
+          27,
+          38
+        ],
+        [
+          "niewiastą",
+          22,
+          38
+        ],
+        [
+          "pojmać",
+          24,
+          38
+        ],
+        [
+          "zgliszcz",
+          26,
+          38
+        ],
+        [
+          "bursie",
+          22,
+          37
+        ],
+        [
+          "szatą",
+          20,
+          37
+        ],
+        [
+          "wprzód",
+          25,
+          37
+        ],
+        [
+          "letnisko",
+          25,
+          36
+        ],
+        [
+          "pensjonarki",
+          22,
+          36
+        ],
+        [
+          "preferowali",
+          27,
+          36
+        ],
+        [
+          "dwoją",
+          26,
+          35
+        ],
+        [
+          "negocjator",
+          27,
+          35
+        ],
+        [
+          "takowa",
+          26,
+          35
+        ]
+      ]
+    },
+    "form-nf-30": {
+      "new_forms": 0,
+      "top2000_recovered": 0,
+      "top2000_history_recovered": 0,
+      "source_lemma_ids_in_new_forms": 0,
+      "no_published_lowercase_form": 0,
+      "top_forms": []
+    },
+    "form-all-30": {
+      "new_forms": 150,
+      "top2000_recovered": 149,
+      "top2000_history_recovered": 149,
+      "source_lemma_ids_in_new_forms": 125,
+      "no_published_lowercase_form": 0,
+      "top_forms": [
+        [
+          "iże",
+          0,
+          100
+        ],
+        [
+          "powiadasz",
+          15,
+          92
+        ],
+        [
+          "surdut",
+          19,
+          80
+        ],
+        [
+          "sia",
+          6,
+          79
+        ],
+        [
+          "odzienie",
+          28,
+          78
+        ],
+        [
+          "oberży",
+          14,
+          76
+        ],
+        [
+          "nazad",
+          21,
+          73
+        ],
+        [
+          "ekscytacją",
+          21,
+          71
+        ],
+        [
+          "prawił",
+          19,
+          70
+        ],
+        [
+          "bawialni",
+          14,
+          64
+        ],
+        [
+          "desperacja",
+          28,
+          64
+        ],
+        [
+          "wydyszał",
+          5,
+          64
+        ],
+        [
+          "hola",
+          18,
+          63
+        ],
+        [
+          "odczepnego",
+          18,
+          63
+        ],
+        [
+          "podorędziu",
+          29,
+          62
+        ],
+        [
+          "pantałyku",
+          20,
+          61
+        ],
+        [
+          "odzienia",
+          20,
+          60
+        ],
+        [
+          "dwakroć",
+          19,
+          59
+        ],
+        [
+          "rozstaju",
+          28,
+          56
+        ],
+        [
+          "prawić",
+          13,
+          55
+        ],
+        [
+          "trzykroć",
+          24,
+          55
+        ],
+        [
+          "kamasze",
+          26,
+          54
+        ],
+        [
+          "gorzałki",
+          15,
+          53
+        ],
+        [
+          "szczętu",
+          25,
+          52
+        ],
+        [
+          "wychudzona",
+          20,
+          52
+        ],
+        [
+          "żywnie",
+          25,
+          52
+        ],
+        [
+          "niewiastę",
+          28,
+          51
+        ],
+        [
+          "zbójców",
+          20,
+          51
+        ],
+        [
+          "lamentowała",
+          3,
+          50
+        ],
+        [
+          "srebrno",
+          26,
+          50
+        ],
+        [
+          "surducie",
+          17,
+          49
+        ],
+        [
+          "szacowny",
+          29,
+          49
+        ],
+        [
+          "tyn",
+          12,
+          49
+        ],
+        [
+          "desperacją",
+          14,
+          48
+        ],
+        [
+          "dobył",
+          8,
+          48
+        ],
+        [
+          "guwernantki",
+          20,
+          48
+        ],
+        [
+          "posturą",
+          22,
+          48
+        ],
+        [
+          "próżnicy",
+          15,
+          48
+        ],
+        [
+          "siedzisku",
+          9,
+          48
+        ],
+        [
+          "atencji",
+          26,
+          47
+        ],
+        [
+          "dobywa",
+          17,
+          47
+        ],
+        [
+          "jednako",
+          25,
+          47
+        ],
+        [
+          "nadobne",
+          25,
+          47
+        ],
+        [
+          "podołku",
+          10,
+          47
+        ],
+        [
+          "prywatki",
+          25,
+          47
+        ],
+        [
+          "tera",
+          13,
+          47
+        ],
+        [
+          "dwoił",
+          19,
+          46
+        ],
+        [
+          "sklepikarza",
+          19,
+          45
+        ],
+        [
+          "takowej",
+          27,
+          45
+        ],
+        [
+          "wparował",
+          6,
+          45
+        ]
+      ]
+    },
+    "lemma-nf-30": {
+      "new_forms": 4559,
+      "top2000_recovered": 307,
+      "top2000_history_recovered": 307,
+      "source_lemma_ids_in_new_forms": 1638,
+      "no_published_lowercase_form": 3779,
+      "top_forms": [
+        [
+          "powiadasz",
+          15,
+          92
+        ],
+        [
+          "surdut",
+          19,
+          80
+        ],
+        [
+          "odzienie",
+          28,
+          78
+        ],
+        [
+          "oberży",
+          14,
+          76
+        ],
+        [
+          "ekscytacją",
+          21,
+          71
+        ],
+        [
+          "prawił",
+          19,
+          70
+        ],
+        [
+          "desperacja",
+          28,
+          64
+        ],
+        [
+          "hola",
+          18,
+          63
+        ],
+        [
+          "podorędziu",
+          29,
+          62
+        ],
+        [
+          "odzienia",
+          20,
+          60
+        ],
+        [
+          "rozstaju",
+          28,
+          56
+        ],
+        [
+          "gorzałki",
+          15,
+          53
+        ],
+        [
+          "szczętu",
+          25,
+          52
+        ],
+        [
+          "wychudzona",
+          20,
+          52
+        ],
+        [
+          "niewiastę",
+          28,
+          51
+        ],
+        [
+          "zbójców",
+          20,
+          51
+        ],
+        [
+          "surducie",
+          17,
+          49
+        ],
+        [
+          "szacowny",
+          29,
+          49
+        ],
+        [
+          "desperacją",
+          14,
+          48
+        ],
+        [
+          "guwernantki",
+          20,
+          48
+        ],
+        [
+          "posturą",
+          22,
+          48
+        ],
+        [
+          "siedzisku",
+          9,
+          48
+        ],
+        [
+          "atencji",
+          26,
+          47
+        ],
+        [
+          "nadobne",
+          25,
+          47
+        ],
+        [
+          "prywatki",
+          25,
+          47
+        ],
+        [
+          "dwoił",
+          19,
+          46
+        ],
+        [
+          "sklepikarza",
+          19,
+          45
+        ],
+        [
+          "takowej",
+          27,
+          45
+        ],
+        [
+          "guwernantka",
+          18,
+          44
+        ],
+        [
+          "posturze",
+          15,
+          44
+        ],
+        [
+          "dinozaura",
+          24,
+          43
+        ],
+        [
+          "familia",
+          19,
+          43
+        ],
+        [
+          "marnotrawny",
+          21,
+          42
+        ],
+        [
+          "surduta",
+          6,
+          42
+        ],
+        [
+          "takową",
+          27,
+          42
+        ],
+        [
+          "desperację",
+          22,
+          41
+        ],
+        [
+          "kiego",
+          13,
+          41
+        ],
+        [
+          "rzezimieszków",
+          23,
+          41
+        ],
+        [
+          "wybranką",
+          28,
+          41
+        ],
+        [
+          "naście",
+          23,
+          40
+        ],
+        [
+          "posturę",
+          9,
+          40
+        ],
+        [
+          "bursy",
+          28,
+          39
+        ],
+        [
+          "dwoi",
+          25,
+          39
+        ],
+        [
+          "gminu",
+          28,
+          39
+        ],
+        [
+          "powiadali",
+          24,
+          39
+        ],
+        [
+          "wychudzoną",
+          11,
+          39
+        ],
+        [
+          "farze",
+          17,
+          38
+        ],
+        [
+          "fety",
+          27,
+          38
+        ],
+        [
+          "niewiastą",
+          22,
+          38
+        ],
+        [
+          "zgliszcz",
+          26,
+          38
+        ]
+      ]
+    },
+    "lemma-nf-100": {
+      "new_forms": 2150,
+      "top2000_recovered": 126,
+      "top2000_history_recovered": 126,
+      "source_lemma_ids_in_new_forms": 996,
+      "no_published_lowercase_form": 1844,
+      "top_forms": [
+        [
+          "powiadasz",
+          15,
+          92
+        ],
+        [
+          "ekscytacją",
+          21,
+          71
+        ],
+        [
+          "desperacja",
+          28,
+          64
+        ],
+        [
+          "wychudzona",
+          20,
+          52
+        ],
+        [
+          "niewiastę",
+          28,
+          51
+        ],
+        [
+          "szacowny",
+          29,
+          49
+        ],
+        [
+          "desperacją",
+          14,
+          48
+        ],
+        [
+          "posturą",
+          22,
+          48
+        ],
+        [
+          "siedzisku",
+          9,
+          48
+        ],
+        [
+          "sklepikarza",
+          19,
+          45
+        ],
+        [
+          "takowej",
+          27,
+          45
+        ],
+        [
+          "posturze",
+          15,
+          44
+        ],
+        [
+          "dinozaura",
+          24,
+          43
+        ],
+        [
+          "familia",
+          19,
+          43
+        ],
+        [
+          "takową",
+          27,
+          42
+        ],
+        [
+          "desperację",
+          22,
+          41
+        ],
+        [
+          "wybranką",
+          28,
+          41
+        ],
+        [
+          "posturę",
+          9,
+          40
+        ],
+        [
+          "bursy",
+          28,
+          39
+        ],
+        [
+          "powiadali",
+          24,
+          39
+        ],
+        [
+          "wychudzoną",
+          11,
+          39
+        ],
+        [
+          "fety",
+          27,
+          38
+        ],
+        [
+          "niewiastą",
+          22,
+          38
+        ],
+        [
+          "zgliszcz",
+          26,
+          38
+        ],
+        [
+          "bursie",
+          22,
+          37
+        ],
+        [
+          "szatą",
+          20,
+          37
+        ],
+        [
+          "preferowali",
+          27,
+          36
+        ],
+        [
+          "negocjator",
+          27,
+          35
+        ],
+        [
+          "takowa",
+          26,
+          35
+        ],
+        [
+          "sierocińce",
+          28,
+          34
+        ],
+        [
+          "dystrykcie",
+          29,
+          33
+        ],
+        [
+          "fetę",
+          25,
+          33
+        ],
+        [
+          "okazjonalnym",
+          25,
+          33
+        ],
+        [
+          "postura",
+          14,
+          33
+        ],
+        [
+          "hospicja",
+          29,
+          32
+        ],
+        [
+          "hospicjach",
+          29,
+          32
+        ],
+        [
+          "industrialny",
+          27,
+          32
+        ],
+        [
+          "sierocińców",
+          28,
+          32
+        ],
+        [
+          "gehenny",
+          20,
+          31
+        ],
+        [
+          "mokradło",
+          10,
+          31
+        ],
+        [
+          "niewiastami",
+          22,
+          31
+        ],
+        [
+          "wychudzonego",
+          12,
+          31
+        ],
+        [
+          "industrialnej",
+          29,
+          30
+        ],
+        [
+          "negocjatora",
+          23,
+          30
+        ],
+        [
+          "pomsty",
+          17,
+          30
+        ],
+        [
+          "siedziskami",
+          26,
+          30
+        ],
+        [
+          "kwinkunks",
+          29,
+          29
+        ],
+        [
+          "negocjatorem",
+          23,
+          29
+        ],
+        [
+          "odpadem",
+          24,
+          29
+        ],
+        [
+          "prokreacja",
+          25,
+          29
+        ]
+      ]
+    },
+    "lemma-nf-30-dispersion": {
+      "new_forms": 1793,
+      "top2000_recovered": 89,
+      "top2000_history_recovered": 89,
+      "source_lemma_ids_in_new_forms": 831,
+      "no_published_lowercase_form": 1580,
+      "top_forms": [
+        [
+          "powiadasz",
+          15,
+          92
+        ],
+        [
+          "ekscytacją",
+          21,
+          71
+        ],
+        [
+          "desperacja",
+          28,
+          64
+        ],
+        [
+          "wychudzona",
+          20,
+          52
+        ],
+        [
+          "niewiastę",
+          28,
+          51
+        ],
+        [
+          "szacowny",
+          29,
+          49
+        ],
+        [
+          "desperacją",
+          14,
+          48
+        ],
+        [
+          "posturą",
+          22,
+          48
+        ],
+        [
+          "sklepikarza",
+          19,
+          45
+        ],
+        [
+          "takowej",
+          27,
+          45
+        ],
+        [
+          "posturze",
+          15,
+          44
+        ],
+        [
+          "dinozaura",
+          24,
+          43
+        ],
+        [
+          "familia",
+          19,
+          43
+        ],
+        [
+          "takową",
+          27,
+          42
+        ],
+        [
+          "desperację",
+          22,
+          41
+        ],
+        [
+          "wybranką",
+          28,
+          41
+        ],
+        [
+          "posturę",
+          9,
+          40
+        ],
+        [
+          "wychudzoną",
+          11,
+          39
+        ],
+        [
+          "niewiastą",
+          22,
+          38
+        ],
+        [
+          "zgliszcz",
+          26,
+          38
+        ],
+        [
+          "szatą",
+          20,
+          37
+        ],
+        [
+          "preferowali",
+          27,
+          36
+        ],
+        [
+          "negocjator",
+          27,
+          35
+        ],
+        [
+          "takowa",
+          26,
+          35
+        ],
+        [
+          "widomym",
+          29,
+          35
+        ],
+        [
+          "sierocińce",
+          28,
+          34
+        ],
+        [
+          "okazjonalnym",
+          25,
+          33
+        ],
+        [
+          "postura",
+          14,
+          33
+        ],
+        [
+          "industrialny",
+          27,
+          32
+        ],
+        [
+          "sierocińców",
+          28,
+          32
+        ],
+        [
+          "niewiastami",
+          22,
+          31
+        ],
+        [
+          "wychudzonego",
+          12,
+          31
+        ],
+        [
+          "industrialnej",
+          29,
+          30
+        ],
+        [
+          "negocjatora",
+          23,
+          30
+        ],
+        [
+          "pomsty",
+          17,
+          30
+        ],
+        [
+          "negocjatorem",
+          23,
+          29
+        ],
+        [
+          "odpadem",
+          24,
+          29
+        ],
+        [
+          "prokreacja",
+          25,
+          29
+        ],
+        [
+          "skarbówce",
+          27,
+          29
+        ],
+        [
+          "wychudzonych",
+          7,
+          29
+        ],
+        [
+          "zagościło",
+          15,
+          29
+        ],
+        [
+          "nominowanym",
+          25,
+          28
+        ],
+        [
+          "rozsypkę",
+          17,
+          28
+        ],
+        [
+          "szacownej",
+          18,
+          28
+        ],
+        [
+          "dżdżu",
+          18,
+          27
+        ],
+        [
+          "rarytasów",
+          22,
+          27
+        ],
+        [
+          "dinozaurami",
+          10,
+          26
+        ],
+        [
+          "familię",
+          14,
+          26
+        ],
+        [
+          "preferowanego",
+          26,
+          26
+        ],
+        [
+          "preferowała",
+          14,
+          26
+        ]
+      ]
+    },
+    "remove-age": {
+      "new_forms": 389160,
+      "top2000_recovered": 615,
+      "top2000_history_recovered": 615,
+      "source_lemma_ids_in_new_forms": 22123,
+      "no_published_lowercase_form": 387321,
+      "top_forms": [
+        [
+          "iże",
+          0,
+          100
+        ],
+        [
+          "powiadasz",
+          15,
+          92
+        ],
+        [
+          "surdut",
+          19,
+          80
+        ],
+        [
+          "sia",
+          6,
+          79
+        ],
+        [
+          "odzienie",
+          28,
+          78
+        ],
+        [
+          "oberży",
+          14,
+          76
+        ],
+        [
+          "nazad",
+          21,
+          73
+        ],
+        [
+          "ekscytacją",
+          21,
+          71
+        ],
+        [
+          "prawił",
+          19,
+          70
+        ],
+        [
+          "bawialni",
+          14,
+          64
+        ],
+        [
+          "desperacja",
+          28,
+          64
+        ],
+        [
+          "wydyszał",
+          5,
+          64
+        ],
+        [
+          "hola",
+          18,
+          63
+        ],
+        [
+          "odczepnego",
+          18,
+          63
+        ],
+        [
+          "podorędziu",
+          29,
+          62
+        ],
+        [
+          "pantałyku",
+          20,
+          61
+        ],
+        [
+          "odzienia",
+          20,
+          60
+        ],
+        [
+          "dwakroć",
+          19,
+          59
+        ],
+        [
+          "rozstaju",
+          28,
+          56
+        ],
+        [
+          "prawić",
+          13,
+          55
+        ],
+        [
+          "trzykroć",
+          24,
+          55
+        ],
+        [
+          "kamasze",
+          26,
+          54
+        ],
+        [
+          "gorzałki",
+          15,
+          53
+        ],
+        [
+          "szczętu",
+          25,
+          52
+        ],
+        [
+          "wychudzona",
+          20,
+          52
+        ],
+        [
+          "żywnie",
+          25,
+          52
+        ],
+        [
+          "niewiastę",
+          28,
+          51
+        ],
+        [
+          "zbójców",
+          20,
+          51
+        ],
+        [
+          "lamentowała",
+          3,
+          50
+        ],
+        [
+          "srebrno",
+          26,
+          50
+        ],
+        [
+          "surducie",
+          17,
+          49
+        ],
+        [
+          "szacowny",
+          29,
+          49
+        ],
+        [
+          "tyn",
+          12,
+          49
+        ],
+        [
+          "desperacją",
+          14,
+          48
+        ],
+        [
+          "dobył",
+          8,
+          48
+        ],
+        [
+          "guwernantki",
+          20,
+          48
+        ],
+        [
+          "posturą",
+          22,
+          48
+        ],
+        [
+          "próżnicy",
+          15,
+          48
+        ],
+        [
+          "siedzisku",
+          9,
+          48
+        ],
+        [
+          "atencji",
+          26,
+          47
+        ],
+        [
+          "dobywa",
+          17,
+          47
+        ],
+        [
+          "jednako",
+          25,
+          47
+        ],
+        [
+          "nadobne",
+          25,
+          47
+        ],
+        [
+          "podołku",
+          10,
+          47
+        ],
+        [
+          "prywatki",
+          25,
+          47
+        ],
+        [
+          "tera",
+          13,
+          47
+        ],
+        [
+          "dwoił",
+          19,
+          46
+        ],
+        [
+          "sklepikarza",
+          19,
+          45
+        ],
+        [
+          "takowej",
+          27,
+          45
+        ],
+        [
+          "wparował",
+          6,
+          45
+        ]
+      ]
+    }
+  },
+  "examples": [
+    {
+      "word": "desperacja",
+      "standard": false,
+      "nf": 28,
+      "orth_all": 64,
+      "orth_lc_all": 67,
+      "fakt": 17,
+      "publicystyka": 11,
+      "analyses": [
+        {
+          "lemma": "desperacja",
+          "tag": "subst:sg:nom:f",
+          "labels": "przest.",
+          "lemma_nf": 233,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.22983",
+              "ARF": "263.99",
+              "DP": "0.77017",
+              "DP_norm": "0.77027",
+              "freq": 491,
+              "ipm": "6.01",
+              "total_freq": 491
+            },
+            "fakt": {
+              "1-DP": "0.20743",
+              "ARF": "77.67",
+              "DP": "0.79257",
+              "DP_norm": "0.79301",
+              "freq": 136,
+              "ipm": "4.76",
+              "total_freq": 491
+            },
+            "fikcja": {
+              "1-DP": "0.41045",
+              "ARF": "133.32",
+              "DP": "0.58955",
+              "DP_norm": "0.59129",
+              "freq": 258,
+              "ipm": "10.69",
+              "total_freq": 491
+            },
+            "publicystyka": {
+              "1-DP": "0.08698",
+              "ARF": "59.71",
+              "DP": "0.91302",
+              "DP_norm": "0.91319",
+              "freq": 97,
+              "ipm": "3.35",
+              "total_freq": 491
+            }
+          }
+        }
+      ],
+      "added_by": [
+        "form-nf-5",
+        "form-nf-10",
+        "form-nf-20",
+        "form-all-30",
+        "lemma-nf-30",
+        "lemma-nf-100",
+        "lemma-nf-30-dispersion",
+        "remove-age"
+      ]
+    },
+    {
+      "word": "desperacji",
+      "standard": true,
+      "nf": 166,
+      "orth_all": 332,
+      "orth_lc_all": 333,
+      "fakt": 97,
+      "publicystyka": 69,
+      "analyses": [
+        {
+          "lemma": "desperacja",
+          "tag": "subst:pl:gen:f",
+          "labels": "przest.,hom.",
+          "lemma_nf": 233,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.22983",
+              "ARF": "263.99",
+              "DP": "0.77017",
+              "DP_norm": "0.77027",
+              "freq": 491,
+              "ipm": "6.01",
+              "total_freq": 491
+            },
+            "fakt": {
+              "1-DP": "0.20743",
+              "ARF": "77.67",
+              "DP": "0.79257",
+              "DP_norm": "0.79301",
+              "freq": 136,
+              "ipm": "4.76",
+              "total_freq": 491
+            },
+            "fikcja": {
+              "1-DP": "0.41045",
+              "ARF": "133.32",
+              "DP": "0.58955",
+              "DP_norm": "0.59129",
+              "freq": 258,
+              "ipm": "10.69",
+              "total_freq": 491
+            },
+            "publicystyka": {
+              "1-DP": "0.08698",
+              "ARF": "59.71",
+              "DP": "0.91302",
+              "DP_norm": "0.91319",
+              "freq": 97,
+              "ipm": "3.35",
+              "total_freq": 491
+            }
+          }
+        },
+        {
+          "lemma": "desperacja",
+          "tag": "subst:sg:dat.loc:f",
+          "labels": "przest.",
+          "lemma_nf": 233,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.22983",
+              "ARF": "263.99",
+              "DP": "0.77017",
+              "DP_norm": "0.77027",
+              "freq": 491,
+              "ipm": "6.01",
+              "total_freq": 491
+            },
+            "fakt": {
+              "1-DP": "0.20743",
+              "ARF": "77.67",
+              "DP": "0.79257",
+              "DP_norm": "0.79301",
+              "freq": 136,
+              "ipm": "4.76",
+              "total_freq": 491
+            },
+            "fikcja": {
+              "1-DP": "0.41045",
+              "ARF": "133.32",
+              "DP": "0.58955",
+              "DP_norm": "0.59129",
+              "freq": 258,
+              "ipm": "10.69",
+              "total_freq": 491
+            },
+            "publicystyka": {
+              "1-DP": "0.08698",
+              "ARF": "59.71",
+              "DP": "0.91302",
+              "DP_norm": "0.91319",
+              "freq": 97,
+              "ipm": "3.35",
+              "total_freq": 491
+            }
+          }
+        },
+        {
+          "lemma": "desperacja",
+          "tag": "subst:sg:gen:f",
+          "labels": "przest.",
+          "lemma_nf": 233,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.22983",
+              "ARF": "263.99",
+              "DP": "0.77017",
+              "DP_norm": "0.77027",
+              "freq": 491,
+              "ipm": "6.01",
+              "total_freq": 491
+            },
+            "fakt": {
+              "1-DP": "0.20743",
+              "ARF": "77.67",
+              "DP": "0.79257",
+              "DP_norm": "0.79301",
+              "freq": 136,
+              "ipm": "4.76",
+              "total_freq": 491
+            },
+            "fikcja": {
+              "1-DP": "0.41045",
+              "ARF": "133.32",
+              "DP": "0.58955",
+              "DP_norm": "0.59129",
+              "freq": 258,
+              "ipm": "10.69",
+              "total_freq": 491
+            },
+            "publicystyka": {
+              "1-DP": "0.08698",
+              "ARF": "59.71",
+              "DP": "0.91302",
+              "DP_norm": "0.91319",
+              "freq": 97,
+              "ipm": "3.35",
+              "total_freq": 491
+            }
+          }
+        }
+      ],
+      "added_by": []
+    },
+    {
+      "word": "desperacyj",
+      "standard": false,
+      "nf": 0,
+      "orth_all": 0,
+      "orth_lc_all": 0,
+      "fakt": 0,
+      "publicystyka": 0,
+      "analyses": [
+        {
+          "lemma": "desperacja",
+          "tag": "subst:pl:gen:f",
+          "labels": "przest.,arch.,char.",
+          "lemma_nf": 233,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.22983",
+              "ARF": "263.99",
+              "DP": "0.77017",
+              "DP_norm": "0.77027",
+              "freq": 491,
+              "ipm": "6.01",
+              "total_freq": 491
+            },
+            "fakt": {
+              "1-DP": "0.20743",
+              "ARF": "77.67",
+              "DP": "0.79257",
+              "DP_norm": "0.79301",
+              "freq": 136,
+              "ipm": "4.76",
+              "total_freq": 491
+            },
+            "fikcja": {
+              "1-DP": "0.41045",
+              "ARF": "133.32",
+              "DP": "0.58955",
+              "DP_norm": "0.59129",
+              "freq": 258,
+              "ipm": "10.69",
+              "total_freq": 491
+            },
+            "publicystyka": {
+              "1-DP": "0.08698",
+              "ARF": "59.71",
+              "DP": "0.91302",
+              "DP_norm": "0.91319",
+              "freq": 97,
+              "ipm": "3.35",
+              "total_freq": 491
+            }
+          }
+        }
+      ],
+      "added_by": [
+        "lemma-nf-30",
+        "lemma-nf-100",
+        "lemma-nf-30-dispersion",
+        "remove-age"
+      ]
+    },
+    {
+      "word": "ekscytacją",
+      "standard": false,
+      "nf": 21,
+      "orth_all": 71,
+      "orth_lc_all": 71,
+      "fakt": 16,
+      "publicystyka": 5,
+      "analyses": [
+        {
+          "lemma": "ekscytacja",
+          "tag": "subst:sg:inst:f",
+          "labels": "przest.",
+          "lemma_nf": 219,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.22294",
+              "ARF": "262.04",
+              "DP": "0.77706",
+              "DP_norm": "0.77716",
+              "freq": 533,
+              "ipm": "6.53",
+              "total_freq": 533
+            },
+            "fakt": {
+              "1-DP": "0.16503",
+              "ARF": "70.72",
+              "DP": "0.83497",
+              "DP_norm": "0.83543",
+              "freq": 153,
+              "ipm": "5.35",
+              "total_freq": 533
+            },
+            "fikcja": {
+              "1-DP": "0.45296",
+              "ARF": "160.94",
+              "DP": "0.54704",
+              "DP_norm": "0.54866",
+              "freq": 314,
+              "ipm": "13.01",
+              "total_freq": 533
+            },
+            "publicystyka": {
+              "1-DP": "0.06148",
+              "ARF": "40.91",
+              "DP": "0.93852",
+              "DP_norm": "0.93869",
+              "freq": 66,
+              "ipm": "2.28",
+              "total_freq": 533
+            }
+          }
+        }
+      ],
+      "added_by": [
+        "form-nf-5",
+        "form-nf-10",
+        "form-nf-20",
+        "form-all-30",
+        "lemma-nf-30",
+        "lemma-nf-100",
+        "lemma-nf-30-dispersion",
+        "remove-age"
+      ]
+    },
+    {
+      "word": "ekscytacja",
+      "standard": true,
+      "nf": 42,
+      "orth_all": 93,
+      "orth_lc_all": 108,
+      "fakt": 29,
+      "publicystyka": 13,
+      "analyses": [
+        {
+          "lemma": "ekscytacja",
+          "tag": "subst:sg:nom:f",
+          "labels": "przest.",
+          "lemma_nf": 219,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.22294",
+              "ARF": "262.04",
+              "DP": "0.77706",
+              "DP_norm": "0.77716",
+              "freq": 533,
+              "ipm": "6.53",
+              "total_freq": 533
+            },
+            "fakt": {
+              "1-DP": "0.16503",
+              "ARF": "70.72",
+              "DP": "0.83497",
+              "DP_norm": "0.83543",
+              "freq": 153,
+              "ipm": "5.35",
+              "total_freq": 533
+            },
+            "fikcja": {
+              "1-DP": "0.45296",
+              "ARF": "160.94",
+              "DP": "0.54704",
+              "DP_norm": "0.54866",
+              "freq": 314,
+              "ipm": "13.01",
+              "total_freq": 533
+            },
+            "publicystyka": {
+              "1-DP": "0.06148",
+              "ARF": "40.91",
+              "DP": "0.93852",
+              "DP_norm": "0.93869",
+              "freq": 66,
+              "ipm": "2.28",
+              "total_freq": 533
+            }
+          }
+        }
+      ],
+      "added_by": []
+    },
+    {
+      "word": "niezbędnik",
+      "standard": false,
+      "nf": 17,
+      "orth_all": 21,
+      "orth_lc_all": 80,
+      "fakt": 7,
+      "publicystyka": 10,
+      "analyses": [
+        {
+          "lemma": "niezbędnik",
+          "tag": "subst:sg:nom.acc:m3",
+          "labels": "daw.",
+          "lemma_nf": 88,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.03456",
+              "ARF": "41.63",
+              "DP": "0.96544",
+              "DP_norm": "0.96557",
+              "freq": 101,
+              "ipm": "1.24",
+              "total_freq": 101
+            },
+            "fakt": {
+              "1-DP": "0.03315",
+              "ARF": "16.95",
+              "DP": "0.96685",
+              "DP_norm": "0.96738",
+              "freq": 63,
+              "ipm": "2.2",
+              "total_freq": 101
+            },
+            "fikcja": {
+              "1-DP": "0.05558",
+              "ARF": "8.73",
+              "DP": "0.94442",
+              "DP_norm": "0.94721",
+              "freq": 13,
+              "ipm": "0.54",
+              "total_freq": 101
+            },
+            "publicystyka": {
+              "1-DP": "0.01846",
+              "ARF": "13.16",
+              "DP": "0.98154",
+              "DP_norm": "0.98172",
+              "freq": 25,
+              "ipm": "0.86",
+              "total_freq": 101
+            }
+          }
+        }
+      ],
+      "added_by": [
+        "form-nf-5",
+        "form-nf-10",
+        "lemma-nf-30",
+        "remove-age"
+      ]
+    },
+    {
+      "word": "familia",
+      "standard": false,
+      "nf": 19,
+      "orth_all": 43,
+      "orth_lc_all": 95,
+      "fakt": 7,
+      "publicystyka": 12,
+      "analyses": [
+        {
+          "lemma": "familia",
+          "tag": "subst:sg:nom:f",
+          "labels": "przest.",
+          "lemma_nf": 170,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.1131",
+              "ARF": "126.83",
+              "DP": "0.8869",
+              "DP_norm": "0.88702",
+              "freq": 266,
+              "ipm": "3.26",
+              "total_freq": 266
+            },
+            "fakt": {
+              "1-DP": "0.10341",
+              "ARF": "41.95",
+              "DP": "0.89659",
+              "DP_norm": "0.89708",
+              "freq": 104,
+              "ipm": "3.64",
+              "total_freq": 266
+            },
+            "fikcja": {
+              "1-DP": "0.19331",
+              "ARF": "50.72",
+              "DP": "0.80669",
+              "DP_norm": "0.80908",
+              "freq": 96,
+              "ipm": "3.98",
+              "total_freq": 266
+            },
+            "publicystyka": {
+              "1-DP": "0.05593",
+              "ARF": "37.49",
+              "DP": "0.94407",
+              "DP_norm": "0.94425",
+              "freq": 66,
+              "ipm": "2.28",
+              "total_freq": 266
+            }
+          }
+        }
+      ],
+      "added_by": [
+        "form-nf-5",
+        "form-nf-10",
+        "form-all-30",
+        "lemma-nf-30",
+        "lemma-nf-100",
+        "lemma-nf-30-dispersion",
+        "remove-age"
+      ]
+    },
+    {
+      "word": "odzienie",
+      "standard": false,
+      "nf": 28,
+      "orth_all": 78,
+      "orth_lc_all": 81,
+      "fakt": 18,
+      "publicystyka": 10,
+      "analyses": [
+        {
+          "lemma": "odzienie",
+          "tag": "subst:sg:nom.acc.voc:n:ncol",
+          "labels": "przest.",
+          "lemma_nf": 63,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.09172",
+              "ARF": "87.79",
+              "DP": "0.90828",
+              "DP_norm": "0.9084",
+              "freq": 182,
+              "ipm": "2.23",
+              "total_freq": 182
+            },
+            "fakt": {
+              "1-DP": "0.08544",
+              "ARF": "23.69",
+              "DP": "0.91456",
+              "DP_norm": "0.91506",
+              "freq": 45,
+              "ipm": "1.57",
+              "total_freq": 182
+            },
+            "fikcja": {
+              "1-DP": "0.19512",
+              "ARF": "52.96",
+              "DP": "0.80488",
+              "DP_norm": "0.80726",
+              "freq": 119,
+              "ipm": "4.93",
+              "total_freq": 182
+            },
+            "publicystyka": {
+              "1-DP": "0.01187",
+              "ARF": "10.64",
+              "DP": "0.98813",
+              "DP_norm": "0.98831",
+              "freq": 18,
+              "ipm": "0.62",
+              "total_freq": 182
+            }
+          }
+        }
+      ],
+      "added_by": [
+        "form-nf-5",
+        "form-nf-10",
+        "form-nf-20",
+        "form-all-30",
+        "lemma-nf-30",
+        "remove-age"
+      ]
+    },
+    {
+      "word": "surdut",
+      "standard": false,
+      "nf": 19,
+      "orth_all": 80,
+      "orth_lc_all": 82,
+      "fakt": 18,
+      "publicystyka": 1,
+      "analyses": [
+        {
+          "lemma": "surdut",
+          "tag": "subst:sg:nom.acc:m3",
+          "labels": "przest.",
+          "lemma_nf": 58,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.073",
+              "ARF": "73.64",
+              "DP": "0.927",
+              "DP_norm": "0.92712",
+              "freq": 218,
+              "ipm": "2.67",
+              "total_freq": 218
+            },
+            "fakt": {
+              "1-DP": "0.06853",
+              "ARF": "21.95",
+              "DP": "0.93147",
+              "DP_norm": "0.93198",
+              "freq": 52,
+              "ipm": "1.82",
+              "total_freq": 218
+            },
+            "fikcja": {
+              "1-DP": "0.16026",
+              "ARF": "49.89",
+              "DP": "0.83974",
+              "DP_norm": "0.84222",
+              "freq": 160,
+              "ipm": "6.63",
+              "total_freq": 218
+            },
+            "publicystyka": {
+              "1-DP": "0.00427",
+              "ARF": "3.76",
+              "DP": "0.99573",
+              "DP_norm": "0.99592",
+              "freq": 6,
+              "ipm": "0.21",
+              "total_freq": 218
+            }
+          }
+        }
+      ],
+      "added_by": [
+        "form-nf-5",
+        "form-nf-10",
+        "form-all-30",
+        "lemma-nf-30",
+        "remove-age"
+      ]
+    },
+    {
+      "word": "aliści",
+      "standard": false,
+      "nf": 12,
+      "orth_all": 25,
+      "orth_lc_all": 65,
+      "fakt": 11,
+      "publicystyka": 1,
+      "analyses": [
+        {
+          "lemma": "aliści",
+          "tag": "conj",
+          "labels": "przest.",
+          "lemma_nf": 31,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.02342",
+              "ARF": "24.85",
+              "DP": "0.97658",
+              "DP_norm": "0.97671",
+              "freq": 60,
+              "ipm": "0.73",
+              "total_freq": 60
+            },
+            "fakt": {
+              "1-DP": "0.03443",
+              "ARF": "9.42",
+              "DP": "0.96557",
+              "DP_norm": "0.9661",
+              "freq": 24,
+              "ipm": "0.84",
+              "total_freq": 60
+            },
+            "fikcja": {
+              "1-DP": "0.02085",
+              "ARF": "8.77",
+              "DP": "0.97915",
+              "DP_norm": "0.98205",
+              "freq": 29,
+              "ipm": "1.2",
+              "total_freq": 60
+            },
+            "publicystyka": {
+              "1-DP": "0.01465",
+              "ARF": "5.25",
+              "DP": "0.98535",
+              "DP_norm": "0.98553",
+              "freq": 7,
+              "ipm": "0.24",
+              "total_freq": 60
+            }
+          }
+        }
+      ],
+      "added_by": [
+        "form-nf-5",
+        "form-nf-10",
+        "lemma-nf-30",
+        "remove-age"
+      ]
+    },
+    {
+      "word": "jakoż",
+      "standard": false,
+      "nf": 7,
+      "orth_all": 10,
+      "orth_lc_all": 61,
+      "fakt": 6,
+      "publicystyka": 1,
+      "analyses": [
+        {
+          "lemma": "jakoż",
+          "tag": "comp",
+          "labels": "przest.",
+          "lemma_nf": 41,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.01614",
+              "ARF": "14.46",
+              "DP": "0.98386",
+              "DP_norm": "0.98399",
+              "freq": 44,
+              "ipm": "0.54",
+              "total_freq": 44
+            },
+            "fakt": {
+              "1-DP": "0.03347",
+              "ARF": "9.06",
+              "DP": "0.96653",
+              "DP_norm": "0.96706",
+              "freq": 35,
+              "ipm": "1.22",
+              "total_freq": 44
+            },
+            "fikcja": {
+              "1-DP": "0.00945",
+              "ARF": "1.9",
+              "DP": "0.99055",
+              "DP_norm": "0.99348",
+              "freq": 3,
+              "ipm": "0.12",
+              "total_freq": 44
+            },
+            "publicystyka": {
+              "1-DP": "0.00456",
+              "ARF": "2.92",
+              "DP": "0.99544",
+              "DP_norm": "0.99563",
+              "freq": 6,
+              "ipm": "0.21",
+              "total_freq": 44
+            }
+          }
+        }
+      ],
+      "added_by": [
+        "form-nf-5",
+        "lemma-nf-30",
+        "remove-age"
+      ]
+    },
+    {
+      "word": "iże",
+      "standard": false,
+      "nf": 0,
+      "orth_all": 100,
+      "orth_lc_all": 102,
+      "fakt": 0,
+      "publicystyka": 0,
+      "analyses": [
+        {
+          "lemma": "iże",
+          "tag": "comp",
+          "labels": "przest.",
+          "lemma_nf": 1,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.00398",
+              "ARF": "5.11",
+              "DP": "0.99602",
+              "DP_norm": "0.99615",
+              "freq": 101,
+              "ipm": "1.24",
+              "total_freq": 101
+            },
+            "fikcja": {
+              "1-DP": "0.01254",
+              "ARF": "3.9",
+              "DP": "0.98746",
+              "DP_norm": "0.99038",
+              "freq": 100,
+              "ipm": "4.14",
+              "total_freq": 101
+            },
+            "publicystyka": {
+              "1-DP": "0.00079",
+              "ARF": "1.0",
+              "DP": "0.99921",
+              "DP_norm": "0.9994",
+              "freq": 1,
+              "ipm": "0.03",
+              "total_freq": 101
+            }
+          }
+        }
+      ],
+      "added_by": [
+        "form-all-30",
+        "remove-age"
+      ]
+    },
+    {
+      "word": "nazad",
+      "standard": false,
+      "nf": 21,
+      "orth_all": 73,
+      "orth_lc_all": 75,
+      "fakt": 16,
+      "publicystyka": 5,
+      "analyses": [
+        {
+          "lemma": "nazad",
+          "tag": "adv",
+          "labels": "przest.",
+          "lemma_nf": 23,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.02723",
+              "ARF": "32.26",
+              "DP": "0.97277",
+              "DP_norm": "0.9729",
+              "freq": 75,
+              "ipm": "0.92",
+              "total_freq": 75
+            },
+            "fakt": {
+              "1-DP": "0.02341",
+              "ARF": "9.84",
+              "DP": "0.97659",
+              "DP_norm": "0.97713",
+              "freq": 17,
+              "ipm": "0.59",
+              "total_freq": 75
+            },
+            "fikcja": {
+              "1-DP": "0.05794",
+              "ARF": "16.33",
+              "DP": "0.94206",
+              "DP_norm": "0.94485",
+              "freq": 52,
+              "ipm": "2.15",
+              "total_freq": 75
+            },
+            "publicystyka": {
+              "1-DP": "0.00545",
+              "ARF": "3.27",
+              "DP": "0.99455",
+              "DP_norm": "0.99474",
+              "freq": 6,
+              "ipm": "0.21",
+              "total_freq": 75
+            }
+          }
+        }
+      ],
+      "added_by": [
+        "form-nf-5",
+        "form-nf-10",
+        "form-nf-20",
+        "form-all-30",
+        "remove-age"
+      ]
+    },
+    {
+      "word": "trzykroć",
+      "standard": false,
+      "nf": 24,
+      "orth_all": 55,
+      "orth_lc_all": 67,
+      "fakt": 9,
+      "publicystyka": 15,
+      "analyses": [
+        {
+          "lemma": "trzykroć:D",
+          "tag": "adv",
+          "labels": "przest.",
+          "lemma_nf": 20,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.03062",
+              "ARF": "25.64",
+              "DP": "0.96938",
+              "DP_norm": "0.96951",
+              "freq": 45,
+              "ipm": "0.55",
+              "total_freq": 45
+            },
+            "fakt": {
+              "1-DP": "0.02038",
+              "ARF": "5.34",
+              "DP": "0.97962",
+              "DP_norm": "0.98016",
+              "freq": 10,
+              "ipm": "0.35",
+              "total_freq": 45
+            },
+            "fikcja": {
+              "1-DP": "0.06619",
+              "ARF": "16.39",
+              "DP": "0.93381",
+              "DP_norm": "0.93657",
+              "freq": 25,
+              "ipm": "1.04",
+              "total_freq": 45
+            },
+            "publicystyka": {
+              "1-DP": "0.01114",
+              "ARF": "5.99",
+              "DP": "0.98886",
+              "DP_norm": "0.98904",
+              "freq": 10,
+              "ipm": "0.35",
+              "total_freq": 45
+            }
+          }
+        },
+        {
+          "lemma": "trzykroć:N",
+          "tag": "num:pl:nom.acc.voc:m2.m3.f.n:rec",
+          "labels": "daw.",
+          "lemma_nf": 3,
+          "lemma_metrics": {
+            "all": {
+              "1-DP": "0.00652",
+              "ARF": "5.37",
+              "DP": "0.99348",
+              "DP_norm": "0.99361",
+              "freq": 11,
+              "ipm": "0.13",
+              "total_freq": 11
+            },
+            "fikcja": {
+              "1-DP": "0.01345",
+              "ARF": "2.39",
+              "DP": "0.98655",
+              "DP_norm": "0.98947",
+              "freq": 8,
+              "ipm": "0.33",
+              "total_freq": 11
+            },
+            "publicystyka": {
+              "1-DP": "0.00721",
+              "ARF": "2.16",
+              "DP": "0.99279",
+              "DP_norm": "0.99297",
+              "freq": 3,
+              "ipm": "0.1",
+              "total_freq": 11
+            }
+          }
+        }
+      ],
+      "added_by": [
+        "form-nf-5",
+        "form-nf-10",
+        "form-nf-20",
+        "form-all-30",
+        "remove-age"
+      ]
+    }
+  ],
+  "sample": [
+    {
+      "lemma": "perwersja",
+      "new_forms": 1,
+      "forms": [
+        "perwersyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 241,
+          "metrics": {
+            "all": {
+              "1-DP": "0.11099",
+              "ARF": "114.72",
+              "DP": "0.88901",
+              "DP_norm": "0.88913",
+              "freq": 284,
+              "ipm": "3.48",
+              "total_freq": 284
+            },
+            "fakt": {
+              "1-DP": "0.19058",
+              "ARF": "72.96",
+              "DP": "0.80942",
+              "DP_norm": "0.80986",
+              "freq": 198,
+              "ipm": "6.93",
+              "total_freq": 284
+            },
+            "fikcja": {
+              "1-DP": "0.09433",
+              "ARF": "21.47",
+              "DP": "0.90567",
+              "DP_norm": "0.90835",
+              "freq": 43,
+              "ipm": "1.78",
+              "total_freq": 284
+            },
+            "publicystyka": {
+              "1-DP": "0.04159",
+              "ARF": "26.0",
+              "DP": "0.95841",
+              "DP_norm": "0.95859",
+              "freq": 43,
+              "ipm": "1.49",
+              "total_freq": 284
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "substytucja",
+      "new_forms": 1,
+      "forms": [
+        "substytucyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 37,
+          "metrics": {
+            "all": {
+              "1-DP": "0.01497",
+              "ARF": "13.52",
+              "DP": "0.98503",
+              "DP_norm": "0.98516",
+              "freq": 37,
+              "ipm": "0.45",
+              "total_freq": 37
+            },
+            "fakt": {
+              "1-DP": "0.03661",
+              "ARF": "9.83",
+              "DP": "0.96339",
+              "DP_norm": "0.96392",
+              "freq": 32,
+              "ipm": "1.12",
+              "total_freq": 37
+            },
+            "publicystyka": {
+              "1-DP": "0.00602",
+              "ARF": "2.57",
+              "DP": "0.99398",
+              "DP_norm": "0.99417",
+              "freq": 5,
+              "ipm": "0.17",
+              "total_freq": 37
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "telekomunikacja",
+      "new_forms": 1,
+      "forms": [
+        "telekomunikacyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 259,
+          "metrics": {
+            "all": {
+              "1-DP": "0.07941",
+              "ARF": "143.06",
+              "DP": "0.92059",
+              "DP_norm": "0.92071",
+              "freq": 272,
+              "ipm": "3.33",
+              "total_freq": 272
+            },
+            "fakt": {
+              "1-DP": "0.07202",
+              "ARF": "48.15",
+              "DP": "0.92798",
+              "DP_norm": "0.92849",
+              "freq": 93,
+              "ipm": "3.25",
+              "total_freq": 272
+            },
+            "fikcja": {
+              "1-DP": "0.0341",
+              "ARF": "7.92",
+              "DP": "0.9659",
+              "DP_norm": "0.96876",
+              "freq": 13,
+              "ipm": "0.54",
+              "total_freq": 272
+            },
+            "publicystyka": {
+              "1-DP": "0.12444",
+              "ARF": "93.72",
+              "DP": "0.87556",
+              "DP_norm": "0.87572",
+              "freq": 166,
+              "ipm": "5.73",
+              "total_freq": 272
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "liturgia",
+      "new_forms": 1,
+      "forms": [
+        "liturgij"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 901,
+          "metrics": {
+            "all": {
+              "1-DP": "0.12417",
+              "ARF": "297.75",
+              "DP": "0.87583",
+              "DP_norm": "0.87595",
+              "freq": 965,
+              "ipm": "11.82",
+              "total_freq": 965
+            },
+            "fakt": {
+              "1-DP": "0.16437",
+              "ARF": "77.59",
+              "DP": "0.83563",
+              "DP_norm": "0.83609",
+              "freq": 283,
+              "ipm": "9.9",
+              "total_freq": 965
+            },
+            "fikcja": {
+              "1-DP": "0.09551",
+              "ARF": "20.58",
+              "DP": "0.90449",
+              "DP_norm": "0.90717",
+              "freq": 64,
+              "ipm": "2.65",
+              "total_freq": 965
+            },
+            "publicystyka": {
+              "1-DP": "0.12614",
+              "ARF": "204.62",
+              "DP": "0.87386",
+              "DP_norm": "0.87402",
+              "freq": 618,
+              "ipm": "21.35",
+              "total_freq": 965
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "dewaluacja",
+      "new_forms": 1,
+      "forms": [
+        "dewaluacyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 107,
+          "metrics": {
+            "all": {
+              "1-DP": "0.04975",
+              "ARF": "59.78",
+              "DP": "0.95025",
+              "DP_norm": "0.95038",
+              "freq": 113,
+              "ipm": "1.38",
+              "total_freq": 113
+            },
+            "fakt": {
+              "1-DP": "0.10327",
+              "ARF": "33.81",
+              "DP": "0.89673",
+              "DP_norm": "0.89722",
+              "freq": 70,
+              "ipm": "2.45",
+              "total_freq": 113
+            },
+            "fikcja": {
+              "1-DP": "0.01073",
+              "ARF": "3.82",
+              "DP": "0.98927",
+              "DP_norm": "0.9922",
+              "freq": 6,
+              "ipm": "0.25",
+              "total_freq": 113
+            },
+            "publicystyka": {
+              "1-DP": "0.02923",
+              "ARF": "19.99",
+              "DP": "0.97077",
+              "DP_norm": "0.97095",
+              "freq": 37,
+              "ipm": "1.28",
+              "total_freq": 113
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "gwardia",
+      "new_forms": 1,
+      "forms": [
+        "gwardyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 552,
+          "metrics": {
+            "all": {
+              "1-DP": "0.18818",
+              "ARF": "279.52",
+              "DP": "0.81182",
+              "DP_norm": "0.81193",
+              "freq": 723,
+              "ipm": "8.85",
+              "total_freq": 723
+            },
+            "fakt": {
+              "1-DP": "0.22598",
+              "ARF": "115.85",
+              "DP": "0.77402",
+              "DP_norm": "0.77445",
+              "freq": 340,
+              "ipm": "11.9",
+              "total_freq": 723
+            },
+            "fikcja": {
+              "1-DP": "0.19732",
+              "ARF": "55.48",
+              "DP": "0.80268",
+              "DP_norm": "0.80505",
+              "freq": 171,
+              "ipm": "7.08",
+              "total_freq": 723
+            },
+            "publicystyka": {
+              "1-DP": "0.13713",
+              "ARF": "114.28",
+              "DP": "0.86287",
+              "DP_norm": "0.86303",
+              "freq": 212,
+              "ipm": "7.32",
+              "total_freq": 723
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char.,wojsk."
+      ]
+    },
+    {
+      "lemma": "kinematografia",
+      "new_forms": 1,
+      "forms": [
+        "kinematografij"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 390,
+          "metrics": {
+            "all": {
+              "1-DP": "0.09353",
+              "ARF": "201.12",
+              "DP": "0.90647",
+              "DP_norm": "0.90659",
+              "freq": 504,
+              "ipm": "6.17",
+              "total_freq": 504
+            },
+            "fakt": {
+              "1-DP": "0.11737",
+              "ARF": "63.29",
+              "DP": "0.88263",
+              "DP_norm": "0.88311",
+              "freq": 253,
+              "ipm": "8.85",
+              "total_freq": 504
+            },
+            "fikcja": {
+              "1-DP": "0.07978",
+              "ARF": "59.81",
+              "DP": "0.92022",
+              "DP_norm": "0.92294",
+              "freq": 114,
+              "ipm": "4.72",
+              "total_freq": 504
+            },
+            "publicystyka": {
+              "1-DP": "0.07884",
+              "ARF": "75.96",
+              "DP": "0.92116",
+              "DP_norm": "0.92133",
+              "freq": 137,
+              "ipm": "4.73",
+              "total_freq": 504
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "technologia",
+      "new_forms": 1,
+      "forms": [
+        "technologij"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 6283,
+          "metrics": {
+            "all": {
+              "1-DP": "0.3633",
+              "ARF": "2459.27",
+              "DP": "0.6367",
+              "DP_norm": "0.63678",
+              "freq": 6600,
+              "ipm": "80.82",
+              "total_freq": 6600
+            },
+            "fakt": {
+              "1-DP": "0.35134",
+              "ARF": "868.87",
+              "DP": "0.64866",
+              "DP_norm": "0.64902",
+              "freq": 2640,
+              "ipm": "92.37",
+              "total_freq": 6600
+            },
+            "fikcja": {
+              "1-DP": "0.30995",
+              "ARF": "139.99",
+              "DP": "0.69005",
+              "DP_norm": "0.69209",
+              "freq": 317,
+              "ipm": "13.13",
+              "total_freq": 6600
+            },
+            "publicystyka": {
+              "1-DP": "0.48229",
+              "ARF": "1623.65",
+              "DP": "0.51771",
+              "DP_norm": "0.51781",
+              "freq": 3643,
+              "ipm": "125.85",
+              "total_freq": 6600
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "stajnia",
+      "new_forms": 1,
+      "forms": [
+        "stajen"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 370,
+          "metrics": {
+            "all": {
+              "1-DP": "0.20951",
+              "ARF": "313.47",
+              "DP": "0.79049",
+              "DP_norm": "0.79059",
+              "freq": 727,
+              "ipm": "8.9",
+              "total_freq": 727
+            },
+            "fakt": {
+              "1-DP": "0.1867",
+              "ARF": "89.17",
+              "DP": "0.8133",
+              "DP_norm": "0.81375",
+              "freq": 192,
+              "ipm": "6.72",
+              "total_freq": 727
+            },
+            "fikcja": {
+              "1-DP": "0.34091",
+              "ARF": "126.29",
+              "DP": "0.65909",
+              "DP_norm": "0.66104",
+              "freq": 357,
+              "ipm": "14.79",
+              "total_freq": 727
+            },
+            "publicystyka": {
+              "1-DP": "0.10515",
+              "ARF": "101.36",
+              "DP": "0.89485",
+              "DP_norm": "0.89502",
+              "freq": 178,
+              "ipm": "6.15",
+              "total_freq": 727
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "parodia",
+      "new_forms": 1,
+      "forms": [
+        "parodyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 330,
+          "metrics": {
+            "all": {
+              "1-DP": "0.16042",
+              "ARF": "201.36",
+              "DP": "0.83958",
+              "DP_norm": "0.83969",
+              "freq": 400,
+              "ipm": "4.9",
+              "total_freq": 400
+            },
+            "fakt": {
+              "1-DP": "0.24623",
+              "ARF": "104.47",
+              "DP": "0.75377",
+              "DP_norm": "0.75418",
+              "freq": 235,
+              "ipm": "8.22",
+              "total_freq": 400
+            },
+            "fikcja": {
+              "1-DP": "0.15513",
+              "ARF": "37.51",
+              "DP": "0.84487",
+              "DP_norm": "0.84737",
+              "freq": 70,
+              "ipm": "2.9",
+              "total_freq": 400
+            },
+            "publicystyka": {
+              "1-DP": "0.07858",
+              "ARF": "51.92",
+              "DP": "0.92142",
+              "DP_norm": "0.92159",
+              "freq": 95,
+              "ipm": "3.28",
+              "total_freq": 400
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "familia",
+      "new_forms": 9,
+      "forms": [
+        "familia",
+        "familiach",
+        "familiami",
+        "familie",
+        "familij",
+        "familio",
+        "familiom",
+        "familią",
+        "familię"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 170,
+          "metrics": {
+            "all": {
+              "1-DP": "0.1131",
+              "ARF": "126.83",
+              "DP": "0.8869",
+              "DP_norm": "0.88702",
+              "freq": 266,
+              "ipm": "3.26",
+              "total_freq": 266
+            },
+            "fakt": {
+              "1-DP": "0.10341",
+              "ARF": "41.95",
+              "DP": "0.89659",
+              "DP_norm": "0.89708",
+              "freq": 104,
+              "ipm": "3.64",
+              "total_freq": 266
+            },
+            "fikcja": {
+              "1-DP": "0.19331",
+              "ARF": "50.72",
+              "DP": "0.80669",
+              "DP_norm": "0.80908",
+              "freq": 96,
+              "ipm": "3.98",
+              "total_freq": 266
+            },
+            "publicystyka": {
+              "1-DP": "0.05593",
+              "ARF": "37.49",
+              "DP": "0.94407",
+              "DP_norm": "0.94425",
+              "freq": 66,
+              "ipm": "2.28",
+              "total_freq": 266
+            }
+          }
+        },
+        {
+          "pos": "subst",
+          "nf": 170,
+          "metrics": {
+            "all": {
+              "1-DP": "0.1131",
+              "ARF": "126.83",
+              "DP": "0.8869",
+              "DP_norm": "0.88702",
+              "freq": 266,
+              "ipm": "3.26",
+              "total_freq": 266
+            },
+            "fakt": {
+              "1-DP": "0.10341",
+              "ARF": "41.95",
+              "DP": "0.89659",
+              "DP_norm": "0.89708",
+              "freq": 104,
+              "ipm": "3.64",
+              "total_freq": 266
+            },
+            "fikcja": {
+              "1-DP": "0.19331",
+              "ARF": "50.72",
+              "DP": "0.80669",
+              "DP_norm": "0.80908",
+              "freq": 96,
+              "ipm": "3.98",
+              "total_freq": 266
+            },
+            "publicystyka": {
+              "1-DP": "0.05593",
+              "ARF": "37.49",
+              "DP": "0.94407",
+              "DP_norm": "0.94425",
+              "freq": 66,
+              "ipm": "2.28",
+              "total_freq": 266
+            }
+          }
+        }
+      ],
+      "labels": [
+        "przest.",
+        "przest.,arch.,char."
+      ]
+    },
+    {
+      "lemma": "laicyzacja",
+      "new_forms": 1,
+      "forms": [
+        "laicyzacyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 96,
+          "metrics": {
+            "all": {
+              "1-DP": "0.04626",
+              "ARF": "56.44",
+              "DP": "0.95374",
+              "DP_norm": "0.95387",
+              "freq": 99,
+              "ipm": "1.21",
+              "total_freq": 99
+            },
+            "fakt": {
+              "1-DP": "0.08443",
+              "ARF": "22.97",
+              "DP": "0.91557",
+              "DP_norm": "0.91607",
+              "freq": 46,
+              "ipm": "1.61",
+              "total_freq": 99
+            },
+            "fikcja": {
+              "1-DP": "0.0059",
+              "ARF": "2.03",
+              "DP": "0.9941",
+              "DP_norm": "0.99704",
+              "freq": 3,
+              "ipm": "0.12",
+              "total_freq": 99
+            },
+            "publicystyka": {
+              "1-DP": "0.04205",
+              "ARF": "28.3",
+              "DP": "0.95795",
+              "DP_norm": "0.95813",
+              "freq": 50,
+              "ipm": "1.73",
+              "total_freq": 99
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "rozpuk",
+      "new_forms": 8,
+      "forms": [
+        "rozpuk",
+        "rozpukach",
+        "rozpukami",
+        "rozpuki",
+        "rozpukiem",
+        "rozpukom",
+        "rozpukowi",
+        "rozpuków"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 33,
+          "metrics": {
+            "all": {
+              "1-DP": "0.06709",
+              "ARF": "56.31",
+              "DP": "0.93291",
+              "DP_norm": "0.93303",
+              "freq": 97,
+              "ipm": "1.19",
+              "total_freq": 97
+            },
+            "fakt": {
+              "1-DP": "0.04423",
+              "ARF": "14.29",
+              "DP": "0.95577",
+              "DP_norm": "0.9563",
+              "freq": 23,
+              "ipm": "0.8",
+              "total_freq": 97
+            },
+            "fikcja": {
+              "1-DP": "0.16467",
+              "ARF": "36.82",
+              "DP": "0.83533",
+              "DP_norm": "0.8378",
+              "freq": 64,
+              "ipm": "2.65",
+              "total_freq": 97
+            },
+            "publicystyka": {
+              "1-DP": "0.00849",
+              "ARF": "6.75",
+              "DP": "0.99151",
+              "DP_norm": "0.99169",
+              "freq": 10,
+              "ipm": "0.35",
+              "total_freq": 97
+            }
+          }
+        }
+      ],
+      "labels": [
+        "daw."
+      ]
+    },
+    {
+      "lemma": "inspekcja",
+      "new_forms": 1,
+      "forms": [
+        "inspekcyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 1050,
+          "metrics": {
+            "all": {
+              "1-DP": "0.19634",
+              "ARF": "505.73",
+              "DP": "0.80366",
+              "DP_norm": "0.80377",
+              "freq": 1123,
+              "ipm": "13.75",
+              "total_freq": 1123
+            },
+            "fakt": {
+              "1-DP": "0.16133",
+              "ARF": "96.93",
+              "DP": "0.83867",
+              "DP_norm": "0.83913",
+              "freq": 260,
+              "ipm": "9.1",
+              "total_freq": 1123
+            },
+            "fikcja": {
+              "1-DP": "0.19496",
+              "ARF": "41.63",
+              "DP": "0.80504",
+              "DP_norm": "0.80742",
+              "freq": 73,
+              "ipm": "3.02",
+              "total_freq": 1123
+            },
+            "publicystyka": {
+              "1-DP": "0.25546",
+              "ARF": "382.09",
+              "DP": "0.74454",
+              "DP_norm": "0.74468",
+              "freq": 790,
+              "ipm": "27.29",
+              "total_freq": 1123
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "cugiel",
+      "new_forms": 5,
+      "forms": [
+        "cugiel",
+        "cugla",
+        "cuglem",
+        "cuglowi",
+        "cuglu"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 33,
+          "metrics": {
+            "all": {
+              "1-DP": "0.0334",
+              "ARF": "28.17",
+              "DP": "0.9666",
+              "DP_norm": "0.96673",
+              "freq": 51,
+              "ipm": "0.62",
+              "total_freq": 51
+            },
+            "fakt": {
+              "1-DP": "0.03952",
+              "ARF": "8.72",
+              "DP": "0.96048",
+              "DP_norm": "0.96101",
+              "freq": 15,
+              "ipm": "0.52",
+              "total_freq": 51
+            },
+            "fikcja": {
+              "1-DP": "0.04482",
+              "ARF": "11.42",
+              "DP": "0.95518",
+              "DP_norm": "0.95801",
+              "freq": 18,
+              "ipm": "0.75",
+              "total_freq": 51
+            },
+            "publicystyka": {
+              "1-DP": "0.01783",
+              "ARF": "10.63",
+              "DP": "0.98217",
+              "DP_norm": "0.98235",
+              "freq": 18,
+              "ipm": "0.62",
+              "total_freq": 51
+            }
+          }
+        }
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "dyskredytacja",
+      "new_forms": 1,
+      "forms": [
+        "dyskredytacyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 70,
+          "metrics": {
+            "all": {
+              "1-DP": "0.03163",
+              "ARF": "40.7",
+              "DP": "0.96837",
+              "DP_norm": "0.9685",
+              "freq": 74,
+              "ipm": "0.91",
+              "total_freq": 74
+            },
+            "fakt": {
+              "1-DP": "0.05713",
+              "ARF": "22.81",
+              "DP": "0.94287",
+              "DP_norm": "0.94339",
+              "freq": 46,
+              "ipm": "1.61",
+              "total_freq": 74
+            },
+            "fikcja": {
+              "1-DP": "0.00812",
+              "ARF": "2.47",
+              "DP": "0.99188",
+              "DP_norm": "0.99481",
+              "freq": 4,
+              "ipm": "0.17",
+              "total_freq": 74
+            },
+            "publicystyka": {
+              "1-DP": "0.02596",
+              "ARF": "15.07",
+              "DP": "0.97404",
+              "DP_norm": "0.97422",
+              "freq": 24,
+              "ipm": "0.83",
+              "total_freq": 74
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "gawiedź",
+      "new_forms": 5,
+      "forms": [
+        "gawiedziach",
+        "gawiedziami",
+        "gawiedzie",
+        "gawiedziom",
+        "gawiedzią"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 85,
+          "metrics": {
+            "all": {
+              "1-DP": "0.09791",
+              "ARF": "87.79",
+              "DP": "0.90209",
+              "DP_norm": "0.90221",
+              "freq": 167,
+              "ipm": "2.04",
+              "total_freq": 167
+            },
+            "fakt": {
+              "1-DP": "0.08194",
+              "ARF": "25.69",
+              "DP": "0.91806",
+              "DP_norm": "0.91856",
+              "freq": 52,
+              "ipm": "1.82",
+              "total_freq": 167
+            },
+            "fikcja": {
+              "1-DP": "0.20438",
+              "ARF": "48.77",
+              "DP": "0.79562",
+              "DP_norm": "0.79797",
+              "freq": 82,
+              "ipm": "3.4",
+              "total_freq": 167
+            },
+            "publicystyka": {
+              "1-DP": "0.02509",
+              "ARF": "18.71",
+              "DP": "0.97491",
+              "DP_norm": "0.97509",
+              "freq": 33,
+              "ipm": "1.14",
+              "total_freq": 167
+            }
+          }
+        }
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "prefiguracja",
+      "new_forms": 1,
+      "forms": [
+        "prefiguracyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 32,
+          "metrics": {
+            "all": {
+              "1-DP": "0.02865",
+              "ARF": "19.66",
+              "DP": "0.97135",
+              "DP_norm": "0.97148",
+              "freq": 35,
+              "ipm": "0.43",
+              "total_freq": 35
+            },
+            "fakt": {
+              "1-DP": "0.07397",
+              "ARF": "15.83",
+              "DP": "0.92603",
+              "DP_norm": "0.92654",
+              "freq": 26,
+              "ipm": "0.91",
+              "total_freq": 35
+            },
+            "fikcja": {
+              "1-DP": "0.00226",
+              "ARF": "1.72",
+              "DP": "0.99774",
+              "DP_norm": "1.00069",
+              "freq": 3,
+              "ipm": "0.12",
+              "total_freq": 35
+            },
+            "publicystyka": {
+              "1-DP": "0.00576",
+              "ARF": "4.09",
+              "DP": "0.99424",
+              "DP_norm": "0.99443",
+              "freq": 6,
+              "ipm": "0.21",
+              "total_freq": 35
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "azalia",
+      "new_forms": 1,
+      "forms": [
+        "azalij"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 67,
+          "metrics": {
+            "all": {
+              "1-DP": "0.01785",
+              "ARF": "32.34",
+              "DP": "0.98215",
+              "DP_norm": "0.98228",
+              "freq": 80,
+              "ipm": "0.98",
+              "total_freq": 80
+            },
+            "fakt": {
+              "1-DP": "0.01746",
+              "ARF": "20.69",
+              "DP": "0.98254",
+              "DP_norm": "0.98308",
+              "freq": 61,
+              "ipm": "2.13",
+              "total_freq": 80
+            },
+            "fikcja": {
+              "1-DP": "0.03663",
+              "ARF": "7.56",
+              "DP": "0.96337",
+              "DP_norm": "0.96622",
+              "freq": 13,
+              "ipm": "0.54",
+              "total_freq": 80
+            },
+            "publicystyka": {
+              "1-DP": "0.00259",
+              "ARF": "3.56",
+              "DP": "0.99741",
+              "DP_norm": "0.9976",
+              "freq": 6,
+              "ipm": "0.21",
+              "total_freq": 80
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char.,bot."
+      ]
+    },
+    {
+      "lemma": "dedukcja",
+      "new_forms": 1,
+      "forms": [
+        "dedukcyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 48,
+          "metrics": {
+            "all": {
+              "1-DP": "0.07305",
+              "ARF": "55.35",
+              "DP": "0.92695",
+              "DP_norm": "0.92707",
+              "freq": 100,
+              "ipm": "1.22",
+              "total_freq": 100
+            },
+            "fakt": {
+              "1-DP": "0.08112",
+              "ARF": "25.83",
+              "DP": "0.91888",
+              "DP_norm": "0.91938",
+              "freq": 44,
+              "ipm": "1.54",
+              "total_freq": 100
+            },
+            "fikcja": {
+              "1-DP": "0.14624",
+              "ARF": "33.26",
+              "DP": "0.85376",
+              "DP_norm": "0.85629",
+              "freq": 52,
+              "ipm": "2.15",
+              "total_freq": 100
+            },
+            "publicystyka": {
+              "1-DP": "0.00415",
+              "ARF": "2.68",
+              "DP": "0.99585",
+              "DP_norm": "0.99604",
+              "freq": 4,
+              "ipm": "0.14",
+              "total_freq": 100
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "konfederacja",
+      "new_forms": 1,
+      "forms": [
+        "konfederacyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 943,
+          "metrics": {
+            "all": {
+              "1-DP": "0.15338",
+              "ARF": "368.99",
+              "DP": "0.84662",
+              "DP_norm": "0.84673",
+              "freq": 1022,
+              "ipm": "12.51",
+              "total_freq": 1022
+            },
+            "fakt": {
+              "1-DP": "0.16923",
+              "ARF": "108.69",
+              "DP": "0.83077",
+              "DP_norm": "0.83123",
+              "freq": 400,
+              "ipm": "14.0",
+              "total_freq": 1022
+            },
+            "fikcja": {
+              "1-DP": "0.04991",
+              "ARF": "14.0",
+              "DP": "0.95009",
+              "DP_norm": "0.9529",
+              "freq": 79,
+              "ipm": "3.27",
+              "total_freq": 1022
+            },
+            "publicystyka": {
+              "1-DP": "0.21675",
+              "ARF": "253.12",
+              "DP": "0.78325",
+              "DP_norm": "0.7834",
+              "freq": 543,
+              "ipm": "18.76",
+              "total_freq": 1022
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "nieinterwencja",
+      "new_forms": 1,
+      "forms": [
+        "nieinterwencyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 63,
+          "metrics": {
+            "all": {
+              "1-DP": "0.00536",
+              "ARF": "6.97",
+              "DP": "0.99464",
+              "DP_norm": "0.99477",
+              "freq": 64,
+              "ipm": "0.78",
+              "total_freq": 64
+            },
+            "fakt": {
+              "1-DP": "0.01148",
+              "ARF": "5.08",
+              "DP": "0.98852",
+              "DP_norm": "0.98906",
+              "freq": 62,
+              "ipm": "2.17",
+              "total_freq": 64
+            },
+            "fikcja": {
+              "1-DP": "0.00277",
+              "ARF": "1.0",
+              "DP": "0.99723",
+              "DP_norm": "1.00018",
+              "freq": 1,
+              "ipm": "0.04",
+              "total_freq": 64
+            },
+            "publicystyka": {
+              "1-DP": "0.00146",
+              "ARF": "1.0",
+              "DP": "0.99854",
+              "DP_norm": "0.99873",
+              "freq": 1,
+              "ipm": "0.03",
+              "total_freq": 64
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "kontrybucja",
+      "new_forms": 1,
+      "forms": [
+        "kontrybucyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 62,
+          "metrics": {
+            "all": {
+              "1-DP": "0.03433",
+              "ARF": "35.09",
+              "DP": "0.96567",
+              "DP_norm": "0.9658",
+              "freq": 82,
+              "ipm": "1.0",
+              "total_freq": 82
+            },
+            "fakt": {
+              "1-DP": "0.04997",
+              "ARF": "17.62",
+              "DP": "0.95003",
+              "DP_norm": "0.95055",
+              "freq": 50,
+              "ipm": "1.75",
+              "total_freq": 82
+            },
+            "fikcja": {
+              "1-DP": "0.04597",
+              "ARF": "9.36",
+              "DP": "0.95403",
+              "DP_norm": "0.95685",
+              "freq": 20,
+              "ipm": "0.83",
+              "total_freq": 82
+            },
+            "publicystyka": {
+              "1-DP": "0.00914",
+              "ARF": "8.59",
+              "DP": "0.99086",
+              "DP_norm": "0.99104",
+              "freq": 12,
+              "ipm": "0.41",
+              "total_freq": 82
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "irytacja",
+      "new_forms": 1,
+      "forms": [
+        "irytacyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 306,
+          "metrics": {
+            "all": {
+              "1-DP": "0.30178",
+              "ARF": "376.38",
+              "DP": "0.69822",
+              "DP_norm": "0.69831",
+              "freq": 724,
+              "ipm": "8.87",
+              "total_freq": 724
+            },
+            "fakt": {
+              "1-DP": "0.24475",
+              "ARF": "95.58",
+              "DP": "0.75525",
+              "DP_norm": "0.75566",
+              "freq": 168,
+              "ipm": "5.88",
+              "total_freq": 724
+            },
+            "fikcja": {
+              "1-DP": "0.50725",
+              "ARF": "224.55",
+              "DP": "0.49275",
+              "DP_norm": "0.49421",
+              "freq": 418,
+              "ipm": "17.32",
+              "total_freq": 724
+            },
+            "publicystyka": {
+              "1-DP": "0.12732",
+              "ARF": "77.97",
+              "DP": "0.87268",
+              "DP_norm": "0.87284",
+              "freq": 138,
+              "ipm": "4.77",
+              "total_freq": 724
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "orgia",
+      "new_forms": 1,
+      "forms": [
+        "orgij"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 259,
+          "metrics": {
+            "all": {
+              "1-DP": "0.14041",
+              "ARF": "148.77",
+              "DP": "0.85959",
+              "DP_norm": "0.8597",
+              "freq": 336,
+              "ipm": "4.11",
+              "total_freq": 336
+            },
+            "fakt": {
+              "1-DP": "0.19745",
+              "ARF": "77.42",
+              "DP": "0.80255",
+              "DP_norm": "0.80299",
+              "freq": 191,
+              "ipm": "6.68",
+              "total_freq": 336
+            },
+            "fikcja": {
+              "1-DP": "0.16448",
+              "ARF": "38.84",
+              "DP": "0.83552",
+              "DP_norm": "0.83799",
+              "freq": 77,
+              "ipm": "3.19",
+              "total_freq": 336
+            },
+            "publicystyka": {
+              "1-DP": "0.06191",
+              "ARF": "36.08",
+              "DP": "0.93809",
+              "DP_norm": "0.93826",
+              "freq": 68,
+              "ipm": "2.35",
+              "total_freq": 336
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "autokreacja",
+      "new_forms": 1,
+      "forms": [
+        "autokreacyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 97,
+          "metrics": {
+            "all": {
+              "1-DP": "0.04555",
+              "ARF": "44.83",
+              "DP": "0.95445",
+              "DP_norm": "0.95458",
+              "freq": 104,
+              "ipm": "1.27",
+              "total_freq": 104
+            },
+            "fakt": {
+              "1-DP": "0.10446",
+              "ARF": "33.84",
+              "DP": "0.89554",
+              "DP_norm": "0.89603",
+              "freq": 83,
+              "ipm": "2.9",
+              "total_freq": 104
+            },
+            "fikcja": {
+              "1-DP": "0.01528",
+              "ARF": "3.85",
+              "DP": "0.98472",
+              "DP_norm": "0.98763",
+              "freq": 7,
+              "ipm": "0.29",
+              "total_freq": 104
+            },
+            "publicystyka": {
+              "1-DP": "0.01241",
+              "ARF": "7.66",
+              "DP": "0.98759",
+              "DP_norm": "0.98777",
+              "freq": 14,
+              "ipm": "0.48",
+              "total_freq": 104
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "percepcja",
+      "new_forms": 1,
+      "forms": [
+        "percepcyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 670,
+          "metrics": {
+            "all": {
+              "1-DP": "0.18379",
+              "ARF": "301.81",
+              "DP": "0.81621",
+              "DP_norm": "0.81632",
+              "freq": 771,
+              "ipm": "9.44",
+              "total_freq": 771
+            },
+            "fakt": {
+              "1-DP": "0.23948",
+              "ARF": "175.04",
+              "DP": "0.76052",
+              "DP_norm": "0.76094",
+              "freq": 515,
+              "ipm": "18.02",
+              "total_freq": 771
+            },
+            "fikcja": {
+              "1-DP": "0.19325",
+              "ARF": "55.71",
+              "DP": "0.80675",
+              "DP_norm": "0.80914",
+              "freq": 101,
+              "ipm": "4.18",
+              "total_freq": 771
+            },
+            "publicystyka": {
+              "1-DP": "0.10693",
+              "ARF": "83.81",
+              "DP": "0.89307",
+              "DP_norm": "0.89324",
+              "freq": 155,
+              "ipm": "5.35",
+              "total_freq": 771
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "dekolonizacja",
+      "new_forms": 1,
+      "forms": [
+        "dekolonizacyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 84,
+          "metrics": {
+            "all": {
+              "1-DP": "0.03186",
+              "ARF": "32.87",
+              "DP": "0.96814",
+              "DP_norm": "0.96827",
+              "freq": 85,
+              "ipm": "1.04",
+              "total_freq": 85
+            },
+            "fakt": {
+              "1-DP": "0.06974",
+              "ARF": "26.17",
+              "DP": "0.93026",
+              "DP_norm": "0.93077",
+              "freq": 73,
+              "ipm": "2.55",
+              "total_freq": 85
+            },
+            "fikcja": {
+              "1-DP": "0.00501",
+              "ARF": "1.0",
+              "DP": "0.99499",
+              "DP_norm": "0.99793",
+              "freq": 1,
+              "ipm": "0.04",
+              "total_freq": 85
+            },
+            "publicystyka": {
+              "1-DP": "0.01669",
+              "ARF": "5.9",
+              "DP": "0.98331",
+              "DP_norm": "0.98349",
+              "freq": 11,
+              "ipm": "0.38",
+              "total_freq": 85
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "orientacja",
+      "new_forms": 1,
+      "forms": [
+        "orientacyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 1645,
+          "metrics": {
+            "all": {
+              "1-DP": "0.32925",
+              "ARF": "789.81",
+              "DP": "0.67075",
+              "DP_norm": "0.67084",
+              "freq": 1840,
+              "ipm": "22.53",
+              "total_freq": 1840
+            },
+            "fakt": {
+              "1-DP": "0.39632",
+              "ARF": "389.96",
+              "DP": "0.60368",
+              "DP_norm": "0.60401",
+              "freq": 1026,
+              "ipm": "35.9",
+              "total_freq": 1840
+            },
+            "fikcja": {
+              "1-DP": "0.3918",
+              "ARF": "108.53",
+              "DP": "0.6082",
+              "DP_norm": "0.61",
+              "freq": 195,
+              "ipm": "8.08",
+              "total_freq": 1840
+            },
+            "publicystyka": {
+              "1-DP": "0.24835",
+              "ARF": "309.02",
+              "DP": "0.75165",
+              "DP_norm": "0.75179",
+              "freq": 619,
+              "ipm": "21.38",
+              "total_freq": 1840
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "zachcieć",
+      "new_forms": 14,
+      "forms": [
+        "zachciał",
+        "zachciała",
+        "zachciałam",
+        "zachciałaś",
+        "zachciałem",
+        "zachciałeś",
+        "zachciałom",
+        "zachciałoś",
+        "zachciały",
+        "zachciałyście",
+        "zachciałyśmy",
+        "zachcieli",
+        "zachcieliście",
+        "zachcieliśmy"
+      ],
+      "evidence": [
+        {
+          "pos": "praet",
+          "nf": 87,
+          "metrics": {
+            "all": {
+              "1-DP": "0.20269",
+              "ARF": "197.52",
+              "DP": "0.79731",
+              "DP_norm": "0.79742",
+              "freq": 399,
+              "ipm": "4.89",
+              "total_freq": 399
+            },
+            "fakt": {
+              "1-DP": "0.11053",
+              "ARF": "32.62",
+              "DP": "0.88947",
+              "DP_norm": "0.88996",
+              "freq": 69,
+              "ipm": "2.41",
+              "total_freq": 399
+            },
+            "fikcja": {
+              "1-DP": "0.49344",
+              "ARF": "172.53",
+              "DP": "0.50656",
+              "DP_norm": "0.50806",
+              "freq": 312,
+              "ipm": "12.93",
+              "total_freq": 399
+            },
+            "publicystyka": {
+              "1-DP": "0.02025",
+              "ARF": "11.02",
+              "DP": "0.97975",
+              "DP_norm": "0.97993",
+              "freq": 18,
+              "ipm": "0.62",
+              "total_freq": 399
+            }
+          }
+        }
+      ],
+      "labels": [
+        "przest."
+      ]
+    },
+    {
+      "lemma": "inwigilacja",
+      "new_forms": 1,
+      "forms": [
+        "inwigilacyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 363,
+          "metrics": {
+            "all": {
+              "1-DP": "0.13923",
+              "ARF": "197.47",
+              "DP": "0.86077",
+              "DP_norm": "0.86088",
+              "freq": 415,
+              "ipm": "5.08",
+              "total_freq": 415
+            },
+            "fakt": {
+              "1-DP": "0.16685",
+              "ARF": "67.68",
+              "DP": "0.83315",
+              "DP_norm": "0.83361",
+              "freq": 172,
+              "ipm": "6.02",
+              "total_freq": 415
+            },
+            "fikcja": {
+              "1-DP": "0.11637",
+              "ARF": "28.99",
+              "DP": "0.88363",
+              "DP_norm": "0.88624",
+              "freq": 52,
+              "ipm": "2.15",
+              "total_freq": 415
+            },
+            "publicystyka": {
+              "1-DP": "0.13045",
+              "ARF": "92.14",
+              "DP": "0.86955",
+              "DP_norm": "0.86971",
+              "freq": 191,
+              "ipm": "6.6",
+              "total_freq": 415
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "antykoncepcja",
+      "new_forms": 1,
+      "forms": [
+        "antykoncepcyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 727,
+          "metrics": {
+            "all": {
+              "1-DP": "0.10784",
+              "ARF": "202.3",
+              "DP": "0.89216",
+              "DP_norm": "0.89228",
+              "freq": 762,
+              "ipm": "9.33",
+              "total_freq": 762
+            },
+            "fakt": {
+              "1-DP": "0.12463",
+              "ARF": "79.94",
+              "DP": "0.87537",
+              "DP_norm": "0.87585",
+              "freq": 487,
+              "ipm": "17.04",
+              "total_freq": 762
+            },
+            "fikcja": {
+              "1-DP": "0.06578",
+              "ARF": "17.17",
+              "DP": "0.93422",
+              "DP_norm": "0.93698",
+              "freq": 35,
+              "ipm": "1.45",
+              "total_freq": 762
+            },
+            "publicystyka": {
+              "1-DP": "0.11236",
+              "ARF": "98.93",
+              "DP": "0.88764",
+              "DP_norm": "0.88781",
+              "freq": 240,
+              "ipm": "8.29",
+              "total_freq": 762
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "konfekcja",
+      "new_forms": 1,
+      "forms": [
+        "konfekcyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 103,
+          "metrics": {
+            "all": {
+              "1-DP": "0.03165",
+              "ARF": "34.57",
+              "DP": "0.96835",
+              "DP_norm": "0.96848",
+              "freq": 110,
+              "ipm": "1.35",
+              "total_freq": 110
+            },
+            "fakt": {
+              "1-DP": "0.06143",
+              "ARF": "23.66",
+              "DP": "0.93857",
+              "DP_norm": "0.93909",
+              "freq": 90,
+              "ipm": "3.15",
+              "total_freq": 110
+            },
+            "fikcja": {
+              "1-DP": "0.02052",
+              "ARF": "4.66",
+              "DP": "0.97948",
+              "DP_norm": "0.98238",
+              "freq": 7,
+              "ipm": "0.29",
+              "total_freq": 110
+            },
+            "publicystyka": {
+              "1-DP": "0.01144",
+              "ARF": "8.19",
+              "DP": "0.98856",
+              "DP_norm": "0.98874",
+              "freq": 13,
+              "ipm": "0.45",
+              "total_freq": 110
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "monografia",
+      "new_forms": 1,
+      "forms": [
+        "monografij"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 507,
+          "metrics": {
+            "all": {
+              "1-DP": "0.1738",
+              "ARF": "264.88",
+              "DP": "0.8262",
+              "DP_norm": "0.82631",
+              "freq": 559,
+              "ipm": "6.85",
+              "total_freq": 559
+            },
+            "fakt": {
+              "1-DP": "0.28498",
+              "ARF": "148.44",
+              "DP": "0.71502",
+              "DP_norm": "0.71541",
+              "freq": 342,
+              "ipm": "11.97",
+              "total_freq": 559
+            },
+            "fikcja": {
+              "1-DP": "0.07581",
+              "ARF": "26.16",
+              "DP": "0.92419",
+              "DP_norm": "0.92692",
+              "freq": 52,
+              "ipm": "2.15",
+              "total_freq": 559
+            },
+            "publicystyka": {
+              "1-DP": "0.12981",
+              "ARF": "91.97",
+              "DP": "0.87019",
+              "DP_norm": "0.87035",
+              "freq": 165,
+              "ipm": "5.7",
+              "total_freq": 559
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "normalizacja",
+      "new_forms": 1,
+      "forms": [
+        "normalizacyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 187,
+          "metrics": {
+            "all": {
+              "1-DP": "0.07006",
+              "ARF": "97.45",
+              "DP": "0.92994",
+              "DP_norm": "0.93006",
+              "freq": 196,
+              "ipm": "2.4",
+              "total_freq": 196
+            },
+            "fakt": {
+              "1-DP": "0.12702",
+              "ARF": "58.35",
+              "DP": "0.87298",
+              "DP_norm": "0.87346",
+              "freq": 127,
+              "ipm": "4.44",
+              "total_freq": 196
+            },
+            "fikcja": {
+              "1-DP": "0.01919",
+              "ARF": "5.12",
+              "DP": "0.98081",
+              "DP_norm": "0.98371",
+              "freq": 9,
+              "ipm": "0.37",
+              "total_freq": 196
+            },
+            "publicystyka": {
+              "1-DP": "0.05602",
+              "ARF": "35.04",
+              "DP": "0.94398",
+              "DP_norm": "0.94416",
+              "freq": 60,
+              "ipm": "2.07",
+              "total_freq": 196
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "informatyzacja",
+      "new_forms": 1,
+      "forms": [
+        "informatyzacyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 170,
+          "metrics": {
+            "all": {
+              "1-DP": "0.04252",
+              "ARF": "81.34",
+              "DP": "0.95748",
+              "DP_norm": "0.95761",
+              "freq": 172,
+              "ipm": "2.11",
+              "total_freq": 172
+            },
+            "fakt": {
+              "1-DP": "0.03701",
+              "ARF": "18.42",
+              "DP": "0.96299",
+              "DP_norm": "0.96352",
+              "freq": 49,
+              "ipm": "1.71",
+              "total_freq": 172
+            },
+            "fikcja": {
+              "1-DP": "0.00667",
+              "ARF": "1.62",
+              "DP": "0.99333",
+              "DP_norm": "0.99627",
+              "freq": 2,
+              "ipm": "0.08",
+              "total_freq": 172
+            },
+            "publicystyka": {
+              "1-DP": "0.07782",
+              "ARF": "61.24",
+              "DP": "0.92218",
+              "DP_norm": "0.92235",
+              "freq": 121,
+              "ipm": "4.18",
+              "total_freq": 172
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "reorientacja",
+      "new_forms": 1,
+      "forms": [
+        "reorientacyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 78,
+          "metrics": {
+            "all": {
+              "1-DP": "0.0345",
+              "ARF": "40.15",
+              "DP": "0.9655",
+              "DP_norm": "0.96563",
+              "freq": 78,
+              "ipm": "0.96",
+              "total_freq": 78
+            },
+            "fakt": {
+              "1-DP": "0.06784",
+              "ARF": "21.97",
+              "DP": "0.93216",
+              "DP_norm": "0.93267",
+              "freq": 53,
+              "ipm": "1.85",
+              "total_freq": 78
+            },
+            "publicystyka": {
+              "1-DP": "0.03021",
+              "ARF": "15.17",
+              "DP": "0.96979",
+              "DP_norm": "0.96997",
+              "freq": 25,
+              "ipm": "0.86",
+              "total_freq": 78
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "onkologia",
+      "new_forms": 1,
+      "forms": [
+        "onkologij"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 520,
+          "metrics": {
+            "all": {
+              "1-DP": "0.08502",
+              "ARF": "208.43",
+              "DP": "0.91498",
+              "DP_norm": "0.9151",
+              "freq": 548,
+              "ipm": "6.71",
+              "total_freq": 548
+            },
+            "fakt": {
+              "1-DP": "0.07055",
+              "ARF": "35.67",
+              "DP": "0.92945",
+              "DP_norm": "0.92996",
+              "freq": 132,
+              "ipm": "4.62",
+              "total_freq": 548
+            },
+            "fikcja": {
+              "1-DP": "0.05658",
+              "ARF": "12.13",
+              "DP": "0.94342",
+              "DP_norm": "0.94621",
+              "freq": 28,
+              "ipm": "1.16",
+              "total_freq": 548
+            },
+            "publicystyka": {
+              "1-DP": "0.12302",
+              "ARF": "161.35",
+              "DP": "0.87698",
+              "DP_norm": "0.87714",
+              "freq": 388,
+              "ipm": "13.4",
+              "total_freq": 548
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "infolinia",
+      "new_forms": 1,
+      "forms": [
+        "infolinij"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 346,
+          "metrics": {
+            "all": {
+              "1-DP": "0.05766",
+              "ARF": "152.74",
+              "DP": "0.94234",
+              "DP_norm": "0.94247",
+              "freq": 364,
+              "ipm": "4.46",
+              "total_freq": 364
+            },
+            "fakt": {
+              "1-DP": "0.03576",
+              "ARF": "38.71",
+              "DP": "0.96424",
+              "DP_norm": "0.96477",
+              "freq": 116,
+              "ipm": "4.06",
+              "total_freq": 364
+            },
+            "fikcja": {
+              "1-DP": "0.03763",
+              "ARF": "7.23",
+              "DP": "0.96237",
+              "DP_norm": "0.96522",
+              "freq": 18,
+              "ipm": "0.75",
+              "total_freq": 364
+            },
+            "publicystyka": {
+              "1-DP": "0.09602",
+              "ARF": "111.58",
+              "DP": "0.90398",
+              "DP_norm": "0.90415",
+              "freq": 230,
+              "ipm": "7.95",
+              "total_freq": 364
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    },
+    {
+      "lemma": "dekompozycja",
+      "new_forms": 1,
+      "forms": [
+        "dekompozycyj"
+      ],
+      "evidence": [
+        {
+          "pos": "subst",
+          "nf": 48,
+          "metrics": {
+            "all": {
+              "1-DP": "0.03209",
+              "ARF": "31.39",
+              "DP": "0.96791",
+              "DP_norm": "0.96804",
+              "freq": 53,
+              "ipm": "0.65",
+              "total_freq": 53
+            },
+            "fakt": {
+              "1-DP": "0.06192",
+              "ARF": "17.13",
+              "DP": "0.93808",
+              "DP_norm": "0.9386",
+              "freq": 31,
+              "ipm": "1.08",
+              "total_freq": 53
+            },
+            "fikcja": {
+              "1-DP": "0.01625",
+              "ARF": "4.18",
+              "DP": "0.98375",
+              "DP_norm": "0.98666",
+              "freq": 5,
+              "ipm": "0.21",
+              "total_freq": 53
+            },
+            "publicystyka": {
+              "1-DP": "0.01575",
+              "ARF": "9.04",
+              "DP": "0.98425",
+              "DP_norm": "0.98443",
+              "freq": 17,
+              "ipm": "0.59",
+              "total_freq": 53
+            }
+          }
+        }
+      ],
+      "labels": [
+        "arch.,char."
+      ]
+    }
+  ],
+  "database_sha256": "85b23ca5cfaae273ec869f84fab643a87685c455606d8b21df4aec918f3a338c",
+  "standard_sha256": "a432c7c51100f611ab2aaf7d712cf2af9a5354383cf3eb7fd271577ecb19d877",
+  "script_sha256": "790521237b2ee6e6d1c41edf51758d3e1eca3da13bb58ad12a8d3107df910b63"
+}

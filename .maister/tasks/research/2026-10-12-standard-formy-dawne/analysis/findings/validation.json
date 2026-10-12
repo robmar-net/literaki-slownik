@@ -1,0 +1,155 @@
+{
+  "method": "Independent direct word query + production override and assessment functions, unchanged database",
+  "words": [
+    {
+      "word": "aliści",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 12
+    },
+    {
+      "word": "desperacja",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 28
+    },
+    {
+      "word": "desperacji",
+      "current": true,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 166
+    },
+    {
+      "word": "desperacyj",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 0
+    },
+    {
+      "word": "ekscytacja",
+      "current": true,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 42
+    },
+    {
+      "word": "ekscytacją",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 21
+    },
+    {
+      "word": "familia",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 19
+    },
+    {
+      "word": "infolinij",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 0
+    },
+    {
+      "word": "iże",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 0
+    },
+    {
+      "word": "jakoż",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 7
+    },
+    {
+      "word": "kot",
+      "current": true,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 704
+    },
+    {
+      "word": "kursorzy",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 0
+    },
+    {
+      "word": "metrowie",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 0
+    },
+    {
+      "word": "nazad",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 21
+    },
+    {
+      "word": "niezbędnik",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 17
+    },
+    {
+      "word": "odzienie",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 28
+    },
+    {
+      "word": "ośm",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 0
+    },
+    {
+      "word": "się",
+      "current": true,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 1069167
+    },
+    {
+      "word": "surdut",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 19
+    },
+    {
+      "word": "technologij",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 0
+    },
+    {
+      "word": "trzykroć",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 24
+    },
+    {
+      "word": "warszawa",
+      "current": false,
+      "would_accept_if_age_lifted": false,
+      "nf_production_function": 27
+    },
+    {
+      "word": "wiktor",
+      "current": false,
+      "would_accept_if_age_lifted": true,
+      "nf_production_function": 0
+    }
+  ],
+  "existing_tests": "6/6 tests.test_round4_sjp_fixes",
+  "hashes_match_pinned_release": true,
+  "followup_source_hashes": [
+    {
+      "source": "KWJP100-kwjp100-slowa-lemma-fakt",
+      "sha256": "ee427e7461006ab968f5e7c4590332918071268447d5cccac5eb059ad1b4def0"
+    },
+    {
+      "source": "KWJP100-kwjp100-slowa-lemma-publicystyka",
+      "sha256": "1e03e221b97ffb67aeadf6294aa381a308f8ece0a896d13de0141844c9543f4e"
+    }
+  ]
+}
