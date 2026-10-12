@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-12T08:10:44Z",
+  "generated": "2026-10-12T08:14:50Z",
   "task": {
     "title": "STANDARD: formy dawne i współczesne użycie (#4)",
     "description": "Research przyczyn odmów, niezależnych miar współczesności i skutków wariantów; komentarz do ticketu; decyzje z właścicielem.",
@@ -113,8 +113,12 @@ window.MAISTER_DATA = {
     "publication": {
       "round": 4,
       "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
-      "status": "prepared",
-      "report_artifact": "outputs/targeted-audit.md"
+      "status": "published_and_verified",
+      "report_artifact": "outputs/targeted-audit.md",
+      "comment_artifact": "outputs/issue-comment-round4.md",
+      "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6120344099",
+      "report_commit": "f9793b1120a3fedc422b32acf2cfd0b2cfb797fd",
+      "verified_at": "2026-10-12T08:14:50Z"
     },
     "gate_history": [
       {
@@ -428,6 +432,10 @@ window.MAISTER_DATA = {
         {
           "path": "analysis/findings/round4/validation.json",
           "label": "Walidacja kompletności i zgodności"
+        },
+        {
+          "path": "outputs/issue-comment-round4.md",
+          "label": "Opublikowany komentarz rundy 4"
         }
       ],
       "gate": {
