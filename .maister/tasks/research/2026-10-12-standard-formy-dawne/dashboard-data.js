@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-12T01:07:05Z",
+  "generated": "2026-10-12T01:09:06Z",
   "task": {
     "title": "STANDARD: formy dawne i współczesne użycie (#4)",
     "description": "Research przyczyn odmów, niezależnych miar współczesności i skutków wariantów; komentarz do ticketu; decyzje z właścicielem.",

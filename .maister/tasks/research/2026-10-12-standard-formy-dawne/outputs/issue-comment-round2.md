@@ -46,4 +46,4 @@ Podwyższenie progu czy rozproszenia nie usuwa tego rozróżnienia. Nawet przy l
 
 **Pewność:** wysoka dla mechanizmu, liczb i konkretnych kontrprzykładów; średnia dla oceny rejestru. Materiał wystarcza do omówienia kryterium. Przed wdrożeniem nadal potrzebna będzie walidacja reguły według uzgodnionej definicji oraz ponowny pomiar STANDARD i POP/POP0.
 
-[Pełny raport rundy 2, źródła i odtwarzanie](https://github.com/robmar-net/literaki-slownik/blob/main/.maister/tasks/research/2026-10-12-standard-formy-dawne/outputs/research-report.md) · [Pomiary, wszystkie notatki i kontrola bazy](https://github.com/robmar-net/literaki-slownik/tree/main/.maister/tasks/research/2026-10-12-standard-formy-dawne/analysis/findings/round2).
+[Pełny raport rundy 2, źródła i odtwarzanie](https://github.com/robmar-net/literaki-slownik/blob/7666b28b5e700992c62960c90fdbcd408f71534c/.maister/tasks/research/2026-10-12-standard-formy-dawne/outputs/research-report.md) · [Pomiary, wszystkie notatki i kontrola bazy](https://github.com/robmar-net/literaki-slownik/tree/7666b28b5e700992c62960c90fdbcd408f71534c/.maister/tasks/research/2026-10-12-standard-formy-dawne/analysis/findings/round2).
