@@ -5,7 +5,7 @@
 Obecny limit 60 000 wypycha 2430 dotychczasowych form POP w badanej propozycji +2382 STANDARD.
 Stały próg dzisiejszego cięcia wraz z przycinaniem według własnej punktacji daje w tej symulacji identyczny POP bazowy oraz +2372/0 po dodatkach.
 POP0 może zachować metodę i skład; trzeba jawnie sprawdzić zawieranie POP0 w POP.
-Zakres dodatków STANDARD z #4 oraz cofnięć wymaga oddzielnego rozstrzygnięcia; docelowa granica popularności pozostaje otwarta.
+Właściciel zatwierdził 2382 dodatki STANDARD w tym kroku; osiem osobno badanych cofnięć pozostaje poza zakresem. Docelowa granica popularności pozostaje otwarta.
 
 ## Key Decisions
 
@@ -15,7 +15,7 @@ Zakres dodatków STANDARD z #4 oraz cofnięć wymaga oddzielnego rozstrzygnięci
 
 ## Open Questions / Risks
 
-- Czy pilne poprawki w tym kroku obejmują zatwierdzenie +2382 form w STANDARD z #4? Pytanie zostało skierowane do właściciela. Osiem cofnięć badano oddzielnie i nie należy ich domniemywać.
+- Źródłowe dowody poszczególnych form są w badawczych JSON-ach. Konfiguracja produkcyjna musi wiązać ich dokładny zakres z wersją wejść, nie kopiować bez kontroli ogólnego `lemma_id`.
 - Jeśli zmiana źródeł lub grupowania złamie `POP0 ⊆ POP`, generator ma przerwać budowę, a nie ukryć naruszenie.
 - Próg nie rozstrzyga słów z własnym współczesnym użyciem, których obecna miara nie promuje. Powrót do merytorycznej granicy jest osobnym otwartym punktem #6.
 
@@ -26,7 +26,7 @@ Zakres dodatków STANDARD z #4 oraz cofnięć wymaga oddzielnego rozstrzygnięci
 | Wybór jednostek POP | Prefiks rankingu do 60 000 leksemów przed przycięciem | Wynik punktowy co najmniej stała wartość z dzisiejszego cięcia |
 | Członkowie grup POP | Własna ranga nie większa niż ranga progu; wyjątki głowy i braku osobnego dowodu | Własna punktacja co najmniej próg; te same wyjątki |
 | POP0 | Limit 20 000 i przycinanie własną rangą | Bez zmiany |
-| STANDARD | Wydany v29 | Osobne rozstrzygnięcie #4 |
+| STANDARD | Wydany v29 | Trwale dodać dokładnie 2382 zatwierdzone formy z #4 |
 | Pakiet i diagnostyka | `pop-v2`, limit liczbowy | Nowa wersja metody, raport progu, trafne wyjaśnienie wyboru |
 
 ## Punkty integracji i pełny obieg
@@ -43,4 +43,4 @@ Operator uruchamia `pop` na zamrożonym przebiegu LL-PL i przypiętym STANDARD. 
 
 ## Decyzja zakresu
 
-Rekomendowany zakres po potwierdzeniu: w jednym kroku wdrożyć stały próg POP oraz zatwierdzone dodatki STANDARD, osobno zostawiając osiem cofnięć. Umożliwi to sprawdzenie dokładnego wyniku +2372/0 na rzeczywistym buildzie. Alternatywa: wdrożyć najpierw wyłącznie POP; porównanie +2382 pozostanie wtedy symulacją. Nie rozszerzać tego kroku na docelową kalibrację progu ani wydanie.
+Właściciel zatwierdził w jednym kroku stały próg POP i 2382 dodatki STANDARD w trwałym, modyfikowalnym i odtwarzalnym pipeline, z aktualizacją wiki. Osiem osobno badanych cofnięć oraz docelowa kalibracja POP zostają odłożone. Liczby +2372/0 trzeba sprawdzić na rzeczywistym buildzie; nie są gwarancją dla innych wejść. Wydanie i integracja z grą pozostają osobną decyzją.

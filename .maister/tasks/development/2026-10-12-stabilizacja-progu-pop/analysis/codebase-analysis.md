@@ -20,7 +20,16 @@ Badanie odtworzyło obecny POP i pokazało dla proponowanego STANDARD +2372/0, a
 
 ## Interpretacja i zakres
 
-Zadanie dotyczy selekcji POP po zbudowaniu STANDARD, bez zmiany reguł dopuszczalności ani POP0. Źródłem są [raport kalibracji](research-context/pop-calibration.md) i [pierwszy raport badania](research-context/research-report.md) z zadania research `2026-10-12-standard-formy-dawne`. Dodatki +2382 form i osobne cofnięcia nie należą automatycznie do implementacji #6.
+Zadanie dotyczy selekcji POP po zbudowaniu STANDARD oraz zatwierdzonych 2382 dodatków STANDARD. Źródłem są [raport kalibracji](research-context/pop-calibration.md) i [pierwszy raport badania](research-context/research-report.md) z zadania research `2026-10-12-standard-formy-dawne`. Osiem osobnych cofnięć nie należy do tej implementacji.
+
+## Tor STANDARD i zapis decyzji
+
+- Badawczy `analysis/findings/round3/proposal.json` zawiera 2382 napisów, a `proposal-proof.json` wskazuje 7192 unikatowych trójek `(forma, lemma_id, rozwinięty tag)` oraz dowód każdej. 5557 analiz ma dokładną formę czytnika, 1445 wynika z negacji w przypiętej analizie, 58 ze stopnia najwyższego, 132 z już istniejących konstrukcji. `family-decisions.json` zachowuje zakres i ocenę 125 rodzin (112 `propose`, 1 `limited`, 12 `hold`).
+- `literaki_slownik/decisions.py:39–62` składa oceny obu wariantów; `policy.py:1086` znosi odmowę dawności wyłącznie po progu częstości formy. Nowy dowód redakcyjny powinien zastępować tylko `linguistic-historical-form-v1` dla dokładnie zatwierdzonej analizy; inne odmowy nie mogą znikać.
+- `build.py:135–154` ładuje przypięte konfiguracje przed `materialize_assessments()`. `inputs.py:84–87` weryfikuje SHA256 każdego pliku `configurations`. Nowy JSON może wejść tutaj i pozostawić ślad w manifeście.
+- `materialize_assessments()` zapisuje każdą rozwiniętą analizę i jej powody w `analysis`, `variant_decision` i `decision_payload` (`decisions.py:255–364`). `build.write_lists()` eksportuje wyłącznie członkostwo `accept`, `verify` porównuje listę z bazą, a `explain` pokazuje zapisane decyzje.
+- W badaniu `round3_assess.py` wygenerował propozycję przez przecięcie ręcznej oceny rodzin, tabel czytnika, przypiętych analiz i warunku „jedyną odmową jest dawność”. Nie jest częścią produkcyjnego build; runtime powinien czytać zatwierdzone, dokładne decyzje bez żywych zapytań do czytnika.
+- Bazą pomiarową researchu jest lokalny, zamrożony przebieg `lists-v30-20261010-165826-a`: 3 090 194 form STANDARD. Nazwa katalogu przebiegu nie jest numerem wydania. Nowa wersja wymaga dwóch nowych buildów, verify i export przed użyciem jako wejście POP.
 
 ## Ścieżka wykonania
 
