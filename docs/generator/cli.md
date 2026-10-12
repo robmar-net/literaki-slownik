@@ -89,6 +89,7 @@ python3 -m literaki_slownik morph-index --broad <LL-PL-BROAD.txt.gz> --sgjp cach
 - Format v1 (little-endian): `LLMI`, `u32` wersja 1, sześć pól nagłówka (id leksykonu, SHA-256 `.dawg`, SHA-256 listy BROAD po rozpakowaniu, nazwa eksportu SGJP, jego SHA-256, `literaki-slownik <commit>`), sześć długości sekcji `u32` i sekcje: końcówki lematów, tagi, kwalifikatory, reguły po 9 B, listy reguł, formy w blokach po 32.
 - Lista reguł formy zachowuje kolejność wierszy eksportu. Listy są numerowane od najczęstszej; remis rozstrzyga pierwsze wystąpienie.
 - Formy spoza SGJP nie mają wpisu. Wynik jest deterministyczny.
+- Przebudowa w serwerze jednym poleceniem: `scripts/rebuild-sgjp-index <katalog literaki-slownik> --broad <LL-PL-BROAD.txt.gz> --sgjp <sgjp-….tab.gz>` (#1862). Robi dwa przebiegi, porównuje je i podmienia plik w `lexicons/sgjpindex/`.
 - Kody: 2 zły argument (np. `--broad-dawg-sha256` to nie 64 małe znaki hex); 4 błąd danych albo istniejący `--out`.
 
 ## Jak czytać wynik
