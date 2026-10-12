@@ -1,9 +1,9 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-12T11:02:34Z",
+  "generated": "2026-10-12T12:30:52Z",
   "task": {
     "title": "STANDARD: formy dawne i współczesne użycie (#4)",
     "description": "Research przyczyn odmów, niezależnych miar współczesności i skutków wariantów; komentarz do ticketu; decyzje z właścicielem.",
-    "status": "awaiting_approval",
+    "status": "completed",
     "tags": [
       "research",
       "slownik",
@@ -12,7 +12,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "research",
     "path": "/Users/robmar/Projects/Literaki/literaki-slownik/.maister/tasks/research/2026-10-12-standard-formy-dawne",
-    "current_activity": "Wyniki kalibracji POP do omówienia; bez wdrożenia"
+    "current_activity": "Kalibracja POP: pełne pomiary, próbki i próg dowodów"
   },
   "characteristics": {
     "runda": 5,
@@ -210,6 +210,11 @@ window.MAISTER_DATA = {
         "completed": "2026-10-12T08:32:29Z",
         "round": 4,
         "scope": "Badanie i publikacja; dalsze decyzje omawiane z użytkownikiem."
+      },
+      {
+        "completed": "2026-10-12T12:30:52Z",
+        "round": 5,
+        "scope": "Badanie, publikacja i odrębny ticket decyzji; metoda POP, próg, listy oraz wydanie niezatwierdzone."
       }
     ],
     "candidate_assessment": {
@@ -294,7 +299,7 @@ window.MAISTER_DATA = {
       "pop_boundary_review": {
         "recorded_at": "2026-10-12T08:55:08Z",
         "user_request": "a, to moze podniesc limit POP? ten limit jest sztuczny, budowa POP powinna byc merytoryczna, moze ta granica jest w zlym miejscu?",
-        "status": "research_ready_for_discussion",
+        "status": "decision_handoff_issue_6",
         "findings": [
           "Pierwotne porównanie 60k/80k używało percentyli i available-only, przed log-ipm i przycinaniem członków.",
           "Przy obecnej propozycji następny cały blok wymaga 59909+116=60025 miejsc przed przycinaniem; to arytmetyka istniejącego pomiaru, nie nowa symulacja.",
@@ -306,7 +311,9 @@ window.MAISTER_DATA = {
           "Porównanie ograniczenia liczby z kryterium minimalnej siły dowodów; rozmiar listy jako wynik."
         ],
         "artifact": "outputs/targeted-audit.md#9-korekta-rekomendacji-granica-pop",
-        "implementation_approved": false
+        "implementation_approved": false,
+        "next_issue": "https://github.com/robmar-net/literaki-slownik/issues/6",
+        "threshold_selected": false
       }
     },
     "pop_calibration": {
@@ -369,7 +376,9 @@ window.MAISTER_DATA = {
         "external_quality_fragments_read": 40
       },
       "recommendation": "Nie wybierać teraz 70k/80k/0,05 jako optimum. Uzgodnić zakres POP i jawne wymagania dowodowe; stałe obecne cięcie rozpatrywać tylko jako osobny wariant stabilizacji.",
-      "publication_complete": true
+      "publication_complete": true,
+      "next_issue": "https://github.com/robmar-net/literaki-slownik/issues/6",
+      "threshold_selected": false
     }
   },
   "phases": [
@@ -655,15 +664,17 @@ window.MAISTER_DATA = {
           "Przyjąć wyniki i omówić kryterium POP",
           "Pogłębić wskazaną lukę"
         ],
-        "answer": null,
-        "implementation_approved": false
+        "answer": "Przyjęto wyniki jako podstawę dalszej rozmowy i założenia osobnego ticketu POP; nie wybrano wartości progu ani wdrożenia.",
+        "implementation_approved": false,
+        "user_response": "ok, jesli chcemy tak zrobic, to co dalej? ticket?",
+        "answered_at": "2026-10-12T12:30:52Z"
       },
       "started": "2026-10-12T10:12:07Z",
-      "completed": null,
+      "completed": "2026-10-12T12:30:52Z",
       "id": "pop_calibration",
       "name": "Merytoryczna granica POP",
       "icon_hint": "analysis",
-      "status": "awaiting_approval"
+      "status": "completed"
     },
     {
       "id": "solution_generation",
@@ -679,7 +690,7 @@ window.MAISTER_DATA = {
     }
   ],
   "verification": {
-    "status": "round5_passed_research_awaiting_discussion",
+    "status": "round5_research_complete_policy_decision_open",
     "issues": [],
     "fixes": [],
     "reverify_count": 0

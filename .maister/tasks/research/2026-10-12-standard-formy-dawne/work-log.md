@@ -55,3 +55,5 @@ Zakończono trzy tory i sprawdzono pokrycie delegacji. Wszystkie 110 rodzin / 23
 - 2026-10-12T10:58:59Z — Korekta zapisu podglądu: zachowano niezmieniony szablon dashboardu wymagany przez Maister; raport rundy 5 jest w artefaktach bieżącej fazy, karta Research Report pozostaje historyczna. Uporządkowano kolejność sekcji podsumowania dwóch raportów B, bez zmian ocen i ich hashy.
 
 - 2026-10-12T11:02:34Z — Raport wypchnięto w ed6fbb00a5a331aaf07a2d8bf446517e7f8d4fa2. Opublikowano rundę 5: https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6122924101; odczyt API zgodny z plikiem komentarza. Serwer podglądu zatrzymany. Pytanie o status i „ok, kontynuuj” dotyczą dokończenia zapisu publikacji, nie zatwierdzenia kryterium lub wdrożenia. Bramka omówienia wyników pozostaje otwarta.
+
+- 2026-10-12T12:30:52Z — Właściciel przyjął wyjaśnienie symulacji i zapytał o osobny ticket. Utworzono https://github.com/robmar-net/literaki-slownik/issues/6, zweryfikowano tytuł i treść. Zamknięto bramkę rundy 5 dla researchu: wynik podstawą rozmowy. Nie wybrano progu ani wdrożenia.
