@@ -66,7 +66,8 @@ def main(path):
     out = ['# Brakujące słowa SJP.pl', '',
            f'Słowa z listy SJP.pl, których nie ma w naszych listach, od najczęstszych w tekstach (korpus KWJP). '
            f'Po {n} na listę. SJP.pl jest tu tylko miarą: tych słów nie dopisujemy, '
-           'a każdą zmianę reguł uzasadniamy niezależnie ([Porównanie z SJP.pl](Porownanie-z-SJP.pl)).', '',
+           'a każdą zmianę reguł uzasadniamy niezależnie ([Porównanie z SJP.pl](Porownanie-z-SJP.pl)). '
+           'Odwrotny kierunek: [Słowa spoza SJP.pl](Slowa-spoza-SJP.pl).', '',
            '| | STANDARD | BROAD |', '|---|---:|---:|',
            '| słowa SJP.pl, których brak | ' + ' | '.join(num(d[v]['missing_words']) for v, _ in VARIANTS) + ' |',
            '| w tym występujące w KWJP | ' + ' | '.join(num(d[v]['with_kwjp']) for v, _ in VARIANTS) + ' |', '',

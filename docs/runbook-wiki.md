@@ -7,7 +7,7 @@
 
 ## Key Decisions
 - **Gdzie:** wiki to osobne repozytorium `robmar-net/literaki-slownik.wiki`. Lokalnie klonujemy je obok projektu: `~/Projects/Literaki/wiki-literaki-slownik` (katalog pasuje do wzorca `/wiki-*/` w `.gitignore` workspace).
-- **Strony:** `Home`, `Slownik-BROAD`, `Slownik-STANDARD`, `Porownanie-z-SJP.pl`, `Brakujace-slowa-SJP.pl`, `Historia-zmian`, `_Sidebar`. Nowy rodzaj słownika dostaje nową stronę `Slownik-<NAZWA>` z tym samym układem.
+- **Strony:** `Home`, `Slownik-BROAD`, `Slownik-STANDARD`, `Porownanie-z-SJP.pl`, `Brakujace-slowa-SJP.pl`, `Slowa-spoza-SJP.pl`, `Historia-zmian`, `_Sidebar`. Nowy rodzaj słownika dostaje nową stronę `Slownik-<NAZWA>` z tym samym układem.
 - **Układ strony słownika:**
   - cel w 1–2 zdaniach;
   - stan: liczba słów, wersja polityki i link do pobrania albo „jeszcze niewydany”;
@@ -23,7 +23,7 @@
 | nowa reguła lub zmiana kryterium (`policy.py`, konfiguracja, dokument decyzji) | tabela filtrów na stronie słownika i wiersz w `Historia-zmian` |
 | build z nową wersją polityki, który dał listy | liczby słów i wersja na `Home` i stronach słowników, wiersz w `Historia-zmian` |
 | nowe lub zmienione źródło (manifest `sources.json`) | tabela źródeł na `Home` |
-| nowy benchmark SJP.pl | strona `Porownanie-z-SJP.pl` i wygenerowana `Brakujace-slowa-SJP.pl` (zob. „Porównanie z SJP.pl” w [runbooku](plan-dalszych-prac-runbook.md)) |
+| nowy benchmark SJP.pl | strona `Porownanie-z-SJP.pl` i wygenerowane `Brakujace-slowa-SJP.pl`, `Slowa-spoza-SJP.pl` (zob. „Porównanie z SJP.pl” w [runbooku](plan-dalszych-prac-runbook.md)) |
 | `export` lub wydanie | link do pobrania, sha256 i wersja; „wersja robocza” zamienia się w numer wydania |
 | start prac nad nowym słownikiem | od razu wstępna strona „W przygotowaniu”: cel, do czego, jak powstanie; link do ticketu; wiersz na `Home`, wpis w `_Sidebar`, link ze strony słownika bazowego |
 | wydanie nowego słownika | ta sama strona: liczby, kryteria, pobieranie; usuń „W przygotowaniu” na wszystkich stronach |
@@ -38,15 +38,15 @@
 2. Weź liczby z artefaktów, nie z pamięci:
    - liczby słów: `wc -l <run>/lists/broad.txt <run>/lists/standard.txt`;
    - wersja polityki: `VERSION` w `literaki_slownik/policy.py` (musi być zgodna z `policy_version` w `<run>/reports/decisions.json`);
-   - porównanie z SJP.pl: wynik `scripts/benchmark_sjp.py`; strona brakujących słów: `scripts/sjp_missing_top.py` + `scripts/render_sjp_missing.py`, bez ręcznych zmian.
+   - porównanie z SJP.pl: wynik `scripts/benchmark_sjp.py`; strona brakujących słów: `scripts/sjp_missing_top.py` + `scripts/render_sjp_missing.py`; strona słów spoza SJP.pl: `scripts/sjp_extra_top.py` + `scripts/render_sjp_extra.py`; bez ręcznych zmian.
    - POP/POP0: formy i leksemy z `counts` w `release-manifest.json` pakietu (dziś POP 1 227 250 / 53 002, POP0 388 509 / 13 896), progi i przycięcia z `reports/thresholds.json`; wersja `pop-v2`, link do [Release pop-v2](https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v2), metoda [ADR-007](adr/ADR-007-metoda-pop-v1.md). Strony `Slownik-POP` i `Slownik-POP0` idą tą samą procedurą.
    Przy liczbach podaj wersję i datę. Dopóki `verify` nie odbierze wydania, pisz „wersja robocza”.
 3. Przykład przy filtrze sprawdź w liście albo przez `python3 -m literaki_slownik explain --run-dir <run> --word <słowo>`. Dla POP/POP0: `explain ... --variant pop|pop0 --pop-dir <pakiet>`. Przykład „odpada” nie może być na liście, a przykład „zostaje” musi na niej być.
 4. Lista kontrolna przed commitem:
    - stara wersja polityki nie występuje nigdzie poza `Historia-zmian`: `grep -rn "v<poprzednia>" wiki-literaki-slownik`;
    - linki do plików w repo prowadzą do istniejących ścieżek na `main` (po pushu kodu);
-   - z SJP.pl nie ma skopiowanych list słów, tylko liczby i pojedyncze przykłady; atrybucja CC BY 4.0 jest obecna. Wyjątek (właściciel, 2026-10-12): `Brakujace-slowa-SJP.pl`, 2000 najczęstszych brakujących słów na listę, z atrybucją;
-   - każda strona ma najwyżej jeden ekran tekstu (poza wygenerowaną `Brakujace-slowa-SJP.pl`).
+   - z SJP.pl nie ma skopiowanych list słów, tylko liczby i pojedyncze przykłady; atrybucja CC BY 4.0 jest obecna. Wyjątek (właściciel, 2026-10-12): `Brakujace-slowa-SJP.pl` i `Slowa-spoza-SJP.pl`, po 2000 najczęstszych słów na listę, z atrybucją; nazwa innej gry słownej na liście jest ukryta;
+   - każda strona ma najwyżej jeden ekran tekstu (poza wygenerowanymi `Brakujace-slowa-SJP.pl` i `Slowa-spoza-SJP.pl`).
 5. Zapisz i wypchnij:
    ```bash
    git -C wiki-literaki-slownik add -A

@@ -45,15 +45,21 @@ def reject_rules(db, word, variant, cache):
     return sorted(lemmas), sorted(common) if common else sorted(set().union(*sets))
 
 
+def kwjp_freq(db):
+    """Liczba wystąpień formy (małe litery) w KWJP."""
+    freq = Counter()
+    for form, value in db.execute('select unit_1,freq from corpus_evidence where source_id=?', (KWJP_FORMS,)):
+        if form and value:
+            freq[form] += int(value)
+    return freq
+
+
 def main(run_dir, sjp_path, out_path, n=2000):
     run = Path(run_dir)
     sjp = {w for w in read_words(sjp_path) if in_scope(w)}
     lists = {v: {w for w in read_words(run / 'lists' / f'{v}.txt') if in_scope(w)} for v in ('broad', 'standard')}
     db = sqlite3.connect(f'file:{run / "build.sqlite"}?mode=ro', uri=True)
-    freq = Counter()
-    for form, value in db.execute('select unit_1,freq from corpus_evidence where source_id=?', (KWJP_FORMS,)):
-        if form and value:
-            freq[form] += int(value)
+    freq = kwjp_freq(db)
     cache, result = {}, {}
     for variant, ours in lists.items():
         missing = sjp - ours

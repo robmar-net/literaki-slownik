@@ -162,6 +162,12 @@ SJP.pl to tylko miara. Wynik nie jest wejściem budowy i nie dopisujemy z niego 
    python3 scripts/render_sjp_missing.py tmp/benchmark/sjp-missing-v<NN>.json > ../wiki-literaki-slownik/Brakujace-slowa-SJP.pl.md
    ```
    Kolejność: liczba wystąpień formy w KWJP (małe litery). Dla każdego słowa: lemat SGJP i reguła odrzucenia albo „brak w SGJP”. Czas: ok. 1 min. Skrypt wymusza indeks po słowie; bez tego SQLite skanuje wszystkie analizy dla każdego słowa (ponad 4 h).
+4. Najczęstsze nasze słowa spoza SJP.pl (strona wiki `Slowa-spoza-SJP.pl`, kierunek odwrotny do p. 3):
+   ```sh
+   python3 scripts/sjp_extra_top.py <run> <sjp.txt> tmp/benchmark/sjp-extra-v<NN>.json 2000
+   python3 scripts/render_sjp_extra.py tmp/benchmark/sjp-extra-v<NN>.json > ../wiki-literaki-slownik/Slowa-spoza-SJP.pl.md
+   ```
+   Kolejność jak w p. 3. Dla każdego słowa: lemat SGJP i źródło (SGJP albo nasza konstrukcja). Słowa bez wystąpień w KWJP idą na koniec, alfabetycznie. Renderer ukrywa nazwę innej gry słownej. Czas: ok. 40 s.
 
 ### Nowy przebieg i awaria
 
