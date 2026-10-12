@@ -5,6 +5,7 @@ Osobny przegląd potwierdza zakres **2382 form ze 110 rodzin**; skład propozycj
 Wszystkie **2430 ubytków POP** wynikają z granicy obecnego rankingu przy niezmienionych miarach tracących członków.
 `Dekagram` był w POP0 dzięki wspólnej grupie i wyjątkowi dla jej najmocniejszego członka; cofnięcie `dag` usuwa tę podstawę.
 Z 12 wątpliwych zapisów **8 kwalifikuje się do osobnej decyzji o cofnięciu obecnych analiz**, a **4 wymagają wstrzymania**. Bez wdrożenia.
+**Aktualizacja po omówieniu:** wcześniejsza rekomendacja zachowania limitu POP wymaga ponownej kalibracji; uzasadnienie w §9. Wyniki pomiarów pozostają bez zmian.
 
 ## Key Decisions
 - Użytkownik przyjął rundę 3 jako podstawę decyzji i zlecił zalecany audyt. Nie zatwierdził paczki do wydania, cofnięć ani zmiany metody.
@@ -164,3 +165,20 @@ Przy ocenie POP nie wystarczy zmiana netto −58: 2372 formy wchodzą, 2430 wypa
 Pierwszy temat rozmowy: akceptacja tej rotacji przy zachowaniu obecnej metody albo osobne rozstrzygnięcie wymagań stabilności POP. Rekomendacja pozostaje za obecną metodą w zakresie tego ticketu; nie dostrajać limitu do przykładów. Decyzja użytkownika jest otwarta.
 
 Uzupełnienie na pytanie użytkownika o pipeline: [analiza integracji, trwałości, powtarzalności, dokumentacji i wpływu](../analysis/codebase-analysis.md). Oddziela istniejący kod od proponowanego rejestru ocen i wyjaśnia, że symulacja nie zastępuje pełnego builda nowej polityki. Wdrożenie pozostaje niezatwierdzone.
+
+
+## 9. Korekta rekomendacji: granica POP
+
+Użytkownik zakwestionował merytoryczną podstawę limitu 60 000. To trafne rozróżnienie: audyt wyjaśnił działanie algorytmu, ale nie wykazał optymalności jego granicy. Poniższa rekomendacja zastępuje zalecenie zachowania limitu z §3, §6 i §8; nie zmienia zatwierdzonego ADR ani konfiguracji.
+
+60 000 nie wybrano bez danych. [Pierwotne porównanie](../../../development/2026-10-11-slowniki-pop-pop0/analysis/pop-measure-report.md) pokazywało 98,5% pokrycia przy 60k i 98,6% przy 80k oraz przykłady przy granicach. Dotyczyło jednak punktacji percentylowej i reguły `available-only`. Późniejsze [rewizje ADR-007](../../../../../docs/adr/ADR-007-metoda-pop-v1.md) zmieniły punktację na log-ipm, obsługę braków danych, przycinanie członków i łączenie wariantów. Stare porównanie progów nie rozstrzyga jakości granicy dla obecnego `pop-v2`. Późniejsze przeglądy próbek i walidacja metody nie są tym samym co ponowne porównanie 60k/80k.
+
+[Obecny pomiar](../analysis/findings/round4/pop-losses.json) daje po proponowanych dodatkach 59 909 leksemów przed przycinaniem; następny blok wymaga 116. Cały blok zmieściłby się przy limicie **60 025**. To tylko arytmetyka istniejących danych, bez nowej symulacji i bez wyboru tego limitu. Pokazuje wrażliwość składu na granicę liczbową; nie dowodzi językowej jakości całego bloku.
+
+Rekomenduję ponowną kalibrację na obecnej metodzie, przed akceptacją skutków dla POP:
+
+- Porównać np. 60k, 70k i 80k dla obecnego STANDARD i propozycji dodatków. To warianty badawcze, nie wybrane nowe limity.
+- Ocenić próbki z kolejnych przedziałów oraz słowa nadal poza listą: częstość, rozproszenie po tekstach, rejestr i poprawność przypisania dowodów do leksemu. Pokrycie tekstu jest pomocnicze; mały przyrost pokrycia nie przesądza o małej wartości dodanych słów.
+- Porównać limit liczby z minimalną siłą dowodów użycia, przy której rozmiar POP byłby wynikiem. Taki próg też wymaga uzasadnienia i walidacji; nie jest obecnie wdrożoną opcją produkcyjną.
+
+To korekta rekomendacji w rozmowie. Nie wykonano nowych pomiarów progów, nie zatwierdzono zakresu kolejnej rundy ani zmiany metody. Ocena 2382 dodatków do STANDARD oraz osobne cofnięcia pozostają aktualnymi tematami decyzji.

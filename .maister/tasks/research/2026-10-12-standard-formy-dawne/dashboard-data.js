@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-12T08:41:36Z",
+  "generated": "2026-10-12T08:55:20Z",
   "task": {
     "title": "STANDARD: formy dawne i współczesne użycie (#4)",
     "description": "Research przyczyn odmów, niezależnych miar współczesności i skutków wariantów; komentarz do ticketu; decyzje z właścicielem.",
@@ -248,11 +248,11 @@ window.MAISTER_DATA = {
       "status": "in_progress",
       "decision_areas": [
         "Paczka 2382 form w STANDARD",
-        "Rotacja POP przy niezmienionej metodzie",
+        "Merytoryczna granica POP i jej ponowna kalibracja",
         "Osobne cofnięcia i cztery wstrzymania"
       ],
       "first_question": "Czy akceptujemy rotację POP przy obecnej metodzie, czy najpierw rozstrzygamy potrzebę stabilniejszego składu?",
-      "recommendation": "Dodatki mają uzasadnienie. Zachować metodę POP w tym zakresie, jeśli jej rotacja jest akceptowana; nie dopasowywać limitu do wybranych przykładów. Cofnięcia oddzielnie.",
+      "recommendation": "Ponownie skalibrować granicę POP na obecnej metodzie: porównać większe limity i kryterium siły dowodów użycia. Poprawność algorytmu nie zatwierdza limitu 60k. Dodatki STANDARD i cofnięcia pozostają osobnymi decyzjami.",
       "answer": null,
       "candidate_batch_approved": false,
       "implementation_approved": false,
@@ -262,6 +262,30 @@ window.MAISTER_DATA = {
         "artifact": "analysis/codebase-analysis.md",
         "status": "proposed_not_approved",
         "summary": "Etap decisions, warunek wieku przy konkretnej analizie; wersjonowany rejestr z przypięciem źródeł i celów, zapis w bazie, wspólna diagnostyka, niezależny peer-build. Obecne liczby są symulacją wymagającą potwierdzenia produkcyjnym buildem.",
+        "implementation_approved": false
+      },
+      "recommendation_history": [
+        {
+          "superseded_at": "2026-10-12T08:55:08Z",
+          "recommendation": "Dodatki mają uzasadnienie. Zachować metodę POP w tym zakresie, jeśli jej rotacja jest akceptowana; nie dopasowywać limitu do wybranych przykładów. Cofnięcia oddzielnie.",
+          "reason": "Użytkownik zakwestionował merytoryczną podstawę limitu POP; odczyt historii pokazał, że porównanie 60k/80k poprzedza obecną metodę."
+        }
+      ],
+      "pop_boundary_review": {
+        "recorded_at": "2026-10-12T08:55:08Z",
+        "user_request": "a, to moze podniesc limit POP? ten limit jest sztuczny, budowa POP powinna byc merytoryczna, moze ta granica jest w zlym miejscu?",
+        "status": "discussion_recommendation_no_new_measurement",
+        "findings": [
+          "Pierwotne porównanie 60k/80k używało percentyli i available-only, przed log-ipm i przycinaniem członków.",
+          "Przy obecnej propozycji następny cały blok wymaga 59909+116=60025 miejsc przed przycinaniem; to arytmetyka istniejącego pomiaru, nie nowa symulacja.",
+          "Nie wybrano nowej granicy ani nowej metody."
+        ],
+        "proposed_research": [
+          "Porównanie 60k/70k/80k na obecnej metodzie i obu wariantach STANDARD.",
+          "Ocena próbek z kolejnych przedziałów: słowa dodane i pozostające poza listą; częstość, rozproszenie, rejestr, homonimy.",
+          "Porównanie ograniczenia liczby z kryterium minimalnej siły dowodów; rozmiar listy jako wynik."
+        ],
+        "artifact": "outputs/targeted-audit.md#9-korekta-rekomendacji-granica-pop",
         "implementation_approved": false
       }
     }
