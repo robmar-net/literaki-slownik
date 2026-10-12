@@ -1,9 +1,9 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-12T01:09:42Z",
+  "generated": "2026-10-12T01:18:39Z",
   "task": {
     "title": "STANDARD: formy dawne i współczesne użycie (#4)",
     "description": "Research przyczyn odmów, niezależnych miar współczesności i skutków wariantów; komentarz do ticketu; decyzje z właścicielem.",
-    "status": "awaiting_approval",
+    "status": "completed",
     "tags": [
       "research",
       "slownik",
@@ -12,7 +12,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "research",
     "path": "/Users/robmar/Projects/Literaki/literaki-slownik/.maister/tasks/research/2026-10-12-standard-formy-dawne",
-    "current_activity": "Runda 2 gotowa; omówienie dowodów"
+    "current_activity": "Research zakończony; kierunek przyjęty, wdrożenie niezatwierdzone"
   },
   "characteristics": {
     "research_type": "mixed",
@@ -110,13 +110,37 @@ window.MAISTER_DATA = {
         "report_commit": "58396d7a967236de9f479250aff8802dbc078f0b",
         "round": 1
       }
-    ]
+    ],
+    "direction_decision": {
+      "status": "accepted_as_direction_only",
+      "recorded_at": "2026-10-12T01:18:10Z",
+      "user_response": "ok",
+      "principle": "Jeśli słowo ma choć jedno współczesne znaczenie, dopuszczamy odpowiadającą mu współczesną odmianę — także rzadkie, regularne formy.",
+      "scope": "Ocena dawności przy zachowaniu pozostałych kryteriów STANDARD. Frazeologizm nie uzasadnia pełnej odmiany; dowód nie przechodzi na inne znaczenia i dawne końcówki. Książkowość i rzadkość nadal dopuszczalne.",
+      "evidence_direction": "Frekwencja wyłania i porządkuje kandydatów. Sprawdzamy znaczenie, odmianę oraz rzeczywiste użycia autorskie w różnych tekstach.",
+      "implementation_approved": false,
+      "threshold_selected": false,
+      "candidate_batch_approved": false,
+      "open_questions": [
+        "Dokładne wymagania dowodowe i przypadki graniczne",
+        "Wpływ na nowe formy, obecne przyjęcia oraz POP/POP0"
+      ],
+      "next_recommended_step": "Ocena kandydatów i pomiar wpływu według uzgodnionej zasady; potem osobne uzgodnienie wdrożenia."
+    },
+    "direction_publication": {
+      "status": "published_and_verified",
+      "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
+      "artifact": "outputs/issue-comment-direction.md",
+      "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6116044652",
+      "verified_at": "2026-10-12T01:18:39Z"
+    }
   },
   "phases": [
     {
       "summary": "Runda 2: pełne 1580 grup (1176 tylko arch.), 155 form i 80 kontroli; 107 fragmentów i 643 konkordancje; 40 haseł SGJP/47 artykułów. Żywe odrzucenia oraz obce dowody w obu kierunkach. Brak podstaw do prostego progu.",
       "decisions": [
-        "Tylko research, bez brainstormingu, projektu i implementacji — jawna prośba użytkownika."
+        "Tylko research, bez brainstormingu, projektu i implementacji — jawna prośba użytkownika.",
+        "Kierunek przyjęty przez użytkownika: współczesne znaczenie i odpowiadająca mu współczesna odmiana, także rzadka; odrębny zakres dawnych końcówek, homonimów i frazeologizmów. Bez nowego progu i paczki 3364 form."
       ],
       "risks": [
         "Brak pełnego audytu znaczeń 3364 form i niezależnego drugiego anotatora",
@@ -153,6 +177,10 @@ window.MAISTER_DATA = {
         {
           "path": "outputs/research-report-round1.md",
           "label": "Zachowana runda 1"
+        },
+        {
+          "path": "outputs/issue-comment-direction.md",
+          "label": "Uzgodnienie kierunku po researchu"
         }
       ],
       "gate": {
@@ -161,14 +189,17 @@ window.MAISTER_DATA = {
           "Przyjąć research i omówić kryterium",
           "Pogłębić wskazaną grupę"
         ],
-        "answer": null
+        "answer": "Przyjęto research i zasadę oceny współczesnego znaczenia oraz odpowiadającej mu współczesnej odmiany jako kierunek dalszej pracy. Bez zgody na wdrożenie.",
+        "answered_at": "2026-10-12T01:18:10Z",
+        "followup_question": "Czy przyjmujemy tę zasadę jako kierunek dalszej rozmowy?",
+        "user_response": "ok"
       },
       "started": "2026-10-12T00:04:14Z",
-      "completed": null,
+      "completed": "2026-10-12T01:18:10Z",
       "id": "research_foundation",
       "name": "Badanie i synteza",
       "icon_hint": "analysis",
-      "status": "awaiting_approval"
+      "status": "completed"
     },
     {
       "id": "solution_generation",
@@ -184,7 +215,7 @@ window.MAISTER_DATA = {
     }
   ],
   "verification": {
-    "status": "round2_evidence_validated_awaiting_research_review",
+    "status": "research_completed_direction_accepted_no_implementation",
     "issues": [
       "Nie było dostępnej przeglądarki CUA do wizualnego podglądu HTML; kontrola struktury i odsyłaczy wykonana lokalnie."
     ],

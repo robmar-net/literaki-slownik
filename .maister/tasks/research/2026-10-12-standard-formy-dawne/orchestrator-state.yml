@@ -1,9 +1,11 @@
 {
   "orchestrator": {
     "workflow": "research",
-    "current_phase": "research_foundation",
+    "current_phase": "completion_and_handoff",
     "started_phase": "research_foundation",
-    "completed_phases": [],
+    "completed_phases": [
+      "research_foundation"
+    ],
     "failed_phases": [],
     "options": {
       "sequential": true,
@@ -13,13 +15,14 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-12T00:04:14Z",
-    "updated": "2026-10-12T01:09:42Z",
-    "task_path": ".maister/tasks/research/2026-10-12-standard-formy-dawne"
+    "updated": "2026-10-12T01:18:39Z",
+    "task_path": ".maister/tasks/research/2026-10-12-standard-formy-dawne",
+    "completed": "2026-10-12T01:18:39Z"
   },
   "task": {
     "title": "STANDARD: formy dawne i współczesne użycie (#4)",
     "description": "Research przyczyn odmów, niezależnych miar współczesności i skutków wariantów; komentarz do ticketu; decyzje z właścicielem.",
-    "status": "awaiting_approval",
+    "status": "completed",
     "tags": [
       "research",
       "slownik",
@@ -31,7 +34,8 @@
     "research_foundation": {
       "summary": "Runda 2: pełne 1580 grup (1176 tylko arch.), 155 form i 80 kontroli; 107 fragmentów i 643 konkordancje; 40 haseł SGJP/47 artykułów. Żywe odrzucenia oraz obce dowody w obu kierunkach. Brak podstaw do prostego progu.",
       "decisions": [
-        "Tylko research, bez brainstormingu, projektu i implementacji — jawna prośba użytkownika."
+        "Tylko research, bez brainstormingu, projektu i implementacji — jawna prośba użytkownika.",
+        "Kierunek przyjęty przez użytkownika: współczesne znaczenie i odpowiadająca mu współczesna odmiana, także rzadka; odrębny zakres dawnych końcówek, homonimów i frazeologizmów. Bez nowego progu i paczki 3364 form."
       ],
       "risks": [
         "Brak pełnego audytu znaczeń 3364 form i niezależnego drugiego anotatora",
@@ -68,6 +72,10 @@
         {
           "path": "outputs/research-report-round1.md",
           "label": "Zachowana runda 1"
+        },
+        {
+          "path": "outputs/issue-comment-direction.md",
+          "label": "Uzgodnienie kierunku po researchu"
         }
       ],
       "gate": {
@@ -76,10 +84,13 @@
           "Przyjąć research i omówić kryterium",
           "Pogłębić wskazaną grupę"
         ],
-        "answer": null
+        "answer": "Przyjęto research i zasadę oceny współczesnego znaczenia oraz odpowiadającej mu współczesnej odmiany jako kierunek dalszej pracy. Bez zgody na wdrożenie.",
+        "answered_at": "2026-10-12T01:18:10Z",
+        "followup_question": "Czy przyjmujemy tę zasadę jako kierunek dalszej rozmowy?",
+        "user_response": "ok"
       },
       "started": "2026-10-12T00:04:14Z",
-      "completed": null
+      "completed": "2026-10-12T01:18:10Z"
     }
   },
   "research_context": {
@@ -178,10 +189,33 @@
         "report_commit": "58396d7a967236de9f479250aff8802dbc078f0b",
         "round": 1
       }
-    ]
+    ],
+    "direction_decision": {
+      "status": "accepted_as_direction_only",
+      "recorded_at": "2026-10-12T01:18:10Z",
+      "user_response": "ok",
+      "principle": "Jeśli słowo ma choć jedno współczesne znaczenie, dopuszczamy odpowiadającą mu współczesną odmianę — także rzadkie, regularne formy.",
+      "scope": "Ocena dawności przy zachowaniu pozostałych kryteriów STANDARD. Frazeologizm nie uzasadnia pełnej odmiany; dowód nie przechodzi na inne znaczenia i dawne końcówki. Książkowość i rzadkość nadal dopuszczalne.",
+      "evidence_direction": "Frekwencja wyłania i porządkuje kandydatów. Sprawdzamy znaczenie, odmianę oraz rzeczywiste użycia autorskie w różnych tekstach.",
+      "implementation_approved": false,
+      "threshold_selected": false,
+      "candidate_batch_approved": false,
+      "open_questions": [
+        "Dokładne wymagania dowodowe i przypadki graniczne",
+        "Wpływ na nowe formy, obecne przyjęcia oraz POP/POP0"
+      ],
+      "next_recommended_step": "Ocena kandydatów i pomiar wpływu według uzgodnionej zasady; potem osobne uzgodnienie wdrożenia."
+    },
+    "direction_publication": {
+      "status": "published_and_verified",
+      "issue": "https://github.com/robmar-net/literaki-slownik/issues/4",
+      "artifact": "outputs/issue-comment-direction.md",
+      "comment_url": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6116044652",
+      "verified_at": "2026-10-12T01:18:39Z"
+    }
   },
   "verification_context": {
-    "last_status": "round2_evidence_validated_awaiting_research_review",
+    "last_status": "research_completed_direction_accepted_no_implementation",
     "issues_found": [
       "Nie było dostępnej przeglądarki CUA do wizualnego podglądu HTML; kontrola struktury i odsyłaczy wykonana lokalnie."
     ],
@@ -190,7 +224,9 @@
       "Uzupełniono 107. fragment populacji 4559 (informacyj); 492 szersze trafienia rozdzielono od właściwego mianownika.",
       "Skorygowano zakres przykładów, frazeologizm na umór oraz wcześniej zatwierdzoną książkowość."
     ],
-    "decisions_made": [],
+    "decisions_made": [
+      "Odpowiedź „ok” rozstrzyga bramkę omówienia i przyjmuje rekomendowany kierunek; nie zatwierdza zmiany polityki wykonawczej ani list."
+    ],
     "reverify_count": 0
   }
 }

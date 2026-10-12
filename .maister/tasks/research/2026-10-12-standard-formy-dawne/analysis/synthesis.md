@@ -3,7 +3,7 @@
 ## TL;DR
 Wyjaśniono przyczynę: różna jednostka i różne źródła miary, nie brak publicystyki.
 Zmiana na lemma+POS przenosi dowód współczesności na dawne formy.
-Raport jest gotowy do dyskusji; nie zatwierdzono nowej polityki.
+Użytkownik przyjął kierunek oceny znaczenia i współczesnej odmiany; nie zatwierdzono wdrożenia nowej polityki.
 
 ## Key Decisions
 - Wykluczone przez użytkownika: implementacja, brainstorming i projekt.
@@ -34,3 +34,7 @@ Brak wiersza frekwencyjnego nie jest dowodem nieistnienia: 7/50 form tej warstwy
 Korekty wcześniejszych uproszczeń: nie wszystkie liczby pojedyncze są dawne; przechwałka/sztaluga/szuwar mają pozytywne dowody. Aliści/jakoż/nazad/trzykroć występują też w nacechowanej narracji współczesnej. Książkowość i regionalność już same w sobie nie wykluczają w obowiązującej polityce. Poprawny frazeologizm: na umór, nie do umoru.
 
 Wysoka pewność dotyczy mechanizmu, policzonego składu i konkretnych kontrprzykładów. Średnia dotyczy oceny rejestru. Nie znamy odsetka błędów całej populacji. Wszystkie obowiązkowe tory wykonano; po przedstawieniu wyników potrzebna jest bramka omówienia, a nie automatyczna implementacja.
+
+## Wynik omówienia
+
+Użytkownik odpowiedział „ok” na rekomendację przyjęcia zasady jako kierunku dalszej rozmowy. Współczesne znaczenie uzasadnia odpowiadającą mu współczesną odmianę, również rzadką; nie przenosimy dowodu na dawne końcówki, inne znaczenia ani cały paradygmat formy zachowanej tylko we frazeologizmie. Książkowość pozostaje dopuszczalna. Frekwencja służy do wyszukiwania i porządkowania kandydatów; trzeba sprawdzić znaczenie, odmianę oraz użycia autorskie w różnych tekstach. Nie przyjęto nowego progu ani paczki 3364 form. Bramka researchu rozstrzygnięta; szczegóły i dalsze pytania w §9 [raportu](../outputs/research-report.md).

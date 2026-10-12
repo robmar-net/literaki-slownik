@@ -4,17 +4,17 @@
 Szersze badanie potwierdza błędne uproszczenie: częstość napisu nie dowodzi współczesności konkretnego znaczenia i odmiany.
 Zbadano pełne 1580 grup, próbkę 155 nowych form i 80 kontroli, 107 fragmentów KWJP½M oraz 643 konkordancje pełnej wyszukiwarki.
 Żywe słowa bywają oznaczone jako dawne, ale automatyczne przejście na lemat wpuszcza też dawne formy i obce znaczenia.
-Materiał wystarcza do rozmowy o kryterium; nie uzasadnia przyjęcia całego przyrostu ani konkretnego nowego progu.
+Użytkownik przyjął kierunek: współczesne znaczenie i odpowiadająca mu współczesna odmiana, także rzadka; szczegóły w §9.
 
 ## Key Decisions
-- Tylko research: nie zmieniono reguł, list, konfiguracji ani wydania. Nie wybrano nowego kryterium STANDARD.
+- Tylko research: nie zmieniono reguł, list, konfiguracji ani wydania. Przyjęto zasadę do dalszej oceny, bez zatwierdzenia reguły wykonawczej i paczki dodatków.
 - Scenariusze dodają wyjątek do obecnej polityki; nie cofają obecnych przyjęć. Nie są pełnym projektem jej zastąpienia.
 - SJP.pl pozostaje benchmarkiem, bez wpływu na dobór próbki i kryteriów badania.
 - [Pierwsza runda](research-report-round1.md) i [pierwszy komentarz](https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6115542830) zostają zachowane; poniżej szersze dowody i jawne korekty.
 
 ## Open Questions / Risks
 - Jakie dowody mają uchylać dawną etykietę dla konkretnego znaczenia i jego współczesnej odmiany?
-- Jak traktować formy żywe wyłącznie we frazeologizmach i archaizujące użycia autorskie?
+- Jak wyznaczyć zakres konkretnego frazeologizmu i rozstrzygać użycia archaizujące? Uzgodniona zasada nie rozszerza frazeologizmu na cały paradygmat.
 - Nie ma pełnego audytu znaczeń wszystkich 3364 kandydatów ani niezależnego drugiego anotatora. Nie znamy odsetka błędów przyszłej reguły.
 
 ## 1. Co dokładnie zbadano
@@ -133,10 +133,24 @@ KWJP opisuje piśmiennictwo 2011–2020; punktowe źródła z lat 2024–2025 cz
 
 Korekty rundy 1: pełne 1176/1580 zastępuje małe 35/40 jako opis źródłowych grup; nie zakładamy, że pojedyncze `przechwałka/sztaluga/szuwar` są z zasady dawne; poprawny frazeologizm to **na umór**, nie do umoru. Szczegóły pozostają jawne w aneksie.
 
+## 9. Uzgodnienie po omówieniu wyników
+
+Po pytaniu użytkownika „a co radzisz” przedstawiono rekomendację i pytanie: „Czy przyjmujemy tę zasadę jako kierunek dalszej rozmowy?”. Użytkownik odpowiedział „ok”. Przyjęto research jako podstawę dalszej pracy oraz poniższy kierunek; nie jest to zgoda na wdrożenie.
+
+**Jeśli słowo ma choć jedno współczesne znaczenie, dopuszczamy odpowiadającą mu współczesną odmianę — także rzadkie, regularne formy.** Zasada dotyczy oceny dawności przy zachowaniu pozostałych kryteriów STANDARD.
+
+- Żywe znaczenie może podważyć dawną etykietę: przykładem jest `sołtyska` jako kobieta pełniąca urząd.
+- Dowód dotyczy właściwej odmiany i znaczenia: `desperacja` nie uzasadnia `desperacyj`, a wywieranie wpływu nie uzasadnia `wywre`.
+- Żywa forma we frazeologizmie, np. `umór` w „na umór”, nie uzasadnia automatycznie swobodnego `umorach`.
+- Książkowość i rzadkość pozostają dopuszczalne; STANDARD nie ogranicza się do słów codziennych.
+- Frekwencja pomaga wyszukiwać kandydatów i ustalać kolejność kontroli. Uchylenie dawnej etykiety wymaga sprawdzenia znaczenia, odmiany i rzeczywistych użyć autorskich w różnych tekstach.
+
+Nie wybrano żadnego z badanych progów ani całej paczki 3364 form. Do dalszego uzgodnienia pozostają dokładne wymagania dowodowe i przypadki graniczne. Następny zalecany krok to ocena kandydatów według tej zasady i pomiar rzeczywistego wpływu, także na obecne przyjęcia oraz POP/POP0. Implementacja wymaga osobnego uzgodnienia po przedstawieniu tych wyników.
+
 ## Pokrycie i odtwarzanie
 
 Wszystkie pięć wymaganych kategorii źródeł sprawdzono i rozszerzono: kod; dokumentację; konfigurację/testy; przypięte dane; zewnętrzne źródła pierwotne. [Rejestr źródeł](../planning/sources.md). Nie pozostał niezbadany obowiązkowy tor; częściowa niedostępność stron i wyszukiwań jest opisana w aneksie. Surowe odpowiedzi oraz pełne konteksty pozostają w ignorowanym `tmp/`.
 
 Z katalogu repo uruchamia się skrypty w katalogu zadania `analysis/`: bazowe `measure.py`, `followup.py`, `evidence_probe.py`; następnie `expanded_probe.py`, `control_probe.py`, `kwjp_live_probe.py`, `annotate_round2.py`, `sgjp_review.py`, `validate_round2.py`. Wymagają przypiętych danych i opisanych cache. Probe KWJP odczytuje publiczną wyszukiwarkę, jeżeli cache nie istnieje; jej wyniki mogą się zmienić. Manifest SGJP korzysta z zachowanych odpowiedzi, a dokładne adresy do ponowienia są w JSON. Baza jest otwierana tylko do odczytu.
 
-Walidacja sprawdza rozłączne warstwy, zgodność spisu i siatki, odtworzenie 4559/3364, kontrolne decyzje bazy, kompletność notatek oraz hashe źródeł. Pierwsza runda zawiera wynik 6 istniejących testów reguły; w rundzie 2 nie zmieniono kodu produkcyjnego. Badanie i publikacja wyników nie zatwierdzają polityki. Faza Maister oczekuje na omówienie i decyzję właściciela.
+Walidacja sprawdza rozłączne warstwy, zgodność spisu i siatki, odtworzenie 4559/3364, kontrolne decyzje bazy, kompletność notatek oraz hashe źródeł. Pierwsza runda zawiera wynik 6 istniejących testów reguły; w rundzie 2 nie zmieniono kodu produkcyjnego. Bramka omówienia researchu została rozstrzygnięta odpowiedzią użytkownika opisaną w §9. Uzgodnienie kierunku nie zatwierdza zmiany polityki wykonawczej ani wydania.

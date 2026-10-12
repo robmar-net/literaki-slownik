@@ -12,6 +12,9 @@ spec = importlib.util.spec_from_file_location('base_report', ROOT/'scripts/rende
 base = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(base)
 source = TASK/'outputs/research-report.md'
+state = json.loads((TASK/'orchestrator-state.yml').read_text())
+approved = bool(state['phase_summaries']['research_foundation']['gate']['answer'])
+badge = 'Research · kierunek przyjęty' if approved else 'Research · do omówienia'
 lines = source.read_text().splitlines()
 blocks, toc = [], []
 i = 1
@@ -56,7 +59,7 @@ now = subprocess.check_output(['date','-u','+%Y-%m-%dT%H:%M:%SZ'], text=True).st
 page = '<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
 page += '<title>'+html.escape(title)+'</title><style>'+base.CSS+'</style></head><body>'
 page += '<nav class="crumbs"><a href="../dashboard.html">← Dashboard</a><span>Raport</span><a href="research-report.md" target="_blank" rel="noopener">Markdown ↗</a><a href="../analysis/findings/round2/live-review.json" target="_blank" rel="noopener">Próbki ↗</a></nav>'
-page += '<header><span class="badge">Research · do omówienia</span><h1>'+html.escape(title)+'</h1><p>'+now+'</p></header>'
+page += '<header><span class="badge">'+badge+'</span><h1>'+html.escape(title)+'</h1><p>'+now+'</p></header>'
 metrics = json.loads((TASK/'analysis/findings/round2/metrics.json').read_text())
 review = json.loads((TASK/'analysis/findings/round2/live-review.json').read_text())
 page += '<div class="tiles">'+''.join(f'<div class="tile"><b>{value}</b><span>{label}</span></div>' for value,label in [(str(metrics['qualified_lemma_ids']),'grup w pełnym spisie'),(str(metrics['only_arch_lemma_ids']),'grup wyłącznie z arch.'),(str(review['summary']['queries']),'zapytań KWJP'),(str(review['summary']['inspected_contexts']),'ocenionych konkordancji')])+'</div>'
@@ -64,12 +67,12 @@ page += '<section class="tldr">'+''.join(blocks[:split])+'</section>'
 page += '<nav class="toc">'+ ' · '.join(f'<a href="#{a}">{html.escape(t)}</a>' for a,t in toc[3:])+'</nav>'
 page += '<main>'+''.join(blocks[split:])+'</main></body></html>'
 source.with_suffix('.html').write_text(page+'\n')
-state = json.loads((TASK/'orchestrator-state.yml').read_text())
 summary = state['phase_summaries']['research_foundation']
 waiting = state['task']['status'] == 'awaiting_approval'
-data = {'generated':now, 'task':dict(state['task'], type='research', path=str(TASK), current_activity='Runda 2 gotowa; omówienie dowodów' if waiting else 'Pogłębiony research i weryfikacja dowodów'),
+activity = 'Research zakończony; kierunek przyjęty, wdrożenie niezatwierdzone' if state['task']['status'] == 'completed' else ('Zapis uzgodnienia i publikacja w tickecie' if approved else ('Runda 2 gotowa; omówienie dowodów' if waiting else 'Pogłębiony research i weryfikacja dowodów'))
+data = {'generated':now, 'task':dict(state['task'], type='research', path=str(TASK), current_activity=activity),
         'characteristics':state['research_context'], 'phases':[
-            dict(summary, id='research_foundation', name='Badanie i synteza', icon_hint='analysis', status=state['task']['status']),
+            dict(summary, id='research_foundation', name='Badanie i synteza', icon_hint='analysis', status='completed' if summary['completed'] else state['task']['status']),
             {'id':'solution_generation','name':'Brainstorming','status':'skipped','skip_reason':'Tylko research — prośba użytkownika.'},
             {'id':'high_level_design','name':'Projekt','status':'skipped','skip_reason':'Tylko research — prośba użytkownika.'}],
         'verification':{'status':state['verification_context']['last_status'],'issues':state['verification_context']['issues_found'],
