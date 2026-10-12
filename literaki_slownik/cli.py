@@ -47,6 +47,13 @@ def main(argv=None):
         popper.add_argument('--release-dir', help='Pakiet LL-PL; domyślnie z manifestu')
         popper.add_argument('--output-dir', required=True, help='Nowy, nieistniejący katalog pakietu POP')
         popper.add_argument('--json', action='store_true', help='Odpowiedź JSON')
+        morph = sub.add_parser('morph-index', help='Indeks morfologii SGJP dla form BROAD (format v1)')
+        morph.add_argument('--broad', required=True, help='Lista BROAD (.txt.gz)')
+        morph.add_argument('--sgjp', required=True, help='Eksport SGJP (.tab.gz)')
+        morph.add_argument('--broad-lexicon-id', required=True, help='Id leksykonu w serwerze, np. pl-broad-20261011')
+        morph.add_argument('--broad-dawg-sha256', required=True, help='SHA-256 pliku .dawg z serwera (64 hex)')
+        morph.add_argument('--out', required=True, help='Nowy plik .bin; istniejący nie jest nadpisywany')
+        morph.add_argument('--json', action='store_true', help='Odpowiedź JSON')
         args = parser.parse_args(argv)
         if args.command == 'inspect-sources':
             checked = inspect_sources(args.manifest)
@@ -76,6 +83,10 @@ def main(argv=None):
             from .pop import build_package
             result['result'] = build_package(args.manifest, args.config, args.output_dir, args.run_dir,
                                              args.release_dir)
+        elif args.command == 'morph-index':
+            from .morph_index import write_index
+            result['result'] = write_index(args.broad, args.sgjp, args.broad_lexicon_id,
+                                           args.broad_dawg_sha256, args.out)
         elif args.command == 'export':
             from .export import export
             result['result'] = export(args.run_dir, args.output_dir)
@@ -112,6 +123,13 @@ def _finish(argv, command, result, code):
             print(f"Pakiet POP (BUILT): {found['output_dir']}\n"
                   f"POP: {found['forms']['pop']} form, {found['thresholds']['pop']['lexemes']} leksemów; "
                   f"POP0: {found['forms']['pop0']} form, {found['thresholds']['pop0']['lexemes']} leksemów")
+        elif command == 'morph-index':
+            found = result['result']
+            print(f"Indeks: {found['out']}\n"
+                  f"Formy z analizą: {found['forms_with_analysis']} z {found['broad_forms']}\n"
+                  f"Reguły: {found['rules']}, listy: {found['rule_lists']}, końcówki: {found['lemma_endings']}\n"
+                  f"Bajty: {found['bytes']}, gzip -9: {found['gzip_bytes']}\n"
+                  f"SHA-256: {found['sha256']}")
         else:
             print('Kontrola zakończona: ' + dumps(result.get('result', {})))
     return code

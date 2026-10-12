@@ -76,6 +76,22 @@ Build odmawia istniejącego katalogu. Aktualnie wykonuje preflight i importy; po
 
 Explain nie skraca odpowiedzi JSON: pokazuje wszystkie oryginały, pełne ID homonimów, surowe tagi i ich rozwinięcia, nazwy/kwalifikatory, źródła i pierwszy wiersz interpretacji. Duplikaty pozostają w raw tabeli; pierwszy wiersz nie jest listą wszystkich powtórzeń. Tekst zawiera powody ocen na osobnych poziomach. NFC/lower służy wyszukiwaniu; PCV nie staje się dopuszczalne przez zapytanie pcv.
 
+## Indeks morfologii SGJP (`morph-index`)
+
+Dla serwera Literaki (#1862): forma BROAD → analizy z eksportu SGJP (lemat, tag, kwalifikatory). Uruchamiany ręcznie; wynik trafia do `lexicons/sgjpindex/` w repo serwera.
+
+```sh
+python3 -m literaki_slownik morph-index --broad <LL-PL-BROAD.txt.gz> --sgjp cache/sgjp/sgjp-20260823.tab.gz \
+  --broad-lexicon-id pl-broad-20261011 --broad-dawg-sha256 <hex z lexicons/pl-broad-20261011.sha256> --out <plik>.bin [--json]
+```
+
+- Wypisuje: formy z analizą, liczby reguł, list i końcówek, bajty, bajty po `gzip -9`, SHA-256.
+- Format v1 (little-endian): `LLMI`, `u32` wersja 1, sześć pól nagłówka (id leksykonu, SHA-256 `.dawg`, SHA-256 listy BROAD po rozpakowaniu, nazwa eksportu SGJP, jego SHA-256, `literaki-slownik <commit>`), sześć długości sekcji `u32` i sekcje: końcówki lematów, tagi, kwalifikatory, reguły po 9 B, listy reguł, formy w blokach po 32.
+- Lista reguł formy zachowuje kolejność wierszy eksportu. Listy są numerowane od najczęstszej; remis rozstrzyga pierwsze wystąpienie.
+- Formy spoza SGJP nie mają wpisu. Wynik jest deterministyczny.
+- Przebudowa w serwerze jednym poleceniem: `scripts/rebuild-sgjp-index <katalog literaki-slownik> --broad <LL-PL-BROAD.txt.gz> --sgjp <sgjp-….tab.gz>` (#1862). Robi dwa przebiegi, porównuje je i podmienia plik w `lexicons/sgjpindex/`.
+- Kody: 2 zły argument (np. `--broad-dawg-sha256` to nie 64 małe znaki hex); 4 błąd danych albo istniejący `--out`.
+
 ## Jak czytać wynik
 
 - source_presence=present: znaleziono wpis w bazie, także przy growym odrzuceniu.
