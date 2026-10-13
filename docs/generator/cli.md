@@ -27,6 +27,8 @@ python3 -m literaki_slownik verify --run-dir data/work/run-a --peer-run data/wor
 python3 -m literaki_slownik export --run-dir data/work/run-a --output-dir data/work/pakiet-nowy --json
 ```
 
+Dwa przebiegi do `verify` uruchamia równolegle `scripts/build_pair.sh PREFIKS`.
+
 Verify i export opisuje [publikacja.md](publikacja.md#verify-i-export--wdrożenie-g7).
 
 ## POP i POP0 (`pop`)

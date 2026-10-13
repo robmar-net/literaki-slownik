@@ -13,3 +13,10 @@ class DatabaseTests(unittest.TestCase):
                 self.assertEqual(db.execute('pragma user_version').fetchone()[0], 2)
                 with self.assertRaises(sqlite3.IntegrityError):
                     db.execute('insert into sgjp_record values (?, ?, ?, ?, ?, ?, ?)', ('missing', 1, 'kot', 'kot', 'subst', '', ''))
+
+    def test_large_page_cache(self):
+        # Pełny build to głównie losowe odczyty bazy ~22 GB; mały cache czekał na dysk.
+        with tempfile.TemporaryDirectory() as directory:
+            with connect(Path(directory) / 'db.sqlite', create=True) as db:
+                self.assertEqual(db.execute('pragma cache_size').fetchone()[0], -4 * 1024 * 1024)
+                self.assertEqual(db.execute('pragma temp_store').fetchone()[0], 2)
