@@ -2,7 +2,7 @@
 
 **Status:** zaakceptowana 2026-10-11 (decyzje agenta z upoważnienia właściciela, odwracalne). Rewizje 2–4 z 2026-10-11 po przeglądach próbek i weryfikacji (D3, D5, D6, D8); od rew. 4 metoda `pop-v2`.
 Właściciel, 2026-10-11: „podnieść oba limity; POP mocno, POP0 trochę; decyzje podejmij sam”.
-**Częściowo zastąpiona przez [ADR-008](ADR-008-pop-v3-staly-prog.md)** (2026-10-12, `pop-v3`: D6 i D5 dla POP).
+**Częściowo zastąpiona przez [ADR-008](ADR-008-pop-v3-staly-prog.md)** (2026-10-12, `pop-v3`: D6 i D5 dla POP i POP0).
 Konfiguracja `pop-v2`: [`config/generator/pop-v2.json`](../../config/generator/pop-v2.json).
 
 ## Kontekst

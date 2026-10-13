@@ -35,8 +35,8 @@ Wyjątki dawności STANDARD (#4): edycja JSON-a, pin, build i kontrola — [wyja
 
 Metoda bieżąca: `pop-v3` ([ADR-008](../adr/ADR-008-pop-v3-staly-prog.md)), `config/generator/pop.json`.
 POP = jednostki z punktacją ≥ −1,042878629 (remis wchodzi, brak punktacji nie). Liczba leksemów jest wynikiem, nie limitem.
-POP0 = 20 000 leksemów, jak dotąd. Próg POP jest **tymczasowy**: to cięcie wydanego pop-v2, nie zmierzona granica
-popularności. Docelowy próg: [#6](https://github.com/robmar-net/literaki-slownik/issues/6).
+POP0 = jednostki z punktacją ≥ 0,57370099 (ta sama reguła). Oba progi są **tymczasowe**: to cięcia wydanego pop-v2
+(60 000 i 20 000 leksemów), nie zmierzone granice popularności. Docelowe progi: [#6](https://github.com/robmar-net/literaki-slownik/issues/6).
 Pozostałe decyzje: [ADR-007](../adr/ADR-007-metoda-pop-v1.md) rew. 4. NKJP jako CC BY: [ADR-006](../adr/ADR-006-nkjp-cc-by-bez-wersji.md).
 
 ```sh
@@ -57,7 +57,7 @@ python3 -m literaki_slownik pop --manifest config/generator/pop-sources-v29.json
 - `--run-dir` i `--release-dir` domyślnie z manifestu. Przebieg musi być FROZEN, hashe zgodne z pinami.
 - `--output-dir` musi nie istnieć; katalog nadrzędny musi istnieć. `pop` nigdy nie nadpisuje.
 - `--output-dir` w przebiegu albo w pakiecie LL-PL: kod 2, zanim cokolwiek się liczy.
-- Kody: 0 pakiet zbudowany; 2 argumenty, manifest lub `pop.json` spoza ADR-007/ADR-008; 3 pin lub brak wejścia; 4 błąd danych (też SQLite, brak klucza, zły kształt, wiersz NKJP z CRLF), istniejący cel, naruszone `POP0 ⊆ POP ⊆ STANDARD` (w `pop-v3` sprawdzane jawnie, bo progi są w różnych miarach), słowo z `must_include_pop0` poza POP0 albo częsta forma poza listą (straż `frequent_guard`); 5 przebieg nie FROZEN albo baza zmieniła się w trakcie.
+- Kody: 0 pakiet zbudowany; 2 argumenty, manifest lub `pop.json` spoza ADR-007/ADR-008; 3 pin lub brak wejścia; 4 błąd danych (też SQLite, brak klucza, zły kształt, wiersz NKJP z CRLF), istniejący cel, naruszone `POP0 ⊆ POP ⊆ STANDARD` (sprawdzane jawnie; `pop.json` z progiem POP0 < próg POP = kod 2), słowo z `must_include_pop0` poza POP0 albo częsta forma poza listą (straż `frequent_guard`); 5 przebieg nie FROZEN albo baza zmieniła się w trakcie.
 
 Pakiet (status `BUILT`, pliki 0444):
 
@@ -76,7 +76,7 @@ Wyjaśnienie słowa w pakiecie:
 python3 -m literaki_slownik explain --run-dir <przebieg> --word kot --variant pop --pop-dir <pakiet> [--json]
 ```
 
-`--variant pop|pop0` wymaga `--pop-dir` (inaczej kod 2). Powody: `IN_POP0`, `IN_POP`, `BELOW_THRESHOLD` (poniżej progu), `NOT_IN_STANDARD` (spoza STANDARD), `PROPER_NAME_ONLY` (tylko nazwa własna), `PRUNED_WEAK_MEMBER` (jednostka na liście, własny leksem poniżej progu; w POP `pop-v3` — własna punktacja, `member_meets_score`), `NO_DATA` (brak danych o użyciu).
+`--variant pop|pop0` wymaga `--pop-dir` (inaczej kod 2). Powody: `IN_POP0`, `IN_POP`, `BELOW_THRESHOLD` (poniżej progu), `NOT_IN_STANDARD` (spoza STANDARD), `PROPER_NAME_ONLY` (tylko nazwa własna), `PRUNED_WEAK_MEMBER` (jednostka na liście, własny leksem poniżej progu; w `pop-v3` — własna punktacja, `member_meets_score` per lista), `NO_DATA` (brak danych o użyciu).
 `pop` pokazuje próg punktacji i jego tymczasowość, `pop0` — limit i rangę.
 
 Kontrola niezależna od kodu budowy (tylko biblioteka standardowa):

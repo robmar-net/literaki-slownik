@@ -1,7 +1,8 @@
-"""Metoda pop-v3 (ADR-008, #6): POP = stała punktacja, POP0 = limit leksemów.
+"""Metoda pop-v3 (ADR-008, #6): POP i POP0 = stałe progi punktacji.
 
 Próg punktacji bierze każdą jednostkę z miarą ≥ wartość (remis wchodzi), bez jednostek bez miary.
-Członkowie grup POP porównują własną punktację z tym samym progiem; wyjątki jak w pop-v2.
+Członkowie grup porównują własną punktację z progiem swojej listy; wyjątki jak w pop-v2.
+Próg POP0 ≥ próg POP, więc POP0 ⊆ POP wynika z konfiguracji.
 """
 import importlib.util
 import io
@@ -28,6 +29,10 @@ check_pop_package = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(check_pop_package)
 # Miary jednostek fikstury `pop_fixture` (log-ipm 0,5/0,5), zob. `PopBuildTests`.
 FAJNY, ZAMEK, BAC = 4.234511124, 3.933703186, 4.817424209
+# `duży`: ostatnia jednostka cięcia POP0 = 6 leksemów (ranga 4); w POP0 jest `lato`/`rok`, bez `lato`.
+DUZY = 4.885589928
+# Stałe pop-v3: punktacja ostatniej jednostki cięć 60 000 i 20 000 na wydanych wejściach pop-v2.
+POP_SCORE, POP0_SCORE = -1.042878629, 0.57370099
 
 
 def _code(call, *args, **kwargs):
@@ -77,7 +82,7 @@ class ScorePruneTests(unittest.TestCase):
     def setUp(self):
         base_tests.PopPruneTests.setUp(self)
 
-    def run_lists(self, score, nkjp=None, pop0=4):
+    def run_lists(self, score, nkjp=None, pop0=4, pop0_score=None):
         nkjp = nkjp or self.nkjp
         result = units(self.kwjp, 'e', self.relevant, nkjp, self.owners, eligible=self.eligible)
         result['units'] = {key: u for key, u in result['units'].items() if key != (self.k('Kia'),)}
@@ -86,7 +91,9 @@ class ScorePruneTests(unittest.TestCase):
         members = member_units(result, self.kwjp, self.eligible, nkjp, self.owners)
         own = measure(members, D3, 'lower-bound-absent', floors=measure_floors(result, D3))['units']
         score = score(found, own) if callable(score) else score
-        cuts = {'pop0': threshold(ranks, result, {'by': 'count', 'value': pop0}, values=found),
+        pop0_d6 = ({'by': 'count', 'value': pop0} if pop0_score is None
+                   else {'by': 'score', 'value': pop0_score(found, own)})
+        cuts = {'pop0': threshold(ranks, result, pop0_d6, values=found),
                 'pop': threshold(ranks, result, {'by': 'score', 'value': score}, values=found)}
         self.members = members
         return found, own, cuts, prune_members(members, own, found, cuts)
@@ -109,6 +116,24 @@ class ScorePruneTests(unittest.TestCase):
         # POP0 (limit liczby) nadal przycina własną rangą; POP0 ⊆ POP.
         self.assertEqual(pruned['lists']['pop0']['kept'], {k('kto'), k('dom')})
         self.assertTrue(pruned['lists']['pop0']['kept'] <= kept)
+
+    def test_pop0_score_prunes_by_own_score_and_stays_inside_pop(self):
+        k = self.k
+        ki = lambda found, own: own[(k('ki'),)]['value']
+        _, _, by_count, counted = self.run_lists(ki)
+        last = lambda found, own: min(found[unit]['value'] for unit in by_count['pop0']['units'])
+        found, own, cuts, pruned = self.run_lists(ki, pop0_score=last)
+        # Punktacja ostatniej jednostki cięcia liczbą daje te same jednostki i tych samych członków.
+        self.assertEqual(cuts['pop0']['units'], by_count['pop0']['units'])
+        self.assertEqual(pruned['lists']['pop0']['kept'], counted['lists']['pop0']['kept'])
+        self.assertEqual(pruned['lists']['pop0']['kept'], {k('kto'), k('dom')})
+        # ki: własna punktacja = próg POP (zostaje w POP), < próg POP0 (przycięty w POP0).
+        self.assertLess(own[(k('ki'),)]['value'], cuts['pop0']['score'])
+        self.assertIn(k('ki'), pruned['lists']['pop']['kept'])
+        self.assertTrue(pruned['lists']['pop0']['kept'] <= pruned['lists']['pop']['kept'])
+        # Próg POP0 równy własnej punktacji ki: ki zostaje (remis wchodzi), choć jego ranga jest za słaba.
+        found, own, cuts, pruned = self.run_lists(ki, pop0_score=ki)
+        self.assertIn(k('ki'), pruned['lists']['pop0']['kept'])
 
     def test_member_under_threshold_is_pruned_group_without_evidence_stays_whole(self):
         k = self.k
@@ -184,8 +209,8 @@ class ConfigV3Tests(unittest.TestCase):
         adr = (ROOT / config['adr']).read_text(encoding='utf-8')
         for text in ('config/generator/pop.json', 'config/generator/pop-v2.json', ISSUE_6, 'ADR-007'):
             self.assertIn(text, adr)
-        self.assertEqual(config['d6'], {'pop': {'by': 'score', 'value': -1.042878629},
-                                        'pop0': {'by': 'count', 'value': 20000}})
+        self.assertEqual(config['d6'], {'pop': {'by': 'score', 'value': POP_SCORE},
+                                        'pop0': {'by': 'score', 'value': POP0_SCORE}})
         # Poza wersją, ADR i D6 metoda jest ta sama co pop-v2 (D1–D5, D7–D9, straż, próbki).
         v2 = load_json(ROOT / 'config/generator/pop-v2.json')
         drop = lambda c: {k: v for k, v in c.items() if k not in ('version', 'adr', 'd6')}
@@ -193,17 +218,21 @@ class ConfigV3Tests(unittest.TestCase):
         text = (ROOT / 'config/generator/pop.json').read_text(encoding='utf-8')
         self.assertEqual(text, json.dumps(self.base, indent=2, ensure_ascii=False) + '\n')
 
-    def test_v3_needs_score_for_pop_and_count_for_pop0(self):
+    def test_v3_needs_score_for_pop_and_pop0(self):
         cases = {
             'POP liczba': lambda c: c['d6'].update(pop={'by': 'count', 'value': 60000}),
-            'POP0 punktacja': lambda c: c['d6'].update(pop0={'by': 'score', 'value': 0.0}),
+            'POP0 liczba': lambda c: c['d6'].update(pop0={'by': 'count', 'value': 20000}),
+            'POP0 pokrycie': lambda c: c['d6'].update(pop0={'by': 'coverage', 'value': 0.9,
+                                                           'denominator': 'kwjp-standard'}),
+            'POP0 poniżej POP': lambda c: c['d6']['pop0'].update(value=POP_SCORE - 0.001),
+            'POP0 bool': lambda c: c['d6']['pop0'].update(value=False),
+            'POP0 tekst': lambda c: c['d6']['pop0'].update(value='0.57'),
             'POP pokrycie': lambda c: c['d6'].update(pop={'by': 'coverage', 'value': 0.98,
                                                          'denominator': 'kwjp-standard'}),
             'POP bool': lambda c: c['d6']['pop'].update(value=True),
             'POP tekst': lambda c: c['d6']['pop'].update(value='-1.04'),
             'POP null': lambda c: c['d6']['pop'].update(value=None),
             'POP klucz': lambda c: c['d6']['pop'].update(denominator='kwjp-all'),
-            'POP0 float': lambda c: c['d6']['pop0'].update(value=20000.0),
             'ADR-007': lambda c: c.update(adr='docs/adr/ADR-007-metoda-pop-v1.md'),
             'd5 bez przycinania': lambda c: c['d5'].update(members='all'),
             'wycofanie NKJP': lambda c: c.update(d3={'source': 'kwjp', 'field': 'log-ipm'}, d4=None),
@@ -216,6 +245,9 @@ class ConfigV3Tests(unittest.TestCase):
         path.write_text(json.dumps(self.base).replace('-1.042878629', '-Infinity'), encoding='utf-8')
         self.assertEqual(_code(load_config, path).code, 2)
         self.assertEqual(self.load(lambda c: c['d6']['pop'].update(value=-1))['d6']['pop']['value'], -1)
+        # Próg POP0 równy progowi POP: POP0 = POP jest dozwolone (POP0 ⊆ POP nadal prawdziwe).
+        same = self.load(lambda c: c['d6']['pop0'].update(value=POP_SCORE))
+        self.assertEqual(same['d6']['pop0']['value'], POP_SCORE)
 
     def test_v2_still_refuses_score(self):
         v2 = load_json(ROOT / 'config/generator/pop-v2.json')
@@ -240,7 +272,7 @@ class BuildV3Tests(unittest.TestCase):
     def tearDown(self):
         self.work.cleanup()
 
-    def build(self, score, pop0=6):
+    def build(self, score, pop0=DUZY):
         return build_pop(self.fixture['sources'], pop_config_v3(self.directory, score, pop0))
 
     def test_score_of_last_counted_unit_reproduces_count_lists(self):
@@ -253,7 +285,10 @@ class BuildV3Tests(unittest.TestCase):
         self.assertEqual(pop['provisional'], ISSUE_6)
         self.assertNotIn('limit', pop)
         self.assertEqual(set(pop['coverage']), {'kwjp-standard', 'kwjp-all'})
-        self.assertEqual((pop0['by'], pop0['limit'], pop0['rank']), ('count', 6, 4))
+        self.assertEqual((pop0['by'], pop0['score'], pop0['rank'], pop0['units'], pop0['lexemes']),
+                         ('score', DUZY, 4, 4, 5))  # leksemy po przycięciu (lato poza)
+        self.assertEqual(pop0['provisional'], ISSUE_6)
+        self.assertNotIn('limit', pop0)
         # pop-v2 bez zmian w raporcie: bez `by`, z `limit`.
         self.assertNotIn('by', v2['thresholds']['pop'])
         self.assertEqual(v2['thresholds']['pop']['limit'], 9)
@@ -272,24 +307,25 @@ class BuildV3Tests(unittest.TestCase):
         out, err = io.StringIO(), io.StringIO()
         with redirect_stdout(out), redirect_stderr(err):
             code = main(['pop', '--manifest', str(self.fixture['sources']), '--config',
-                         str(pop_config_v3(self.directory, FAJNY, 6)), '--output-dir', str(self.directory / 'out')])
+                         str(pop_config_v3(self.directory, FAJNY, DUZY)), '--output-dir', str(self.directory / 'out')])
         self.assertEqual(code, 0, err.getvalue())
-        for part in ('pop-v3', f'punktacja ≥ {FAJNY}', ISSUE_6):
+        for part in ('pop-v3', f'Próg POP: punktacja ≥ {FAJNY}', f'Próg POP0: punktacja ≥ {DUZY}', ISSUE_6):
             self.assertIn(part, out.getvalue())
 
-    def test_pop0_outside_pop_is_refused(self):
+    def test_pop0_threshold_below_pop_is_refused(self):
+        # Próg POP0 < próg POP dałby POP0 poza POP: odmowa już przy konfiguracji (kod 2).
         error = _code(self.build, 5.05)
-        self.assertEqual(error.code, 4)
-        self.assertIn('POP0 ⊆ POP', str(error))
+        self.assertEqual(error.code, 2)
+        self.assertIn('POP0', str(error))
 
 
 class PackageV3Tests(unittest.TestCase):
-    """Pakiet pop-v3: POP do miary `bać` (rangi 1–5), więc `lato` wypada z POP własną punktacją."""
+    """Pakiet pop-v3: POP do miary `bać` (rangi 1–5), POP0 do `duży` (1–4); `lato` wypada z obu własną punktacją."""
 
     @classmethod
     def setUpClass(cls):
         cls.tmp = tempfile.TemporaryDirectory()
-        cls.made = pop_package(cls.tmp.name, score=BAC, pop0=6)
+        cls.made = pop_package(cls.tmp.name, score=BAC, pop0=DUZY)
         cls.package = cls.made['package']
 
     @classmethod
@@ -309,20 +345,25 @@ class PackageV3Tests(unittest.TestCase):
         self.assertEqual(thresholds['method'], 'pop-v3')
         self.assertEqual({k: thresholds['thresholds']['pop'][k] for k in ('by', 'score', 'rank', 'provisional')},
                          {'by': 'score', 'score': BAC, 'rank': 5, 'provisional': ISSUE_6})
-        self.assertEqual(thresholds['thresholds']['pop0']['by'], 'count')
+        self.assertEqual({k: thresholds['thresholds']['pop0'][k] for k in ('by', 'score', 'rank', 'provisional')},
+                         {'by': 'score', 'score': DUZY, 'rank': 4, 'provisional': ISSUE_6})
         rows = json.loads(self.read('reports/units.json'))['units']
         self.assertFalse([row for row in rows if 'value' in row])
         group, = [row for row in rows if 'lato@synthetic' in row['members']]
-        self.assertEqual(group['member_meets_score'],
-                         {'lato@synthetic': False, 'rok:S1@synthetic': True, 'rok:S2@synthetic': True})
-        self.assertEqual(group['members_in']['POP'], ['rok:S1@synthetic', 'rok:S2@synthetic'])
+        meets = {'lato@synthetic': False, 'rok:S1@synthetic': True, 'rok:S2@synthetic': True}
+        self.assertEqual(group['member_meets_score'], {'POP': meets, 'POP0': meets})
+        self.assertEqual(group['members_in'], {'POP': ['rok:S1@synthetic', 'rok:S2@synthetic'],
+                                               'POP0': ['rok:S1@synthetic', 'rok:S2@synthetic']})
 
-    def test_limitations_state_score_threshold_is_provisional(self):
+    def test_limitations_state_both_score_thresholds_are_provisional(self):
         text = self.read('LIMITATIONS.md')
-        for part in ('pop-v3', 'punktacja', str(BAC), 'tymczasow', ISSUE_6, 'POP0', 'limit'):
+        for part in ('pop-v3', 'punktacja', 'tymczasow', ISSUE_6):
             self.assertIn(part, text)
-        line, = [line for line in text.splitlines() if str(BAC) in line]
-        self.assertNotIn('limit', line)
+        for name, value in (('POP', BAC), ('POP0', DUZY)):
+            line, = [line for line in text.splitlines() if str(value) in line]
+            self.assertTrue(line.startswith(f'- Próg {name} '), line)
+            self.assertNotIn('limit', line)
+        self.assertNotIn('limit', text)
 
     def test_independent_checker_passes(self):
         out, err = io.StringIO(), io.StringIO()
@@ -331,7 +372,7 @@ class PackageV3Tests(unittest.TestCase):
                                            '--standard', str(self.made['run'] / 'lists/standard.txt')])
         self.assertEqual(code, 0, out.getvalue() + err.getvalue())
 
-    def test_explain_shows_score_threshold_for_pop_and_limit_for_pop0(self):
+    def test_explain_shows_score_thresholds_for_pop_and_pop0(self):
         run = self.made['run']
         lato = explain_pop(self.package, run, 'lato', 'pop')
         self.assertEqual(lato['reason'], 'PRUNED_WEAK_MEMBER')
@@ -343,10 +384,15 @@ class PackageV3Tests(unittest.TestCase):
         self.assertIn('własna punktacja', text)
         self.assertIn('lato@synthetic nie', text)
         self.assertEqual(explain_pop(self.package, run, 'fajny', 'pop')['reason'], 'BELOW_THRESHOLD')
+        self.assertIn('własna punktacja ≥ próg POP: lato@synthetic nie', text)
         kot = explain_pop(self.package, run, 'kot', 'pop0')
-        self.assertEqual((kot['reason'], kot['threshold']['by'], kot['threshold']['limit']), ('IN_POP0', 'count', 6))
-        self.assertIn('limit 6', format_pop_explanation(kot))
-        self.assertNotIn('punktacja ≥', format_pop_explanation(kot))
+        self.assertEqual((kot['reason'], kot['threshold']['by'], kot['threshold']['score'], kot['threshold']['limit']),
+                         ('IN_POP0', 'score', DUZY, None))
+        self.assertIn(f'Próg POP0: punktacja ≥ {DUZY}', format_pop_explanation(kot))
+        lato0 = explain_pop(self.package, run, 'lato', 'pop0')
+        self.assertEqual(lato0['reason'], 'PRUNED_WEAK_MEMBER')
+        self.assertIn('własna punktacja ≥ próg POP0: lato@synthetic nie', format_pop_explanation(lato0))
+        self.assertEqual(explain_pop(self.package, run, 'fajny', 'pop0')['reason'], 'BELOW_THRESHOLD')
 
 
 if __name__ == '__main__':

@@ -459,7 +459,7 @@ def explain_pop(pop_dir, run_dir, word, variant):
                 'lexemes': [{'lexeme': label, 'proper_name': proper, 'unit': owner.get(label)}
                             for label, proper in sorted(lexemes.items())],
                 'units': rows,
-                # pop-v3 (ADR-008): POP ma próg punktacji (`score`), POP0 limit; starsze pakiety bez `by` = limit.
+                # pop-v3 (ADR-008): POP i POP0 mają próg punktacji (`score`); starsze pakiety bez `by` = limit.
                 'threshold': {'by': cut.get('by', 'count'),
                               **{k: cut.get(k) for k in ('limit', 'score', 'provisional', 'rank', 'units', 'lexemes',
                                                          'forms', 'reached')}},
@@ -512,7 +512,7 @@ def format_pop_explanation(value):
         if row.get('member_ranks'):
             lines.append('  własne rangi członków: '
                          + ', '.join(f"{m} {r if r is not None else 'brak'}" for m, r in sorted(row['member_ranks'].items())))
-        if row.get('member_meets_score'):
-            lines.append('  własna punktacja ≥ próg POP: ' + ', '.join(
-                f"{m} {'brak' if ok is None else 'tak' if ok else 'nie'}" for m, ok in sorted(row['member_meets_score'].items())))
+        for name, meets in sorted((row.get('member_meets_score') or {}).items()):
+            lines.append(f'  własna punktacja ≥ próg {name}: ' + ', '.join(
+                f"{m} {'brak' if ok is None else 'tak' if ok else 'nie'}" for m, ok in sorted(meets.items())))
     return '\n'.join(lines)
