@@ -34,3 +34,4 @@
 - 2026-10-13: właściciel — POP0 też stały próg punktacji (20 000 przypadkowy), od razu w pop-v3. Zmiana w worktree `tmp/wt-pop0` (gałąź `issue-6-pop0-score`); scalenie po verify/export, przed oficjalnym POP (verify wymaga niezmienionego `literaki_slownik/`).
 - POP0 score: gałąź `issue-6-pop0-score` `dc6ce62` (push), stała 0.57370099, P1 bajtowo równe pop-v2, na A identyczne z cięciem 20 000. Scalić po export.
 - 3.4: B ukończony (12,9 h, rc 0); listy A i B bajtowo równe. `verify` A/B + przegląd K9: **VERIFIED** (K1–K10 pass, 7,3 h). `export` → `data/work/release-LL-PL-v30` (FROZEN, release-manifest `cdc59511…`).
+- 3.5–3.6: POP pop-v3 a=b, base29 = pop-v2 bajtowo, straż 0, checker OK. POP 1 229 303 (+2372/−319), POP0 388 763 (+481/−227). Raport: `verification/full-build-acceptance.md`.
