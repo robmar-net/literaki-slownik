@@ -1,7 +1,7 @@
 {
   "orchestrator": {
     "workflow": "development",
-    "current_phase": "implementation",
+    "current_phase": "completed",
     "started_phase": "codebase_analysis",
     "completed_phases": [
       "codebase_analysis",
@@ -10,7 +10,10 @@
       "ui_mockups",
       "requirements_specification",
       "specification_audit",
-      "implementation_planning"
+      "implementation_planning",
+      "implementation",
+      "verification_options",
+      "finalization"
     ],
     "failed_phases": [],
     "options": {
@@ -20,13 +23,13 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-12T12:54:52Z",
-    "updated": "2026-10-12T13:47:12Z",
+    "updated": "2026-10-14T01:12:37Z",
     "task_path": ".maister/tasks/development/2026-10-12-stabilizacja-progu-pop"
   },
   "task": {
     "title": "2382 dodatki STANDARD i tymczasowa stabilizacja POP (#4, #6)",
     "description": "Trwale dodać dokładnie 2382 zatwierdzone formy do STANDARD, ustabilizować POP stałym progiem dzisiejszego cięcia, zaktualizować wiki. Osiem osobnych cofnięć i docelowa granica POP poza zakresem.",
-    "status": "implementing",
+    "status": "completed",
     "tags": [
       "development",
       "pop",
@@ -234,6 +237,25 @@
       },
       "started": "2026-10-12T13:32:33Z",
       "completed": "2026-10-12T13:44:55Z"
+    },
+    "implementation": {
+      "summary": "G0–G4 wykonane; wydano llpl-v30 i pop-v3, wiki zaktualizowana.",
+      "decisions": [
+        "POP0 też stały próg (właściciel)",
+        "Wydanie zatwierdzone przez właściciela",
+        "Dwa przebiegi LL-PL (verify wymaga peer)"
+      ],
+      "risks": [
+        "Kod nie jest jeszcze na main (PR)",
+        "Progi POP/POP0 tymczasowe (#6)"
+      ],
+      "artifacts": [
+        {
+          "path": "verification/full-build-acceptance.md",
+          "label": "Odbiór pełnych danych"
+        }
+      ],
+      "completed": "2026-10-14T01:00:30Z"
     }
   },
   "verification_context": {
@@ -244,7 +266,8 @@
       "Scope #4/#6 zatwierdzony przez właściciela: 2382 dodatki STANDARD, stały próg POP, wiki; cofnięcia i docelowa granica później.",
       "Specyfikacja #4/#6 zatwierdzona przez właściciela odpowiedzią ok.",
       "Właściciel zlecił publikację planu w #4 i odłożył implementację do osobnej pracy.",
-      "Właściciel (2026-10-12T13:47Z): wykonać implementację z planu w #4, przebudować STANDARD, POP i POP0, zaktualizować wiki. Build obejmie też #5 (nie- v2), więc delty względem v30 mają dwie przyczyny."
+      "Właściciel (2026-10-12T13:47Z): wykonać implementację z planu w #4, przebudować STANDARD, POP i POP0, zaktualizować wiki. Build obejmie też #5 (nie- v2), więc delty względem v30 mają dwie przyczyny.",
+      "Właściciel pominął weryfikację (2026-10-14); PR #9."
     ],
     "reverify_count": 0
   }

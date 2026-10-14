@@ -74,9 +74,9 @@ Docelowa granica POP, osiem cofnięć, wydanie GitHub Release i gra pozostają p
 
 ## G5 — weryfikacja i przekazanie
 
-- [ ] **5.1** Uruchomić kanoniczną weryfikację Maister, przegląd poprawności i realności, sprawdzić kompletność S1–D1 i czystość repo. Po istotnej poprawce odświeżyć raport.
-- [ ] **5.2** Uaktualnić #4 i #6 wynikami, ograniczeniami oraz linkami do konfiguracji, ADR i wiki. #6 zostawić otwarty dla merytorycznej granicy POP; #4 rozliczyć tylko w zakresie zatwierdzonych dodatków.
-- [ ] **5.3** Commit/push repo oraz PR z finalnym opisem zachowania i walidacji. Nie uruchamiać CI na runnerach GitHub-hosted. Decyzja o wydaniu i integracji z grą pozostaje oddzielna.
+- [~] **5.1** POMINIĘTE (decyzja właściciela 2026-10-14: bez przeglądów agentów, od razu PR).** Uruchomić kanoniczną weryfikację Maister, przegląd poprawności i realności, sprawdzić kompletność S1–D1 i czystość repo. Po istotnej poprawce odświeżyć raport.
+- [x] **5.2** Uaktualnić #4 i #6 wynikami, ograniczeniami oraz linkami do konfiguracji, ADR i wiki. #6 zostawić otwarty dla merytorycznej granicy POP; #4 rozliczyć tylko w zakresie zatwierdzonych dodatków.
+- [x] **5.3** Commit/push repo oraz PR z finalnym opisem zachowania i walidacji. Nie uruchamiać CI na runnerach GitHub-hosted. Decyzja o wydaniu i integracji z grą pozostaje oddzielna.
 
 ## Komendy kontrolne
 
