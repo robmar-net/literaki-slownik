@@ -1484,11 +1484,13 @@ class PopPackageTests(unittest.TestCase):
 class RepositoryPopSourcesTests(unittest.TestCase):
     def test_repository_manifest_is_valid_and_pinned(self):
         root = Path(__file__).resolve().parent.parent
-        sources = load_sources(root / 'config/generator/pop-sources.json')
-        self.assertEqual(sources['version'], 'pop-sources-v1')
-        self.assertEqual(sources['base']['database_sha256'][:8], '85b23ca5')
-        self.assertEqual(sources['base']['release_manifest_sha256'][:8], '54705743')
-        self.assertEqual(sources['base']['standard_sha256'][:8], 'a432c7c5')
+        # Bieżący: LL-PL v30 (#4); historyczny: v29, z którego wydano pop-v2.
+        for name, pins in (('pop-sources.json', ('4b0d17c6', 'cdc59511', 'dab4f3bc')),
+                           ('pop-sources-v29.json', ('85b23ca5', '54705743', 'a432c7c5'))):
+            sources = load_sources(root / 'config/generator' / name)
+            self.assertEqual(sources['version'], 'pop-sources-v1')
+            self.assertEqual(tuple(sources['base'][k][:8] for k in (
+                'database_sha256', 'release_manifest_sha256', 'standard_sha256')), pins, name)
         nkjp = [i for i in sources['inputs'] if i['kind'] == 'nkjp_1gram'][0]
         self.assertEqual(nkjp['sha256'], '73af49094621b2f86b594beba783c14aee8c8212f1aff3d61f281ab5d99e3dc9')
         self.assertEqual(sorted(i['kind'] for i in sources['inputs']), ['kwjp', 'nkjp_1gram'])
