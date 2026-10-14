@@ -31,3 +31,6 @@
 - 3.3: przegląd K9 `verification/quality-review-v31.json` (1876 pozycji: 1810 przeniesionych z v30 przy identycznych jednostkach, 66 nowych; 0 błędnych, 23 niepewne). Dodatkowe warstwy: 40 dodatków #4 i 20 ubytków #5 — wszystkie trafne. K9 na A (ro) = pass. Przegląd zależy tylko od A i kodu.
 - Wstępny POP na A (scratchpad, nieoficjalny): POP 1 227 250 → 1 229 303 (+2372 z #4, −319 z #5); POP0 388 509 → 388 763 (+481 z #4, −227 z #5). Brak zmian spoza #4/#5; straż 0 braków; podzbiory OK. Ryzyko: POP0 ma dokładnie 20 000 leksemów przed przycięciem (zero zapasu) — dopisać do #6.
 - Optymalizacja buildu w osobnym PR #8 (cache 4 GB, `build_pair.sh`) i ticket #7; NIE łączyć z tą gałęzią przed verify (tree_sha256).
+- 2026-10-13: właściciel — POP0 też stały próg punktacji (20 000 przypadkowy), od razu w pop-v3. Zmiana w worktree `tmp/wt-pop0` (gałąź `issue-6-pop0-score`); scalenie po verify/export, przed oficjalnym POP (verify wymaga niezmienionego `literaki_slownik/`).
+- POP0 score: gałąź `issue-6-pop0-score` `dc6ce62` (push), stała 0.57370099, P1 bajtowo równe pop-v2, na A identyczne z cięciem 20 000. Scalić po export.
+- 3.4: B ukończony (12,9 h, rc 0); listy A i B bajtowo równe. `verify` A/B + przegląd K9: **VERIFIED** (K1–K10 pass, 7,3 h). `export` → `data/work/release-LL-PL-v30` (FROZEN, release-manifest `cdc59511…`).
