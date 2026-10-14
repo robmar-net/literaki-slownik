@@ -178,6 +178,14 @@ Przed pełnym uruchomieniem sprawdzić wolne miejsce i utrwalić kod. Poniższa 
 python3 -m literaki_slownik build --manifest config/generator/sources.json --run-dir data/work/nowy-unikalny-id --json
 ```
 
+Do wydania potrzebne są dwa przebiegi (A i B). Uruchamiać je **równolegle**: każdy działa na jednym rdzeniu, więc para trwa tyle co jeden (~14 h zamiast ~28 h). Skrypt robi to i odmawia przy niezacommitowanym kodzie:
+
+```sh
+scripts/build_pair.sh lists-v32   # → data/work/lists-v32-<czas>-a i -b, logi .out.json/.err
+```
+
+Baza ma cache SQLite 4 GB na połączenie (`database.py`); para zajmuje ok. 12 GB RAM i 2 × 22 GB dysku.
+
 Obecny build nadal kończy się gotowością `INCOMPLETE` i nieukończonymi etapami. Nie jest sposobem otrzymania końcowych list. Po awarii zachować manifest/log/bazę, odnotować nieukończony etap i przy ponowieniu użyć nowego katalogu. Nie uznawać częściowego importu za dowód braku słowa.
 
 Wydanie: dwa buildy → przegląd próbek → `verify --run-dir A --peer-run B --review PLIK` (K1–K10) → `export --run-dir A --output-dir NOWY` → kontrola hashy pakietu → GitHub Release. Wzór: `llpl-v29`, opis w `docs/generator/publikacja.md`.
