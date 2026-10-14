@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "project": "literaki-slownik",
+  "version": "pop-sources-v1",
+  "base": {
+    "package_id": "LL-PL",
+    "run_dir": "../../data/work/lists-v30-20261010-165826-a",
+    "release_dir": "../../data/work/release-LL-PL-v29",
+    "database_sha256": "85b23ca5cfaae273ec869f84fab643a87685c455606d8b21df4aec918f3a338c",
+    "release_manifest_sha256": "5470574338cd49742ca9ffb51278d69d6e2db0f05000c67342a07b6426a933ee",
+    "standard_sha256": "a432c7c51100f611ab2aaf7d712cf2af9a5354383cf3eb7fd271577ecb19d877"
+  },
+  "inputs": [
+    {
+      "source_id": "kwjp",
+      "kind": "kwjp",
+      "origin": "database",
+      "lemma_sources": {
+        "all": "KWJP100-kwjp100-slowa-lemma-all",
+        "fakt": "KWJP100-kwjp100-slowa-lemma-fakt",
+        "fikcja": "KWJP100-kwjp100-slowa-lemma-fikcja",
+        "publicystyka": "KWJP100-kwjp100-slowa-lemma-publicystyka"
+      },
+      "used_for": "POP: miara użycia leksemu z listy lemma KWJP w zamrożonej bazie LL-PL v29"
+    },
+    {
+      "source_id": "nkjp-1grams",
+      "kind": "nkjp_1gram",
+      "path": "../../cache/nkjp/1grams.gz",
+      "sha256": "73af49094621b2f86b594beba783c14aee8c8212f1aff3d61f281ab5d99e3dc9",
+      "title": "N-grams from the balanced subcorpus of the National Corpus of Polish",
+      "creator": "Zespół Inżynierii Lingwistycznej IPI PAN; Narodowy Korpus Języka Polskiego (NKJP)",
+      "url": "https://zil.ipipan.waw.pl/NKJPNGrams",
+      "license": "CC BY, wersja nieokreślona przez udostępniającego (ADR-006)",
+      "used_for": "POP: ranga i percentyl leksemu; bez redystrybucji surowego pliku"
+    }
+  ]
+}

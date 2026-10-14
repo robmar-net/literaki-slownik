@@ -482,7 +482,9 @@ D2_MEMBERSHIP = ('i', 'ii')
 D3_SOURCES = ('kwjp', 'kwjp+nkjp')
 D3_FIELDS = ('F', 'ARF', '1-DP', 'genres', 'log-ipm')
 D5_OPTIONS = ('a', 'b', 'c', 'd', 'e')
-D6_BY = ('count', 'coverage')
+# `score` (pop-v3, ADR-008): jednostki o mierze ≥ wartość; stałe POP i POP0 tymczasowe do czasu #6.
+D6_BY = ('count', 'coverage', 'score')
+ISSUE_6 = 'https://github.com/robmar-net/literaki-slownik/issues/6'
 D8_PARTIAL = ('available-only', 'lower-bound', 'exclude', 'lower-bound-absent', 'lower-bound-kwjp-absent')
 # `lower-bound-absent`: źródło prawdziwie nieobecne dostaje dolną granicę; niewiarygodne jest pomijane.
 # `lower-bound-kwjp-absent` (rew. 4): dolną granicę dostaje tylko KWJP poniżej progu publikacji; brak w NKJP
@@ -516,6 +518,13 @@ def _number(value, low, high, what, *, integer=False, low_open=False):
     if (type(value) not in kinds or value != value or value > high
             or (value <= low if low_open else value < low)):
         raise GeneratorError(f'Liczba spoza zakresu: {what} = {value!r}', 2)
+    return value
+
+
+def _score(value, what):
+    """Próg punktacji: skończona liczba (int albo float, nie bool)."""
+    if type(value) not in (int, float) or not math.isfinite(value):
+        raise GeneratorError(f'Próg punktacji musi być skończoną liczbą: {what} = {value!r}', 2)
     return value
 
 
@@ -898,11 +907,15 @@ def threshold(ranks, result, d6, kwjp=None, relevant=None, values=None):
     w całości albo wcale: próg nigdy nie dzieli remisu alfabetycznie, więc lista może mieć mniej
     leksemów niż wartość. `next_block` opisuje blok, który się nie zmieścił.
     `coverage`: do pierwszej jednostki, po której pokrycie w mianowniku D1 ≥ wartość.
+    `score` (wymaga `values`): każda jednostka z mierą ≥ wartość, z remisem na granicy; jednostka bez miary
+    (bez rangi) nigdy. Liczba leksemów jest wynikiem, nie limitem. `next_block`: pierwszy blok pod progiem.
     """
     if not isinstance(d6, dict):
         raise GeneratorError('D6 musi być obiektem', 2)
     by = _option(d6.get('by'), D6_BY, 'D6')
     _exact(d6, {'by', 'value'} | ({'denominator'} if by == 'coverage' else set()), 'D6')
+    if by == 'score':
+        return _score_cut(ranks, result, _score(d6['value'], 'D6 score'), values)
     if by == 'count':
         limit = _number(d6['value'], 0, 10 ** 7, 'D6 count', integer=True, low_open=True)
     else:
@@ -961,6 +974,23 @@ def threshold(ranks, result, d6, kwjp=None, relevant=None, values=None):
     return {'units': tuple(chosen), 'members': frozenset(members), 'lexemes': size,
             'rank': ranks[chosen[-1]] if chosen else None, 'reached': reached,
             'coverage': _coverage(d6['denominator'], covered, total)}
+
+
+def _score_cut(ranks, result, minimum, values):
+    if values is None:
+        raise ValueError('Próg punktacji wymaga miar jednostek')
+    order = sorted(ranks, key=lambda k: ranks[k])
+    chosen = [key for key in order if values[key]['value'] >= minimum]
+    rest = order[len(chosen):]
+    blocked = None
+    if rest:
+        block = [key for key in rest if values[key]['value'] == values[rest[0]]['value']]
+        blocked = {'units': len(block), 'lexemes': sum(result['units'][key]['size'] for key in block),
+                   'rank': ranks[rest[0]]}
+    return {'units': tuple(chosen), 'members': frozenset(m for key in chosen for m in result['units'][key]['members']),
+            'lexemes': sum(result['units'][key]['size'] for key in chosen),
+            'rank': ranks[chosen[-1]] if chosen else None, 'reached': bool(rest), 'next_block': blocked,
+            'score': minimum}
 
 
 # --- D5 `prune-weak-members-v2`: członkowie grup homonimów na listach (rew. 3 i 4 ADR-007) ---
@@ -1099,13 +1129,17 @@ def prune_members(members, measured, values, cuts):
     niego. POP0 ⊆ POP, bo próg POP0 ≤ próg POP, a najmocniejsza podjednostka jest ta sama.
     Wynik `lists[nazwa]`: `kept`, `pruned`, `heads` = liczba jednostek, w których najmocniejsza
     podjednostka jest pod progiem i zostaje tylko z tego wyjątku.
+    Próg punktacji (`cut['score']`, pop-v3): zamiast rangi własna miara ≥ ta sama wartość (remis zostaje);
+    wyjątki bez zmian. Najmocniejsza podjednostka = największa własna miara (= najlepsza ranga).
+    POP0 ⊆ POP, bo próg punktacji POP0 ≥ próg POP (`_config_d6`).
     """
     from bisect import bisect_left
     ordered = sorted(-item['value'] for item in values.values() if item['value'] is not None)
     own = {}
     for key, sub in members['units'].items():
         value = measured[key]['value']
-        own[key] = {'unit': sub['unit'], 'rank': None if value is None else bisect_left(ordered, -value) + 1}
+        own[key] = {'unit': sub['unit'], 'rank': None if value is None else bisect_left(ordered, -value) + 1,
+                    'value': value}
     subs_of = defaultdict(list)
     for key, sub in members['units'].items():
         subs_of[sub['unit']].append(key)
@@ -1119,10 +1153,17 @@ def prune_members(members, measured, values, cuts):
             best = min((own[key]['rank'] for key in parts if own[key]['rank'] is not None), default=None)
             if best is None:  # żadnej własnej miary: jak brak własnych dowodów
                 continue
-            heads += best > cut['rank']
+            if 'score' in cut:  # dwie miary mogą mieć tę samą rangę; najmocniejsza = największa miara
+                best = max(own[key]['value'] for key in parts if own[key]['value'] is not None)
+                strongest = lambda key: own[key]['value'] == best
+                weak = lambda key: own[key]['value'] is None or own[key]['value'] < cut['score']
+                heads += best < cut['score']
+            else:
+                strongest = lambda key: own[key]['rank'] == best
+                weak = lambda key: own[key]['rank'] is None or own[key]['rank'] > cut['rank']
+                heads += best > cut['rank']
             for key in parts:
-                rank = own[key]['rank']
-                if rank != best and (rank is None or rank > cut['rank']):
+                if not strongest(key) and weak(key):
                     pruned.update(key)
         lists[name] = {'kept': frozenset(cut['members'] - pruned), 'pruned': tuple(sorted(pruned)), 'heads': heads}
     return {'members': own, 'lists': lists}
@@ -1242,7 +1283,9 @@ def top_overlap(ranks_a, ranks_b, n):
 # `must_include_pop0`: słowa (klucze gry), których brak w POP0 zatrzymuje polecenie `pop` (kod 4).
 # `frequent_guard`: tyle najczęstszych form KWJP `orth` małymi literami (patrz `rank_frequent_forms`) musi być w POP i POP0.
 
-METHODS = {'pop-v2': 'docs/adr/ADR-007-metoda-pop-v1.md'}
+METHODS = {'pop-v2': 'docs/adr/ADR-007-metoda-pop-v1.md', 'pop-v3': 'docs/adr/ADR-008-pop-v3-staly-prog.md'}
+# D6 każdej metody: rodzaj progu POP i POP0. Konfiguracja pop-v2 zostaje w `config/generator/pop-v2.json`.
+D6_METHOD = {'pop-v2': ('count', 'count'), 'pop-v3': ('score', 'score')}
 CONFIG_KEYS = {'version', 'adr', 'd1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'proper_names_in_ranking',
                'must_include_pop0', 'frequent_guard', 'sampling'}
 # D5 w konfiguracji: `groups` = opcje `units` plus `e-common` (`e` z `eligible` = leksemy bez nazw własnych);
@@ -1300,12 +1343,17 @@ def _config_d6(d6):
         _exact(item, {'by', 'value'} | ({'denominator'} if by == 'coverage' else set()), f'D6 {name}')
         if by == 'count':
             limits[name] = _number(item['value'], 0, D6_MAX, f'D6 {name}', integer=True, low_open=True)
+        elif by == 'score':
+            limits[name] = _score(item['value'], f'D6 {name}')
         else:
             _option(item['denominator'], D1_OPTIONS, f'D6 {name} denominator')
             limits[name] = _number(item['value'], 0, 1, f'D6 {name}', low_open=True)
-    if (d6['pop']['by'] != d6['pop0']['by'] or d6['pop'].get('denominator') != d6['pop0'].get('denominator')
-            or not limits['pop0'] < limits['pop']):
-        raise GeneratorError('D6: POP0 musi być mniejsze od POP w tej samej mierze', 2)
+    kinds = (d6['pop']['by'], d6['pop0']['by'])
+    # Punktacja: próg POP0 ≥ próg POP (równy daje POP0 = POP), więc POP0 ⊆ POP wynika z konfiguracji.
+    smaller = limits['pop0'] >= limits['pop'] if kinds[0] == 'score' else limits['pop0'] < limits['pop']
+    if kinds[0] != kinds[1] or d6['pop'].get('denominator') != d6['pop0'].get('denominator') or not smaller:
+        raise GeneratorError('D6: POP0 musi być mniejsze od POP w tej samej mierze '
+                             '(punktacja: próg POP0 ≥ próg POP)', 2)
 
 
 def _config_guard(guard):
@@ -1346,19 +1394,24 @@ def _validate_config(config):
 
 
 def _adr_007(config):
-    """Zawężenie do metody `pop-v2` (C3): inna wartość niż w ADR-007 = kod 2."""
+    """Zawężenie do metody `pop-v2` (C3) albo `pop-v3` (ADR-008: te same D1–D5, D7–D9; inne D6): inaczej kod 2."""
     for key, value in ADR_007.items():
         if config[key] != value or type(config[key]) is not type(value):
             raise GeneratorError(f'pop.json: {key} spoza ADR-007 (oczekiwane {value!r})', 2)
     if not any(config['d3'] == d3 and config['d4'] == d4 for d3, d4 in ADR_007_D3_D4):
         raise GeneratorError('pop.json: d3/d4 spoza ADR-007 (KWJP+NKJP log-ipm 0,5 z D4 albo sama KWJP '
                              'log-ipm/F bez D4)', 2)
-    if any(config['d6'][name]['by'] != 'count' for name in ('pop', 'pop0')):
-        raise GeneratorError('pop.json: d6 tylko jako liczba leksemów (ADR-007)', 2)
+    # pop-v3: stała punktacji jest w skali KWJP+NKJP log-ipm 0,5; wycofanie NKJP wymaga nowej stałej i metody.
+    if config['version'] == 'pop-v3' and (config['d3'], config['d4']) != ADR_007_D3_D4[0]:
+        raise GeneratorError('pop.json: pop-v3 wymaga d3 KWJP+NKJP log-ipm 0,5 z d4 (skala progu punktacji)', 2)
+    kinds = D6_METHOD[config['version']]
+    if (config['d6']['pop']['by'], config['d6']['pop0']['by']) != kinds:
+        raise GeneratorError(f'pop.json: d6 metody {config["version"]} to POP {kinds[0]}, POP0 {kinds[1]} '
+                             f'({config["adr"]})', 2)
 
 
 def load_config(path):
-    """Wczytaj i ściśle sprawdź `pop.json` (metoda `pop-v2`, ADR-007); błąd schematu = kod 2."""
+    """Wczytaj i ściśle sprawdź `pop.json` (metoda `pop-v2`, ADR-007, albo `pop-v3`, ADR-008); błąd = kod 2."""
     path = Path(path).resolve()
     try:
         config = load_json(path)
@@ -1517,7 +1570,7 @@ def _pruning_report(rule, cut, ranks, pruned, name, before):
     return out
 
 
-def _unit_row(key, unit, found, rank, percentile, kwjp_pct, place, kept, own_ranks):
+def _unit_row(key, unit, found, rank, percentile, kwjp_pct, place, kept, own_ranks, meets=None):
     # `value` zostaje w pamięci (testy, diagnostyka); pakiet dostaje tylko `rank` i `percentile` (C14).
     # `members_in`: członkowie jednostki na każdej liście, w której jest jednostka (D5 `members`);
     # `member_ranks`: etykieta członka → własna ranga, dla jednostki wieloczłonowej z listy (`prune-weak-members`).
@@ -1530,6 +1583,9 @@ def _unit_row(key, unit, found, rank, percentile, kwjp_pct, place, kept, own_ran
                     'ambiguous': unit['kwjp']['ambiguous']}}
     if listed and len(key) > 1 and own_ranks:
         row['member_ranks'] = {_label(m): own_ranks[m] for m in key}
+        if meets:  # pop-v3: lista → własna punktacja członka ≥ próg listy (None = brak własnej miary)
+            row['member_meets_score'] = {name.upper(): {_label(m): meets[name.upper()][m] for m in key}
+                                         for name in listed if name.upper() in meets}
     if unit['nkjp']['status'] != 'NOT_APPLICABLE':
         row['nkjp'] = {k: unit['nkjp'][k] for k in ('status', 'rank', 'percentile', 'ambiguous')}
     return row
@@ -1575,10 +1631,15 @@ def _build_pop(sources, config, run_dir, release_dir):
     found = measure(result, config['d3'], config['d8'])
     ranks = rank_units(found['units'])
     cuts = {name: threshold(ranks, result, config['d6'][name], kwjp, relevant, found['units']) for name in LISTS}
+    # Kontrola jawna (kod 4), choć konfiguracja już wymusza próg POP0 ≥ próg POP w tej samej mierze.
+    if not set(cuts['pop0']['units']) <= set(cuts['pop']['units']):
+        raise GeneratorError('Naruszone POP0 ⊆ POP: jednostki POP0 poza progiem POP', 4)
     if pruning:
         own = measure(members, config['d3'], config['d8'], floors=measure_floors(result, config['d3']))['units']
         pruned = prune_members(members, own, found['units'], cuts)
         kept = {name: pruned['lists'][name]['kept'] for name in LISTS}
+        if not kept['pop0'] <= kept['pop']:
+            raise GeneratorError('Naruszone POP0 ⊆ POP: leksemy POP0 przycięte w POP', 4)
     else:
         pruned, kept = None, {name: cuts[name]['members'] for name in LISTS}
     forms_of = lambda chosen: forms_for(chosen, config['d2'], {'i': data['forms']}, data['constructions'])
@@ -1622,8 +1683,12 @@ def _build_pop(sources, config, run_dir, release_dir):
     combined_pct = percentiles(ranks)
     own_ranks = ({m: item['rank'] for item_key, item in pruned['members'].items() for m in item_key}
                  if pruning else {})
+    # Próg punktacji listy: tylko tak/nie dla własnej miary członka (C14: bez wartości miary).
+    meets = {name.upper(): {m: None if item['value'] is None else item['value'] >= cuts[name]['score']
+                            for item_key, item in pruned['members'].items() for m in item_key}
+             for name in LISTS if pruning and 'score' in cuts[name]}
     rows = [_unit_row(key, unit, found['units'][key], ranks.get(key), combined_pct.get(key), kwjp_pct,
-                      place.get(key), kept, own_ranks) for key, unit in result['units'].items()]
+                      place.get(key), kept, own_ranks, meets) for key, unit in result['units'].items()]
     rows.sort(key=lambda r: (r['rank'] is None, r['rank'] or 0, r['unit']))
     report = lambda chosen, forms: {'lexemes': len(relevant.intersection(chosen)), 'forms': len(forms['forms']),
                                     'construction_forms': forms['constructions'],
@@ -1631,8 +1696,13 @@ def _build_pop(sources, config, run_dir, release_dir):
                                                  for d1 in REPORT_DENOMINATORS}}
     thresholds = {}
     for name in LISTS:
-        cut = cuts[name]
-        thresholds[name] = {'limit': config['d6'][name]['value'], 'rank': cut['rank'], 'units': len(cut['units']),
+        cut, d6 = cuts[name], config['d6'][name]
+        # pop-v2: raport bez zmian (`limit`). pop-v3: `by`; próg punktacji to `score`, nie limit leksemów.
+        kind = ({'limit': d6['value']} if d6['by'] != 'score'
+                else {'score': d6['value'], 'provisional': ISSUE_6})
+        if config['version'] != 'pop-v2':
+            kind['by'] = d6['by']
+        thresholds[name] = {**kind, 'rank': cut['rank'], 'units': len(cut['units']),
                             'reached': cut['reached'], 'next_block': cut.get('next_block'),
                             **report(kept[name], lists[name]),
                             'pruning': _pruning_report(config['d5']['members'], cut, ranks, pruned, name,
@@ -1715,6 +1785,8 @@ def _package_row(row):
            'kwjp_percentile': row['kwjp']['percentile'], 'kwjp_ambiguous': row['kwjp']['ambiguous']}
     if 'member_ranks' in row:
         out['member_ranks'] = dict(row['member_ranks'])
+    if 'member_meets_score' in row:
+        out['member_meets_score'] = {name: dict(found) for name, found in row['member_meets_score'].items()}
     if 'nkjp' in row:
         nkjp = row['nkjp']
         out.update(zip(NKJP_REPORT_KEYS, (nkjp['rank'], nkjp['percentile'], nkjp['status'])))
@@ -1785,6 +1857,22 @@ def _attributions(result):
 def _limitations(result):
     with_nkjp = 'nkjp_rule_id' in result
     corpora = 'KWJP i NKJP' if with_nkjp else 'KWJP'
+    pop, pop0 = result['thresholds']['pop'], result['thresholds']['pop0']
+    score = 'score' in pop
+    if score:  # pop-v3 (ADR-008): POP i POP0 stałe progi punktacji
+        members = ('Członek grupy jest na liście tylko wtedy, gdy jego własne jednoznaczne dowody (wiersz EXACT KWJP, '
+                   'forma jednego leksemu) dają punktację co najmniej progu tej listy. ')
+        cut = [f'- Próg {name} (metoda {result["method"]}, {result["adr"]}): punktacja jednostki ≥ {item["score"]} '
+               '(miara D3: średnia log-ipm KWJP i NKJP). Wchodzi każda jednostka z taką punktacją, także remis na granicy; '
+               f'jednostka bez punktacji nie wchodzi. Liczba leksemów {name} jest wynikiem progu. '
+               f'To tymczasowa stała: wartość cięcia {name} z wydania pop-v2 ({size} leksemów), '
+               f'nie sprawdzona granica popularności. Docelowa granica: {item["provisional"]}.'
+               for name, item, size in (('POP', pop, '60 000'), ('POP0', pop0, '20 000'))]
+    else:
+        members = ('Członek grupy jest na liście tylko wtedy, gdy jego własne jednoznaczne dowody (wiersz EXACT KWJP, '
+                   'forma jednego leksemu) dają rangę w progu tej listy. ')
+        cut = ['- Próg nie dzieli bloku jednostek o równej mierze: blok wchodzi w całości albo wcale, '
+               'więc lista może mieć nieco mniej leksemów niż limit (`thresholds.json`, `next_block`).']
     lines = ['# Ograniczenia pakietu POP', '',
              '- Status pakietu w `release-manifest.json` to `BUILT`. Przegląd próbek `pop-quality-v1` '
              '(`reports/sample.json`) jest osobnym plikiem; wiąże go z pakietem SHA256 (`SHA256SUMS`, '
@@ -1797,8 +1885,7 @@ def _limitations(result):
              '(wołacz, imiesłowy, rodzaj nijaki w 1. i 2. osobie, np. `-łom`, `-łobyś`).',
              '- Grupy homonimów `e-common` łączą też zwykłe homonimy (np. `nie`, `on`, `jeść`). '
              'Ranga i próg liczą grupę w całości; jej F nie jest dzielone ani kopiowane.',
-             '- Członek grupy jest na liście tylko wtedy, gdy jego własne jednoznaczne dowody (wiersz EXACT KWJP, '
-             'forma jednego leksemu) dają rangę w progu tej listy. Przycięty członek '
+             f'- {members}Przycięty członek '
              'nie wnosi form; forma wspólna z członkiem na liście zostaje. Najmocniejszy członek zostaje zawsze, '
              'a grupa bez żadnych własnych dowodów (np. `zamek`) wchodzi w całości. '
              'Warianty jednego lematu SGJP (np. `pies:Sm1` i `pies:Sm2`) są jednym członkiem: ich dowody '
@@ -1812,8 +1899,7 @@ def _limitations(result):
              f'- Luka potoczna (D7): miara pochodzi z tekstów pisanych ({corpora}). '
              'Nie ma listy mowy potocznej ani slangu internetowego.',
              '- Nazwy własne poza rankingiem (D9): ich formy wchodzą tylko przez zwykły leksem o tej samej formie.',
-             '- Próg nie dzieli bloku jednostek o równej mierze: blok wchodzi w całości albo wcale, '
-             'więc lista może mieć nieco mniej leksemów niż limit (`thresholds.json`, `next_block`).',
+             *cut,
              '- KWJP dzieli formy przeszłe (`zrobił`+`em`). Brak w źródle to brak danych, nie zero: '
              'status per źródło, nigdy ranga 0. Brak pełny = poza listami.',
              '- Brak w jednym źródle (D8 `lower-bound-kwjp-absent`): słowo nieobecne w KWJP (poniżej progu '

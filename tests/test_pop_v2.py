@@ -121,7 +121,7 @@ class ConfigV2Tests(unittest.TestCase):
     def setUp(self):
         self.work = tempfile.TemporaryDirectory()
         self.directory = Path(self.work.name)
-        self.base = load_json(ROOT / 'config/generator/pop.json')
+        self.base = load_json(ROOT / 'config/generator/pop-v2.json')
 
     def tearDown(self):
         self.work.cleanup()
@@ -133,12 +133,15 @@ class ConfigV2Tests(unittest.TestCase):
         path.write_text(json.dumps(config, ensure_ascii=False), encoding='utf-8')
         return load_config(path)
 
-    def test_repository_config_is_pop_v2(self):
-        config = load_config(ROOT / 'config/generator/pop.json')
+    def test_historical_config_is_pop_v2(self):
+        config = load_config(ROOT / 'config/generator/pop-v2.json')
         self.assertEqual(config['version'], 'pop-v2')
         self.assertEqual(config['d5'], {'groups': 'e-common', 'members': 'prune-weak-members-v2'})
         self.assertEqual(config['frequent_guard'], {'pop_top': 20000, 'pop0_top': 5000})
         self.assertEqual(config['d8'], 'lower-bound-kwjp-absent')
+        self.assertEqual(config['d6'], {'pop': {'by': 'count', 'value': 60000}, 'pop0': {'by': 'count', 'value': 20000}})
+        # Hash z manifestu wydanego pakietu pop-v2: plik historyczny jest jego dokładną kopią.
+        self.assertEqual(config['config_sha256'], 'affcfab871ef499128e030318753678486353d667be32e3a9d24bc817aef9a60')
 
     def test_bad_values_are_code_2(self):
         cases = {

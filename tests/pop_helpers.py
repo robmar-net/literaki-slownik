@@ -119,10 +119,23 @@ def kwjp_lemma_sources(run):
     return {a['source_id']: a['genre'] for a in artifacts if a['kind'] == 'kwjp_lemma'}
 
 
+CONFIG = Path(__file__).resolve().parent.parent / 'config/generator'
+
+
 def pop_config(directory, pop, pop0, **changes):
-    """`pop.json` z repo z małymi progami fikstury; `changes` nadpisuje klucze najwyższego poziomu."""
-    config = load_json(Path(__file__).resolve().parent.parent / 'config/generator/pop.json')
+    """`pop-v2.json` z repo z małymi progami fikstury; `changes` nadpisuje klucze najwyższego poziomu."""
+    config = load_json(CONFIG / 'pop-v2.json')
     config['d6'] = {'pop': {'by': 'count', 'value': pop}, 'pop0': {'by': 'count', 'value': pop0}}
+    config.update(changes)
+    path = Path(directory) / 'pop.json'
+    path.write_text(json.dumps(config, ensure_ascii=False), encoding='utf-8')
+    return path
+
+
+def pop_config_v3(directory, score, pop0, **changes):
+    """`pop.json` (`pop-v3`) z repo: stała punktacja POP `score` i POP0 `pop0` (obie w skali miary D3)."""
+    config = load_json(CONFIG / 'pop.json')
+    config['d6'] = {'pop': {'by': 'score', 'value': score}, 'pop0': {'by': 'score', 'value': pop0}}
     config.update(changes)
     path = Path(directory) / 'pop.json'
     path.write_text(json.dumps(config, ensure_ascii=False), encoding='utf-8')
@@ -167,15 +180,17 @@ def pop_fixture(directory, nkjp_text=NKJP_1GRAMS, orth_text=POP_KWJP_ORTH):
             'sources': sources, 'database': run / 'build.sqlite'}
 
 
-def pop_package(directory, name='package', pop=9, pop0=6, **changes):
+def pop_package(directory, name='package', pop=9, pop0=6, score=None, **changes):
     """Pakiet POP fikstury (C11) dla grup 13–14: przebieg, LL-PL, NKJP z rzadkimi liczbami i `pop.json`.
 
     Progi 9/6 jak w `PopBuildTests`; `changes` nadpisuje klucze `pop.json` (np. wycofanie NKJP).
+    `score`: metoda `pop-v3` (stała punktacja POP `score`, POP0 `pop0`).
     """
     from literaki_slownik.pop import build_package
     directory = Path(directory)
     fixture = pop_fixture(directory / 'pop', NKJP_POP_1GRAMS)
-    config = pop_config(directory, pop, pop0, **changes)
+    config = (pop_config(directory, pop, pop0, **changes) if score is None
+              else pop_config_v3(directory, score, pop0, **changes))
     package = directory / name
     summary = build_package(fixture['sources'], config, package)
     return {**fixture, 'config': config, 'package': package, 'summary': summary}

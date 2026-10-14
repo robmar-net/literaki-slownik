@@ -40,7 +40,7 @@ def main(argv=None):
         exporter.add_argument('--run-dir', required=True, help='Przebieg VERIFIED')
         exporter.add_argument('--output-dir', required=True, help='Nowy, nieistniejący katalog pakietu')
         exporter.add_argument('--json', action='store_true', help='Odpowiedź JSON')
-        popper = sub.add_parser('pop', help='Listy POP i POP0 metodą pop-v2 (ADR-007)')
+        popper = sub.add_parser('pop', help='Listy POP i POP0 metodą z pop.json (pop-v3: ADR-008; pop-v2: ADR-007)')
         popper.add_argument('--manifest', required=True, help='Manifest źródeł POP (pop-sources.json)')
         popper.add_argument('--config', required=True, help='Konfiguracja metody (pop.json)')
         popper.add_argument('--run-dir', help='Przebieg FROZEN; domyślnie z manifestu')
@@ -120,9 +120,13 @@ def _finish(argv, command, result, code):
             print(format_explanation(result['result']))
         elif command == 'pop':
             found = result['result']
-            print(f"Pakiet POP (BUILT): {found['output_dir']}\n"
-                  f"POP: {found['forms']['pop']} form, {found['thresholds']['pop']['lexemes']} leksemów; "
-                  f"POP0: {found['forms']['pop0']} form, {found['thresholds']['pop0']['lexemes']} leksemów")
+            cut = found['thresholds']['pop']
+            # pop-v3: progi punktacji są tymczasowymi stałymi (#6), nie limitami leksemów.
+            score = ''.join(f"\nPróg {name.upper()}: punktacja ≥ {item['score']} (stała tymczasowa, {item['provisional']})"
+                            for name, item in (('pop', cut), ('pop0', found['thresholds']['pop0'])) if 'score' in item)
+            print(f"Pakiet POP (BUILT, {found['method']}): {found['output_dir']}\n"
+                  f"POP: {found['forms']['pop']} form, {cut['lexemes']} leksemów; "
+                  f"POP0: {found['forms']['pop0']} form, {found['thresholds']['pop0']['lexemes']} leksemów{score}")
         elif command == 'morph-index':
             found = result['result']
             print(f"Indeks: {found['out']}\n"

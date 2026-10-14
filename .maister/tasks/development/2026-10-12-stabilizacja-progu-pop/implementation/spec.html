@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Specyfikacja STANDARD i POP</title><style>
+:root { --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280; --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3; --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2; --info:#2563eb; --info-soft:#eff6ff; --radius:10px; }
+@media (prefers-color-scheme:dark) { :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2; --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a; --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616; --info:#60a5fa; --info-soft:#15233a; } }
+* { box-sizing:border-box; } body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg); color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; } a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; } .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px 18px; margin:14px 0; } .badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); } .crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; } .crumbs a.md { margin-left:auto; color:var(--dim); } .crumbs .here { font-weight:650; color:var(--text); } .tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; } .tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:10px 16px; text-align:center; min-width:130px; } .tile b { display:block; font-size:20px; } .tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); } .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:14px; } li { margin:6px 0; } pre { overflow:auto; white-space:pre-wrap; overflow-wrap:anywhere; font-size:12px; } details>summary { cursor:pointer; font-weight:600; }
+</style></head><body>
+<nav class="crumbs"><a href="../dashboard.html">← Dashboard</a><span class="here">Spec</span><a href="implementation-plan.html">Plan</a><a href="../verification/implementation-verification.html">Weryfikacja</a><a href="spec.md" target="_blank" rel="noopener" class="md">md twin ↗</a></nav>
+<header><span class="badge">Zatwierdzona specyfikacja</span><h1>2382 formy STANDARD i tymczasowa stabilizacja POP</h1><p>Stan: 2026-10-12 13:31 UTC</p></header>
+<div class="tiles"><div class="tile"><b>2382</b><span>Formy STANDARD</span></div><div class="tile"><b>7192</b><span>Dokładne analizy</span></div><div class="tile"><b>2</b><span>Zmiany pipeline</span></div><div class="tile"><b>Wysokie</b><span>Ryzyko składu list</span></div></div>
+<section class="card tldr"><h2>TL;DR</h2><ul><li>Zatwierdzone formy #4 wejdą do STANDARD przez przypięty SHA256, wersjonowany JSON dokładnych analiz i ślad każdej decyzji w bazie przebiegu.</li><li>Nowa metoda POP zastąpi konkurencję o 60 tys. miejsc stałym wynikiem dzisiejszego cięcia; POP0 zachowa limit 20 tys.</li><li>Odbiór wymaga odtworzenia pełnych zbiorów, dwóch nowych buildów, sprawdzenia straży i aktualizacji wiki.</li><li>Docelowa definicja popularności zostaje otwartym zadaniem #6; osiem cofnięć i wydanie nie wchodzą do tego kroku.</li></ul></section>
+<div class="grid"><section class="card"><h2>Decyzje</h2><ul><li>Własne użycie współczesne uchyla tylko `linguistic-historical-form-v1` dla jawnie wskazanej analizy. Nie podnosi automatycznie całego lematu ani wszystkich form.</li><li>Dane redakcyjne mają być niezależnym wejściem pipeline, edytowanym i pinowanym jak inne konfiguracje `sources.json`; nowy build nigdy nie zmienia historycznego przebiegu.</li><li>`score ≥ −1,042878629` jest tymczasową stałą pochodzącą z dzisiejszego 60k, a nie merytorycznym progiem znajomości słów.</li><li>POP0 i dotychczasowe wyjątki przycinania grup zostają zachowane. Wydanie wymaga osobnego odbioru po porównaniu wyników.</li></ul></section><section class="card"><h2>Otwarte ryzyka</h2><ul><li>Badanie pełnego diffu wykonano na zamrożonym przebiegu z 3 090 194 formami. Nowy build musi potwierdzić zgodność wejść oraz przyczyn ewentualnych rozbieżności.</li><li>Stała punktacja może przestać stabilizować skład przy zmianie danych źródłowych, mapowania lub grup. Nie ma gwarancji monotoniczności poza zbadanym scenariuszem.</li><li>Ocena znaczeń 125 rodzin to redakcyjny zapis z badania, z ograniczoną pewnością; produkt nie powinien przedstawiać progu POP jako zweryfikowanej granicy popularności.</li></ul></section></div>
+<div class="grid"><section class="card"><h2>W zakresie</h2><ul><li>Dokładny JSON decyzji STANDARD</li><li>Stały próg POP i zachowanie POP0</li><li>Dwa buildy, pełne porównanie i wiki</li></ul></section><section class="card"><h2>Poza zakresem</h2><ul><li>Osiem osobnych cofnięć</li><li>Docelowa granica popularności</li><li>Wydanie i integracja z grą</li></ul></section></div>
+<section class="card"><h2>Pełna specyfikacja</h2><p>Kanoniczna wersja: <a href="spec.md" target="_blank" rel="noopener">spec.md ↗</a>.</p><details><summary>Pokaż całą treść</summary><pre># Specyfikacja: 2382 formy STANDARD i tymczasowa stabilizacja POP
+
+## TL;DR
+
+Zatwierdzone formy #4 wejdą do STANDARD przez przypięty SHA256, wersjonowany JSON dokładnych analiz i ślad każdej decyzji w bazie przebiegu.
+Nowa metoda POP zastąpi konkurencję o 60 tys. miejsc stałym wynikiem dzisiejszego cięcia; POP0 zachowa limit 20 tys.
+Odbiór wymaga odtworzenia pełnych zbiorów, dwóch nowych buildów, sprawdzenia straży i aktualizacji wiki.
+Docelowa definicja popularności zostaje otwartym zadaniem #6; osiem cofnięć i wydanie nie wchodzą do tego kroku.
+
+## Key Decisions
+
+- Własne użycie współczesne uchyla tylko `linguistic-historical-form-v1` dla jawnie wskazanej analizy. Nie podnosi automatycznie całego lematu ani wszystkich form.
+- Dane redakcyjne mają być niezależnym wejściem pipeline, edytowanym i pinowanym jak inne konfiguracje `sources.json`; nowy build nigdy nie zmienia historycznego przebiegu.
+- `score ≥ −1,042878629` jest tymczasową stałą pochodzącą z dzisiejszego 60k, a nie merytorycznym progiem znajomości słów.
+- POP0 i dotychczasowe wyjątki przycinania grup zostają zachowane. Wydanie wymaga osobnego odbioru po porównaniu wyników.
+
+## Open Questions / Risks
+
+- Badanie pełnego diffu wykonano na zamrożonym przebiegu z 3 090 194 formami. Nowy build musi potwierdzić zgodność wejść oraz przyczyn ewentualnych rozbieżności.
+- Stała punktacja może przestać stabilizować skład przy zmianie danych źródłowych, mapowania lub grup. Nie ma gwarancji monotoniczności poza zbadanym scenariuszem.
+- Ocena znaczeń 125 rodzin to redakcyjny zapis z badania, z ograniczoną pewnością; produkt nie powinien przedstawiać progu POP jako zweryfikowanej granicy popularności.
+
+## Problem i użytkownicy
+
+Właściciel potrzebuje poprawić konkretne współczesne formy niesłusznie wyłączone ze STANDARD za dawność, zachowując kontrolę nad znaczeniem i odmianą. Operator generatora potrzebuje edytowalnego wejścia, którego wynik można odtworzyć. Gracz oraz użytkownik wiki mają otrzymać prawdziwy opis kryteriów i statusu list. Twórca bota ma móc pobrać dopiero zweryfikowane wydanie z właściwymi hashami.
+
+Obecny próg POP liczy do 60 000 leksemów przed przycięciem. Gdy dodamy proponowane formy STANDARD, badanie przewiduje wypchnięcie 2430 dotychczasowych form POP mimo niezmienionych dowodów ich użycia. Stały próg dzisiejszej punktacji w symulacji odtwarza bazowy POP i daje +2372/0.
+
+## Zawartość konfiguracji STANDARD
+
+1. Nowy plik w `config/generator/`, np. `standard-age-exceptions.json`, ma własny `schema_version`, wersję decyzji, identyfikator źródłowego snapshotu oraz uporządkowane przypadki. Przypadek wiąże formę gry, `source_id`, dokładny `lemma_id`, rozwinięty tag, rodzaj analizy (`source` lub `construction`) i identyfikator dowodu rodziny. Wpis źródłowy wiąże dokładny rekord importu (w tym `first_source_row`, oryginał, kwalifikatory i hash źródła); wpis konstrukcji wiąże trwały klucz kandydata i jego sprawdzone składniki. Wersję i jednoznaczność tych kluczy trzeba potwierdzić na przypiętej bazie przed wygenerowaniem produkcyjnego JSON-a. Dane powstają z `proposal-proof.json` i `family-decisions.json`, ale nie zawierają znaczników badawczych `research_only` ani `implementation_approved:false`.
+2. Powiązanie z badaniem obejmuje hash obu JSON-ów, 2382 różne napisy, 7192 unikatowych analiz, 110 rodzin wnoszących dodatki oraz jawne kontrole negatywne. Każda późniejsza modyfikacja wymaga jawnej rewizji pliku i hasha w `sources.json`.
+3. `inputs.inspect_sources()` weryfikuje plik i hash przez istniejący mechanizm `configurations`. W fazie `decisions` walidator odmawia nieznanych kluczy, duplikatów, niewłaściwej normalizacji, niepasującej tożsamości źródła, wejścia bez dowodu i przypadku, który nie odpowiada oczekiwanej liczbie dokładnych rozwiniętych analiz. Każda z 7192 pozycji ma być rozliczona jako użyta dokładnie raz; różnica przerywa build. Licznik dopasowanych i niewykorzystanych wpisów trafia do `reports/decisions.json` lub osobnego kanonicznego raportu.
+4. Zatwierdzone przypadki są stosowane do rozwiniętych analiz źródłowych oraz już materializowanych konstrukcji. Zastępują tylko historyczny reject w warstwie językowej STANDARD; wszystkie inne checks są zachowane. Jeżeli żadnej historycznej odmowy nie ma albo istnieje inna odmowa, build odmawia rozjazdu danych zamiast dopuszczać słowo przez obejście.
+5. Reguła ma osobne ID, powód, identyfikator decyzji i źródłowy dowód, widoczne w `decision_payload`, `persisted_assessments` i `explain`. Wersja `policy.py` rośnie. `explain` dla nowego przebiegu musi czytać przypiętą konfigurację przebiegu i dawać zgodny wynik. Dla starego przebiegu historyczną ocenę bierze z zapisanych ocen i wyraźnie odróżnia ją od ewentualnej diagnostyki przeliczonej bieżącym kodem.
+6. BROAD pozostaje zbiorem nadrzędnym. Eksport `lists/standard.txt` nadal wynika z ocen `membership_status=&#x27;accept&#x27;`; żadnego dopisywania 2382 napisów po eksporcie. `verify` ma sprawdzać równoważność listy i ocen oraz piny wejść.
+
+## Metoda POP
+
+1. Nowa wersja `pop-v3` (nazwa robocza) i nowy ADR zachowują D1–D5, D7–D9. W D6 POP ma `by: score`, `value: -1.042878629`, a POP0 ma `by: count`, `value: 20000`. Stara konfiguracja `pop-v2` pozostaje odtwarzalna. Walidacja wymaga tej konkretnej kombinacji w `pop-v3`, skończonej liczby i jawnego sprawdzenia `POP0 ⊆ POP` podczas budowy.
+2. `threshold()` dla `score` bierze wszystkie jednostki o zmierzonej punktacji `≥ value`, wraz z remisem na granicy; jednostki bez punktacji zostają poza. Raport podaje rodzaj, wartość progu, ostatnią rangę, liczbę jednostek i leksemów oraz pokrycie. Nie opisuje stałej jako limitu liczby leksemów.
+3. D5 dla POP porównuje punktację własnych dowodów członka z tym samym progiem. Zachowuje razem warianty jednego lematu, najmocniejszego członka grupy i grupy bez rozdzielnych dowodów. POP0 nadal porównuje własną rangę do granicy swojej listy. Miarę i źródła obu porównań pozostawia bez zmiany.
+4. `explain --variant pop` pokazuje punktację i rzeczywistą granicę; `pop0` pokazuje limit liczby i rangę. Pakiet ma nową metodę, hash konfiguracji i wejść, deterministyczne pliki oraz sprawdzony podzbiór. Teksty `LIMITATIONS.md`, CLI i wiki opisują tymczasowość granicy.
+
+## Kryteria odbioru
+
+| ID | Warunek |
+| --- | --- |
+| S1 | JSON jest wersjonowany, możliwy do ręcznej edycji, przypięty hashem; każda poprawka wymaga nowego przebiegu. |
+| S2 | Na właściwych wejściach dokładnie 7192 zatwierdzone analizy daje 2382 nowe formy STANDARD, bez ubytku; inne odmowy pozostają. |
+| S3 | Dodatnie i ujemne przykłady `round3/validation.json` mają oczekiwany wynik; homonimy i konstrukcje są rozliczone osobno. |
+| P1 | Bazowy POP v3 jest dokładnie równy wydanemu pop-v2: 1 227 250 form; POP0 również dokładnie równy bazowemu. |
+| P2 | Po dodatkach na przypiętych danych POP ma +2372/0 form, a POP0 +481/0; `POP0 ⊆ POP ⊆ STANDARD`. |
+| P3 | Remisy, brak punktacji, wyjątki grupowe, raporty, pakiet i `explain` przechodzą testy; straż 20k/5k ma zero braków. |
+| R1 | Dwa niezależne buildy LL-PL i POP dają identyczne kanoniczne listy oraz zgodne hashe/piny; niezależne checkery przechodzą. |
+| D1 | ADR, dokumentacja generatora, wiki STANDARD/POP/POP0 oraz historia zmian odpowiadają rzeczywiście uzyskanym wynikom; stare wydania nadal opisane jako wydane. |
+
+## Błędy, bezpieczeństwo danych i obserwowalność
+
+Niepoprawny schemat, hash, identyfikator źródła, liczba dopasowań, próg lub naruszenie podzbioru zatrzymuje build przed nową publikacją. Surowe korpusy i baza robocza pozostają w ignorowanym `data/work/`; publiczne repo zawiera tylko własny przegląd, manifesty, dane konfiguracyjne, kody i małe dowody. Raporty pokazują liczbę wpisów, analizy, delty pełnych list, progi, pokrycie, brakujące częste formy i hashe. Żaden test ani workflow nie używa runnera GitHub-hosted.
+
+## Dokumentacja, wdrożenie i wycofanie
+
+Zaktualizować ADR nowej metody POP, `docs/generator/cli.md`, opis wyjątków wieku STANDARD oraz wiki według `docs/runbook-wiki.md`. Wiki pokazuje obecnie wydane liczby i linki do starych pakietów, dopóki nowe wydanie nie nastąpi; przy nowej metodzie zaznacza status roboczy i otwartą kalibrację progu.
+
+Nowy przebieg powstaje w nowym katalogu, a stare FROZEN i wydania pozostają nienaruszone. Dwa zgodne buildy nie wystarczają do `verify/export`: odbiór wymaga jeszcze przeglądu próbek jakości związanego hashami z nowym przebiegiem, zgodnie z istniejącym K9. Jeżeli odbiór nie przejdzie albo przegląd nie jest zatwierdzony, nowego pakietu się nie publikuje; powrót operacyjny polega na dalszym użyciu poprzednich wydanych manifestów i list. Zmiana po odbiorze wymaga nowej rewizji JSON-a oraz nowych przebiegów. GitHub Release i wdrożenie do gry wymagają oddzielnej decyzji właściciela.
+</pre></details></section>
+</body></html>

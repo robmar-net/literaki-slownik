@@ -4,11 +4,11 @@
   "version": "pop-sources-v1",
   "base": {
     "package_id": "LL-PL",
-    "run_dir": "../../data/work/lists-v30-20261010-165826-a",
-    "release_dir": "../../data/work/release-LL-PL-v29",
-    "database_sha256": "85b23ca5cfaae273ec869f84fab643a87685c455606d8b21df4aec918f3a338c",
-    "release_manifest_sha256": "5470574338cd49742ca9ffb51278d69d6e2db0f05000c67342a07b6426a933ee",
-    "standard_sha256": "a432c7c51100f611ab2aaf7d712cf2af9a5354383cf3eb7fd271577ecb19d877"
+    "run_dir": "../../data/work/lists-v31-20261012-162111-a",
+    "release_dir": "../../data/work/release-LL-PL-v30",
+    "database_sha256": "4b0d17c6e75139042cf18d6ea9a24650d4e7906b999d3a0ce9331de2ecb27a45",
+    "release_manifest_sha256": "cdc59511aee295f28a5da82e13d2e8123d714be863d8a2dddf4a2398a63ed22c",
+    "standard_sha256": "dab4f3bc93bf7d02465c9f559c1bdaad2411e7176b41eacf85004312c839fa7d"
   },
   "inputs": [
     {
@@ -21,7 +21,7 @@
         "fikcja": "KWJP100-kwjp100-slowa-lemma-fikcja",
         "publicystyka": "KWJP100-kwjp100-slowa-lemma-publicystyka"
       },
-      "used_for": "POP: miara użycia leksemu z listy lemma KWJP w zamrożonej bazie LL-PL v29"
+      "used_for": "POP: miara użycia leksemu z listy lemma KWJP w zamrożonej bazie LL-PL v30"
     },
     {
       "source_id": "nkjp-1grams",

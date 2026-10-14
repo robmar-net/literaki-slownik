@@ -9,7 +9,7 @@ from .database import connect
 from .decisions import assess_diagnostic as _assess, aggregate, persisted_assessments, nonfiction_frequencies, VARIANTS
 from .inputs import GeneratorError
 from .links import availability
-from .policy import assess_profile, VERSION
+from .policy import assess_profile, STANDARD_AGE_EXCEPTION_RULE, VERSION
 from .sgjp import expand_tag, tag_errata
 from .constructions import pred_particle_candidates, nie_degree_candidates, nie_indeclinable_lemmas, impt_particle_candidates, impt_double_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, mobile_aglt_candidates, mobile_by_sequence_candidates, personal_aglt_candidates, spelling_variant_candidates, BY_AGLT_ENDINGS
 
@@ -23,7 +23,33 @@ def _construction_sources(db, key):
     return [dict(zip(fields,row)) for row in rows]
 
 
-def _derivations(db, key):
+def _age_exceptions(manifest):
+    """Wyjątki dawności STANDARD przypięte w tym przebiegu (#4), nie bieżący plik repo.
+
+    Stary przebieg bez pinu: brak wyjątków. Plik zmieniony po build: brak przeliczenia
+    z wyjątkami, jawny status; zapisane oceny przebiegu pozostają podstawą.
+    """
+    from . import standard_age_exceptions as sae
+    from .inputs import checked_file
+    inputs = manifest['inputs']
+    reference = inputs['manifest'].get('configurations', {}).get(sae.CONFIG_KEY)
+    if reference is None:
+        return {'status': 'not_pinned_in_run'}, None
+    try:
+        path = checked_file(Path(inputs['manifest_path']).parent, reference)
+    except GeneratorError as error:
+        return {'status': 'pinned_file_unavailable', 'sha256': reference['sha256'], 'reason': str(error)}, None
+    loaded = sae.load(path, source_hashes={a['source_id']: a['sha256'] for a in inputs['artifacts']})
+    return {'status': 'pinned', 'sha256': reference['sha256'], 'decision_version': loaded['decision_version'],
+            'counts': loaded['counts']}, loaded
+
+
+def _age_exception(loaded, key):
+    from .standard_age_exceptions import decision_for
+    return decision_for(loaded, loaded['analyses'][key]) if loaded and key in loaded['analyses'] else None
+
+
+def _derivations(db, key, exceptions=None):
     """Odtwórz tylko potwierdzone klasy z rzeczywistych składników importu."""
     candidates = []
     for source in _construction_sources(db,key):
@@ -75,11 +101,13 @@ def _derivations(db, key):
     stored = bool(db.execute("select 1 from sqlite_master where name='derivation_candidate'").fetchone())
     for candidate in candidates:
         proof = candidate.get('linguistic_evidence')
+        candidate_key = hashlib.sha256(dumps(candidate).encode('utf-8')).hexdigest()
+        analysis_key = hashlib.sha256(dumps(['construction', candidate_key]).encode()).hexdigest()
         assessed = _assess(candidate['original'], candidate['qualifiers'], [proof] if proof else [],
                            [c['interpretation'] for c in candidate['components'] if c['kind']=='source_interpretation'],candidate=candidate,
-                           contemporary_frequency=nonfiction_frequencies(db, candidate['original'].lower()).get(candidate['original'].lower()))
+                           contemporary_frequency=nonfiction_frequencies(db, candidate['original'].lower()).get(candidate['original'].lower()),
+                           age_exception=_age_exception(exceptions, analysis_key))
         if assessed['game_key'] == key:
-            candidate_key = hashlib.sha256(dumps(candidate).encode('utf-8')).hexdigest()
             present = stored and db.execute(
                 'select 1 from derivation_candidate where candidate_key=?', (candidate_key,)).fetchone()
             result.append({**candidate, 'persisted_candidate_key': candidate_key if present else None,
@@ -145,6 +173,7 @@ def explain(run_dir, word, variant='standard'):
         imported = stages['import_sgjp']['status'] == 'complete'
         query = assess_profile(word)
         analyses, sources = [], {}
+        exceptions_basis, exceptions = _age_exceptions(manifest)
         with connect(run / 'build.sqlite', readonly=True) as db:
             rows = db.execute('''select i.id,i.source_id,i.first_row,f.original,l.lemma_id,
                 i.tag,i.names,i.qualifiers from interpretation i
@@ -163,7 +192,16 @@ def explain(run_dir, word, variant='standard'):
                                  'expanded_tags': list(expand_tag(tag)), 'names': names,
                                  'qualifiers': qualifiers, 'assessment': assessed,
                                  'tag_errata': tag_errata(sources[sid].get('sha256'),lemma,original,tag)})
-            derivations = _derivations(db, query['game_key'])
+                # Wyjątek dotyczy rozwiniętej analizy, więc pokazujemy oceny wszystkich rozwinięć.
+                record = dict(source_id=sid,first_source_row=row,original=original,lemma_id=lemma,raw_tag=tag,names=names,qualifiers=qualifiers)
+                keys = {t: hashlib.sha256(dumps(['source', record, t]).encode()).hexdigest() for t in expand_tag(tag)}
+                if exceptions and any(k in exceptions['analyses'] for k in keys.values()):
+                    analyses[-1]['expanded_assessments'] = [
+                        {'expanded_tag': t, 'analysis_key': k, 'standard_age_exception': k in exceptions['analyses'],
+                         'assessment': _assess(original, qualifiers, source_analyses=[dict(record, raw_tag=t, source_sha256=sources[sid].get('sha256'))],
+                                               contemporary_frequency=current, age_exception=_age_exception(exceptions, k))}
+                        for t, k in keys.items()]
+            derivations = _derivations(db, query['game_key'], exceptions)
             persisted = persisted_assessments(db,query['game_key'],variant)
             reviewed_iids={a['interpretation_id'] for a in persisted if 'semantic_trace' in a}
             for analysis in analyses:
@@ -187,7 +225,8 @@ def explain(run_dir, word, variant='standard'):
         presence = 'present' if analyses else 'absent' if imported else 'not_observed_in_incomplete_import'
         diagnostics = [] if imported else [{'code': 'INCOMPLETE_SGJP_IMPORT',
                                             'message': 'Import SGJP nieukończony; odczytana część nie rozstrzyga braku w źródle.'}]
-        source_aggregation = aggregate([a['assessment'] for a in analyses], variant)
+        source_aggregation = aggregate([e['assessment'] for a in analyses
+                                        for e in a.get('expanded_assessments', [{'assessment': a['assessment']}])], variant)
         if reviewed_iids:
             source_aggregation=aggregate([{'game_key':query['game_key'],
                 'membership':{variant:item['assessment']['membership']}}
@@ -195,8 +234,15 @@ def explain(run_dir, word, variant='standard'):
             source_aggregation['basis']='persisted_source_expansions_and_use_alternatives'
         if not analyses and not imported:
             source_aggregation['status'] = 'unresolved'
+        persisted_versions = sorted({item['policy_version'] for item in persisted})
+        basis = {'persisted': 'build.sqlite: oceny zapisane przy budowie przebiegu',
+                 'persisted_policy_versions': persisted_versions,
+                 'diagnostic': 'przeliczenie bieżącym kodem', 'diagnostic_policy_version': VERSION,
+                 'diagnostic_matches_persisted_policy': persisted_versions in ([], [VERSION]),
+                 'standard_age_exceptions': exceptions_basis}
         return {'query': {'word': word, 'nfc': query['nfc'], 'game_key': query['game_key']},
                 'variant': variant, 'readiness': manifest['readiness'], 'policy_version': VERSION,
+                'assessment_basis': basis,
                 'scope': 'diagnostic_import_and_confirmed_derivation_candidates', 'source_presence': presence,
                 'import_complete': imported, 'stages': stages, 'sources': sources,
                 'analyses': analyses, 'source_aggregation': source_aggregation, 'derivations': derivations,
@@ -217,8 +263,18 @@ def format_explanation(value):
                 'not_observed_in_incomplete_import': 'brak w odczytanej części; import nieukończony'}
     lines = [f"Słowo: {value['query']['word']} · klucz: {value['query']['game_key']}",
              f"Obecność źródłowa: {presence[value['source_presence']]} · przebieg: {value['readiness']}",
-             'Ocena listy: niewiadome — diagnostyka importu, pełna polityka nieaktywna.',
-             f"Analizy: {len(value['analyses'])}"]
+             'Ocena listy: niewiadome — diagnostyka importu, pełna polityka nieaktywna.']
+    basis = value.get('assessment_basis')
+    if basis:
+        stored = ', '.join(basis['persisted_policy_versions']) or 'brak'
+        lines.append(f"Podstawa: zapisane oceny przebiegu (wersja {stored}); analizy niżej to przeliczenie bieżącym kodem "
+                     f"(wersja {basis['diagnostic_policy_version']})"
+                     + ('.' if basis['diagnostic_matches_persisted_policy'] else ' — inna wersja, nie jest oceną tego przebiegu.'))
+        age = basis['standard_age_exceptions']
+        lines.append({'pinned': f"Wyjątki dawności STANDARD: przypięte w przebiegu, {age.get('decision_version')}, SHA256 {age.get('sha256')}.",
+                      'not_pinned_in_run': 'Przebieg bez przypiętych wyjątków dawności STANDARD.',
+                      'pinned_file_unavailable': f"Wyjątki dawności STANDARD przypięte ({age.get('sha256')}), ale plik niedostępny lub zmieniony; przeliczenie bez nich."}[age['status']])
+    lines.append(f"Analizy: {len(value['analyses'])}")
     for analysis in value['analyses']:
         assessed = analysis['assessment']
         lines.append(f"\n{analysis['original']} · {analysis['lemma_id']} · {analysis['raw_tag']}")
@@ -231,10 +287,18 @@ def format_explanation(value):
             lines.append(f"  {layer}: {labels[result['status']]}")
             for check in result['checks']:
                 lines.append(f"    {check['rule_id']}: {labels[check['status']]} — {check['message']}")
+        for expanded in analysis.get('expanded_assessments', []):
+            status = expanded['assessment']['membership'][value['variant']]['status']
+            mark = ' · wyjątek dawności #4' if expanded['standard_age_exception'] else ''
+            lines.append(f"  rozwinięcie {expanded['expanded_tag']}: {labels[status]}{mark}")
     lines.append(f"\nZapisane rozwinięte analizy: {len(value.get('persisted_analyses',[]))}; diagnostyczne oceny z czasu build.")
     for item in value.get('persisted_analyses',[]):
         lines.append(f"  {item['analysis_key']} · {item['expanded_tag']} · {item['variant']} · "
                      f"{labels[item['assessment']['membership']['status']]} · wersja {item['policy_version']}")
+        for check in item['assessment']['language']['checks']:
+            if check['rule_id'] == STANDARD_AGE_EXCEPTION_RULE:
+                lines.append(f"    Wyjątek dawności: {check['decision_version']} · rodzina {check['family']} · "
+                             f"dowód {check['proof']}; uchyla {check['replaces']} ({check['source_label']})")
         trace=item.get('semantic_trace')
         if trace:
             if trace['kind']=='documented_use':
@@ -395,7 +459,10 @@ def explain_pop(pop_dir, run_dir, word, variant):
                 'lexemes': [{'lexeme': label, 'proper_name': proper, 'unit': owner.get(label)}
                             for label, proper in sorted(lexemes.items())],
                 'units': rows,
-                'threshold': {k: cut.get(k) for k in ('limit', 'rank', 'units', 'lexemes', 'forms', 'reached')},
+                # pop-v3 (ADR-008): POP i POP0 mają próg punktacji (`score`); starsze pakiety bez `by` = limit.
+                'threshold': {'by': cut.get('by', 'count'),
+                              **{k: cut.get(k) for k in ('limit', 'score', 'provisional', 'rank', 'units', 'lexemes',
+                                                         'forms', 'reached')}},
                 'package': {'release_manifest_sha256': hashlib.sha256((package / 'release-manifest.json').read_bytes()).hexdigest(),
                             'inputs': manifest.get('inputs')}}
     except GeneratorError:
@@ -413,11 +480,18 @@ def format_pop_explanation(value):
                'NOT_IN_STANDARD': 'poza STANDARD; POP ⊆ STANDARD'}
     name = value['variant'].upper()
     cut = value['threshold']
+    if cut.get('by') == 'score':
+        reasons['PRUNED_WEAK_MEMBER'] = ('jednostka w liście, ale własna punktacja leksemu jest poniżej progu '
+                                         'punktacji (D5, ADR-008)')
+        limit = (f"Próg {name}: punktacja ≥ {cut['score']} (stała tymczasowa, {cut['provisional']}); "
+                 f"ostatnia ranga {cut['rank']}, jednostek {cut['units']}, leksemów {cut['lexemes']}")
+    else:
+        limit = f"Próg {name}: ranga {cut['rank']} (limit {cut['limit']}, jednostek {cut['units']})"
     lines = [f"Słowo: {value['query']['word']} · klucz: {value['query']['game_key']} · lista: {name}",
              f"Powód: {value['reason']} — {reasons[value['reason']]}",
              f"STANDARD: {'tak' if value['in_standard'] else 'nie'} · POP: {'tak' if value['lists']['pop'] else 'nie'}"
              f" · POP0: {'tak' if value['lists']['pop0'] else 'nie'}",
-             f"Próg {name}: ranga {cut['rank']} (limit {cut['limit']}, jednostek {cut['units']})",
+             limit,
              f"Leksemy: {len(value['lexemes'])}"]
     for item in value['lexemes']:
         unit = 'brak jednostki' if item['unit'] is None else f"jednostka {item['unit'] + 1}"
@@ -438,4 +512,7 @@ def format_pop_explanation(value):
         if row.get('member_ranks'):
             lines.append('  własne rangi członków: '
                          + ', '.join(f"{m} {r if r is not None else 'brak'}" for m, r in sorted(row['member_ranks'].items())))
+        for name, meets in sorted((row.get('member_meets_score') or {}).items()):
+            lines.append(f'  własna punktacja ≥ próg {name}: ' + ', '.join(
+                f"{m} {'brak' if ok is None else 'tak' if ok else 'nie'}" for m, ok in sorted(meets.items())))
     return '\n'.join(lines)

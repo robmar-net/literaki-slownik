@@ -836,7 +836,7 @@ class PopConfigTests(unittest.TestCase):
     def setUp(self):
         self.work = tempfile.TemporaryDirectory()
         self.directory = Path(self.work.name)
-        self.base = load_json(self.ROOT / 'config/generator/pop.json')
+        self.base = load_json(self.ROOT / 'config/generator/pop-v2.json')
 
     def tearDown(self):
         self.work.cleanup()
@@ -856,8 +856,8 @@ class PopConfigTests(unittest.TestCase):
             load_config(self.write(config))
         self.assertEqual(raised.exception.code, 2, label)
 
-    def test_repository_config_is_valid_and_encodes_adr_007(self):
-        config = load_config(self.ROOT / 'config/generator/pop.json')
+    def test_historical_config_is_valid_and_encodes_adr_007(self):
+        config = load_config(self.ROOT / 'config/generator/pop-v2.json')
         self.assertEqual(config['version'], 'pop-v2')
         self.assertEqual(config['adr'], 'docs/adr/ADR-007-metoda-pop-v1.md')
         self.assertTrue((self.ROOT / config['adr']).is_file())
@@ -872,12 +872,12 @@ class PopConfigTests(unittest.TestCase):
         self.assertIs(config['proper_names_in_ranking'], False)
         self.assertEqual(config['must_include_pop0'], ['kot'])
         self.assertEqual(config['sampling']['version'], 'pop-quality-v1')
-        self.assertEqual(config['config_sha256'], sha256(self.ROOT / 'config/generator/pop.json'))
+        self.assertEqual(config['config_sha256'], sha256(self.ROOT / 'config/generator/pop-v2.json'))
         # ADR-007 wskazuje pop.json.
         adr = (self.ROOT / config['adr']).read_text(encoding='utf-8')
-        self.assertIn('config/generator/pop.json', adr)
+        self.assertIn('config/generator/pop-v2.json', adr)
         # Zapis kanoniczny: indent=2, ensure_ascii=False, newline.
-        text = (self.ROOT / 'config/generator/pop.json').read_text(encoding='utf-8')
+        text = (self.ROOT / 'config/generator/pop-v2.json').read_text(encoding='utf-8')
         self.assertEqual(text, json.dumps(self.base, indent=2, ensure_ascii=False) + '\n')
 
     def test_unknown_or_missing_key_is_code_2(self):
@@ -984,7 +984,7 @@ class PopConfigTests(unittest.TestCase):
         }
         for label, change in cases.items():
             self.assert_code_2(self.variant(change), label)
-        load_config(self.ROOT / 'config/generator/pop.json')
+        load_config(self.ROOT / 'config/generator/pop-v2.json')
         config = load_config(self.write(self.variant(lambda c: c.update(d3={'source': 'kwjp', 'field': 'F'},
                                                                           d4=None))))
         self.assertEqual((config['d3'], config['d4']), ({'source': 'kwjp', 'field': 'F'}, None))
@@ -1484,11 +1484,13 @@ class PopPackageTests(unittest.TestCase):
 class RepositoryPopSourcesTests(unittest.TestCase):
     def test_repository_manifest_is_valid_and_pinned(self):
         root = Path(__file__).resolve().parent.parent
-        sources = load_sources(root / 'config/generator/pop-sources.json')
-        self.assertEqual(sources['version'], 'pop-sources-v1')
-        self.assertEqual(sources['base']['database_sha256'][:8], '85b23ca5')
-        self.assertEqual(sources['base']['release_manifest_sha256'][:8], '54705743')
-        self.assertEqual(sources['base']['standard_sha256'][:8], 'a432c7c5')
+        # Bieżący: LL-PL v30 (#4); historyczny: v29, z którego wydano pop-v2.
+        for name, pins in (('pop-sources.json', ('4b0d17c6', 'cdc59511', 'dab4f3bc')),
+                           ('pop-sources-v29.json', ('85b23ca5', '54705743', 'a432c7c5'))):
+            sources = load_sources(root / 'config/generator' / name)
+            self.assertEqual(sources['version'], 'pop-sources-v1')
+            self.assertEqual(tuple(sources['base'][k][:8] for k in (
+                'database_sha256', 'release_manifest_sha256', 'standard_sha256')), pins, name)
         nkjp = [i for i in sources['inputs'] if i['kind'] == 'nkjp_1gram'][0]
         self.assertEqual(nkjp['sha256'], '73af49094621b2f86b594beba783c14aee8c8212f1aff3d61f281ab5d99e3dc9')
         self.assertEqual(sorted(i['kind'] for i in sources['inputs']), ['kwjp', 'nkjp_1gram'])

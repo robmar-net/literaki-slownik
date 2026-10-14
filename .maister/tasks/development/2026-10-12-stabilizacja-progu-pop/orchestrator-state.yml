@@ -1,0 +1,274 @@
+{
+  "orchestrator": {
+    "workflow": "development",
+    "current_phase": "completed",
+    "started_phase": "codebase_analysis",
+    "completed_phases": [
+      "codebase_analysis",
+      "gap_and_scope_analysis",
+      "tdd_red",
+      "ui_mockups",
+      "requirements_specification",
+      "specification_audit",
+      "implementation_planning",
+      "implementation",
+      "verification_options",
+      "finalization"
+    ],
+    "failed_phases": [],
+    "options": {
+      "sequential": true,
+      "html_output": true,
+      "mockup_format": "html"
+    },
+    "auto_fix_attempts": {},
+    "created": "2026-10-12T12:54:52Z",
+    "updated": "2026-10-14T01:12:37Z",
+    "task_path": ".maister/tasks/development/2026-10-12-stabilizacja-progu-pop"
+  },
+  "task": {
+    "title": "2382 dodatki STANDARD i tymczasowa stabilizacja POP (#4, #6)",
+    "description": "Trwale dodać dokładnie 2382 zatwierdzone formy do STANDARD, ustabilizować POP stałym progiem dzisiejszego cięcia, zaktualizować wiki. Osiem osobnych cofnięć i docelowa granica POP poza zakresem.",
+    "status": "completed",
+    "tags": [
+      "development",
+      "pop",
+      "issue-6",
+      "issue-4"
+    ],
+    "priority": "urgent"
+  },
+  "task_context": {
+    "research_reference": {
+      "source_task": ".maister/tasks/research/2026-10-12-standard-formy-dawne",
+      "source_state": "completed",
+      "source_artifacts": [
+        "outputs/research-report.md",
+        "outputs/pop-calibration.md"
+      ],
+      "copied_artifacts": [
+        "analysis/research-context/research-report.md",
+        "analysis/research-context/pop-calibration.md"
+      ],
+      "selected_decision": "Tymczasowy stały próg odpowiadający dzisiejszemu cięciu; merytoryczna granica do późniejszej decyzji w #6"
+    },
+    "characteristics": {
+      "has_reproducible_defect": false,
+      "modifies_existing": true,
+      "new_capability": false,
+      "data_operations": true,
+      "ui_heavy": false,
+      "risk_level": "high"
+    },
+    "project_documents": [
+      ".maister/docs/INDEX.md",
+      "70 lokalnych dokumentów wskazanych przez INDEX.md (istnienie i treść sprawdzone)",
+      "AGENTS.md",
+      "docs/adr/ADR-007-metoda-pop-v1.md",
+      "docs/generator/cli.md",
+      "docs/runbook-wiki.md"
+    ],
+    "applicable_standards": [
+      "AGENTS.md",
+      "docs/runbook-wiki.md"
+    ],
+    "plan_publication": {
+      "issue_comment": "https://github.com/robmar-net/literaki-slownik/issues/4#issuecomment-6125514977",
+      "published_at": "2026-10-12T13:44:55Z",
+      "implementation": "approved_by_owner_2026-10-12T13:47:12Z"
+    }
+  },
+  "phase_summaries": {
+    "codebase_analysis": {
+      "summary": "Wybór jednostek i przycinanie członków to dwa odrębne kroki; D6 i raport są dziś liczbowe; POP0 może zachować własną ścieżkę.",
+      "decisions": [
+        "Nie zmieniać źródeł ani miary; sprawdzić pełne zbiory i podzbiory przed wydaniem."
+      ],
+      "risks": [
+        "Zaokrąglenie progu; walidacja mieszanej konfiguracji; diagnostyka explain i wiki."
+      ],
+      "artifacts": [
+        {
+          "path": "analysis/codebase-analysis.md",
+          "label": "Analiza kodu"
+        }
+      ],
+      "gate": {
+        "question": null,
+        "answer": null
+      },
+      "started": "2026-10-12T12:54:52Z",
+      "completed": "2026-10-12T12:54:52Z"
+    },
+    "gap_and_scope_analysis": {
+      "summary": "Stały próg i przycinanie własną punktacją dla POP; POP0 bez zmian. Zakres dodatków STANDARD wymaga decyzji.",
+      "decisions": [
+        "Docelowa kalibracja i wydanie poza bieżącym krokiem.",
+        "Zatwierdzono 2382 dodatki STANDARD i aktualizację wiki w tym kroku."
+      ],
+      "risks": [
+        "Wynik +2372/0 dotyczy tylko konkretnej symulacji; nie stanowi ogólnej gwarancji."
+      ],
+      "artifacts": [
+        {
+          "path": "analysis/gap-analysis.md",
+          "label": "Luki i zakres"
+        }
+      ],
+      "gate": {
+        "question": "Czy pilne poprawki obejmują teraz także 2382 dodatki do STANDARD z #4, a osiem osobnych cofnięć zostawiamy poza tym krokiem?",
+        "choices": [
+          "Stabilizacja POP i 2382 dodatki STANDARD; cofnięcia później",
+          "Teraz tylko stabilizacja POP",
+          "Włączyć także osiem cofnięć po omówieniu"
+        ],
+        "answer": "Właściciel: dodać 2382 formy zgodnie z JSON-ami w trwałym, modyfikowalnym, powtarzalnym pipeline; udokumentować na wiki. Osiem osobnych cofnięć poza zakresem.",
+        "answered_at": "2026-10-12T13:03:39Z"
+      },
+      "started": "2026-10-12T12:54:52Z",
+      "completed": "2026-10-12T13:03:39Z"
+    },
+    "tdd_red": {
+      "summary": "Pominięto: zmiana metody i danych redakcyjnych, bez pojedynczej reprodukowalnej usterki.",
+      "decisions": [],
+      "risks": [],
+      "artifacts": [],
+      "skip_reason": "Nie dotyczy; testy przed kodem w planie.",
+      "gate": {
+        "question": null,
+        "answer": null
+      },
+      "started": "2026-10-12T13:06:35Z",
+      "completed": "2026-10-12T13:06:35Z"
+    },
+    "ui_mockups": {
+      "summary": "Pominięto: generator CLI bez nowego interfejsu.",
+      "decisions": [],
+      "risks": [],
+      "artifacts": [],
+      "skip_reason": "Brak zmian UI.",
+      "gate": {
+        "question": null,
+        "answer": null
+      },
+      "started": "2026-10-12T13:06:35Z",
+      "completed": "2026-10-12T13:06:35Z"
+    },
+    "requirements_specification": {
+      "summary": "Specyfikacja dokładnych wyjątków wieku STANDARD, mieszanego progu POP/POP0, pełnego odbioru i wiki.",
+      "decisions": [
+        "JSON dokładnych analiz przypięty SHA256; tylko historyczna odmowa ustępuje.",
+        "POP score −1,042878629 i własna punktacja członków; POP0 count 20 000."
+      ],
+      "risks": [
+        "Symulowane delty trzeba potwierdzić nowym pełnym buildem.",
+        "Docelowa granica popularności pozostaje otwarta."
+      ],
+      "artifacts": [
+        {
+          "path": "analysis/requirements.md",
+          "label": "Wymagania"
+        },
+        {
+          "path": "implementation/spec.md",
+          "label": "Specyfikacja",
+          "html": "implementation/spec.html"
+        }
+      ],
+      "gate": {
+        "question": "Czy zatwierdzasz tę specyfikację jako podstawę audytu i planu implementacji?",
+        "choices": [
+          "Zatwierdź specyfikację i przejdź do planu",
+          "Wskaż korekty specyfikacji"
+        ],
+        "answer": "Właściciel: ok — zatwierdzono specyfikację.",
+        "answered_at": "2026-10-12T13:32:33Z"
+      },
+      "started": "2026-10-12T13:06:35Z",
+      "completed": "2026-10-12T13:32:33Z"
+    },
+    "specification_audit": {
+      "summary": "Audyt passed; 0 otwartych blokad. Doprecyzowano klucze analiz, historyczny explain i K9.",
+      "decisions": [
+        "7192/7192 wskazań ma jedno dopasowanie w bazie badania."
+      ],
+      "risks": [
+        "Pełny build musi ponowić kontrolę na nowych wejściach."
+      ],
+      "artifacts": [
+        {
+          "path": "verification/spec-audit.md",
+          "label": "Audyt specyfikacji"
+        }
+      ],
+      "gate": {
+        "question": null,
+        "answer": null
+      },
+      "started": "2026-10-12T13:32:33Z",
+      "completed": "2026-10-12T13:32:33Z"
+    },
+    "implementation_planning": {
+      "summary": "Sześć sekwencyjnych grup: JSON, STANDARD, POP, pełny odbiór, dokumentacja/wiki, finalizacja. Plan opublikowano w #4; wykonanie odłożono do osobnego zadania.",
+      "decisions": [
+        "Testy przed kodem; dokładny diff i dwa przebiegi przed wiki."
+      ],
+      "risks": [
+        "K9 wymaga przeglądu próbek przed verify/export; rozbieżność diffu zatrzymuje pracę."
+      ],
+      "artifacts": [
+        {
+          "path": "implementation/implementation-plan.md",
+          "label": "Plan implementacji"
+        },
+        {
+          "path": "implementation/implementation-plan.html",
+          "label": "Plan implementacji HTML"
+        }
+      ],
+      "gate": {
+        "question": "Czy zatwierdzasz ten plan wykonania, w tym pełne buildy i aktualizację wiki po pomiarze?",
+        "choices": [
+          "Zatwierdź plan i rozpocznij implementację",
+          "Wskaż korekty planu"
+        ],
+        "answer": "Właściciel: opublikować plan w #4; implementację wykona osobno. Nie jest to zgoda na uruchomienie implementacji w tym kroku.",
+        "answered_at": "2026-10-12T13:44:55Z"
+      },
+      "started": "2026-10-12T13:32:33Z",
+      "completed": "2026-10-12T13:44:55Z"
+    },
+    "implementation": {
+      "summary": "G0–G4 wykonane; wydano llpl-v30 i pop-v3, wiki zaktualizowana.",
+      "decisions": [
+        "POP0 też stały próg (właściciel)",
+        "Wydanie zatwierdzone przez właściciela",
+        "Dwa przebiegi LL-PL (verify wymaga peer)"
+      ],
+      "risks": [
+        "Kod nie jest jeszcze na main (PR)",
+        "Progi POP/POP0 tymczasowe (#6)"
+      ],
+      "artifacts": [
+        {
+          "path": "verification/full-build-acceptance.md",
+          "label": "Odbiór pełnych danych"
+        }
+      ],
+      "completed": "2026-10-14T01:00:30Z"
+    }
+  },
+  "verification_context": {
+    "last_status": null,
+    "issues_found": [],
+    "fixes_applied": [],
+    "decisions_made": [
+      "Scope #4/#6 zatwierdzony przez właściciela: 2382 dodatki STANDARD, stały próg POP, wiki; cofnięcia i docelowa granica później.",
+      "Specyfikacja #4/#6 zatwierdzona przez właściciela odpowiedzią ok.",
+      "Właściciel zlecił publikację planu w #4 i odłożył implementację do osobnej pracy.",
+      "Właściciel (2026-10-12T13:47Z): wykonać implementację z planu w #4, przebudować STANDARD, POP i POP0, zaktualizować wiki. Build obejmie też #5 (nie- v2), więc delty względem v30 mają dwie przyczyny.",
+      "Właściciel pominął weryfikację (2026-10-14); PR #9."
+    ],
+    "reverify_count": 0
+  }
+}

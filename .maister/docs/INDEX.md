@@ -14,6 +14,7 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Zasady pracy](../../AGENTS.md).
 - [ADR-006: NKJP jako CC BY bez wersji](../../docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md) — NKJP dopuszczony do miar POP.
 - [ADR-007: metoda POP/POP0](../../docs/adr/ADR-007-metoda-pop-v1.md) — decyzje D1–D9, rewizje 2–4 (metoda `pop-v2`).
+- [ADR-008: metoda `pop-v3`](../../docs/adr/ADR-008-pop-v3-staly-prog.md) — POP stała punktacja ≥ −1,042878629 (tymczasowo, #6), POP0 20 000 leksemów.
 - [Konstrukcja nie- v2](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/nie-prefix-v2-decision.md) — bez zaimków i nieodmiennych (#5); wejdzie przy następnym buildzie.
 - [Zadanie POP/POP0](../tasks/development/2026-10-11-slowniki-pop-pop0/implementation/spec.md) — słowniki popularnych słów (#3); pop-v1 wycofane, pop-v2.
 
@@ -28,6 +29,7 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Decyzja o dodatkowych wejściach](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/source-extension-decision.md) — bramka rozszerzenia dowodów, bez zmiany reguł gry.
 
 - [Bieżące CLI generatora](../../docs/generator/cli.md) — import i diagnostyczne explain; pełna polityka, konstrukcje i wydanie pozostają nieukończone.
+- [Wyjątki dawności STANDARD](../../docs/generator/wyjatki-dawnosci-standard.md) — JSON dokładnych analiz (#4): edycja, pin hasha, nowy build, kontrola `decisions.json` i `explain`.
 - [Dobór próbek jakości](../../docs/generator/jakosc.md) — mechanika quality-v1 i szablon przeglądu; integracja z pełnymi raportami pozostaje nieukończona.
 - [Sprostowanie polityki źródeł](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/source-policy-clarification.md) — brak automatycznego przejęcia ograniczeń źródeł SJP.pl; decyzje zmieniające skład list omawiamy przed wdrożeniem.
 
