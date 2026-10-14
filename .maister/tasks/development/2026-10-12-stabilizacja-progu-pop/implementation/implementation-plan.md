@@ -69,8 +69,8 @@ Docelowa granica POP, osiem cofnięć, wydanie GitHub Release i gra pozostają p
 
 - [x] **4.1** Uzupełnić dokumentację wyjątku STANDARD: jak edytować JSON, przypiąć hash, uruchomić nowy build, sprawdzić dokładne dopasowanie i dlaczego nie wystarczy dopisać formy do gotowej listy.
 - [x] **4.2** Zaktualizować opis POP, CLI i ADR; oznaczyć stałą jako tymczasową i podlinkować otwarty #6. W `docs/runbook-wiki.md` dopisać sposób opisu nowej metody.
-- [ ] **4.3** W klonie wiki zaktualizować STANDARD, POP, POP0 i `Historia-zmian` na podstawie rzeczywistych manifestów. `Home` tylko jeżeli zmienia się opis/stany. Zachować stare wydane liczby i linki, gdy nowe listy są jedynie robocze. Przykłady sprawdzić w listach.
-- [ ] **4.4** Sprawdzić linki, hashe, liczby, stan git wiki i długość stron; commit/push wiki według runbooka. Nie publikować nowego wydania bez osobnej decyzji.
+- [x] **4.3** W klonie wiki zaktualizować STANDARD, POP, POP0 i `Historia-zmian` na podstawie rzeczywistych manifestów. `Home` tylko jeżeli zmienia się opis/stany. Zachować stare wydane liczby i linki, gdy nowe listy są jedynie robocze. Przykłady sprawdzić w listach.
+- [x] **4.4** Sprawdzić linki, hashe, liczby, stan git wiki i długość stron; commit/push wiki według runbooka. Nie publikować nowego wydania bez osobnej decyzji.
 
 ## G5 — weryfikacja i przekazanie
 

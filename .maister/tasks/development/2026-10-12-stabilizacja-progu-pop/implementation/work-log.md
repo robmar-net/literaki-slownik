@@ -35,3 +35,5 @@
 - POP0 score: gałąź `issue-6-pop0-score` `dc6ce62` (push), stała 0.57370099, P1 bajtowo równe pop-v2, na A identyczne z cięciem 20 000. Scalić po export.
 - 3.4: B ukończony (12,9 h, rc 0); listy A i B bajtowo równe. `verify` A/B + przegląd K9: **VERIFIED** (K1–K10 pass, 7,3 h). `export` → `data/work/release-LL-PL-v30` (FROZEN, release-manifest `cdc59511…`).
 - 3.5–3.6: POP pop-v3 a=b, base29 = pop-v2 bajtowo, straż 0, checker OK. POP 1 229 303 (+2372/−319), POP0 388 763 (+481/−227). Raport: `verification/full-build-acceptance.md`.
+- Właściciel zatwierdził wydanie. Opublikowano [llpl-v30](https://github.com/robmar-net/literaki-slownik/releases/tag/llpl-v30) (target `0560f20`) i [pop-v3](https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v3) (target `015fb34`; przegląd 423: 416 trafnych, 4 błędne bez wpływu na listy, 3 niepewne). Pobrane zasoby: `shasum -c` OK.
+- 4.3–4.4: wiki `8d44a44` + `0b08ee6` (linki do kodu przez tag `pop-v3`), wypchnięte po wydaniach. Strony: Home, STANDARD, BROAD, POP, POP0, Historia-zmian, Boty, trzy strony SJP.pl (przeliczone na v30: odzysk 131 z top 2000 braków dzięki #4). Benchmarki: `tmp/benchmark/sjp-*-llpl-v30.json`.

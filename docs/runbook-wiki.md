@@ -7,7 +7,7 @@
 
 ## Key Decisions
 - **Gdzie:** wiki to osobne repozytorium `robmar-net/literaki-slownik.wiki`. Lokalnie klonujemy je obok projektu: `~/Projects/Literaki/wiki-literaki-slownik` (katalog pasuje do wzorca `/wiki-*/` w `.gitignore` workspace).
-- **Strony:** `Home`, `Slownik-BROAD`, `Slownik-STANDARD`, `Porownanie-z-SJP.pl`, `Brakujace-slowa-SJP.pl`, `Slowa-spoza-SJP.pl`, `Historia-zmian`, `_Sidebar`. Nowy rodzaj słownika dostaje nową stronę `Slownik-<NAZWA>` z tym samym układem.
+- **Strony:** `Home`, `Slownik-BROAD`, `Slownik-STANDARD`, `Slownik-POP`, `Slownik-POP0`, `Boty-na-mniejszych-slownikach`, `Porownanie-z-SJP.pl`, `Brakujace-slowa-SJP.pl`, `Slowa-spoza-SJP.pl`, `Historia-zmian`, `_Sidebar`. Nowy rodzaj słownika dostaje nową stronę `Slownik-<NAZWA>` z tym samym układem.
 - **Układ strony słownika:**
   - cel w 1–2 zdaniach;
   - stan: liczba słów, wersja polityki i link do pobrania albo „jeszcze niewydany”;
@@ -38,8 +38,8 @@
 2. Weź liczby z artefaktów, nie z pamięci:
    - liczby słów: `wc -l <run>/lists/broad.txt <run>/lists/standard.txt`;
    - wersja polityki: `VERSION` w `literaki_slownik/policy.py` (musi być zgodna z `policy_version` w `<run>/reports/decisions.json`);
-   - porównanie z SJP.pl: wynik `scripts/benchmark_sjp.py`; strona brakujących słów: `scripts/sjp_missing_top.py` + `scripts/render_sjp_missing.py`; strona słów spoza SJP.pl: `scripts/sjp_extra_top.py` + `scripts/render_sjp_extra.py`; bez ręcznych zmian.
-   - POP/POP0: formy i leksemy z `counts` w `release-manifest.json` pakietu, progi i przycięcia z `reports/thresholds.json`. Wydane: `pop-v2` (POP 1 227 250 / 53 002, POP0 388 509 / 13 896), [Release pop-v2](https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v2), metoda [ADR-007](adr/ADR-007-metoda-pop-v1.md). Metoda robocza `pop-v3`: [ADR-008](adr/ADR-008-pop-v3-staly-prog.md), opis niżej. Strony `Slownik-POP` i `Slownik-POP0` idą tą samą procedurą.
+   - porównanie z SJP.pl: wynik `scripts/benchmark_sjp.py`; pliki `tmp/benchmark/sjp-llpl-v<NN>.json`, `sjp-missing-llpl-v<NN>.json`, `sjp-extra-llpl-v<NN>.json`, gdzie `<NN>` to numer wydania LL-PL, nie przebiegu (`sjp-v30.json` to jeszcze przebieg v30 = wydanie v29). Zrzut listy SJP.pl: p. 1 w [runbooku](plan-dalszych-prac-runbook.md); sha256 musi się zgadzać (kolejność przejścia DAWG, bez sortowania: posortowany plik ma inny hash); strona brakujących słów: `scripts/sjp_missing_top.py` + `scripts/render_sjp_missing.py`; strona słów spoza SJP.pl: `scripts/sjp_extra_top.py` + `scripts/render_sjp_extra.py`; bez ręcznych zmian.
+   - POP/POP0: formy i leksemy z `counts` w `release-manifest.json` pakietu, progi i przycięcia z `reports/thresholds.json`. Wydane: `pop-v3` (POP 1 229 303 / 53 033, POP0 388 763 / 13 896), [Release pop-v3](https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v3), metoda [ADR-008](adr/ADR-008-pop-v3-staly-prog.md), opis niżej. Poprzednie: `pop-v2` (POP 1 227 250, POP0 388 509), metoda [ADR-007](adr/ADR-007-metoda-pop-v1.md). Strony `Slownik-POP` i `Slownik-POP0` idą tą samą procedurą.
    Przy liczbach podaj wersję i datę. Dopóki `verify` nie odbierze wydania, pisz „wersja robocza”.
 3. Przykład przy filtrze sprawdź w liście albo przez `python3 -m literaki_slownik explain --run-dir <run> --word <słowo>`. Dla POP/POP0: `explain ... --variant pop|pop0 --pop-dir <pakiet>`. Przykład „odpada” nie może być na liście, a przykład „zostaje” musi na niej być.
 4. Lista kontrolna przed commitem:
@@ -57,8 +57,7 @@
 ## Opis POP przy metodzie `pop-v3`
 - **Kryterium:** POP i POP0 to słowa o punktacji użycia co najmniej progu listy (`thresholds.json`: `by: score`, `score`), nie „60 000” ani „20 000 najczęstszych leksemów”. Liczbę leksemów podaj jako wynik, nie jako limit.
 - **Tymczasowość:** przy każdym progu napisz, że to stała tymczasowa (cięcie wydanego pop-v2), a docelowy próg ustala [#6](https://github.com/robmar-net/literaki-slownik/issues/6). Link do #6 bierz z `provisional` w `thresholds.json`.
-- **Status:** dopóki pakiet `pop-v3` nie przejdzie odbioru i nie ma Release, stan na stronie to wydane `pop-v2` (liczby, link, „limit 60 000 leksemów” jako opis tego wydania). Nową metodę opisz osobnym punktem „wersja robocza” z liczbami i datą przebiegu.
-- **Po wydaniu `pop-v3`:** zamień stan na nowe liczby i link; opis limitów 60 000 i 20 000 przenieś do `Historia-zmian`.
+- **Status (od 2026-10-14):** `pop-v3` wydane; strony podają jego liczby i link, a limity 60 000 i 20 000 są tylko w `Historia-zmian`. Nowa metoda (np. z #6) idzie tą samą drogą: „wersja robocza” z liczbami i datą do czasu Release.
 - **Przykład:** słowo „zostaje” sprawdź przez `explain --variant pop|pop0`; dla przyciętego członka grupy podaj powód `PRUNED_WEAK_MEMBER`.
 
 ## Open Questions / Risks
