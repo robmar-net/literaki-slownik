@@ -121,9 +121,9 @@ def _finish(argv, command, result, code):
         elif command == 'pop':
             found = result['result']
             cut = found['thresholds']['pop']
-            # pop-v3: próg punktacji jest tymczasową stałą (#6), nie limitem leksemów.
-            score = (f"\nPróg POP: punktacja ≥ {cut['score']} (stała tymczasowa, {cut['provisional']})"
-                     if 'score' in cut else '')
+            # pop-v3: progi punktacji są tymczasowymi stałymi (#6), nie limitami leksemów.
+            score = ''.join(f"\nPróg {name.upper()}: punktacja ≥ {item['score']} (stała tymczasowa, {item['provisional']})"
+                            for name, item in (('pop', cut), ('pop0', found['thresholds']['pop0'])) if 'score' in item)
             print(f"Pakiet POP (BUILT, {found['method']}): {found['output_dir']}\n"
                   f"POP: {found['forms']['pop']} form, {cut['lexemes']} leksemów; "
                   f"POP0: {found['forms']['pop0']} form, {found['thresholds']['pop0']['lexemes']} leksemów{score}")

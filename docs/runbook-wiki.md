@@ -55,11 +55,11 @@
    ```
 
 ## Opis POP przy metodzie `pop-v3`
-- **Kryterium:** POP to słowa o punktacji użycia co najmniej progu (`thresholds.json`: `by: score`, `score`), nie „60 000 najczęstszych leksemów”. Liczbę leksemów podaj jako wynik, nie jako limit. POP0 nadal: 20 000 leksemów.
-- **Tymczasowość:** przy progu napisz, że to stała tymczasowa (cięcie wydanego pop-v2), a docelowy próg ustala [#6](https://github.com/robmar-net/literaki-slownik/issues/6). Link do #6 bierz z `provisional` w `thresholds.json`.
+- **Kryterium:** POP i POP0 to słowa o punktacji użycia co najmniej progu listy (`thresholds.json`: `by: score`, `score`), nie „60 000” ani „20 000 najczęstszych leksemów”. Liczbę leksemów podaj jako wynik, nie jako limit.
+- **Tymczasowość:** przy każdym progu napisz, że to stała tymczasowa (cięcie wydanego pop-v2), a docelowy próg ustala [#6](https://github.com/robmar-net/literaki-slownik/issues/6). Link do #6 bierz z `provisional` w `thresholds.json`.
 - **Status:** dopóki pakiet `pop-v3` nie przejdzie odbioru i nie ma Release, stan na stronie to wydane `pop-v2` (liczby, link, „limit 60 000 leksemów” jako opis tego wydania). Nową metodę opisz osobnym punktem „wersja robocza” z liczbami i datą przebiegu.
-- **Po wydaniu `pop-v3`:** zamień stan na nowe liczby i link; opis limitu 60 000 przenieś do `Historia-zmian`.
-- **Przykład:** słowo „zostaje” sprawdź przez `explain --variant pop`; dla przyciętego członka grupy podaj powód `PRUNED_WEAK_MEMBER`.
+- **Po wydaniu `pop-v3`:** zamień stan na nowe liczby i link; opis limitów 60 000 i 20 000 przenieś do `Historia-zmian`.
+- **Przykład:** słowo „zostaje” sprawdź przez `explain --variant pop|pop0`; dla przyciętego członka grupy podaj powód `PRUNED_WEAK_MEMBER`.
 
 ## Open Questions / Risks
 - Wiki nie ma testów ani CI, więc zestarzeje się po cichu. Jedyną ochroną jest ta procedura w kroku, który zmienia słowniki (zob. `AGENTS.md`).
