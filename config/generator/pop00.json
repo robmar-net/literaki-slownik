@@ -1,0 +1,11 @@
+{
+  "version": "pop00-v1",
+  "adr": "docs/adr/ADR-009-pop00-v1.md",
+  "ipm_min": "0.1",
+  "sampling": {
+    "version": "pop00-quality-v1",
+    "seed": "literaki-slownik-pop00-v1",
+    "size_per_stratum": 30,
+    "encoding": "canonical JSON array [seed,stratum,key], UTF-8"
+  }
+}

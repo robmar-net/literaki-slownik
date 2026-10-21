@@ -10,7 +10,8 @@ from .inputs import GeneratorError
 ENCODING = 'canonical JSON array [seed,stratum,key], UTF-8'
 # Zamknięta mapa wersja → seed; pop-quality-v1 służy próbkom POP (C17).
 SEEDS = {'quality-v1': 'literaki-slownik-g1-v1',
-         'pop-quality-v1': 'literaki-slownik-pop-v1'}
+         'pop-quality-v1': 'literaki-slownik-pop-v1',
+         'pop00-quality-v1': 'literaki-slownik-pop00-v1'}
 
 
 def _config(config):

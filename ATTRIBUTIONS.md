@@ -60,7 +60,7 @@ brak rozszerzania zasobu leksykalnego danymi KWJP.
 
 ## NKJP — n-gramy ze zrównoważonego podkorpusu
 
-Dotyczy pakietów, które używają NKJP (POP, POP0). Pakiet LL-PL v29 go nie używa.
+Dotyczy pakietów, które używają NKJP (POP, POP0 oraz POP00 dziedziczący wybór leksemów POP0). Pakiet LL-PL v29 go nie używa.
 
 - Zasób: „N-grams from the balanced subcorpus of the National Corpus of Polish”, plik `1grams.gz`
   (SHA256 `73af49094621b2f86b594beba783c14aee8c8212f1aff3d61f281ab5d99e3dc9`), https://zil.ipipan.waw.pl/NKJPNGrams.

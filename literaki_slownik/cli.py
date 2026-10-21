@@ -27,9 +27,10 @@ def main(argv=None):
         explainer = sub.add_parser('explain', help='Wyjaśnij źródłowe analizy i niewiadome (diagnostyka)')
         explainer.add_argument('--run-dir', required=True, help='Katalog przebiegu do odczytu')
         explainer.add_argument('--word', required=True, help='Słowo do wyszukania przez NFC/lower')
-        explainer.add_argument('--variant', choices=('broad', 'standard', 'pop', 'pop0'), default='standard',
+        explainer.add_argument('--variant', choices=('broad', 'standard', 'pop', 'pop0', 'pop00'), default='standard',
                                help='Wariant słownika; pop i pop0 wymagają --pop-dir')
         explainer.add_argument('--pop-dir', help='Pakiet POP (wymagany przy --variant pop|pop0)')
+        explainer.add_argument('--pop00-dir', help='Pakiet POP00 (wymagany przy --variant pop00)')
         explainer.add_argument('--json', action='store_true', help='Wszystkie analizy w JSON')
         verifier = sub.add_parser('verify', help='Odbiór K1–K10 z drugim build i przeglądem')
         verifier.add_argument('--run-dir', required=True, help='Przebieg do odbioru')
@@ -47,6 +48,11 @@ def main(argv=None):
         popper.add_argument('--release-dir', help='Pakiet LL-PL; domyślnie z manifestu')
         popper.add_argument('--output-dir', required=True, help='Nowy, nieistniejący katalog pakietu POP')
         popper.add_argument('--json', action='store_true', help='Odpowiedź JSON')
+        pop00 = sub.add_parser('pop00', help='Zbuduj POP00 z zamrożonego POP0 (ADR-009)')
+        pop00.add_argument('--manifest', required=True, help='Manifest przypiętych wejść POP00')
+        pop00.add_argument('--config', required=True, help='Zatwierdzona konfiguracja POP00')
+        pop00.add_argument('--output-dir', required=True, help='Nowy katalog pakietu POP00')
+        pop00.add_argument('--json', action='store_true', help='Odpowiedź JSON')
         morph = sub.add_parser('morph-index', help='Indeks morfologii SGJP dla form BROAD (format v1)')
         morph.add_argument('--broad', required=True, help='Lista BROAD (.txt.gz)')
         morph.add_argument('--sgjp', required=True, help='Eksport SGJP (.tab.gz)')
@@ -62,7 +68,12 @@ def main(argv=None):
             from .build import build
             result['result'] = build(args.manifest, args.run_dir)
         elif args.command == 'explain':
-            if args.variant in ('pop', 'pop0'):
+            if args.variant == 'pop00':
+                if not args.pop00_dir:
+                    raise GeneratorError('Wariant pop00 wymaga --pop00-dir', 2)
+                from .pop00 import explain_pop00
+                result['result'] = explain_pop00(args.pop00_dir, args.run_dir, args.word)
+            elif args.variant in ('pop', 'pop0'):
                 if not args.pop_dir:
                     raise GeneratorError('Wariant pop/pop0 wymaga --pop-dir', 2)
                 from .explain import explain_pop
@@ -83,6 +94,9 @@ def main(argv=None):
             from .pop import build_package
             result['result'] = build_package(args.manifest, args.config, args.output_dir, args.run_dir,
                                              args.release_dir)
+        elif args.command == 'pop00':
+            from .pop00 import build_package
+            result['result'] = build_package(args.manifest, args.config, args.output_dir)
         elif args.command == 'morph-index':
             from .morph_index import write_index
             result['result'] = write_index(args.broad, args.sgjp, args.broad_lexicon_id,
@@ -112,7 +126,10 @@ def _finish(argv, command, result, code):
         from .verify import format_verification
         print(format_verification(result['result']))
     elif result['status'] == 'ok':
-        if command == 'explain' and 'reason' in result['result']:
+        if command == 'explain' and result['result'].get('method') == 'pop00-v1':
+            from .pop00 import format_pop00_explanation
+            print(format_pop00_explanation(result['result']))
+        elif command == 'explain' and 'reason' in result['result']:
             from .explain import format_pop_explanation
             print(format_pop_explanation(result['result']))
         elif command == 'explain':
@@ -127,6 +144,10 @@ def _finish(argv, command, result, code):
             print(f"Pakiet POP (BUILT, {found['method']}): {found['output_dir']}\n"
                   f"POP: {found['forms']['pop']} form, {cut['lexemes']} leksemów; "
                   f"POP0: {found['forms']['pop0']} form, {found['thresholds']['pop0']['lexemes']} leksemów{score}")
+        elif command == 'pop00':
+            found = result['result']
+            print(f"Pakiet POP00 (BUILT, {found['method']}): {found['output_dir']}\n"
+                  f"{found['forms']} form; {found['selected_lexemes']} leksemów; próg wybranych form 0,1 IPM")
         elif command == 'morph-index':
             found = result['result']
             print(f"Indeks: {found['out']}\n"

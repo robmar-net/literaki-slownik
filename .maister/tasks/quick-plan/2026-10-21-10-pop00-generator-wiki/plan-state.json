@@ -1,9 +1,9 @@
 {
   "workflow": "maister-quick-plan",
   "issue": "https://github.com/robmar-net/literaki-slownik/issues/10",
-  "status": "awaiting_plan_approval",
+  "status": "implementing",
   "created": "2026-10-21T15:05:20Z",
-  "updated": "2026-10-21T15:05:20Z",
+  "updated": "2026-10-21T15:21:47Z",
   "plan": "plan.md",
   "evidence": [
     "analysis/probe_policy.py",
@@ -15,7 +15,7 @@
     "forms_measured": 259779,
     "removed_forms": 128984,
     "lost_lexemes": 0,
-    "approved": false
+    "approved": true
   },
   "wiki": {
     "status": "published_in_preparation",
@@ -27,9 +27,10 @@
   "validation": {
     "proposal_probe_reproduced": true,
     "expanded_tags_verified_same_counts": true,
-    "application_code_changed": false,
-    "full_suite_run": false,
-    "full_suite_reason": "Planowanie, bez zmian kodu aplikacji."
+    "application_code_changed": true,
+    "full_suite_run": true,
+    "full_suite_reason": "Planowanie, bez zmian kodu aplikacji.",
+    "full_suite_result": "460 testów OK; 16 nowych testów POP00 OK."
   },
   "gate": {
     "question": "Zatwierdzić wdrożenie proponowanej polityki POP00, skorygować plan czy zachować sam plan?",
@@ -38,7 +39,17 @@
       "Skorygować reguły",
       "Tylko plan"
     ],
-    "answer": null
+    "answer": "Użytkownik: zatwierdzam — wdrożenie całego przedstawionego planu."
   },
-  "next_skill_after_implementation_approval": "maister-codex:maister-quick-dev"
+  "next_skill_after_implementation_approval": "maister-codex:maister-quick-dev",
+  "implementation": {
+    "steps": {
+      "policy": "complete",
+      "selection": "complete",
+      "package": "complete",
+      "checker": "complete",
+      "verification": "in_progress",
+      "docs_wiki": "pending"
+    }
+  }
 }

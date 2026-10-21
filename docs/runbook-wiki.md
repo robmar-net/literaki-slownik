@@ -7,7 +7,7 @@
 
 ## Key Decisions
 - **Gdzie:** wiki to osobne repozytorium `robmar-net/literaki-slownik.wiki`. Lokalnie klonujemy je obok projektu: `~/Projects/Literaki/wiki-literaki-slownik` (katalog pasuje do wzorca `/wiki-*/` w `.gitignore` workspace).
-- **Strony:** `Home`, `Slownik-BROAD`, `Slownik-STANDARD`, `Slownik-POP`, `Slownik-POP0`, `Boty-na-mniejszych-slownikach`, `Porownanie-z-SJP.pl`, `Brakujace-slowa-SJP.pl`, `Slowa-spoza-SJP.pl`, `Historia-zmian`, `_Sidebar`. Nowy rodzaj słownika dostaje nową stronę `Slownik-<NAZWA>` z tym samym układem.
+- **Strony:** `Home`, `Slownik-BROAD`, `Slownik-STANDARD`, `Slownik-POP`, `Slownik-POP0`, `Slownik-POP00`, `Boty-na-mniejszych-slownikach`, `Porownanie-z-SJP.pl`, `Brakujace-slowa-SJP.pl`, `Slowa-spoza-SJP.pl`, `Historia-zmian`, `_Sidebar`. Nowy rodzaj słownika dostaje nową stronę `Slownik-<NAZWA>` z tym samym układem.
 - **Układ strony słownika:**
   - cel w 1–2 zdaniach;
   - stan: liczba słów, wersja polityki i link do pobrania albo „jeszcze niewydany”;
@@ -63,3 +63,10 @@
 ## Open Questions / Risks
 - Wiki nie ma testów ani CI, więc zestarzeje się po cichu. Jedyną ochroną jest ta procedura w kroku, który zmienia słowniki (zob. `AGENTS.md`).
 - Repozytorium wiki istnieje dopiero po utworzeniu pierwszej strony w przeglądarce. Po jego usunięciu trzeba je odtworzyć ręcznie.
+
+## POP00
+- Źródło liczb: `counts` w manifeście pakietu oraz `reports/summary.json`, nie sonda planu.
+- Polityka: [ADR-009](adr/ADR-009-pop00-v1.md). Próg 0,1 IPM dotyczy wybranych grup form, nie wszystkich słów.
+- Przykłady sprawdzaj przez `explain --variant pop00 --pop00-dir <pakiet>`.
+- Stan BUILT i przegląd techniczny nie oznaczają empirycznej kalibracji znajomości graczy.
+- Przy gotowym pakiecie aktualizuj POP00, Home, POP0, _Sidebar i historię; odnośnik pobrania dodaj po odbiorze wydania.

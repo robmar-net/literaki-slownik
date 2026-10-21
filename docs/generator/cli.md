@@ -95,6 +95,37 @@ Build odmawia istniejącego katalogu. Aktualnie wykonuje preflight i importy; po
 
 Explain nie skraca odpowiedzi JSON: pokazuje wszystkie oryginały, pełne ID homonimów, surowe tagi i ich rozwinięcia, nazwy/kwalifikatory, źródła i pierwszy wiersz interpretacji. Duplikaty pozostają w raw tabeli; pierwszy wiersz nie jest listą wszystkich powtórzeń. Tekst zawiera powody ocen na osobnych poziomach. NFC/lower służy wyszukiwaniu; PCV nie staje się dopuszczalne przez zapytanie pcv.
 
+## POP00 (`pop00`)
+
+Metoda `pop00-v1`: [ADR-009](../adr/ADR-009-pop00-v1.md). Dziedziczy leksemy POP0 pop-v3,
+chroni zwykłą odmianę i wymaga 0,1 IPM dla wybranych grup. Nijaka pierwsza/druga osoba odpada
+jako analiza; inny zachowany homonim może zachować napis. Nie zmienia słownika stołu.
+
+```sh
+python3 -m literaki_slownik pop00 --manifest config/generator/pop00-sources.json \
+  --config config/generator/pop00.json --output-dir data/work/pop00-nowy --json
+python3 -m literaki_slownik explain --run-dir <zamrożony-przebieg> \
+  --word zrobiłem --variant pop00 --pop00-dir data/work/pop00-nowy --json
+python3 scripts/check_pop00_package.py --pop00-dir data/work/pop00-nowy \
+  --manifest config/generator/pop00-sources.json --config config/generator/pop00.json \
+  [--review <przegląd.json>]
+```
+
+Manifest przypina pakiet POP0, manifest FROZEN, bazę, STANDARD i dokładny KWJP orth/all.
+Hashe wejść są sprawdzane przed i po budowie. Cel musi być nowym katalogiem poza wejściami.
+Kod 2: argumenty/metoda/cel w wejściach; 3: brak lub niezgodny pin; 4: dane, nieznany tag,
+niepełne pokrycie, utrata leksemu albo istniejący cel; 5: przebieg nie FROZEN lub zmiana wejść.
+
+Pakiet BUILT: `POP00.txt.gz`, `method.json`, `reports/decisions.json`, `summary.json`,
+`sample.json`, `review-template.json`, manifest, sumy oraz atrybucje, warunki i ograniczenia.
+Wszystkie raporty wymienione po `decisions.json` są również w `reports/`.
+Pliki są tylko do odczytu; gzip nie ma nazwy ani czasu. BUILT nie oznacza automatycznego odbioru.
+
+Diagnostyka pokazuje IN_POP00, FORM_FILTERED albo NOT_IN_POP0, źródłowy tag, leksem,
+identyfikator analizy, grupę filtra i dowód użycia. NO_PUBLISHED_EVIDENCE nie jest częstością zero.
+Kontroler jest niezależny od buildera; odtwarza decyzje z bazy, a nie tylko sprawdza sumy.
+Przegląd musi obejmować całą próbkę, odpowiadać sumom pakietu i nie mieć nierozstrzygniętych pozycji.
+
 ## Indeks morfologii SGJP (`morph-index`)
 
 Dla serwera Literaki (#1862): forma BROAD → analizy z eksportu SGJP (lemat, tag, kwalifikatory). Uruchamiany ręcznie; wynik trafia do `lexicons/sgjpindex/` w repo serwera.

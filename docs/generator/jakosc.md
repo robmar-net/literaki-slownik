@@ -45,3 +45,13 @@ sample_persisted_analyses dobiera do30 stabilnych kluczy na rodzaj analizy (źr�
 - `pop` zapisuje `reports/sample.json` i `reports/review-template.json` (UNREVIEWED).
 - Przegląd: status `REVIEWED`, każda pozycja oceniona, hashe próbki, indeksu jednostek, dowodów i `sha256sums_sha256` (SHA256 pliku `SHA256SUMS` pakietu). Sprawdza go `scripts/check_pop_package.py --review` ([cli.md](cli.md#pop-i-pop0-pop)).
 - Przegląd wydania `pop-v1-review.json` jest assetem [Release pop-v1](https://github.com/robmar-net/literaki-slownik/releases/tag/pop-v1).
+
+## Próbki POP00 (`pop00-quality-v1`)
+
+Seed `literaki-slownik-pop00-v1`, po 30 pozycji na warstwę, ten sam algorytm SHA256.
+Warstwy rozdzielają każdą przyczynę zachowania/odrzucenia, próg 0,08–0,12 IPM,
+brak publikowanego dowodu, konstrukcje, długości i alternatywne analizy.
+Przykłady diagnostyczne zatwierdzonego planu są wyłączone z populacji niezależnej próby.
+Puste warstwy pozostają EMPTY_NOT_COVERAGE. Automatyczna próbka ma UNREVIEWED.
+`scripts/check_pop00_package.py --review` sprawdza pełną próbkę, powody z bazy i hashe przeglądu.
+Przegląd technicznej zgodności z polityką nie dowodzi rozpoznawalności przez graczy.

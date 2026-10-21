@@ -70,3 +70,14 @@ Build zapisuje reports/coverage.json: kompaktowe interpretacje i rozwinięcia we
 ## Aktualizacja v20
 
 unresolved_report dodaje word_keys_by_membership (accept/reject/unresolved) każdej reguły: wynik całego słowa po wszystkich homonimach. To współwystępowanie, nie przyczynowa delta po usunięciu reguły. Historyczne bazy zachowują własne wcześniejsze oceny.
+
+## Raporty POP00
+
+`reports/decisions.json` rozlicza każdy napis POP0: wynik, dowód KWJP i wszystkie
+interpretacje wybranych leksemów, w tym konstrukcje. Identyfikatory źródłowe są niezależne
+od technicznych ID SQLite. Przy kilku analizach jedna zachowana wystarcza do zachowania napisu.
+`reports/summary.json` pokazuje formy, straty, zachowane leksemy, długości i nakładające się grupy.
+Pokrycie ma dwa jawne mianowniki: opublikowane małoliterowe tokeny KWJP orth/all należące do POP0
+oraz wszystkie opublikowane małoliterowe tokeny tej listy. Nie jest miarą znajomości ani grywalności.
+Nieobecność w KWJP ma NO_PUBLISHED_EVIDENCE, bez imputacji zera. Brak analizy albo utrata
+całego leksemu jest błędem budowy. Szczegóły polityki: [ADR-009](../adr/ADR-009-pop00-v1.md).

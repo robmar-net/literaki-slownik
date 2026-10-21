@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "version": "pop00-sources-v1",
+  "inputs": {
+    "base_pop": {
+      "path": "../../data/work/pop-v3-20261014-022011-a/release-manifest.json",
+      "sha256": "4acb70140af75fd2b9d8ca42b66bf4a8674a3b17048067aa3d8ded69db781d58"
+    },
+    "base_run": {
+      "path": "../../data/work/lists-v31-20261012-162111-a/manifest.json",
+      "sha256": "30db124dd803a55f211a988e178299f3088571bf3b9c82d7856212b63a6b6cb8"
+    },
+    "database": {
+      "path": "../../data/work/lists-v31-20261012-162111-a/build.sqlite",
+      "sha256": "4b0d17c6e75139042cf18d6ea9a24650d4e7906b999d3a0ce9331de2ecb27a45"
+    },
+    "standard": {
+      "path": "../../data/work/lists-v31-20261012-162111-a/lists/standard.txt",
+      "sha256": "dab4f3bc93bf7d02465c9f559c1bdaad2411e7176b41eacf85004312c839fa7d"
+    },
+    "orth": {
+      "path": "../../cache/kwjp/kwjp100-slowa-orth-all.csv.gz",
+      "sha256": "95e27d103250f23533bf5b87accf846fb489d2b5ea3914950857163a22ae4a5a"
+    }
+  }
+}
