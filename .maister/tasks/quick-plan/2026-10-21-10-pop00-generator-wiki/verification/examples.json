@@ -1,0 +1,251 @@
+{
+  "zrobiłem": {
+    "analyses": [
+      {
+        "groups": [
+          "ordinary"
+        ],
+        "id": "source:fa4dc6b864d33ad2f2b8c2ba5bc0d2817320102b3e711ffeba693663d0ed8387",
+        "kept": true,
+        "member": "zrobić@sgjp-20260823",
+        "rule": null,
+        "tag": "praet:sg:m1.m2.m3:pri:perf"
+      }
+    ],
+    "evidence": {
+      "ipm": null,
+      "status": "NO_PUBLISHED_EVIDENCE"
+    },
+    "kept": true
+  },
+  "byłam": {
+    "analyses": [
+      {
+        "groups": [
+          "ordinary"
+        ],
+        "id": "source:4b4d98a477fcd2397c3d6a8f7328bd67447fc60f6e02f3b51ce4ba9d7f92a693",
+        "kept": true,
+        "member": "być@sgjp-20260823",
+        "rule": null,
+        "tag": "praet:sg:f:pri:imperf"
+      }
+    ],
+    "evidence": {
+      "ipm": null,
+      "status": "NO_PUBLISHED_EVIDENCE"
+    },
+    "kept": true
+  },
+  "kotach": {
+    "analyses": [
+      {
+        "groups": [
+          "ordinary"
+        ],
+        "id": "source:b51b153c5ff4a059ea6c48729c419cbadb3b4616905ddc0c882ef4fe19c543b7",
+        "kept": true,
+        "member": "kot:Sm1@sgjp-20260823",
+        "rule": null,
+        "tag": "subst:pl:loc:m1"
+      },
+      {
+        "groups": [
+          "ordinary"
+        ],
+        "id": "source:d6196673c8e73f5ce18855d44831617540467215fa2a65f12798a681523c1bb9",
+        "kept": true,
+        "member": "kot:Sm2@sgjp-20260823",
+        "rule": null,
+        "tag": "subst:pl:loc:m2"
+      }
+    ],
+    "evidence": {
+      "ipm": "0.86",
+      "status": "OBSERVED"
+    },
+    "kept": true
+  },
+  "czytajcie": {
+    "analyses": [
+      {
+        "groups": [
+          "ordinary"
+        ],
+        "id": "source:6d1c698e4da6c862db1e383feecbbf70cb43ffdf5355f8d6dfca54bc83ff2771",
+        "kept": true,
+        "member": "czytać@sgjp-20260823",
+        "rule": null,
+        "tag": "impt:pl:sec:imperf"
+      }
+    ],
+    "evidence": {
+      "ipm": "0.37",
+      "status": "OBSERVED"
+    },
+    "kept": true
+  },
+  "bym": {
+    "analyses": [
+      {
+        "groups": [
+          "ordinary"
+        ],
+        "id": "construction:3a73a1588fe25617c825336a7a707ea2950b779cca076c635cc14958d4a8c921",
+        "kept": true,
+        "member": "by:M@sgjp-20260823",
+        "rule": "by-aglt-nwok-v1",
+        "tag": "aglt:sg:pri:imperf:nwok"
+      },
+      {
+        "groups": [
+          "ordinary"
+        ],
+        "id": "construction:bb504a3e07bfaef4b5c005123dbdcbfc7afbac1ddd5d93f9773f5058dad4821d",
+        "kept": true,
+        "member": "by:T@sgjp-20260823",
+        "rule": "by-aglt-nwok-v1",
+        "tag": "aglt:sg:pri:imperf:nwok"
+      }
+    ],
+    "evidence": {
+      "ipm": null,
+      "status": "NO_PUBLISHED_EVIDENCE"
+    },
+    "kept": true
+  },
+  "czytany": {
+    "analyses": [
+      {
+        "groups": [
+          "ppas"
+        ],
+        "id": "source:528cb4a20ea734eaaa03836b6f2f83da61b56679ef30092b80c90f808c919d7f",
+        "kept": true,
+        "member": "czytać@sgjp-20260823",
+        "rule": null,
+        "tag": "ppas:sg:acc:m3:imperf:aff"
+      },
+      {
+        "groups": [
+          "ppas"
+        ],
+        "id": "source:ac308ec3e82ad61d065ffb79d8137656dd4a8552ceaf2227b346e89ca76aa252",
+        "kept": true,
+        "member": "czytać@sgjp-20260823",
+        "rule": null,
+        "tag": "ppas:sg:nom.voc:m1.m2.m3:imperf:aff"
+      }
+    ],
+    "evidence": {
+      "ipm": "1.36",
+      "status": "OBSERVED"
+    },
+    "kept": true
+  },
+  "czytanymi": {
+    "analyses": [
+      {
+        "groups": [
+          "ppas"
+        ],
+        "id": "source:ea90a7d0b15820844b3701cef20b47e3ec48550371a4fefeb259b2744afa3f49",
+        "kept": false,
+        "member": "czytać@sgjp-20260823",
+        "rule": null,
+        "tag": "ppas:pl:inst:m1.m2.m3.f.n:imperf:aff"
+      }
+    ],
+    "evidence": {
+      "ipm": "0.09",
+      "status": "OBSERVED"
+    },
+    "kept": false
+  },
+  "remontowałoś": {
+    "analyses": [
+      {
+        "groups": [
+          "neuter-person-1-2"
+        ],
+        "id": "source:592df79aad7257586e0fd1f8410394268f3036ef959ad2cb59181a869d0cb844",
+        "kept": false,
+        "member": "remontować@sgjp-20260823",
+        "rule": null,
+        "tag": "praet:sg:n:sec:imperf"
+      }
+    ],
+    "evidence": {
+      "ipm": null,
+      "status": "NO_PUBLISHED_EVIDENCE"
+    },
+    "kept": false
+  },
+  "przeczytałobym": {
+    "analyses": [
+      {
+        "groups": [
+          "neuter-person-1-2"
+        ],
+        "id": "source:30c10bc64e76507f79d4cd88df34c0e8ea136debe93438d31033b4ddb3d05665",
+        "kept": false,
+        "member": "przeczytać@sgjp-20260823",
+        "rule": null,
+        "tag": "cond:sg:n:pri:perf"
+      }
+    ],
+    "evidence": {
+      "ipm": null,
+      "status": "NO_PUBLISHED_EVIDENCE"
+    },
+    "kept": false
+  },
+  "najmilszemu": {
+    "analyses": [
+      {
+        "groups": [
+          "degree-com-sup"
+        ],
+        "id": "source:5b580ce58c71dc57a4a0f5135003c87f0fe62add18eba56298a8df6b3486e5fb",
+        "kept": false,
+        "member": "miły:A@sgjp-20260823",
+        "rule": null,
+        "tag": "adj:sg:dat:m1.m2.m3.n:sup"
+      }
+    ],
+    "evidence": {
+      "ipm": null,
+      "status": "NO_PUBLISHED_EVIDENCE"
+    },
+    "kept": false
+  },
+  "niezadowoleniom": {
+    "analyses": [
+      {
+        "groups": [
+          "ordinary"
+        ],
+        "id": "source:55392dcc6cd33c8d373bef7e633a69d5ef289fdc5b58749cffa6402af45e1180",
+        "kept": true,
+        "member": "niezadowolenie@sgjp-20260823",
+        "rule": null,
+        "tag": "subst:pl:dat:n:ncol"
+      },
+      {
+        "groups": [
+          "negative-gerund"
+        ],
+        "id": "source:bacd767435b93000154fa37835b19fa96272f33334bffaf6e13d0907f7fc14d5",
+        "kept": false,
+        "member": "zadowolić@sgjp-20260823",
+        "rule": null,
+        "tag": "ger:pl:dat:n:perf:neg"
+      }
+    ],
+    "evidence": {
+      "ipm": null,
+      "status": "NO_PUBLISHED_EVIDENCE"
+    },
+    "kept": true
+  }
+}

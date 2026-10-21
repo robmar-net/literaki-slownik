@@ -176,7 +176,9 @@ def check_inputs(path):
         raise GeneratorError('Orth/all spoza przypiętego przebiegu', 3)
     return {'paths': paths, 'pins': pins, 'source_sha256': sha256(path),
             'pop0': pop0, 'standard': standard, 'members': members,
-            'orth': read_orth(paths['orth']), 'attribution': attribution.read_text(encoding='utf-8')}
+            'orth': read_orth(paths['orth']), 'attribution': attribution.read_text(encoding='utf-8'),
+            'base_files': {root/name: pop['files'][name]['sha256'] for name in
+                           ('POP0.txt.gz', 'reports/units.json', 'ATTRIBUTIONS.md')}}
 
 
 def read_analyses(database, pop0, members):
@@ -327,7 +329,8 @@ def _write_package(staging, data, config, config_sha, result, decisions):
 
 
 def confirm_unchanged(data):
-    if any(sha256(data['paths'][k]) != data['pins'][k] for k in INPUTS):
+    if (any(sha256(data['paths'][k]) != data['pins'][k] for k in INPUTS)
+            or any(sha256(p) != expected for p,expected in data['base_files'].items())):
         raise GeneratorError('Wejścia POP00 zmieniły się podczas operacji', 5)
 
 

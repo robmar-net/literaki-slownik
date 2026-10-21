@@ -291,6 +291,9 @@ def check(root, source_path, config_path, review_path=None):
     check_sample(root,rows,config,review_path)
     require(all(digest(p)==pins[k] for k,p in paths.items()) and digest(source_path)==manifest['source_manifest_sha256']
             and digest(config_path)==manifest['config_sha256'],'Wejścia zmieniły się podczas kontroli')
+    require(all(digest(paths['base_pop'].parent/name)==pop['files'][name]['sha256']
+                for name in ('POP0.txt.gz','reports/units.json','ATTRIBUTIONS.md')),
+            'Pliki bazowego POP0 zmieniły się podczas kontroli')
     files(root,manifest)
     return {'status':'pass',**manifest['counts'],'review_checked':review_path is not None}
 

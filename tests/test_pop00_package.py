@@ -6,7 +6,7 @@ import unittest
 from unittest.mock import patch
 from literaki_slownik.canonical import sha256, load_json
 from literaki_slownik.inputs import GeneratorError
-from literaki_slownik.pop00 import build_package, check_inputs, load_config, read_orth
+from literaki_slownik.pop00 import build_package, check_inputs, confirm_unchanged, load_config, read_orth
 from tests.pop00_helpers import fixture, cleanup, rewrite
 
 
@@ -64,3 +64,12 @@ class Pop00PackageTests(unittest.TestCase):
             p=self.root/'bad.gz'
             with gzip.open(p,'wt') as f:f.write(',freq,ipm\nkot,5,'+value+'\n')
             with self.assertRaises(GeneratorError):read_orth(p)
+
+    def test_base_package_changed_without_manifest_change_is_detected(self):
+        data=check_inputs(self.f['manifest'])
+        p=self.f['pop']/'reports/units.json'
+        before=sha256(self.f['pop']/'release-manifest.json')
+        rewrite(p,{'units':[]})
+        self.assertEqual(before,sha256(self.f['pop']/'release-manifest.json'))
+        with self.assertRaises(GeneratorError) as err:confirm_unchanged(data)
+        self.assertEqual(err.exception.code,5)
