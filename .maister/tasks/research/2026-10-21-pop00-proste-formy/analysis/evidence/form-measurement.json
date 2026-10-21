@@ -1,0 +1,1373 @@
+{
+  "method": "Bez normalizacji poza wejściowym zapisem POP0; dokładny małoliterowy zapis orth. Brak wiersza nie jest zerową częstością językową. Progi odnoszą się do opublikowanego IPM z 2 miejscami.",
+  "inputs": {
+    "tmp/release-pop-v3/POP0.txt.gz": "34be65fa6db34e98c8029a3fba716a23995250fc94fea5b8ab911a8802b22df4",
+    "cache/kwjp/kwjp100-slowa-orth-all.csv.gz": "95e27d103250f23533bf5b87accf846fb489d2b5ea3914950857163a22ae4a5a",
+    "cache/kwjp/kwjp100-slowa-orth-fikcja.csv.gz": "4f88136ffc9beca8917538726cc00f7688945389a787f09bc746e6bcf7423b8d",
+    "cache/kwjp/kwjp100-slowa-orth_lc-all.csv.gz": "20f71004b99ba9ebb158e68360aa88c627aa2e0f4ce43e18979187b0a2fa3949"
+  },
+  "counts": {
+    "pop0": 388763,
+    "observed_exact": 138981,
+    "missing_exact": 249782,
+    "observed_casefold": 141400
+  },
+  "variants": {
+    "POP0": {
+      "forms": 388763,
+      "share_pop0_pct": 100.0,
+      "mass_within_observed_pop0_pct": 100.0,
+      "mass_published_lowercase_orth_pct": 85.43059458819123,
+      "lengths": {
+        "2": 63,
+        "3": 613,
+        "4": 2705,
+        "5": 7752,
+        "6": 15345,
+        "7": 25777,
+        "8": 36275,
+        "9": 46207,
+        "10": 51583,
+        "11": 52345,
+        "12": 48739,
+        "13": 41986,
+        "14": 34066,
+        "15": 25307
+      }
+    },
+    "observed": {
+      "forms": 138981,
+      "share_pop0_pct": 35.74954406669359,
+      "mass_within_observed_pop0_pct": 100.0,
+      "mass_published_lowercase_orth_pct": 85.43059458819123,
+      "lengths": {
+        "2": 62,
+        "3": 530,
+        "4": 2329,
+        "5": 6062,
+        "6": 10978,
+        "7": 16464,
+        "8": 20155,
+        "9": 21633,
+        "10": 19363,
+        "11": 15905,
+        "12": 11493,
+        "13": 7451,
+        "14": 4193,
+        "15": 2363
+      }
+    },
+    "ipm_0.1": {
+      "forms": 125769,
+      "share_pop0_pct": 32.35107250432783,
+      "mass_within_observed_pop0_pct": 99.86966924601965,
+      "mass_published_lowercase_orth_pct": 85.31925225013454,
+      "lengths": {
+        "2": 62,
+        "3": 510,
+        "4": 2257,
+        "5": 5809,
+        "6": 10421,
+        "7": 15381,
+        "8": 18605,
+        "9": 19605,
+        "10": 17270,
+        "11": 14031,
+        "12": 9953,
+        "13": 6380,
+        "14": 3543,
+        "15": 1942
+      }
+    },
+    "ipm_0.5": {
+      "forms": 75278,
+      "share_pop0_pct": 19.36346823128744,
+      "mass_within_observed_pop0_pct": 98.17218068371044,
+      "mass_published_lowercase_orth_pct": 83.86907767828724,
+      "lengths": {
+        "2": 61,
+        "3": 452,
+        "4": 1876,
+        "5": 4634,
+        "6": 7707,
+        "7": 10596,
+        "8": 11635,
+        "9": 11388,
+        "10": 9523,
+        "11": 7193,
+        "12": 4939,
+        "13": 2912,
+        "14": 1534,
+        "15": 828
+      }
+    },
+    "ipm_1": {
+      "forms": 53443,
+      "share_pop0_pct": 13.74693579378696,
+      "mass_within_observed_pop0_pct": 96.04925622369063,
+      "mass_published_lowercase_orth_pct": 82.05545068943417,
+      "lengths": {
+        "2": 59,
+        "3": 395,
+        "4": 1597,
+        "5": 3845,
+        "6": 6133,
+        "7": 8033,
+        "8": 8384,
+        "9": 7873,
+        "10": 6266,
+        "11": 4608,
+        "12": 3125,
+        "13": 1738,
+        "14": 910,
+        "15": 477
+      }
+    },
+    "ipm_2": {
+      "forms": 34101,
+      "share_pop0_pct": 8.771668085697456,
+      "mass_within_observed_pop0_pct": 92.32764456216728,
+      "mass_published_lowercase_orth_pct": 78.87605571873131,
+      "lengths": {
+        "2": 58,
+        "3": 333,
+        "4": 1241,
+        "5": 2906,
+        "6": 4378,
+        "7": 5424,
+        "8": 5378,
+        "9": 4790,
+        "10": 3665,
+        "11": 2629,
+        "12": 1676,
+        "13": 931,
+        "14": 468,
+        "15": 224
+      }
+    },
+    "ipm_5": {
+      "forms": 16586,
+      "share_pop0_pct": 4.266352507826105,
+      "mass_within_observed_pop0_pct": 84.8882209695573,
+      "mass_published_lowercase_orth_pct": 72.52051190963043,
+      "lengths": {
+        "2": 53,
+        "3": 238,
+        "4": 839,
+        "5": 1774,
+        "6": 2522,
+        "7": 2801,
+        "8": 2566,
+        "9": 2059,
+        "10": 1515,
+        "11": 1067,
+        "12": 610,
+        "13": 314,
+        "14": 151,
+        "15": 77
+      }
+    },
+    "all_or_fiction_ipm_1": {
+      "forms": 59954,
+      "share_pop0_pct": 15.421735093102996,
+      "mass_within_observed_pop0_pct": 96.68919276317067,
+      "mass_published_lowercase_orth_pct": 82.60215228009906,
+      "lengths": {
+        "2": 61,
+        "3": 424,
+        "4": 1757,
+        "5": 4277,
+        "6": 6930,
+        "7": 9082,
+        "8": 9563,
+        "9": 8898,
+        "10": 7048,
+        "11": 5100,
+        "12": 3430,
+        "13": 1910,
+        "14": 978,
+        "15": 496
+      }
+    }
+  },
+  "examples": {
+    "kot": {
+      "pop0": true,
+      "all": {
+        "freq": 1399.0,
+        "ipm": 17.26,
+        "ARF": 580.16,
+        "DP": 0.69923,
+        "DP_norm": 0.69932,
+        "1-DP": 0.30077,
+        "total_freq": 1399.0
+      },
+      "fiction": {
+        "freq": 695.0,
+        "ipm": 29.01,
+        "ARF": 321.09,
+        "DP": 0.48219,
+        "DP_norm": 0.48362,
+        "1-DP": 0.51781,
+        "total_freq": 1399.0
+      },
+      "casefold_ipm": 31.83
+    },
+    "kota": {
+      "pop0": true,
+      "all": {
+        "freq": 1505.0,
+        "ipm": 18.57,
+        "ARF": 618.97,
+        "DP": 0.70014,
+        "DP_norm": 0.70023,
+        "1-DP": 0.29986,
+        "total_freq": 1505.0
+      },
+      "fiction": {
+        "freq": 677.0,
+        "ipm": 28.26,
+        "ARF": 285.87,
+        "DP": 0.52581,
+        "DP_norm": 0.52737,
+        "1-DP": 0.47419,
+        "total_freq": 1505.0
+      },
+      "casefold_ipm": 23.35
+    },
+    "kotem": {
+      "pop0": true,
+      "all": {
+        "freq": 364.0,
+        "ipm": 4.49,
+        "ARF": 184.8,
+        "DP": 0.86244,
+        "DP_norm": 0.86255,
+        "1-DP": 0.13756,
+        "total_freq": 364.0
+      },
+      "fiction": {
+        "freq": 154.0,
+        "ipm": 6.43,
+        "ARF": 70.13,
+        "DP": 0.74292,
+        "DP_norm": 0.74512,
+        "1-DP": 0.25708,
+        "total_freq": 364.0
+      },
+      "casefold_ipm": 5.01
+    },
+    "kotu": {
+      "pop0": true,
+      "all": {
+        "freq": 101.0,
+        "ipm": 1.25,
+        "ARF": 55.75,
+        "DP": 0.9498,
+        "DP_norm": 0.94993,
+        "1-DP": 0.0502,
+        "total_freq": 101.0
+      },
+      "fiction": {
+        "freq": 44.0,
+        "ipm": 1.84,
+        "ARF": 23.42,
+        "DP": 0.88818,
+        "DP_norm": 0.89081,
+        "1-DP": 0.11182,
+        "total_freq": 101.0
+      },
+      "casefold_ipm": 1.3
+    },
+    "kotami": {
+      "pop0": true,
+      "all": {
+        "freq": 172.0,
+        "ipm": 2.12,
+        "ARF": 96.34,
+        "DP": 0.92859,
+        "DP_norm": 0.92871,
+        "1-DP": 0.07141,
+        "total_freq": 172.0
+      },
+      "fiction": {
+        "freq": 57.0,
+        "ipm": 2.38,
+        "ARF": 34.82,
+        "DP": 0.87565,
+        "DP_norm": 0.87824,
+        "1-DP": 0.12435,
+        "total_freq": 172.0
+      },
+      "casefold_ipm": 2.15
+    },
+    "kotach": {
+      "pop0": true,
+      "all": {
+        "freq": 70.0,
+        "ipm": 0.86,
+        "ARF": 41.07,
+        "DP": 0.95968,
+        "DP_norm": 0.95981,
+        "1-DP": 0.04032,
+        "total_freq": 70.0
+      },
+      "fiction": {
+        "freq": 35.0,
+        "ipm": 1.46,
+        "ARF": 16.68,
+        "DP": 0.92486,
+        "DP_norm": 0.9276,
+        "1-DP": 0.07514,
+        "total_freq": 70.0
+      },
+      "casefold_ipm": 0.89
+    },
+    "kocie": {
+      "pop0": true,
+      "all": {
+        "freq": 254.0,
+        "ipm": 3.13,
+        "ARF": 136.73,
+        "DP": 0.88774,
+        "DP_norm": 0.88786,
+        "1-DP": 0.11226,
+        "total_freq": 254.0
+      },
+      "fiction": {
+        "freq": 127.0,
+        "ipm": 5.3,
+        "ARF": 60.01,
+        "DP": 0.75958,
+        "DP_norm": 0.76183,
+        "1-DP": 0.24042,
+        "total_freq": 254.0
+      },
+      "casefold_ipm": 4.22
+    },
+    "pies": {
+      "pop0": true,
+      "all": {
+        "freq": 3591.0,
+        "ipm": 44.31,
+        "ARF": 1371.28,
+        "DP": 0.60882,
+        "DP_norm": 0.6089,
+        "1-DP": 0.39118,
+        "total_freq": 3591.0
+      },
+      "fiction": {
+        "freq": 1551.0,
+        "ipm": 64.74,
+        "ARF": 712.09,
+        "DP": 0.39201,
+        "DP_norm": 0.39317,
+        "1-DP": 0.60799,
+        "total_freq": 3591.0
+      },
+      "casefold_ipm": 54.34
+    },
+    "psa": {
+      "pop0": true,
+      "all": {
+        "freq": 4016.0,
+        "ipm": 49.55,
+        "ARF": 1365.08,
+        "DP": 0.6469,
+        "DP_norm": 0.64699,
+        "1-DP": 0.3531,
+        "total_freq": 4016.0
+      },
+      "fiction": {
+        "freq": 1544.0,
+        "ipm": 64.45,
+        "ARF": 669.55,
+        "DP": 0.43276,
+        "DP_norm": 0.43404,
+        "1-DP": 0.56724,
+        "total_freq": 4016.0
+      },
+      "casefold_ipm": 51.99
+    },
+    "psie": {
+      "pop0": true,
+      "all": {
+        "freq": 466.0,
+        "ipm": 5.75,
+        "ARF": 228.29,
+        "DP": 0.80693,
+        "DP_norm": 0.80704,
+        "1-DP": 0.19307,
+        "total_freq": 466.0
+      },
+      "fiction": {
+        "freq": 213.0,
+        "ipm": 8.89,
+        "ARF": 112.58,
+        "DP": 0.61334,
+        "DP_norm": 0.61515,
+        "1-DP": 0.38666,
+        "total_freq": 466.0
+      },
+      "casefold_ipm": 6.54
+    },
+    "psami": {
+      "pop0": true,
+      "all": {
+        "freq": 634.0,
+        "ipm": 7.82,
+        "ARF": 286.97,
+        "DP": 0.80278,
+        "DP_norm": 0.80289,
+        "1-DP": 0.19722,
+        "total_freq": 634.0
+      },
+      "fiction": {
+        "freq": 235.0,
+        "ipm": 9.81,
+        "ARF": 106.96,
+        "DP": 0.65241,
+        "DP_norm": 0.65434,
+        "1-DP": 0.34759,
+        "total_freq": 634.0
+      },
+      "casefold_ipm": 7.88
+    },
+    "dom": {
+      "pop0": true,
+      "all": {
+        "freq": 11013.0,
+        "ipm": 135.89,
+        "ARF": 4955.37,
+        "DP": 0.43385,
+        "DP_norm": 0.43391,
+        "1-DP": 0.56615,
+        "total_freq": 11013.0
+      },
+      "fiction": {
+        "freq": 4595.0,
+        "ipm": 191.8,
+        "ARF": 2254.14,
+        "DP": 0.28009,
+        "DP_norm": 0.28092,
+        "1-DP": 0.71991,
+        "total_freq": 11013.0
+      },
+      "casefold_ipm": 174.01
+    },
+    "domu": {
+      "pop0": true,
+      "all": {
+        "freq": 48838.0,
+        "ipm": 602.62,
+        "ARF": 22081.86,
+        "DP": 0.36276,
+        "DP_norm": 0.36281,
+        "1-DP": 0.63724,
+        "total_freq": 48838.0
+      },
+      "fiction": {
+        "freq": 22669.0,
+        "ipm": 946.25,
+        "ARF": 11557.36,
+        "DP": 0.23193,
+        "DP_norm": 0.23262,
+        "1-DP": 0.76807,
+        "total_freq": 48838.0
+      },
+      "casefold_ipm": 632.4
+    },
+    "domem": {
+      "pop0": true,
+      "all": {
+        "freq": 3309.0,
+        "ipm": 40.83,
+        "ARF": 1682.48,
+        "DP": 0.49862,
+        "DP_norm": 0.49869,
+        "1-DP": 0.50138,
+        "total_freq": 3309.0
+      },
+      "fiction": {
+        "freq": 1502.0,
+        "ipm": 62.7,
+        "ARF": 801.64,
+        "DP": 0.32,
+        "DP_norm": 0.32095,
+        "1-DP": 0.68,
+        "total_freq": 3309.0
+      },
+      "casefold_ipm": 42.83
+    },
+    "domami": {
+      "pop0": true,
+      "all": {
+        "freq": 421.0,
+        "ipm": 5.19,
+        "ARF": 229.21,
+        "DP": 0.81024,
+        "DP_norm": 0.81035,
+        "1-DP": 0.18976,
+        "total_freq": 421.0
+      },
+      "fiction": {
+        "freq": 133.0,
+        "ipm": 5.55,
+        "ARF": 75.46,
+        "DP": 0.69439,
+        "DP_norm": 0.69644,
+        "1-DP": 0.30561,
+        "total_freq": 421.0
+      },
+      "casefold_ipm": 5.26
+    },
+    "kobieta": {
+      "pop0": true,
+      "all": {
+        "freq": 13636.0,
+        "ipm": 168.26,
+        "ARF": 6228.79,
+        "DP": 0.44196,
+        "DP_norm": 0.44202,
+        "1-DP": 0.55804,
+        "total_freq": 13636.0
+      },
+      "fiction": {
+        "freq": 5797.0,
+        "ipm": 241.98,
+        "ARF": 2960.95,
+        "DP": 0.24729,
+        "DP_norm": 0.24802,
+        "1-DP": 0.75271,
+        "total_freq": 13636.0
+      },
+      "casefold_ipm": 224.95
+    },
+    "kobieto": {
+      "pop0": true,
+      "all": {
+        "freq": 196.0,
+        "ipm": 2.42,
+        "ARF": 94.98,
+        "DP": 0.88679,
+        "DP_norm": 0.88691,
+        "1-DP": 0.11321,
+        "total_freq": 196.0
+      },
+      "fiction": {
+        "freq": 169.0,
+        "ipm": 7.05,
+        "ARF": 83.9,
+        "DP": 0.6931,
+        "DP_norm": 0.69515,
+        "1-DP": 0.3069,
+        "total_freq": 196.0
+      },
+      "casefold_ipm": 3.33
+    },
+    "kobiecie": {
+      "pop0": true,
+      "all": {
+        "freq": 1934.0,
+        "ipm": 23.86,
+        "ARF": 968.03,
+        "DP": 0.58236,
+        "DP_norm": 0.58244,
+        "1-DP": 0.41764,
+        "total_freq": 1934.0
+      },
+      "fiction": {
+        "freq": 850.0,
+        "ipm": 35.48,
+        "ARF": 453.34,
+        "DP": 0.37103,
+        "DP_norm": 0.37213,
+        "1-DP": 0.62897,
+        "total_freq": 1934.0
+      },
+      "casefold_ipm": 25.25
+    },
+    "książka": {
+      "pop0": true,
+      "all": {
+        "freq": 4281.0,
+        "ipm": 52.82,
+        "ARF": 1923.76,
+        "DP": 0.53918,
+        "DP_norm": 0.53925,
+        "1-DP": 0.46082,
+        "total_freq": 4281.0
+      },
+      "fiction": {
+        "freq": 927.0,
+        "ipm": 38.69,
+        "ARF": 388.07,
+        "DP": 0.5622,
+        "DP_norm": 0.56386,
+        "1-DP": 0.4378,
+        "total_freq": 4281.0
+      },
+      "casefold_ipm": 70.29
+    },
+    "książką": {
+      "pop0": true,
+      "all": {
+        "freq": 1167.0,
+        "ipm": 14.4,
+        "ARF": 604.0,
+        "DP": 0.63153,
+        "DP_norm": 0.63161,
+        "1-DP": 0.36847,
+        "total_freq": 1167.0
+      },
+      "fiction": {
+        "freq": 377.0,
+        "ipm": 15.74,
+        "ARF": 195.26,
+        "DP": 0.53279,
+        "DP_norm": 0.53437,
+        "1-DP": 0.46721,
+        "total_freq": 1167.0
+      },
+      "casefold_ipm": 14.49
+    },
+    "książkami": {
+      "pop0": true,
+      "all": {
+        "freq": 859.0,
+        "ipm": 10.6,
+        "ARF": 448.97,
+        "DP": 0.67198,
+        "DP_norm": 0.67207,
+        "1-DP": 0.32802,
+        "total_freq": 859.0
+      },
+      "fiction": {
+        "freq": 436.0,
+        "ipm": 18.2,
+        "ARF": 226.5,
+        "DP": 0.47449,
+        "DP_norm": 0.47589,
+        "1-DP": 0.52551,
+        "total_freq": 859.0
+      },
+      "casefold_ipm": 10.61
+    },
+    "czytam": {
+      "pop0": true,
+      "all": {
+        "freq": 1229.0,
+        "ipm": 15.16,
+        "ARF": 545.19,
+        "DP": 0.70073,
+        "DP_norm": 0.70082,
+        "1-DP": 0.29927,
+        "total_freq": 1229.0
+      },
+      "fiction": {
+        "freq": 328.0,
+        "ipm": 13.69,
+        "ARF": 142.43,
+        "DP": 0.66007,
+        "DP_norm": 0.66202,
+        "1-DP": 0.33993,
+        "total_freq": 1229.0
+      },
+      "casefold_ipm": 20.84
+    },
+    "czytasz": {
+      "pop0": true,
+      "all": {
+        "freq": 211.0,
+        "ipm": 2.6,
+        "ARF": 115.03,
+        "DP": 0.87241,
+        "DP_norm": 0.87253,
+        "1-DP": 0.12759,
+        "total_freq": 211.0
+      },
+      "fiction": {
+        "freq": 123.0,
+        "ipm": 5.13,
+        "ARF": 66.69,
+        "DP": 0.71532,
+        "DP_norm": 0.71744,
+        "1-DP": 0.28468,
+        "total_freq": 211.0
+      },
+      "casefold_ipm": 3.11
+    },
+    "czyta": {
+      "pop0": true,
+      "all": {
+        "freq": 2190.0,
+        "ipm": 27.02,
+        "ARF": 1054.07,
+        "DP": 0.58374,
+        "DP_norm": 0.58382,
+        "1-DP": 0.41626,
+        "total_freq": 2190.0
+      },
+      "fiction": {
+        "freq": 708.0,
+        "ipm": 29.55,
+        "ARF": 358.7,
+        "DP": 0.49614,
+        "DP_norm": 0.49761,
+        "1-DP": 0.50386,
+        "total_freq": 2190.0
+      },
+      "casefold_ipm": 29.45
+    },
+    "czytaj": {
+      "pop0": true,
+      "all": {
+        "freq": 442.0,
+        "ipm": 5.45,
+        "ARF": 252.5,
+        "DP": 0.81935,
+        "DP_norm": 0.81946,
+        "1-DP": 0.18065,
+        "total_freq": 442.0
+      },
+      "fiction": {
+        "freq": 95.0,
+        "ipm": 3.97,
+        "ARF": 52.23,
+        "DP": 0.7745,
+        "DP_norm": 0.77679,
+        "1-DP": 0.2255,
+        "total_freq": 442.0
+      },
+      "casefold_ipm": 9.42
+    },
+    "czytajcie": {
+      "pop0": true,
+      "all": {
+        "freq": 30.0,
+        "ipm": 0.37,
+        "ARF": 16.8,
+        "DP": 0.98274,
+        "DP_norm": 0.98287,
+        "1-DP": 0.01726,
+        "total_freq": 30.0
+      },
+      "fiction": {
+        "freq": 10.0,
+        "ipm": 0.42,
+        "ARF": 4.87,
+        "DP": 0.97334,
+        "DP_norm": 0.97622,
+        "1-DP": 0.02666,
+        "total_freq": 30.0
+      },
+      "casefold_ipm": 0.52
+    },
+    "czytając": {
+      "pop0": true,
+      "all": {
+        "freq": 749.0,
+        "ipm": 9.24,
+        "ARF": 425.3,
+        "DP": 0.66161,
+        "DP_norm": 0.6617,
+        "1-DP": 0.33839,
+        "total_freq": 749.0
+      },
+      "fiction": {
+        "freq": 280.0,
+        "ipm": 11.69,
+        "ARF": 166.42,
+        "DP": 0.49298,
+        "DP_norm": 0.49444,
+        "1-DP": 0.50702,
+        "total_freq": 749.0
+      },
+      "casefold_ipm": 14.72
+    },
+    "czytawszy": {
+      "pop0": false,
+      "all": null,
+      "fiction": null,
+      "casefold_ipm": null
+    },
+    "zrobił": {
+      "pop0": true,
+      "all": {
+        "freq": 10752.0,
+        "ipm": 132.67,
+        "ARF": 5420.32,
+        "DP": 0.39083,
+        "DP_norm": 0.39088,
+        "1-DP": 0.60917,
+        "total_freq": 10752.0
+      },
+      "fiction": {
+        "freq": 5990.0,
+        "ipm": 250.03,
+        "ARF": 3303.27,
+        "DP": 0.22269,
+        "DP_norm": 0.22335,
+        "1-DP": 0.77731,
+        "total_freq": 10752.0
+      },
+      "casefold_ipm": 150.14
+    },
+    "zrobiłem": {
+      "pop0": true,
+      "all": null,
+      "fiction": null,
+      "casefold_ipm": null
+    },
+    "zrobiłam": {
+      "pop0": true,
+      "all": null,
+      "fiction": null,
+      "casefold_ipm": null
+    },
+    "zrobiliśmy": {
+      "pop0": true,
+      "all": null,
+      "fiction": null,
+      "casefold_ipm": null
+    },
+    "zrobiłbym": {
+      "pop0": true,
+      "all": null,
+      "fiction": null,
+      "casefold_ipm": null
+    },
+    "zrobiłabym": {
+      "pop0": true,
+      "all": null,
+      "fiction": null,
+      "casefold_ipm": null
+    },
+    "zrobiłbyś": {
+      "pop0": true,
+      "all": null,
+      "fiction": null,
+      "casefold_ipm": null
+    },
+    "jestem": {
+      "pop0": true,
+      "all": {
+        "freq": 28921.0,
+        "ipm": 356.86,
+        "ARF": 13097.57,
+        "DP": 0.38641,
+        "DP_norm": 0.38646,
+        "1-DP": 0.61359,
+        "total_freq": 28921.0
+      },
+      "fiction": {
+        "freq": 14498.0,
+        "ipm": 605.18,
+        "ARF": 7458.23,
+        "DP": 0.25487,
+        "DP_norm": 0.25562,
+        "1-DP": 0.74513,
+        "total_freq": 28921.0
+      },
+      "casefold_ipm": 491.01
+    },
+    "jesteś": {
+      "pop0": true,
+      "all": {
+        "freq": 11786.0,
+        "ipm": 145.43,
+        "ARF": 4791.78,
+        "DP": 0.50267,
+        "DP_norm": 0.50274,
+        "1-DP": 0.49733,
+        "total_freq": 11786.0
+      },
+      "fiction": {
+        "freq": 7769.0,
+        "ipm": 324.29,
+        "ARF": 3975.31,
+        "DP": 0.25137,
+        "DP_norm": 0.25211,
+        "1-DP": 0.74863,
+        "total_freq": 11786.0
+      },
+      "casefold_ipm": 197.57
+    },
+    "byliśmy": {
+      "pop0": true,
+      "all": null,
+      "fiction": null,
+      "casefold_ipm": null
+    },
+    "byłam": {
+      "pop0": true,
+      "all": null,
+      "fiction": null,
+      "casefold_ipm": null
+    },
+    "byłem": {
+      "pop0": true,
+      "all": null,
+      "fiction": null,
+      "casefold_ipm": null
+    },
+    "jesteśmy": {
+      "pop0": true,
+      "all": {
+        "freq": 13755.0,
+        "ipm": 169.73,
+        "ARF": 7253.48,
+        "DP": 0.33716,
+        "DP_norm": 0.3372,
+        "1-DP": 0.66284,
+        "total_freq": 13755.0
+      },
+      "fiction": {
+        "freq": 3120.0,
+        "ipm": 130.23,
+        "ARF": 1716.96,
+        "DP": 0.24104,
+        "DP_norm": 0.24175,
+        "1-DP": 0.75896,
+        "total_freq": 13755.0
+      },
+      "casefold_ipm": 221.01
+    },
+    "remontowałoś": {
+      "pop0": true,
+      "all": null,
+      "fiction": null,
+      "casefold_ipm": null
+    },
+    "przeczytałobym": {
+      "pop0": true,
+      "all": null,
+      "fiction": null,
+      "casefold_ipm": null
+    },
+    "nieczytanie": {
+      "pop0": true,
+      "all": {
+        "freq": 12.0,
+        "ipm": 0.15,
+        "ARF": 8.48,
+        "DP": 0.99124,
+        "DP_norm": 0.99137,
+        "1-DP": 0.00876,
+        "total_freq": 12.0
+      },
+      "fiction": {
+        "freq": 2.0,
+        "ipm": 0.08,
+        "ARF": 1.01,
+        "DP": 0.99654,
+        "DP_norm": 0.99949,
+        "1-DP": 0.00346,
+        "total_freq": 12.0
+      },
+      "casefold_ipm": 0.22
+    },
+    "umywszy": {
+      "pop0": true,
+      "all": null,
+      "fiction": null,
+      "casefold_ipm": 0.06
+    },
+    "zrobiwszy": {
+      "pop0": true,
+      "all": {
+        "freq": 25.0,
+        "ipm": 0.31,
+        "ARF": 14.34,
+        "DP": 0.98063,
+        "DP_norm": 0.98076,
+        "1-DP": 0.01937,
+        "total_freq": 25.0
+      },
+      "fiction": {
+        "freq": 21.0,
+        "ipm": 0.88,
+        "ARF": 11.93,
+        "DP": 0.94688,
+        "DP_norm": 0.94968,
+        "1-DP": 0.05312,
+        "total_freq": 25.0
+      },
+      "casefold_ipm": 0.34
+    },
+    "dziękuję": {
+      "pop0": true,
+      "all": {
+        "freq": 2292.0,
+        "ipm": 28.28,
+        "ARF": 1063.6,
+        "DP": 0.59089,
+        "DP_norm": 0.59097,
+        "1-DP": 0.40911,
+        "total_freq": 2292.0
+      },
+      "fiction": {
+        "freq": 1320.0,
+        "ipm": 55.1,
+        "ARF": 669.51,
+        "DP": 0.39022,
+        "DP_norm": 0.39137,
+        "1-DP": 0.60978,
+        "total_freq": 2292.0
+      },
+      "casefold_ipm": 76.3
+    },
+    "proszę": {
+      "pop0": true,
+      "all": {
+        "freq": 8089.0,
+        "ipm": 99.81,
+        "ARF": 3443.45,
+        "DP": 0.50391,
+        "DP_norm": 0.50398,
+        "1-DP": 0.49609,
+        "total_freq": 8089.0
+      },
+      "fiction": {
+        "freq": 5356.0,
+        "ipm": 223.57,
+        "ARF": 2758.66,
+        "DP": 0.27533,
+        "DP_norm": 0.27614,
+        "1-DP": 0.72467,
+        "total_freq": 8089.0
+      },
+      "casefold_ipm": 195.23
+    },
+    "cześć": {
+      "pop0": true,
+      "all": {
+        "freq": 1698.0,
+        "ipm": 20.95,
+        "ARF": 949.04,
+        "DP": 0.5507,
+        "DP_norm": 0.55077,
+        "1-DP": 0.4493,
+        "total_freq": 1698.0
+      },
+      "fiction": {
+        "freq": 547.0,
+        "ipm": 22.83,
+        "ARF": 306.46,
+        "DP": 0.41134,
+        "DP_norm": 0.41256,
+        "1-DP": 0.58866,
+        "total_freq": 1698.0
+      },
+      "casefold_ipm": 42.3
+    },
+    "pa": {
+      "pop0": true,
+      "all": {
+        "freq": 217.0,
+        "ipm": 2.68,
+        "ARF": 94.4,
+        "DP": 0.91043,
+        "DP_norm": 0.91055,
+        "1-DP": 0.08957,
+        "total_freq": 217.0
+      },
+      "fiction": {
+        "freq": 144.0,
+        "ipm": 6.01,
+        "ARF": 69.11,
+        "DP": 0.7595,
+        "DP_norm": 0.76175,
+        "1-DP": 0.2405,
+        "total_freq": 217.0
+      },
+      "casefold_ipm": 5.77
+    },
+    "papa": {
+      "pop0": true,
+      "all": {
+        "freq": 132.0,
+        "ipm": 1.63,
+        "ARF": 44.69,
+        "DP": 0.96206,
+        "DP_norm": 0.96219,
+        "1-DP": 0.03794,
+        "total_freq": 132.0
+      },
+      "fiction": {
+        "freq": 78.0,
+        "ipm": 3.26,
+        "ARF": 21.57,
+        "DP": 0.92161,
+        "DP_norm": 0.92434,
+        "1-DP": 0.07839,
+        "total_freq": 132.0
+      },
+      "casefold_ipm": 3.44
+    },
+    "hej": {
+      "pop0": true,
+      "all": {
+        "freq": 291.0,
+        "ipm": 3.59,
+        "ARF": 123.94,
+        "DP": 0.88249,
+        "DP_norm": 0.88261,
+        "1-DP": 0.11751,
+        "total_freq": 291.0
+      },
+      "fiction": {
+        "freq": 166.0,
+        "ipm": 6.93,
+        "ARF": 62.43,
+        "DP": 0.77173,
+        "DP_norm": 0.77401,
+        "1-DP": 0.22827,
+        "total_freq": 291.0
+      },
+      "casefold_ipm": 12.97
+    },
+    "siedmioletni": {
+      "pop0": false,
+      "all": {
+        "freq": 41.0,
+        "ipm": 0.51,
+        "ARF": 24.75,
+        "DP": 0.96953,
+        "DP_norm": 0.96966,
+        "1-DP": 0.03047,
+        "total_freq": 41.0
+      },
+      "fiction": {
+        "freq": 18.0,
+        "ipm": 0.75,
+        "ARF": 11.31,
+        "DP": 0.93837,
+        "DP_norm": 0.94115,
+        "1-DP": 0.06163,
+        "total_freq": 41.0
+      },
+      "casefold_ipm": 0.81
+    },
+    "sześcioletni": {
+      "pop0": true,
+      "all": {
+        "freq": 54.0,
+        "ipm": 0.67,
+        "ARF": 30.97,
+        "DP": 0.97392,
+        "DP_norm": 0.97405,
+        "1-DP": 0.02608,
+        "total_freq": 54.0
+      },
+      "fiction": {
+        "freq": 10.0,
+        "ipm": 0.42,
+        "ARF": 6.64,
+        "DP": 0.97465,
+        "DP_norm": 0.97753,
+        "1-DP": 0.02535,
+        "total_freq": 54.0
+      },
+      "casefold_ipm": 0.87
+    },
+    "nieładny": {
+      "pop0": false,
+      "all": {
+        "freq": 18.0,
+        "ipm": 0.22,
+        "ARF": 12.36,
+        "DP": 0.98874,
+        "DP_norm": 0.98887,
+        "1-DP": 0.01126,
+        "total_freq": 18.0
+      },
+      "fiction": {
+        "freq": 6.0,
+        "ipm": 0.25,
+        "ARF": 3.62,
+        "DP": 0.98133,
+        "DP_norm": 0.98423,
+        "1-DP": 0.01867,
+        "total_freq": 18.0
+      },
+      "casefold_ipm": 0.26
+    },
+    "nieładna": {
+      "pop0": false,
+      "all": {
+        "freq": 15.0,
+        "ipm": 0.19,
+        "ARF": 9.74,
+        "DP": 0.98676,
+        "DP_norm": 0.98689,
+        "1-DP": 0.01324,
+        "total_freq": 15.0
+      },
+      "fiction": {
+        "freq": 7.0,
+        "ipm": 0.29,
+        "ARF": 4.44,
+        "DP": 0.97685,
+        "DP_norm": 0.97974,
+        "1-DP": 0.02315,
+        "total_freq": 15.0
+      },
+      "casefold_ipm": 0.22
+    },
+    "nieładnie": {
+      "pop0": false,
+      "all": {
+        "freq": 127.0,
+        "ipm": 1.57,
+        "ARF": 70.51,
+        "DP": 0.9123,
+        "DP_norm": 0.91242,
+        "1-DP": 0.0877,
+        "total_freq": 127.0
+      },
+      "fiction": {
+        "freq": 78.0,
+        "ipm": 3.26,
+        "ARF": 44.04,
+        "DP": 0.81406,
+        "DP_norm": 0.81647,
+        "1-DP": 0.18594,
+        "total_freq": 127.0
+      },
+      "casefold_ipm": 2.08
+    },
+    "miły": {
+      "pop0": true,
+      "all": {
+        "freq": 1272.0,
+        "ipm": 15.7,
+        "ARF": 621.61,
+        "DP": 0.63308,
+        "DP_norm": 0.63316,
+        "1-DP": 0.36692,
+        "total_freq": 1272.0
+      },
+      "fiction": {
+        "freq": 753.0,
+        "ipm": 31.43,
+        "ARF": 406.01,
+        "DP": 0.40113,
+        "DP_norm": 0.40232,
+        "1-DP": 0.59887,
+        "total_freq": 1272.0
+      },
+      "casefold_ipm": 16.9
+    },
+    "mili": {
+      "pop0": true,
+      "all": {
+        "freq": 378.0,
+        "ipm": 4.66,
+        "ARF": 213.02,
+        "DP": 0.80559,
+        "DP_norm": 0.8057,
+        "1-DP": 0.19441,
+        "total_freq": 378.0
+      },
+      "fiction": {
+        "freq": 160.0,
+        "ipm": 6.68,
+        "ARF": 92.36,
+        "DP": 0.64786,
+        "DP_norm": 0.64978,
+        "1-DP": 0.35214,
+        "total_freq": 378.0
+      },
+      "casefold_ipm": 5.3
+    },
+    "miłymi": {
+      "pop0": true,
+      "all": {
+        "freq": 47.0,
+        "ipm": 0.58,
+        "ARF": 31.65,
+        "DP": 0.96234,
+        "DP_norm": 0.96247,
+        "1-DP": 0.03766,
+        "total_freq": 47.0
+      },
+      "fiction": {
+        "freq": 22.0,
+        "ipm": 0.92,
+        "ARF": 14.05,
+        "DP": 0.92056,
+        "DP_norm": 0.92328,
+        "1-DP": 0.07944,
+        "total_freq": 47.0
+      },
+      "casefold_ipm": 0.6
+    },
+    "miłemu": {
+      "pop0": true,
+      "all": {
+        "freq": 15.0,
+        "ipm": 0.19,
+        "ARF": 9.87,
+        "DP": 0.98976,
+        "DP_norm": 0.98989,
+        "1-DP": 0.01024,
+        "total_freq": 15.0
+      },
+      "fiction": {
+        "freq": 8.0,
+        "ipm": 0.33,
+        "ARF": 6.18,
+        "DP": 0.97992,
+        "DP_norm": 0.98282,
+        "1-DP": 0.02008,
+        "total_freq": 15.0
+      },
+      "casefold_ipm": 0.2
+    },
+    "pięknie": {
+      "pop0": true,
+      "all": {
+        "freq": 3259.0,
+        "ipm": 40.21,
+        "ARF": 1762.38,
+        "DP": 0.48289,
+        "DP_norm": 0.48295,
+        "1-DP": 0.51711,
+        "total_freq": 3259.0
+      },
+      "fiction": {
+        "freq": 1386.0,
+        "ipm": 57.85,
+        "ARF": 752.84,
+        "DP": 0.33331,
+        "DP_norm": 0.3343,
+        "1-DP": 0.66669,
+        "total_freq": 3259.0
+      },
+      "casefold_ipm": 45.96
+    },
+    "ładnie": {
+      "pop0": true,
+      "all": {
+        "freq": 1932.0,
+        "ipm": 23.84,
+        "ARF": 982.95,
+        "DP": 0.58666,
+        "DP_norm": 0.58674,
+        "1-DP": 0.41334,
+        "total_freq": 1932.0
+      },
+      "fiction": {
+        "freq": 988.0,
+        "ipm": 41.24,
+        "ARF": 511.38,
+        "DP": 0.40815,
+        "DP_norm": 0.40936,
+        "1-DP": 0.59185,
+        "total_freq": 1932.0
+      },
+      "casefold_ipm": 27.91
+    }
+  }
+}

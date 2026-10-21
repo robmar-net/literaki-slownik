@@ -1,0 +1,133 @@
+{
+  "orchestrator": {
+    "workflow": "research",
+    "current_phase": "foundation",
+    "started_phase": "foundation",
+    "completed_phases": [],
+    "failed_phases": [],
+    "options": {
+      "html_output": true,
+      "mockup_format": "html",
+      "brainstorming_enabled": null,
+      "design_enabled": null
+    },
+    "auto_fix_attempts": {},
+    "created": "2026-10-21T14:18:57Z",
+    "updated": "2026-10-21T14:27:51Z",
+    "task_path": "/Users/robmar/Projects/Literaki/literaki-slownik/.maister/tasks/research/2026-10-21-pop00-proste-formy"
+  },
+  "task": {
+    "title": "POP00 — proste i znajome formy",
+    "description": "Możliwość ograniczenia form leksemów POP0 do języka zwykłego gracza.",
+    "status": "awaiting_user",
+    "tags": [
+      "pop00",
+      "fleksja"
+    ],
+    "priority": null
+  },
+  "phase_summaries": {
+    "foundation": {
+      "summary": "POP00 wykonalny. Sam próg IPM≥1 daje 53443 formy, lecz usuwa zwykłe odmiany i 661 leksemów. Rekomendowany kierunek łączy częstość z ochroną zwykłej fleksji.",
+      "decisions": [
+        "Brak zmiany list i zasad gry; progi pozostają eksperymentem."
+      ],
+      "risks": [
+        "Nie ma ocen graczy ani pomiaru partii.",
+        "Tokenizacja i próg publikacji nie pozwalają traktować braku wiersza jako nieznajomości."
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/research-report.md",
+          "label": "Raport POP00",
+          "html": "outputs/research-report.html"
+        },
+        {
+          "path": "analysis/synthesis.md",
+          "label": "Synteza"
+        },
+        {
+          "path": "planning/sources.md",
+          "label": "Pokrycie źródeł"
+        },
+        {
+          "path": "analysis/evidence/form-measurement.json",
+          "label": "Pomiar form"
+        },
+        {
+          "path": "analysis/evidence/lexeme-measurement.json",
+          "label": "Pomiar leksemów"
+        }
+      ],
+      "gate": {
+        "question": "Czy przyjmujesz wyniki rozpoznania, czy najpierw pogłębić badanie?",
+        "choices": [
+          "Przyjąć rozpoznanie",
+          "Pogłębić wskazany obszar"
+        ],
+        "answer": null
+      },
+      "started": "2026-10-21T14:18:57Z",
+      "completed": null
+    }
+  },
+  "verification_context": {
+    "last_status": "Pomiary odtworzone; unia form równa wydanemu POP0; oczekuje na odbiór.",
+    "issues_found": [],
+    "fixes_applied": [],
+    "decisions_made": [],
+    "reverify_count": 0
+  },
+  "research_context": {
+    "research_type": "mixed",
+    "research_question": "Jak z leksemów POP0 wybrać formy znajome zwykłemu graczowi i czy istnieje lepszy wariant?",
+    "scope": {
+      "included": [
+        "metoda POP0",
+        "częstość form",
+        "morfologia",
+        "źródła znajomości",
+        "pilotaż filtrów"
+      ],
+      "excluded": [
+        "zmiany generatora i list wydanych",
+        "wdrożenie",
+        "kontakt z autorami źródeł"
+      ],
+      "constraints": [
+        "POP00 jako kandydat słownika znajomości, bez zmiany zasad gry",
+        "nie importować zablokowanych danych"
+      ]
+    },
+    "methodology": [
+      "audyt kodu i historii",
+      "porównanie literatury",
+      "odtwarzalny pomiar wrażliwości"
+    ],
+    "sources": [
+      "planning/sources.md",
+      "analysis/findings/code-and-history.md",
+      "analysis/findings/external-evidence.md",
+      "analysis/evidence/form-measurement.json",
+      "analysis/evidence/lexeme-measurement.json"
+    ],
+    "confidence_level": "Wysoka: mechanika i pomiary; średnia: kierunek; nieustalona: efekt u graczy.",
+    "gathering_strategy": {
+      "categories": [
+        "kod",
+        "dokumenty i historia",
+        "konfiguracja i testy",
+        "dane i pomiary",
+        "literatura pierwotna"
+      ],
+      "count": 5,
+      "source": "planning/research-plan.md"
+    },
+    "steps": {
+      "brief": "complete",
+      "plan": "complete",
+      "gather": "complete",
+      "synthesize": "complete"
+    }
+  }
+}
