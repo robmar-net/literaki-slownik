@@ -1,9 +1,9 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-21T14:31:23Z",
+  "generated": "2026-10-21T14:39:24Z",
   "task": {
     "title": "POP00 — proste i znajome formy",
     "description": "Możliwość ograniczenia form leksemów POP0 do języka zwykłego gracza.",
-    "status": "awaiting_user",
+    "status": "completed",
     "tags": [
       "pop00",
       "fleksja"
@@ -11,7 +11,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "research",
     "path": "/Users/robmar/Projects/Literaki/literaki-slownik/.maister/tasks/research/2026-10-21-pop00-proste-formy",
-    "current_activity": "Decyzje o porównaniu wariantów i projekcie"
+    "current_activity": "Przekazano do publicznego ticketu #10"
   },
   "characteristics": {
     "confidence": "Wysoka: mechanika i pomiary; średnia: kierunek; nieustalona: efekt u graczy."
@@ -68,11 +68,13 @@ window.MAISTER_DATA = {
     {
       "id": "optional_decision",
       "name": "Opcje dalszych faz",
-      "status": "awaiting_user",
+      "status": "completed",
       "started": "2026-10-21T14:31:23Z",
-      "completed": null,
-      "summary": "Rekomendowane porównanie wariantów, a następnie projekt generatora dla wybranego podejścia.",
-      "decisions": [],
+      "completed": "2026-10-21T14:39:24Z",
+      "summary": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy.",
+      "decisions": [
+        "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy."
+      ],
       "risks": [
         "Projekt przed badaniem graczy pozostanie propozycją, nie dowodem naturalności."
       ],
@@ -87,7 +89,7 @@ window.MAISTER_DATA = {
               "Tak — rekomendowane",
               "Nie"
             ],
-            "answer": null
+            "answer": "Odłożone w tym research; operator wybrał przekazanie do ticketu i maister-quick-plan."
           },
           {
             "id": "design",
@@ -96,68 +98,77 @@ window.MAISTER_DATA = {
               "Tak — rekomendowane",
               "Nie, zakończyć na rekomendacji"
             ],
-            "answer": null
+            "answer": "Odłożone w tym research; operator wybrał przekazanie do ticketu i maister-quick-plan."
           }
         ],
-        "answer": null
+        "answer": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy."
       },
       "skip_reason": null
     },
     {
       "id": "generation",
       "name": "Warianty rozwiązania",
-      "status": "pending",
+      "status": "skipped",
       "started": null,
       "completed": null,
-      "summary": null,
+      "summary": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy.",
       "decisions": [],
       "risks": [],
       "artifacts": [],
       "gate": null,
-      "skip_reason": null
+      "skip_reason": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy."
     },
     {
       "id": "convergence",
       "name": "Wybór wariantu",
-      "status": "pending",
+      "status": "skipped",
       "started": null,
       "completed": null,
-      "summary": null,
+      "summary": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy.",
       "decisions": [],
       "risks": [],
       "artifacts": [],
       "gate": null,
-      "skip_reason": null
+      "skip_reason": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy."
     },
     {
       "id": "design",
       "name": "Projekt wysokopoziomowy",
-      "status": "pending",
+      "status": "skipped",
       "started": null,
       "completed": null,
-      "summary": null,
+      "summary": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy.",
       "decisions": [],
       "risks": [],
       "artifacts": [],
       "gate": null,
-      "skip_reason": null
+      "skip_reason": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy."
     },
     {
       "id": "handoff",
       "name": "Zakończenie",
-      "status": "pending",
-      "started": null,
-      "completed": null,
-      "summary": null,
-      "decisions": [],
-      "risks": [],
-      "artifacts": [],
+      "status": "completed",
+      "started": "2026-10-21T14:39:24Z",
+      "completed": "2026-10-21T14:39:24Z",
+      "summary": "Utworzono publiczny ticket #10 z badaniem, zakresem, kryteriami odbioru i wiki.",
+      "decisions": [
+        "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy."
+      ],
+      "risks": [
+        "Reguły i progi wymagają wyboru podczas planowania."
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/research-handoff.md",
+          "label": "Przekazanie do #10"
+        }
+      ],
       "gate": null,
       "skip_reason": null
     }
   ],
   "verification": {
-    "status": "Rozpoznanie zaakceptowane; opcje dalszych faz oczekują na decyzję.",
+    "status": "Rozpoznanie zaakceptowane; ticket #10 utworzony; research przekazany do planowania.",
     "issues": [],
     "fixes": [],
     "reverify_count": 0

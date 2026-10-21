@@ -1,27 +1,29 @@
 {
   "orchestrator": {
     "workflow": "research",
-    "current_phase": "optional_decision",
-    "started_phase": "optional_decision",
+    "current_phase": "handoff",
+    "started_phase": "handoff",
     "completed_phases": [
-      "foundation"
+      "foundation",
+      "optional_decision",
+      "handoff"
     ],
     "failed_phases": [],
     "options": {
       "html_output": true,
       "mockup_format": "html",
-      "brainstorming_enabled": null,
-      "design_enabled": null
+      "brainstorming_enabled": false,
+      "design_enabled": false
     },
     "auto_fix_attempts": {},
     "created": "2026-10-21T14:18:57Z",
-    "updated": "2026-10-21T14:31:23Z",
+    "updated": "2026-10-21T14:39:24Z",
     "task_path": "/Users/robmar/Projects/Literaki/literaki-slownik/.maister/tasks/research/2026-10-21-pop00-proste-formy"
   },
   "task": {
     "title": "POP00 — proste i znajome formy",
     "description": "Możliwość ograniczenia form leksemów POP0 do języka zwykłego gracza.",
-    "status": "awaiting_user",
+    "status": "completed",
     "tags": [
       "pop00",
       "fleksja"
@@ -74,8 +76,10 @@
       "completed": "2026-10-21T14:31:23Z"
     },
     "optional_decision": {
-      "summary": "Rekomendowane porównanie wariantów, a następnie projekt generatora dla wybranego podejścia.",
-      "decisions": [],
+      "summary": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy.",
+      "decisions": [
+        "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy."
+      ],
       "risks": [
         "Projekt przed badaniem graczy pozostanie propozycją, nie dowodem naturalności."
       ],
@@ -90,7 +94,7 @@
               "Tak — rekomendowane",
               "Nie"
             ],
-            "answer": null
+            "answer": "Odłożone w tym research; operator wybrał przekazanie do ticketu i maister-quick-plan."
           },
           {
             "id": "design",
@@ -99,17 +103,68 @@
               "Tak — rekomendowane",
               "Nie, zakończyć na rekomendacji"
             ],
-            "answer": null
+            "answer": "Odłożone w tym research; operator wybrał przekazanie do ticketu i maister-quick-plan."
           }
         ],
-        "answer": null
+        "answer": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy."
       },
       "started": "2026-10-21T14:31:23Z",
+      "completed": "2026-10-21T14:39:24Z"
+    },
+    "generation": {
+      "summary": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy.",
+      "status": "skipped",
+      "skip_reason": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy.",
+      "decisions": [],
+      "risks": [],
+      "artifacts": [],
+      "gate": null,
+      "started": null,
       "completed": null
+    },
+    "convergence": {
+      "summary": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy.",
+      "status": "skipped",
+      "skip_reason": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy.",
+      "decisions": [],
+      "risks": [],
+      "artifacts": [],
+      "gate": null,
+      "started": null,
+      "completed": null
+    },
+    "design": {
+      "summary": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy.",
+      "status": "skipped",
+      "skip_reason": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy.",
+      "decisions": [],
+      "risks": [],
+      "artifacts": [],
+      "gate": null,
+      "started": null,
+      "completed": null
+    },
+    "handoff": {
+      "summary": "Utworzono publiczny ticket #10 z badaniem, zakresem, kryteriami odbioru i wiki.",
+      "decisions": [
+        "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy."
+      ],
+      "risks": [
+        "Reguły i progi wymagają wyboru podczas planowania."
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/research-handoff.md",
+          "label": "Przekazanie do #10"
+        }
+      ],
+      "gate": null,
+      "started": "2026-10-21T14:39:24Z",
+      "completed": "2026-10-21T14:39:24Z"
     }
   },
   "verification_context": {
-    "last_status": "Rozpoznanie zaakceptowane; opcje dalszych faz oczekują na decyzję.",
+    "last_status": "Rozpoznanie zaakceptowane; ticket #10 utworzony; research przekazany do planowania.",
     "issues_found": [],
     "fixes_applied": [],
     "decisions_made": [],
@@ -165,6 +220,14 @@
       "plan": "complete",
       "gather": "complete",
       "synthesize": "complete"
+    },
+    "handoff": {
+      "issue": "https://github.com/robmar-net/literaki-slownik/issues/10",
+      "workflow": "maister-quick-plan",
+      "implementation_started": false,
+      "wiki_required": true,
+      "wiki_changed": false,
+      "user_instruction": "Operator zlecił na razie publiczny ticket z obowiązkowym opisem wiki; dalsze planowanie i implementacja przez maister-quick-plan. Osobne fazy wariantów i projektu w research odłożone do tej pracy."
     }
   }
 }

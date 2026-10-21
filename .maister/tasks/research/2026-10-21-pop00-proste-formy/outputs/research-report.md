@@ -198,3 +198,9 @@ Utworzono agregaty i mały zestaw przykładów, nie zmieniano danych wejściowyc
 Wybór leksemów odziedziczony z POP0 korzysta też z NKJP; pełne warunki i autorzy w
 [ATTRIBUTIONS.md](../../../../../ATTRIBUTIONS.md) i pakiecie pop-v3.
 Żaden z autorów źródeł nie jest wskazywany jako popierający rekomendację.
+
+## Przekazanie po decyzji operatora
+2026-10-21: utworzono [publiczny ticket #10](https://github.com/robmar-net/literaki-slownik/issues/10).
+Operator wybrał dalsze planowanie i implementację przez maister-quick-plan oraz obowiązkowy opis wiki.
+Na razie tylko ticket; osobne fazy wariantów i projektu w research odłożono do dalszej pracy.
+Szczegóły: [przekazanie](research-handoff.md). Reguły i progi nadal wymagają decyzji.
