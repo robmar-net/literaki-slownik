@@ -6,7 +6,7 @@ Próg powierzchniowy bez obsługi fleksji i segmentacji usuwa naturalne słowa.
 Najlepszy kierunek do sprawdzenia łączy leksemy POP0, zwykłą odmianę i ostrożność wobec nietypowych form.
 
 ## Key Decisions
-- Zakończono zbieranie dowodów dla rozpoznania; odbiór fazy pozostaje otwarty.
+- Zakończono zbieranie dowodów; operator zaakceptował rozpoznanie 2026-10-21 („ok”).
 - Nie przyjęto progu ani reguł POP00, nie zmieniono wydanych list.
 - Burza pomysłów i projekt pozostają osobnymi opcjami po bramce.
 

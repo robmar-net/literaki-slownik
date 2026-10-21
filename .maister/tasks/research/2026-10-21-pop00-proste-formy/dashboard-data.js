@@ -1,5 +1,5 @@
 window.MAISTER_DATA = {
-  "generated": "2026-10-21T14:27:51Z",
+  "generated": "2026-10-21T14:31:23Z",
   "task": {
     "title": "POP00 — proste i znajome formy",
     "description": "Możliwość ograniczenia form leksemów POP0 do języka zwykłego gracza.",
@@ -11,7 +11,7 @@ window.MAISTER_DATA = {
     "priority": null,
     "type": "research",
     "path": "/Users/robmar/Projects/Literaki/literaki-slownik/.maister/tasks/research/2026-10-21-pop00-proste-formy",
-    "current_activity": "Odbiór wyników rozpoznania"
+    "current_activity": "Decyzje o porównaniu wariantów i projekcie"
   },
   "characteristics": {
     "confidence": "Wysoka: mechanika i pomiary; średnia: kierunek; nieustalona: efekt u graczy."
@@ -21,10 +21,11 @@ window.MAISTER_DATA = {
       "id": "foundation",
       "name": "Rozpoznanie",
       "icon_hint": "analysis",
-      "status": "awaiting_user",
+      "status": "completed",
       "summary": "POP00 wykonalny. Sam próg IPM≥1 daje 53443 formy, lecz usuwa zwykłe odmiany i 661 leksemów. Rekomendowany kierunek łączy częstość z ochroną zwykłej fleksji.",
       "decisions": [
-        "Brak zmiany list i zasad gry; progi pozostają eksperymentem."
+        "Brak zmiany list i zasad gry; progi pozostają eksperymentem.",
+        "Operator zaakceptował rozpoznanie; nie oznacza to wyboru reguł ani progu POP00."
       ],
       "risks": [
         "Nie ma ocen graczy ani pomiaru partii.",
@@ -59,22 +60,47 @@ window.MAISTER_DATA = {
           "Przyjąć rozpoznanie",
           "Pogłębić wskazany obszar"
         ],
-        "answer": null
+        "answer": "2026-10-21: użytkownik „ok” — akceptacja wyników rozpoznania."
       },
       "started": "2026-10-21T14:18:57Z",
-      "completed": null
+      "completed": "2026-10-21T14:31:23Z"
     },
     {
       "id": "optional_decision",
       "name": "Opcje dalszych faz",
-      "status": "pending",
-      "started": null,
+      "status": "awaiting_user",
+      "started": "2026-10-21T14:31:23Z",
       "completed": null,
-      "summary": null,
+      "summary": "Rekomendowane porównanie wariantów, a następnie projekt generatora dla wybranego podejścia.",
       "decisions": [],
-      "risks": [],
+      "risks": [
+        "Projekt przed badaniem graczy pozostanie propozycją, nie dowodem naturalności."
+      ],
       "artifacts": [],
-      "gate": null,
+      "gate": {
+        "question": "Osobno ustalić porównanie wariantów oraz projekt po wyborze.",
+        "questions": [
+          {
+            "id": "brainstorming",
+            "question": "Czy włączyć porównanie trzech wariantów POP00?",
+            "choices": [
+              "Tak — rekomendowane",
+              "Nie"
+            ],
+            "answer": null
+          },
+          {
+            "id": "design",
+            "question": "Czy po wyborze wariantu przygotować projekt działania generatora POP00?",
+            "choices": [
+              "Tak — rekomendowane",
+              "Nie, zakończyć na rekomendacji"
+            ],
+            "answer": null
+          }
+        ],
+        "answer": null
+      },
       "skip_reason": null
     },
     {
@@ -131,7 +157,7 @@ window.MAISTER_DATA = {
     }
   ],
   "verification": {
-    "status": "Pomiary odtworzone; unia form równa wydanemu POP0; oczekuje na odbiór.",
+    "status": "Rozpoznanie zaakceptowane; opcje dalszych faz oczekują na decyzję.",
     "issues": [],
     "fixes": [],
     "reverify_count": 0

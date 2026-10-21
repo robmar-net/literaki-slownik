@@ -1,9 +1,11 @@
 {
   "orchestrator": {
     "workflow": "research",
-    "current_phase": "foundation",
-    "started_phase": "foundation",
-    "completed_phases": [],
+    "current_phase": "optional_decision",
+    "started_phase": "optional_decision",
+    "completed_phases": [
+      "foundation"
+    ],
     "failed_phases": [],
     "options": {
       "html_output": true,
@@ -13,7 +15,7 @@
     },
     "auto_fix_attempts": {},
     "created": "2026-10-21T14:18:57Z",
-    "updated": "2026-10-21T14:27:51Z",
+    "updated": "2026-10-21T14:31:23Z",
     "task_path": "/Users/robmar/Projects/Literaki/literaki-slownik/.maister/tasks/research/2026-10-21-pop00-proste-formy"
   },
   "task": {
@@ -30,7 +32,8 @@
     "foundation": {
       "summary": "POP00 wykonalny. Sam próg IPM≥1 daje 53443 formy, lecz usuwa zwykłe odmiany i 661 leksemów. Rekomendowany kierunek łączy częstość z ochroną zwykłej fleksji.",
       "decisions": [
-        "Brak zmiany list i zasad gry; progi pozostają eksperymentem."
+        "Brak zmiany list i zasad gry; progi pozostają eksperymentem.",
+        "Operator zaakceptował rozpoznanie; nie oznacza to wyboru reguł ani progu POP00."
       ],
       "risks": [
         "Nie ma ocen graczy ani pomiaru partii.",
@@ -65,14 +68,48 @@
           "Przyjąć rozpoznanie",
           "Pogłębić wskazany obszar"
         ],
-        "answer": null
+        "answer": "2026-10-21: użytkownik „ok” — akceptacja wyników rozpoznania."
       },
       "started": "2026-10-21T14:18:57Z",
+      "completed": "2026-10-21T14:31:23Z"
+    },
+    "optional_decision": {
+      "summary": "Rekomendowane porównanie wariantów, a następnie projekt generatora dla wybranego podejścia.",
+      "decisions": [],
+      "risks": [
+        "Projekt przed badaniem graczy pozostanie propozycją, nie dowodem naturalności."
+      ],
+      "artifacts": [],
+      "gate": {
+        "question": "Osobno ustalić porównanie wariantów oraz projekt po wyborze.",
+        "questions": [
+          {
+            "id": "brainstorming",
+            "question": "Czy włączyć porównanie trzech wariantów POP00?",
+            "choices": [
+              "Tak — rekomendowane",
+              "Nie"
+            ],
+            "answer": null
+          },
+          {
+            "id": "design",
+            "question": "Czy po wyborze wariantu przygotować projekt działania generatora POP00?",
+            "choices": [
+              "Tak — rekomendowane",
+              "Nie, zakończyć na rekomendacji"
+            ],
+            "answer": null
+          }
+        ],
+        "answer": null
+      },
+      "started": "2026-10-21T14:31:23Z",
       "completed": null
     }
   },
   "verification_context": {
-    "last_status": "Pomiary odtworzone; unia form równa wydanemu POP0; oczekuje na odbiór.",
+    "last_status": "Rozpoznanie zaakceptowane; opcje dalszych faz oczekują na decyzję.",
     "issues_found": [],
     "fixes_applied": [],
     "decisions_made": [],

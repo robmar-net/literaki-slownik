@@ -4,7 +4,7 @@
 Pomysł jest wykonalny, ale sam próg częstości form usuwa także codzienny język.
 Rekomenduję POP00 oparty na leksemach POP0, zwykłej odmianie i dowodach dla form nietypowych.
 Częstość powinna wspierać wybór; nie zastępuje oceny rozpoznawalności przez graczy.
-Zakończono rozpoznanie i pomiar progów; trwa bramka odbioru, nie zatwierdzono polityki ani wydania.
+Rozpoznanie i pomiar progów zaakceptowano 2026-10-21; nie zatwierdzono polityki ani wydania.
 
 ## Key Decisions
 - Punkt odniesienia: wydane pop-v3, 388 763 formy i 13 896 leksemów POP0.
@@ -183,7 +183,7 @@ To plan dalszej walidacji, nie wykonane badanie ludzi ani gotowa specyfikacja im
 Więcej masowych progów na tych samych CSV nie usunie błędu tokenizacji ani nie zmierzy znajomości.
 Warto przejść do porównania konkretnych wariantów i próby jakości; nie ma jeszcze podstaw do wydania.
 
-**Bramka research-foundation:** przyjąć wyniki rozpoznania albo wskazać, co pogłębić.
+**Bramka research-foundation:** zaakceptowana przez operatora 2026-10-21 („ok”).
 Burza pomysłów i projekt wysokopoziomowy pozostają osobnymi decyzjami kolejnego etapu.
 
 ## Źródła i odtworzenie
