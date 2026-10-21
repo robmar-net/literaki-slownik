@@ -9,7 +9,7 @@ import tarfile
 TASK=Path(__file__).resolve().parents[1]
 REPO=TASK.parents[3]
 proof=json.loads((TASK/'verification/real-builds-r2.json').read_text())
-review_check=json.loads(Path('/private/tmp/pop00-r2-review-check.json').read_text())
+review_check=json.loads((TASK/'verification/review-check-r2.json').read_text())
 assert proof['all_files_identical'] and all(c['status']=='pass' for c in proof['checks'])
 assert review_check['status']=='pass' and review_check['review_checked']
 base=REPO/proof['packages'][0]

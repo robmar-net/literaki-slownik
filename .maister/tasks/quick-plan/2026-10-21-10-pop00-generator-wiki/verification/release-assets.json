@@ -1,0 +1,45 @@
+{
+  "url": "https://github.com/robmar-net/literaki-slownik/releases/tag/pop00-v1",
+  "tag": "pop00-v1",
+  "target": "f33fe05c53f3ab945f929c81eed25ff736d04202",
+  "published_at": "2026-10-21T15:34:48Z",
+  "assets": [
+    {
+      "name": "pop00-v1-pakiet.tar.gz",
+      "bytes": 28644397,
+      "sha256": "0837be1906cc4d3b7108a6e9d2dea1c9d9d68d15810249c4ca599b39bf2eacb9",
+      "url": "https://github.com/robmar-net/literaki-slownik/releases/download/pop00-v1/pop00-v1-pakiet.tar.gz"
+    },
+    {
+      "name": "pop00-v1-review.json",
+      "bytes": 435437,
+      "sha256": "4f8f4ef71618bd9f35d4cdb9989cbb273a41c8160ed59e1036df7ecce5e7423b",
+      "url": "https://github.com/robmar-net/literaki-slownik/releases/download/pop00-v1/pop00-v1-review.json"
+    },
+    {
+      "name": "POP00.txt.gz",
+      "bytes": 658142,
+      "sha256": "3ebbd25a260a6310deef474bf5618664babc1b47b17b38c840d37ae1ab55cb70",
+      "url": "https://github.com/robmar-net/literaki-slownik/releases/download/pop00-v1/POP00.txt.gz"
+    },
+    {
+      "name": "release-manifest.json",
+      "bytes": 2017,
+      "sha256": "3db703ef0c5ddecfdb3f9ed9dc974d98033795c4f62713d05fb3ea844b42dbbf",
+      "url": "https://github.com/robmar-net/literaki-slownik/releases/download/pop00-v1/release-manifest.json"
+    },
+    {
+      "name": "SHA256SUMS",
+      "bytes": 432,
+      "sha256": "0695306cfd70df41f84bf2916ce03d6ba1660260bbdb558c30ccf1c75ffe70cc",
+      "url": "https://github.com/robmar-net/literaki-slownik/releases/download/pop00-v1/SHA256SUMS"
+    },
+    {
+      "name": "SHA256SUMS-rozpakowane",
+      "bytes": 76,
+      "sha256": "0d97ac90d4cd06848b414b89d5d87ef583b5317378fbb8f7ebe59ba4165c5cf2",
+      "url": "https://github.com/robmar-net/literaki-slownik/releases/download/pop00-v1/SHA256SUMS-rozpakowane"
+    }
+  ],
+  "all_remote_digests_match": true
+}

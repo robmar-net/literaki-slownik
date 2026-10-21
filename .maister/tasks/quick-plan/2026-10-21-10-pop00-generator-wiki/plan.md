@@ -4,11 +4,11 @@
 Proponuję osobny wariant POP00 na zamrożonym POP0 pop-v3, z ochroną zwykłej odmiany.
 Sonda proponowanych reguł daje 259 779 form: o 128 984 mniej (33,18%), bez utraty leksemów.
 Próg 0,1 IPM dotyczy tylko wybranych grup, a nie wszystkich form.
-To propozycja do zatwierdzenia, nie wydanie ani potwierdzony model znajomości graczy.
-Zapowiedź POP00 jest już publiczna na wiki; kod generatora czeka na zatwierdzenie planu.
+Politykę zatwierdzono i wydano jako pop00-v1; nie jest to empiryczny model znajomości graczy.
+Kod, pliki do pobrania i opis POP00 są publiczne; wyniki odbioru są podlinkowane na końcu planu.
 
 ## Key Decisions
-- Plan do zatwierdzenia przez operatora. Akceptacja wcześniejszego research nie zatwierdza tych reguł.
+- Operator zatwierdził cały plan i reguły 2026-10-21 („zatwierdzam”).
 - Zachowujemy wszystkie 13 896 wybranych leksemów i przynajmniej jedną formę każdego z nich.
 - Wybór leksemów oraz działanie metod pop-v2 i pop-v3 pozostają odtwarzalne.
 - Nowy wariant jest słownikiem znajomości. Integracja z aplikacją i walidacja stołu są poza #10.
@@ -183,22 +183,19 @@ Nie utożsamiać tego z rozpoznawalnością czy grywalnością.
   Wiki wtedy opisuje rzeczywisty stan; nie kasujemy historycznych dowodów.
 
 ## Standards Compliance Checklist
-- [ ] `AGENTS.md`: polski i prosty opis, uzgodnione kryteria przed kodem, jawność i brak sekretów.
-- [ ] `.maister/docs/INDEX.md`: aktualne publiczne odnośniki do nowych dokumentów.
-- [ ] `docs/adr/ADR-007-metoda-pop-v1.md`, `ADR-008-pop-v3-staly-prog.md`: POP/POP0 pozostają odtwarzalne; osobna wersja POP00.
-- [ ] `docs/generator/konstrukcje.md`: składniki, expanded_tag i alternatywne interpretacje; bez tworzenia nowych leksemów.
-- [ ] `docs/generator/ortografia.md`: odziedziczona dopuszczalność i normalizacja, bez zmiany zasad gry.
-- [ ] `docs/generator/raporty.md`: efekt analizy oddzielony od efektu napisu, jawne mianowniki i niepewność.
-- [ ] `docs/generator/jakosc.md`: deterministyczna próbka, jawnie puste warstwy i UNREVIEWED; nowa jawna wersja konfiguracji.
-- [ ] `docs/generator/cli.md`: kody błędów, odczyt FROZEN, bez nadpisywania i bez fałszywego VERIFIED.
-- [ ] `docs/generator/publikacja.md`, `docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md`: pełne atrybucje SGJP/KWJP i odziedziczonego NKJP; bez surowych cache i liczników NKJP.
-- [ ] `docs/runbook-wiki.md`: publiczny opis od początku, rzeczywiste liczby i przykłady, stan wydania i aktualne linki.
+- [x] `AGENTS.md`: polski i prosty opis, uzgodnione kryteria przed kodem, jawność i brak sekretów.
+- [x] `.maister/docs/INDEX.md`: aktualne publiczne odnośniki do nowych dokumentów.
+- [x] `docs/adr/ADR-007-metoda-pop-v1.md`, `ADR-008-pop-v3-staly-prog.md`: POP/POP0 pozostają odtwarzalne; osobna wersja POP00.
+- [x] `docs/generator/konstrukcje.md`: składniki, expanded_tag i alternatywne interpretacje; bez tworzenia nowych leksemów.
+- [x] `docs/generator/ortografia.md`: odziedziczona dopuszczalność i normalizacja, bez zmiany zasad gry.
+- [x] `docs/generator/raporty.md`: efekt analizy oddzielony od efektu napisu, jawne mianowniki i niepewność.
+- [x] `docs/generator/jakosc.md`: deterministyczna próbka, jawnie puste warstwy i UNREVIEWED; nowa jawna wersja konfiguracji.
+- [x] `docs/generator/cli.md`: kody błędów, odczyt FROZEN, bez nadpisywania i bez fałszywego VERIFIED.
+- [x] `docs/generator/publikacja.md`, `docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md`: pełne atrybucje SGJP/KWJP i odziedziczonego NKJP; bez surowych cache i liczników NKJP.
+- [x] `docs/runbook-wiki.md`: publiczny opis od początku, rzeczywiste liczby i przykłady, stan wydania i aktualne linki.
 
-## Stan i decyzja wymagana
-Przygotowano plan i sondę, nie zmieniono kodu generatora.
-Wiki: [Slownik-POP00](https://github.com/robmar-net/literaki-slownik/wiki/Slownik-POP00),
-commit `beb09c0`; powiązano Home, _Sidebar, POP0 i historię.
-
-Do wyboru: zatwierdzić wdrożenie proponowanej polityki; skorygować reguły (np. chronić pełne
-paradygmaty imiesłowów i stopniowania); albo zachować sam plan.
-Po akceptacji wdrożenia użyć maister-quick-dev i zweryfikować każdy punkt checklisty.
+## Stan wdrożenia
+Plan zatwierdzony i wykonany. [Wydanie pop00-v1](https://github.com/robmar-net/literaki-slownik/releases/tag/pop00-v1),
+[wiki](https://github.com/robmar-net/literaki-slownik/wiki/Slownik-POP00).
+Końcowy kod źródłowy: f33fe05; dokumentacja wiki: 9a7b717.
+[Pełny odbiór i checklista](verification/implementation-report.md).

@@ -1,0 +1,96 @@
+{
+  "verified_at": "2026-10-21T15:33:32Z",
+  "code_identity": {
+    "tree_sha256": "5c284c264893d64d6bc2e76dbe3bb65a8796bf7c576d95f38e0475145ebb91e5",
+    "git_commit": "f33fe05c53f3ab945f929c81eed25ff736d04202",
+    "git_dirty": false
+  },
+  "packages": [
+    "data/work/pop00-v1-20261021-r2-a",
+    "data/work/pop00-v1-20261021-r2-b"
+  ],
+  "files_sha256": {
+    "ATTRIBUTIONS.md": "64e20ae9732a2ddfda593858916c6703a5dac40c5bb877f43c06b797739ed08a",
+    "LIMITATIONS.md": "2a73e53858cba5164a76a154636b97e5b473714cdcdbf4c7e6a53b7c140cedc7",
+    "POP00.txt.gz": "3ebbd25a260a6310deef474bf5618664babc1b47b17b38c840d37ae1ab55cb70",
+    "SHA256SUMS": "4c1b46e575c2cf48897b1e4e3499453803d3f6a5321bb130b62b3b20f153178d",
+    "TERMS.md": "81a7892799dd321dc5fd3f900bd1aef5a026a997d31e2558a832e116d7c08ae2",
+    "method.json": "6d70d7df6d30423c0801a4c8bb1287b50aa176c9a10f9e2ec0bd034b6052d5d3",
+    "release-manifest.json": "3db703ef0c5ddecfdb3f9ed9dc974d98033795c4f62713d05fb3ea844b42dbbf",
+    "reports/decisions.json": "29653ac5dec40bd88fa4af7c1be3334b30d3a4c5880e5aa354ab3f8381ba4381",
+    "reports/review-template.json": "27d3aef675a1e57d6639f8eb091bb610cd2093bbff155501560139127fa2468d",
+    "reports/sample.json": "9d2b21793a3f55ab4960edb0842affbf95e6522ac94f08031262397134f5cdbd",
+    "reports/summary.json": "fbf03b769174b9601dbc366f0f679f0e47ae53dae24c2489b68faf36b4966a01"
+  },
+  "all_files_identical": true,
+  "full_word_diff_against_probe": {
+    "added": 0,
+    "removed": 0
+  },
+  "checks": [
+    {
+      "base_forms": 388763,
+      "forms": 259779,
+      "lost_lexemes": 0,
+      "removed_forms": 128984,
+      "review_checked": false,
+      "selected_lexemes": 13896,
+      "status": "pass"
+    },
+    {
+      "base_forms": 388763,
+      "forms": 259779,
+      "lost_lexemes": 0,
+      "removed_forms": 128984,
+      "review_checked": false,
+      "selected_lexemes": 13896,
+      "status": "pass"
+    }
+  ],
+  "summary": {
+    "base_forms": 388763,
+    "coverage": {
+      "observed_pop0_pct": 99.94916898054069,
+      "observed_pop0_tokens": 59741080,
+      "published_lowercase_pct": 85.3871693460319,
+      "published_lowercase_tokens": 69929374,
+      "retained_tokens": 59710713,
+      "scope": "opublikowane małoliterowe tokeny orth/all; nie znajomość ani grywalność"
+    },
+    "forms": 259779,
+    "groups_overlapping": {
+      "adja": 1109,
+      "adjp": 379,
+      "construction": 11199,
+      "degree-com-sup": 13869,
+      "negative-gerund": 21822,
+      "neuter-person-1-2": 25522,
+      "ordinary": 236586,
+      "pact": 30910,
+      "pacta": 284,
+      "pant": 1854,
+      "ppas": 58911
+    },
+    "ipm_min": "0.1",
+    "lengths": {
+      "2": 62,
+      "3": 607,
+      "4": 2673,
+      "5": 7471,
+      "6": 14379,
+      "7": 23034,
+      "8": 30778,
+      "9": 36476,
+      "10": 37455,
+      "11": 34483,
+      "12": 28118,
+      "13": 20889,
+      "14": 14300,
+      "15": 9054
+    },
+    "lost_lexemes": 0,
+    "method": "pop00-v1",
+    "removed_forms": 128984,
+    "selected_lexemes": 13896
+  }
+}

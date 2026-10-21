@@ -1,9 +1,9 @@
 {
   "workflow": "maister-quick-plan",
   "issue": "https://github.com/robmar-net/literaki-slownik/issues/10",
-  "status": "implementing",
+  "status": "completed",
   "created": "2026-10-21T15:05:20Z",
-  "updated": "2026-10-21T15:21:47Z",
+  "updated": "2026-10-21T15:37:48Z",
   "plan": "plan.md",
   "evidence": [
     "analysis/probe_policy.py",
@@ -18,9 +18,9 @@
     "approved": true
   },
   "wiki": {
-    "status": "published_in_preparation",
+    "status": "published_release",
     "url": "https://github.com/robmar-net/literaki-slownik/wiki/Slownik-POP00",
-    "commit": "beb09c0",
+    "commit": "9a7b717",
     "remote_master_confirmed": true,
     "public_html_confirmed": true
   },
@@ -29,8 +29,16 @@
     "expanded_tags_verified_same_counts": true,
     "application_code_changed": true,
     "full_suite_run": true,
-    "full_suite_reason": "Planowanie, bez zmian kodu aplikacji.",
-    "full_suite_result": "460 testów OK; 16 nowych testów POP00 OK."
+    "full_suite_reason": null,
+    "full_suite_result": "461 testów OK; 17 nowych testów POP00 OK.",
+    "real_builds_identical": true,
+    "word_diff_against_probe": {
+      "added": 0,
+      "removed": 0
+    },
+    "independent_check_pass": true,
+    "technical_review_items": 891,
+    "review_check_pass": true
   },
   "gate": {
     "question": "Zatwierdzić wdrożenie proponowanej polityki POP00, skorygować plan czy zachować sam plan?",
@@ -48,8 +56,15 @@
       "selection": "complete",
       "package": "complete",
       "checker": "complete",
-      "verification": "in_progress",
-      "docs_wiki": "pending"
-    }
+      "verification": "complete",
+      "docs_wiki": "complete"
+    },
+    "standards_checklist": "verification/implementation-report.md"
+  },
+  "release": {
+    "tag": "pop00-v1",
+    "url": "https://github.com/robmar-net/literaki-slownik/releases/tag/pop00-v1",
+    "source_commit": "f33fe05c53f3ab945f929c81eed25ff736d04202",
+    "assets": 6
   }
 }
