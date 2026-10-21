@@ -1,0 +1,888 @@
+{
+  "classes": {
+    "adja": 1109,
+    "adjp": 379,
+    "construction": 11199,
+    "degree-com-sup": 13869,
+    "negative-gerund": 21822,
+    "neuter-person-1-2": 25522,
+    "ordinary": 236586,
+    "pact": 30910,
+    "pacta": 284,
+    "pant": 1854,
+    "ppas": 58911
+  },
+  "database_sha256_pinned_not_recomputed": "4b0d17c6e75139042cf18d6ea9a24650d4e7906b999d3a0ce9331de2ecb27a45",
+  "description": "Sonda reguł do planu, nie zatwierdzona polityka ani lista wydania.",
+  "examples": {
+    "bym": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": null,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "byłam": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": null,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "byłem": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": null,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "byś": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": 0.11,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "byście": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": null,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "byśmy": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": null,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "czytaj": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": 5.45,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": true,
+        "strict_1": true
+      }
+    },
+    "czytajcie": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": 0.37,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "czytając": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": 9.24,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": true,
+        "strict_1": true
+      }
+    },
+    "czytajże": {
+      "classes": [
+        "construction"
+      ],
+      "in_pop0": true,
+      "ipm": null,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": false,
+        "hybrid_0.5": false,
+        "hybrid_1": false,
+        "narrow": true,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "czytam": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": 15.16,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": true,
+        "strict_1": true
+      }
+    },
+    "czytanie": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": 13.25,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": true,
+        "strict_1": true
+      }
+    },
+    "czytany": {
+      "classes": [
+        "ppas"
+      ],
+      "in_pop0": true,
+      "ipm": 1.36,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": true,
+        "strict_1": true
+      }
+    },
+    "czytanymi": {
+      "classes": [
+        "ppas"
+      ],
+      "in_pop0": true,
+      "ipm": 0.09,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": false,
+        "hybrid_0.5": false,
+        "hybrid_1": false,
+        "narrow": true,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "czytasz": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": 2.6,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": true,
+        "strict_1": true
+      }
+    },
+    "kot": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": 17.26,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": true,
+        "strict_1": true
+      }
+    },
+    "kotach": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": 0.86,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": true,
+        "strict_1": false
+      }
+    },
+    "kotem": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": 4.49,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": true,
+        "strict_1": true
+      }
+    },
+    "lepszemu": {
+      "classes": [
+        "degree-com-sup"
+      ],
+      "in_pop0": true,
+      "ipm": 1.44,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": true,
+        "strict_1": true
+      }
+    },
+    "lepszy": {
+      "classes": [
+        "degree-com-sup"
+      ],
+      "in_pop0": true,
+      "ipm": 34.22,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": true,
+        "strict_1": true
+      }
+    },
+    "mili": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": 4.66,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": true,
+        "strict_1": true
+      }
+    },
+    "miłemu": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": 0.19,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "miłymi": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": 0.58,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": true,
+        "strict_1": false
+      }
+    },
+    "najmilszemu": {
+      "classes": [
+        "degree-com-sup"
+      ],
+      "in_pop0": true,
+      "ipm": null,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": false,
+        "hybrid_0.5": false,
+        "hybrid_1": false,
+        "narrow": true,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "najmilszy": {
+      "classes": [
+        "degree-com-sup"
+      ],
+      "in_pop0": true,
+      "ipm": 0.36,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": false,
+        "hybrid_1": false,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "nieczytaniami": {
+      "classes": [
+        "negative-gerund"
+      ],
+      "in_pop0": true,
+      "ipm": null,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": false,
+        "hybrid_0.5": false,
+        "hybrid_1": false,
+        "narrow": true,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "nieczytanie": {
+      "classes": [
+        "negative-gerund"
+      ],
+      "in_pop0": true,
+      "ipm": 0.15,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": false,
+        "hybrid_1": false,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "przeczytałobym": {
+      "classes": [
+        "neuter-person-1-2"
+      ],
+      "in_pop0": true,
+      "ipm": null,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": false,
+        "hybrid_0.5": false,
+        "hybrid_1": false,
+        "narrow": false,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "remontowałoś": {
+      "classes": [
+        "neuter-person-1-2"
+      ],
+      "in_pop0": true,
+      "ipm": null,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": false,
+        "hybrid_0.5": false,
+        "hybrid_1": false,
+        "narrow": false,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "zrobiliśmy": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": null,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "zrobiwszy": {
+      "classes": [
+        "pant"
+      ],
+      "in_pop0": true,
+      "ipm": 0.31,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": false,
+        "hybrid_1": false,
+        "narrow": true,
+        "strict_0.1": true,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "zrobiłam": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": null,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "zrobiłbym": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": null,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    },
+    "zrobiłem": {
+      "classes": [
+        "ordinary"
+      ],
+      "in_pop0": true,
+      "ipm": null,
+      "variants": {
+        "POP0": true,
+        "hybrid_0.1": true,
+        "hybrid_0.5": true,
+        "hybrid_1": true,
+        "narrow": true,
+        "strict_0.1": false,
+        "strict_0.5": false,
+        "strict_1": false
+      }
+    }
+  },
+  "inputs": {
+    "cache/kwjp/kwjp100-slowa-orth-all.csv.gz": "95e27d103250f23533bf5b87accf846fb489d2b5ea3914950857163a22ae4a5a",
+    "data/work/pop-v3-20261014-022011-a/POP0.txt.gz": "34be65fa6db34e98c8029a3fba716a23995250fc94fea5b8ab911a8802b22df4",
+    "data/work/pop-v3-20261014-022011-a/reports/units.json": "0e9d8fb4d5ead27e96d620f1f80ee339deaf06b94604f5b24e9a8d50bc4afebb"
+  },
+  "pos_form_counts": {
+    "adj": 35702,
+    "adja": 1109,
+    "adjc": 10,
+    "adjp": 379,
+    "adv": 1243,
+    "aglt": 2,
+    "bedzie": 6,
+    "brev": 33,
+    "comp": 45,
+    "cond": 48358,
+    "conj": 32,
+    "depr": 964,
+    "fin": 21930,
+    "frag": 13,
+    "ger": 49943,
+    "imps": 3599,
+    "impt": 11162,
+    "inf": 3633,
+    "interj": 56,
+    "num": 261,
+    "numcomp": 29,
+    "pact": 30910,
+    "pacta": 284,
+    "pant": 1854,
+    "part": 135,
+    "pcon": 1840,
+    "ppas": 58911,
+    "ppron12": 20,
+    "ppron3": 22,
+    "praet": 52952,
+    "pred": 23,
+    "prep": 85,
+    "siebie": 3,
+    "subst": 56084,
+    "winien": 30
+  },
+  "variants": {
+    "POP0": {
+      "forms": 388763,
+      "lengths": {
+        "2": 63,
+        "3": 613,
+        "4": 2705,
+        "5": 7752,
+        "6": 15345,
+        "7": 25777,
+        "8": 36275,
+        "9": 46207,
+        "10": 51583,
+        "11": 52345,
+        "12": 48739,
+        "13": 41986,
+        "14": 34066,
+        "15": 25307
+      },
+      "lost_examples": [],
+      "lost_lexemes": 0,
+      "removed": 0,
+      "retained_published_pop0_ipm_pct": 99.99999999999999
+    },
+    "hybrid_0.1": {
+      "forms": 259779,
+      "lengths": {
+        "2": 62,
+        "3": 607,
+        "4": 2673,
+        "5": 7471,
+        "6": 14379,
+        "7": 23034,
+        "8": 30778,
+        "9": 36476,
+        "10": 37455,
+        "11": 34483,
+        "12": 28118,
+        "13": 20889,
+        "14": 14300,
+        "15": 9054
+      },
+      "lost_examples": [],
+      "lost_lexemes": 0,
+      "removed": 128984,
+      "retained_published_pop0_ipm_pct": 99.94983251798908
+    },
+    "hybrid_0.5": {
+      "forms": 244774,
+      "lengths": {
+        "2": 62,
+        "3": 606,
+        "4": 2656,
+        "5": 7394,
+        "6": 14121,
+        "7": 22338,
+        "8": 29358,
+        "9": 34453,
+        "10": 34992,
+        "11": 31994,
+        "12": 25896,
+        "13": 19225,
+        "14": 13251,
+        "15": 8428
+      },
+      "lost_examples": [],
+      "lost_lexemes": 0,
+      "removed": 143989,
+      "retained_published_pop0_ipm_pct": 99.48124590679076
+    },
+    "hybrid_1": {
+      "forms": 240903,
+      "lengths": {
+        "2": 62,
+        "3": 606,
+        "4": 2654,
+        "5": 7375,
+        "6": 14028,
+        "7": 22110,
+        "8": 28959,
+        "9": 33846,
+        "10": 34322,
+        "11": 31334,
+        "12": 25395,
+        "13": 18870,
+        "14": 13038,
+        "15": 8304
+      },
+      "lost_examples": [],
+      "lost_lexemes": 0,
+      "removed": 147860,
+      "retained_published_pop0_ipm_pct": 99.1126469765393
+    },
+    "narrow": {
+      "forms": 374758,
+      "lengths": {
+        "2": 63,
+        "3": 613,
+        "4": 2705,
+        "5": 7726,
+        "6": 15209,
+        "7": 25311,
+        "8": 35263,
+        "9": 44416,
+        "10": 49187,
+        "11": 49867,
+        "12": 46355,
+        "13": 40390,
+        "14": 32938,
+        "15": 24715
+      },
+      "lost_examples": [],
+      "lost_lexemes": 0,
+      "removed": 14005,
+      "retained_published_pop0_ipm_pct": 99.9998480636547
+    },
+    "strict_0.1": {
+      "forms": 125769,
+      "lengths": {
+        "2": 62,
+        "3": 510,
+        "4": 2257,
+        "5": 5809,
+        "6": 10421,
+        "7": 15381,
+        "8": 18605,
+        "9": 19605,
+        "10": 17270,
+        "11": 14031,
+        "12": 9953,
+        "13": 6380,
+        "14": 3543,
+        "15": 1942
+      },
+      "lost_examples": [
+        "AIDS@sgjp-20260823",
+        "Europejczyk@sgjp-20260823",
+        "Niemka@sgjp-20260823",
+        "Norweg@sgjp-20260823",
+        "białowieski@sgjp-20260823",
+        "dzwonowy@sgjp-20260823",
+        "grunwaldzki@sgjp-20260823",
+        "niebolący@sgjp-20260823",
+        "nowogrodzki@sgjp-20260823",
+        "odzwierciedlenie@sgjp-20260823",
+        "opel@sgjp-20260823",
+        "oscar@sgjp-20260823",
+        "osłowy@sgjp-20260823",
+        "popłochowy@sgjp-20260823",
+        "przetransportować@sgjp-20260823",
+        "równouprawnienie@sgjp-20260823",
+        "współzawodnictwo@sgjp-20260823",
+        "zmartwychwstanie@sgjp-20260823",
+        "zniecierpliwienie@sgjp-20260823",
+        "śródziemny@sgjp-20260823"
+      ],
+      "lost_lexemes": 20,
+      "removed": 262994,
+      "retained_published_pop0_ipm_pct": 99.87136553509315
+    },
+    "strict_0.5": {
+      "forms": 75278,
+      "lengths": {
+        "2": 61,
+        "3": 452,
+        "4": 1876,
+        "5": 4634,
+        "6": 7707,
+        "7": 10596,
+        "8": 11635,
+        "9": 11388,
+        "10": 9523,
+        "11": 7193,
+        "12": 4939,
+        "13": 2912,
+        "14": 1534,
+        "15": 828
+      },
+      "lost_examples": [
+        "AIDS@sgjp-20260823",
+        "Amerykanka@sgjp-20260823",
+        "Anglik@sgjp-20260823",
+        "Arab@sgjp-20260823",
+        "Chińczyk@sgjp-20260823",
+        "Europejczyk@sgjp-20260823",
+        "Fin@sgjp-20260823",
+        "Hindus@sgjp-20260823",
+        "Niemka@sgjp-20260823",
+        "Norweg@sgjp-20260823",
+        "San:F@sgjp-20260823",
+        "Sowiet@sgjp-20260823",
+        "agora@sgjp-20260823",
+        "ano@sgjp-20260823",
+        "anulować@sgjp-20260823",
+        "arka@sgjp-20260823",
+        "autoryzować@sgjp-20260823",
+        "beskidzki@sgjp-20260823",
+        "białowieski@sgjp-20260823",
+        "biblia@sgjp-20260823"
+      ],
+      "lost_lexemes": 117,
+      "removed": 313485,
+      "retained_published_pop0_ipm_pct": 98.17335342818113
+    },
+    "strict_1": {
+      "forms": 53443,
+      "lengths": {
+        "2": 59,
+        "3": 395,
+        "4": 1597,
+        "5": 3845,
+        "6": 6133,
+        "7": 8033,
+        "8": 8384,
+        "9": 7873,
+        "10": 6266,
+        "11": 4608,
+        "12": 3125,
+        "13": 1738,
+        "14": 910,
+        "15": 477
+      },
+      "lost_examples": [
+        "AIDS@sgjp-20260823",
+        "Amerykanka@sgjp-20260823",
+        "Anglik@sgjp-20260823",
+        "Arab@sgjp-20260823",
+        "Chińczyk@sgjp-20260823",
+        "Europejczyk@sgjp-20260823",
+        "Fin@sgjp-20260823",
+        "Hindus@sgjp-20260823",
+        "Niemka@sgjp-20260823",
+        "Norweg@sgjp-20260823",
+        "San:F@sgjp-20260823",
+        "Sowiet@sgjp-20260823",
+        "administrować@sgjp-20260823",
+        "agencyjny@sgjp-20260823",
+        "agora@sgjp-20260823",
+        "aha@sgjp-20260823",
+        "aksamitny@sgjp-20260823",
+        "aktualizować@sgjp-20260823",
+        "alpejski@sgjp-20260823",
+        "analogowy@sgjp-20260823"
+      ],
+      "lost_lexemes": 661,
+      "removed": 335320,
+      "retained_published_pop0_ipm_pct": 96.04965773557245
+    }
+  }
+}

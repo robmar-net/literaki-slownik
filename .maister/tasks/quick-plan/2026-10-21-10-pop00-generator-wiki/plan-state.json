@@ -1,0 +1,44 @@
+{
+  "workflow": "maister-quick-plan",
+  "issue": "https://github.com/robmar-net/literaki-slownik/issues/10",
+  "status": "awaiting_plan_approval",
+  "created": "2026-10-21T15:05:20Z",
+  "updated": "2026-10-21T15:05:20Z",
+  "plan": "plan.md",
+  "evidence": [
+    "analysis/probe_policy.py",
+    "analysis/policy-probe.json"
+  ],
+  "proposal": {
+    "method": "pop00-v1",
+    "frequency_threshold_ipm": "0.1",
+    "forms_measured": 259779,
+    "removed_forms": 128984,
+    "lost_lexemes": 0,
+    "approved": false
+  },
+  "wiki": {
+    "status": "published_in_preparation",
+    "url": "https://github.com/robmar-net/literaki-slownik/wiki/Slownik-POP00",
+    "commit": "beb09c0",
+    "remote_master_confirmed": true,
+    "public_html_confirmed": true
+  },
+  "validation": {
+    "proposal_probe_reproduced": true,
+    "expanded_tags_verified_same_counts": true,
+    "application_code_changed": false,
+    "full_suite_run": false,
+    "full_suite_reason": "Planowanie, bez zmian kodu aplikacji."
+  },
+  "gate": {
+    "question": "Zatwierdzić wdrożenie proponowanej polityki POP00, skorygować plan czy zachować sam plan?",
+    "choices": [
+      "Wdrożyć zgodnie z planem",
+      "Skorygować reguły",
+      "Tylko plan"
+    ],
+    "answer": null
+  },
+  "next_skill_after_implementation_approval": "maister-codex:maister-quick-dev"
+}

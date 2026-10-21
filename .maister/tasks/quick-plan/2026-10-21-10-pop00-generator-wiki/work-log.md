@@ -1,0 +1,2 @@
+2026-10-21T15:05:20Z — Wznowiono #10 przez maister-quick-plan. Odczytano skill, AGENTS, indeks oraz odpowiednie zasady fleksji, gry, raportów, jakości, CLI, publikacji, ADR i wiki. Sonda trzech rodzin filtrów; powtórzenie identyczne; rozwinięcie tagów nie zmienia liczebności. Nie zmieniono kodu generatora.
+2026-10-21T15:05:20Z — Opublikowano uzgodnioną zapowiedź POP00: wiki commit beb09c0; 5 stron. Weryfikacja publicznego HTML potwierdziła status „W przygotowaniu” i ticket #10. Przygotowano plan wymagający akceptacji polityki.
