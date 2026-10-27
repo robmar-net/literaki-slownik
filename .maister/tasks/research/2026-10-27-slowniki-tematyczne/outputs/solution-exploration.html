@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warianty rozwiązania — słowniki tematyczne</title>
+<style>
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+img.shot { max-width:100%; border:1px solid var(--border); border-radius:var(--radius); }
+details > summary { cursor:pointer; font-weight:600; }
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+/* rozszerzenia */
+.conf { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; padding:1.5px 7px; border-radius:99px; }
+.conf.hi { background:var(--ok-soft); color:var(--ok); }
+.conf.mid { background:var(--warn-soft); color:var(--warn); }
+.conf.lo { background:var(--crit-soft); color:var(--crit); }
+.tldr { border-left:4px solid var(--accent); }
+.tldr h3 { font-size:13px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); margin:14px 0 4px; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+@media (max-width:720px){ .grid2,.grid3 { grid-template-columns:1fr; } }
+.swot .card h3 { margin:0 0 6px; font-size:13px; }
+.swot .s { border-top:3px solid var(--ok); } .swot .w { border-top:3px solid var(--crit); }
+.swot .o { border-top:3px solid var(--info); } .swot .t { border-top:3px solid var(--warn); }
+.bar { height:8px; background:var(--border); border-radius:99px; overflow:hidden; margin-top:6px; }
+.bar i { display:block; height:100%; background:var(--accent); }
+.answer { border:2px solid var(--accent); }
+td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; }
+.tablewrap { overflow-x:auto; }
+</style>
+
+<style>
+.alts { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
+.alt { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:12px 14px; }
+.alt.rec { border:2px solid var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+.alt h4 { margin:2px 0 6px; font-size:14px; }
+.alt .id { font-size:11px; color:var(--dim); font-weight:700; }
+.alt ul { margin:4px 0 6px; padding-left:18px; }
+.alt .lbl { font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); margin-top:6px; }
+.alt .ev { font-size:12px; color:var(--dim); }
+td.ok { color:var(--ok); font-weight:600; } td.mid { color:var(--warn); font-weight:600; } td.bad { color:var(--crit); font-weight:600; }
+tr.rec td:first-child { font-weight:700; color:var(--accent); }
+.sub { font-size:13px; }
+.wrap { overflow-x:auto; }
+</style>
+</head>
+<body>
+<nav class="crumbs">
+  <a href="../dashboard.html">← Dashboard</a>
+  <a href="research-report.html">Raport</a>
+  <span class="here">Warianty</span>
+  <a href="solution-exploration.md" target="_blank" rel="noopener" class="md">md twin ↗</a>
+</nav>
+<header>
+  <span class="badge">solution-exploration</span>
+  <h1>Warianty rozwiązania: słowniki tematyczne</h1>
+  <div class="ev" style="color:var(--dim);font-size:12px">2026-10-27 · pewność: średnia</div>
+</header>
+<div class="tiles">
+  <div class="tile"><b>6</b><span>obszarów decyzji</span></div>
+  <div class="tile"><b>22</b><span>warianty</span></div>
+  <div class="tile"><b>86 / 78 / 40%</b><span>pokrycie mat. / morze / roln.</span></div>
+  <div class="tile"><b>SGJP + Słowosieć</b><span>polecane źródła</span></div>
+  <div class="tile"><b>średnia</b><span>pewność</span></div>
+</div>
+<section class="card tldr">
+<h3>TL;DR</h3>
+<p>Przejrzeliśmy 6 obszarów decyzji, w każdym 3–5 wariantów (razem 22). Polecamy listę warstwową: rdzeń SGJP, potem Słowosieć A z częściami i miejscami, z oceną próby. Temat opisuje jeden plik konfiguracji w repozytorium.
+Jednostką jest leksem SGJP, a formy bierzemy z bazy. Homonimy oznaczamy, nie usuwamy. Wszystkie tematy idą w jednym pakiecie „TEMATY” na wzór POP00.
+Kolejność: matematyka (pilotaż), potem morze, na końcu rolnictwo po pomiarze nowych korzeni. IATE to opcjonalna warstwa później. LLM odkładamy, bo to wydatek i wymaga dwóch potwierdzeń. Pewność: średnia, bo trafność i pokrycie ocenił jeden oceniający.</p>
+<h3>Key Decisions</h3>
+<ul>
+<li><b>Cel: lista warstwowa</b> (T1 rdzeń SGJP, T2 Słowosieć A + części/miejsca, T3 uzupełnienia). Ten sam pakiet obsłuży wąski rdzeń terminów i pełny temat.</li>
+<li><b>Źródła teraz: SGJP + Słowosieć 4.5 (A + rel. 25, 27).</b> Skojarzeń (rel. 108, 146) nie bierzemy, bo połowa to szum. IATE i LLM to osobne, późniejsze decyzje.</li>
+<li><b>Temat = plik konfiguracji</b> (atomy SGJP, korzenie z id synsetu, wykluczenia, jawne dodatki z bazy). Plik wersjonujemy i zmieniamy przez przegląd.</li>
+<li><b>Leksem SGJP jako jednostka; formy ∩ STANDARD.</b> Każdy wpis ma zapisane źródło. Gdy lemat ma znaczenia spoza tematu, wpis dostaje flagę <code>wieloznaczny</code>.</li>
+<li><b>Jeden pakiet „TEMATY”</b> w stylu POP00 z notą plWordNet. Przed wydaniem trzeba rozstrzygnąć licencję Słowosieci 4.5.</li>
+<li><b>ADR przed wdrożeniem.</b> Dotyczy metod spoza Zadania E (SGJP, Słowosieć). Zapisuje też statusy metod: E1 słaba, E2 zablokowana, E3 odroczona.</li>
+</ul>
+<h3>Open Questions / Risks</h3>
+<ul>
+<li><span class="sev warning">warning</span><b>Licencja Słowosieci 4.5.</b> Link w repozytorium zwraca 404, nota mówi „4.2 © 2020”, a w zipie nie ma LICENSE. Blokuje wydanie, ale nie budowę roboczą.</li>
+<li><span class="sev warning">warning</span><b>Jeden oceniający.</b> Korzenie, lista 107 słów i ocena prób pochodzą od agenta. Proponujemy operatora jako drugiego oceniającego na małej próbie.</li>
+<li><span class="sev warning">warning</span><b>Rolnictwo 40%.</b> Brakuje <code>orka</code>, <code>obora</code>, <code>ciągnik</code>. Nowych korzeni jeszcze nie zmierzono. Jeśli nie pomogą, zostaje LLM (wydatek) albo ręczne dodatki.</li>
+<li><span class="sev info">info</span>Wynik zależy od korzeni i wydania (matematyka A: 558 lematów w 4.2, 431 w 4.5). Trzeba przypiąć wydanie i zapisać korzenie.</li>
+<li><span class="sev info">info</span>Granice tematu to decyzja redakcyjna, np. rośliny egzotyczne pod <code>roślina uprawna</code>.</li>
+<li><span class="sev info">info</span>Odbiorca listy: prompt v3 mówi o dodatku do wiedzy bota, a wiki jest dla odwiedzających. Od odbiorcy zależy, czy wydanie publiczne jest potrzebne od razu.</li>
+</ul>
+</section>
+<nav class="toc sub">Spis: <a href="#hmw">Pytania HMW</a> · <a href="#d1">D1</a> · <a href="#d2">D2</a> · <a href="#d3">D3</a> · <a href="#d4">D4</a> · <a href="#d5">D5</a> · <a href="#d6">D6</a> · <a href="#matrix">Macierz</a> · <a href="#rec">Rekomendacja</a> · <a href="#scope">Zakres</a> · <a href="#why">Dlaczego nie</a> · <a href="#deferred">Odłożone</a></nav>
+<main>
+<h2 id="hmw">Pytanie i HMW</h2>
+<div class="card">
+<p><b>Pytanie:</b> czy możemy zbudować listy tematyczne (marynistyka, rolnictwo, matematyka, potem inne) jako podzbiory słownika projektu i z czego? Odpowiedź z badania: tak dla matematyki (86% pokrycia) i morza (78%), rolnictwo tylko częściowo (40%).</p>
+<ol>
+<li>Jak sprawić, by lista była trafna, a zarazem zawierała słowa podstawowe, a nie tylko terminy fachowe?</li>
+<li>Jak połączyć źródła tak, by zysk w pokryciu nie zalał listy szumem?</li>
+<li>Jak opisać temat, żeby wynik dało się odtworzyć i poprawić bez kodu?</li>
+<li>Jak zachować regułę „temat ⊆ słownik przy stole” i uczciwie oznaczyć wieloznaczność?</li>
+<li>Jak wydać listy zgodnie z licencjami (nota plWordNet, atrybucja IATE)?</li>
+<li>Jak kolejnością tematów obniżyć ryzyko i koszt?</li>
+</ol>
+</div>
+
+<h2 id="d1">D1. Cel listy</h2><div class="alts">
+<div class="alt"><div class="id">D1-A</div><h4>Rdzeń terminów (wąski)</h4><div class="sub">Tylko leksemy z etykietą dziedziny SGJP.</div><div class="lbl">Plusy</div><ul><li>trafność 29/27/30 na 30</li><li>dane i kod już są; BSD-2</li></ul><div class="lbl">Minusy</div><ul><li>pokrycie 27/0/23%</li><li>brak <code>kotwica</code>, <code>pług</code>, <code>sinus</code></li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">bot „fachowiec”</div><div class="ev">Dowód: W2–W5; WSJP *Zasady* s. 37, 47</div></div>
+<div class="alt"><div class="id">D1-B</div><h4>Pełny temat (płaska lista)</h4><div class="sub">Słowa podstawowe i terminy razem, bez rozróżnienia.</div><div class="lbl">Plusy</div><ul><li>najprostszy odbiór</li></ul><div class="lbl">Minusy</div><ul><li>miesza trafność 30/30 z 14/30</li><li>odbiorca nie zawęzi listy</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">odbiorca to człowiek przeglądający listę</div><div class="ev">Dowód: W13, W14</div></div>
+<div class="alt rec"><div class="id">D1-C <span class="badge">polecany</span></div><h4>Warstwy T1 / T2 / T3</h4><div class="sub">T1 etykiety SGJP, T2 Słowosieć A + części i miejsca, T3 uzupełnienia (IATE, jawne dodatki). Wpis ma warstwę i źródło.</div><div class="lbl">Plusy</div><ul><li>zawiera A i B</li><li>trafność widać per warstwa</li><li>zgodne z promptem v3 (wynik i niepewność)</li></ul><div class="lbl">Minusy</div><ul><li>więcej pól; trzeba wyjaśnić warstwy na wiki</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">nie wiemy jeszcze, kto i jak użyje list</div><div class="ev">Dowód: synteza §7; prompt v3 §10</div></div>
+<div class="alt"><div class="id">D1-D</div><h4>Wynik ciągły 0–3</h4><div class="sub">Każdy leksem bazy ma wynik; próg wybiera odbiorca (jak <code>vocabulary_level</code>).</div><div class="lbl">Plusy</div><ul><li>najbardziej elastyczny</li><li>naturalny dla LLM</li></ul><div class="lbl">Minusy</div><ul><li>źródła słownikowe dają tylko tak/nie</li><li>bez LLM nie ma czym liczyć</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">po decyzji o LLM</div><div class="ev">Dowód: W20</div></div>
+</div>
+<h2 id="d2">D2. Kombinacja źródeł</h2><div class="alts">
+<div class="alt"><div class="id">D2-A</div><h4>Tylko SGJP</h4><div class="sub">Bez nowych źródeł.</div><div class="lbl">Plusy</div><ul><li>zero nowych licencji</li><li>kilka dni pracy</li></ul><div class="lbl">Minusy</div><ul><li>254/96/62 leksemy</li><li>rolnictwo 0% pokrycia</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">potrzebny tylko rdzeń</div><div class="ev">Dowód: W2, W4</div></div>
+<div class="alt rec"><div class="id">D2-B <span class="badge">polecany</span></div><h4>SGJP + Słowosieć 4.5 A + części/miejsca (rel. 25, 27)</h4><div class="sub">Hiponimia od ręcznych korzeni plus części i miejsca; bez skojarzeń.</div><div class="lbl">Plusy</div><ul><li>największy przyrost przy dobrej trafności (A: 23/14/23)</li><li>dane lokalne</li><li>85–88% nowych słów w BROAD v31</li></ul><div class="lbl">Minusy</div><ul><li>licencja z niejasną wersją</li><li>ręczne korzenie</li><li>rolnictwo słabe</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">teraz</div><div class="ev">Dowód: W11–W14</div></div>
+<div class="alt"><div class="id">D2-C</div><h4>B + słowa pojedyncze IATE</h4><div class="sub">Plik pobrania IATE z atrybucją UE.</div><div class="lbl">Plusy</div><ul><li>czysta licencja</li><li>terminy morskie (<code>cuma</code>, <code>kilson</code>)</li></ul><div class="lbl">Minusy</div><ul><li>tylko 7–21% słów pojedynczych</li><li>rolnictwo szumne, matematyka uboga</li><li>nie zmierzono</li><li>EU Login albo TBX 2019</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">T3 dla morza, później</div><div class="ev">Dowód: W15</div></div>
+<div class="alt"><div class="id">D2-D</div><h4>B + LLM jako oceniający (E3)</h4><div class="sub">Ocena 0–3 istniejących leksemów.</div><div class="lbl">Plusy</div><ul><li>sięga poza drzewa (<code>orka</code>, <code>obora</code>)</li><li>ocenia całą bazę (212 728)</li></ul><div class="lbl">Minusy</div><ul><li>koszt nieznany (~1,7 / ~1,3 mln tokenów ×3)</li><li>warunki dostawcy</li><li>dwa potwierdzenia</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">gdy korzenie nie domkną rolnictwa</div><div class="ev">Dowód: W20</div></div>
+<div class="alt"><div class="id">D2-E</div><h4>Słowosieć zbiór C (ze skojarzeniami)</h4><div class="sub">A + części, miejsca i skojarzenia.</div><div class="lbl">Plusy</div><ul><li>najwyższe pokrycie 59/40/86%</li></ul><div class="lbl">Minusy</div><ul><li>C − A w połowie szum (16/8/10 na 30)</li><li>dużo przeglądu</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">nigdy w całości</div><div class="ev">Dowód: W14</div></div>
+</div>
+<h2 id="d3">D3. Definicja i utrzymanie tematu</h2><div class="alts">
+<div class="alt rec"><div class="id">D3-A <span class="badge">polecany</span></div><h4>Plik konfiguracji tematu</h4><div class="sub">Atomy SGJP, korzenie (id synsetu), relacje, wykluczenia, jawne dodatki z bazy. Zmiana pliku = nowa wersja.</div><div class="lbl">Plusy</div><ul><li>odtwarzalne</li><li>nowy temat bez kodu</li><li>wykluczenia usuwają szum (<code>monstera</code>)</li><li>dodatki łatają rolnictwo</li></ul><div class="lbl">Minusy</div><ul><li>korzenie dalej ręczne</li><li>długie wykluczenia ukrywają słabość źródła</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">zawsze</div><div class="ev">Dowód: synteza §3; ADR-009</div></div>
+<div class="alt"><div class="id">D3-B</div><h4>Lista ręczna po jednym generowaniu</h4><div class="sub">Plik słów jest źródłem prawdy.</div><div class="lbl">Plusy</div><ul><li>pełna kontrola</li></ul><div class="lbl">Minusy</div><ul><li>traci odtwarzalność</li><li>nie przejdzie na nową bazę</li><li>600–900 słów na temat</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">mały, stały temat</div><div class="ev">Dowód: W12</div></div>
+<div class="alt"><div class="id">D3-C</div><h4>Korzenie automatyczne</h4><div class="sub">Z domen PWN (B1/B2) albo od synsetu nazwy tematu.</div><div class="lbl">Plusy</div><ul><li>brak ręcznej pracy</li></ul><div class="lbl">Minusy</div><ul><li>B1/B2: 0–11% dla morza i rolnictwa</li><li>temat leży w wielu gałęziach</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">gdy powstanie lepsze źródło dziedzin</div><div class="ev">Dowód: W13</div></div>
+</div>
+<div class="card sub"><b>Przegląd (dotyczy każdego wariantu):</b><ul><li>R1: tylko agent, próba 50–100 na temat. Tanio, ale z jednym oceniającym.</li><li><b>R2 (polecany):</b> agent ocenia próbę 50 na warstwę, operator ocenia 30 z niej jako drugi oceniający. Zapisujemy zgodność.</li><li>R3: pełny przegląd każdego słowa. Przy 600–900 słowach na temat za drogi.</li></ul></div>
+<h2 id="d4">D4. Jednostka, przecięcie z bazą, homonimy</h2><div class="alts">
+<div class="alt rec"><div class="id">D4-A <span class="badge">polecany</span></div><h4>Leksem SGJP; formy ∩ STANDARD</h4><div class="sub">Lemat Słowosieci → leksemy SGJP (lemat + część mowy). Formy z STANDARD; POP/POP0/POP00 przez przecięcie u odbiorcy.</div><div class="lbl">Plusy</div><ul><li>zgodne z promptem v3</li><li>jedna lista na temat</li></ul><div class="lbl">Minusy</div><ul><li>dla BROAD przecięcie u odbiorcy</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">zawsze</div><div class="ev">Dowód: prompt v3 §10; synteza §5</div></div>
+<div class="alt"><div class="id">D4-B</div><h4>Lista na każdą bazę</h4><div class="sub">BROAD, STANDARD, POP0 osobno.</div><div class="lbl">Plusy</div><ul><li>gotowe bez przecinania</li></ul><div class="lbl">Minusy</div><ul><li>3× pliki i liczby</li><li>ryzyko rozjazdu</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">wielu odbiorców bez narzędzi</div><div class="ev">Dowód: —</div></div>
+<div class="alt"><div class="id">D4-C</div><h4>Same lematy</h4><div class="sub">Bez form.</div><div class="lbl">Plusy</div><ul><li>mały, czytelny plik</li></ul><div class="lbl">Minusy</div><ul><li>bot gra formami</li><li>gubi leksem przy homonimach</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">lista dla człowieka</div><div class="ev">Dowód: —</div></div>
+</div>
+<div class="card sub"><b>Homonimy (podwybór):</b><ul><li><b>H1 (polecany):</b> flaga <code>wieloznaczny</code>, gdy lemat ma w Słowosieci znaczenia spoza drzewa tematu, oraz zapisane znaczenie źródłowe. Przegląd może wykluczyć wpis.</li><li>H2: usuwamy wszystkie wieloznaczne. Lista czysta, ale tracimy <code>pole</code>, <code>liczba</code>, <code>orka</code>.</li><li>H3: lista na poziomie znaczeń. Najdokładniejsza, ale bot gra napisem. Poza zakresem.</li></ul></div>
+<h2 id="d5">D5. Pakiet i publikacja</h2><div class="alts">
+<div class="alt rec"><div class="id">D5-A <span class="badge">polecany</span></div><h4>Jeden pakiet „TEMATY”</h4><div class="sub">Wzór POP00: podkomenda, <code>method.json</code>, <code>LIMITATIONS.md</code>, <code>ATTRIBUTIONS.md</code> (nota plWordNet); plik na temat + manifest.</div><div class="lbl">Plusy</div><ul><li>jedna metoda, jedna nota, jedna strona wiki</li><li>nowy temat = nowy plik</li></ul><div class="lbl">Minusy</div><ul><li>zmiana tematu = nowa wersja pakietu</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">zawsze</div><div class="ev">Dowód: ADR-009; runbook wiki</div></div>
+<div class="alt"><div class="id">D5-B</div><h4>Pakiet na temat</h4><div class="sub">Każdy temat osobno.</div><div class="lbl">Plusy</div><ul><li>niezależne wersje</li></ul><div class="lbl">Minusy</div><ul><li>powielone noty i metoda</li><li>N stron wiki</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">tematy rozwijane przez różne osoby</div><div class="ev">Dowód: —</div></div>
+<div class="alt"><div class="id">D5-C</div><h4>Tylko artefakt roboczy</h4><div class="sub">Listy w <code>data/work</code>, tylko dla botów.</div><div class="lbl">Plusy</div><ul><li>omija blokadę licencji</li><li>najszybsze</li></ul><div class="lbl">Minusy</div><ul><li>wbrew zasadzie wiki</li><li>brak stabilnej wersji</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">plan awaryjny przy złej licencji</div><div class="ev">Dowód: AGENTS.md</div></div>
+</div>
+<div class="card sub"><b>Wspólne warunki:</b> nie publikujemy surowego zrzutu Słowosieci (nazwiska redaktorów, log IP), tylko listy lematów. Stronę wiki „W przygotowaniu” zakładamy na starcie prac.</div>
+<h2 id="d6">D6. Pierwsze tematy i kolejność</h2><div class="alts">
+<div class="alt rec"><div class="id">D6-A <span class="badge">polecany</span></div><h4>Matematyka → morze → rolnictwo, z bramką</h4><div class="sub">Pilotaż na matematyce (86%), potem morze (78%), rolnictwo po pomiarze nowych korzeni.</div><div class="lbl">Plusy</div><ul><li>najmniejsze ryzyko</li><li>błąd metody wychodzi na najczystszym temacie</li></ul><div class="lbl">Minusy</div><ul><li>temat najbardziej „życiowy” na końcu</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">zawsze</div><div class="ev">Dowód: W13</div></div>
+<div class="alt"><div class="id">D6-B</div><h4>Wszystkie naraz</h4><div class="sub">Jedno wydanie.</div><div class="lbl">Plusy</div><ul><li>jeden przegląd</li></ul><div class="lbl">Minusy</div><ul><li>rolnictwo (40%) blokuje całość</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">wszystkie tematy dojrzałe</div><div class="ev">Dowód: W13</div></div>
+<div class="alt"><div class="id">D6-C</div><h4>Najpierw morze</h4><div class="sub">Największy rdzeń SGJP (254).</div><div class="lbl">Plusy</div><ul><li>bogaty temat dla bota „żeglarza”</li></ul><div class="lbl">Minusy</div><ul><li>78% i więcej szumu</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">priorytet odbiorcy</div><div class="ev">Dowód: W2, W13</div></div>
+<div class="alt"><div class="id">D6-D</div><h4>Jeden temat i stop</h4><div class="sub">Decyzja po pierwszym temacie.</div><div class="lbl">Plusy</div><ul><li>najmniej pracy</li></ul><div class="lbl">Minusy</div><ul><li>wolniej; bramka w A daje to samo</li></ul><div class="lbl">Najlepszy, gdy</div><div class="sub">niepewna przydatność</div><div class="ev">Dowód: —</div></div>
+</div>
+<h2 id="matrix">Macierz kompromisów</h2><p class="sub">W = korzystnie, Ś = średnio, N = niekorzystnie. Przy ryzyku W = niskie ryzyko. Polecane wiersze wyróżnione.</p><div class="card wrap"><table><tr><th>Wariant</th><th>Wykonalność</th><th>Wpływ na odbiorcę</th><th>Prostota</th><th>Ryzyko</th><th>Skalowalność</th></tr>
+<tr><td>D1-A rdzeń</td><td class="ok">W</td><td class="bad">N</td><td class="ok">W</td><td class="ok">W</td><td class="mid">Ś</td></tr>
+<tr><td>D1-B pełny płaski</td><td class="ok">W</td><td class="mid">Ś</td><td class="ok">W</td><td class="mid">Ś</td><td class="bad">N</td></tr>
+<tr class="rec"><td>D1-C warstwy</td><td class="ok">W</td><td class="ok">W</td><td class="mid">Ś</td><td class="ok">W</td><td class="ok">W</td></tr>
+<tr><td>D1-D wynik ciągły</td><td class="bad">N (bez LLM)</td><td class="ok">W</td><td class="bad">N</td><td class="bad">N</td><td class="ok">W</td></tr>
+<tr><td>D2-A SGJP</td><td class="ok">W</td><td class="bad">N</td><td class="ok">W</td><td class="ok">W</td><td class="bad">N</td></tr>
+<tr class="rec"><td>D2-B + Słowosieć A/części</td><td class="ok">W</td><td class="ok">W</td><td class="mid">Ś</td><td class="mid">Ś (licencja)</td><td class="mid">Ś (korzenie ręczne)</td></tr>
+<tr><td>D2-C + IATE</td><td class="mid">Ś (EU Login)</td><td class="mid">Ś</td><td class="bad">N</td><td class="mid">Ś</td><td class="mid">Ś</td></tr>
+<tr><td>D2-D + LLM</td><td class="mid">Ś</td><td class="ok">W? (nie zmierzono)</td><td class="bad">N</td><td class="bad">N (koszt, warunki)</td><td class="ok">W</td></tr>
+<tr><td>D2-E Słowosieć C</td><td class="ok">W</td><td class="bad">N (szum)</td><td class="bad">N</td><td class="mid">Ś</td><td class="mid">Ś</td></tr>
+<tr class="rec"><td>D3-A plik tematu</td><td class="ok">W</td><td class="ok">W</td><td class="ok">W</td><td class="ok">W</td><td class="ok">W</td></tr>
+<tr><td>D3-B lista ręczna</td><td class="ok">W</td><td class="mid">Ś</td><td class="mid">Ś</td><td class="mid">Ś</td><td class="bad">N</td></tr>
+<tr><td>D3-C korzenie auto</td><td class="mid">Ś</td><td class="bad">N</td><td class="ok">W</td><td class="bad">N</td><td class="ok">W</td></tr>
+<tr class="rec"><td>D4-A leksem ∩ STANDARD</td><td class="ok">W</td><td class="ok">W</td><td class="ok">W</td><td class="ok">W</td><td class="ok">W</td></tr>
+<tr><td>D4-B lista na bazę</td><td class="ok">W</td><td class="ok">W</td><td class="bad">N</td><td class="mid">Ś</td><td class="bad">N</td></tr>
+<tr><td>D4-C same lematy</td><td class="ok">W</td><td class="bad">N</td><td class="ok">W</td><td class="mid">Ś</td><td class="mid">Ś</td></tr>
+<tr class="rec"><td>D5-A pakiet TEMATY</td><td class="ok">W</td><td class="ok">W</td><td class="ok">W</td><td class="mid">Ś (licencja)</td><td class="ok">W</td></tr>
+<tr><td>D5-B pakiet na temat</td><td class="ok">W</td><td class="mid">Ś</td><td class="bad">N</td><td class="mid">Ś</td><td class="mid">Ś</td></tr>
+<tr><td>D5-C bez wydania</td><td class="ok">W</td><td class="bad">N</td><td class="ok">W</td><td class="mid">Ś (sprzeczne z AGENTS)</td><td class="bad">N</td></tr>
+<tr class="rec"><td>D6-A kolejno z bramką</td><td class="ok">W</td><td class="mid">Ś</td><td class="ok">W</td><td class="ok">W</td><td class="ok">W</td></tr>
+<tr><td>D6-B naraz</td><td class="mid">Ś</td><td class="mid">Ś</td><td class="mid">Ś</td><td class="bad">N</td><td class="mid">Ś</td></tr>
+<tr><td>D6-C morze pierwsze</td><td class="ok">W</td><td class="ok">W</td><td class="ok">W</td><td class="mid">Ś</td><td class="ok">W</td></tr>
+<tr><td>D6-D jeden i stop</td><td class="ok">W</td><td class="bad">N</td><td class="ok">W</td><td class="ok">W</td><td class="bad">N</td></tr>
+</table></div>
+<div class="card sub"><b>Główne napięcia:</b><ul>
+<li><b>Pokrycie a trafność:</b> każda warstwa dokłada słowa i obniża trafność (30 → 23 → 16 na 30). Warstwy nie każą wybierać jednego punktu.</li>
+<li><b>Rolnictwo a koszt:</b> tylko LLM albo ręczna praca (korzenie, dodatki) domyka luki. Ręczna praca jest tańsza i najpierw trzeba ją zmierzyć.</li>
+<li><b>Szybkość a licencja:</b> wydanie czeka na decyzję o licencji Słowosieci. Budowa robocza może ruszyć od razu.</li></ul></div>
+<h2>Preferencje i ograniczenia</h2>
+<div class="card sub">W tym kroku nie było dialogu z użytkownikiem. Obowiązują ograniczenia projektu:<ul>
+<li>Wydatki (LLM, płatne API) wymagają dwóch potwierdzeń.</li><li>Nie kontaktujemy autorów (stąd brak Słowosieci 5.0 i tokenu API IATE).</li>
+<li>Wikisłownik jest odroczony, dopóki użytkownik go nie otworzy.</li><li>Temat to podzbiór słownika przy stole. LLM nie dodaje słów i nie rozstrzyga o dopuszczalności (prompt v3).</li>
+<li>Zmiany kryteriów i nowe słowniki aktualizują wiki w tej samej pracy.</li><li>Decyzje słownikowe są delegowane i odwracalne, ale skład listy pokazujemy użytkownikowi z przykładami.</li></ul></div>
+<h2 id="rec">Rekomendacja</h2>
+<div class="card" style="border:2px solid var(--accent)">
+<p><b>Lista warstwowa z SGJP i Słowosieci, opisana plikiem tematu, wydana jako pakiet „TEMATY”, tematy kolejno od matematyki.</b></p>
+<p class="sub">Składniki: D1-C + D2-B + D3-A z przeglądem R2 + D4-A z H1 + D5-A + D6-A.</p>
+<p><b>Uzasadnienie:</b> to jedyne zestawienie, które daje 86% i 78% pokrycia matematyki i morza bez nowych kosztów i bez szumu skojarzeń. Wynik da się odtworzyć z pliku i ADR. Warstwy zostawiają miejsce na IATE i LLM, nie zmieniając formatu.</p>
+<div class="grid2"><div><b>Co oddajemy</b><ul><li>rolnictwo zostaje niepełne do czasu pomiaru nowych korzeni;</li><li>ok. 1/4 wpisów T2 będzie wątpliwa, a przegląd jest tylko próbkowy;</li><li>wydanie publiczne czeka na decyzję o licencji Słowosieci 4.5.</li></ul></div>
+<div><b>Założenia (fałszywe = zmiana rekomendacji)</b><ol><li>Licencja ze slowosiec.pl obejmuje dane 4.5. Jeśli nie, zostaje D5-C albo D2-A.</li><li>Bot korzysta z warstw albo bierze T1–T2 razem.</li><li>Mapowanie na leksemy SGJP gubi mało słów, bo 85–88% jest w BROAD v31.</li><li>Drugi oceniający potwierdzi T2 mniej więcej na 23/30. Jeśli wyjdzie dużo niżej, T2 trzeba zawęzić.</li><li>Nowe korzenie podniosą rolnictwo wyraźnie ponad 40%. Jeśli nie, pytamy o LLM (dwa potwierdzenia).</li></ol></div></div>
+<p class="sub"><b>Pewność: średnia.</b> Liczby źródeł są pewne. Trafność i pokrycie oparte są na małych próbach jednego oceniającego.<br>
+<b>ADR przed wdrożeniem:</b> metoda tematyczna (SGJP + Słowosieć, warstwy, plik tematu), nowe źródło Słowosieć 4.5 z notą, statusy E1/E2/E3, reguła flagi <code>wieloznaczny</code>.</p>
+</div>
+<h2 id="scope">Zakres (trzy strefy)</h2>
+<div class="grid3">
+<div class="card" style="border-top:3px solid var(--ok)"><b>W zakresie</b><p class="sub">trzy tematy; SGJP + Słowosieć 4.5 (A + części/miejsca); plik tematu; przegląd próby; leksem ∩ STANDARD; flaga <code>wieloznaczny</code>; pakiet TEMATY; ADR; strona wiki</p></div>
+<div class="card" style="border-top:3px solid var(--warn)"><b>Rozszerzenie</b><p class="sub">warstwa IATE (T3) dla morza; nowe korzenie i jawne dodatki dla rolnictwa; drugi oceniający; kolejne tematy z promptu v3 (kulinaria, sport, muzyka, kolej…) tą samą metodą</p></div>
+<div class="card" style="border-top:3px solid var(--crit)"><b>Poza zakresem</b><p class="sub">Wikisłownik (odroczony); AGROVOC (zablokowany); Słowosieć 5.0 (kontakt z autorami); terminy wielowyrazowe; listy na poziomie znaczeń; zmiana reguł gry; użycie list w botach serwera Literaki (osobne repozytorium)</p></div>
+</div>
+<h2 id="why">Dlaczego nie inne</h2>
+<details class="card"><summary>Odrzucone warianty (17)</summary><ul>
+<li><b>D1-A:</b> rolnictwo 0% słów oczywistych, morze bez <code>kotwica</code>; zostaje jako T1.</li>
+<li><b>D1-B:</b> odbiorca nie odetnie warstwy słabszej trafności.</li>
+<li><b>D1-D:</b> bez LLM nie ma czym liczyć uczciwie; wróci przy decyzji o E3.</li>
+<li><b>D2-A:</b> za mało słów (62 dla matematyki), brak słów podstawowych w rolnictwie.</li>
+<li><b>D2-C:</b> bez pomiaru, wymaga konta lub starego TBX, mało słów pojedynczych; później jako T3 dla morza.</li>
+<li><b>D2-D:</b> wydatek bez ceny i bez próby; najpierw tańsza droga (korzenie).</li>
+<li><b>D2-E:</b> połowa dodatków to szum; bierzemy tylko części i miejsca.</li>
+<li><b>D3-B:</b> traci odtwarzalność, nie przejdzie na nową bazę ani wydanie.</li>
+<li><b>D3-C:</b> domeny PWN dają 0–11%.</li>
+<li><b>D4-B:</b> potraja pliki dla zysku, który daje jedno przecięcie.</li>
+<li><b>D4-C:</b> bot gra formami, więc i tak trzeba je rozwinąć.</li>
+<li><b>H2:</b> usuwa słowa centralne (<code>pole</code>, <code>liczba</code>).</li>
+<li><b>D5-B:</b> powiela noty i metodę bez potrzeby.</li>
+<li><b>D5-C:</b> łamie zasadę wiki; tylko plan awaryjny przy złej licencji.</li>
+<li><b>D6-B:</b> rolnictwo zablokowałoby lub osłabiło całość.</li>
+<li><b>D6-C:</b> ścieżkę taniej sprawdzić na czystszej matematyce; różnica mała, wybór odwracalny.</li>
+<li><b>D6-D:</b> bramka po pilotażu w D6-A daje to samo.</li>
+</ul></details>
+<h2 id="deferred">Odłożone pomysły</h2>
+<details class="card"><summary>7 pomysłów na później</summary><ul>
+<li><b>LLM jako oceniający (E3)</b>, także model o otwartych wagach na Macu. Wrócić, gdy rolnictwo po nowych korzeniach nadal będzie słabe. Dwa potwierdzenia.</li>
+<li><b>Ranking frekwencji w temacie (KWJP100)</b>: bot zna najpierw częste słowa tematu; łączy się z poziomami wiedzy bota z promptu v3.</li>
+<li><b>Integracja z botami Literaki</b>: osobne zadanie w repozytorium serwera.</li>
+<li><b>Dump Kuźni z odsyłaczami słowotwórczymi</b>: nie wiadomo, czy jest publiczny.</li>
+<li><b>3/4-gramy KWJP</b>: mogą trochę poprawić E1, ale E1 jest słaba.</li>
+<li><b>EuroVoc jako zalążek lub zestaw testowy</b>: za mały na listę, ale ma czystą licencję.</li>
+<li><b>Niezależna lista słów testowych</b> od operatora, do ponownego pomiaru pokrycia.</li>
+</ul></details>
+</main>
+</body>
+</html>

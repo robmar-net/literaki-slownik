@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log decyzji: słowniki tematyczne — słowniki tematyczne</title><style>:root{--bg:#f6f7f9;--surface:#fff;--border:#e2e5ea;--text:#1a1d23;--dim:#6b7280;--accent:#4f46e5;--accent-soft:#eef2ff;--ok:#16a34a;--ok-soft:#ecfdf3;--warn:#d97706;--warn-soft:#fffbeb;--crit:#dc2626;--crit-soft:#fef2f2;--info:#2563eb;--info-soft:#eff6ff;--radius:10px;}
+@media (prefers-color-scheme: dark){:root{--bg:#111418;--surface:#1a1f26;--border:#2e3640;--text:#e6e9ee;--dim:#9aa4b2;--accent:#818cf8;--accent-soft:#26294a;--ok:#4ade80;--ok-soft:#11291a;--warn:#fbbf24;--warn-soft:#2e2410;--crit:#f87171;--crit-soft:#321616;--info:#60a5fa;--info-soft:#15233a;}}
+*{box-sizing:border-box;}
+body{margin:0 auto;max-width:1100px;padding:24px 20px 64px;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}
+a{color:var(--accent);text-decoration:none;}a:hover{text-decoration:underline;}
+h1{font-size:22px;letter-spacing:-.01em;}h2{font-size:16px;margin-top:28px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin:14px 0;}
+.badge{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;padding:2px 8px;border-radius:99px;background:var(--accent-soft);color:var(--accent);}
+.sev{display:inline-block;font-size:10.5px;font-weight:700;text-transform:uppercase;padding:1.5px 7px;border-radius:99px;margin-right:6px;}
+.sev.critical{background:var(--crit-soft);color:var(--crit);}.sev.warning{background:var(--warn-soft);color:var(--warn);}.sev.info{background:var(--info-soft);color:var(--info);}
+.pass{color:var(--ok);font-weight:600;}.fail{color:var(--crit);font-weight:600;}
+table{width:100%;border-collapse:collapse;}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--border);vertical-align:top;}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--dim);}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;background:var(--accent-soft);padding:1px 5px;border-radius:4px;}
+img.shot{max-width:100%;border:1px solid var(--border);border-radius:var(--radius);}
+details>summary{cursor:pointer;font-weight:600;}
+.crumbs{display:flex;gap:14px;font-size:13px;margin-bottom:18px;flex-wrap:wrap;}
+.crumbs a.md{margin-left:auto;color:var(--dim);}.crumbs .here{font-weight:650;color:var(--text);}
+.tiles{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0;}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:10px 16px;text-align:center;min-width:90px;}
+.tile b{display:block;font-size:20px;letter-spacing:-.01em;}
+.tile span{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--dim);}
+pre{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;overflow-x:auto;font-size:12px;line-height:1.4;}
+pre code{background:none;padding:0;}
+.tldr{border-left:4px solid var(--accent);}
+.wrap{overflow-x:auto;}
+.toc{font-size:13px;color:var(--dim);margin:10px 0;}
+.note{font-size:12px;color:var(--dim);}
+</style></head><body>
+<nav class="crumbs"><a href="../dashboard.html">← Dashboard</a><a href="research-report.html">Raport</a><a href="solution-exploration.html">Warianty</a><a href="high-level-design.html">Projekt</a><span class="here">Log decyzji</span><a href="decision-log.md" target="_blank" rel="noopener" class="md">md ↗</a></nav>
+<header><span class="badge">log decyzji</span> <span class="note">2026-10-27 · <a href="decision-log.md" target="_blank" rel="noopener">wersja md</a></span><h1>Log decyzji: słowniki tematyczne</h1></header>
+<div class="tiles"><div class="tile"><b>10</b><span>ADR razem</span></div><div class="tile"><b>10</b><span>accepted</span></div><div class="tile"><b>0</b><span>superseded</span></div><div class="tile"><b>2</b><span>pliki ADR w repo</span></div></div>
+<section class="card tldr"><h2 id="tl-dr">TL;DR</h2>
+<p>10 decyzji, wszystkie przyjęte (wybory użytkownika z fazy 4 i jego wymóg pokrycia z POP/POP00). Najważniejsze: lista warstwowa T1/T2/T3 (ADR-001), metody spoza Zadania E ze statusami E1/E2/E3 (ADR-002), nowe źródła Słowosieć 4.5 i IATE 2019 z notami (ADR-003, ADR-004), raport pokrycia z POP i POP00 (ADR-009). Numery tu są lokalne dla tego badania. W repozytorium proponujemy dwa pliki: <strong>repo ADR-010</strong> „metoda tematy-v1” (ADR-001, 002, 005–010) i <strong>repo ADR-011</strong> „źródła Słowosieć 4.5 i IATE” (ADR-003, 004). Progi bramki (ADR-010) są propozycją do zatwierdzenia przez operatora.</p><h2 id="key-decisions">Key Decisions</h2>
+<ul><li>Warstwy zamiast jednej listy; każdy wpis ma warstwę i źródło.</li><li>E1 słaba, E2 zablokowana, E3 odroczona; zamiast nich SGJP + Słowosieć + IATE.</li><li>Słowosieć: tylko listy lematów, nota i zastrzeżenie plWordNet, bez surowego zrzutu.</li><li>IATE: pełny TBX 2019, bez EU Login, atrybucja „Download IATE, European Union, 2019”.</li><li>Leksem SGJP jako jednostka, formy ∩ STANDARD, flaga <code>wieloznaczny</code>.</li><li>Pokrycie z POP i POP00: liczba główna w leksemach, druga w formach, razem i na warstwę.</li></ul><h2 id="open-questions-risks">Open Questions / Risks</h2>
+<ul><li>Licencja Słowosieci 4.5 przyjęta mimo noty „4.2 © 2020” i linku 404 (ADR-003).</li><li>Trafność IATE i T2 bez skojarzeń nie są zmierzone; pilotaż to sprawdzi (ADR-010).</li><li>Pokrycie z POP00 w leksemach równa się pokryciu z POP0 (ADR-009).</li></ul>
+<hr>
+<a id="adr-001"></a></section>
+
+<main><section class="card"><h2>Indeks</h2><div class="wrap"><table><thead><tr><th>ADR</th><th>Decyzja</th><th>Status</th></tr></thead><tbody><tr><td><a href="#adr-001">ADR-001</a></td><td>Lista warstwowa T1/T2/T3</td><td>Accepted (wybór użytkownika D1, 2026-10-27)</td></tr><tr><td><a href="#adr-002">ADR-002</a></td><td>Metody spoza Zadania E i statusy E1/E2/E3</td><td>Accepted</td></tr><tr><td><a href="#adr-003">ADR-003</a></td><td>Słowosieć 4.5 jako źródło T2</td><td>Accepted (licencję przyjął użytkownik, D2)</td></tr><tr><td><a href="#adr-004">ADR-004</a></td><td>IATE pełny TBX 2019 jako źródło T3</td><td>Accepted (wybór użytkownika D2)</td></tr><tr><td><a href="#adr-005">ADR-005</a></td><td>Temat = plik konfiguracji; przegląd R2</td><td>Accepted (wybór użytkownika D3)</td></tr><tr><td><a href="#adr-006">ADR-006</a></td><td>Jednostka: leksem SGJP; formy ∩ STANDARD</td><td>Accepted (wybór użytkownika D4)</td></tr><tr><td><a href="#adr-007">ADR-007</a></td><td>Reguła <code>wieloznaczny</code></td><td>Accepted (wybór użytkownika H1)</td></tr><tr><td><a href="#adr-008">ADR-008</a></td><td>Jeden pakiet TEMATY i jedna strona wiki</td><td>Accepted (wybór użytkownika D5)</td></tr><tr><td><a href="#adr-009">ADR-009</a></td><td>Raport pokrycia z POP i POP00</td><td>Accepted (wymóg użytkownika, 2026-10-27)</td></tr><tr><td><a href="#adr-010">ADR-010</a></td><td>Pilotaż morze i bramka</td><td>Accepted (wybór użytkownika D6; progi to propozycja)</td></tr></tbody></table></div></section><section class="card" id="adr-001"><span class="badge">accepted</span><h2>ADR-001: Lista warstwowa T1/T2/T3</h2><h3 id="status">Status</h3>
+<p>Accepted (wybór użytkownika D1, 2026-10-27)</p>
+<h3 id="context">Context</h3>
+<p>Źródła różnią się trafnością i zasięgiem. Etykiety SGJP są trafne (29–30/30), ale wąskie (pokrycie 27/0/23%). Słowosieć daje słowa podstawowe przy trafności ~23/30. Nie wiemy jeszcze, czy bot chce wąskiego rdzenia, czy pełnego tematu.</p>
+<h3 id="decision-drivers">Decision Drivers</h3>
+<ul><li>Trafność widoczna osobno dla każdego źródła.</li><li>Odbiorca może odciąć słabszą część bez nowej budowy.</li><li>Prompt v3: zapisuj wynik i niepewność.</li></ul>
+<h3 id="considered-options">Considered Options</h3>
+<ol><li>D1-A: tylko rdzeń SGJP.</li><li>D1-B: jedna płaska lista.</li><li>D1-C: warstwy T1 SGJP, T2 Słowosieć, T3 IATE i jawne dodatki.</li><li>D1-D: wynik ciągły 0–3 na leksem.</li></ol>
+<h3 id="decision-outcome">Decision Outcome</h3>
+<p>Chosen option: 3 (D1-C), bo zawiera rdzeń i pełny temat w jednym pliku, a trafność każdej warstwy jest mierzona osobno. Wpis z kilku warstw dostaje najniższą (T1 &lt; T2 &lt; T3) i listę wszystkich źródeł; warstwy są rozłączne.</p>
+<h3 id="consequences">Consequences</h3>
+<h4 id="good">Good</h4>
+<ul><li>T1 to rdzeń terminów; T1–T3 to pełny temat.</li><li>Nowe źródło (np. LLM po decyzji) dochodzi jako warstwa, bez zmiany formatu.</li></ul>
+<h4 id="bad">Bad</h4>
+<ul><li>Więcej pól w pakiecie; warstwy trzeba wyjaśnić na wiki.</li><li>Wynik ciągły (D1-D) odłożony, bo bez LLM byłby udawany.</li></ul></section><section class="card" id="adr-002"><span class="badge">accepted</span><h2>ADR-002: Metody spoza Zadania E i statusy E1/E2/E3</h2><h3 id="status">Status</h3>
+<p>Accepted</p>
+<h3 id="context">Context</h3>
+<p>Prompt v3 (Zadanie E) każe przetestować trzy metody: n-gramy KWJP (E1), korpus dziedzinowy z keyness (E2), LLM jako oceniający (E3). Badanie zrobiło pilotaż E1 i opis E3. Nie znalazło korpusu dla E2. Etykiety SGJP, drzewa Słowosieci i IATE są poza listą Zadania E.</p>
+<h3 id="decision-drivers">Decision Drivers</h3>
+<ul><li>Prompt v3: metodę bez korpusu oznacz jako zablokowaną lub odroczoną.</li><li>Raportuj jakość próbek, nie tylko liczbę etykiet.</li><li>Zakaz wydatków bez dwóch potwierdzeń.</li></ul>
+<h3 id="considered-options">Considered Options</h3>
+<ol><li>Trzymać się tylko E1–E3.</li><li>Metody spoza listy z ADR i zapisanymi statusami E1–E3.</li><li>Odłożyć tematy do decyzji o LLM.</li></ol>
+<h3 id="decision-outcome">Decision Outcome</h3>
+<p>Chosen option: 2, bo E1 dała głównie szum (odzysk 9/3/3 słów testowych), E2 nie ma korpusu, a E3 to wydatek bez ceny. Statusy: <strong>E1 — słaba</strong> (wynik pilotażu), <strong>E2 — zablokowana</strong> (brak korpusu spełniającego warunki; KWJP½M i NKJP 1M za małe), <strong>E3 — odroczona</strong> (dwa potwierdzenia kosztu). Rodziny słowotwórcze: słabe, nie wdrażamy.</p>
+<h3 id="consequences">Consequences</h3>
+<h4 id="good">Good</h4>
+<ul><li>Metoda ma podstawę w pomiarze, a odejście od promptu jest jawne.</li><li>E3 można włączyć później jako warstwę.</li></ul>
+<h4 id="bad">Bad</h4>
+<ul><li>Słowa poza drzewami (np. <code>orka</code>, <code>obora</code>) wymagają ręcznych dodatków.</li></ul></section><section class="card" id="adr-003"><span class="badge">accepted</span><h2>ADR-003: Słowosieć 4.5 jako źródło T2</h2><h3 id="status">Status</h3>
+<p>Accepted (licencję przyjął użytkownik, D2)</p>
+<h3 id="context">Context</h3>
+<p>Słowosieć daje największy przyrost słów podstawowych (morze C 59%, matematyka 86%). Licencja plWordNet pozwala rozpowszechniać pochodne z notą copyright i zastrzeżeniem. Link licencji w repozytorium CLARIN-PL zwraca 404, nota na stronie mówi „plWordNet 4.2 © 2020”, zip 4.5 nie ma LICENSE. Zrzut 4.5 zawiera nazwiska redaktorów (<code>owner</code>) i log IP.</p>
+<h3 id="decision-drivers">Decision Drivers</h3>
+<ul><li>Pokrycie słów podstawowych.</li><li>Warunki licencji i ochrona danych osobowych w zrzucie.</li><li>Odtwarzalność (wynik zależy od wydania: matematyka A 558 w 4.2, 431 w 4.5).</li></ul>
+<h3 id="considered-options">Considered Options</h3>
+<ol><li>Słowosieć 4.5: hiponimia (rel. 11) + części i miejsca (rel. 25, 27).</li><li>Jak 1 + skojarzenia (rel. 108, 146).</li><li>Domeny Princeton WordNet po mapowaniu (B1/B2).</li><li>Bez Słowosieci.</li></ol>
+<h3 id="decision-outcome">Decision Outcome</h3>
+<p>Chosen option: 1, bo skojarzenia są w połowie szumem (C − A 16/8/10 na 30), a domeny PWN dają 0–11% dla morza. Warunki: wydanie 4.5 przypięte hashem zipa i bazy SQLite; nota i zastrzeżenie plWordNet w <code>ATTRIBUTIONS.md</code>; publikujemy tylko lematy; surowego zrzutu, tabel <code>owner</code> i logu IP nie kopiujemy do pakietu ani repozytorium; bez nazwy Politechniki Wrocławskiej w reklamie. Niejasność wersji licencji idzie do <code>LIMITATIONS.md</code>.</p>
+<h3 id="consequences">Consequences</h3>
+<h4 id="good">Good</h4>
+<ul><li>Słowa podstawowe (<code>kotwica</code>, <code>maszt</code>, <code>żagiel</code>) w temacie.</li></ul>
+<h4 id="bad">Bad</h4>
+<ul><li>Ryzyko licencyjne zostaje (wersja noty).</li><li>Korzenie wybiera człowiek; wynik zależy od korzeni.</li></ul></section><section class="card" id="adr-004"><span class="badge">accepted</span><h2>ADR-004: IATE pełny TBX 2019 jako źródło T3</h2><h3 id="status">Status</h3>
+<p>Accepted (wybór użytkownika D2)</p>
+<h3 id="context">Context</h3>
+<p>Licencja pliku pobrania IATE pozwala kopiować i przerabiać, także komercyjnie, z atrybucją. Plik z filtrami wymaga konta EU Login. Stary pełny TBX (<code>IATE_download.zip</code>, 112,8 MB, 30.09.2019) jest bez logowania. Słowa pojedyncze to 7–21% haseł.</p>
+<h3 id="decision-drivers">Decision Drivers</h3>
+<ul><li>Zakaz kontaktu i zakładania kont u autorów źródeł.</li><li>Terminy morskie (<code>cuma</code>, <code>kilson</code>, <code>szpigat</code>) brakujące w innych źródłach.</li></ul>
+<h3 id="considered-options">Considered Options</h3>
+<ol><li>Pełny TBX 2019 bez logowania.</li><li>Aktualny plik z filtrami (EU Login).</li><li>API IATE (token = kontakt).</li><li>Bez IATE.</li></ol>
+<h3 id="decision-outcome">Decision Outcome</h3>
+<p>Chosen option: 1, bo jest jedyną drogą bez konta i kontaktu. Bierzemy polskie terminy jednowyrazowe typu „term” z kodów dziedzin w konfiguracji tematu (np. 4821), z filtrem niezawodności (propozycja ≥ 3). Atrybucja: „Download IATE, European Union, 2019”. Plik przypięty SHA-256 w manifeście źródeł.</p>
+<h3 id="consequences">Consequences</h3>
+<h4 id="good">Good</h4>
+<ul><li>Czysta licencja; terminy fachowe w T3.</li></ul>
+<h4 id="bad">Bad</h4>
+<ul><li>Dane sprzed 7 lat; trafność niezmierzona.</li><li>Dziedzina 4821 obejmuje żeglugę śródlądową; może wymagać wykluczeń.</li></ul></section><section class="card" id="adr-005"><span class="badge">accepted</span><h2>ADR-005: Temat = plik konfiguracji; przegląd R2</h2><h3 id="status">Status</h3>
+<p>Accepted (wybór użytkownika D3)</p>
+<h3 id="context">Context</h3>
+<p>Temat leży w wielu gałęziach drzewa (<code>sztorm</code> &lt; <code>wiatr</code>, <code>ciągnik</code> &lt; <code>pojazd mechaniczny</code>). Korzenie trzeba wybrać ręcznie. Ocena trafności w badaniu pochodziła od jednego oceniającego.</p>
+<h3 id="decision-drivers">Decision Drivers</h3>
+<ul><li>Odtwarzalność i nowy temat bez kodu.</li><li>Drugi oceniający przy rozsądnym nakładzie.</li></ul>
+<h3 id="considered-options">Considered Options</h3>
+<ol><li>D3-A: plik konfiguracji na temat (atomy, korzenie z id i nazwą, relacje, wykluczenia, dodatki, kody IATE).</li><li>D3-B: lista ręczna po jednorazowym generowaniu.</li><li>D3-C: korzenie automatyczne.</li></ol>
+<p>Przegląd: R1 (tylko agent), R2 (agent 50 na warstwę, operator 30 z nich), R3 (pełny).</p>
+<h3 id="decision-outcome">Decision Outcome</h3>
+<p>Chosen option: 1 z przeglądem R2, bo wynik da się odtworzyć, a operator gra w Literaki i dobrze ocenia słowa. Nieznane pole, zła relacja albo nazwa synsetu niezgodna z id to błąd budowy. Dodatki muszą być w bazie. Poprawki idą przez konfigurację, nie przez ręczną edycję listy. Próby są deterministyczne (ziarno w <code>method.json</code>). Zapisujemy trafność obu oceniających i zgodność.</p>
+<h3 id="consequences">Consequences</h3>
+<h4 id="good">Good</h4>
+<ul><li>Zmiana tematu jest widoczna w historii pliku.</li><li>Ocena ma drugiego oceniającego.</li></ul>
+<h4 id="bad">Bad</h4>
+<ul><li>Długie listy wykluczeń mogą ukryć słabość źródła; raport podaje ich liczbę.</li><li>Przegląd jest próbkowy (ok. 1/4 T2 może być wątpliwa).</li></ul></section><section class="card" id="adr-006"><span class="badge">accepted</span><h2>ADR-006: Jednostka: leksem SGJP; formy ∩ STANDARD</h2><h3 id="status">Status</h3>
+<p>Accepted (wybór użytkownika D4)</p>
+<h3 id="context">Context</h3>
+<p>Prompt v3: klasyfikuj leksemy, potem dołącz formy; temat musi być podzbiorem słownika przy stole. Słowosieć i IATE dają lematy, nie leksemy SGJP. 85–88% nowych lematów Słowosieci jest w BROAD v31.</p>
+<h3 id="decision-drivers">Decision Drivers</h3>
+<ul><li>Temat ⊆ STANDARD.</li><li>Jedna lista na temat.</li></ul>
+<h3 id="considered-options">Considered Options</h3>
+<ol><li>D4-A: leksem SGJP, formy ∩ STANDARD.</li><li>D4-B: osobna lista na każdą bazę.</li><li>D4-C: same lematy.</li></ol>
+<h3 id="decision-outcome">Decision Outcome</h3>
+<p>Chosen option: 1. Lemat + część mowy mapujemy na leksemy SGJP z przebiegu v31 FROZEN. Kandydat bez leksemu w bazie odpada z powodem w raporcie. Kwalifikatory SGJP dzielimy najpierw po <code>|</code>, potem po <code>,</code> (obecne ładowanie leksemów POP dzieli tylko po <code>,</code>). Odbiorca sam przecina z POP/POP0/POP00.</p>
+<h3 id="consequences">Consequences</h3>
+<h4 id="good">Good</h4>
+<ul><li>Zgodne z promptem v3; temat nigdy nie rozszerza dopuszczalności.</li></ul>
+<h4 id="bad">Bad</h4>
+<ul><li>Dla BROAD odbiorca musi przeciąć sam.</li><li>Mapowanie lematu na kilka leksemów SGJP tworzy homonimy (ADR-007).</li></ul></section><section class="card" id="adr-007"><span class="badge">accepted</span><h2>ADR-007: Reguła <code>wieloznaczny</code></h2><h3 id="status">Status</h3>
+<p>Accepted (wybór użytkownika H1)</p>
+<h3 id="context">Context</h3>
+<p>Każde źródło przypisuje temat lematowi przez jedno znaczenie (<code>kiosk</code>, <code>kot</code>, <code>pole</code>, <code>orka</code>). Bot gra napisem, nie znaczeniem. Prompt v3: etykieta tematyczna nie oznacza, że każde użycie słowa dotyczy tematu.</p>
+<h3 id="decision-drivers">Decision Drivers</h3>
+<ul><li>Nie wycinać słów centralnych (<code>pole</code>, <code>liczba</code>).</li><li>Uczciwy zapis niepewności.</li></ul>
+<h3 id="considered-options">Considered Options</h3>
+<ol><li>H1: oznaczyć flagą i zapisać znaczenie źródłowe.</li><li>H2: usunąć wszystkie wieloznaczne.</li><li>H3: lista na poziomie znaczeń.</li></ol>
+<h3 id="decision-outcome">Decision Outcome</h3>
+<p>Chosen option: 1. Wpis dostaje <code>wieloznaczny = tak</code>, gdy (a) jego lemat ma w Słowosieci jednostkę w synsecie spoza domknięcia tematu albo (b) lemat i część mowy wskazują więcej niż jeden leksem SGJP. <code>nie</code>, gdy lemat jest w Słowosieci i wszystkie jego znaczenia leżą w temacie. <code>brak danych</code>, gdy lematu nie ma w Słowosieci (często T1 i T3). Znaczenie źródłowe: id i nazwa synsetu (T2), atom SGJP (T1), id hasła i kod dziedziny IATE (T3). Przegląd może wykluczyć wpis przez konfigurację.</p>
+<h3 id="consequences">Consequences</h3>
+<h4 id="good">Good</h4>
+<ul><li>Słowa centralne zostają; odbiorca może je odfiltrować flagą.</li></ul>
+<h4 id="bad">Bad</h4>
+<ul><li>Wiele wpisów T1/T3 będzie miało „brak danych”.</li><li>Flaga nie mówi, które znaczenie jest częstsze.</li></ul></section><section class="card" id="adr-008"><span class="badge">accepted</span><h2>ADR-008: Jeden pakiet TEMATY i jedna strona wiki</h2><h3 id="status">Status</h3>
+<p>Accepted (wybór użytkownika D5)</p>
+<h3 id="context">Context</h3>
+<p>Wzór POP00: osobna podkomenda, konfiguracja, pakiet z <code>method.json</code>, <code>LIMITATIONS.md</code>, <code>ATTRIBUTIONS.md</code> i manifestem z hashami. AGENTS.md: praca bez wiki jest nieskończona; nowy słownik dostaje stronę „W przygotowaniu” na starcie.</p>
+<h3 id="decision-drivers">Decision Drivers</h3>
+<ul><li>Jedna metoda i jedna nota licencyjna dla wszystkich tematów.</li><li>Zasada wiki.</li></ul>
+<h3 id="considered-options">Considered Options</h3>
+<ol><li>D5-A: jeden pakiet TEMATY, plik na temat.</li><li>D5-B: pakiet na temat.</li><li>D5-C: tylko artefakt roboczy.</li></ol>
+<h3 id="decision-outcome">Decision Outcome</h3>
+<p>Chosen option: 1. Podkomenda obok <code>pop</code> i <code>pop00</code>; pakiet w nowym katalogu, bez nadpisywania; manifest z liczbami i hashami; stany BUILT i REVIEWED. Strona wiki <code>Slownik-TEMATY</code> powstaje „W przygotowaniu” na starcie prac.</p>
+<h3 id="consequences">Consequences</h3>
+<h4 id="good">Good</h4>
+<ul><li>Nowy temat to nowy plik w pakiecie i wiersz na wiki.</li></ul>
+<h4 id="bad">Bad</h4>
+<ul><li>Zmiana jednego tematu daje nową wersję całego pakietu.</li></ul></section><section class="card" id="adr-009"><span class="badge">accepted</span><h2>ADR-009: Raport pokrycia z POP i POP00</h2><h3 id="status">Status</h3>
+<p>Accepted (wymóg użytkownika, 2026-10-27)</p>
+<h3 id="context">Context</h3>
+<p>Użytkownik chce wiedzieć, ile każdego tematu jest w POP i POP00, czyli jak bardzo jest „grywalny” dla bota na mniejszym słowniku. D4 zostaje: pliki tematu nie są przecinane z POP. POP i POP0 wybierają leksemy (<code>reports/units.json</code> pakietu pop-v3). POP00 dziedziczy leksemy POP0, każdy zachowuje formę, i ogranicza tylko formy (ADR-009 projektu).</p>
+<h3 id="decision-drivers">Decision Drivers</h3>
+<ul><li>Tania, czytelna miara przydatności tematu i każdej warstwy.</li><li>Jednostka zgodna ze sposobem budowy POP.</li><li>Odtwarzalność (wersje POP i POP00 przypięte).</li></ul>
+<h3 id="considered-options">Considered Options</h3>
+<ol><li>Udział w leksemach jako liczba główna, formy obok.</li><li>Udział w formach jako liczba główna.</li><li>Osobne pliki tematu ∩ POP / ∩ POP00 (D4-B).</li></ol>
+<h3 id="decision-outcome">Decision Outcome</h3>
+<p>Chosen option: 1, bo POP/POP0 i Zadanie E działają na leksemach, a udział w formach zależy od wielkości paradygmatu (czasownik waży kilka razy więcej niż rzeczownik). Dla każdego tematu, całości i warstw T1/T2/T3 (rozłącznych) podajemy: |temat|, |temat ∩ POP|, |temat ∩ POP00| oraz udziały |temat ∩ X| / |temat|, w leksemach i w formach. Leksem w POP00 = członek POP0. Forma w POP/POP00 = napis na liście form pakietu. Miejsca: manifest (<code>counts.&lt;temat&gt;.overlap</code>), raport podsumowania, strona wiki (tabela na temat), raport bramki. Manifest źródeł przypina SHA-256 manifestu pop-v3 (<code>4acb7014…1d58</code>) i pop00-v1; pakiet TEMATY je powtarza.</p>
+<h3 id="consequences">Consequences</h3>
+<h4 id="good">Good</h4>
+<ul><li>Operator widzi od razu, która warstwa jest grywalna.</li><li>Bez nowych plików list; D4 bez zmian.</li></ul>
+<h4 id="bad">Bad</h4>
+<ul><li>Udział POP00 w leksemach równa się udziałowi POP0; informację niesie liczba w formach. Trzeba to napisać na wiki.</li><li>Nowe wydanie POP lub POP00 zmienia liczby; wymaga nowej budowy pakietu.</li></ul></section><section class="card" id="adr-010"><span class="badge">accepted</span><h2>ADR-010: Pilotaż morze i bramka</h2><h3 id="status">Status</h3>
+<p>Accepted (wybór użytkownika D6; progi to propozycja)</p>
+<h3 id="context">Context</h3>
+<p>Morze ćwiczy wszystkie trzy warstwy, także IATE (≥1155 haseł PL, kod 4821). Ma największy rdzeń SGJP z pierwszych tematów (254 leksemy) i pokrycie 78% w badaniu (SGJP ∪ Słowosieć C). Matematyka nie ćwiczy dobrze IATE (≥87 haseł).</p>
+<h3 id="decision-drivers">Decision Drivers</h3>
+<ul><li>Sprawdzić całą ścieżkę na jednym temacie przed falą.</li><li>Jasne kryteria „dalej / popraw / stop”.</li></ul>
+<h3 id="considered-options">Considered Options</h3>
+<ol><li>Matematyka najpierw (D6-A).</li><li>Morze najpierw, potem bramka (D6-C).</li><li>Wszystkie naraz.</li></ol>
+<h3 id="decision-outcome">Decision Outcome</h3>
+<p>Chosen option: 2, bo tylko morze sprawdza T3. Proponowane progi bramki: pokrycie 37 słów oczywistych ≥ 70%; trafność operatora T1 ≥ 27/30, T2 ≥ 20/30 (≤ 3 błędne), T3 ≥ 20/30; zgodność agent–operator ≥ 80%; dwie budowy z identycznymi hashami; noty obecne, brak danych redaktorów i IP. Raportujemy bez progu: pokrycie z POP i POP00 (ADR-009) i udział <code>wieloznaczny</code> z przykładami. Po bramce operator zatwierdza ok. 10 tematów (propozycja: zwierzęta, rośliny, morze, medycyna i ciało, muzyka, kuchnia, sport, matematyka, pogoda, grzyby; rolnictwo po lepszych korzeniach).</p>
+<h3 id="consequences">Consequences</h3>
+<h4 id="good">Good</h4>
+<ul><li>Błąd metody wychodzi na jednym temacie.</li><li>IATE sprawdzone od razu.</li></ul>
+<h4 id="bad">Bad</h4>
+<ul><li>Morze ma więcej szumu niż matematyka; pilotaż jest trudniejszy.</li><li>Progi pochodzą z pomiaru jednego oceniającego; mogą wymagać korekty.</li></ul></section></main></body></html>

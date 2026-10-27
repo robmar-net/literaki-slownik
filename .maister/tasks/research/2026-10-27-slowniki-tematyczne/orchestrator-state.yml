@@ -1,0 +1,55 @@
+orchestrator:
+  started_phase: phase-1
+  completed_phases: [phase-1, phase-2, phase-3, phase-4, phase-5, phase-6]
+  failed_phases: []
+  auto_fix_attempts: {}
+  options:
+    html_output: true
+    brainstorming_enabled: true
+    design_enabled: true
+  completed: 2026-10-27T15:06:22Z
+  created: 2026-10-27T11:20:38Z
+  updated: 2026-10-27T15:06:22Z
+  task_path: .maister/tasks/research/2026-10-27-slowniki-tematyczne
+task:
+  title: Słowniki tematyczne
+  description: "zbadaj w projekcie literaki-slownik mozliwosc budowy slownikow tematycznych: np. marynistycznych, rolniczych, matematycznych, itp - nie wiem czy do ktoregokolwiek z nich mamy dane w korpusie czy gdzies w PAN, zeby umiec tak zawezic slowa; jesli nie, to powiedz i poszerzymy poszukiwania"
+  status: completed
+  tags: [słownik, tematyczne, dziedziny]
+research_context:
+  confidence_level: medium
+  research_type: mixed
+  research_question: "Czy w danych projektu albo w zasobach PAN jest informacja o dziedzinie słowa, która pozwala zawęzić listę słów do tematu?"
+  scope:
+    included: [SGJP, Morfeusz, KWJP100, NKJP, zasoby IPI PAN (WSJP, korpusy z metadanymi)]
+    excluded: [źródła spoza PAN (tylko notujemy), wdrożenie, kontakt z autorami, Wikisłownik (odroczony)]
+    constraints: [znane warunki licencji, dane surowe poza Git]
+  project_doc_paths:
+    - .maister/docs/INDEX.md
+    - AGENTS.md
+    - docs/generator/etykiety.md
+    - docs/literaki-niezalezne-slowniki-prompt-v3.md
+  phase_summaries:
+    phase-1:
+      steps_completed: [step-1, step-2, step-3, step-4]
+      gate_round_1: "Poszerzyć poszukiwania (użytkownik, 2026-10-27)"
+      round_2: done
+    phase-3:
+      summary: "6 obszarów decyzji, 22 warianty; rekomendacja: warstwy T1/T2, SGJP + Słowosieć A + części/miejsca, plik konfiguracji, leksem ∩ STANDARD z flagą, pakiet TEMATY."
+      artifacts: [{path: outputs/solution-exploration.md, label: Warianty, html: outputs/solution-exploration.html}]
+    phase-4:
+      summary: "Wybory użytkownika w 6 obszarach; pilotaż: morze, potem ok. 10 tematów."
+      decision_areas:
+        - {area: D1 cel listy, alternatives_count: 4, chosen_approach: "C warstwy T1/T2/T3"}
+        - {area: D2 źródła, alternatives_count: 5, chosen_approach: "C SGJP + Słowosieć 4.5 (licencja przyjęta) + IATE z pliku 2019 jako T3"}
+        - {area: D3 definicja tematu i przegląd, alternatives_count: 3, chosen_approach: "A plik konfiguracji + R2 (operator drugim oceniającym, 30 słów)"}
+        - {area: D4 jednostka i homonimy, alternatives_count: 3, chosen_approach: "A leksem SGJP, formy ∩ STANDARD + H1 flaga wieloznaczny"}
+        - {area: D5 pakiet, alternatives_count: 3, chosen_approach: "A jeden pakiet TEMATY, strona wiki Slownik-TEMATY"}
+        - {area: D6 kolejność, alternatives_count: 4, chosen_approach: "pilotaż: morze; potem ok. 10 tematów zatwierdzanych na bramce (propozycja: zwierzęta, rośliny, morze, medycyna i ciało, muzyka, kuchnia, sport, matematyka, pogoda, grzyby; rolnictwo po poprawie korzeni)"}
+      user_requirements: ["Każdy słownik tematyczny podaje przecięcie z POP i POP00 w % względem samego słownika (+ liczby bezwzględne, per warstwa) — operator, 2026-10-27"]
+      deferred_ideas: [LLM lub model na Macu (dwa potwierdzenia), ranking częstości z KWJP100, integracja z botami Literaki, zrzut Kuźni, 3/4-gramy KWJP, EuroVoc jako test, niezależna lista testowa od operatora]
+    phase-5:
+      summary: "Potok wsadowy jako podkomenda generatora (wzór POP00); 10 ADR w logu → ADR-010 metoda tematy-v1, ADR-011 źródła; raport przecięcia z POP/POP00; pilotaż morze z bramką."
+      architecture_style: "offline deterministic batch pipeline, POP00 pattern"
+      decisions_count: 10
+      artifacts: [{path: outputs/high-level-design.md, label: Projekt, html: outputs/high-level-design.html}, {path: outputs/decision-log.md, label: Dziennik decyzji, html: outputs/decision-log.html}]

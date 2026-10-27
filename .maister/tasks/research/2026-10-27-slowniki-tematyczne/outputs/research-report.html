@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raport badania (runda 1 + 2) — słowniki tematyczne</title>
+<style>
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+img.shot { max-width:100%; border:1px solid var(--border); border-radius:var(--radius); }
+details > summary { cursor:pointer; font-weight:600; }
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+/* rozszerzenia */
+.conf { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; padding:1.5px 7px; border-radius:99px; }
+.conf.hi { background:var(--ok-soft); color:var(--ok); }
+.conf.mid { background:var(--warn-soft); color:var(--warn); }
+.conf.lo { background:var(--crit-soft); color:var(--crit); }
+.tldr { border-left:4px solid var(--accent); }
+.tldr h3 { font-size:13px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); margin:14px 0 4px; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+@media (max-width:720px){ .grid2,.grid3 { grid-template-columns:1fr; } }
+.swot .card h3 { margin:0 0 6px; font-size:13px; }
+.swot .s { border-top:3px solid var(--ok); } .swot .w { border-top:3px solid var(--crit); }
+.swot .o { border-top:3px solid var(--info); } .swot .t { border-top:3px solid var(--warn); }
+.bar { height:8px; background:var(--border); border-radius:99px; overflow:hidden; margin-top:6px; }
+.bar i { display:block; height:100%; background:var(--accent); }
+.answer { border:2px solid var(--accent); }
+td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; }
+.tablewrap { overflow-x:auto; }
+</style>
+<body>
+<nav class="crumbs">
+  <a href="../dashboard.html">← Dashboard</a>
+  <span class="here">Raport</span>
+  <a href="research-report.md" target="_blank" rel="noopener" class="md">md twin ↗</a>
+</nav>
+
+<header>
+  <span class="badge">research-report</span> <span class="badge">runda 1 + 2</span>
+  <h1>Słowniki tematyczne — czy i z czego je zbudujemy?</h1>
+  <div style="color:var(--dim);font-size:13px">Typ: mieszany · 2026-10-27 · <a href="research-report.md" target="_blank" rel="noopener">research-report.md ↗</a> · <a href="../analysis/synthesis.md" target="_blank" rel="noopener">synthesis.md ↗</a></div>
+</header>
+
+<div class="tiles">
+  <div class="tile"><b>20</b><span>wyników (W1–W20)</span></div>
+  <div class="tile"><b>15</b><span>findings</span></div>
+  <div class="tile"><b>14</b><span>źródeł i metod ocenionych</span></div>
+  <div class="tile"><b>78 / 40 / 86%</b><span>pokrycie morze / roln. / mat.</span></div>
+  <div class="tile"><b>średnia</b><span>pewność ogólna</span></div>
+</div>
+
+<section class="card tldr">
+  <h3>TL;DR</h3>
+  <p style="margin:0">Tak dla matematyki i morza, częściowo dla rolnictwa. Żadne jedno źródło nie wystarcza.
+  Etykiety SGJP dają trafny, wąski rdzeń (254 / 96 / 62 leksemy). Drzewa Słowosieci 4.5 od ręcznie wybranych korzeni dają największy przyrost.
+  Pokrycie słów oczywistych: SGJP 27 / 0 / 23%, Słowosieć 59 / 40 / 86%, razem 78 / 40 / 86% (morze / rolnictwo / matematyka).
+  IATE to dobre otwarte uzupełnienie. Korpusy PAN, n-gramy KWJP i rodziny słowotwórcze dają mało. AGROVOC zablokowany, Wikisłownik odroczony.
+  Rolnictwu brakuje czynności i budynków; pomóc mogą nowe korzenie albo LLM (bez wyceny). Pewność ogólna: średnia.</p>
+  <h3>Key Decisions</h3>
+  <ul style="margin:0">
+    <li>Odpowiedź: listy tematyczne są możliwe, ale tylko z kilku źródeł naraz i z ręcznym przeglądem próby.</li>
+    <li>Kombinację (§7) podajemy jako opcję. Wybór należy do użytkownika.</li>
+    <li>Etykiety SGJP, Słowosieć i IATE to metody spoza trzech metod Zadania E (prompt v3). Każda wymaga ADR.</li>
+    <li>Metoda E2 (korpus dziedzinowy) nie ma korpusu spełniającego warunki — do oznaczenia jako zablokowana.</li>
+    <li>E1 (n-gramy KWJP) i rodzin słowotwórczych nie polecamy jako głównych: pilotaż dał głównie szum.</li>
+  </ul>
+  <h3>Open Questions / Risks</h3>
+  <ul style="margin:0">
+    <li><span class="sev warning">warning</span>Jeden oceniający: trafność prób, lista 107 słów testowych i korzenie Słowosieci pochodzą od jednej osoby.</li>
+    <li><span class="sev warning">warning</span>Licencja Słowosieci: link w repozytorium zwraca 404; nota mówi „plWordNet 4.2 © 2020”, dane to 4.5; zip bez LICENSE.</li>
+    <li><span class="sev info">info</span>Wynik Słowosieci zależy od korzeni i wydania (matematyka A: 558 lematów w 4.2, 431 w 4.5).</li>
+    <li><span class="sev warning">warning</span>LLM: brak ceny i warunków dostawcy. To wydatek — wymaga dwóch potwierdzeń.</li>
+    <li><span class="sev info">info</span>Wieloznaczność: temat trafia do lematu przez jedno znaczenie (<code>kot</code>, <code>kiosk</code>, <code>orka</code>, <code>pole</code>).</li>
+  </ul>
+</section>
+
+<nav class="card" style="font-size:13px">Spis: <a href="#odp">Odpowiedź</a> · <a href="#pokrycie">Pokrycie</a> · <a href="#porownanie">Porównanie źródeł</a> · <a href="#wyniki">Wyniki</a> · <a href="#opcja">Opcja</a> · <a href="#adr">ADR</a> · <a href="#decyzje">Decyzje</a> · <a href="#swot">SWOT</a> · <a href="#zalaczniki">Załączniki</a></nav>
+
+<main>
+
+<section class="card answer" id="odp">
+  <h2 style="margin-top:0">Odpowiedź</h2>
+  <p>Tak, listy tematyczne da się zbudować. Matematykę i morze — z etykiet SGJP i drzew Słowosieci 4.5 (pokrycie 86% i 78%), z ręcznym przeglądem; IATE może dołożyć terminy. Rolnictwo — tylko częściowo (40%); trzeba nowych korzeni, IATE po filtrze albo LLM.</p>
+  <p style="margin-bottom:0">Dane PAN (KWJP, NKJP) nie dają tematu. Metody E1 i rodziny słowotwórcze są słabe; E2 jest zablokowana. <span class="conf mid">pewność: średnia</span></p>
+</section>
+
+<h2 id="pokrycie">Pokrycie słów oczywistych (107 słów)</h2>
+<div class="grid3">
+  <div class="card"><b>Morze (37)</b>
+    <div style="font-size:12px;margin-top:6px">SGJP 27%</div><div class="bar"><i style="width:27%"></i></div>
+    <div style="font-size:12px;margin-top:6px">Słowosieć A 24%</div><div class="bar"><i style="width:24%"></i></div>
+    <div style="font-size:12px;margin-top:6px">Słowosieć C 59%</div><div class="bar"><i style="width:59%"></i></div>
+    <div style="font-size:12px;margin-top:6px"><b>SGJP ∪ C 78%</b></div><div class="bar"><i style="width:78%;background:var(--ok)"></i></div>
+  </div>
+  <div class="card"><b>Rolnictwo (35)</b>
+    <div style="font-size:12px;margin-top:6px">SGJP 0%</div><div class="bar"><i style="width:0%"></i></div>
+    <div style="font-size:12px;margin-top:6px">Słowosieć A 37%</div><div class="bar"><i style="width:37%"></i></div>
+    <div style="font-size:12px;margin-top:6px">Słowosieć C 40%</div><div class="bar"><i style="width:40%"></i></div>
+    <div style="font-size:12px;margin-top:6px"><b>SGJP ∪ C 40%</b></div><div class="bar"><i style="width:40%;background:var(--warn)"></i></div>
+  </div>
+  <div class="card"><b>Matematyka (35)</b>
+    <div style="font-size:12px;margin-top:6px">SGJP 23%</div><div class="bar"><i style="width:23%"></i></div>
+    <div style="font-size:12px;margin-top:6px">Słowosieć A 71%</div><div class="bar"><i style="width:71%"></i></div>
+    <div style="font-size:12px;margin-top:6px">Słowosieć C 86%</div><div class="bar"><i style="width:86%"></i></div>
+    <div style="font-size:12px;margin-top:6px"><b>SGJP ∪ C 86%</b></div><div class="bar"><i style="width:86%;background:var(--ok)"></i></div>
+  </div>
+</div>
+<p style="font-size:12.5px;color:var(--dim)">Braki: morze <code>rufa</code>, <code>burta</code>, <code>sztorm</code>, <code>rybak</code>; rolnictwo <code>orka</code>, <code>siew</code>, <code>żniwa</code>, <code>obora</code>, <code>ciągnik</code>, <code>ul</code>; matematyka <code>pochodna</code>, <code>równanie</code>, <code>parabola</code>. Lista testowa i ocena: jeden autor.</p>
+
+<h2 id="porownanie">Porównanie źródeł</h2>
+<div class="card tablewrap">
+<table>
+<tr><th>Źródło / metoda</th><th>Pokrycie (morze / roln. / mat.)</th><th>Precyzja (próba 30)</th><th>Licencja</th><th>Nakład</th><th>Ocena</th></tr>
+<tr><td>Etykiety SGJP</td><td>27 / 0 / 23%</td><td>29 / 27 / 30</td><td>BSD-2</td><td>mały</td><td><span class="conf hi">rdzeń</span></td></tr>
+<tr><td>Słowosieć 4.5, A</td><td>24 / 37 / 71%</td><td>23 / 14 / 23</td><td>plWordNet + nota</td><td>średni</td><td><span class="conf hi">główne poszerzenie</span></td></tr>
+<tr><td>Słowosieć 4.5, C</td><td>59 / 40 / 86%</td><td>C − A: 16 / 8 / 10</td><td>j.w.</td><td>średni + przegląd</td><td><span class="conf mid">części tak, skojarzenia nie</span></td></tr>
+<tr><td>SGJP ∪ Słowosieć C</td><td><b>78 / 40 / 86%</b></td><td>—</td><td>j.w.</td><td>—</td><td><span class="conf hi">najlepsze zmierzone</span></td></tr>
+<tr><td>IATE (plik pobrania)</td><td>nie mierzono</td><td>nie mierzono</td><td>wolne, z atrybucją</td><td>średni (EU Login)</td><td><span class="conf hi">uzupełnienie</span></td></tr>
+<tr><td>EuroVoc</td><td>nie mierzono</td><td>—</td><td>atrybucja UE</td><td>mały</td><td><span class="conf mid">za mały</span></td></tr>
+<tr><td>AGROVOC</td><td>nie mierzono</td><td>—</td><td>PL niejasna</td><td>—</td><td><span class="conf lo">zablokowany</span></td></tr>
+<tr><td>E1: bigramy KWJP</td><td>9/28, 3/35, 3/27 słów</td><td>top 50: 5–7 / 8–10 / 1–2 na 50</td><td>CC BY 4.0</td><td>mały</td><td><span class="conf lo">słabe</span></td></tr>
+<tr><td>Rodziny SGJP</td><td>0–1 słowo</td><td>~1 / ~2 / ~11</td><td>BSD-2</td><td>mały</td><td><span class="conf lo">słabe</span></td></tr>
+<tr><td>KWJP½M / NKJP 1M</td><td>teksty 400–1466 słów</td><td>—</td><td>CC BY</td><td>mały</td><td><span class="conf lo">brak tematu</span></td></tr>
+<tr><td>E3: LLM</td><td>nie mierzono</td><td>nie mierzono</td><td>warunki dostawcy</td><td>średni–duży, koszt nieznany</td><td><span class="conf mid">do decyzji</span></td></tr>
+<tr><td>Wikisłownik</td><td>nie mierzono</td><td>—</td><td>CC BY-SA 4.0</td><td>średni</td><td><span class="conf mid">odroczony</span></td></tr>
+<tr><td>Wikidata Lexemes</td><td>~0</td><td>—</td><td>CC0</td><td>—</td><td><span class="conf lo">bezużyteczne dziś</span></td></tr>
+<tr><td>WSJP</td><td>—</td><td>—</td><td>brak</td><td>—</td><td><span class="conf lo">tylko ręczny wgląd</span></td></tr>
+</table>
+</div>
+
+<h2 id="wyniki">Wyniki</h2>
+<div class="card tablewrap">
+<table>
+<tr><th>#</th><th>Wynik</th><th>Runda</th><th>Pewność</th><th class="num">Źródła / findings</th></tr>
+<tr><td>W1</td><td>SGJP ma etykiety dziedzin; cecha leksemu</td><td>1</td><td><span class="conf hi">wysoka</span></td><td class="num">4</td></tr>
+<tr><td>W2</td><td>Zasięg 1,2% leksemów; 254 / 96 / 62</td><td>1</td><td><span class="conf hi">wysoka</span></td><td class="num">3</td></tr>
+<tr><td>W3</td><td>Trafność SGJP 29 / 27 / 30 na 30</td><td>1</td><td><span class="conf mid">średnia</span></td><td class="num">1</td></tr>
+<tr><td>W4</td><td>Pokrycie SGJP 27 / 0 / 23%</td><td>1</td><td><span class="conf mid">średnia</span></td><td class="num">1</td></tr>
+<tr><td>W5</td><td>Kwalifikator = termin, nie temat</td><td>1</td><td><span class="conf hi">wysoka</span></td><td class="num">3</td></tr>
+<tr><td>W6</td><td>Korpusy PAN bez dziedziny słowa</td><td>1</td><td><span class="conf hi">wysoka</span></td><td class="num">4</td></tr>
+<tr><td>W7</td><td>WSJP bogaty, zamknięty</td><td>1</td><td><span class="conf hi">wysoka</span></td><td class="num">3</td></tr>
+<tr><td>W8</td><td>Inne zasoby IPI PAN nie pasują</td><td>1</td><td><span class="conf mid">średnia</span></td><td class="num">2</td></tr>
+<tr><td>W9</td><td>Kod: brak indeksu, są wzorce (POP00)</td><td>1</td><td><span class="conf hi">wysoka</span></td><td class="num">1</td></tr>
+<tr><td>W10</td><td>Zadanie E: trzy metody</td><td>1</td><td><span class="conf hi">wysoka</span></td><td class="num">2</td></tr>
+<tr><td>W11</td><td>Licencja Słowosieci pozwala na listy pochodne (z notą)</td><td>2</td><td><span class="conf hi">wysoka</span> / <span class="conf mid">wersja</span></td><td class="num">plwordnet-licencja</td></tr>
+<tr><td>W12</td><td>Słowosieć: temat przez drzewo od korzeni; C: 568 / 877 / 589 do gry</td><td>2</td><td><span class="conf hi">wysoka</span></td><td class="num">plwordnet-pomiar</td></tr>
+<tr><td>W13</td><td>Pokrycie SGJP ∪ C: 78 / 40 / 86%</td><td>2</td><td><span class="conf mid">średnia</span></td><td class="num">plwordnet-pomiar</td></tr>
+<tr><td>W14</td><td>Trafność A 23 / 14 / 23; C − A 16 / 8 / 10</td><td>2</td><td><span class="conf mid">średnia</span></td><td class="num">plwordnet-pomiar</td></tr>
+<tr><td>W15</td><td>IATE: czysta licencja pliku; 8 / 21 / 7% słów pojedynczych</td><td>2</td><td><span class="conf hi">wysoka</span> / <span class="conf mid">liczby</span></td><td class="num">zewnetrzne</td></tr>
+<tr><td>W16</td><td>AGROVOC zablokowany, EuroVoc mały, Wikidata pusta</td><td>2</td><td><span class="conf mid">średnia</span></td><td class="num">zewnetrzne</td></tr>
+<tr><td>W17</td><td>E1 (bigramy KWJP) słaba</td><td>2</td><td><span class="conf mid">średnia</span></td><td class="num">metody-zalazki</td></tr>
+<tr><td>W18</td><td>Rodziny słowotwórcze bez słów podstawowych</td><td>2</td><td><span class="conf mid">średnia</span></td><td class="num">metody-rodziny</td></tr>
+<tr><td>W19</td><td>KWJP½M i NKJP 1M bez podkorpusu tematu</td><td>2</td><td><span class="conf hi">wysoka</span></td><td class="num">pan-sprawdzenia ×2</td></tr>
+<tr><td>W20</td><td>LLM: jedyny pełny przegląd bazy, bez wyceny</td><td>2</td><td><span class="conf lo">niska</span></td><td class="num">metody-llm</td></tr>
+</table>
+</div>
+
+<details class="card"><summary>Słowosieć 4.5 — rozmiar tematu (W12)</summary>
+<table>
+<tr><th>Temat</th><th>Podejście</th><th class="num">Do gry</th><th class="num">W BROAD v31</th><th class="num">Nowe wobec SGJP</th><th class="num">Lematy SGJP w zbiorze</th></tr>
+<tr><td>Morze</td><td>A</td><td class="num">317</td><td class="num">263</td><td class="num">—</td><td class="num">28/254</td></tr>
+<tr><td>Morze</td><td>C</td><td class="num">568</td><td class="num">489</td><td class="num">493</td><td class="num">75/254</td></tr>
+<tr><td>Rolnictwo</td><td>A</td><td class="num">577</td><td class="num">498</td><td class="num">—</td><td class="num">12/96</td></tr>
+<tr><td>Rolnictwo</td><td>C</td><td class="num">877</td><td class="num">759</td><td class="num">864</td><td class="num">13/96</td></tr>
+<tr><td>Matematyka</td><td>A</td><td class="num">431</td><td class="num">355</td><td class="num">—</td><td class="num">41/62</td></tr>
+<tr><td>Matematyka</td><td>C</td><td class="num">589</td><td class="num">505</td><td class="num">545</td><td class="num">44/62</td></tr>
+</table>
+<p style="font-size:12.5px">A = hiponimia od korzeni; C = A + części, miejsca, skojarzenia. Domeny Princeton WordNet (B1/B2) prawie bezużyteczne dla morza i rolnictwa (0–11%).</p>
+</details>
+
+<details class="card"><summary>IATE i inne źródła zewnętrzne (W15, W16)</summary>
+<table>
+<tr><th>Temat</th><th class="num">Hasła PL IATE (dolna granica)</th><th class="num">Słowa pojedyncze</th><th>Przykłady</th></tr>
+<tr><td>Morze</td><td class="num">≥1155</td><td class="num">7,9%</td><td><code>cuma</code>, <code>kilson</code>, <code>szpigat</code>, <code>żaglowiec</code></td></tr>
+<tr><td>Rolnictwo</td><td class="num">≥13 784</td><td class="num">20,7%</td><td><code>karp</code>, <code>indyk</code>; szum: <code>fosfina</code>, <code>ebola</code></td></tr>
+<tr><td>Matematyka</td><td class="num">≥87</td><td class="num">6,6%</td><td><code>iloraz</code>, <code>mianownik</code>, <code>rzędna</code></td></tr>
+</table>
+<ul style="font-size:13px">
+<li>Licencja pliku pobrania: kopiowanie, przeróbki, użycie komercyjne z atrybucją „Download IATE, European Union, [rok]”. Nie obejmuje wyszukiwarki ani API.</li>
+<li>Dostęp: plik z filtrami przez EU Login albo pełny TBX z 2019 r. bez logowania (112,8 MB).</li>
+<li>AGROVOC: 34 780 + 8808 etykiet PL; prawa PL u nieustalonej instytucji — zablokowany.</li>
+<li>EuroVoc: słów pojedynczych 8 / 65 (+93 żywność) / 1 — za mało na listę.</li>
+<li>Wikisłownik: kwalifikator przy znaczeniu, CC BY-SA 4.0 — odroczony. Wikidata Lexemes: 1 polski leksem z dziedziną.</li>
+</ul>
+</details>
+
+<details class="card"><summary>Metody z danych PAN i LLM (W17–W20)</summary>
+<ul style="font-size:13px">
+<li><b>E1, bigramy KWJP100:</b> odzysk 9/28, 3/35, 3/27; top 50 ściśle 5–7, 8–10, 1–2 na 50. Sąsiad to kolokacja (<code>pole karne</code>, <code>liczba zgonów</code>).</li>
+<li><b>Rodziny SGJP:</b> eksport bez odsyłaczy słowotwórczych; miara zastępcza: odzysk 0–1, precyzja ~1 / ~2 / ~11 na 30.</li>
+<li><b>KWJP½M:</b> <code>meta_topic</code> tylko w 777 książkach; teksty tematu 1466 / 881 / 400 słów; rdzeń SGJP 5 / 0 / 0 trafień.</li>
+<li><b>NKJP 1M:</b> 3889 nagłówków bez UKD/BN; teksty tematu 1464 / 1345 / 40 słów (głównie ustawy); licencja CC BY 4.0 (strona) vs 3.0 PL (README).</li>
+<li><b>E3, LLM:</b> 212 728 leksemów STANDARD; ~1,7 mln tokenów wejścia i ~1,3 mln wyjścia na temat (szacunek); ×3 przebiegi; ceny niesprawdzone. Jedyna metoda, która może sięgnąć poza wybrane drzewa — nie zmierzono.</li>
+</ul>
+</details>
+
+<h2 id="opcja">Opcja: proponowana kombinacja (nie decyzja)</h2>
+<div class="card" style="border-left:4px solid var(--accent)">
+<ol style="margin:0">
+<li><b>Rdzeń:</b> etykiety SGJP (<code>mors.</code>, <code>żegl.</code>, <code>ryb.</code>; <code>roln.</code>, <code>ogr.</code>, <code>zootechn.</code>, <code>pszcz.</code>, <code>leśn.</code>; <code>mat.</code>).</li>
+<li><b>Poszerzenie:</b> Słowosieć 4.5, zbiór A plus części i miejsca (rel. 25, 27). Bez skojarzeń i domen PWN.</li>
+<li><b>Uzupełnienie:</b> słowa pojedyncze z IATE — morze; rolnictwo po filtrze.</li>
+<li><b>Filtr:</b> mapowanie na leksemy SGJP, przecięcie ze STANDARD.</li>
+<li><b>Przegląd:</b> próba 50–100 na temat, najlepiej dwóch oceniających; zapis niepewności dla słów wieloznacznych.</li>
+<li><b>Pakiet:</b> wzór POP00 (<code>method.json</code>, <code>LIMITATIONS.md</code>, noty w <code>ATTRIBUTIONS.md</code>).</li>
+<li><b>Kolejność:</b> matematyka (86%), morze (78%), rolnictwo (40%; nowe korzenie albo LLM).</li>
+</ol>
+<p style="font-size:12.5px;color:var(--dim);margin-bottom:0">Oczekiwany rozmiar przed przeglądem: morze ok. 570–800, rolnictwo ok. 880–970, matematyka ok. 590–650 lematów. Pewność: niska.</p>
+</div>
+
+<div class="grid2">
+<section class="card" id="adr">
+<h2 style="margin-top:0">Co wymaga ADR</h2>
+<ul>
+<li>Metoda spoza Zadania E: etykiety SGJP, drzewa Słowosieci, IATE.</li>
+<li>Nowe źródła: Słowosieć (licencja, nota, wersja 4.5), IATE (atrybucja, plik, data).</li>
+<li>Status metod E: E1 słaba, E2 zablokowana, E3 odroczona do decyzji o koszcie.</li>
+<li>Reguła wieloznaczności lematu w temacie.</li>
+</ul>
+</section>
+<section class="card" id="decyzje">
+<h2 style="margin-top:0">Decyzje użytkownika</h2>
+<ol>
+<li>Czy przyjąć licencję Słowosieci (nota 4.2, link 404, brak LICENSE)?</li>
+<li>LLM: czy, jaki dostawca lub otwarte wagi, jaki budżet? Dwa potwierdzenia.</li>
+<li>IATE: konto EU Login czy TBX z 2019 r.?</li>
+<li>NKJP 1M: wersja licencji — tylko jeśli korpus wejdzie do pakietu.</li>
+<li>Wikisłownik: czy odroczenie zostaje?</li>
+<li>Cel listy: rdzeń terminów czy pełny temat?</li>
+<li>Granice tematu (np. rośliny egzotyczne w rolnictwie).</li>
+</ol>
+</section>
+</div>
+
+<h2 id="swot">SWOT (SGJP + Słowosieć + IATE)</h2>
+<div class="grid2 swot">
+  <div class="card s"><h3>Mocne</h3>pokrycie 78% / 86% dla morza i matematyki; licencje pozwalają na listy pochodne; dane lokalne; wzór pakietu gotowy</div>
+  <div class="card w"><h3>Słabe</h3>rolnictwo 40%; ręczny dobór korzeni; przegląd szumu; jeden oceniający; temat per lemat, nie per znaczenie</div>
+  <div class="card o"><h3>Szanse</h3>LLM lub nowe korzenie domkną rolnictwo; ta sama procedura dla innych tematów; IATE dokłada terminy</div>
+  <div class="card t"><h3>Zagrożenia</h3>niejasna wersja licencji Słowosieci; wynik zależy od wydania i korzeni; koszt LLM nieznany; homonimy w liście</div>
+</div>
+
+<h2 id="zalaczniki">Załączniki</h2>
+<details class="card"><summary>Findings i źródła</summary>
+<ul style="font-size:13px">
+<li>Runda 1: <a href="../analysis/findings/local-data-sgjp-dziedziny.md" target="_blank" rel="noopener">local-data-sgjp-dziedziny.md</a>, <a href="../analysis/findings/local-data-kwjp-nkjp.md" target="_blank" rel="noopener">local-data-kwjp-nkjp.md</a>, <a href="../analysis/findings/code-docs-kod-i-konfiguracja.md" target="_blank" rel="noopener">code-docs-kod-i-konfiguracja.md</a>, <a href="../analysis/findings/code-docs-decyzje-i-dokumenty.md" target="_blank" rel="noopener">code-docs-decyzje-i-dokumenty.md</a>, <a href="../analysis/findings/code-docs-pomiary.md" target="_blank" rel="noopener">code-docs-pomiary.md</a>, <a href="../analysis/findings/pan-resources-slowniki.md" target="_blank" rel="noopener">pan-resources-slowniki.md</a>, <a href="../analysis/findings/pan-resources-korpusy.md" target="_blank" rel="noopener">pan-resources-korpusy.md</a></li>
+<li>Runda 2: <a href="../analysis/findings/wide-plwordnet-licencja-i-dane.md" target="_blank" rel="noopener">wide-plwordnet-licencja-i-dane.md</a>, <a href="../analysis/findings/wide-plwordnet-pomiar.md" target="_blank" rel="noopener">wide-plwordnet-pomiar.md</a>, <a href="../analysis/findings/wide-metody-zalazki-kwjp.md" target="_blank" rel="noopener">wide-metody-zalazki-kwjp.md</a>, <a href="../analysis/findings/wide-metody-rodziny-sgjp.md" target="_blank" rel="noopener">wide-metody-rodziny-sgjp.md</a>, <a href="../analysis/findings/wide-metody-llm.md" target="_blank" rel="noopener">wide-metody-llm.md</a>, <a href="../analysis/findings/wide-pan-sprawdzenia-kwjp-half-m.md" target="_blank" rel="noopener">wide-pan-sprawdzenia-kwjp-half-m.md</a>, <a href="../analysis/findings/wide-pan-sprawdzenia-nkjp-1m.md" target="_blank" rel="noopener">wide-pan-sprawdzenia-nkjp-1m.md</a>, <a href="../analysis/findings/wide-zewnetrzne-zrodla.md" target="_blank" rel="noopener">wide-zewnetrzne-zrodla.md</a></li>
+<li>Sieć (2026-10-27): slowosiec.pl/pl/about, clarin-pl.eu (handle 11321/834, 11321/891), iate.europa.eu (warunki pobrania), fao.org/agrovoc/maintenance, data.europa.eu (EuroVoc), github.com/ipipan/kwjp100-varia, nkjp.pl, sgjp.pl/oznaczenia, pliki.wsjp.pl (Zasady WSJP).</li>
+</ul>
+</details>
+<details class="card"><summary>Luki</summary>
+<ul style="font-size:13px">
+<li>Brak drugiego oceniającego i niezależnej listy słów testowych.</li>
+<li>Nie zmierzono pokrycia i trafności IATE, EuroVoc, AGROVOC na liście 107 słów.</li>
+<li>LLM bez wywołań i bez ceny.</li>
+<li>Rolnictwo: nie sprawdzono dodatkowych korzeni Słowosieci.</li>
+<li>Nie sprawdzono, czy dump Kuźni z odsyłaczami jest publiczny; 3/4-gramy KWJP nie pobrane.</li>
+<li>Słowosieć 5.0 niedostępna (formularz = kontakt z autorami).</li>
+</ul>
+</details>
+
+</main>
+</body>
+</html>
