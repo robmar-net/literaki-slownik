@@ -1,8 +1,8 @@
 # Log decyzji: słowniki tematyczne
 
 ## TL;DR
-10 decyzji, wszystkie przyjęte (wybory użytkownika z fazy 4 i jego wymóg pokrycia z POP/POP00).
-Najważniejsze: lista warstwowa T1/T2/T3 (ADR-001), metody spoza Zadania E ze statusami E1/E2/E3 (ADR-002), nowe źródła Słowosieć 4.5 i IATE 2019 z notami (ADR-003, ADR-004), raport pokrycia z POP i POP00 (ADR-009).
+10 decyzji, wszystkie przyjęte (wybory użytkownika z fazy 4 i jego wymogi: pokrycie z POP/POP00 oraz diagnostyka BROAD/STANDARD).
+Najważniejsze: lista warstwowa T1/T2/T3 (ADR-001), metody spoza Zadania E ze statusami E1/E2/E3 (ADR-002), nowe źródła Słowosieć 4.5 i IATE 2019 z notami (ADR-003, ADR-004), raport pokrycia z POP i POP00 z diagnostyką kandydatów wobec BROAD i STANDARD (ADR-009).
 Numery tu są lokalne dla tego badania. W repozytorium proponujemy dwa pliki: **repo ADR-010** „metoda tematy-v1” (ADR-001, 002, 005–010) i **repo ADR-011** „źródła Słowosieć 4.5 i IATE” (ADR-003, 004).
 Progi bramki (ADR-010) są propozycją do zatwierdzenia przez operatora.
 
@@ -13,11 +13,13 @@ Progi bramki (ADR-010) są propozycją do zatwierdzenia przez operatora.
 - IATE: pełny TBX 2019, bez EU Login, atrybucja „Download IATE, European Union, 2019”.
 - Leksem SGJP jako jednostka, formy ∩ STANDARD, flaga `wieloznaczny`.
 - Pokrycie z POP i POP00: liczba główna w leksemach, druga w formach, razem i na warstwę.
+- Diagnostyka: kandydaci ∩ BROAD i ∩ STANDARD przed filtrem, bez progu; lista wydana zostaje ∩ STANDARD.
 
 ## Open Questions / Risks
 - Licencja Słowosieci 4.5 przyjęta mimo noty „4.2 © 2020” i linku 404 (ADR-003).
 - Trafność IATE i T2 bez skojarzeń nie są zmierzone; pilotaż to sprawdzi (ADR-010).
 - Pokrycie z POP00 w leksemach równa się pokryciu z POP0 (ADR-009).
+- Kandydat bez leksemu SGJP nie ma form; liczymy go osobno w lematach (ADR-009).
 
 ---
 
@@ -270,34 +272,40 @@ Chosen option: 1. Podkomenda obok `pop` i `pop00`; pakiet w nowym katalogu, bez 
 ---
 
 <a id="adr-009"></a>
-## ADR-009: Raport pokrycia z POP i POP00
+## ADR-009: Raport pokrycia z POP i POP00; diagnostyka BROAD i STANDARD
 
 ### Status
-Accepted (wymóg użytkownika, 2026-10-27)
+Accepted (dwa wymogi użytkownika, 2026-10-27)
 
 ### Context
-Użytkownik chce wiedzieć, ile każdego tematu jest w POP i POP00, czyli jak bardzo jest „grywalny” dla bota na mniejszym słowniku. D4 zostaje: pliki tematu nie są przecinane z POP. POP i POP0 wybierają leksemy (`reports/units.json` pakietu pop-v3). POP00 dziedziczy leksemy POP0, każdy zachowuje formę, i ogranicza tylko formy (ADR-009 projektu).
+Użytkownik chce wiedzieć, ile każdego tematu jest w POP i POP00, czyli jak bardzo jest „grywalny” dla bota na mniejszym słowniku. D4 zostaje: pliki tematu nie są przecinane z POP. POP i POP0 wybierają leksemy (`reports/units.json` pakietu pop-v3). POP00 dziedziczy leksemy POP0, każdy zachowuje formę, i ogranicza tylko formy (ADR-009 projektu). Drugi wymóg: słowo spoza STANDARD (albo BROAD) jest na końcu bezużyteczne, więc chcemy wiedzieć, ilu kandydatów źródła odpada.
 
 ### Decision Drivers
 - Tania, czytelna miara przydatności tematu i każdej warstwy.
 - Jednostka zgodna ze sposobem budowy POP.
-- Odtwarzalność (wersje POP i POP00 przypięte).
+- Odtwarzalność (wersje POP, POP00, BROAD i STANDARD przypięte).
+- Miara przed filtrem, bo po ∩ STANDARD udział STANDARD to zawsze 100%.
 
 ### Considered Options
 1. Udział w leksemach jako liczba główna, formy obok.
 2. Udział w formach jako liczba główna.
 3. Osobne pliki tematu ∩ POP / ∩ POP00 (D4-B).
+4. Dla BROAD/STANDARD: miara po filtrze (trywialna) albo przed filtrem (diagnostyczna).
 
 ### Decision Outcome
 Chosen option: 1, bo POP/POP0 i Zadanie E działają na leksemach, a udział w formach zależy od wielkości paradygmatu (czasownik waży kilka razy więcej niż rzeczownik). Dla każdego tematu, całości i warstw T1/T2/T3 (rozłącznych) podajemy: |temat|, |temat ∩ POP|, |temat ∩ POP00| oraz udziały |temat ∩ X| / |temat|, w leksemach i w formach. Leksem w POP00 = członek POP0. Forma w POP/POP00 = napis na liście form pakietu. Miejsca: manifest (`counts.<temat>.overlap`), raport podsumowania, strona wiki (tabela na temat), raport bramki. Manifest źródeł przypina SHA-256 manifestu pop-v3 (`4acb7014…1d58`) i pop00-v1; pakiet TEMATY je powtarza.
+
+**Diagnostyka BROAD i STANDARD (opcja 4, przed filtrem).** Na zbiorze kandydatów po mapowaniu, przed ∩ STANDARD, dla każdego tematu, razem i T1/T2/T3: |kandydaci|, |∩ BROAD|, |∩ STANDARD| i udziały, w leksemach (liczba główna) i formach. Leksem jest w X, gdy ma formę na liście X. Odrzuceni: liczba i do 10 przykładów na powód i warstwę (`BRAK_LEKSEMU` w lematach, poza udziałami; `POZA_BROAD`; `POZA_STANDARD`). Miejsca: `reports/summary.json`, raport bramki, jedno zdanie na wiki. Bez progu. Manifest źródeł przypina przebieg v31 i listy BROAD i STANDARD (`dab4f3bc…fa7d`) hashami. Lista wydana zostaje ∩ STANDARD.
 
 ### Consequences
 #### Good
 - Operator widzi od razu, która warstwa jest grywalna.
 - Bez nowych plików list; D4 bez zmian.
+- Widać, które źródło i warstwa marnują najwięcej kandydatów (np. IATE spoza BROAD).
 #### Bad
 - Udział POP00 w leksemach równa się udziałowi POP0; informację niesie liczba w formach. Trzeba to napisać na wiki.
-- Nowe wydanie POP lub POP00 zmienia liczby; wymaga nowej budowy pakietu.
+- Nowe wydanie POP, POP00 albo przebiegu bazy zmienia liczby; wymaga nowej budowy pakietu.
+- `BRAK_LEKSEMU` liczony w lematach nie sumuje się z leksemami; raport musi to pokazać osobno.
 
 ---
 
@@ -320,7 +328,7 @@ Morze ćwiczy wszystkie trzy warstwy, także IATE (≥1155 haseł PL, kod 4821).
 3. Wszystkie naraz.
 
 ### Decision Outcome
-Chosen option: 2, bo tylko morze sprawdza T3. Proponowane progi bramki: pokrycie 37 słów oczywistych ≥ 70%; trafność operatora T1 ≥ 27/30, T2 ≥ 20/30 (≤ 3 błędne), T3 ≥ 20/30; zgodność agent–operator ≥ 80%; dwie budowy z identycznymi hashami; noty obecne, brak danych redaktorów i IP. Raportujemy bez progu: pokrycie z POP i POP00 (ADR-009) i udział `wieloznaczny` z przykładami. Po bramce operator zatwierdza ok. 10 tematów (propozycja: zwierzęta, rośliny, morze, medycyna i ciało, muzyka, kuchnia, sport, matematyka, pogoda, grzyby; rolnictwo po lepszych korzeniach).
+Chosen option: 2, bo tylko morze sprawdza T3. Proponowane progi bramki: pokrycie 37 słów oczywistych ≥ 70%; trafność operatora T1 ≥ 27/30, T2 ≥ 20/30 (≤ 3 błędne), T3 ≥ 20/30; zgodność agent–operator ≥ 80%; dwie budowy z identycznymi hashami; noty obecne, brak danych redaktorów i IP. Raportujemy bez progu: pokrycie z POP i POP00, diagnostykę kandydatów wobec BROAD i STANDARD przed filtrem (ADR-009) i udział `wieloznaczny` z przykładami. Po bramce operator zatwierdza ok. 10 tematów (propozycja: zwierzęta, rośliny, morze, medycyna i ciało, muzyka, kuchnia, sport, matematyka, pogoda, grzyby; rolnictwo po lepszych korzeniach).
 
 ### Consequences
 #### Good

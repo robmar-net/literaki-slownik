@@ -46,7 +46,7 @@ research_context:
         - {area: D4 jednostka i homonimy, alternatives_count: 3, chosen_approach: "A leksem SGJP, formy ∩ STANDARD + H1 flaga wieloznaczny"}
         - {area: D5 pakiet, alternatives_count: 3, chosen_approach: "A jeden pakiet TEMATY, strona wiki Slownik-TEMATY"}
         - {area: D6 kolejność, alternatives_count: 4, chosen_approach: "pilotaż: morze; potem ok. 10 tematów zatwierdzanych na bramce (propozycja: zwierzęta, rośliny, morze, medycyna i ciało, muzyka, kuchnia, sport, matematyka, pogoda, grzyby; rolnictwo po poprawie korzeni)"}
-      user_requirements: ["Każdy słownik tematyczny podaje przecięcie z POP i POP00 w % względem samego słownika (+ liczby bezwzględne, per warstwa) — operator, 2026-10-27"]
+      user_requirements: ["Każdy słownik tematyczny podaje przecięcie z POP i POP00 w % względem samego słownika (+ liczby bezwzględne, per warstwa) — operator, 2026-10-27", "Diagnostycznie przecięcie kandydatów (przed filtrem STANDARD) z BROAD i STANDARD, z przykładami odrzuconych — operator, 2026-10-27"]
       deferred_ideas: [LLM lub model na Macu (dwa potwierdzenia), ranking częstości z KWJP100, integracja z botami Literaki, zrzut Kuźni, 3/4-gramy KWJP, EuroVoc jako test, niezależna lista testowa od operatora]
     phase-5:
       summary: "Potok wsadowy jako podkomenda generatora (wzór POP00); 10 ADR w logu → ADR-010 metoda tematy-v1, ADR-011 źródła; raport przecięcia z POP/POP00; pilotaż morze z bramką."

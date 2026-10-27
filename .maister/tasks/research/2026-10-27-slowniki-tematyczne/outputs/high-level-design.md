@@ -4,7 +4,7 @@
 Temat to podzbiór STANDARD, zbudowany wsadowo przez generator jako nowa podkomenda na wzór POP00.
 Lista ma trzy warstwy: T1 etykiety SGJP, T2 drzewa Słowosieci 4.5 (hiponimia + części i miejsca), T3 słowa pojedyncze IATE 2019 i jawne dodatki.
 Temat opisuje jeden plik konfiguracji. Jednostką jest leksem SGJP, a formy to jego formy ∩ STANDARD. Wieloznaczne wpisy dostają flagę `wieloznaczny`.
-Pakiet podaje pokrycie z POP i POP00 jako % tematu: w leksemach (liczba główna) i w formach, dla całości i każdej warstwy.
+Pakiet podaje pokrycie z POP i POP00 jako % tematu oraz (diagnostycznie) pokrycie kandydatów z BROAD i STANDARD przed filtrem; w leksemach i formach, razem i na warstwę.
 Pilotaż: morze, potem bramka. Po bramce ok. 10 tematów zatwierdzonych przez operatora.
 
 ## Key Decisions
@@ -15,6 +15,7 @@ Pilotaż: morze, potem bramka. Po bramce ok. 10 tematów zatwierdzonych przez op
 - **Leksem SGJP, formy ∩ STANDARD, flaga `wieloznaczny`.** Odbiorca sam przecina z POP/POP0/POP00 (ADR-006, ADR-007).
 - **Jeden pakiet TEMATY i jedna strona wiki `Slownik-TEMATY`** (ADR-008).
 - **Pokrycie z POP i POP00 w manifeście i na wiki.** Liczba główna w leksemach, druga w formach; wersje POP i POP00 przypięte hashami (ADR-009).
+- **Diagnostyka kandydatów wobec BROAD i STANDARD.** Liczona przed filtrem ∩ STANDARD, bez progu; ile kandydatów odpada i dlaczego, z przykładami. Lista wydana zostaje ∩ STANDARD (ADR-009).
 - **Pilotaż morze, bramka z progami.** Progi to propozycja do zatwierdzenia (ADR-010).
 
 ## Open Questions / Risks
@@ -25,6 +26,7 @@ Pilotaż: morze, potem bramka. Po bramce ok. 10 tematów zatwierdzonych przez op
 - **Rolnictwo** zostaje poza pierwszą falą do czasu lepszych korzeni (40% pokrycia w badaniu).
 - **Pokrycie z POP00 w leksemach jest równe pokryciu z POP0.** POP00 zachowuje każdy leksem POP0 (ADR-009 projektu). Informację niesie liczba w formach.
 - **Progi bramki to propozycja.** Operator może je zmienić przed pilotażem.
+- **Kandydat bez leksemu SGJP nie ma form.** W diagnostyce liczymy go osobno, w lematach (`BRAK_LEKSEMU`), poza udziałami w leksemach i formach.
 
 ## Design Overview
 **Kontekst.** Prompt v3 (Zadanie E) przewiduje słowniki tematyczne jako dodatek do wiedzy bota. Badanie pokazało, że żadne jedno źródło nie wystarcza. Etykiety SGJP są trafne, ale wąskie. Słowosieć daje słowa podstawowe. IATE dokłada terminy. Korzystają boty Literaki (osobne repozytorium) i odwiedzający wiki.
@@ -123,6 +125,7 @@ flowchart TB
 | Indeks T3 (IATE + dodatki) | Terminy i łaty | bierze polskie hasła jednowyrazowe z kodów dziedzin; dokłada jawne dodatki | kody dziedzin, lista dodatków | TBX 2019 |
 | Mapowanie | Temat ⊆ baza | lemat + część mowy → leksemy SGJP; formy ∩ STANDARD; brak w bazie: kandydat odpada z powodem, a jawny dodatek zatrzymuje budowę | kandydaci z T1–T3 | przebieg v31 |
 | Wieloznaczność | Uczciwy zapis niepewności | ustawia `wieloznaczny` i zapisuje znaczenie źródłowe | wpisy po mapowaniu | Słowosieć, SGJP |
+| Diagnostyka bazy | Ile kandydatów w ogóle się przyda | przed filtrem ∩ STANDARD liczy kandydatów w BROAD i STANDARD, w leksemach i formach, razem i na warstwę; liczy odrzuconych z powodem i daje przykłady | kandydaci po mapowaniu | listy BROAD i STANDARD v31 |
 | Pokrycie z POP/POP00 | Ile tematu jest „grywalne” | liczy % tematu w POP i POP00, w leksemach i formach, razem i na warstwę | wpisy, pakiety POP | POP pop-v3, POP00 pop00-v1 |
 | Próba i przegląd | Trafność widoczna dla operatora | deterministyczna próba 50 na warstwę; podzbiór 30 dla operatora; liczy trafność i zgodność | pliki oceny | ziarno w konfiguracji metody |
 | Zapis pakietu | Wydanie odtwarzalne | pisze pliki tematów, `method.json`, noty, raporty, manifest z hashami | katalog wyjściowy | wszystkie powyżej |
@@ -133,7 +136,8 @@ flowchart LR
   A[Źródła lokalne<br/>SGJP, Słowosieć 4.5, IATE 2019] --> B[Normalizacja<br/>NFC, małe litery, jedno słowo,<br/>podział kwalifikatorów | potem ,]
   B --> C[Kandydaci per warstwa<br/>T1 atomy, T2 domknięcie, T3 terminy + dodatki]
   C --> D[Mapowanie na leksem SGJP<br/>lemat + część mowy]
-  D --> E[∩ STANDARD v31<br/>formy leksemu]
+  D --> DX[Diagnostyka: kandydaci ∩ BROAD, ∩ STANDARD<br/>leksemy i formy, T1/T2/T3, odrzuceni z przykładami]
+  DX --> E[∩ STANDARD v31<br/>formy leksemu]
   E --> F[Indeks tematu<br/>warstwa = najniższa, źródła = wszystkie<br/>wieloznaczny, znaczenie źródłowe]
   F --> G[Pokrycie z POP i POP00<br/>leksemy i formy, razem i T1/T2/T3]
   G --> H[Próba 50 na warstwę<br/>operator 30]
@@ -143,9 +147,9 @@ flowchart LR
 1. **Wejście.** Tylko pliki przypięte w manifeście źródeł. Słowosieć czytamy z lokalnej bazy SQLite z wybranymi tabelami. Tabel z nazwiskami redaktorów (`owner`) i logu IP nie kopiujemy dalej.
 2. **Normalizacja.** Wszystkie warstwy przyjmują tylko lematy jednowyrazowe z małych liter polskich. Kwalifikatory SGJP dzielimy najpierw po `|`, potem po `,`. Obecny podział w ładowaniu leksemów POP (tylko `,`) nie wystarcza.
 3. **Kandydaci.** T1: leksemy z atomem tematu. T2: lematy jednostek z domknięcia. T3: hasła IATE (term jednowyrazowy w kodach dziedzin) oraz jawne dodatki.
-4. **Mapowanie.** Lemat i część mowy wskazują leksemy SGJP. Kandydat bez leksemu w bazie odpada z powodem `POZA_BAZA` w raporcie. Dodatek bez leksemu zatrzymuje budowę.
+4. **Mapowanie.** Lemat i część mowy wskazują leksemy SGJP. Kandydat odpada z powodem `BRAK_LEKSEMU`, `POZA_BROAD` albo `POZA_STANDARD`; przedtem liczymy diagnostykę. Dodatek spoza STANDARD zatrzymuje budowę.
 5. **Scalenie.** Wpis to leksem SGJP. Gdy wpada z kilku warstw, dostaje najniższą (T1 < T2 < T3) i listę wszystkich źródeł. Dzięki temu warstwy są rozłączne, a ich suma daje całość.
-6. **Pokrycie.** Dla każdego tematu i warstwy liczymy udział w POP i POP00 (opis niżej).
+6. **Pokrycie.** Przed filtrem liczymy diagnostykę BROAD/STANDARD. Po filtrze liczymy udział w POP i POP00. Oba opisane niżej.
 7. **Przegląd.** Próba idzie do plików oceny. Wyniki wracają do pakietu, związane hashem listy.
 8. **Wyjście.** Pakiet w nowym katalogu. Liczby na wiki bierzemy z manifestu.
 
@@ -158,6 +162,16 @@ flowchart LR
 - **Gdzie:** manifest pakietu (`counts.<temat>.overlap`), raport podsumowania, strona wiki (tabela na temat), raport bramki pilotażu.
 - **Przypięcie:** manifest źródeł przypina SHA-256 manifestu pakietu POP pop-v3 (dziś `4acb7014…1d58`) i manifestu pakietu POP00 pop00-v1. Pakiet TEMATY powtarza oba hashe i wersje metod.
 - **Bez zmiany D4:** pliki tematu dalej zawierają pełny temat ∩ STANDARD. Odbiorca nadal sam przecina z POP/POP0/POP00.
+
+### Diagnostyka: kandydaci wobec BROAD i STANDARD (wymóg użytkownika)
+- **Po co:** słowo spoza STANDARD (albo BROAD) jest na końcu bezużyteczne. Chcemy wiedzieć, ile pracy źródła się marnuje.
+- **Kiedy:** na zbiorze kandydatów **przed** filtrem ∩ STANDARD. Po filtrze udział STANDARD byłby zawsze 100%.
+- **Co, dla każdego tematu, razem i T1/T2/T3:** |kandydaci|, |∩ BROAD|, |∩ STANDARD| i udziały |∩ X| / |kandydaci|; w leksemach (liczba główna) i w formach. Warstwa kandydata: ta sama reguła „najniższa warstwa”.
+- **Definicje:** leksem jest w X, gdy ma co najmniej jedną formę na liście X. Forma jest w X, gdy jej napis jest na liście X. Formy kandydata to formy leksemu SGJP.
+- **Odrzuceni:** liczba i do 10 przykładów na powód i warstwę: `BRAK_LEKSEMU` (lematu nie ma w SGJP; liczony w lematach, poza udziałami), `POZA_BROAD`, `POZA_STANDARD` (w BROAD, nie w STANDARD).
+- **Gdzie:** `reports/summary.json`, raport bramki pilotażu, krótka wzmianka na wiki (jedno zdanie i udziały razem na temat). Nie w manifeście jako liczba główna; bez progu.
+- **Przypięcie:** manifest źródeł przypina przebieg v31 (manifest przebiegu, listę STANDARD `dab4f3bc…fa7d` i listę BROAD); pakiet TEMATY powtarza wersje i hashe.
+- **Bez zmiany decyzji:** lista wydana zostaje ∩ STANDARD.
 
 ## Schemat pliku konfiguracji tematu
 Jeden plik JSON na temat. Nieznane pole = błąd budowy. Zmiana pliku = nowa wersja tematu.
@@ -202,7 +216,7 @@ Przykład (pilotaż, skrót; korzenie z pomiaru w badaniu):
 | `tematy/<id>.json` | kopia konfiguracji tematu użytej w budowie |
 | `<ID>.tsv.gz` | jeden wiersz na leksem: klucz SGJP, lemat, część mowy, warstwa, źródła, znaczenie źródłowe, `wieloznaczny` |
 | `<ID>.txt.gz` | formy tematu ∩ STANDARD, jedna na wiersz |
-| `reports/summary.json` | liczby, odrzuceni kandydaci z powodami, pokrycie z POP/POP00 |
+| `reports/summary.json` | liczby, pokrycie z POP/POP00, diagnostyka kandydatów wobec BROAD i STANDARD, odrzuceni z powodami i przykładami |
 | `reports/review-<id>.json` | próba, oceny agenta i operatora, trafność, zgodność |
 | `LIMITATIONS.md` | jeden oceniający przy korzeniach, wiek IATE, wersja licencji Słowosieci, temat per leksem, nie per znaczenie |
 | `ATTRIBUTIONS.md` | SGJP (BSD-2), nota copyright i zastrzeżenie plWordNet, „Download IATE, European Union, 2019” |
@@ -228,18 +242,19 @@ Pilotaż: temat morze, wszystkie trzy warstwy. Raport bramki zawiera:
 | Odtworzenie | dwie budowy, identyczne hashe plików | wzór POP00 |
 | Noty i zrzut | noty w `ATTRIBUTIONS.md`; brak danych redaktorów i IP w pakiecie | ADR-003 |
 | Pokrycie z POP i POP00 | tylko raport, bez progu; leksemy i formy, razem i T1/T2/T3 | wymóg użytkownika |
+| Kandydaci ∩ BROAD i ∩ STANDARD (przed filtrem) | tylko diagnostyka, bez progu; leksemy i formy, razem i T1/T2/T3; odrzuceni z przykładami | wymóg użytkownika |
 | Udział `wieloznaczny` | tylko raport, z 10 przykładami | reguła H1 |
 
 Decyzje bramki: „dalej” (operator zatwierdza listę ok. 10 tematów), „popraw” (zmiana konfiguracji, nowa próba) albo „stop” (warstwa wypada z metody). Proponowana fala: zwierzęta, rośliny, morze, medycyna i ciało, muzyka, kuchnia, sport, matematyka, pogoda, grzyby. Rolnictwo po lepszych korzeniach.
 
 ## Punkty integracji
 - **Generator (CLI):** nowa podkomenda obok `pop` i `pop00`; ta sama koperta JSON odpowiedzi i obsługa błędów.
-- **Przebieg v31 FROZEN:** odczyt `build.sqlite` (leksemy, interpretacje, kwalifikatory) i listy STANDARD.
+- **Przebieg v31 FROZEN:** odczyt `build.sqlite` (leksemy, interpretacje, kwalifikatory) oraz list STANDARD i BROAD (BROAD tylko do diagnostyki).
 - **Pakiety POP pop-v3 i POP00 pop00-v1:** odczyt `reports/units.json` i list form; tylko do raportu pokrycia.
 - **Słowosieć 4.5:** lokalna baza SQLite z relacjami 11, 25, 27, synsetami i jednostkami.
 - **IATE:** lokalny TBX z 2019 r.; generator czyta tylko polskie terminy w wybranych kodach dziedzin.
 - **Polecenie `explain`:** rozszerzenie o wariant tematu (dlaczego słowo jest w temacie: warstwa, źródło, synset). Przydaje się do przykładów na wiki.
-- **Wiki:** strona `Slownik-TEMATY` (założona „W przygotowaniu” na starcie), wiersz na `Home`, `_Sidebar`, `Historia-zmian`, link ze `Slownik-STANDARD`.
+- **Wiki:** strona `Slownik-TEMATY` (założona „W przygotowaniu” na starcie), wiersz na `Home`, `_Sidebar`, `Historia-zmian`, link ze `Slownik-STANDARD`. Strona podaje pokrycie z POP/POP00 i jednym zdaniem diagnostykę BROAD/STANDARD.
 - **ADR projektu:** dwa nowe pliki w katalogu ADR (propozycja: ADR-010 metoda, ADR-011 źródła; zob. log decyzji).
 
 ## Decyzje projektowe
@@ -253,7 +268,7 @@ Decyzje bramki: „dalej” (operator zatwierdza listę ok. 10 tematów), „pop
 | [ADR-006](decision-log.md#adr-006) | Jednostka: leksem SGJP; formy ∩ STANDARD | ADR-010 |
 | [ADR-007](decision-log.md#adr-007) | Reguła `wieloznaczny` | ADR-010 |
 | [ADR-008](decision-log.md#adr-008) | Jeden pakiet TEMATY, jedna strona wiki | ADR-010 |
-| [ADR-009](decision-log.md#adr-009) | Raport pokrycia z POP i POP00 | ADR-010 |
+| [ADR-009](decision-log.md#adr-009) | Raport pokrycia z POP i POP00; diagnostyka BROAD i STANDARD | ADR-010 |
 | [ADR-010](decision-log.md#adr-010) | Pilotaż morze i bramka | ADR-010 |
 
 ## Przykłady
@@ -273,7 +288,11 @@ Decyzje bramki: „dalej” (operator zatwierdza listę ok. 10 tematów), „pop
    *Dane:* zbudowany temat morze.
    *Gdy:* operator czyta manifest albo stronę wiki.
    *Wtedy:* widzi np. „T1: N leksemów, x% w POP, y% w POP00 (leksemy); formy: …”. Spodziewamy się, że T1 (terminy) ma niższy udział w POP niż T2. Liczby pochodzą z manifestu, nie z ręki.
-5. **Nowy temat bez kodu.**
+5. **Diagnostyka przed filtrem.**
+   *Dane:* T3 morza ma kandydatów z IATE.
+   *Gdy:* generator liczy diagnostykę przed ∩ STANDARD.
+   *Wtedy:* `reports/summary.json` podaje dla T3 np. „N kandydatów (leksemy); x% w BROAD, y% w STANDARD”, liczbę `BRAK_LEKSEMU`, `POZA_BROAD`, `POZA_STANDARD` i przykłady. Wydana lista T3 zawiera tylko leksemy w STANDARD.
+6. **Nowy temat bez kodu.**
    *Dane:* bramka zaliczona; operator zatwierdza `grzyby`.
    *Gdy:* agent dodaje plik `grzyby` (atom `mikol.`, korzenie Słowosieci) i buduje pakiet.
    *Wtedy:* nowy plik tematu w pakiecie, nowa tabela na wiki. Kod się nie zmienia.
@@ -292,6 +311,7 @@ Decyzje bramki: „dalej” (operator zatwierdza listę ok. 10 tematów), „pop
 1. Dwie budowy z tych samych wejść dają identyczne hashe wszystkich plików pakietu.
 2. Każdy wpis każdego tematu jest leksemem w STANDARD v31, ma warstwę, źródło i wartość `wieloznaczny`.
 3. Manifest i wiki podają dla każdego tematu i warstwy: liczbę leksemów i form oraz udział w POP i POP00 (leksemy główne, formy obok), z przypiętymi wersjami POP i POP00.
-4. Pilotaż morze spełnia progi bramki zatwierdzone przez operatora.
-5. Nowy temat wymaga tylko nowego pliku konfiguracji.
-6. `ATTRIBUTIONS.md` zawiera notę i zastrzeżenie plWordNet oraz atrybucję IATE. Pakiet nie zawiera danych redaktorów ani logu IP.
+4. `reports/summary.json` i raport bramki podają diagnostykę kandydatów wobec BROAD i STANDARD przed filtrem (leksemy i formy, razem i na warstwę, odrzuceni z przykładami), z przypiętymi wersjami list.
+5. Pilotaż morze spełnia progi bramki zatwierdzone przez operatora.
+6. Nowy temat wymaga tylko nowego pliku konfiguracji.
+7. `ATTRIBUTIONS.md` zawiera notę i zastrzeżenie plWordNet oraz atrybucję IATE. Pakiet nie zawiera danych redaktorów ani logu IP.
