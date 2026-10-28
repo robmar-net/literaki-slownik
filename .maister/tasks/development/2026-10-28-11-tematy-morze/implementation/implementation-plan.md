@@ -42,13 +42,13 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `WIKI/Slownik-TEMATY.md`, `WIKI/Home.md`, `WIKI/_Sidebar.md`, `WIKI/Slownik-STANDARD.md`, `WIKI/Historia-zmian.md`, `T/work-log.md`
 **Kroki:** 6
 
-- [ ] 1.0 Opublikować wstępną stronę TEMATY
-  - [ ] 1.1 Przygotować klon według runbooka: `git -C WIKI pull --ff-only`. Testów jednostkowych tu nie ma; kontrolą jest lista z kroku 4 runbooka.
-  - [ ] 1.2 Napisać `Slownik-TEMATY.md` według układu strony słownika: cel (1–2 zdania), stan „W przygotowaniu, jeszcze niewydany”, co wchodzi (T1 etykiety SGJP, T2 Słowosieć 4.5, T3 IATE 2019 dziedzina 4821, tylko formy z STANDARD), link do [#11](https://github.com/robmar-net/literaki-slownik/issues/11). Bez liczb.
-  - [ ] 1.3 `Home.md`: wiersz TEMATY w tabeli słowników („W przygotowaniu”); w tabeli źródeł wiersze Słowosieć 4.5 i IATE (planowane); zmienić zdanie „Planowane dalej: … słowniki tematyczne” tak, by linkowało stronę.
-  - [ ] 1.4 `_Sidebar.md`: wpis TEMATY. `Slownik-STANDARD.md`: link do TEMATY jako podzbioru. `Historia-zmian.md`: wiersz z datą „start prac nad TEMATY (#11)”.
-  - [ ] 1.5 Lista kontrolna runbooka: jeden ekran na stronę, linki tabel w formie `[X](Slownik-X)`, brak nazw innych gier słownych, brak list słów.
-  - [ ] 1.6 Commit `wiki: TEMATY w przygotowaniu (#11)` i push w repo wiki; sprawdzić publiczny HTML strony; wpis w `T/work-log.md`.
+- [x] 1.0 Opublikować wstępną stronę TEMATY
+  - [x] 1.1 Przygotować klon według runbooka: `git -C WIKI pull --ff-only`. Testów jednostkowych tu nie ma; kontrolą jest lista z kroku 4 runbooka.
+  - [x] 1.2 Napisać `Slownik-TEMATY.md` według układu strony słownika: cel (1–2 zdania), stan „W przygotowaniu, jeszcze niewydany”, co wchodzi (T1 etykiety SGJP, T2 Słowosieć 4.5, T3 IATE 2019 dziedzina 4821, tylko formy z STANDARD), link do [#11](https://github.com/robmar-net/literaki-slownik/issues/11). Bez liczb.
+  - [x] 1.3 `Home.md`: wiersz TEMATY w tabeli słowników („W przygotowaniu”); w tabeli źródeł wiersze Słowosieć 4.5 i IATE (planowane); zmienić zdanie „Planowane dalej: … słowniki tematyczne” tak, by linkowało stronę.
+  - [x] 1.4 `_Sidebar.md`: wpis TEMATY. `Slownik-STANDARD.md`: link do TEMATY jako podzbioru. `Historia-zmian.md`: wiersz z datą „start prac nad TEMATY (#11)”.
+  - [x] 1.5 Lista kontrolna runbooka: jeden ekran na stronę, linki tabel w formie `[X](Slownik-X)`, brak nazw innych gier słownych, brak list słów.
+  - [x] 1.6 Commit `wiki: TEMATY w przygotowaniu (#11)` i push w repo wiki; sprawdzić publiczny HTML strony; wpis w `T/work-log.md`.
 
 **Kryteria odbioru:**
 - Strona `Slownik-TEMATY` jest publiczna, ma „W przygotowaniu” i link do #11.
@@ -59,12 +59,12 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `literaki_slownik/pop.py`, `literaki_slownik/pop00.py`, `literaki_slownik/quality.py`, `tests/pop00_helpers.py`, `tests/test_pop.py`, `tests/test_quality.py`
 **Kroki:** 5
 
-- [ ] 2.0 Przygotować wspólny kod bez zmiany zachowania POP i POP00
-  - [ ] 2.1 Napisać 3 testy w `tests/test_quality.py`: `tematy-quality-v1` przyjmuje rozmiar 50; odrzuca 30; `pop00-quality-v1` nadal przyjmuje tylko 30.
-  - [ ] 2.2 `pop._write_gzip` → `write_gzip`, bez aliasu. Poprawić wywołania: `pop.py:1955`, `pop00.py:289–291`, `tests/pop00_helpers.py:9,52`, cel `mock.patch.object` w `tests/test_pop.py:1352`.
-  - [ ] 2.3 `quality.SEEDS['tematy-quality-v1'] = 'literaki-slownik-tematy-v1'`. W `_config` rozmiar zależny od wersji: mapa `{tematy-quality-v1: 50}`, reszta 30. Komunikat błędu bez nazwy „quality-v1” na sztywno.
-  - [ ] 2.4 `pop00.read_words`: komunikat „Niekanoniczna lista wejściowa” bez „POP00” (żaden test go nie sprawdza).
-  - [ ] 2.5 Uruchomić tylko: 3 nowe testy oraz `tests.test_pop`, `tests.test_pop00`, `tests.test_pop00_package` (moduły dotknięte zmianą nazwy). Commit `feat(tematy): przygotuj wspólny kod (#11)`.
+- [x] 2.0 Przygotować wspólny kod bez zmiany zachowania POP i POP00
+  - [x] 2.1 Napisać 3 testy w `tests/test_quality.py`: `tematy-quality-v1` przyjmuje rozmiar 50; odrzuca 30; `pop00-quality-v1` nadal przyjmuje tylko 30.
+  - [x] 2.2 `pop._write_gzip` → `write_gzip`, bez aliasu. Poprawić wywołania: `pop.py:1955`, `pop00.py:289–291`, `tests/pop00_helpers.py:9,52`, cel `mock.patch.object` w `tests/test_pop.py:1352`.
+  - [x] 2.3 `quality.SEEDS['tematy-quality-v1'] = 'literaki-slownik-tematy-v1'`. W `_config` rozmiar zależny od wersji: mapa `{tematy-quality-v1: 50}`, reszta 30. Komunikat błędu bez nazwy „quality-v1” na sztywno.
+  - [x] 2.4 `pop00.read_words`: komunikat „Niekanoniczna lista wejściowa” bez „POP00” (żaden test go nie sprawdza).
+  - [x] 2.5 Uruchomić tylko: 3 nowe testy oraz `tests.test_pop`, `tests.test_pop00`, `tests.test_pop00_package` (moduły dotknięte zmianą nazwy). Commit `feat(tematy): przygotuj wspólny kod (#11)`.
 
 **Kryteria odbioru:**
 - 3 nowe testy przechodzą; testy POP i POP00 bez zmian wyniku.
@@ -75,22 +75,22 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `scripts/fetch_tematy_sources.py`, `scripts/build_plwordnet_db.py`, `tests/test_fetch_tematy_sources.py`, `tests/test_build_plwordnet_db.py`, `T/analysis/verify_plwordnet.py`, `T/verification/sources.json`, `T/verification/plwordnet-derivative.json`, `T/verification/iate-scan.json`, `T/work-log.md`
 **Kroki:** 9
 
-- [ ] 3.0 Pobrać źródła i zbudować odtwarzalną pochodną
-  - [ ] 3.1 Napisać 6 testów (bez sieci, dane syntetyczne):
+- [x] 3.0 Pobrać źródła i zbudować odtwarzalną pochodną
+  - [x] 3.1 Napisać 6 testów (bez sieci, dane syntetyczne):
     - pobranie z `file://` daje rekord `url`, `retrieved_at`, `sha256`, `bytes`, `path`; istniejący cel = błąd, plik tymczasowy usunięty;
     - zły hash Słowosieci = błąd, pliku docelowego nie ma;
     - parser zrzutu: wielowierszowy `INSERT`, `\'` i `\\` dają poprawne wiersze;
     - pochodna ma tylko tabele z listy i kolumny z W2; brak `owner`, `comment`, `iplog`, `iplimit`, `tracker_*`; tylko `valid=1`;
     - zła nazwa relacji 11/25/27 = błąd;
     - dwa uruchomienia na tym samym zipie dają ten sam SHA-256; istniejące wyjście = błąd.
-  - [ ] 3.2 `scripts/fetch_tematy_sources.py` (wzór `scripts/audit_kwjp.py --fetch`): `curl -fL` do pliku tymczasowego w katalogu celu, SHA-256 i bajty, przeniesienie bez nadpisywania, rekord JSON na stdout. IATE: `last_modified` z nagłówka i `member` (nazwa `.tbx` w zipie). Słowosieć: hash musi równać się `30edc5f8…dcbc`.
-  - [ ] 3.3 `scripts/build_plwordnet_db.py`: strumieniowy odczyt zrzutu z zipa, lista dozwolonych tabel i kolumn (W2), `valid=1`, wstawianie w kolejności klucza, `meta` (SHA-256 zipa, wersja skryptu), kontrola nazw relacji, liczności na stdout, wynik przez plik tymczasowy i `rename_noreplace`.
-  - [ ] 3.4 Uruchomić 6 nowych testów.
-  - [ ] 3.5 Dane rzeczywiste (sieć): pobrać IATE do `cache/iate/IATE_download.zip` i Słowosieć do `cache/plwordnet/wordnet_work_4_5.zip`. Rekordy zapisać w `T/verification/sources.json`. Sprawdzić `last_modified` (oczekiwany 30.09.2019).
-  - [ ] 3.6 Zbudować `cache/plwordnet/plwn45-tematy.sqlite` dwa razy (drugi raz do pliku w scratchpadzie); hashe muszą być równe. Zapisać czas, hash, liczności; porównać ze starą pochodną (1 491 277 relacji, 514 016 jednostek; różnica relacji = wiersze `valid=0`).
-  - [ ] 3.7 `T/analysis/verify_plwordnet.py`: na nowej pochodnej `statek 1` (7354) → `łódź 2`, `okręt 1` po relacji 11 w kierunku `PARENT_ID → CHILD_ID`; nazwy 6 korzeni = `lemma + ' ' + variant` jednostki o najniższym `unitindex`; kody `pos` 1–4 zgodne z przypiętą mapą (przykłady). Wynik do `T/verification/plwordnet-derivative.json`.
-  - [ ] 3.8 Pełny skan TBX (jednorazowy, skrypt w scratchpadzie): wartości `termType`, liczba `deprecatedTerm-admn-sts`, liczba haseł z kodem `4821` w `subjectField`, czy pojawia się `<!ENTITY`. Wynik do `T/verification/iate-scan.json`. Nieznane pola zapisać jako ryzyko w work-logu.
-  - [ ] 3.9 Commit kodu `feat(tematy): pobranie źródeł i pochodna Słowosieci (#11)`; artefakty zadania `maister: #11 źródła i pochodna`. Push.
+  - [x] 3.2 `scripts/fetch_tematy_sources.py` (wzór `scripts/audit_kwjp.py --fetch`): `curl -fL` do pliku tymczasowego w katalogu celu, SHA-256 i bajty, przeniesienie bez nadpisywania, rekord JSON na stdout. IATE: `last_modified` z nagłówka i `member` (nazwa `.tbx` w zipie). Słowosieć: hash musi równać się `30edc5f8…dcbc`.
+  - [x] 3.3 `scripts/build_plwordnet_db.py`: strumieniowy odczyt zrzutu z zipa, lista dozwolonych tabel i kolumn (W2), `valid=1`, wstawianie w kolejności klucza, `meta` (SHA-256 zipa, wersja skryptu), kontrola nazw relacji, liczności na stdout, wynik przez plik tymczasowy i `rename_noreplace`.
+  - [x] 3.4 Uruchomić 6 nowych testów.
+  - [x] 3.5 Dane rzeczywiste (sieć): pobrać IATE do `cache/iate/IATE_download.zip` i Słowosieć do `cache/plwordnet/wordnet_work_4_5.zip`. Rekordy zapisać w `T/verification/sources.json`. Sprawdzić `last_modified` (oczekiwany 30.09.2019).
+  - [x] 3.6 Zbudować `cache/plwordnet/plwn45-tematy.sqlite` dwa razy (drugi raz do pliku w scratchpadzie); hashe muszą być równe. Zapisać czas, hash, liczności; porównać ze starą pochodną (1 491 277 relacji, 514 016 jednostek; różnica relacji = wiersze `valid=0`).
+  - [x] 3.7 `T/analysis/verify_plwordnet.py`: na nowej pochodnej `statek 1` (7354) → `łódź 2`, `okręt 1` po relacji 11 w kierunku `PARENT_ID → CHILD_ID`; nazwy 6 korzeni = `lemma + ' ' + variant` jednostki o najniższym `unitindex`; kody `pos` 1–4 zgodne z przypiętą mapą (przykłady). Wynik do `T/verification/plwordnet-derivative.json`.
+  - [x] 3.8 Pełny skan TBX (jednorazowy, skrypt w scratchpadzie): wartości `termType`, liczba `deprecatedTerm-admn-sts`, liczba haseł z kodem `4821` w `subjectField`, czy pojawia się `<!ENTITY`. Wynik do `T/verification/iate-scan.json`. Nieznane pola zapisać jako ryzyko w work-logu.
+  - [x] 3.9 Commit kodu `feat(tematy): pobranie źródeł i pochodna Słowosieci (#11)`; artefakty zadania `maister: #11 źródła i pochodna`. Push.
 
 **Kryteria odbioru:**
 - 6 testów przechodzi.

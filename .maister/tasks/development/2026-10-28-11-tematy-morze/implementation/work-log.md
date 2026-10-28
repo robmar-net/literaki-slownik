@@ -11,3 +11,34 @@
 
 ### Loaded Per Group
 (Entries added as groups execute)
+
+## 2026-10-28T23:20:57Z - Group 2 Complete
+
+**Steps**: 2.1–2.5
+**Standards Applied**: AGENTS.md (po polsku, zwięźle), spec D1/D2
+**Tests**: 95 OK (test_quality, test_pop, test_pop00, test_pop00_package, test_pop_quality)
+**Files Modified**: literaki_slownik/{quality,pop,pop00}.py, tests/{pop00_helpers,test_pop,test_quality}.py
+**Notes**: `SIZES = {'tematy-quality-v1': 50}`, reszta 30. `_write_gzip` → `write_gzip` bez aliasu. Commit 63e9c29.
+
+## 2026-10-28T23:21:45Z - Group 1 Complete
+
+**Steps**: 1.1–1.6
+**Standards Applied**: docs/runbook-wiki.md (start prac nad nowym słownikiem, lista kontrolna kroku 4), spec W14/D13
+**Tests**: brak testów jednostkowych; publiczna strona ma „W przygotowaniu” i link do #11
+**Files Modified**: wiki: Slownik-TEMATY.md (nowa), Home.md, _Sidebar.md, Slownik-STANDARD.md, Historia-zmian.md
+**Notes**: commity wiki 0ffad2e, c67ba8d. Liczby trafią na stronę w grupie 14.
+
+## 2026-10-28T23:33:01Z - Group 3 Complete
+
+**Steps**: 3.1–3.9
+**Standards Applied**: AGENTS.md (dane surowe poza Git), spec W1–W2, K1, W1, W2, W4, D3, D6–D8
+**Tests**: 6 OK (test_fetch_tematy_sources, test_build_plwordnet_db)
+**Files Modified**: scripts/fetch_tematy_sources.py, scripts/build_plwordnet_db.py, tests/test_fetch_tematy_sources.py, tests/test_build_plwordnet_db.py, analysis/verify_plwordnet.py, verification/{sources,plwordnet-derivative,iate-scan}.json
+**Notes**:
+- IATE: cache/iate/IATE_download.zip, 112 828 998 B, sha256 ac50c2a7…5c6f, last_modified 30.09.2019, member IATE_export_26022019.tbx.
+- Słowosieć: hash zgodny z pinem 30edc5f8…dcbc.
+- Pochodna plwn45-tematy.sqlite: sha256 aa65ad79…c536. Dwie budowy dają ten sam hash (SQLite 3.51.0), każda trwa ok. 50 s. Pochodna nie ma danych redaktorów.
+- Kierunek PARENT_ID → CHILD_ID potwierdzony (statek 1 → łódź 2, okręt 1).
+- Domknięcie T2 ma **864** lematy według definicji „jednego słowa” (W7). Audyt podał 874, bo liczył też formy z łącznikiem i kropką.
+- TBX: 4821 ma 577 haseł PL. fullForm, bez deprecated, niezawodność ≥ 3, jedno słowo: 78 (74 różne). T3 będzie małe.
+- Decyzja techniczna: `supersededTerm-admn-sts` też odrzucamy (spójność z deprecated). Wśród 78 kandydatów nie ma żadnego, więc wpływ jest zerowy. Zapis w ADR-011.

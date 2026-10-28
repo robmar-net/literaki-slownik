@@ -1,0 +1,21 @@
+{
+  "iate": {
+    "bytes": 112828998,
+    "last_modified": "Mon, 30 Sep 2019 07:41:10 GMT",
+    "member": "IATE_export_26022019.tbx",
+    "path": "cache/iate/IATE_download.zip",
+    "retrieved_at": "2026-10-28T23:24:59Z",
+    "sha256": "ac50c2a701484f3108eec6aea80ee23b5da0c0a2062fd5cc72790ac57ccf5c6f",
+    "url": "https://iate.europa.eu/em-api/artifacts/full-tbx"
+  },
+  "note": "Rekordy z scripts/fetch_tematy_sources.py (grupa 3, #11). Pliki leżą w cache/ (poza Git).",
+  "plwordnet": {
+    "bytes": 465563957,
+    "path": "cache/plwordnet/wordnet_work_4_5.zip",
+    "pinned_sha256_match": true,
+    "retrieved_at": "2026-10-28T23:25:16Z",
+    "sha256": "30edc5f85c06408d372a897f1d1ff3d03fa939b8680b176c1f97351f4a72dcbc",
+    "url": "https://clarin-pl.eu/server/api/core/bitstreams/3197cd0f-bb4e-41ba-93e0-eec99ab8d519/content"
+  },
+  "version": "tematy-sources-fetch-v1"
+}

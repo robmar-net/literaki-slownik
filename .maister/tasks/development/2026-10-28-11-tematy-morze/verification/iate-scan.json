@@ -1,0 +1,117 @@
+{
+  "administrative_status": {
+    "None": 7077271,
+    "admittedTerm-admn-sts": 5589,
+    "deprecatedTerm-admn-sts": 7352,
+    "preferredTerm-admn-sts": 19897,
+    "supersededTerm-admn-sts": 15244
+  },
+  "administrative_status_pl": {
+    "None": 77743,
+    "admittedTerm-admn-sts": 202,
+    "deprecatedTerm-admn-sts": 334,
+    "preferredTerm-admn-sts": 1888,
+    "supersededTerm-admn-sts": 572
+  },
+  "candidate_rule": "PL, termType=fullForm, administrativeStatus != deprecatedTerm-admn-sts, reliabilityCode >= 3, term pasuje do [a-ząćęłńóśźż]+ po NFC (bez wielkich liter w źródle)",
+  "deprecated_terms": 7352,
+  "deprecated_terms_pl": 334,
+  "doctype": "<!DOCTYPE martif SYSTEM \"TBXcoreStructV02.dtd\"",
+  "doctype_internal_subset": false,
+  "element_paths": {
+    "/termEntry": 934921,
+    "/termEntry/descripGrp": 934921,
+    "/termEntry/descripGrp/descrip[subjectField]": 934921,
+    "/termEntry/descripGrp/note": 226977,
+    "/termEntry/langSet": 5747411,
+    "/termEntry/langSet/tig": 7125353,
+    "/termEntry/langSet/tig/descrip[reliabilityCode]": 7125353,
+    "/termEntry/langSet/tig/term": 7125353,
+    "/termEntry/langSet/tig/termNote[administrativeStatus]": 48082,
+    "/termEntry/langSet/tig/termNote[termType]": 7125353
+  },
+  "entity_declaration_seen": false,
+  "entries": 934921,
+  "entries_with_pl": 64723,
+  "member": "IATE_export_26022019.tbx",
+  "reliability_codes": {
+    "1": 746857,
+    "2": 832751,
+    "3": 5305005,
+    "4": 240740
+  },
+  "risks": [
+    "termType: wartość formula (1 219, PL 6) nie występowała w próbce 4,9 MB; filtr fullForm ją pomija.",
+    "administrativeStatus: supersededTerm-admn-sts (15 244, PL 572; w 4821 PL 9, wśród 78 kandydatów 0) oraz admittedTerm/preferredTerm nie są opisane w spec; spec odrzuca tylko deprecatedTerm. Dziś bez wpływu na T3 (kandydaci: 77 bez statusu, 1 preferredTerm).",
+    "descripGrp/note (226 977 haseł) — pole spoza próbki; T3 go nie czyta.",
+    "Struktura tylko tig (bez ntig); termNote/descrip zawsze wewnątrz tig."
+  ],
+  "scanner": "jednorazowy skrypt w scratchpadzie (iterparse ze zipa, bez DTD), grupa 3 #11",
+  "seconds": 85.2,
+  "source": {
+    "last_modified": "Mon, 30 Sep 2019 07:41:10 GMT",
+    "path": "cache/iate/IATE_download.zip",
+    "sha256": "ac50c2a701484f3108eec6aea80ee23b5da0c0a2062fd5cc72790ac57ccf5c6f"
+  },
+  "subject_4821": {
+    "entries": 3992,
+    "entries_with_4821_only_as_substring": 0,
+    "entries_with_pl": 577,
+    "examples_first_20_sorted": [
+      "agent",
+      "armator",
+      "bagrowanie",
+      "bandera",
+      "biofouling",
+      "bom",
+      "bukszpryty",
+      "bunkrowanie",
+      "chemikaliowiec",
+      "chodnia",
+      "chłodniowiec",
+      "cumowanie",
+      "czarterujący",
+      "drobnicowiec",
+      "dyplom",
+      "dziób",
+      "fregata",
+      "gazowiec",
+      "holowanie",
+      "holownik"
+    ],
+    "match": "cały kod z listy po przecinkach",
+    "pl_deprecated": 5,
+    "pl_fullform_not_deprecated_rel_ge_3": 578,
+    "pl_fullform_single_word_lowercase": 78,
+    "pl_fullform_single_word_lowercase_distinct": 74,
+    "pl_single_word_candidates_by_administrative_status": {
+      "None": 77,
+      "preferredTerm-admn-sts": 1
+    },
+    "pl_terms_by_administrative_status": {
+      "None": 716,
+      "deprecatedTerm-admn-sts": 5,
+      "preferredTerm-admn-sts": 13,
+      "supersededTerm-admn-sts": 9
+    },
+    "pl_terms_by_type": {
+      "abbreviation": 50,
+      "fullForm": 665,
+      "shortForm": 28
+    }
+  },
+  "term_types": {
+    "abbreviation": 302352,
+    "formula": 1219,
+    "fullForm": 6714426,
+    "phraseologicalUnit": 70992,
+    "shortForm": 36364
+  },
+  "term_types_pl": {
+    "abbreviation": 3512,
+    "formula": 6,
+    "fullForm": 75016,
+    "phraseologicalUnit": 462,
+    "shortForm": 1743
+  }
+}

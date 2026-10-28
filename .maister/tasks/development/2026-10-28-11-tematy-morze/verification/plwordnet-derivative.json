@@ -1,0 +1,388 @@
+{
+  "builds": {
+    "a": {
+      "bytes": 122908672,
+      "output": "cache/plwordnet/plwn45-tematy.sqlite",
+      "peak_rss_bytes": 690946048,
+      "seconds": 47.6,
+      "sha256": "aa65ad796ff5331ee6c0b2fddb81fb89786e428a3720cc8e52fbc45502b6c536"
+    },
+    "b": {
+      "bytes": 122908672,
+      "output": "scratchpad/plwn45-tematy-b.sqlite",
+      "seconds": 53.7,
+      "sha256": "aa65ad796ff5331ee6c0b2fddb81fb89786e428a3720cc8e52fbc45502b6c536"
+    },
+    "identical": true,
+    "skipped_relations_by_valid": {
+      "0": 2
+    },
+    "source_rows": {
+      "lexicalunit": 514016,
+      "relationtype": 306,
+      "synset": 354316,
+      "synsetrelation": 1491277,
+      "unitandsynset": 514018
+    },
+    "sqlite_version": "3.51.0"
+  },
+  "comparison_with_old": {
+    "difference": 2,
+    "difference_equals_valid_0_rows": true,
+    "lexicalunit_new": 514016,
+    "lexicalunit_old": 514016,
+    "synsetrelation_new": 1491275,
+    "synsetrelation_old": 1491277
+  },
+  "counts": {
+    "lexicalunit": 514016,
+    "meta": 3,
+    "relationtype": 306,
+    "synset": 354316,
+    "synsetrelation": 1491275,
+    "unitandsynset": 514018
+  },
+  "db": "cache/plwordnet/plwn45-tematy.sqlite",
+  "db_sha256": "aa65ad796ff5331ee6c0b2fddb81fb89786e428a3720cc8e52fbc45502b6c536",
+  "direction": {
+    "children_rel11": [
+      "arka 2",
+      "atomowiec 1",
+      "barka 1",
+      "brander 1",
+      "byrding 1",
+      "flagowiec 1",
+      "galar 1",
+      "holownik 1",
+      "hulk 2",
+      "kabotażowiec 1",
+      "koza 10",
+      "kuter 2",
+      "latarniowiec 1",
+      "lodołamacz 1",
+      "motorowiec 1",
+      "okręt 1",
+      "okręt 2",
+      "paragrafowiec 1",
+      "parowiec 1",
+      "pięciotysięcznik 1",
+      "prom 1",
+      "rotorowiec 1",
+      "samochodowiec 1",
+      "sejner 1",
+      "silnikowiec 1",
+      "spalinowiec 1",
+      "statek handlowy 1",
+      "statek kablowy 1",
+      "statek kołowy 1",
+      "statek matka 1",
+      "statek meteorologiczny 1",
+      "statek pocztowy 1",
+      "statek podwodny 1",
+      "statek portowy 1",
+      "statek pożarniczy 1",
+      "statek rybacki 1",
+      "statek rzeczny 1",
+      "statek siostrzany 1",
+      "statek szkolny 1",
+      "statek szpitalny 1",
+      "statek wiosłowy 1",
+      "statek wycieczkowy 1",
+      "stutysięcznik 3",
+      "tender 2",
+      "tramwaj wodny 1",
+      "trójpokładowiec 1",
+      "wicina 2",
+      "wielokadłubowiec 1",
+      "wielorybnik 2",
+      "wodolot 1",
+      "wrak 1",
+      "wycieczkowiec 1",
+      "węglowiec 2",
+      "łajba 1",
+      "łamacz blokady 1",
+      "łódź 2",
+      "śrubowiec 1",
+      "żaglowiec 1"
+    ],
+    "children_rel25_of_7354": [
+      "dziób 3",
+      "futrówka 2",
+      "grobla 2",
+      "kabestan 2",
+      "kabina 1",
+      "kadłub 3",
+      "kotwica 2",
+      "luk 2",
+      "nadbudówka 2",
+      "pokład 3",
+      "proporczyk 2",
+      "reling 1",
+      "skrajnik 1",
+      "ster 2",
+      "sterownik automatyczny 1",
+      "szkielet jednostki pływającej 1",
+      "sztormtrap 2",
+      "trap 1",
+      "węzłówka 1",
+      "zawór denny 1",
+      "zrębnica 1",
+      "śródokręcie 1",
+      "światło kotwiczne 1",
+      "żyroskop 1"
+    ],
+    "children_rel27_of_7354": [
+      "dno podwójne 1",
+      "kambuz 1",
+      "kingston 1",
+      "kubryk 1",
+      "messa 1",
+      "mostek 5",
+      "pentra 1",
+      "pokład 2",
+      "przestrzeń ładunkowa 1",
+      "szpigat 1",
+      "zasobnia 1",
+      "ładownia 1"
+    ],
+    "ok": true,
+    "parents_rel11": [
+      "jednostka 6",
+      "pojazd nawodny lub podwodny 1",
+      "środek lokomocji 1"
+    ],
+    "root": "statek 1 (7354)",
+    "rule": "PARENT_ID → CHILD_ID (rodzic = hiperonim)"
+  },
+  "failures": [],
+  "forbidden_columns_or_tables": [],
+  "meta": {
+    "script_version": "plwn-tematy-v1",
+    "zip_member": "wordnet_work_4_5.sql",
+    "zip_sha256": "30edc5f85c06408d372a897f1d1ff3d03fa939b8680b176c1f97351f4a72dcbc"
+  },
+  "ok": true,
+  "old_counts": {
+    "lexicalunit": 514016,
+    "relationtype": 306,
+    "synset": 354316,
+    "synsetrelation": 1491277,
+    "synsetrelation_valid_1": 1491275,
+    "unitandsynset": 514018
+  },
+  "pos": {
+    "english_examples_5_8": {
+      "5": [
+        "breathe",
+        "take a breath",
+        "respire",
+        "suspire",
+        "respire"
+      ],
+      "6": [
+        "geranium",
+        "entity",
+        "physical entity",
+        "abstraction",
+        "abstract entity"
+      ],
+      "7": [
+        "a cappella",
+        "a capella",
+        "AD",
+        "A.D.",
+        "anno Domini"
+      ],
+      "8": [
+        "able",
+        "unable",
+        "abaxial",
+        "dorsal",
+        "adaxial"
+      ]
+    },
+    "examples": [
+      {
+        "codes": [
+          2
+        ],
+        "expected": 2,
+        "lemma": "statek",
+        "ok": true
+      },
+      {
+        "codes": [
+          2
+        ],
+        "expected": 2,
+        "lemma": "morze",
+        "ok": true
+      },
+      {
+        "codes": [
+          1
+        ],
+        "expected": 1,
+        "lemma": "pływać",
+        "ok": true
+      },
+      {
+        "codes": [
+          1
+        ],
+        "expected": 1,
+        "lemma": "żeglować",
+        "ok": true
+      },
+      {
+        "codes": [
+          4
+        ],
+        "expected": 4,
+        "lemma": "morski",
+        "ok": true
+      },
+      {
+        "codes": [
+          4
+        ],
+        "expected": 4,
+        "lemma": "szybki",
+        "ok": true
+      },
+      {
+        "codes": [
+          3
+        ],
+        "expected": 3,
+        "lemma": "szybko",
+        "ok": true
+      },
+      {
+        "codes": [
+          3
+        ],
+        "expected": 3,
+        "lemma": "daleko",
+        "ok": true
+      }
+    ],
+    "map": {
+      "1": [
+        "inf"
+      ],
+      "2": [
+        "subst",
+        "depr"
+      ],
+      "3": [
+        "adv"
+      ],
+      "4": [
+        "adj"
+      ]
+    },
+    "units_by_code": {
+      "1": 45721,
+      "2": 180708,
+      "3": 14238,
+      "4": 54752,
+      "5": 25062,
+      "6": 157870,
+      "7": 5592,
+      "8": 30073
+    }
+  },
+  "relation_names": {
+    "11": "hiperonimia",
+    "25": "część",
+    "27": "miejsce"
+  },
+  "roots": {
+    "14136": {
+      "actual": "żegluga 1",
+      "expected": "żegluga 1",
+      "ok": true
+    },
+    "14515": {
+      "actual": "żeglarstwo 1",
+      "expected": "żeglarstwo 1",
+      "ok": true
+    },
+    "2149": {
+      "actual": "okręt 1",
+      "expected": "okręt 1",
+      "ok": true
+    },
+    "4511": {
+      "actual": "łódź 2",
+      "expected": "łódź 2",
+      "ok": true
+    },
+    "6214": {
+      "actual": "marynarz 1",
+      "expected": "marynarz 1",
+      "ok": true
+    },
+    "7354": {
+      "actual": "statek 1",
+      "expected": "statek 1",
+      "ok": true
+    }
+  },
+  "schema": {
+    "lexicalunit": [
+      "ID",
+      "lemma",
+      "pos",
+      "variant"
+    ],
+    "meta": [
+      "key",
+      "value"
+    ],
+    "relationtype": [
+      "ID",
+      "name"
+    ],
+    "synset": [
+      "ID",
+      "isabstract"
+    ],
+    "synsetrelation": [
+      "PARENT_ID",
+      "CHILD_ID",
+      "REL_ID"
+    ],
+    "unitandsynset": [
+      "LEX_ID",
+      "SYN_ID",
+      "unitindex"
+    ]
+  },
+  "t2_closure": {
+    "abstract_synsets": 2,
+    "audit_874_explained": "874 = lematy bez spacji (surowe, z łącznikiem i kropką: U-Boot, okręt-baza, okręt-muzeum, pancerniko-lotniskowiec, propan-butan, ro-ro, s.y., s/y). Definicja W7 (tylko litery polskie) daje 866 surowych, 864 po małych literach. Ten sam wynik 864 na starej pochodnej: zbiór synsetów i lematów identyczny.",
+    "control_words_present": {
+      "angora": true,
+      "bukszpryt": true,
+      "bungee": true,
+      "burta": true,
+      "cuma": true,
+      "okręt": true,
+      "łódź": true
+    },
+    "lemmas_all_synsets": 864,
+    "lemmas_without_abstract_synsets": 864,
+    "method": "pełne domknięcie od 6 korzeni po 11/25/27, PARENT_ID → CHILD_ID, pos 1–4, jedno słowo (NFC, małe litery, tylko litery polskie)",
+    "old_derivative": {
+      "audit_reported": 874,
+      "db": "data/work/plwordnet/plwn45.sqlite",
+      "lemmas_all_synsets": 864,
+      "lemmas_without_abstract_synsets": 864,
+      "synsets": 1092
+    },
+    "same_as_old": true,
+    "synsets": 1092
+  }
+}
