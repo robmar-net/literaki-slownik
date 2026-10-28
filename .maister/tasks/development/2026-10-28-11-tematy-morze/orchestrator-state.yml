@@ -15,7 +15,7 @@ orchestrator:
     reality_check_enabled: true
     production_check_enabled: true
   created: 2026-10-28T22:06:28Z
-  updated: 2026-10-28T23:07:10Z
+  updated: 2026-10-28T23:12:15Z
   task_path: .maister/tasks/development/2026-10-28-11-tematy-morze
 task:
   title: "TEMATY: pilotaż słownika „morze” (#11)"
@@ -65,6 +65,11 @@ task_context:
       - docs/generator/cli.md
       - docs/adr/ADR-009-pop00-v1.md
   phase_summaries:
+    planning:
+      summary: "15 grup, 89 kroków, do 60 testów. Commity wprost na main jak POP00. Grupy 1–3 równolegle, 5–9 po kolei (wspólny tematy.py), 13 budowy a/b, 14 strona R2 i raport bramki, 15 bramka bez wydania."
+      decisions: [{decision: "Commity wprost na main, bez PR", rationale: "tak wylądowało POP00"}, {decision: "Budowy tylko z czystego drzewa", rationale: "code_identity git_dirty false"}]
+      risks: ["Więcej testów niż typowo (do 60)", "Pełny TBX może mieć pola spoza próbki", "T3 może mieć <30 leksemów"]
+      artifacts: [{path: implementation/implementation-plan.md, label: Plan, html: implementation/implementation-plan.html}]
     spec_audit:
       summary: "Audyt: fail (1 krytyczna K1 IATE fullForm, 9 ważnych, 16 drobnych); wszystkie poprawione w spec. Operator: T2 pełne domknięcie (874 lematy)."
       decisions: [{decision: "T2 pełne domknięcie po 11/25/27 (t2.tryb: pelne)", rationale: "wybór operatora 2026-10-29"}]
