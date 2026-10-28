@@ -1,10 +1,14 @@
 """TEMATY: listy tematyczne z etykiet SGJP, Słowosieci i IATE (#11, ADR-010)."""
+from collections import Counter, deque
 from contextlib import closing
 from fractions import Fraction
 from pathlib import Path
 from urllib.parse import quote
+from xml.etree import ElementTree
 import re
 import sqlite3
+import unicodedata
+import zipfile
 
 from .canonical import load_json, sha256
 from .inputs import GeneratorError, checked_file
@@ -181,9 +185,14 @@ def _unpinned(data, path):
     return register(data, path, sha256(path))
 
 
+def _readonly(path):
+    """SQLite tylko do odczytu, domyślny cache (pełny skan nie potrzebuje 4 GB stron)."""
+    return closing(sqlite3.connect('file:' + quote(str(path)) + '?mode=ro', uri=True))
+
+
 def _plwordnet_meta(path, zip_sha):
     try:
-        with closing(sqlite3.connect('file:' + quote(str(path)) + '?mode=ro', uri=True)) as db:
+        with _readonly(path) as db:
             meta = dict(db.execute('SELECT key, value FROM meta'))
     except sqlite3.Error as error:
         raise GeneratorError('Nieczytelna pochodna Słowosieci: ' + str(error), 4, str(path)) from error
@@ -264,3 +273,239 @@ def check_inputs(manifest, config, topic):
             'paths': paths, 'pins': pins, 'package': package, 'members': members, **words,
             'attribution': package['ATTRIBUTIONS.md'].read_text(encoding='utf-8'),
             'plwordnet_meta': plwordnet_meta}
+
+
+# --- Kandydaci T1, T2, T3 (W7) ---
+POLSKIE_LITERY = re.compile('[a-ząćęłńóśźż]+')
+XML_LANG = '{http://www.w3.org/XML/1998/namespace}lang'
+HEADER_BYTES = 1 << 16
+# Kolejność powodów odrzucenia terminu T3: pierwszy pasujący wygrywa.
+T3_POWODY = ('TYP', 'STATUS', 'NIEZAWODNOSC', 'NIE_JEDNO_SLOWO', 'WIELKA_LITERA')
+
+
+def jedno_slowo(text):
+    """W7: po NFC i małych literach wyłącznie litery alfabetu polskiego."""
+    return bool(POLSKIE_LITERY.fullmatch(unicodedata.normalize('NFC', text).lower()))
+
+
+def qualifier_atoms(qualifiers):
+    """Kwalifikatory SGJP: podział po `|`, potem po `,`; atomy całe, bez spacji wokół."""
+    return frozenset(a.strip() for part in qualifiers.split('|') for a in part.split(',') if a.strip())
+
+
+def scan_sgjp(data):
+    """Jedyny pełny skan `interpretation` (T1 i klasy leksemów).
+
+    Zwraca `t1`: `lexeme.id` → posortowane atomy tematu z jego interpretacji,
+    oraz `klasy`: `lexeme.id` → posortowane klasy tagów (pierwszy segment) każdego leksemu.
+    """
+    atoms = frozenset(data['topic']['t1']['atomy_sgjp'])
+    parsed, t1, classes, interned = {}, {}, {}, {}
+    with _readonly(data['paths']['database']) as db:
+        # Te same (tag, qualifiers) powtarzają się milionami; `names` T1 nie potrzebuje.
+        for lexeme_id, tag, qualifiers in db.execute('select lexeme_id,tag,qualifiers from interpretation'):
+            item = parsed.get((tag, qualifiers))
+            if item is None:
+                item = parsed[tag, qualifiers] = (tag.split(':', 1)[0], atoms & qualifier_atoms(qualifiers))
+            found = classes.get(lexeme_id)
+            if found is None:
+                classes[lexeme_id] = {item[0]}
+            else:
+                found.add(item[0])
+            if item[1]:
+                t1.setdefault(lexeme_id, set()).update(item[1])
+    for lexeme_id, found in classes.items():
+        key = frozenset(found)
+        classes[lexeme_id] = interned.get(key) or interned.setdefault(key, tuple(sorted(key)))
+    return {'t1': {i: tuple(sorted(a)) for i, a in sorted(t1.items())}, 'klasy': classes}
+
+
+def _root_name(db, synset):
+    row = db.execute('SELECT l.lemma, l.variant FROM unitandsynset u JOIN lexicalunit l ON l.ID = u.LEX_ID '
+                     'WHERE u.SYN_ID = ? ORDER BY u.unitindex LIMIT 1', (synset,)).fetchone()
+    return None if row is None else f'{row[0]} {row[1]}'
+
+
+def _check_names(db, items, what):
+    for item in items:
+        if _root_name(db, item['synset']) != item['nazwa']:
+            raise _bad(f'{what} {item["synset"]}: nazwa {item["nazwa"]!r} niezgodna ze Słowosiecią '
+                       f'({_root_name(db, item["synset"])!r})')
+
+
+def t2_candidates(data):
+    """T2 (W7, D3, D4): pełne domknięcie od korzeni po relacjach tematu, PARENT_ID → CHILD_ID.
+
+    Synsety sztuczne przechodzimy bez lematów; jednostki z kodem spoza `czesci_mowy` pomijamy.
+    Zwraca `synsety` (osiągnięte, posortowane), `sztuczne`, `jednostki` (przyjęte),
+    `lematy`: lemat → {`klasy`, `kody`, `znaczenia`} oraz `odrzucone`: powód → posortowane znaczenia.
+    """
+    t2, mapping = data['topic']['t2'], data['method']['config']['czesci_mowy']
+    relations = sorted(t2['relacje'])
+    marks = ','.join('?' * len(relations))
+    with _readonly(data['paths']['plwordnet_db']) as db:
+        _check_names(db, t2['korzenie'], 'korzeń')
+        _check_names(db, t2['wykluczenia_poddrzew'], 'wykluczenie')
+        excluded = {item['synset'] for item in t2['wykluczenia_poddrzew']}
+        reached = {k['synset'] for k in t2['korzenie']} - excluded
+        queue = deque(sorted(reached))
+        while queue:
+            for (child,) in db.execute(f'SELECT CHILD_ID FROM synsetrelation WHERE PARENT_ID = ? '
+                                       f'AND REL_ID IN ({marks}) ORDER BY CHILD_ID', (queue.popleft(), *relations)):
+                if child not in reached and child not in excluded:
+                    reached.add(child)
+                    queue.append(child)
+        synsets = sorted(reached)
+        abstract, units = set(), []
+        for start in range(0, len(synsets), 500):
+            chunk = synsets[start:start + 500]
+            marks_chunk = ','.join('?' * len(chunk))
+            abstract.update(i for (i,) in db.execute(
+                f'SELECT ID FROM synset WHERE isabstract = 1 AND ID IN ({marks_chunk})', chunk))
+            units.extend(db.execute(
+                'SELECT u.SYN_ID, l.lemma, l.pos, l.variant FROM unitandsynset u '
+                f'JOIN lexicalunit l ON l.ID = u.LEX_ID WHERE u.SYN_ID IN ({marks_chunk})', chunk))
+    rejected = {'KOD_POZA_MAPA': [], 'NIE_JEDNO_SLOWO': []}
+    accepted, lemmas = [], {}
+    for synset, lemma, pos, variant in sorted(units, key=lambda u: (u[1], u[3], u[2], u[0])):
+        if synset in abstract:
+            continue
+        lemma, code = unicodedata.normalize('NFC', lemma), str(pos)
+        meaning = f'{lemma} {variant}'
+        if code not in mapping:
+            rejected['KOD_POZA_MAPA'].append(meaning)
+        elif not jedno_slowo(lemma):
+            rejected['NIE_JEDNO_SLOWO'].append(meaning)
+        else:
+            accepted.append({'lemat': lemma, 'kod': code, 'wariant': variant, 'synset': synset, 'znaczenie': meaning})
+            entry = lemmas.setdefault(lemma, ({'klasy': set(), 'kody': set(), 'znaczenia': set()}))
+            entry['klasy'].update(mapping[code])
+            entry['kody'].add(code)
+            entry['znaczenia'].add(meaning)
+    return {'synsety': synsets, 'sztuczne': sorted(abstract), 'jednostki': accepted,
+            'lematy': {lemma: {k: tuple(sorted(v)) for k, v in entry.items()} for lemma, entry in sorted(lemmas.items())},
+            'odrzucone': {k: sorted(v) for k, v in rejected.items()}}
+
+
+def _check_header(head):
+    """DOCTYPE dozwolone; `<!ENTITY` albo podzbiór wewnętrzny DTD = błąd danych (kod 4)."""
+    text = head.decode('utf-8', 'replace')
+    first = re.search(r'<(?![?!])', text)
+    if first is None:
+        raise GeneratorError('TBX IATE: brak elementu głównego w nagłówku', 4)
+    prolog = text[:first.start()]
+    doctype = re.search(r'<!DOCTYPE\b([^>]*)>', prolog)
+    if '<!ENTITY' in prolog or ('<!DOCTYPE' in prolog and (doctype is None or '[' in doctype.group(1))):
+        raise GeneratorError('TBX IATE: deklaracje encji albo podzbiór wewnętrzny DTD są niedozwolone', 4)
+
+
+def _local(tag):
+    return tag.rsplit('}', 1)[-1]
+
+
+def _typed(element, name, kind):
+    for child in element:
+        if _local(child.tag) == name and child.get('type') == kind:
+            return (child.text or '').strip()
+    return None
+
+
+def _terms(entry):
+    """(język, termin, termType, administrativeStatus, reliabilityCode) każdego `tig` hasła."""
+    for lang_set in entry:
+        if _local(lang_set.tag) != 'langSet':
+            continue
+        lang = (lang_set.get(XML_LANG) or '').lower()
+        for tig in lang_set:
+            if _local(tig.tag) != 'tig':
+                continue
+            term = next((unicodedata.normalize('NFC', (c.text or '').strip()) for c in tig if _local(c.tag) == 'term'), '')
+            reliability = _typed(tig, 'descrip', 'reliabilityCode')
+            yield (lang, term, _typed(tig, 'termNote', 'termType'), _typed(tig, 'termNote', 'administrativeStatus'),
+                   int(reliability) if reliability and reliability.isdigit() else 0)
+
+
+def _reason(term, kind, status, reliability, iate):
+    if kind != iate['typ']:
+        return 'TYP'
+    if status in iate['odrzuc_status']:
+        return 'STATUS'
+    if reliability < iate['niezawodnosc_min']:
+        return 'NIEZAWODNOSC'
+    if not jedno_slowo(term):
+        return 'NIE_JEDNO_SLOWO'
+    if term != term.lower():
+        return 'WIELKA_LITERA'
+    return None
+
+
+def t3_candidates(data):
+    """T3 (W7, K1, W1, W2): hasła IATE z całym kodem dziedziny, terminy PL po filtrach.
+
+    Strumień `iterparse` z członka zipa; zewnętrznego DTD nie ładujemy. Zwraca `terminy`:
+    termin → posortowane id haseł; `hasla` (kandydaci): id → {`pl`, `en`, `przyjete`};
+    `odrzucone`: powód → posortowane terminy; `liczniki` haseł i terminów PL.
+    """
+    iate = data['topic']['t3']['iate']
+    codes = frozenset(iate['kody_dziedzin'])
+    member = data['source']['inputs']['iate']['member']
+    terms, entries, rejected = {}, {}, {r: [] for r in T3_POWODY}
+    counts = {'hasla': 0, 'hasla_pl': 0, 'termType': Counter(), 'status': Counter()}
+    try:
+        with zipfile.ZipFile(data['paths']['iate']) as archive:
+            with archive.open(member) as stream:
+                _check_header(stream.read(HEADER_BYTES))
+            with archive.open(member) as stream:
+                stack = []
+                for event, element in ElementTree.iterparse(stream, events=('start', 'end')):
+                    if event == 'start':
+                        stack.append(element)
+                        continue
+                    stack.pop()
+                    if _local(element.tag) != 'termEntry':
+                        continue
+                    group = next((c for c in element if _local(c.tag) == 'descripGrp'), None)
+                    field = _typed(group, 'descrip', 'subjectField') if group is not None else None
+                    if field and codes & {c.strip() for c in field.split(',')}:
+                        _entry(element, iate, terms, entries, rejected, counts)
+                    element.clear()
+                    if stack:
+                        stack[-1].remove(element)
+    except (zipfile.BadZipFile, KeyError, ElementTree.ParseError) as error:
+        raise GeneratorError('Nieczytelny TBX IATE: ' + str(error), 4, str(data['paths']['iate'])) from error
+    accepted = sum(len(v) for v in terms.values())
+    return {'terminy': {t: tuple(sorted(ids)) for t, ids in sorted(terms.items())},
+            'hasla': dict(sorted(entries.items())),
+            'odrzucone': {r: sorted(v) for r, v in rejected.items() if v},
+            'liczniki': {'hasla': counts['hasla'], 'hasla_pl': counts['hasla_pl'],
+                         'termType': dict(sorted(counts['termType'].items())),
+                         'status': dict(sorted(counts['status'].items())),
+                         'przyjete': accepted, 'przyjete_rozne': len(terms)}}
+
+
+def _entry(element, iate, terms, entries, rejected, counts):
+    entry_id = element.get('id') or ''
+    counts['hasla'] += 1
+    pl, en, taken = [], [], []
+    for lang, term, kind, status, reliability in _terms(element):
+        if lang == 'en':
+            en.append(term)
+        if lang != 'pl':
+            continue
+        pl.append(term)
+        counts['termType'][kind or 'BRAK'] += 1
+        counts['status'][status or 'BRAK'] += 1
+        reason = _reason(term, kind, status, reliability, iate)
+        if reason:
+            rejected[reason].append(term)
+        else:
+            taken.append(term)
+            terms.setdefault(term, []).append(entry_id)
+    counts['hasla_pl'] += bool(pl)
+    if taken:
+        entries[entry_id] = {'pl': tuple(sorted(pl)), 'en': tuple(sorted(en)), 'przyjete': tuple(sorted(taken))}
+
+
+def candidates(data):
+    """Kandydaci trzech źródeł; każdy plik z `data['paths']` (rejestr z `check_inputs`)."""
+    return {'sgjp': scan_sgjp(data), 't2': t2_candidates(data), 't3': t3_candidates(data)}

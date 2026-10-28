@@ -61,6 +61,8 @@ SGJP = [
     ('żeglowanie', 'żeglować', 'ger:sg:nom:n:imperf:aff', ''),
     ('szkuta', 'szkuta', 'subst:sg:nom:f', ''),
     ('kot', 'kot', 'subst:sg:nom:m2', ''), ('kotem', 'kot', 'subst:sg:inst:m2', ''),
+    ('reja', 'reja', 'subst:sg:nom:f', 'daw.|mors.,wojsk.'),  # atom po `|`, potem `,`
+    ('fok', 'fok', 'subst:sg:nom:m3', 'mors'),  # bez kropki: nie atom `mors.`
 ]
 NOT_STANDARD = {'szkuta'}  # w BROAD, poza STANDARD
 POP_WORDS, POP0_WORDS, POP00_WORDS = {'kot', 'kotem', 'statek'}, {'kot', 'statek'}, {'kot'}
@@ -69,12 +71,12 @@ POP_MEMBERS = {'POP': ['kot@' + SOURCE, 'statek@' + SOURCE], 'POP0': ['kot@' + S
 PLWN = {
     'lexicalunit': [(1, 'statek', 2, 1), (2, 'okręt', 2, 1), (3, 'łódź', 2, 2), (4, 'marynarz', 2, 1),
                     (5, 'żegluga', 2, 1), (6, 'żeglarstwo', 2, 1), (7, 'kuter', 2, 1),
-                    (8, 'jednostka pływająca', 2, 1), (9, 'szkuta', 2, 1), (10, 'ship', 6, 1),
-                    (11, 'kot', 2, 1)],
+                    (8, 'jednostka', 2, 1), (9, 'szkuta', 2, 1), (10, 'ship', 6, 1),
+                    (11, 'kot', 2, 1), (12, 'statek rzeczny', 2, 1)],
     'synset': [(7354, 0), (2149, 0), (4511, 0), (6214, 0), (14136, 0), (14515, 0), (900, 0), (901, 1),
                (902, 0), (500, 0)],
     'unitandsynset': [(1, 7354, 0), (10, 7354, 1), (2, 2149, 0), (3, 4511, 0), (4, 6214, 0), (5, 14136, 0),
-                      (6, 14515, 0), (7, 900, 0), (8, 901, 0), (9, 902, 0), (11, 500, 0)],
+                      (6, 14515, 0), (7, 900, 0), (12, 900, 1), (8, 901, 0), (9, 902, 0), (11, 500, 0)],
     'synsetrelation': [(7354, 2149, 11), (7354, 4511, 11), (7354, 900, 11), (7354, 901, 11), (901, 902, 11)],
     'relationtype': [(11, 'hiperonimia'), (25, 'część'), (27, 'miejsce')],
 }
@@ -120,10 +122,105 @@ TBX = '''<?xml version="1.0" encoding="UTF-8"?>
           </tig>
         </langSet>
       </termEntry>
+      <termEntry id="IATE-3">
+        <descripGrp>
+          <descrip type="subjectField">20, 48</descrip>
+        </descripGrp>
+        <langSet xml:lang="pl">
+          <tig>
+            <term>kotwica</term>
+            <termNote type="termType">fullForm</termNote>
+            <descrip type="reliabilityCode">4</descrip>
+          </tig>
+        </langSet>
+      </termEntry>
+      <termEntry id="IATE-4">
+        <descripGrp>
+          <descrip type="subjectField">1011, 4821</descrip>
+        </descripGrp>
+        <langSet xml:lang="en">
+          <tig>
+            <term>keel</term>
+            <termNote type="termType">fullForm</termNote>
+            <descrip type="reliabilityCode">3</descrip>
+          </tig>
+        </langSet>
+        <langSet xml:lang="pl">
+          <tig>
+            <term>kil</term>
+            <termNote type="termType">fullForm</termNote>
+            <descrip type="reliabilityCode">3</descrip>
+          </tig>
+          <tig>
+            <term>kl</term>
+            <termNote type="termType">abbreviation</termNote>
+            <descrip type="reliabilityCode">3</descrip>
+          </tig>
+          <tig>
+            <term>maszt</term>
+            <termNote type="termType">fullForm</termNote>
+            <descrip type="reliabilityCode">3</descrip>
+            <termNote type="administrativeStatus">supersededTerm-admn-sts</termNote>
+          </tig>
+          <tig>
+            <term>ster</term>
+            <termNote type="termType">fullForm</termNote>
+            <descrip type="reliabilityCode">2</descrip>
+          </tig>
+          <tig>
+            <term>Bałtyk</term>
+            <termNote type="termType">fullForm</termNote>
+            <descrip type="reliabilityCode">3</descrip>
+          </tig>
+          <tig>
+            <term>statek rzeczny</term>
+            <termNote type="termType">fullForm</termNote>
+            <descrip type="reliabilityCode">4</descrip>
+          </tig>
+          <tig>
+            <term>szkuta</term>
+            <termNote type="termType">fullForm</termNote>
+            <descrip type="reliabilityCode">4</descrip>
+          </tig>
+        </langSet>
+      </termEntry>
+      <termEntry id="IATE-5">
+        <descripGrp>
+          <descrip type="subjectField">4821</descrip>
+        </descripGrp>
+        <langSet xml:lang="en">
+          <tig>
+            <term>barge</term>
+            <termNote type="termType">fullForm</termNote>
+            <descrip type="reliabilityCode">3</descrip>
+          </tig>
+        </langSet>
+        <langSet xml:lang="pl">
+          <tig>
+            <term>barka</term>
+            <termNote type="termType">fullForm</termNote>
+            <descrip type="reliabilityCode">3</descrip>
+          </tig>
+        </langSet>
+      </termEntry>
     </body>
   </text>
 </martif>
 '''
+
+
+def write_iate(path, text, member='iate.tbx'):
+    """Zip IATE z jednym członkiem TBX (stała data, deterministyczny)."""
+    import zipfile
+    with zipfile.ZipFile(path, 'w') as archive:
+        info = zipfile.ZipInfo(member, date_time=(2019, 9, 30, 0, 0, 0))
+        archive.writestr(info, text.encode('utf-8'), compress_type=zipfile.ZIP_DEFLATED)
+
+
+def repin_iate(f):
+    """Po podmianie zipa IATE: nowy hash i rozmiar w manifeście wejść."""
+    path = f['paths']['iate']
+    rewrite(f['manifest'], lambda v: v['inputs']['iate'].update(sha256=sha256(path), bytes=path.stat().st_size))
 
 
 def _plwordnet_writer():
@@ -138,7 +235,6 @@ def inputs_fixture(root):
     """`config_fixture` z prawdziwymi małymi wejściami: przebieg, wydanie, POP, POP00, pochodna, IATE."""
     import hashlib
     import sqlite3
-    import zipfile
     from contextlib import closing
     from literaki_slownik.pop import write_gzip
     f = config_fixture(root)
@@ -191,9 +287,7 @@ def inputs_fixture(root):
     _plwordnet_writer().write_db(str(plwn), {t: list(r) for t, r in PLWN.items()},
                                  {'script_version': 'plwn-tematy-v1', 'zip_member': 'plwn.sql', 'zip_sha256': zip_sha})
     iate = cache/'iate.zip'
-    with zipfile.ZipFile(iate, 'w') as archive:
-        info = zipfile.ZipInfo('iate.tbx', date_time=(2019, 9, 30, 0, 0, 0))
-        archive.writestr(info, TBX.encode('utf-8'), compress_type=zipfile.ZIP_DEFLATED)
+    write_iate(iate, TBX)
     paths = {'base_run': run/'manifest.json', 'database': database, 'release_manifest': release_manifest,
              'standard': standard, 'broad': broad, 'base_pop': pop/'release-manifest.json',
              'base_pop00': pop00/'release-manifest.json', 'plwordnet_db': plwn, 'iate': iate}
