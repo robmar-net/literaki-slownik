@@ -75,3 +75,20 @@
 - Każdy nowy odczyt idzie z `data['paths']` albo `data['package']`. `POP0.txt.gz` nie jest czytany.
 - Grupa 9 mapuje OSError i ValueError na kod 4.
 - Fikstura `inputs_fixture` ma stałe SGJP, PLWN i TBX do rozbudowy. Audit hook z test_tematy_inputs nadaje się do testu „budowa nie czyta poza rejestrem”.
+
+## 2026-10-28T23:49:00Z - Group 7 Complete
+
+**Steps**: 7.1–7.6
+**Standards Applied**: spec W5, W7, K1, W1, W2, W4, D3, D4; ADR-011
+**Tests**: 20 OK (8 nowych + 12 regresji). Mutacje (podział tylko po „,”, wyłączony _check_header) dają czerwone testy.
+**Files Modified**: literaki_slownik/tematy.py, tests/tematy_helpers.py, tests/test_tematy_sources.py
+**Prawdziwe dane (tylko odczyt)**:
+- T1: 254 leksemy (zgodnie z badaniem). Jeden skan trwa 6,7 s.
+- T2: 1 092 synsety, 866 surowych lematów, 864 po małych literach. 504 jednostki odpadają jako NIE_JEDNO_SLOWO.
+- T3: 78 terminów przyjętych (74 różne). Liczby zgodne z iate-scan.json.
+**Kontrakt dla grupy 8**:
+- `scan_sgjp(data)` zwraca {t1: {lexeme_id: atomy}, klasy: {lexeme_id: klasy tagów}}.
+- `t2_candidates(data)` zwraca {synsets, sztuczne, jednostki, lematy (klucze NFC, bez zmiany wielkości liter), odrzucone}.
+- `t3_candidates(data)` zwraca {terminy, hasla (pl, en, przyjete), odrzucone, liczniki}.
+- `candidates(data)` uruchamia wszystkie trzy.
+- `ger` szukamy indeksami (surface_form → interpretation), bez drugiego pełnego skanu.

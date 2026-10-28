@@ -164,8 +164,8 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `literaki_slownik/tematy.py`, `tests/tematy_helpers.py`, `tests/test_tematy_sources.py`
 **Kroki:** 6
 
-- [ ] 7.0 Wyznaczyć kandydatów z trzech źródeł
-  - [ ] 7.1 Napisać 8 testów:
+- [x] 7.0 Wyznaczyć kandydatów z trzech źródeł
+  - [x] 7.1 Napisać 8 testów:
     - T1: kwalifikatory dzielone po `|`, potem `,`; atom cały (`mors.` w `daw.|mors.,wojsk.` tak; `mors` bez kropki nie);
     - T2: kierunek domknięcia `statek` → `łódź`, `okręt` (bez odwrotnego);
     - T2: synset sztuczny przechodni, jego lematy nie wchodzą;
@@ -174,11 +174,11 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
     - T3: `subjectField` `20, 48` nie pasuje do `4821`; `1011, 4821` pasuje;
     - T3: DOCTYPE przechodzi; `<!ENTITY` = błąd;
     - T3: odrzucone `abbreviation`, `deprecatedTerm-admn-sts`, niezawodność < 3, wielka litera, wiele słów; liczniki według `termType`.
-  - [ ] 7.2 T1: jeden pełny skan `interpretation` z cache po `(tag, names, qualifiers)`. Wynik: leksemy T1 i klasy tagów każdego leksemu (potrzebne grupie 8).
-  - [ ] 7.3 T2: kontrola nazw korzeni (D4), domknięcie BFS po relacjach z `morze.json`, kolejność deterministyczna; lematy z jednostek o kodach z `czesci_mowy`; znaczenie źródłowe (`lemma variant`).
-  - [ ] 7.4 T3: `iterparse` z zipa (członek `member`); przed parsowaniem odczyt nagłówka: DOCTYPE dozwolone, `<!ENTITY` lub podzbiór wewnętrzny = błąd kod 4; zewnętrznego DTD nie ładujemy. Zbieramy tylko hasła z pasującym kodem; terminy PL i EN (EN do miary śródlądowej).
-  - [ ] 7.5 Reguła „jedno słowo” (W7): NFC, małe litery, tylko litery polskiego alfabetu. Odrzuceni liczeni z powodem `NIE_JEDNO_SLOWO`.
-  - [ ] 7.6 Uruchomić 8 nowych testów. Commit `feat(tematy): kandydaci T1–T3 (#11)`, push.
+  - [x] 7.2 T1: jeden pełny skan `interpretation` z cache po `(tag, names, qualifiers)`. Wynik: leksemy T1 i klasy tagów każdego leksemu (potrzebne grupie 8).
+  - [x] 7.3 T2: kontrola nazw korzeni (D4), domknięcie BFS po relacjach z `morze.json`, kolejność deterministyczna; lematy z jednostek o kodach z `czesci_mowy`; znaczenie źródłowe (`lemma variant`).
+  - [x] 7.4 T3: `iterparse` z zipa (członek `member`); przed parsowaniem odczyt nagłówka: DOCTYPE dozwolone, `<!ENTITY` lub podzbiór wewnętrzny = błąd kod 4; zewnętrznego DTD nie ładujemy. Zbieramy tylko hasła z pasującym kodem; terminy PL i EN (EN do miary śródlądowej).
+  - [x] 7.5 Reguła „jedno słowo” (W7): NFC, małe litery, tylko litery polskiego alfabetu. Odrzuceni liczeni z powodem `NIE_JEDNO_SLOWO`.
+  - [x] 7.6 Uruchomić 8 nowych testów. Commit `feat(tematy): kandydaci T1–T3 (#11)`, push.
 
 **Kryteria odbioru:**
 - 8 testów przechodzi.
