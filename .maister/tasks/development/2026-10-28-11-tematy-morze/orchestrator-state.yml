@@ -1,6 +1,6 @@
 orchestrator:
   started_phase: phase-1
-  completed_phases: [phase-1]
+  completed_phases: [phase-1, phase-2]
   failed_phases: []
   auto_fix_attempts: {}
   options:
@@ -8,14 +8,14 @@ orchestrator:
     mockup_format: html
     spec_audit_enabled: true
     skip_test_suite: true
-    e2e_enabled: null
-    user_docs_enabled: null
+    e2e_enabled: false
+    user_docs_enabled: true
     code_review_enabled: true
     pragmatic_review_enabled: true
     reality_check_enabled: true
     production_check_enabled: true
   created: 2026-10-28T22:06:28Z
-  updated: 2026-10-28T22:12:26Z
+  updated: 2026-10-28T22:37:25Z
   task_path: .maister/tasks/development/2026-10-28-11-tematy-morze
 task:
   title: "TEMATY: pilotaż słownika „morze” (#11)"
@@ -44,13 +44,13 @@ task:
 task_context:
   risk_level: medium
   clarifications_resolved: true
-  scope_expanded: null
+  scope_expanded: false
   architecture_decision: null
   task_characteristics:
     has_reproducible_defect: false
-    modifies_existing_code: false
-    creates_new_entities: false
-    involves_data_operations: false
+    modifies_existing_code: true
+    creates_new_entities: true
+    involves_data_operations: true
     ui_heavy: false
   research_reference:
     path: .maister/tasks/research/2026-10-27-slowniki-tematyczne
@@ -65,6 +65,19 @@ task_context:
       - docs/generator/cli.md
       - docs/adr/ADR-009-pop00-v1.md
   phase_summaries:
+    gap_analysis:
+      summary: "Nic z TEMATY nie istnieje; zmiana addytywna, wzór POP00. plwn45.sqlite ma kolumny owner (82 redaktorów) — potrzebna pochodna bez nich; lista 37 słów bramki tylko w scratchpadzie; quality przyjmuje tylko 30 na warstwę."
+      decisions_made:
+        - {decision: "R2: 30 słów na warstwę (90)", rationale: "wybór operatora 2026-10-28"}
+        - {decision: "Progi bramki jak w projekcie", rationale: "wybór operatora"}
+        - {decision: "IATE 4821 zostaje; udział śródlądowych mierzony; wykluczenia po przeglądzie", rationale: "wybór operatora"}
+        - {decision: "v1 bez dodatków ręcznych", rationale: "sztorm jest w teście 37 słów"}
+        - {decision: "Korzenie T2: 6 z projektu, bez wykluczeń", rationale: "wybór operatora"}
+        - {decision: "Lista 37 słów przypięta bez zmian", rationale: "wybór operatora"}
+      integration_points: [literaki_slownik/cli.py, literaki_slownik/quality.py, literaki_slownik/pop.py, ATTRIBUTIONS.md, docs/runbook-wiki.md]
+      decisions: []
+      risks: ["plwn45.sqlite zawiera nazwiska redaktorów (kolumny owner)", "Lista 37 słów testu bramki istnieje tylko w scratchpadzie starej sesji", "POP00 ma stan BUILT, nie wydany; nowa budowa zmieni liczby przecięć"]
+      artifacts: [{path: analysis/gap-analysis.md, label: Analiza luk, html: null}]
     codebase_analysis:
       summary: "Wzór POP00 (pop00.py, cli.py, checker, ADR). Słowosieć 4.5 już na dysku; IATE do pobrania. T1 wymaga nowego skanu interpretation po atomach mors./żegl./ryb."
       key_files: [literaki_slownik/pop00.py, literaki_slownik/cli.py, literaki_slownik/pop.py, literaki_slownik/inputs.py, scripts/check_pop00_package.py, config/generator/pop00-sources.json]
