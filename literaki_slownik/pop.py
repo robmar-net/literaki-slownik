@@ -1764,7 +1764,7 @@ def _label(key):
     return f'{key[1]}@{key[0]}'
 
 
-def _write_gzip(path, keys):
+def write_gzip(path, keys):
     """Lista `game_key`, po jednym w wierszu; gzip bez nazwy i czasu, poziom 9 (C11)."""
     data = ''.join(key + '\n' for key in keys).encode('utf-8')
     with open(path, 'wb') as raw, gzip.GzipFile(filename='', mode='wb', fileobj=raw, mtime=0,
@@ -1952,7 +1952,7 @@ def write_package(result, staging):
     staging = Path(staging)
     (staging / 'reports').mkdir()
     for name in LISTS:
-        _write_gzip(staging / LIST_FILES[name], result[name])
+        write_gzip(staging / LIST_FILES[name], result[name])
     rows = [_package_row(row) for row in result['units']]
     write_json(staging / 'reports/units.json', {'schema_version': 1, 'method': result['method'], 'units': rows})
     write_json(staging / 'reports/thresholds.json', {

@@ -257,3 +257,25 @@ class WordQualityTests(unittest.TestCase):
             self.assertEqual(load_json(run/'reports/quality-words.json')['strata']['word:homonyms']['population'],1)
             self.assertEqual(load_json(run/'reports/quality-words.json')['status'],'UNREVIEWED')
             self.assertEqual(load_json(run/'manifest.json')['readiness'],'INCOMPLETE')
+
+
+class TematyQualityTests(unittest.TestCase):
+    """`tematy-quality-v1`: próba agenta 50 na warstwę; inne wersje nadal 30."""
+    TEMATY = {'version': 'tematy-quality-v1', 'seed': 'literaki-slownik-tematy-v1',
+              'size_per_stratum': 50, 'encoding': 'canonical JSON array [seed,stratum,key], UTF-8'}
+
+    def test_tematy_accepts_50(self):
+        keys = [f'word:{n:04}' for n in range(200)]
+        result = sample_strata({'a': iter(keys)}, self.TEMATY)
+        self.assertEqual(result['strata']['a']['sample_size'], 50)
+
+    def test_tematy_rejects_30(self):
+        with self.assertRaises(GeneratorError) as caught:
+            sample_strata({'a': ['x']}, {**self.TEMATY, 'size_per_stratum': 30})
+        self.assertNotIn('quality-v1', str(caught.exception))
+
+    def test_pop00_still_only_30(self):
+        pop00 = {**self.TEMATY, 'version': 'pop00-quality-v1', 'seed': 'literaki-slownik-pop00-v1'}
+        with self.assertRaises(GeneratorError):
+            sample_strata({'a': ['x']}, {**pop00, 'size_per_stratum': 50})
+        self.assertEqual(sample_strata({'a': ['x']}, {**pop00, 'size_per_stratum': 30})['strata']['a']['sample_size'], 1)

@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 import sqlite3
 from literaki_slownik.canonical import sha256, write_json
-from literaki_slownik.pop import _write_gzip
+from literaki_slownik.pop import write_gzip
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -49,7 +49,7 @@ def fixture(root):
         db.commit()
     standard = run/'lists/standard.txt'
     standard.write_text(''.join(w+'\n' for w in sorted(words)))
-    _write_gzip(pop/'POP0.txt.gz',sorted(words))
+    write_gzip(pop/'POP0.txt.gz',sorted(words))
     write_json(pop/'reports/units.json',{'units':[{'members_in':{'POP0':sorted(members)}}]})
     (pop/'ATTRIBUTIONS.md').write_text('# Własna fikstura\n')
     orth = inputs/'orth.csv.gz'

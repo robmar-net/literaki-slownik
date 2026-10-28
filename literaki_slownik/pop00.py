@@ -111,7 +111,7 @@ def read_words(path):
     if (not words or not text.endswith('\n') or '\r' in text or words != sorted(set(words))
             or any(not w or w != w.lower() or w != unicodedata.normalize('NFC', w)
                    or not w.isalpha() or not 2 <= len(w) <= 15 for w in words)):
-        raise GeneratorError('Niekanoniczna lista wejściowa POP00', 4, str(path))
+        raise GeneratorError('Niekanoniczna lista wejściowa', 4, str(path))
     return set(words)
 
 
@@ -286,9 +286,9 @@ def _strata(decisions):
 
 
 def _write_package(staging, data, config, config_sha, result, decisions):
-    from .pop import _write_gzip
+    from .pop import write_gzip
     (staging / 'reports').mkdir()
-    _write_gzip(staging / 'POP00.txt.gz', sorted(result))
+    write_gzip(staging / 'POP00.txt.gz', sorted(result))
     write_json(staging / 'method.json', config)
     write_json(staging / 'reports/decisions.json', decisions)
     report = summary(data['pop0'], result, data['members'], decisions, data['orth'])

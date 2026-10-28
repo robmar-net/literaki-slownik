@@ -1349,7 +1349,7 @@ class PopPackageTests(unittest.TestCase):
         self.assertEqual(set(_files(existing)), {'keep.txt'})
         broken = mock.Mock(side_effect=[None, OSError('dysk pełny')])
         target = self.directory / 'broken'
-        with mock.patch.object(pop_module, '_write_gzip', broken), self.assertRaises(OSError):
+        with mock.patch.object(pop_module, 'write_gzip', broken), self.assertRaises(OSError):
             build_package(made['sources'], made['config'], target)
         self.assertEqual(broken.call_count, 2)
         self.assertFalse(target.exists())

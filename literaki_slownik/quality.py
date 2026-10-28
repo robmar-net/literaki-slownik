@@ -11,7 +11,10 @@ ENCODING = 'canonical JSON array [seed,stratum,key], UTF-8'
 # Zamknięta mapa wersja → seed; pop-quality-v1 służy próbkom POP (C17).
 SEEDS = {'quality-v1': 'literaki-slownik-g1-v1',
          'pop-quality-v1': 'literaki-slownik-pop-v1',
-         'pop00-quality-v1': 'literaki-slownik-pop00-v1'}
+         'pop00-quality-v1': 'literaki-slownik-pop00-v1',
+         'tematy-quality-v1': 'literaki-slownik-tematy-v1'}
+# Rozmiar warstwy zależy od wersji; brak wpisu to 30.
+SIZES = {'tematy-quality-v1': 50}
 
 
 def _config(config):
@@ -21,9 +24,9 @@ def _config(config):
             or config['version'] not in SEEDS
             or config['seed'] != SEEDS[config['version']]
             or type(config['size_per_stratum']) is not int
-            or config['size_per_stratum'] != 30
+            or config['size_per_stratum'] != SIZES.get(config['version'], 30)
             or config['encoding'] != ENCODING):
-        raise GeneratorError('Nieobsługiwana konfiguracja quality-v1', 2)
+        raise GeneratorError('Nieobsługiwana konfiguracja próbki jakości', 2)
 
 
 def sampling_digest(seed, stratum, key):
