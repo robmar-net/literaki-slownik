@@ -92,3 +92,12 @@
 - `t3_candidates(data)` zwraca {terminy, hasla (pl, en, przyjete), odrzucone, liczniki}.
 - `candidates(data)` uruchamia wszystkie trzy.
 - `ger` szukamy indeksami (surface_form → interpretation), bez drugiego pełnego skanu.
+
+## 2026-10-28T23:56:02Z - Group 8 Complete
+
+**Steps**: 8.1–8.6
+**Standards Applied**: spec W7, W8, D15, W4/W5; ADR-010 (reguła wieloznaczny z lokalnego ADR-007)
+**Tests**: 27 OK. Mutacje (filtr kodów 1–4, tag ger, warstwa najwyższa) dają czerwone testy.
+**Files Modified**: literaki_slownik/tematy.py, tests/tematy_helpers.py, tests/test_tematy_layers.py
+**Prawdziwe dane (tylko odczyt, bez check_inputs)**: wpisy 964 (T1 246, T2 691, T3 27), MORZE 10 883 formy; wieloznaczny: nie 459, tak 430, brak_danych 75. T3 BRAK_LEKSEMU 20 (ger 9).
+**Kontrakt dla grupy 9**: `build_entries(data, cands)` zwraca {kandydaci, wpisy, warstwy, formy, diagnostyka, odrzucone, ger}. Przykłady to pierwsze 10 z pełnych list. T3 jest małe (27), więc w próbie bierzemy całą warstwę.

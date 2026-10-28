@@ -189,8 +189,8 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `literaki_slownik/tematy.py`, `tests/tematy_helpers.py`, `tests/test_tematy_layers.py`
 **Kroki:** 6
 
-- [ ] 8.0 Zmienić kandydatów w wpisy z formami w STANDARD
-  - [ ] 8.1 Napisać 7 testów:
+- [x] 8.0 Zmienić kandydatów w wpisy z formami w STANDARD
+  - [x] 8.1 Napisać 7 testów:
     - lemat T2 → leksem z równym `lemma_base` i klasą z mapy kodu; T3 tylko `subst`/`depr`;
     - `żeglowanie` (tylko forma `ger`) → `BRAK_LEKSEMU` z podliczbą `ger`;
     - leksem w T1 i T2 → warstwa T1, źródła oba;
@@ -198,11 +198,11 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
     - formy z konstrukcjami (`pop.load_constructions` z podzbiorem leksemów);
     - diagnostyka: leksem tylko w BROAD → `POZA_STANDARD`; poza BROAD → `POZA_BROAD`;
     - wynik `MORZE` ⊆ STANDARD i warstwy rozłączne.
-  - [ ] 8.2 Mapowanie lemat → leksem (`lemma_id@source_id` przez `pop._label`), osobno dla T2 i T3; `BRAK_LEKSEMU` z podliczbą `ger`.
-  - [ ] 8.3 Warstwa = najniższa z T1 < T2 < T3; źródła = wszystkie; znaczenie źródłowe.
-  - [ ] 8.4 `wieloznaczny` według reguły ADR-007 badania, tylko jednostki 1–4.
-  - [ ] 8.5 Formy kandydatów porcjami po `lexeme_id` (wzór `pop00.read_analyses`) plus konstrukcje; przecięcie z BROAD i STANDARD; liczniki diagnostyki na warstwę, w leksemach i formach.
-  - [ ] 8.6 Uruchomić 7 nowych testów. Commit `feat(tematy): leksemy, warstwy i formy (#11)`, push.
+  - [x] 8.2 Mapowanie lemat → leksem (`lemma_id@source_id` przez `pop._label`), osobno dla T2 i T3; `BRAK_LEKSEMU` z podliczbą `ger`.
+  - [x] 8.3 Warstwa = najniższa z T1 < T2 < T3; źródła = wszystkie; znaczenie źródłowe.
+  - [x] 8.4 `wieloznaczny` według reguły ADR-007 badania, tylko jednostki 1–4.
+  - [x] 8.5 Formy kandydatów porcjami po `lexeme_id` (wzór `pop00.read_analyses`) plus konstrukcje; przecięcie z BROAD i STANDARD; liczniki diagnostyki na warstwę, w leksemach i formach.
+  - [x] 8.6 Uruchomić 7 nowych testów. Commit `feat(tematy): leksemy, warstwy i formy (#11)`, push.
 
 **Kryteria odbioru:**
 - 7 testów przechodzi.
