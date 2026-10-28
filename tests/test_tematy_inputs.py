@@ -1,0 +1,113 @@
+"""Wejścia TEMATY i rejestr czytanych plików (#11, W3, W6)."""
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+from urllib.parse import unquote
+
+from literaki_slownik import tematy
+from literaki_slownik.canonical import sha256
+from literaki_slownik.pop import write_gzip
+from tests.tematy_helpers import inputs_fixture, rewrite
+
+OPENED = None  # zbiór ścieżek otwartych w trakcie pomiaru; None = hak nieaktywny
+
+
+def _audit(event, args):
+    if OPENED is None:
+        return
+    if event == 'open' and isinstance(args[0], (str, bytes, Path)):
+        OPENED.add(Path(args[0] if not isinstance(args[0], bytes) else args[0].decode()))
+    elif event == 'sqlite3.connect':
+        name = str(args[0])
+        OPENED.add(Path(unquote(name.removeprefix('file:').split('?')[0])))
+
+
+sys.addaudithook(_audit)
+
+
+class TematyInputsTest(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.f = inputs_fixture(self.tmp.name)
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def check(self):
+        return tematy.check_inputs(self.f['manifest'], self.f['config'], self.f['topic'])
+
+    def code(self):
+        with self.assertRaises(tematy.GeneratorError) as caught:
+            self.check()
+        return caught.exception.code
+
+    def repin(self, key):
+        path = self.f['paths'][key]
+        rewrite(self.f['manifest'], lambda v: v['inputs'][key].update(sha256=sha256(path)))
+
+    def test_valid_fixture_passes(self):
+        data = self.check()
+        self.assertEqual(data['standard'], data['broad'] - {'szkuta'})
+        self.assertEqual(data['pop'], {'kot', 'kotem', 'statek'})
+        self.assertEqual(data['pop00'], {'kot'})
+        self.assertEqual(data['members'], {'POP': {'kot@sgjp', 'statek@sgjp'}, 'POP0': {'kot@sgjp'}})
+        self.assertIn('SGJP', data['attribution'])
+        self.assertEqual(data['topic']['id'], 'morze')
+        tematy.confirm_unchanged(data)
+
+    def test_run_not_frozen_is_code_5(self):
+        rewrite(self.f['paths']['base_run'], lambda v: v.update(readiness='BUILT'))
+        self.repin('base_run')
+        self.assertEqual(self.code(), 5)
+
+    def test_release_manifest_binding_is_code_3(self):
+        # Manifest wydania przypięty w źródłach, ale nie ten, który eksportował przebieg.
+        rewrite(self.f['paths']['release_manifest'], lambda v: v.update(note='inny'))
+        self.repin('release_manifest')
+        self.assertEqual(self.code(), 3)
+        # Przebieg wskazuje manifest, ale BROAD w manifeście ma inny hash niż przypięty.
+        rewrite(self.f['paths']['release_manifest'],
+                lambda v: v['files']['LL-PL-BROAD.txt'].update(sha256='b' * 64))
+        self.repin('release_manifest')
+        rewrite(self.f['paths']['base_run'], lambda v: v['export'].update(
+            release_manifest_sha256=sha256(self.f['paths']['release_manifest'])))
+        self.repin('base_run')
+        self.assertEqual(self.code(), 3)
+
+    def test_derivative_meta_must_match_zip_pin(self):
+        rewrite(self.f['manifest'], lambda v: v['inputs']['plwordnet_zip'].update(sha256='f' * 64))
+        self.assertEqual(self.code(), 3)
+
+    def test_file_inside_pop_package_changed_after_check_is_code_5(self):
+        data = self.check()
+        write_gzip(self.f['pop']/'POP.txt.gz', ['kot', 'statek'])
+        with self.assertRaises(tematy.GeneratorError) as caught:
+            tematy.confirm_unchanged(data)
+        self.assertEqual(caught.exception.code, 5)
+
+    def test_every_opened_file_is_registered(self):
+        global OPENED
+        OPENED = set()
+        try:
+            data = self.check()
+        finally:
+            opened, OPENED = OPENED, None
+        root = Path(self.tmp.name).resolve()
+        opened = {p.resolve() for p in opened if root in p.resolve().parents}
+        registry = set(data['registry'])
+        f = self.f
+        expected = {f['manifest'], f['config'], f['topic'], *(f['texts']/n for n in tematy.TEKSTY),
+                    *f['paths'].values(), *(f['pop']/n for n in ('POP.txt.gz', 'reports/units.json',
+                                                                  'ATTRIBUTIONS.md')),
+                    f['pop00']/'POP00.txt.gz'}
+        self.assertEqual(registry, {Path(p).resolve() for p in expected})
+        # Kontrola pozytywna: hak widzi zwykłe pliki, gzip i SQLite.
+        self.assertLessEqual({Path(p).resolve() for p in (f['paths']['plwordnet_db'], f['pop']/'POP.txt.gz',
+                                                           f['manifest'])}, opened)
+        self.assertLessEqual(opened, registry)
+        self.assertTrue(all(sha256(p) == h for p, h in data['registry'].items()))
+
+
+if __name__ == '__main__':
+    unittest.main()
