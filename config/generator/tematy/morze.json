@@ -1,0 +1,124 @@
+{
+  "id": "morze",
+  "nazwa": "Morze i żegluga",
+  "wersja": "morze-v1",
+  "t1": {
+    "atomy_sgjp": [
+      "mors.",
+      "żegl.",
+      "ryb."
+    ]
+  },
+  "t2": {
+    "korzenie": [
+      {
+        "synset": 7354,
+        "nazwa": "statek 1"
+      },
+      {
+        "synset": 2149,
+        "nazwa": "okręt 1"
+      },
+      {
+        "synset": 4511,
+        "nazwa": "łódź 2"
+      },
+      {
+        "synset": 6214,
+        "nazwa": "marynarz 1"
+      },
+      {
+        "synset": 14136,
+        "nazwa": "żegluga 1"
+      },
+      {
+        "synset": 14515,
+        "nazwa": "żeglarstwo 1"
+      }
+    ],
+    "relacje": [
+      11,
+      25,
+      27
+    ],
+    "tryb": "pelne",
+    "wykluczenia_poddrzew": []
+  },
+  "t3": {
+    "iate": {
+      "kody_dziedzin": [
+        "4821"
+      ],
+      "typ": "fullForm",
+      "jedno_slowo": true,
+      "niezawodnosc_min": 3,
+      "odrzuc_status": [
+        "deprecatedTerm-admn-sts",
+        "supersededTerm-admn-sts"
+      ]
+    },
+    "dodatki": []
+  },
+  "wykluczenia": [],
+  "diagnostyka": {
+    "slowa_oczywiste": [
+      "kotwica",
+      "kil",
+      "maszt",
+      "żagiel",
+      "ster",
+      "bosman",
+      "rufa",
+      "burta",
+      "pokład",
+      "statek",
+      "okręt",
+      "marynarz",
+      "jacht",
+      "sztorm",
+      "kambuz",
+      "bandera",
+      "reja",
+      "bom",
+      "fok",
+      "szalupa",
+      "kuter",
+      "rybak",
+      "mesa",
+      "kabestan",
+      "sternik",
+      "cumować",
+      "halsować",
+      "falochron",
+      "nabrzeże",
+      "kuk",
+      "bakburta",
+      "sterburta",
+      "grot",
+      "achtersztag",
+      "knaga",
+      "szkuta",
+      "trał"
+    ],
+    "znaczniki_srodladowe": {
+      "pl": [
+        "śródląd",
+        "rzek",
+        "rzeczn",
+        "kanał",
+        "jezior",
+        "śluz",
+        "barka"
+      ],
+      "en": [
+        "inland",
+        "river",
+        "canal",
+        "lake",
+        "lock",
+        "barge"
+      ]
+    }
+  },
+  "uwagi": "Pilotaż v1: pełne domknięcie T2, bez dodatków i wykluczeń. Lista 37 słów i znaczniki śródlądowe ustalone przed pierwszą budową (decyzje operatora 2026-10-28 i 2026-10-29)."
+}

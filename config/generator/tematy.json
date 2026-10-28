@@ -1,0 +1,52 @@
+{
+  "version": "tematy-v1",
+  "adr": "docs/adr/ADR-010-tematy-v1.md",
+  "sampling": {
+    "version": "tematy-quality-v1",
+    "seed": "literaki-slownik-tematy-v1",
+    "size_per_stratum": 50,
+    "encoding": "canonical JSON array [seed,stratum,key], UTF-8"
+  },
+  "operator_per_stratum": 30,
+  "progi": {
+    "slowa_oczywiste": "0.70",
+    "t1_tak": "0.90",
+    "t2_tak": "2/3",
+    "t2_nie": "0.10",
+    "t3_tak": "2/3",
+    "zgodnosc": "0.80"
+  },
+  "czesci_mowy": {
+    "1": [
+      "inf"
+    ],
+    "2": [
+      "subst",
+      "depr"
+    ],
+    "3": [
+      "adv"
+    ],
+    "4": [
+      "adj"
+    ]
+  },
+  "t3_klasy": [
+    "subst",
+    "depr"
+  ],
+  "teksty": {
+    "ATTRIBUTIONS-tematy.md": {
+      "path": "tematy-teksty/ATTRIBUTIONS-tematy.md",
+      "sha256": "d667315606d06a79c3dac617127641fb09fb4483e1919559a1c1e7f236d85f4e"
+    },
+    "LIMITATIONS.md": {
+      "path": "tematy-teksty/LIMITATIONS.md",
+      "sha256": "183b7563b723b493267c766e6fa0db70c85999f0741b79115f1dc2f944b1ab6f"
+    },
+    "TERMS.md": {
+      "path": "tematy-teksty/TERMS.md",
+      "sha256": "b42502890ca2c830da72652360e3db8b6f131bf4bf9e02379f99a86f234c9651"
+    }
+  }
+}

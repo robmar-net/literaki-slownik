@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "version": "tematy-sources-v1",
+  "inputs": {
+    "base_run": {
+      "path": "../../data/work/lists-v31-20261012-162111-a/manifest.json",
+      "sha256": "30db124dd803a55f211a988e178299f3088571bf3b9c82d7856212b63a6b6cb8"
+    },
+    "database": {
+      "path": "../../data/work/lists-v31-20261012-162111-a/build.sqlite",
+      "sha256": "4b0d17c6e75139042cf18d6ea9a24650d4e7906b999d3a0ce9331de2ecb27a45"
+    },
+    "release_manifest": {
+      "path": "../../data/work/release-LL-PL-v30/release-manifest.json",
+      "sha256": "cdc59511aee295f28a5da82e13d2e8123d714be863d8a2dddf4a2398a63ed22c"
+    },
+    "standard": {
+      "path": "../../data/work/lists-v31-20261012-162111-a/lists/standard.txt",
+      "sha256": "dab4f3bc93bf7d02465c9f559c1bdaad2411e7176b41eacf85004312c839fa7d"
+    },
+    "broad": {
+      "path": "../../data/work/lists-v31-20261012-162111-a/lists/broad.txt",
+      "sha256": "4f1aace9473bf397411339a3fd306245da54713e7e1105012ab40d63eff01271"
+    },
+    "base_pop": {
+      "path": "../../data/work/pop-v3-20261014-022011-a/release-manifest.json",
+      "sha256": "4acb70140af75fd2b9d8ca42b66bf4a8674a3b17048067aa3d8ded69db781d58"
+    },
+    "base_pop00": {
+      "path": "../../data/work/pop00-v1-20261021-r2-a/release-manifest.json",
+      "sha256": "3db703ef0c5ddecfdb3f9ed9dc974d98033795c4f62713d05fb3ea844b42dbbf"
+    },
+    "plwordnet_zip": {
+      "url": "https://clarin-pl.eu/server/api/core/bitstreams/3197cd0f-bb4e-41ba-93e0-eec99ab8d519/content",
+      "retrieved_at": "2026-10-28T23:25:16Z",
+      "bytes": 465563957,
+      "sha256": "30edc5f85c06408d372a897f1d1ff3d03fa939b8680b176c1f97351f4a72dcbc"
+    },
+    "plwordnet_db": {
+      "path": "../../cache/plwordnet/plwn45-tematy.sqlite",
+      "sha256": "aa65ad796ff5331ee6c0b2fddb81fb89786e428a3720cc8e52fbc45502b6c536"
+    },
+    "iate": {
+      "path": "../../cache/iate/IATE_download.zip",
+      "sha256": "ac50c2a701484f3108eec6aea80ee23b5da0c0a2062fd5cc72790ac57ccf5c6f",
+      "url": "https://iate.europa.eu/em-api/artifacts/full-tbx",
+      "retrieved_at": "2026-10-28T23:24:59Z",
+      "last_modified": "Mon, 30 Sep 2019 07:41:10 GMT",
+      "member": "IATE_export_26022019.tbx",
+      "bytes": 112828998
+    }
+  }
+}
