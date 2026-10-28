@@ -141,19 +141,19 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `literaki_slownik/tematy.py`, `tests/tematy_helpers.py`, `tests/test_tematy_inputs.py`
 **Kroki:** 6
 
-- [ ] 6.0 Sprawdzać wejścia i pilnować ich do końca budowy
-  - [ ] 6.1 Napisać 6 testów:
+- [x] 6.0 Sprawdzać wejścia i pilnować ich do końca budowy
+  - [x] 6.1 Napisać 6 testów:
     - poprawna fikstura przechodzi `check_inputs`;
     - przebieg nie `FROZEN` = kod 5;
     - hash `release_manifest` ≠ `export.release_manifest_sha256` przebiegu albo hash BROAD/STANDARD ≠ wpis w manifeście wydania = kod 3;
     - `meta` pochodnej ≠ pin zipa = kod 3;
     - zmiana pliku wewnątrz pakietu POP po `check_inputs` → `confirm_unchanged` = kod 5;
     - każdy plik otwarty przez `check_inputs` jest w rejestrze (porównanie z listą oczekiwaną).
-  - [ ] 6.2 Fikstura: przebieg (wzór `pop00_helpers.fixture`), `release-manifest.json` wydania, BROAD i STANDARD, pakiet POP (`POP.txt.gz`, `POP0.txt.gz`, `reports/units.json`, `ATTRIBUTIONS.md`), pakiet POP00 (`POP00.txt.gz`), mała pochodna Słowosieci z `meta`, zip z TBX.
-  - [ ] 6.3 Rejestr: jedna funkcja `register(data, path, expected_sha)`; każdy odczyt wejścia przechodzi przez nią. `confirm_unchanged` re-hashuje cały rejestr (naprawa klasy błędu f33fe05).
-  - [ ] 6.4 `check_inputs`: hashe przez `inputs.checked_file`, `FROZEN`, manifest wydania, zgodność POP i POP00 z bazą i STANDARD (wzór `pop00.check_inputs`), pliki pakietów przez `pop00.package_file`, `meta` pochodnej (SQLite `mode=ro`).
-  - [ ] 6.5 Odczyt list: `pop00.read_words` dla BROAD, STANDARD, POP, POP00; członkowie POP i POP0 z `units.json` (`members_in`).
-  - [ ] 6.6 Uruchomić 6 nowych testów. Commit `feat(tematy): wejścia i rejestr plików (#11)`, push.
+  - [x] 6.2 Fikstura: przebieg (wzór `pop00_helpers.fixture`), `release-manifest.json` wydania, BROAD i STANDARD, pakiet POP (`POP.txt.gz`, `POP0.txt.gz`, `reports/units.json`, `ATTRIBUTIONS.md`), pakiet POP00 (`POP00.txt.gz`), mała pochodna Słowosieci z `meta`, zip z TBX.
+  - [x] 6.3 Rejestr: jedna funkcja `register(data, path, expected_sha)`; każdy odczyt wejścia przechodzi przez nią. `confirm_unchanged` re-hashuje cały rejestr (naprawa klasy błędu f33fe05).
+  - [x] 6.4 `check_inputs`: hashe przez `inputs.checked_file`, `FROZEN`, manifest wydania, zgodność POP i POP00 z bazą i STANDARD (wzór `pop00.check_inputs`), pliki pakietów przez `pop00.package_file`, `meta` pochodnej (SQLite `mode=ro`).
+  - [x] 6.5 Odczyt list: `pop00.read_words` dla BROAD, STANDARD, POP, POP00; członkowie POP i POP0 z `units.json` (`members_in`).
+  - [x] 6.6 Uruchomić 6 nowych testów. Commit `feat(tematy): wejścia i rejestr plików (#11)`, push.
 
 **Kryteria odbioru:**
 - 6 testów przechodzi.

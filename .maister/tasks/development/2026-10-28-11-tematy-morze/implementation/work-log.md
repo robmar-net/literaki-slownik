@@ -62,3 +62,16 @@
 - `LIMITATIONS.md` ma znacznik `@@SRODLADOWE@@`, który budowa (grupa 9) podmienia na udział śródlądowych.
 - Pakietowe ATTRIBUTIONS to plik POP plus ATTRIBUTIONS-tematy.md.
 - Grupa 6 sprawdza `meta.zip_sha256` pochodnej z pinem zipa.
+
+## 2026-10-28T23:42:22Z - Group 6 Complete
+
+**Steps**: 6.1–6.6
+**Standards Applied**: spec W3, W6, D5, D7; wzór pop00.check_inputs
+**Tests**: 12 OK (test_tematy_inputs, test_tematy_config). Mutacja z odczytem spoza rejestru daje czerwony test.
+**Files Modified**: literaki_slownik/tematy.py, tests/tematy_helpers.py, tests/test_tematy_inputs.py
+**Notes (kontrakt dla grup 7–9)**:
+- `register(data, path, expected_sha) -> Path` nie hashuje; wcześniej trzeba wywołać `checked_file`/`package_file`. `_unpinned` obsługuje pliki bez pinu. `confirm_unchanged(data)` hashuje ponownie cały rejestr; woła się go tuż przed `rename_noreplace`.
+- `check_inputs(manifest, config, topic)` zwraca dict z kluczami: registry, source, method, topic, texts, paths (9 INPUTS), pins, package, members {POP, POP0}, broad, standard, pop, pop00, attribution, plwordnet_meta.
+- Każdy nowy odczyt idzie z `data['paths']` albo `data['package']`. `POP0.txt.gz` nie jest czytany.
+- Grupa 9 mapuje OSError i ValueError na kod 4.
+- Fikstura `inputs_fixture` ma stałe SGJP, PLWN i TBX do rozbudowy. Audit hook z test_tematy_inputs nadaje się do testu „budowa nie czyta poza rejestrem”.
