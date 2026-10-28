@@ -1,0 +1,76 @@
+orchestrator:
+  started_phase: phase-1
+  completed_phases: []
+  failed_phases: []
+  auto_fix_attempts: {}
+  options:
+    html_output: true
+    mockup_format: html
+    spec_audit_enabled: true
+    skip_test_suite: true
+    e2e_enabled: null
+    user_docs_enabled: null
+    code_review_enabled: true
+    pragmatic_review_enabled: true
+    reality_check_enabled: true
+    production_check_enabled: true
+  created: 2026-10-28T22:06:28Z
+  updated: 2026-10-28T22:06:28Z
+  task_path: .maister/tasks/development/2026-10-28-11-tematy-morze
+task:
+  title: "TEMATY: pilotaż słownika „morze” (#11)"
+  issue: 11
+  repo: robmar-net/literaki-slownik
+  description: >-
+    Pilotaż słownika tematycznego „morze” w pakiecie TEMATY (#11). ADR-010 (metoda tematy-v1)
+    i ADR-011 (źródła Słowosieć 4.5 i IATE). Pobranie Słowosieci 4.5 i IATE TBX 2019 poza Git
+    (źródło, data, SHA-256). Podkomenda generatora według wzoru POP00 (#10), wsadowa i
+    deterministyczna. Plik konfiguracji tematu „morze”. Warstwy T1 (etykiety SGJP), T2
+    (Słowosieć), T3 (IATE). Raport przecięć z POP i POP00 (% względem tematu i liczby
+    bezwzględne, osobno dla warstw) oraz diagnostyka kandydatów przed ∩ STANDARD wobec BROAD i
+    STANDARD z przykładami odrzuconych. Kontrolny pomiar pokrycia T2. Kontrola, czy dziedzina
+    IATE 4821 nie wciąga żeglugi śródlądowej. Bramka: raport przecięć i 30 słów do przeglądu R2;
+    dalszych tematów nie robić przed decyzją operatora.
+  constraints:
+    - Bez kontaktu z autorami zasobów i innymi grupami.
+    - Wikisłownik odroczony; bez LLM.
+    - Dane surowe poza Git, z przypiętymi SHA-256.
+    - Artefakty po polsku, zwięźle; blok TL;DR / Kluczowe decyzje / Otwarte pytania.
+    - Nie wymieniać żadnej gry słownej poza Literaki i Kurnik.
+    - Po zapisie w .maister/tasks commit i push repozytorium.
+    - Praca zmieniająca kryteria/wydanie aktualizuje wiki (docs/runbook-wiki.md).
+  status: in_progress
+  tags: [tematy, morze, slowosiec, iate]
+task_context:
+  risk_level: null
+  clarifications_resolved: null
+  scope_expanded: null
+  architecture_decision: null
+  task_characteristics:
+    has_reproducible_defect: false
+    modifies_existing_code: false
+    creates_new_entities: false
+    involves_data_operations: false
+    ui_heavy: false
+  research_reference:
+    path: .maister/tasks/research/2026-10-27-slowniki-tematyczne
+    research_question: "Czy w danych projektu albo w zasobach PAN jest informacja o dziedzinie słowa, która pozwala zawęzić listę słów do tematu?"
+    research_type: mixed
+    confidence_level: medium
+  project_context:
+    project_doc_paths:
+      - .maister/docs/INDEX.md
+      - AGENTS.md
+      - docs/runbook-wiki.md
+      - docs/generator/cli.md
+      - docs/adr/ADR-009-pop00-v1.md
+  phase_summaries:
+    research:
+      summary: "Projekt: potok wsadowy jako podkomenda generatora (wzór POP00); warstwy T1/T2/T3; 10 decyzji → repo ADR-010 i ADR-011; raport przecięcia z POP/POP00 i diagnostyka BROAD/STANDARD; pilotaż morze z bramką."
+      decisions: []
+      risks:
+        - "Licencja Słowosieci 4.5 przyjęta mimo noty „4.2 © 2020” i linku 404 (ADR-003)."
+        - "Trafność IATE i T2 bez skojarzeń nie są zmierzone; pilotaż to sprawdzi (ADR-010)."
+      artifacts:
+        - {path: analysis/research-context/high-level-design.md, label: Projekt, html: null}
+        - {path: analysis/research-context/decision-log.md, label: Dziennik decyzji, html: null}
