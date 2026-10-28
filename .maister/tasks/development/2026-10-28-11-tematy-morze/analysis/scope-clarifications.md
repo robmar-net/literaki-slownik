@@ -22,3 +22,7 @@ Operator rozstrzygnął 6 spraw 2026-10-28. Przegląd R2 obejmuje 90 słów (30 
 ## Otwarte pytania / ryzyka
 - Przegląd 90 słów to większy nakład pracy dla operatora.
 - `quality._config` przyjmuje dziś próbę 30 na warstwę. To pasuje do R2. Próba agenta (50 na warstwę) potrzebuje osobnej ścieżki.
+
+## Decyzja po audycie specyfikacji (2026-10-29)
+- **Zakres T2: pełne domknięcie** po relacjach 11, 25 i 27 od 6 korzeni. Według pomiaru audytu na starej pochodnej daje to 874 lematy. Wybór operatora zapadł przed budową. Szum (`angora`, `anilana`, `bungee`, `chłodziwo`) oceni przegląd R2.
+- Operator przyjął pozostałe poprawki z audytu (K1, W1–W9, drobne).

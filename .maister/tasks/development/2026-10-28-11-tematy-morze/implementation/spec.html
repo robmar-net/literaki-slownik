@@ -53,6 +53,7 @@ details > summary { cursor:pointer; font-weight:600; }
 ul { padding-left:20px; } li { margin:3px 0; }
 .toc { font-size:13px; color:var(--dim); }
 </style>
+
 </head>
 <body>
 <nav class="crumbs">
@@ -64,57 +65,91 @@ ul { padding-left:20px; } li { margin:3px 0; }
 </nav>
 
 <header>
-  <span class="badge">specyfikacja</span>
+  <span class="badge">specyfikacja</span> <span class="badge">po audycie</span>
   <h1>Pilotaż TEMATY „morze” (#11)</h1>
-  <div class="toc">2026-10-28 · źródło: <a href="spec.md" target="_blank" rel="noopener">spec.md</a></div>
+  <div class="toc">2026-10-29 · źródło: <a href="spec.md" target="_blank" rel="noopener">spec.md</a> · audyt: <a href="../verification/spec-audit.md" target="_blank" rel="noopener">spec-audit.md</a></div>
 </header>
 
 <div class="tiles">
   <div class="tile"><b>15</b><span>wymagań</span></div>
-  <div class="tile"><b>14</b><span>do ponownego użycia</span></div>
+  <div class="tile"><b>16</b><span>do ponownego użycia</span></div>
   <div class="tile"><b>7</b><span>nowych składników</span></div>
-  <div class="tile"><b>90</b><span>słów R2</span></div>
-  <div class="tile"><b>średnie</b><span>ryzyko</span></div>
+  <div class="tile"><b>26</b><span>poprawek z audytu</span></div>
+  <div class="tile"><b>≤ 90</b><span>słów R2</span></div>
 </div>
 
 <section class="tldr card">
   <h2 style="margin-top:0">TL;DR</h2>
   <p>Nowa podkomenda <code>tematy</code> buduje lokalny pakiet TEMATY z tematem <code>morze</code>, według wzoru POP00: wsadowo, deterministycznie, bez sieci.
-  Lista to leksemy SGJP ∩ STANDARD w trzech rozłącznych warstwach: T1 etykiety SGJP, T2 Słowosieć 4.5, T3 IATE 2019.
-  Pakiet podaje przecięcia z POP i POP00, diagnostykę kandydatów wobec BROAD i STANDARD, test 37 słów i udział żeglugi śródlądowej w T3.
-  Pobranie źródeł i pochodna Słowosieci to osobne skrypty. Próba R2 (90 słów) idzie do operatora przez stronę z przyciskami.
+  Lista to leksemy SGJP ∩ STANDARD w trzech rozłącznych warstwach: T1 etykiety SGJP, T2 Słowosieć 4.5 (pełne domknięcie od 6 korzeni), T3 IATE 2019 (<code>fullForm</code>, kod 4821).
+  Pakiet podaje przecięcia z POP i POP00, diagnostykę wobec BROAD i STANDARD, test 37 słów i udział żeglugi śródlądowej w T3.
+  Pobranie źródeł i pochodna Słowosieci to osobne skrypty. Operator ocenia 90 słów na stronie-artefakcie z przyciskiem „kopiuj JSON”.
   Wydanie publiczne dopiero po bramce. Teraz: ADR-010, ADR-011 i strona wiki „W przygotowaniu”.</p>
 
   <h2>Kluczowe decyzje</h2>
   <table>
     <tr><th>Decyzja</th><th>Uzasadnienie</th></tr>
+    <tr><td>T2: pełne domknięcie po 11, 25, 27 od 6 korzeni, <code>PARENT_ID → CHILD_ID</code>; <code>t2.tryb: "pelne"</code></td><td>Decyzja operatora z 2026-10-29, przed budową</td></tr>
+    <tr><td>T3: typ <code>fullForm</code>; odrzucamy <code>deprecatedTerm-admn-sts</code>; cały kod z listy <code>subjectField</code></td><td>IATE 2019 nie zna typu <code>term</code></td></tr>
+    <tr><td>Kody części mowy: 2 → <code>subst</code>, <code>depr</code>; 1 → <code>inf</code>; 4 → <code>adj</code>; 3 → <code>adv</code></td><td>Kody 5–8 (angielskie) pomijamy wszędzie</td></tr>
     <tr><td>Rejestr czytanych plików; <code>confirm_unchanged</code> re-hashuje cały rejestr</td><td>Obejmuje pliki w POP i POP00; naprawa błędu f33fe05</td></tr>
-    <tr><td>Pochodna Słowosieci z tabelą <code>meta</code> (SHA-256 zipa, wersja skryptu)</td><td>Budowa czyta tylko pochodną, a jest związana z przypiętym zipem</td></tr>
-    <tr><td>Pochodzenie (URL, data UTC, SHA-256, bajty) w <code>tematy-sources.json</code></td><td>W Git; bez <code>mtime</code>; Słowosieć pobrana ponownie, hash musi się zgadzać</td></tr>
-    <tr><td>Próba agenta 50 przez <code>quality</code>; operator: pierwsze 30 z 50 wg rangi</td><td><code>_config</code> dostaje rozmiar zależny od wersji; bez drugiego ziarna</td></tr>
-    <tr><td>Jedna skala: tak / nie / niepewne</td><td>Ta sama dla agenta i operatora</td></tr>
+    <tr><td>Pochodna Słowosieci wiąże się z zipem przez <code>meta</code></td><td>Budowa nie hashuje zipa (465 MB); hashuje pochodną</td></tr>
+    <tr><td>BROAD i STANDARD przez manifest <code>release-LL-PL-v30</code></td><td>Jego hash = <code>export.release_manifest_sha256</code> przebiegu</td></tr>
+    <tr><td>Próba agenta 50 przez <code>quality</code>; operator: pierwsze 30 wg rangi; mała warstwa: cała</td><td><code>_config</code> dostaje rozmiar zależny od wersji</td></tr>
+    <tr><td>Progi jako udziały; mianownik = rzeczywiste N</td><td>„niepewne” nie jest „tak”</td></tr>
     <tr><td>Werdykt automatyczny tylko „dalej” albo „popraw”</td><td>„stop” wybiera operator na bramce</td></tr>
-    <tr><td>Bez <code>explain --variant tematy</code> w v1</td><td>TSV podaje warstwę, źródła i znaczenie</td></tr>
-    <tr><td>Bez refaktoru POP00; upubliczniamy tylko <code>pop.write_gzip</code></td><td>Mniej ryzyka regresji</td></tr>
-    <tr><td>Teksty pakietu w <code>config/generator/tematy-teksty/</code>, przypięte hashem</td><td>Bez tekstów w kodzie</td></tr>
-    <tr><td>Kontrola śródlądowa przez znaczniki w pliku tematu</td><td>Tylko pomiar; nic nie wykluczamy</td></tr>
+    <tr><td>Bez <code>explain --variant tematy</code> i bez refaktoru POP00</td><td>Z <code>pop</code> upubliczniamy tylko <code>write_gzip</code></td></tr>
   </table>
 
   <h2>Otwarte pytania / ryzyka</h2>
   <ul>
-    <li><span class="sev critical">critical</span>Kierunek relacji 11 („hiperonimia”) sprawdzić na <code>statek 1</code> przed domknięciem; to samo 25 i 27. Zapis w ADR-011.</li>
-    <li><span class="sev warning">warning</span>Struktura TBX 2019 nieznana do pobrania; parser odrzuca DTD i encje.</li>
+    <li><span class="sev warning">warning</span>Szum pełnego domknięcia T2: 874 lematy na starej pochodnej, m.in. <code>angora</code>, <code>anilana</code>, <code>bungee</code>, <code>chłodziwo</code>. Oceni przegląd R2.</li>
+    <li><span class="sev warning">warning</span>Struktura TBX znana z próbki 4,9 MB. Nieznane wartości <code>termType</code> odpadają w filtrze i są liczone w raporcie.</li>
+    <li><span class="sev warning">warning</span>Mała T3: może zostać &lt; 30 leksemów. Ocena całej warstwy, progi na udziałach.</li>
     <li><span class="sev warning">warning</span>Licencja Słowosieci 4.5 („4.2 © 2020”, link 404) — w <code>LIMITATIONS.md</code> i ADR-011.</li>
     <li><span class="sev info">info</span>POP00 r2-a ma stan BUILT; nowa budowa POP00 zmieni liczby przecięć.</li>
-    <li><span class="sev info">info</span>Czas: dwa hashe <code>build.sqlite</code> (22 GB) i dwa skany <code>interpretation</code>.</li>
-    <li><span class="sev info">info</span>Nakład operatora: 90 ocen.</li>
+    <li><span class="sev info">info</span>Czas: dwa hashe <code>build.sqlite</code> (22 GB) i jeden pełny skan <code>interpretation</code>.</li>
+    <li><span class="sev info">info</span>Nakład operatora: do 90 ocen.</li>
     <li><span class="sev info">info</span>Bajty SQLite zależą od wersji SQLite; sprawdzamy dwiema budowami.</li>
   </ul>
 </section>
 
-<p class="toc">Spis: <a href="#zakres">Zakres</a> · <a href="#historie">Historie</a> · <a href="#wymagania">Wymagania</a> · <a href="#reuse">Ponowne użycie</a> · <a href="#tech">Podejście</a> · <a href="#testy">Testy</a> · <a href="#sukces">Kryteria sukcesu</a></p>
+<p class="toc">Spis: <a href="#audyt">Zmiany po audycie</a> · <a href="#zakres">Zakres</a> · <a href="#historie">Historie</a> · <a href="#wymagania">Wymagania</a> · <a href="#reuse">Ponowne użycie</a> · <a href="#tech">Podejście</a> · <a href="#testy">Testy</a> · <a href="#sukces">Kryteria sukcesu</a></p>
 
 <main>
+<h2 id="audyt">Zmiany po audycie</h2>
+<div class="card">
+<table>
+  <tr><th>Uwaga</th><th>Zmiana</th><th>Gdzie</th></tr>
+  <tr><td><span class="sev critical">K1</span></td><td>Filtr T3 <code>typ: fullForm</code>; odrzucenie <code>deprecatedTerm-admn-sts</code></td><td>W5, W7, ADR-011</td></tr>
+  <tr><td><span class="sev warning">W1</span></td><td>DOCTYPE dozwolone; błąd tylko przy <code>&lt;!ENTITY</code> lub podzbiorze wewnętrznym</td><td>W7, testy</td></tr>
+  <tr><td><span class="sev warning">W2</span></td><td><code>subjectField</code> dzielony po <code>,</code>, porównanie całych kodów</td><td>W7</td></tr>
+  <tr><td><span class="sev warning">W3</span></td><td>Decyzja operatora: pełne domknięcie, <code>t2.tryb: "pelne"</code></td><td>W5, ADR-010</td></tr>
+  <tr><td><span class="sev warning">W4</span></td><td>Przypięte kody części mowy; 5–8 pomijane, także w <code>wieloznaczny</code></td><td>W4, W7</td></tr>
+  <tr><td><span class="sev warning">W5</span></td><td>T3 tylko <code>subst</code>/<code>depr</code>; definicja „jednego słowa”; <code>ger</code> jako <code>BRAK_LEKSEMU</code> z osobną liczbą</td><td>W7, W8</td></tr>
+  <tr><td><span class="sev warning">W6</span></td><td>Mała warstwa: cała populacja; progi jako udziały</td><td>W4, W11</td></tr>
+  <tr><td><span class="sev warning">W7</span></td><td>Do progu wynik całości; T1 i T1 ∪ T2 diagnostycznie</td><td>W9</td></tr>
+  <tr><td><span class="sev warning">W8</span></td><td>Zgodność i kappa na 3 kategoriach</td><td>W11, W12</td></tr>
+  <tr><td><span class="sev warning">W9</span></td><td><code>ATTRIBUTIONS.md</code> z sekcją SGJP z pakietu POP</td><td>W13</td></tr>
+  <tr><td><span class="sev info">D1</span></td><td><code>tests/test_pop.py:1352</code> patchuje nową nazwę <code>write_gzip</code>; bez aliasu</td><td>Ponowne użycie</td></tr>
+  <tr><td><span class="sev info">D2</span></td><td>Klucze <code>sampling</code> jak w <code>quality._config</code>; <code>operator_per_stratum</code> na górnym poziomie</td><td>W4</td></tr>
+  <tr><td><span class="sev info">D3</span></td><td><code>valid=1</code> w pochodnej; <code>status</code> bez filtra; synsety sztuczne przechodnie bez lematów</td><td>W2, W7</td></tr>
+  <tr><td><span class="sev info">D4</span></td><td>Nazwa korzenia = <code>lemma + ' ' + variant</code> jednostki o najniższym <code>unitindex</code></td><td>W5</td></tr>
+  <tr><td><span class="sev info">D5</span></td><td>Przypięty manifest <code>release-LL-PL-v30</code></td><td>W3</td></tr>
+  <tr><td><span class="sev info">D6</span></td><td>Test parsera (wielowierszowy <code>INSERT</code>, <code>\'</code>); liczności w ADR-011</td><td>W2</td></tr>
+  <tr><td><span class="sev info">D7</span></td><td>Budowa nie hashuje zipa</td><td>W3</td></tr>
+  <tr><td><span class="sev info">D8</span></td><td>Ponowne pobranie jako odstępstwo w ADR-011; IATE z <code>last_modified</code> i <code>member</code></td><td>W1, W3, W13</td></tr>
+  <tr><td><span class="sev info">D9</span></td><td>Tylko stan BUILT; odstępstwo w ADR-010</td><td>W13</td></tr>
+  <tr><td><span class="sev info">D10</span></td><td>Znaczniki śródlądowe ustalone teraz; miara na kandydatach T3, wpisy końcowe dodatkowo</td><td>W5, W10</td></tr>
+  <tr><td><span class="sev info">D11</span></td><td>Lista 37 słów w <code>morze.json</code></td><td>W5</td></tr>
+  <tr><td><span class="sev info">D12</span></td><td>Hash ocen agenta przed stroną operatora</td><td>W11</td></tr>
+  <tr><td><span class="sev info">D13</span></td><td>Tabela źródeł na <code>Home</code>; przykłady wiki z <code>MORZE.tsv.gz</code></td><td>W13, W14</td></tr>
+  <tr><td><span class="sev info">D14</span></td><td>Strona R2 jako prywatny artefakt claude.ai, iPhone, „kopiuj JSON”</td><td>W11</td></tr>
+  <tr><td><span class="sev info">D15</span></td><td>Formy tylko kandydatów, porcjami po <code>lexeme_id</code></td><td>W7</td></tr>
+  <tr><td><span class="sev info">D16</span></td><td>Kierunek <code>PARENT_ID → CHILD_ID</code> zamknięty; jeden test na nowej pochodnej</td><td>W7, testy</td></tr>
+</table>
+</div>
+
 <h2 id="zakres">Zakres</h2>
 <p><b>Cel:</b> zbudować i zmierzyć pilotażowy temat <code>morze</code>, tak by operator mógł zdecydować na bramce: dalej, popraw albo stop.</p>
 <div class="two">
@@ -125,14 +160,15 @@ ul { padding-left:20px; } li { margin:3px 0; }
       <li>Podkomenda <code>tematy</code>, warstwy T1/T2/T3</li>
       <li>Przecięcia z POP/POP00, diagnostyka BROAD/STANDARD</li>
       <li>Test 37 słów, pomiar żeglugi śródlądowej</li>
-      <li>Próba 50/warstwę, R2 90 słów, checker, werdykt</li>
+      <li>Próba 50/warstwę, R2 do 90 słów, checker, werdykt</li>
       <li>ADR-010, ADR-011, dokumenty, wiki „W przygotowaniu”</li>
     </ul></div>
   <div class="card"><b class="fail">Poza zakresem</b>
     <ul>
       <li>Kolejne tematy i fala ~10 tematów</li>
       <li>Wydanie publiczne i pełna wiki przed bramką</li>
-      <li>Dodatki ręczne i wykluczenia w <code>morze-v1</code></li>
+      <li>Dodatki ręczne, wykluczenia i wykluczenia poddrzew w <code>morze-v1</code></li>
+      <li>Domknięcie ograniczone T2 (odrzucone przez operatora)</li>
       <li><code>explain --variant tematy</code></li>
       <li>Wikisłownik, LLM, Słowosieć 5.0, EU Login, kontakt z autorami</li>
       <li>Terminy wielowyrazowe, listy znaczeń, ranking</li>
@@ -143,115 +179,131 @@ ul { padding-left:20px; } li { margin:3px 0; }
 
 <h2 id="historie">Historie użytkownika</h2>
 <div class="stories">
-  <div class="card">Operator: zbudować temat jednym poleceniem z przypiętych wejść, żeby wynik dało się odtworzyć.</div>
-  <div class="card">Operator: widzieć, ile tematu jest w POP i POP00, żeby ocenić przydatność dla bota na mniejszym słowniku.</div>
-  <div class="card">Operator: ocenić 90 słów przyciskami, bez wglądu w oceny agenta.</div>
-  <div class="card">Odwiedzający wiki: wiedzieć, że TEMATY powstaje i z czego.</div>
+  <div class="card">Jako operator chcę zbudować temat jednym poleceniem z przypiętych wejść, żeby wynik dało się odtworzyć.</div>
+  <div class="card">Jako operator chcę widzieć, ile tematu jest w POP i POP00, żeby ocenić, czy bot na mniejszym słowniku z niego skorzysta.</div>
+  <div class="card">Jako operator chcę ocenić 90 słów przyciskami na iPhonie, bez wglądu w oceny agenta, żeby bramka miała drugiego oceniającego.</div>
+  <div class="card">Jako odwiedzający wiki chcę wiedzieć, że TEMATY powstaje i z czego.</div>
 </div>
 
 <h2 id="wymagania">Wymagania</h2>
 <table>
-  <tr><th>Id</th><th>Wymaganie</th><th>Gdzie</th></tr>
-  <tr><td>W1</td><td>Pobranie IATE i Słowosieci (<code>curl -fL</code>, SHA-256, bajty, data UTC); hash Słowosieci = <code>30edc5f8…dcbc</code>; budowa bez sieci</td><td><code>scripts/fetch_tematy_sources.py</code></td></tr>
-  <tr><td>W2</td><td>Pochodna SQLite: wybrane tabele i kolumny, bez <code>owner</code>/<code>comment</code>/<code>error_comment</code>, kontrola nazw relacji, deterministyczna</td><td><code>scripts/build_plwordnet_db.py</code></td></tr>
-  <tr><td>W3</td><td>Manifest źródeł: v31, BROAD, STANDARD, pop-v3, POP00 r2-a, zip i pochodna, IATE</td><td><code>config/generator/tematy-sources.json</code></td></tr>
-  <tr><td>W4</td><td>Konfiguracja metody: <code>tematy-v1</code>, próba 50/30, progi, 37 słów, mapa części mowy, teksty</td><td><code>config/generator/tematy.json</code></td></tr>
-  <tr><td>W5</td><td>Plik tematu: atomy, 6 korzeni, relacje 11/25/27, IATE 4821, znaczniki śródlądowe, bez dodatków</td><td><code>config/generator/tematy/morze.json</code></td></tr>
-  <tr><td>W6</td><td>Podkomenda <code>tematy</code>; bez nadpisywania; re-hash rejestru przed przeniesieniem</td><td><code>literaki_slownik/tematy.py</code>, <code>cli.py</code></td></tr>
-  <tr><td>W7</td><td>Warstwy (najniższa wygrywa), wszystkie źródła, <code>wieloznaczny</code>, formy ∩ STANDARD</td><td><code>MORZE.txt.gz</code>, <code>MORZE.tsv.gz</code></td></tr>
-  <tr><td>W8</td><td>Przecięcia z POP/POP00, diagnostyka BROAD/STANDARD, odrzuceni z przykładami</td><td><code>reports/summary.json</code>, <code>raport.md</code></td></tr>
-  <tr><td>W9</td><td>Test 37 słów: T1, T1 ∪ T2, całość</td><td>raporty</td></tr>
-  <tr><td>W10</td><td>Udział śródlądowych w T3, do 20 przykładów</td><td>raporty, <code>LIMITATIONS.md</code></td></tr>
-  <tr><td>W11</td><td>Próba 50/warstwę, strona R2 (90, tak/nie/niepewne), zapis przeglądu</td><td><code>scripts/tematy_review.py</code></td></tr>
-  <tr><td>W12</td><td>Niezależny checker; <code>--review</code> liczy trafność, zgodność, werdykt</td><td><code>scripts/check_tematy_package.py</code></td></tr>
-  <tr><td>W13</td><td>ADR-010, ADR-011, <code>ATTRIBUTIONS.md</code>, docs, runbook wiki, INDEX</td><td><code>docs/</code></td></tr>
-  <tr><td>W14</td><td>Wiki <code>Slownik-TEMATY</code> „W przygotowaniu”, Home, _Sidebar, STANDARD, Historia-zmian</td><td>wiki</td></tr>
-  <tr><td>W15</td><td>Dwie budowy a/b: identyczne <code>SHA256SUMS</code></td><td>weryfikacja</td></tr>
+  <tr><th>ID</th><th>Wymaganie</th><th>Priorytet</th></tr>
+  <tr><td>W1</td><td>Pobranie źródeł (<code>fetch_tematy_sources.py</code>, z siecią); rekord pochodzenia; IATE z <code>last_modified</code> i <code>member</code>; pin hasha Słowosieci</td><td>wysoki</td></tr>
+  <tr><td>W2</td><td>Pochodna Słowosieci: lista dozwolonych tabel, <code>valid=1</code>, <code>isabstract</code>, parser z ucieczkami, liczności, deterministyczny hash</td><td>wysoki</td></tr>
+  <tr><td>W3</td><td>Manifest źródeł <code>tematy-sources.json</code> z manifestem wydania v30 dla BROAD i STANDARD</td><td>wysoki</td></tr>
+  <tr><td>W4</td><td>Konfiguracja metody: <code>sampling</code> (klucze <code>_config</code>), <code>operator_per_stratum</code>, progi jako udziały, kody części mowy, <code>t3_klasy</code></td><td>wysoki</td></tr>
+  <tr><td>W5</td><td>Plik tematu <code>morze.json</code>: <code>t2.tryb: "pelne"</code>, <code>fullForm</code>, lista 37 słów i znaczniki śródlądowe w <code>diagnostyka</code></td><td>wysoki</td></tr>
+  <tr><td>W6</td><td>Podkomenda <code>tematy</code>, bez nadpisywania, rejestr re-hashowany przed przeniesieniem</td><td>wysoki</td></tr>
+  <tr><td>W7</td><td>Warstwy T1/T2/T3, „jedno słowo”, klasy leksemu, <code>BRAK_LEKSEMU</code> z <code>ger</code>, formy kandydatów porcjami</td><td>wysoki</td></tr>
+  <tr><td>W8</td><td>Raporty: przecięcia, diagnostyka, odrzuceni, liczby wg <code>termType</code>, <code>wieloznaczny</code></td><td>wysoki</td></tr>
+  <tr><td>W9</td><td>Test 37 słów: do progu całość; T1, T1 ∪ T2 diagnostycznie</td><td>średni</td></tr>
+  <tr><td>W10</td><td>Żegluga śródlądowa w T3: kandydaci (główna), wpisy końcowe (dodatkowo)</td><td>średni</td></tr>
+  <tr><td>W11</td><td>Próby <code>min(50,N)</code> / <code>min(30,N)</code>; zgodność, kappa; hash ocen agenta przed stroną; artefakt na iPhonie z „kopiuj JSON”</td><td>wysoki</td></tr>
+  <tr><td>W12</td><td>Checker <code>check_tematy_package.py</code> z <code>--review</code></td><td>wysoki</td></tr>
+  <tr><td>W13</td><td>ADR-010, ADR-011, <code>ATTRIBUTIONS.md</code> (SGJP, plWordNet, IATE), dokumenty</td><td>wysoki</td></tr>
+  <tr><td>W14</td><td>Wiki <code>Slownik-TEMATY</code> „W przygotowaniu”, <code>Home</code> z tabelą źródeł</td><td>średni</td></tr>
+  <tr><td>W15</td><td>Determinizm: budowy a/b z identycznym <code>SHA256SUMS</code></td><td>wysoki</td></tr>
 </table>
 
-<div class="card">
-  <b>Progi bramki</b> (konfiguracja metody)
-  <table>
-    <tr><th>Kryterium</th><th>Próg</th></tr>
-    <tr><td>Test 37 słów (całość)</td><td>≥ 70%</td></tr>
-    <tr><td>T1 (operator, 30)</td><td>≥ 27 „tak”</td></tr>
-    <tr><td>T2 (operator, 30)</td><td>≥ 20 „tak”, ≤ 3 „nie”</td></tr>
-    <tr><td>T3 (operator, 30)</td><td>≥ 20 „tak”</td></tr>
-    <tr><td>Zgodność agent–operator</td><td>≥ 80%</td></tr>
-  </table>
-</div>
+<details class="card"><summary>Warstwy (W7) — reguły</summary>
+<ul>
+  <li><b>Jedno słowo:</b> po NFC i małych literach tylko litery alfabetu polskiego; spacja, łącznik, apostrof, cyfra = odrzucone (<code>NIE_JEDNO_SLOWO</code>).</li>
+  <li><b>T1:</b> kwalifikatory po podziale <code>|</code>, potem <code>,</code> zawierają atom (<code>mors.</code>, <code>żegl.</code>, <code>ryb.</code>) jako cały atom.</li>
+  <li><b>T2:</b> pełne domknięcie 11, 25, 27 od korzeni 7354, 2149, 4511, 6214, 14136, 14515; <code>PARENT_ID → CHILD_ID</code>; synsety sztuczne przechodnie bez lematów; kody 5–8 pomijane; lemat → leksem z klasą z <code>czesci_mowy</code>.</li>
+  <li><b>T3:</b> cały kod 4821 w <code>subjectField</code>; PL, <code>fullForm</code>, bez <code>deprecatedTerm-admn-sts</code>, niezawodność ≥ 3, jedno słowo bez wielkich liter; leksem klasy <code>subst</code>/<code>depr</code>.</li>
+  <li><b>Wpis:</b> leksem; warstwa najniższa z T1 &lt; T2 &lt; T3; źródła wszystkie; <code>wieloznaczny</code> tylko z jednostek 1–4.</li>
+  <li><b>Znaczniki śródlądowe:</b> PL <code>śródląd</code>, <code>rzek</code>, <code>rzeczn</code>, <code>kanał</code>, <code>jezior</code>, <code>śluz</code>, <code>barka</code>; EN <code>inland</code>, <code>river</code>, <code>canal</code>, <code>lake</code>, <code>lock</code>, <code>barge</code>.</li>
+</ul>
+</details>
+
+<details class="card"><summary>Progi bramki (W4, W11)</summary>
+<table>
+  <tr><th>Próg</th><th>Wartość</th></tr>
+  <tr><td>Test 37 słów (całość)</td><td>≥ 0,70</td></tr>
+  <tr><td>T1 „tak”</td><td>≥ 0,90</td></tr>
+  <tr><td>T2 „tak” / „nie”</td><td>≥ 2/3 / ≤ 0,10</td></tr>
+  <tr><td>T3 „tak”</td><td>≥ 2/3</td></tr>
+  <tr><td>Zgodność z agentem</td><td>≥ 0,80</td></tr>
+</table>
+<p>Mianownik = rzeczywiste N ocen operatora w warstwie; dokładne ułamki. „niepewne” nie jest ani „tak”, ani „nie”. Zgodność i kappa Cohena na 3 kategoriach, na pozycjach ocenionych przez obu.</p>
+</details>
 
 <h2 id="reuse">Ponowne użycie i nowe składniki</h2>
 <div class="two">
 <div class="card"><b>Istniejący kod</b>
 <table>
   <tr><th>Element</th><th>Plik</th></tr>
-  <tr><td>wzór podkomendy, staging, <code>confirm_unchanged</code></td><td><code>pop00.py</code></td></tr>
-  <tr><td><code>read_words</code>, <code>package_file</code></td><td><code>pop00.py</code></td></tr>
+  <tr><td><code>load_sources</code>, <code>check_inputs</code>, <code>build_package</code>, <code>confirm_unchanged</code></td><td><code>pop00.py</code> (wzór)</td></tr>
+  <tr><td><code>read_words</code>, <code>package_file</code></td><td><code>pop00.py</code> (import)</td></tr>
+  <tr><td><code>read_analyses</code></td><td><code>pop00.py:184</code> (wzór porcji)</td></tr>
   <tr><td><code>checked_file</code>, <code>GeneratorError</code></td><td><code>inputs.py</code></td></tr>
   <tr><td><code>dumps</code>, <code>load_json</code>, <code>sha256</code>, <code>write_json</code></td><td><code>canonical.py</code></td></tr>
-  <tr><td><code>load_forms</code>, <code>load_constructions</code>, <code>_label</code>, <code>write_gzip</code></td><td><code>pop.py</code></td></tr>
-  <tr><td><code>sample_strata</code>, <code>review_template</code>, <code>SEEDS</code></td><td><code>quality.py</code></td></tr>
-  <tr><td><code>code_identity</code> / <code>rename_noreplace</code></td><td><code>run.py</code> / <code>export.py</code></td></tr>
-  <tr><td>wzór CLI</td><td><code>cli.py</code></td></tr>
-  <tr><td>wzór checkera / pobrania</td><td><code>check_pop00_package.py</code> / <code>audit_kwjp.py</code></td></tr>
+  <tr><td><code>load_constructions</code>, <code>_label</code></td><td><code>pop.py</code></td></tr>
+  <tr><td><code>_write_gzip</code> → <code>write_gzip</code></td><td><code>pop.py:1767</code>; poprawki <code>pop00.py:289</code>, <code>tests/pop00_helpers.py:9</code>, <code>tests/test_pop.py:1352</code></td></tr>
+  <tr><td><code>sample_strata</code>, <code>review_template</code>, <code>SEEDS</code>, <code>ENCODING</code>, <code>_config</code></td><td><code>quality.py</code></td></tr>
+  <tr><td><code>code_identity</code></td><td><code>run.py</code></td></tr>
+  <tr><td><code>rename_noreplace</code></td><td><code>export.py</code></td></tr>
+  <tr><td>kontrola manifestu wydania</td><td><code>pop.py:115–117</code></td></tr>
+  <tr><td>wzór CLI</td><td><code>cli.py</code> (51–55, 97–99, 147)</td></tr>
+  <tr><td>wzór checkera</td><td><code>scripts/check_pop00_package.py</code></td></tr>
+  <tr><td>wzór pobrania</td><td><code>scripts/audit_kwjp.py</code></td></tr>
   <tr><td>wzór zapisu oceny</td><td><code>record_review.py</code> (zadanie POP00)</td></tr>
   <tr><td>fikstura</td><td><code>tests/pop00_helpers.py</code></td></tr>
 </table></div>
-<div class="card"><b>Nowe</b>
+<div class="card"><b>Nowe składniki</b>
 <table>
-  <tr><th>Plik</th><th>Dlaczego</th></tr>
-  <tr><td><code>literaki_slownik/tematy.py</code></td><td>nowe źródła, warstwy, raporty</td></tr>
+  <tr><th>Plik</th><th>Dlaczego nowy</th></tr>
+  <tr><td><code>literaki_slownik/tematy.py</code></td><td>nowe źródła, warstwy i raporty</td></tr>
   <tr><td><code>scripts/fetch_tematy_sources.py</code></td><td>brak pobrania z rekordem pochodzenia</td></tr>
-  <tr><td><code>scripts/build_plwordnet_db.py</code></td><td>brak odtwarzalnej pochodnej</td></tr>
-  <tr><td><code>scripts/check_tematy_package.py</code></td><td>inny format pakietu</td></tr>
+  <tr><td><code>scripts/build_plwordnet_db.py</code></td><td>brak odtwarzalnej pochodnej bez danych redaktorów</td></tr>
+  <tr><td><code>scripts/check_tematy_package.py</code></td><td>niezależny checker innego formatu</td></tr>
   <tr><td><code>scripts/tematy_review.py</code></td><td>dwóch oceniających, strona z przyciskami</td></tr>
-  <tr><td>configi i <code>tematy-teksty/*</code></td><td>dane metody, wejść, tematu</td></tr>
-  <tr><td><code>tests/tematy_helpers.py</code>, <code>test_tematy*.py</code></td><td>fikstura ze Słowosiecią i TBX</td></tr>
+  <tr><td><code>config/generator/tematy*.json</code>, <code>tematy/morze.json</code>, <code>tematy-teksty/*</code></td><td>dane metody, wejść i tematu</td></tr>
+  <tr><td><code>tests/tematy_helpers.py</code>, <code>tests/test_tematy*.py</code></td><td>fikstura ze Słowosiecią i TBX</td></tr>
 </table></div>
 </div>
 
 <h2 id="tech">Podejście techniczne</h2>
-<div class="card flow">wejścia → kandydaci T1/T2/T3 → leksemy SGJP → diagnostyka BROAD/STANDARD → ∩ STANDARD
-→ scalenie warstw (najniższa) → przecięcia POP/POP00 → test 37 słów, śródlądowe → próba → pakiet (BUILT)</div>
+<div class="card flow">wejścia → T1/T2/T3 kandydaci → mapowanie na leksemy → formy kandydatów → diagnostyka BROAD/STANDARD
+→ ∩ STANDARD → scalenie warstw → przecięcia z POP/POP00 → test 37 słów i śródlądowe → próba → pakiet</div>
 <details class="card"><summary>Szczegóły</summary>
 <ul>
-  <li><b>T1:</b> kwalifikatory dzielone po <code>|</code>, potem <code>,</code>; atom porównany w całości.</li>
-  <li><b>T2:</b> domknięcie od 6 korzeni po 11/25/27 (kierunek wg ADR-011); lemat + część mowy → <code>lexeme.lemma_base</code>.</li>
-  <li><b>T3:</b> polskie terminy IATE 4821, typ <code>term</code>, jedno słowo, małe litery, niezawodność ≥ 3; <code>iterparse</code> z zipa, DTD i encje = błąd.</li>
-  <li><b>Wpis:</b> leksem <code>lemma_id@source_id</code>; <code>wieloznaczny</code>: tak / nie / brak_danych (reguła ADR-007 badania).</li>
-  <li><b>Formy:</b> jak w POP (<code>load_forms</code> + <code>load_constructions</code>) ∩ STANDARD.</li>
-  <li><b>Przecięcia:</b> leksem w POP = członek POP w <code>units.json</code>; w POP00 = członek POP0; formy z <code>POP.txt.gz</code> / <code>POP00.txt.gz</code>.</li>
-  <li><b>Determinizm:</b> sortowanie, <code>canonical.dumps</code>, gzip <code>mtime=0</code>, <code>code_identity()</code>.</li>
-  <li><b>Przegląd:</b> poza pakietem, <code>verification/tematy-morze-review.json</code>, związany z <code>SHA256SUMS</code> i <code>sample_sha256</code>; commit raz.</li>
-  <li><b>Pliki pakietu:</b> <code>MORZE.txt.gz</code>, <code>MORZE.tsv.gz</code>, <code>tematy/morze.json</code>, <code>method.json</code>, <code>reports/summary.json</code>, <code>reports/raport.md</code>, <code>reports/sample.json</code>, <code>reports/review-template.json</code>, <code>ATTRIBUTIONS.md</code>, <code>LIMITATIONS.md</code>, <code>TERMS.md</code>, <code>release-manifest.json</code>, <code>SHA256SUMS</code>.</li>
-  <li><b>Kolejność:</b> wiki → ADR → pobranie i pochodna → moduł i testy → budowy a/b → checker → przegląd agenta → strona R2 → bramka.</li>
+  <li>Moduł funkcyjny, bez klas, jak <code>pop00.py</code>. Jeden pełny skan <code>interpretation</code> (cache po <code>(tag, names, qualifiers)</code>) daje T1 i klasy leksemów; formy tylko kandydatów, porcjami.</li>
+  <li>TBX strumieniowo z zipa (<code>iterparse</code>); DOCTYPE bez podzbioru wewnętrznego dozwolone; <code>&lt;!ENTITY</code> lub podzbiór wewnętrzny = błąd; zewnętrznego DTD nie ładujemy.</li>
+  <li>SQLite tylko do odczytu (<code>mode=ro</code>). Determinizm: sortowanie, <code>canonical.dumps</code>, gzip <code>mtime=0</code>, <code>code_identity()</code>.</li>
+  <li>Stan pakietu tylko BUILT; przegląd poza pakietem (odstępstwo w ADR-010).</li>
+  <li>Pliki pakietu: <code>MORZE.txt.gz</code>, <code>MORZE.tsv.gz</code>, <code>tematy/morze.json</code>, <code>method.json</code>, <code>reports/summary.json</code>, <code>reports/raport.md</code>, <code>reports/sample.json</code>, <code>reports/review-template.json</code>, <code>ATTRIBUTIONS.md</code>, <code>LIMITATIONS.md</code>, <code>TERMS.md</code>, <code>release-manifest.json</code>, <code>SHA256SUMS</code>.</li>
+  <li>Przegląd R2: prywatny artefakt claude.ai, iPhone, „kopiuj JSON” i pole tekstowe; szkic w <code>localStorage</code> (<code>try/catch</code>); operator wkleja JSON w rozmowę.</li>
 </ul>
+<p><b>Kolejność prac:</b> wiki „W przygotowaniu” → ADR-010/011 → pobranie i pochodna (test kierunku) → moduł i testy → budowy a/b → checker → ocena agenta i jej hash → strona R2 (sprawdzona na iPhonie) → bramka.</p>
 </details>
 
-<h2 id="testy">Testy i standardy</h2>
+<h2 id="testy">Testy</h2>
 <div class="card">
+<p>2–8 testów na grupę kroków; weryfikacja uruchamia tylko nowe testy grupy. Pełny zestaw raz na końcu: <code>python3 -m unittest discover -s tests -p 'test_*.py'</code>.</p>
+<p>Fikstura TBX z prawdziwymi polami: DOCTYPE, <code>fullForm</code>, <code>abbreviation</code>, <code>deprecatedTerm-admn-sts</code>, <code>subjectField</code> z listą kodów.</p>
 <ul>
-  <li>2–8 testów na grupę kroków; weryfikacja uruchamia tylko nowe testy grupy.</li>
-  <li>Fikstura: mała baza z <code>schema.sql</code>, mała pochodna, mały TBX, małe pakiety POP i POP00.</li>
-  <li>Pokrycie: atomy <code>|</code>/<code>,</code>; kierunek domknięcia; wpis w kilku warstwach; homonimy; nieznane pole; dodatek spoza STANDARD; zmiana pliku w POP podczas budowy; brak <code>owner</code> i determinizm pochodnej; DTD w TBX; budowy a/b; checker z przeglądem.</li>
-  <li>Standardy: <code>AGENTS.md</code>, <code>docs/generator/publikacja.md</code>, <code>docs/runbook-wiki.md</code>, ADR-009; commity <code>feat(tematy): … (#11)</code>.</li>
+  <li>podział <code>|</code> i <code>,</code>; kierunek domknięcia (<code>statek</code> → <code>łódź</code>, <code>okręt</code>); kody 5–8; synset sztuczny</li>
+  <li><code>48</code> ≠ <code>4821</code>; DOCTYPE przechodzi, <code>&lt;!ENTITY</code> = błąd; <code>ger</code> jako <code>BRAK_LEKSEMU</code></li>
+  <li>mała warstwa i udziały; „niepewne” w trafności i kappie; parser zrzutu z <code>\'</code></li>
+  <li>leksem w kilku warstwach; nieznane pole; dodatek spoza STANDARD; zmiana pliku w POP podczas budowy</li>
+  <li>brak <code>owner</code> i determinizm pochodnej; <code>strona</code> odmawia bez hasha agenta; budowy a/b; checker z przeglądem</li>
 </ul>
+<p><b>Standardy:</b> <code>AGENTS.md</code>, <code>docs/generator/publikacja.md</code>, <code>docs/runbook-wiki.md</code>, ADR-009; commity <code>feat(tematy): … (#11)</code>.</p>
 </div>
 
 <h2 id="sukces">Kryteria sukcesu</h2>
-<div class="card">
-<ol>
-  <li>Budowa offline; a/b z identycznymi <code>SHA256SUMS</code>.</li>
+<ol class="card">
+  <li><code>tematy</code> buduje pakiet offline; budowy a/b mają identyczne <code>SHA256SUMS</code>.</li>
   <li>Każdy wpis to leksem z formą w STANDARD v31, z warstwą, źródłami i <code>wieloznaczny</code>.</li>
-  <li>Raporty: przecięcia, diagnostyka z odrzuconymi, test 37 słów, udział śródlądowych.</li>
-  <li>Zmiana czytanego pliku w trakcie budowy = błąd (kod 5), brak pakietu.</li>
-  <li>Pochodna bez <code>owner</code>, <code>comment</code>, logu IP; dwa uruchomienia, ten sam hash.</li>
-  <li>Checker PASS; <code>--review</code> daje trafność, zgodność, werdykt.</li>
-  <li>Operator ocenił 90 pozycji; raport bramki gotowy; decyzja zapisana.</li>
-  <li>ADR-010, ADR-011, <code>ATTRIBUTIONS.md</code>, docs i wiki zaktualizowane.</li>
+  <li>T3 nie jest pusta; raport podaje liczby haseł według <code>termType</code>.</li>
+  <li>Raporty: przecięcia z POP/POP00, diagnostyka z odrzuconymi (z podliczbą <code>ger</code>), test 37 słów (całość do progu), udział śródlądowych.</li>
+  <li>Zmiana czytanego pliku w trakcie budowy: błąd (kod 5) i brak pakietu.</li>
+  <li>Pochodna bez <code>owner</code>, <code>comment</code>, <code>iplog</code>, <code>iplimit</code>, <code>tracker_*</code>; dwa uruchomienia, ten sam hash.</li>
+  <li>Checker PASS; z <code>--review</code> trafność z rzeczywistym N, zgodność, kappa, werdykt.</li>
+  <li>Hash ocen agenta przed stroną operatora; operator ocenił pozycje na iPhonie; decyzja zapisana.</li>
+  <li>ADR-010, ADR-011, <code>ATTRIBUTIONS.md</code> (SGJP, plWordNet, IATE), dokumenty i wiki zaktualizowane.</li>
 </ol>
-</div>
 </main>
 </body>
 </html>
