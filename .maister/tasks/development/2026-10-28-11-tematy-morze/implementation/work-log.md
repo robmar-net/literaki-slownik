@@ -42,3 +42,23 @@
 - Domknięcie T2 ma **864** lematy według definicji „jednego słowa” (W7). Audyt podał 874, bo liczył też formy z łącznikiem i kropką.
 - TBX: 4821 ma 577 haseł PL. fullForm, bez deprecated, niezawodność ≥ 3, jedno słowo: 78 (74 różne). T3 będzie małe.
 - Decyzja techniczna: `supersededTerm-admn-sts` też odrzucamy (spójność z deprecated). Wśród 78 kandydatów nie ma żadnego, więc wpływ jest zerowy. Zapis w ADR-011.
+
+## 2026-10-28T23:36:35Z - Group 4 Complete
+
+**Steps**: 4.1–4.4
+**Standards Applied**: wzór ADR-009, AGENTS.md
+**Tests**: kontrola linków i grep kodów audytu: K1, W1–W9 i D1–D16 są w ADR
+**Files Modified**: docs/adr/ADR-010-tematy-v1.md, docs/adr/ADR-011-zrodla-slowosiec-iate.md
+**Notes**: `odrzuc_status` w `morze.json` ma być listą (deprecated i superseded). Moduł z grup 6–7 odrzuca oba statusy. Commit f23e5fa.
+
+## 2026-10-28T23:37:37Z - Group 5 Complete
+
+**Steps**: 5.1–5.7
+**Standards Applied**: AGENTS.md; wzór pop00.load_sources; spec W3–W5, W13
+**Tests**: 6 OK (test_tematy_config). Prawdziwe pliki ładują się, a piny zgadzają się z dyskiem (bez hashowania build.sqlite).
+**Files Modified**: config/generator/{tematy.json,tematy-sources.json,tematy/morze.json,tematy-teksty/*}, literaki_slownik/tematy.py, tests/tematy_helpers.py, tests/test_tematy_config.py
+**Notes**:
+- `odrzuc_status` to lista: deprecated i superseded.
+- `LIMITATIONS.md` ma znacznik `@@SRODLADOWE@@`, który budowa (grupa 9) podmienia na udział śródlądowych.
+- Pakietowe ATTRIBUTIONS to plik POP plus ATTRIBUTIONS-tematy.md.
+- Grupa 6 sprawdza `meta.zip_sha256` pochodnej z pinem zipa.

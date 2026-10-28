@@ -102,11 +102,11 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `docs/adr/ADR-010-tematy-v1.md`, `docs/adr/ADR-011-zrodla-slowosiec-iate.md`
 **Kroki:** 4
 
-- [ ] 4.0 Zapisać metodę i źródła przed modułem
-  - [ ] 4.1 Kontrola zamiast testów: format jak `ADR-009-pop00-v1.md` (TL;DR, Kluczowe decyzje, Otwarte pytania); linki do istniejących ścieżek.
-  - [ ] 4.2 `ADR-010-tematy-v1.md`: lokalne ADR-001, 002, 005–010 badania (z mapą numerów); `t2.tryb: pelne` jako decyzja operatora z 2026-10-29; stan tylko BUILT i przegląd poza pakietem (odstępstwo od ADR-008 badania); progi jako udziały; werdykt automatyczny „dalej”/„popraw”, „stop” tylko operator; lista 37 słów w pliku tematu.
-  - [ ] 4.3 `ADR-011-zrodla-slowosiec-iate.md`: lokalne 003, 004; pochodna (tabele, kolumny, `valid=1`, `isabstract`, `status` bez filtra); liczności z grupy 3 wobec starej pochodnej; kierunek relacji; kody części mowy 1–4, pominięcie 5–8; `term` z projektu = `fullForm`, odrzucenie `deprecatedTerm-admn-sts`; dopasowanie całych kodów `subjectField`; DOCTYPE dozwolone, `<!ENTITY` = błąd; ponowne pobranie Słowosieci (odstępstwo od `clarifications.md`); `last_modified` i `member` IATE; licencja Słowosieci (nota 4.2, link 404).
-  - [ ] 4.4 Commit `docs(tematy): ADR-010 i ADR-011 (#11)`, push.
+- [x] 4.0 Zapisać metodę i źródła przed modułem
+  - [x] 4.1 Kontrola zamiast testów: format jak `ADR-009-pop00-v1.md` (TL;DR, Kluczowe decyzje, Otwarte pytania); linki do istniejących ścieżek.
+  - [x] 4.2 `ADR-010-tematy-v1.md`: lokalne ADR-001, 002, 005–010 badania (z mapą numerów); `t2.tryb: pelne` jako decyzja operatora z 2026-10-29; stan tylko BUILT i przegląd poza pakietem (odstępstwo od ADR-008 badania); progi jako udziały; werdykt automatyczny „dalej”/„popraw”, „stop” tylko operator; lista 37 słów w pliku tematu.
+  - [x] 4.3 `ADR-011-zrodla-slowosiec-iate.md`: lokalne 003, 004; pochodna (tabele, kolumny, `valid=1`, `isabstract`, `status` bez filtra); liczności z grupy 3 wobec starej pochodnej; kierunek relacji; kody części mowy 1–4, pominięcie 5–8; `term` z projektu = `fullForm`, odrzucenie `deprecatedTerm-admn-sts`; dopasowanie całych kodów `subjectField`; DOCTYPE dozwolone, `<!ENTITY` = błąd; ponowne pobranie Słowosieci (odstępstwo od `clarifications.md`); `last_modified` i `member` IATE; licencja Słowosieci (nota 4.2, link 404).
+  - [x] 4.4 Commit `docs(tematy): ADR-010 i ADR-011 (#11)`, push.
 
 **Kryteria odbioru:**
 - Oba ADR mają liczby z `T/verification/*.json`, nie z pamięci.
@@ -117,20 +117,20 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `config/generator/tematy.json`, `config/generator/tematy-sources.json`, `config/generator/tematy/morze.json`, `config/generator/tematy-teksty/*`, `literaki_slownik/tematy.py`, `tests/tematy_helpers.py`, `tests/test_tematy_config.py`
 **Kroki:** 7
 
-- [ ] 5.0 Dodać pliki metody, wejść i tematu z walidacją
-  - [ ] 5.1 Napisać 6 testów:
+- [x] 5.0 Dodać pliki metody, wejść i tematu z walidacją
+  - [x] 5.1 Napisać 6 testów:
     - poprawne `tematy.json` i `morze.json` (fikstura) przechodzą;
     - nieznane pole w każdym z trzech plików = kod 2;
     - relacja spoza {11, 25, 27} = błąd; `t2.tryb` ≠ `pelne` = błąd;
     - `sampling` z innym zbiorem kluczy albo rozmiarem ≠ 50 = błąd (przez `quality._config`);
     - kod części mowy spoza mapy w `czesci_mowy` = błąd;
     - zły hash pliku w `teksty` = kod 3.
-  - [ ] 5.2 `tests/tematy_helpers.py`: start fikstury — kopie plików konfiguracji z hashami fikstury (bez prawdziwych pinów).
-  - [ ] 5.3 `config/generator/tematy-teksty/`: `ATTRIBUTIONS-tematy.md` (nota plWordNet z zastrzeżeniem, „Download IATE, European Union, 2019”), `LIMITATIONS.md` (śródlądowe: problem, lista znaczników, miejsce na udział), `TERMS.md`. Bez tekstu SGJP: ten idzie z pakietu POP (W13).
-  - [ ] 5.4 `tematy.json` (W4): `version`, `adr`, `sampling` (4 klucze `quality._config`), `operator_per_stratum: 30`, `progi` jako ułamki w tekście (`"0.70"`, `"0.90"`, `"2/3"`, `"0.10"`, `"0.80"`), `czesci_mowy`, `t3_klasy`, `teksty` z hashami.
-  - [ ] 5.5 `morze.json` (W5): pola i wartości ze spec, 37 słów bez zmian, znaczniki śródlądowe PL i EN. `tematy-sources.json` (W3): piny z grupy 3 i z istniejących wejść (`release-LL-PL-v30/release-manifest.json`, BROAD `4f1aace9…1271`, pop-v3, POP00 r2-a); `plwordnet_zip` bez ścieżki do hashowania.
-  - [ ] 5.6 `tematy.py`: `load_method`, `load_topic`, `load_sources` (zbiór kluczy i typy, wzór `pop00.load_sources`; kody 2 i 3).
-  - [ ] 5.7 Uruchomić 6 nowych testów; dodatkowo załadować prawdziwe trzy pliki (bez budowy). Commit `feat(tematy): konfiguracja metody i tematu (#11)`, push.
+  - [x] 5.2 `tests/tematy_helpers.py`: start fikstury — kopie plików konfiguracji z hashami fikstury (bez prawdziwych pinów).
+  - [x] 5.3 `config/generator/tematy-teksty/`: `ATTRIBUTIONS-tematy.md` (nota plWordNet z zastrzeżeniem, „Download IATE, European Union, 2019”), `LIMITATIONS.md` (śródlądowe: problem, lista znaczników, miejsce na udział), `TERMS.md`. Bez tekstu SGJP: ten idzie z pakietu POP (W13).
+  - [x] 5.4 `tematy.json` (W4): `version`, `adr`, `sampling` (4 klucze `quality._config`), `operator_per_stratum: 30`, `progi` jako ułamki w tekście (`"0.70"`, `"0.90"`, `"2/3"`, `"0.10"`, `"0.80"`), `czesci_mowy`, `t3_klasy`, `teksty` z hashami.
+  - [x] 5.5 `morze.json` (W5): pola i wartości ze spec, 37 słów bez zmian, znaczniki śródlądowe PL i EN. `tematy-sources.json` (W3): piny z grupy 3 i z istniejących wejść (`release-LL-PL-v30/release-manifest.json`, BROAD `4f1aace9…1271`, pop-v3, POP00 r2-a); `plwordnet_zip` bez ścieżki do hashowania.
+  - [x] 5.6 `tematy.py`: `load_method`, `load_topic`, `load_sources` (zbiór kluczy i typy, wzór `pop00.load_sources`; kody 2 i 3).
+  - [x] 5.7 Uruchomić 6 nowych testów; dodatkowo załadować prawdziwe trzy pliki (bez budowy). Commit `feat(tematy): konfiguracja metody i tematu (#11)`, push.
 
 **Kryteria odbioru:**
 - 6 testów przechodzi; prawdziwe pliki konfiguracji ładują się bez błędu.
