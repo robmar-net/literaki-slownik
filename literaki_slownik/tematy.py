@@ -12,6 +12,7 @@ import zipfile
 
 from .canonical import load_json, sha256
 from .inputs import GeneratorError, checked_file
+from .pop import _label, load_constructions
 from .pop00 import package_file, read_words
 from .quality import _config
 
@@ -443,7 +444,7 @@ def t3_candidates(data):
     """T3 (W7, K1, W1, W2): hasła IATE z całym kodem dziedziny, terminy PL po filtrach.
 
     Strumień `iterparse` z członka zipa; zewnętrznego DTD nie ładujemy. Zwraca `terminy`:
-    termin → posortowane id haseł; `hasla` (kandydaci): id → {`pl`, `en`, `przyjete`};
+    termin → posortowane id haseł; `hasla` (kandydaci): id → {`pl`, `en`, `przyjete`, `kody` (pasujące)};
     `odrzucone`: powód → posortowane terminy; `liczniki` haseł i terminów PL.
     """
     iate = data['topic']['t3']['iate']
@@ -466,8 +467,9 @@ def t3_candidates(data):
                         continue
                     group = next((c for c in element if _local(c.tag) == 'descripGrp'), None)
                     field = _typed(group, 'descrip', 'subjectField') if group is not None else None
-                    if field and codes & {c.strip() for c in field.split(',')}:
-                        _entry(element, iate, terms, entries, rejected, counts)
+                    matched = codes & {c.strip() for c in field.split(',')} if field else None
+                    if matched:
+                        _entry(element, iate, terms, entries, rejected, counts, matched)
                     element.clear()
                     if stack:
                         stack[-1].remove(element)
@@ -483,7 +485,7 @@ def t3_candidates(data):
                          'przyjete': accepted, 'przyjete_rozne': len(terms)}}
 
 
-def _entry(element, iate, terms, entries, rejected, counts):
+def _entry(element, iate, terms, entries, rejected, counts, matched):
     entry_id = element.get('id') or ''
     counts['hasla'] += 1
     pl, en, taken = [], [], []
@@ -503,9 +505,190 @@ def _entry(element, iate, terms, entries, rejected, counts):
             terms.setdefault(term, []).append(entry_id)
     counts['hasla_pl'] += bool(pl)
     if taken:
-        entries[entry_id] = {'pl': tuple(sorted(pl)), 'en': tuple(sorted(en)), 'przyjete': tuple(sorted(taken))}
+        entries[entry_id] = {'pl': tuple(sorted(pl)), 'en': tuple(sorted(en)), 'przyjete': tuple(sorted(taken)),
+                             'kody': tuple(sorted(matched))}
 
 
 def candidates(data):
     """Kandydaci trzech źródeł; każdy plik z `data['paths']` (rejestr z `check_inputs`)."""
     return {'sgjp': scan_sgjp(data), 't2': t2_candidates(data), 't3': t3_candidates(data)}
+
+
+# --- Leksemy, warstwy i formy (W7, W8, D15) ---
+WARSTWY = ('T1', 'T2', 'T3')
+POWODY = ('BRAK_LEKSEMU', 'NIE_JEDNO_SLOWO', 'POZA_BROAD', 'POZA_STANDARD')
+CHUNK = 400  # jak `pop00.read_analyses`
+
+
+def _chunks(values, size=CHUNK):
+    values = sorted(values)
+    for start in range(0, len(values), size):
+        chunk = values[start:start + size]
+        yield chunk, ','.join('?' * len(chunk))
+
+
+def _lexeme_rows(db, column, values):
+    """`lexeme` po indeksie (`id` albo `lemma_base`) → id → (source_id, lemma_id, lemma_base)."""
+    rows = {}
+    for chunk, marks in _chunks(values):
+        rows.update((i, (s, l, b)) for i, s, l, b in db.execute(
+            f'SELECT id, source_id, lemma_id, lemma_base FROM lexeme WHERE {column} IN ({marks})', chunk))
+    return rows
+
+
+def map_lemmas(db, wanted, klasy):
+    """Lemat → leksemy z równym `lemma_base` i klasą z dozwolonych (W7).
+
+    `wanted`: lemat → dozwolone klasy tagów; `klasy`: `scan_sgjp(...)['klasy']`.
+    Zwraca `leksemy` (lemat → posortowane id), `brak` (lematy bez leksemu, `BRAK_LEKSEMU`),
+    `ger` (te z `brak`, które są formą o tagu `ger`; indeksy surface_form → interpretation)
+    i `wiersze` (id → (source_id, lemma_id, lemma_base)).
+    """
+    rows = _lexeme_rows(db, 'lemma_base', wanted)
+    by_base = {}
+    for ident, (_, _, base) in rows.items():
+        by_base.setdefault(base, []).append(ident)
+    found, missing = {}, []
+    for lemma, allowed in sorted(wanted.items()):
+        ids = sorted(i for i in by_base.get(lemma, ()) if set(klasy.get(i, ())) & set(allowed))
+        if ids:
+            found[lemma] = ids
+        else:
+            missing.append(lemma)
+    ger = set()
+    for chunk, marks in _chunks(missing):
+        ger.update(form for form, tag in db.execute(
+            'SELECT s.original, i.tag FROM surface_form s JOIN interpretation i ON i.form_id = s.id '
+            f'WHERE s.original IN ({marks})', chunk) if tag.split(':', 1)[0] == 'ger')
+    return {'leksemy': found, 'brak': missing, 'ger': sorted(ger), 'wiersze': rows}
+
+
+def _plwn_units(data, lemmas):
+    """Synsety jednostek Słowosieci o kodach z mapy (1–4) dla lematów; kody 5–8 pomijamy."""
+    codes = sorted(int(c) for c in data['method']['config']['czesci_mowy'])
+    units = {}
+    with _readonly(data['paths']['plwordnet_db']) as db:
+        for chunk, marks in _chunks(lemmas):
+            for lemma, synset in db.execute(
+                    'SELECT l.lemma, u.SYN_ID FROM lexicalunit l JOIN unitandsynset u ON u.LEX_ID = l.ID '
+                    f'WHERE l.lemma IN ({marks}) AND l.pos IN ({",".join("?" * len(codes))})', (*chunk, *codes)):
+                units.setdefault(unicodedata.normalize('NFC', lemma), set()).add(synset)
+    return units
+
+
+def _wieloznaczny(ident, row, homonyms, klasy, units, closure):
+    """ADR-007 badania: `tak` (jednostka poza domknięciem albo kilka leksemów lematu i klasy),
+    `nie` (wszystkie znaczenia w temacie), `brak_danych` (lematu nie ma w Słowosieci)."""
+    mine = set(klasy.get(ident, ()))
+    if any(other != ident and mine & set(klasy.get(other, ())) for other in homonyms.get(row[2], ())):
+        return 'tak'
+    synsets = units.get(row[2])
+    if not synsets:
+        return 'brak_danych'
+    return 'nie' if synsets <= closure else 'tak'
+
+
+def _read_forms(db, data, ids):
+    """Formy leksemów kandydatów porcjami po `lexeme_id` plus konstrukcje ∈ BROAD (D15).
+
+    Bez `pop.load_forms`: `interpretation` czytamy przez indeks `lexeme_id`, nie w całości.
+    """
+    forms = {i: set() for i in ids}
+    for chunk, marks in _chunks(ids):
+        for ident, word in db.execute('SELECT i.lexeme_id, s.game_key FROM interpretation i '
+                                      f'JOIN surface_form s ON s.id = i.form_id WHERE i.lexeme_id IN ({marks})', chunk):
+            forms[ident].add(word)
+    keys = {i: (row[0], row[1]) for i, row in ids.items()}
+    built = load_constructions(db, data['broad'], {i: {'key': k} for i, k in keys.items()}, surface_keys=frozenset())
+    for ident, key in keys.items():
+        forms[ident] |= built['forms'].get(key, frozenset())
+    return forms
+
+
+def build_entries(data, cands):
+    """Kandydaci (`candidates`) → leksemy z warstwą, źródłami, flagą i formami; diagnostyka BROAD/STANDARD.
+
+    Zwraca:
+    - `kandydaci`: klucz `lemma_id@source_id` → {`klucz`, `lemat`, `czesci_mowy`, `warstwa`, `zrodla`,
+      `znaczenie` (warstwa → napisy), `iate` (id haseł T3), `wieloznaczny`, `formy` (wszystkie, posortowane),
+      `powod` (None, `POZA_BROAD` albo `POZA_STANDARD`)};
+    - `wpisy`: kandydaci z formą w STANDARD; `formy` = formy ∩ STANDARD;
+    - `warstwy`: warstwa → posortowane klucze wpisów (rozłączne); `formy`: posortowane formy tematu ∩ STANDARD;
+    - `diagnostyka`: warstwa i `razem` → {`leksemy`, `formy`} → {`kandydaci`, `broad`, `standard`};
+    - `odrzucone`: warstwa i `razem` → powód → posortowane lematy (BRAK_LEKSEMU, NIE_JEDNO_SLOWO) albo klucze;
+    - `ger`: warstwa i `razem` → lematy `BRAK_LEKSEMU`, które są formą `ger`.
+    """
+    klasy, t1, t2, t3 = cands['sgjp']['klasy'], cands['sgjp']['t1'], cands['t2'], cands['t3']
+    mapping = data['method']['config']['czesci_mowy']
+    wanted2 = {}
+    for unit in t2['jednostki']:
+        wanted2.setdefault(unit['lemat'], set()).update(mapping[unit['kod']])
+    with _readonly(data['paths']['database']) as db:
+        m2 = map_lemmas(db, {k: tuple(sorted(v)) for k, v in wanted2.items()}, klasy)
+        m3 = map_lemmas(db, {t: tuple(T3_KLASY) for t in t3['terminy']}, klasy)
+        rows = {**_lexeme_rows(db, 'id', t1), **m2['wiersze'], **m3['wiersze']}
+        sources = {}
+        for ident in t1:
+            sources.setdefault(ident, {})['T1'] = tuple(t1[ident])
+        for unit in t2['jednostki']:
+            for ident in m2['leksemy'].get(unit['lemat'], ()):
+                if set(klasy.get(ident, ())) & set(mapping[unit['kod']]):
+                    sources.setdefault(ident, {}).setdefault('T2', set()).add(f'{unit["synset"]} {unit["znaczenie"]}')
+        iate = {}
+        for term, entry_ids in t3['terminy'].items():
+            for ident in m3['leksemy'].get(term, ()):
+                iate.setdefault(ident, set()).update(entry_ids)
+                sources.setdefault(ident, {}).setdefault('T3', set()).update(
+                    f'{e} {",".join(t3["hasla"][e]["kody"])}' for e in entry_ids)
+        candidates_rows = {i: rows[i] for i in sources}
+        homonyms = {}
+        for ident, row in _lexeme_rows(db, 'lemma_base', {r[2] for r in candidates_rows.values()}).items():
+            homonyms.setdefault(row[2], []).append(ident)
+        forms = _read_forms(db, data, candidates_rows)
+    units = _plwn_units(data, {r[2] for r in candidates_rows.values()})
+    closure = set(t2['synsety'])
+    broad, standard = data['broad'], data['standard']
+    kandydaci = {}
+    for ident, found in sources.items():
+        row = candidates_rows[ident]
+        all_forms = forms[ident]
+        reason = (None if all_forms & standard else 'POZA_STANDARD' if all_forms & broad else 'POZA_BROAD')
+        key = _label(row[:2])
+        kandydaci[key] = {
+            'klucz': key, 'lemat': row[2], 'czesci_mowy': tuple(klasy.get(ident, ())),
+            'warstwa': min(found), 'zrodla': tuple(sorted(found)),
+            'znaczenie': {w: tuple(sorted(v)) for w, v in sorted(found.items())},
+            'iate': tuple(sorted(iate.get(ident, ()))),
+            'wieloznaczny': _wieloznaczny(ident, row, homonyms, klasy, units, closure),
+            'formy': tuple(sorted(all_forms)), 'powod': reason}
+    kandydaci = dict(sorted(kandydaci.items()))
+    wpisy = {k: {**{f: v for f, v in e.items() if f != 'powod'},
+                 'formy': tuple(sorted(set(e['formy']) & standard))}
+             for k, e in kandydaci.items() if e['powod'] is None}
+    groups = {w: [e for e in kandydaci.values() if e['warstwa'] == w] for w in WARSTWY}
+    groups['razem'] = list(kandydaci.values())
+
+    diag = {}
+    for name, items in groups.items():
+        lex = {'kandydaci': len(items), 'broad': sum(e['powod'] != 'POZA_BROAD' for e in items),
+               'standard': sum(e['powod'] is None for e in items)}
+        words = {f for e in items for f in e['formy']}
+        diag[name] = {'leksemy': lex, 'formy': {'kandydaci': len(words), 'broad': len(words & broad),
+                                                 'standard': len(words & standard)}}
+    one_word = {'T2': {m.rsplit(' ', 1)[0] for m in t2['odrzucone']['NIE_JEDNO_SLOWO']},
+                'T3': set(t3['odrzucone'].get('NIE_JEDNO_SLOWO', ()))}
+    missing = {'T2': set(m2['brak']), 'T3': set(m3['brak'])}
+    gerunds = {'T2': set(m2['ger']), 'T3': set(m3['ger'])}
+    odrzucone, ger = {}, {}
+    for name, items in groups.items():
+        layers = WARSTWY if name == 'razem' else (name,)
+        odrzucone[name] = {
+            'BRAK_LEKSEMU': sorted(set().union(*(missing.get(w, ()) for w in layers))),
+            'NIE_JEDNO_SLOWO': sorted(set().union(*(one_word.get(w, ()) for w in layers))),
+            'POZA_BROAD': [e['klucz'] for e in items if e['powod'] == 'POZA_BROAD'],
+            'POZA_STANDARD': [e['klucz'] for e in items if e['powod'] == 'POZA_STANDARD']}
+        ger[name] = sorted(set().union(*(gerunds.get(w, ()) for w in layers)))
+    return {'kandydaci': kandydaci, 'wpisy': wpisy,
+            'warstwy': {w: tuple(k for k, e in wpisy.items() if e['warstwa'] == w) for w in WARSTWY},
+            'formy': tuple(sorted({f for e in wpisy.values() for f in e['formy']})),
+            'diagnostyka': diag, 'odrzucone': odrzucone, 'ger': ger}

@@ -50,7 +50,8 @@ def rewrite(path, change):
 
 # --- Grupa 6: prawdziwe (małe) wejścia. Grupy 7–10 dopisują wiersze do stałych poniżej. ---
 SOURCE = 'sgjp'
-# (forma, lemat, tag, kwalifikatory) → baza przebiegu; leksem = lemat.
+# (forma, lemat, tag, kwalifikatory) → baza przebiegu; leksem = lemat (`lemma_id`),
+# `lemma_base` = lemat bez sufiksu `:…` (homonimy jak w SGJP: `kuter`, `kuter:S2`).
 SGJP = [
     ('statek', 'statek', 'subst:sg:nom:m3', ''), ('statkiem', 'statek', 'subst:sg:inst:m3', ''),
     ('łódź', 'łódź', 'subst:sg:nom:f', ''), ('łodzią', 'łódź', 'subst:sg:inst:f', ''),
@@ -63,8 +64,15 @@ SGJP = [
     ('kot', 'kot', 'subst:sg:nom:m2', ''), ('kotem', 'kot', 'subst:sg:inst:m2', ''),
     ('reja', 'reja', 'subst:sg:nom:f', 'daw.|mors.,wojsk.'),  # atom po `|`, potem `,`
     ('fok', 'fok', 'subst:sg:nom:m3', 'mors'),  # bez kropki: nie atom `mors.`
+    # Grupa 8: homonim `kuter`, leksem spoza BROAD, leksem tylko T3.
+    ('kutrem', 'kuter:S2', 'subst:sg:inst:m3', ''),
+    ('kambuz', 'kambuz', 'subst:sg:nom:m3', ''),
+    ('barka', 'barka', 'subst:sg:nom:f', ''),
 ]
 NOT_STANDARD = {'szkuta'}  # w BROAD, poza STANDARD
+NOT_BROAD = {'kambuz'}  # forma poza BROAD (i STANDARD)
+# Konstrukcje (`derivation_candidate`): (forma gry, lemat leksemu składnika); w BROAD i STANDARD.
+CONSTRUCTIONS = [('okrętże', 'okręt'), ('kotże', 'kot')]
 POP_WORDS, POP0_WORDS, POP00_WORDS = {'kot', 'kotem', 'statek'}, {'kot', 'statek'}, {'kot'}
 POP_MEMBERS = {'POP': ['kot@' + SOURCE, 'statek@' + SOURCE], 'POP0': ['kot@' + SOURCE]}
 # Słowosieć: korzenie jak w `morze.json`; kierunek PARENT_ID → CHILD_ID.
@@ -72,12 +80,16 @@ PLWN = {
     'lexicalunit': [(1, 'statek', 2, 1), (2, 'okręt', 2, 1), (3, 'łódź', 2, 2), (4, 'marynarz', 2, 1),
                     (5, 'żegluga', 2, 1), (6, 'żeglarstwo', 2, 1), (7, 'kuter', 2, 1),
                     (8, 'jednostka', 2, 1), (9, 'szkuta', 2, 1), (10, 'ship', 6, 1),
-                    (11, 'kot', 2, 1), (12, 'statek rzeczny', 2, 1)],
+                    (11, 'kot', 2, 1), (12, 'statek rzeczny', 2, 1),
+                    # Grupa 8: `kambuz` w domknięciu, `łódź 1` poza nim, angielska `okręt` (kod 6), `ger`.
+                    (13, 'kambuz', 2, 1), (14, 'łódź', 2, 1), (15, 'okręt', 6, 1), (16, 'żeglowanie', 2, 1)],
     'synset': [(7354, 0), (2149, 0), (4511, 0), (6214, 0), (14136, 0), (14515, 0), (900, 0), (901, 1),
-               (902, 0), (500, 0)],
+               (902, 0), (500, 0), (903, 0), (501, 0)],
     'unitandsynset': [(1, 7354, 0), (10, 7354, 1), (2, 2149, 0), (3, 4511, 0), (4, 6214, 0), (5, 14136, 0),
-                      (6, 14515, 0), (7, 900, 0), (12, 900, 1), (8, 901, 0), (9, 902, 0), (11, 500, 0)],
-    'synsetrelation': [(7354, 2149, 11), (7354, 4511, 11), (7354, 900, 11), (7354, 901, 11), (901, 902, 11)],
+                      (6, 14515, 0), (7, 900, 0), (12, 900, 1), (8, 901, 0), (9, 902, 0), (11, 500, 0),
+                      (13, 903, 0), (14, 501, 0), (15, 500, 1), (16, 14136, 1)],
+    'synsetrelation': [(7354, 2149, 11), (7354, 4511, 11), (7354, 900, 11), (7354, 901, 11), (901, 902, 11),
+                       (7354, 903, 11)],
     'relationtype': [(11, 'hiperonimia'), (25, 'część'), (27, 'miejsce')],
 }
 TBX = '''<?xml version="1.0" encoding="UTF-8"?>
@@ -248,14 +260,24 @@ def inputs_fixture(root):
         db.executescript((ROOT/'literaki_slownik/schema.sql').read_text(encoding='utf-8'))
         db.execute('insert into source_artifact values (?,?,?)', (SOURCE, 'sgjp_tab', '{}'))
         ids = {lemma: i for i, lemma in enumerate(lemmas, 1)}
-        db.executemany('insert into lexeme values (?,?,?,?)', [(i, SOURCE, l, l) for l, i in ids.items()])
+        db.executemany('insert into lexeme values (?,?,?,?)',
+                       [(i, SOURCE, l, l.split(':', 1)[0]) for l, i in ids.items()])
+        forms, rows = {}, {}
         for i, (form, lemma, tag, qual) in enumerate(SGJP, 1):
-            db.execute('insert into surface_form values (?,?,?,?,?)', (i, form, form, form, len(form)))
+            if form not in forms:
+                forms[form] = len(forms) + 1
+                db.execute('insert into surface_form values (?,?,?,?,?)', (forms[form], form, form, form, len(form)))
+            rows.setdefault(lemma, i)
             db.execute('insert into sgjp_record values (?,?,?,?,?,?,?)', (SOURCE, i, form, lemma, tag, '', qual))
             db.execute('insert into interpretation values (?,?,?,?,?,?,?,?)',
-                       (i, SOURCE, i, i, ids[lemma], tag, '', qual))
+                       (i, SOURCE, i, forms[form], ids[lemma], tag, '', qual))
+        for n, (word, lemma) in enumerate(CONSTRUCTIONS, 1):
+            db.execute('insert into derivation_candidate values (?,?,?,?,?,?,?,?,?)',
+                       (f'c{n}', 'fixture', word, word, lemma, 'subst:sg:nom:m3', '', '', '{}'))
+            db.execute('insert into derivation_component values (?,?,?,?,?)',
+                       (f'c{n}', 0, 'source_interpretation', SOURCE, rows[lemma]))
         db.commit()
-    broad_words = sorted({form for form, _, _, _ in SGJP})
+    broad_words = sorted({form for form, _, _, _ in SGJP} - NOT_BROAD | {w for w, _ in CONSTRUCTIONS})
     broad, standard = run/'lists/broad.txt', run/'lists/standard.txt'
     broad.write_text(''.join(w + '\n' for w in broad_words), encoding='utf-8')
     standard.write_text(''.join(w + '\n' for w in broad_words if w not in NOT_STANDARD), encoding='utf-8')
