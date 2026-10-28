@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specyfikacja — TEMATY „morze” (#11)</title>
+<style>
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+details > summary { cursor:pointer; font-weight:600; }
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+.two { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media (max-width:720px) { .two { grid-template-columns:1fr; } }
+.stories { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px; }
+.stories .card { margin:0; }
+.flow { font-family:ui-monospace,Menlo,monospace; font-size:12.5px; white-space:pre-wrap; }
+ul { padding-left:20px; } li { margin:3px 0; }
+.toc { font-size:13px; color:var(--dim); }
+</style>
+</head>
+<body>
+<nav class="crumbs">
+  <a href="../dashboard.html">← Dashboard</a>
+  <span class="here">Spec</span>
+  <a href="implementation-plan.html">Plan</a>
+  <a href="../verification/implementation-verification.html">Verification</a>
+  <a href="spec.md" target="_blank" rel="noopener" class="md">md twin ↗</a>
+</nav>
+
+<header>
+  <span class="badge">specyfikacja</span>
+  <h1>Pilotaż TEMATY „morze” (#11)</h1>
+  <div class="toc">2026-10-28 · źródło: <a href="spec.md" target="_blank" rel="noopener">spec.md</a></div>
+</header>
+
+<div class="tiles">
+  <div class="tile"><b>15</b><span>wymagań</span></div>
+  <div class="tile"><b>14</b><span>do ponownego użycia</span></div>
+  <div class="tile"><b>7</b><span>nowych składników</span></div>
+  <div class="tile"><b>90</b><span>słów R2</span></div>
+  <div class="tile"><b>średnie</b><span>ryzyko</span></div>
+</div>
+
+<section class="tldr card">
+  <h2 style="margin-top:0">TL;DR</h2>
+  <p>Nowa podkomenda <code>tematy</code> buduje lokalny pakiet TEMATY z tematem <code>morze</code>, według wzoru POP00: wsadowo, deterministycznie, bez sieci.
+  Lista to leksemy SGJP ∩ STANDARD w trzech rozłącznych warstwach: T1 etykiety SGJP, T2 Słowosieć 4.5, T3 IATE 2019.
+  Pakiet podaje przecięcia z POP i POP00, diagnostykę kandydatów wobec BROAD i STANDARD, test 37 słów i udział żeglugi śródlądowej w T3.
+  Pobranie źródeł i pochodna Słowosieci to osobne skrypty. Próba R2 (90 słów) idzie do operatora przez stronę z przyciskami.
+  Wydanie publiczne dopiero po bramce. Teraz: ADR-010, ADR-011 i strona wiki „W przygotowaniu”.</p>
+
+  <h2>Kluczowe decyzje</h2>
+  <table>
+    <tr><th>Decyzja</th><th>Uzasadnienie</th></tr>
+    <tr><td>Rejestr czytanych plików; <code>confirm_unchanged</code> re-hashuje cały rejestr</td><td>Obejmuje pliki w POP i POP00; naprawa błędu f33fe05</td></tr>
+    <tr><td>Pochodna Słowosieci z tabelą <code>meta</code> (SHA-256 zipa, wersja skryptu)</td><td>Budowa czyta tylko pochodną, a jest związana z przypiętym zipem</td></tr>
+    <tr><td>Pochodzenie (URL, data UTC, SHA-256, bajty) w <code>tematy-sources.json</code></td><td>W Git; bez <code>mtime</code>; Słowosieć pobrana ponownie, hash musi się zgadzać</td></tr>
+    <tr><td>Próba agenta 50 przez <code>quality</code>; operator: pierwsze 30 z 50 wg rangi</td><td><code>_config</code> dostaje rozmiar zależny od wersji; bez drugiego ziarna</td></tr>
+    <tr><td>Jedna skala: tak / nie / niepewne</td><td>Ta sama dla agenta i operatora</td></tr>
+    <tr><td>Werdykt automatyczny tylko „dalej” albo „popraw”</td><td>„stop” wybiera operator na bramce</td></tr>
+    <tr><td>Bez <code>explain --variant tematy</code> w v1</td><td>TSV podaje warstwę, źródła i znaczenie</td></tr>
+    <tr><td>Bez refaktoru POP00; upubliczniamy tylko <code>pop.write_gzip</code></td><td>Mniej ryzyka regresji</td></tr>
+    <tr><td>Teksty pakietu w <code>config/generator/tematy-teksty/</code>, przypięte hashem</td><td>Bez tekstów w kodzie</td></tr>
+    <tr><td>Kontrola śródlądowa przez znaczniki w pliku tematu</td><td>Tylko pomiar; nic nie wykluczamy</td></tr>
+  </table>
+
+  <h2>Otwarte pytania / ryzyka</h2>
+  <ul>
+    <li><span class="sev critical">critical</span>Kierunek relacji 11 („hiperonimia”) sprawdzić na <code>statek 1</code> przed domknięciem; to samo 25 i 27. Zapis w ADR-011.</li>
+    <li><span class="sev warning">warning</span>Struktura TBX 2019 nieznana do pobrania; parser odrzuca DTD i encje.</li>
+    <li><span class="sev warning">warning</span>Licencja Słowosieci 4.5 („4.2 © 2020”, link 404) — w <code>LIMITATIONS.md</code> i ADR-011.</li>
+    <li><span class="sev info">info</span>POP00 r2-a ma stan BUILT; nowa budowa POP00 zmieni liczby przecięć.</li>
+    <li><span class="sev info">info</span>Czas: dwa hashe <code>build.sqlite</code> (22 GB) i dwa skany <code>interpretation</code>.</li>
+    <li><span class="sev info">info</span>Nakład operatora: 90 ocen.</li>
+    <li><span class="sev info">info</span>Bajty SQLite zależą od wersji SQLite; sprawdzamy dwiema budowami.</li>
+  </ul>
+</section>
+
+<p class="toc">Spis: <a href="#zakres">Zakres</a> · <a href="#historie">Historie</a> · <a href="#wymagania">Wymagania</a> · <a href="#reuse">Ponowne użycie</a> · <a href="#tech">Podejście</a> · <a href="#testy">Testy</a> · <a href="#sukces">Kryteria sukcesu</a></p>
+
+<main>
+<h2 id="zakres">Zakres</h2>
+<p><b>Cel:</b> zbudować i zmierzyć pilotażowy temat <code>morze</code>, tak by operator mógł zdecydować na bramce: dalej, popraw albo stop.</p>
+<div class="two">
+  <div class="card"><b class="pass">W zakresie</b>
+    <ul>
+      <li>Pobranie IATE i Słowosieci z rekordem pochodzenia</li>
+      <li>Pochodna Słowosieci bez danych redaktorów</li>
+      <li>Podkomenda <code>tematy</code>, warstwy T1/T2/T3</li>
+      <li>Przecięcia z POP/POP00, diagnostyka BROAD/STANDARD</li>
+      <li>Test 37 słów, pomiar żeglugi śródlądowej</li>
+      <li>Próba 50/warstwę, R2 90 słów, checker, werdykt</li>
+      <li>ADR-010, ADR-011, dokumenty, wiki „W przygotowaniu”</li>
+    </ul></div>
+  <div class="card"><b class="fail">Poza zakresem</b>
+    <ul>
+      <li>Kolejne tematy i fala ~10 tematów</li>
+      <li>Wydanie publiczne i pełna wiki przed bramką</li>
+      <li>Dodatki ręczne i wykluczenia w <code>morze-v1</code></li>
+      <li><code>explain --variant tematy</code></li>
+      <li>Wikisłownik, LLM, Słowosieć 5.0, EU Login, kontakt z autorami</li>
+      <li>Terminy wielowyrazowe, listy znaczeń, ranking</li>
+      <li>Integracja z botami Literaki</li>
+      <li>Zmiany POP, POP0, POP00, BROAD, STANDARD</li>
+    </ul></div>
+</div>
+
+<h2 id="historie">Historie użytkownika</h2>
+<div class="stories">
+  <div class="card">Operator: zbudować temat jednym poleceniem z przypiętych wejść, żeby wynik dało się odtworzyć.</div>
+  <div class="card">Operator: widzieć, ile tematu jest w POP i POP00, żeby ocenić przydatność dla bota na mniejszym słowniku.</div>
+  <div class="card">Operator: ocenić 90 słów przyciskami, bez wglądu w oceny agenta.</div>
+  <div class="card">Odwiedzający wiki: wiedzieć, że TEMATY powstaje i z czego.</div>
+</div>
+
+<h2 id="wymagania">Wymagania</h2>
+<table>
+  <tr><th>Id</th><th>Wymaganie</th><th>Gdzie</th></tr>
+  <tr><td>W1</td><td>Pobranie IATE i Słowosieci (<code>curl -fL</code>, SHA-256, bajty, data UTC); hash Słowosieci = <code>30edc5f8…dcbc</code>; budowa bez sieci</td><td><code>scripts/fetch_tematy_sources.py</code></td></tr>
+  <tr><td>W2</td><td>Pochodna SQLite: wybrane tabele i kolumny, bez <code>owner</code>/<code>comment</code>/<code>error_comment</code>, kontrola nazw relacji, deterministyczna</td><td><code>scripts/build_plwordnet_db.py</code></td></tr>
+  <tr><td>W3</td><td>Manifest źródeł: v31, BROAD, STANDARD, pop-v3, POP00 r2-a, zip i pochodna, IATE</td><td><code>config/generator/tematy-sources.json</code></td></tr>
+  <tr><td>W4</td><td>Konfiguracja metody: <code>tematy-v1</code>, próba 50/30, progi, 37 słów, mapa części mowy, teksty</td><td><code>config/generator/tematy.json</code></td></tr>
+  <tr><td>W5</td><td>Plik tematu: atomy, 6 korzeni, relacje 11/25/27, IATE 4821, znaczniki śródlądowe, bez dodatków</td><td><code>config/generator/tematy/morze.json</code></td></tr>
+  <tr><td>W6</td><td>Podkomenda <code>tematy</code>; bez nadpisywania; re-hash rejestru przed przeniesieniem</td><td><code>literaki_slownik/tematy.py</code>, <code>cli.py</code></td></tr>
+  <tr><td>W7</td><td>Warstwy (najniższa wygrywa), wszystkie źródła, <code>wieloznaczny</code>, formy ∩ STANDARD</td><td><code>MORZE.txt.gz</code>, <code>MORZE.tsv.gz</code></td></tr>
+  <tr><td>W8</td><td>Przecięcia z POP/POP00, diagnostyka BROAD/STANDARD, odrzuceni z przykładami</td><td><code>reports/summary.json</code>, <code>raport.md</code></td></tr>
+  <tr><td>W9</td><td>Test 37 słów: T1, T1 ∪ T2, całość</td><td>raporty</td></tr>
+  <tr><td>W10</td><td>Udział śródlądowych w T3, do 20 przykładów</td><td>raporty, <code>LIMITATIONS.md</code></td></tr>
+  <tr><td>W11</td><td>Próba 50/warstwę, strona R2 (90, tak/nie/niepewne), zapis przeglądu</td><td><code>scripts/tematy_review.py</code></td></tr>
+  <tr><td>W12</td><td>Niezależny checker; <code>--review</code> liczy trafność, zgodność, werdykt</td><td><code>scripts/check_tematy_package.py</code></td></tr>
+  <tr><td>W13</td><td>ADR-010, ADR-011, <code>ATTRIBUTIONS.md</code>, docs, runbook wiki, INDEX</td><td><code>docs/</code></td></tr>
+  <tr><td>W14</td><td>Wiki <code>Slownik-TEMATY</code> „W przygotowaniu”, Home, _Sidebar, STANDARD, Historia-zmian</td><td>wiki</td></tr>
+  <tr><td>W15</td><td>Dwie budowy a/b: identyczne <code>SHA256SUMS</code></td><td>weryfikacja</td></tr>
+</table>
+
+<div class="card">
+  <b>Progi bramki</b> (konfiguracja metody)
+  <table>
+    <tr><th>Kryterium</th><th>Próg</th></tr>
+    <tr><td>Test 37 słów (całość)</td><td>≥ 70%</td></tr>
+    <tr><td>T1 (operator, 30)</td><td>≥ 27 „tak”</td></tr>
+    <tr><td>T2 (operator, 30)</td><td>≥ 20 „tak”, ≤ 3 „nie”</td></tr>
+    <tr><td>T3 (operator, 30)</td><td>≥ 20 „tak”</td></tr>
+    <tr><td>Zgodność agent–operator</td><td>≥ 80%</td></tr>
+  </table>
+</div>
+
+<h2 id="reuse">Ponowne użycie i nowe składniki</h2>
+<div class="two">
+<div class="card"><b>Istniejący kod</b>
+<table>
+  <tr><th>Element</th><th>Plik</th></tr>
+  <tr><td>wzór podkomendy, staging, <code>confirm_unchanged</code></td><td><code>pop00.py</code></td></tr>
+  <tr><td><code>read_words</code>, <code>package_file</code></td><td><code>pop00.py</code></td></tr>
+  <tr><td><code>checked_file</code>, <code>GeneratorError</code></td><td><code>inputs.py</code></td></tr>
+  <tr><td><code>dumps</code>, <code>load_json</code>, <code>sha256</code>, <code>write_json</code></td><td><code>canonical.py</code></td></tr>
+  <tr><td><code>load_forms</code>, <code>load_constructions</code>, <code>_label</code>, <code>write_gzip</code></td><td><code>pop.py</code></td></tr>
+  <tr><td><code>sample_strata</code>, <code>review_template</code>, <code>SEEDS</code></td><td><code>quality.py</code></td></tr>
+  <tr><td><code>code_identity</code> / <code>rename_noreplace</code></td><td><code>run.py</code> / <code>export.py</code></td></tr>
+  <tr><td>wzór CLI</td><td><code>cli.py</code></td></tr>
+  <tr><td>wzór checkera / pobrania</td><td><code>check_pop00_package.py</code> / <code>audit_kwjp.py</code></td></tr>
+  <tr><td>wzór zapisu oceny</td><td><code>record_review.py</code> (zadanie POP00)</td></tr>
+  <tr><td>fikstura</td><td><code>tests/pop00_helpers.py</code></td></tr>
+</table></div>
+<div class="card"><b>Nowe</b>
+<table>
+  <tr><th>Plik</th><th>Dlaczego</th></tr>
+  <tr><td><code>literaki_slownik/tematy.py</code></td><td>nowe źródła, warstwy, raporty</td></tr>
+  <tr><td><code>scripts/fetch_tematy_sources.py</code></td><td>brak pobrania z rekordem pochodzenia</td></tr>
+  <tr><td><code>scripts/build_plwordnet_db.py</code></td><td>brak odtwarzalnej pochodnej</td></tr>
+  <tr><td><code>scripts/check_tematy_package.py</code></td><td>inny format pakietu</td></tr>
+  <tr><td><code>scripts/tematy_review.py</code></td><td>dwóch oceniających, strona z przyciskami</td></tr>
+  <tr><td>configi i <code>tematy-teksty/*</code></td><td>dane metody, wejść, tematu</td></tr>
+  <tr><td><code>tests/tematy_helpers.py</code>, <code>test_tematy*.py</code></td><td>fikstura ze Słowosiecią i TBX</td></tr>
+</table></div>
+</div>
+
+<h2 id="tech">Podejście techniczne</h2>
+<div class="card flow">wejścia → kandydaci T1/T2/T3 → leksemy SGJP → diagnostyka BROAD/STANDARD → ∩ STANDARD
+→ scalenie warstw (najniższa) → przecięcia POP/POP00 → test 37 słów, śródlądowe → próba → pakiet (BUILT)</div>
+<details class="card"><summary>Szczegóły</summary>
+<ul>
+  <li><b>T1:</b> kwalifikatory dzielone po <code>|</code>, potem <code>,</code>; atom porównany w całości.</li>
+  <li><b>T2:</b> domknięcie od 6 korzeni po 11/25/27 (kierunek wg ADR-011); lemat + część mowy → <code>lexeme.lemma_base</code>.</li>
+  <li><b>T3:</b> polskie terminy IATE 4821, typ <code>term</code>, jedno słowo, małe litery, niezawodność ≥ 3; <code>iterparse</code> z zipa, DTD i encje = błąd.</li>
+  <li><b>Wpis:</b> leksem <code>lemma_id@source_id</code>; <code>wieloznaczny</code>: tak / nie / brak_danych (reguła ADR-007 badania).</li>
+  <li><b>Formy:</b> jak w POP (<code>load_forms</code> + <code>load_constructions</code>) ∩ STANDARD.</li>
+  <li><b>Przecięcia:</b> leksem w POP = członek POP w <code>units.json</code>; w POP00 = członek POP0; formy z <code>POP.txt.gz</code> / <code>POP00.txt.gz</code>.</li>
+  <li><b>Determinizm:</b> sortowanie, <code>canonical.dumps</code>, gzip <code>mtime=0</code>, <code>code_identity()</code>.</li>
+  <li><b>Przegląd:</b> poza pakietem, <code>verification/tematy-morze-review.json</code>, związany z <code>SHA256SUMS</code> i <code>sample_sha256</code>; commit raz.</li>
+  <li><b>Pliki pakietu:</b> <code>MORZE.txt.gz</code>, <code>MORZE.tsv.gz</code>, <code>tematy/morze.json</code>, <code>method.json</code>, <code>reports/summary.json</code>, <code>reports/raport.md</code>, <code>reports/sample.json</code>, <code>reports/review-template.json</code>, <code>ATTRIBUTIONS.md</code>, <code>LIMITATIONS.md</code>, <code>TERMS.md</code>, <code>release-manifest.json</code>, <code>SHA256SUMS</code>.</li>
+  <li><b>Kolejność:</b> wiki → ADR → pobranie i pochodna → moduł i testy → budowy a/b → checker → przegląd agenta → strona R2 → bramka.</li>
+</ul>
+</details>
+
+<h2 id="testy">Testy i standardy</h2>
+<div class="card">
+<ul>
+  <li>2–8 testów na grupę kroków; weryfikacja uruchamia tylko nowe testy grupy.</li>
+  <li>Fikstura: mała baza z <code>schema.sql</code>, mała pochodna, mały TBX, małe pakiety POP i POP00.</li>
+  <li>Pokrycie: atomy <code>|</code>/<code>,</code>; kierunek domknięcia; wpis w kilku warstwach; homonimy; nieznane pole; dodatek spoza STANDARD; zmiana pliku w POP podczas budowy; brak <code>owner</code> i determinizm pochodnej; DTD w TBX; budowy a/b; checker z przeglądem.</li>
+  <li>Standardy: <code>AGENTS.md</code>, <code>docs/generator/publikacja.md</code>, <code>docs/runbook-wiki.md</code>, ADR-009; commity <code>feat(tematy): … (#11)</code>.</li>
+</ul>
+</div>
+
+<h2 id="sukces">Kryteria sukcesu</h2>
+<div class="card">
+<ol>
+  <li>Budowa offline; a/b z identycznymi <code>SHA256SUMS</code>.</li>
+  <li>Każdy wpis to leksem z formą w STANDARD v31, z warstwą, źródłami i <code>wieloznaczny</code>.</li>
+  <li>Raporty: przecięcia, diagnostyka z odrzuconymi, test 37 słów, udział śródlądowych.</li>
+  <li>Zmiana czytanego pliku w trakcie budowy = błąd (kod 5), brak pakietu.</li>
+  <li>Pochodna bez <code>owner</code>, <code>comment</code>, logu IP; dwa uruchomienia, ten sam hash.</li>
+  <li>Checker PASS; <code>--review</code> daje trafność, zgodność, werdykt.</li>
+  <li>Operator ocenił 90 pozycji; raport bramki gotowy; decyzja zapisana.</li>
+  <li>ADR-010, ADR-011, <code>ATTRIBUTIONS.md</code>, docs i wiki zaktualizowane.</li>
+</ol>
+</div>
+</main>
+</body>
+</html>

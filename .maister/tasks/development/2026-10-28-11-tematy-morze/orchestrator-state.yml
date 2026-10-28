@@ -15,7 +15,7 @@ orchestrator:
     reality_check_enabled: true
     production_check_enabled: true
   created: 2026-10-28T22:06:28Z
-  updated: 2026-10-28T22:37:25Z
+  updated: 2026-10-28T22:44:58Z
   task_path: .maister/tasks/development/2026-10-28-11-tematy-morze
 task:
   title: "TEMATY: pilotaż słownika „morze” (#11)"
@@ -45,7 +45,7 @@ task_context:
   risk_level: medium
   clarifications_resolved: true
   scope_expanded: false
-  architecture_decision: null
+  architecture_decision: "Potok wsadowy offline, podkomenda tematy wg POP00 (z badania)"
   task_characteristics:
     has_reproducible_defect: false
     modifies_existing_code: true
@@ -65,6 +65,15 @@ task_context:
       - docs/generator/cli.md
       - docs/adr/ADR-009-pop00-v1.md
   phase_summaries:
+    specification:
+      summary: "15 wymagań W1–W15: podkomenda tematy, skrypty pobrania/pochodnej Słowosieci/checkera/przeglądu, konfiguracje, raport przecięć, R2 90 słów, ADR-010/011, wiki W przygotowaniu."
+      decisions:
+        - {decision: "Rejestr wszystkich czytanych plików, confirm_unchanged hashuje cały rejestr", rationale: "naprawia klasę błędu f33fe05"}
+        - {decision: "quality._config z rozmiarem per wersja; operator ocenia pierwsze 30 z 50 wg rangi", rationale: "jedna ścieżka losowania"}
+        - {decision: "Werdykt automatyczny: dalej albo popraw; stop wybiera tylko operator", rationale: "ostateczna decyzja należy do operatora"}
+        - {decision: "Bez explain --variant tematy i bez refaktoru POP00 w v1", rationale: "mniejsze ryzyko regresji"}
+      risks: ["Kierunek relacji 11/25/27 w 4.5 do sprawdzenia przed domknięciem", "Struktura TBX 2019 nieznana do pobrania", "Licencja Słowosieci 4.5 niejasna (nota 4.2, link 404)", "POP00 r2-a tylko BUILT", "Bajtowa identyczność pochodnej SQLite zależy od wersji SQLite"]
+      artifacts: [{path: implementation/spec.md, label: Specyfikacja, html: implementation/spec.html}, {path: analysis/requirements.md, label: Wymagania, html: null}]
     gap_analysis:
       summary: "Nic z TEMATY nie istnieje; zmiana addytywna, wzór POP00. plwn45.sqlite ma kolumny owner (82 redaktorów) — potrzebna pochodna bez nich; lista 37 słów bramki tylko w scratchpadzie; quality przyjmuje tylko 30 na warstwę."
       decisions_made:
