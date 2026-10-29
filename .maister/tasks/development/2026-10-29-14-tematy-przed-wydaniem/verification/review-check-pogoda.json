@@ -1,0 +1,127 @@
+{
+  "formy": 2191,
+  "przeglad": {
+    "agent": {
+      "T1": {
+        "N": 50,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 2,
+        "tak": 48,
+        "tak_udzial": "24/25"
+      },
+      "T2": {
+        "N": 50,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 9,
+        "tak": 41,
+        "tak_udzial": "41/50"
+      },
+      "T3": {
+        "N": 0,
+        "nie": 0,
+        "nie_udzial": null,
+        "niepewne": 0,
+        "tak": 0,
+        "tak_udzial": null
+      }
+    },
+    "agent_sha256": "ae5d3ed370c1fdd947a4414394a704be5d2872244057e1eb165fd43e5c2d0217",
+    "operator": null,
+    "slowa_oczywiste": {
+      "brakujace": [
+        "jesień",
+        "lato",
+        "lód",
+        "niebo",
+        "wiosna",
+        "zima"
+      ],
+      "lista": 36,
+      "pokryte": 30,
+      "udzial": "5/6"
+    },
+    "werdykt": {
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [],
+      "progi": [
+        {
+          "granica": "0.70",
+          "kierunek": ">=",
+          "prog": "slowa_oczywiste",
+          "status": "spelniony",
+          "wartosc": "5/6"
+        },
+        {
+          "granica": "0.90",
+          "kierunek": ">=",
+          "prog": "t1_tak",
+          "status": "spelniony",
+          "wartosc": "24/25"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t2_tak",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "0.10",
+          "kierunek": "<=",
+          "prog": "t2_nie",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t3_tak",
+          "status": "nie_dotyczy",
+          "wartosc": "nie_dotyczy"
+        },
+        {
+          "granica": "0.80",
+          "kierunek": ">=",
+          "prog": "zgodnosc",
+          "status": "czeka",
+          "wartosc": "czeka"
+        }
+      ],
+      "uwaga": "„stop” wybiera tylko operator na bramce",
+      "wynik": null
+    },
+    "zgodnosc": null
+  },
+  "review_checked": true,
+  "sha256sums_sha256": "e22811d7c287b7d4e8449b1815f38bf41211dacba576970c62c5a3cb0e4d5ab0",
+  "slowa_oczywiste": {
+    "brakujace": [
+      "jesień",
+      "lato",
+      "lód",
+      "niebo",
+      "wiosna",
+      "zima"
+    ],
+    "lista": 36,
+    "pokryte": 30
+  },
+  "status": "pass",
+  "temat": "pogoda",
+  "warstwy": {
+    "D": 7,
+    "T1": 54,
+    "T2": 178,
+    "T3": 0
+  },
+  "wpisy": 239
+}

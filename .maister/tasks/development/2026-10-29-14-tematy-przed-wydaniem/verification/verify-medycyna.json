@@ -1,0 +1,665 @@
+{
+  "topic": "config/generator/tematy/medycyna.json",
+  "topic_sha256": "d9d9cda7147a77141e7bb0b948f3b9dc0c6121f459ff6ac6293627d029cc5af1",
+  "code_identity": {
+    "git_commit": "c563c33acb33cd0cccbd8ba583ea116a5eee5928",
+    "git_dirty": false,
+    "tree_sha256": "79431b64cbc9cc2832e081013d836428d184f06bdd42720cfd8c5619401f0e1f"
+  },
+  "git_status_config_scripts": "pusty",
+  "budowy": {
+    "a": {
+      "start": 1793286750,
+      "end": 1793286794,
+      "exit": 0,
+      "sekundy": 44
+    },
+    "b": {
+      "start": 1793286794,
+      "end": 1793286838,
+      "exit": 0,
+      "sekundy": 44
+    }
+  },
+  "pakiety": [
+    "data/work/tematy-wydanie-20261029/tematy-medycyna-v3-20261029-a",
+    "data/work/tematy-wydanie-20261029/tematy-medycyna-v3-20261029-b"
+  ],
+  "sha256sums_sha256": "91b5d75ad5fb58e7baddc2a0f47f1b6060a9048e059482615242b535e6f68f96",
+  "files_sha256": {
+    "ATTRIBUTIONS.md": "87bb3d8fa3e6de9c2be052a8fbf1f6ec4bfa44d4e35dd836d6546f4331b51569",
+    "LIMITATIONS.md": "06efc6f2de81c872476971c577836f584553258447195c5271fbb3d910372ddf",
+    "MEDYCYNA.tsv.gz": "c243da38420d1cb00e6129718841d21741a78e95997eb7601dd66a6f38c63170",
+    "MEDYCYNA.txt.gz": "6a1d191cfb2b00b5229ca76622b574bb1fc91f6bcd8e3c008737381e7e9170d8",
+    "SHA256SUMS": "91b5d75ad5fb58e7baddc2a0f47f1b6060a9048e059482615242b535e6f68f96",
+    "TERMS.md": "7d4f57c1689214535616d0ccba94b84d539e18c4e7c5451c079a848198b61a9e",
+    "method.json": "cf2cb5ace886e52ea931a8d16d4aedaa8ff32293a3d7b08adb3b3c9147b0160c",
+    "release-manifest.json": "a63f05c710d96c7c396407518c5415d23d594a9b6f21db04aa2e2f4ab9d22566",
+    "reports/raport.md": "74a6e9f96f2fa2e2b48b2e007e4e835662f9d4d768346c4aa285a52811fdd05e",
+    "reports/review-template.json": "579c5e3aafd41fe21039019e755eb9eceffc4c6171cc8774205fbd748851fb9c",
+    "reports/sample.json": "c02e8c2023aff7801dbb0d6dbf60af32cbd5f914865d07458b4e85c48926c1a2",
+    "reports/summary.json": "5af6237151bac13c4e479e2782d1f217889aa1f26f5ef079a557bc1858813908",
+    "tematy/medycyna.json": "d9d9cda7147a77141e7bb0b948f3b9dc0c6121f459ff6ac6293627d029cc5af1"
+  },
+  "all_files_identical": true,
+  "checker": {
+    "tematy-medycyna-v3-20261029-a": {
+      "exit": 0,
+      "status": "pass"
+    },
+    "tematy-medycyna-v3-20261029-b": {
+      "exit": 0,
+      "status": "pass"
+    }
+  },
+  "checker_wynik_a": {
+    "formy": 26383,
+    "review_checked": false,
+    "sha256sums_sha256": "91b5d75ad5fb58e7baddc2a0f47f1b6060a9048e059482615242b535e6f68f96",
+    "slowa_oczywiste": {
+      "brakujace": [
+        "apteka",
+        "badanie",
+        "bandaż",
+        "ciało",
+        "pacjent",
+        "plaster",
+        "tabletka",
+        "zastrzyk"
+      ],
+      "lista": 39,
+      "pokryte": 31
+    },
+    "status": "pass",
+    "temat": "medycyna",
+    "warstwy": {
+      "D": 0,
+      "T1": 268,
+      "T2": 2623,
+      "T3": 0
+    },
+    "wpisy": 2891
+  },
+  "summary": {
+    "liczby": {
+      "formy": 26383,
+      "kandydaci": 2972,
+      "warstwy": {
+        "D": 0,
+        "T1": 268,
+        "T2": 2623,
+        "T3": 0
+      },
+      "wpisy": 2891
+    },
+    "przeciecia": {
+      "leksemy": {
+        "D": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "T1": {
+          "temat": 268,
+          "pop": {
+            "liczba": 143,
+            "procent": "53.4"
+          },
+          "pop00": {
+            "liczba": 23,
+            "procent": "8.6"
+          }
+        },
+        "T2": {
+          "temat": 2623,
+          "pop": {
+            "liczba": 1448,
+            "procent": "55.2"
+          },
+          "pop00": {
+            "liczba": 435,
+            "procent": "16.6"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 2891,
+          "pop": {
+            "liczba": 1591,
+            "procent": "55.0"
+          },
+          "pop00": {
+            "liczba": 458,
+            "procent": "15.8"
+          }
+        }
+      },
+      "formy": {
+        "D": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "T1": {
+          "temat": 3005,
+          "pop": {
+            "liczba": 1360,
+            "procent": "45.3"
+          },
+          "pop00": {
+            "liczba": 231,
+            "procent": "7.7"
+          }
+        },
+        "T2": {
+          "temat": 23484,
+          "pop": {
+            "liczba": 13060,
+            "procent": "55.6"
+          },
+          "pop00": {
+            "liczba": 4229,
+            "procent": "18.0"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 26383,
+          "pop": {
+            "liczba": 14315,
+            "procent": "54.3"
+          },
+          "pop00": {
+            "liczba": 4432,
+            "procent": "16.8"
+          }
+        }
+      }
+    },
+    "diagnostyka": {
+      "D": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "T1": {
+        "formy": {
+          "broad": 3064,
+          "kandydaci": 3459,
+          "procent_broad": "88.6",
+          "procent_standard": "86.9",
+          "standard": 3005
+        },
+        "leksemy": {
+          "broad": 269,
+          "kandydaci": 286,
+          "procent_broad": "94.1",
+          "procent_standard": "93.7",
+          "standard": 268
+        }
+      },
+      "T2": {
+        "formy": {
+          "broad": 24160,
+          "kandydaci": 25121,
+          "procent_broad": "96.2",
+          "procent_standard": "93.5",
+          "standard": 23484
+        },
+        "leksemy": {
+          "broad": 2647,
+          "kandydaci": 2686,
+          "procent_broad": "98.5",
+          "procent_standard": "97.7",
+          "standard": 2623
+        }
+      },
+      "T3": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "razem": {
+        "formy": {
+          "broad": 27118,
+          "kandydaci": 28471,
+          "procent_broad": "95.2",
+          "procent_standard": "92.7",
+          "standard": 26383
+        },
+        "leksemy": {
+          "broad": 2916,
+          "kandydaci": 2972,
+          "procent_broad": "98.1",
+          "procent_standard": "97.3",
+          "standard": 2891
+        }
+      }
+    },
+    "slowa_oczywiste": {
+      "razem": {
+        "brakujace": [
+          "apteka",
+          "badanie",
+          "bandaż",
+          "ciało",
+          "pacjent",
+          "plaster",
+          "tabletka",
+          "zastrzyk"
+        ],
+        "pokryte": 31,
+        "procent": "79.5"
+      },
+      "T1": {
+        "brakujace": [
+          "apteka",
+          "badanie",
+          "bandaż",
+          "brzuch",
+          "choroba",
+          "ciało",
+          "dentysta",
+          "gorączka",
+          "grypa",
+          "grzybica",
+          "głowa",
+          "kaszel",
+          "katar",
+          "kolano",
+          "kość",
+          "krew",
+          "lek",
+          "lekarz",
+          "nerka",
+          "noga",
+          "operacja",
+          "pacjent",
+          "pielęgniarka",
+          "plaster",
+          "płuco",
+          "rana",
+          "serce",
+          "szczepionka",
+          "szpital",
+          "tabletka",
+          "wątroba",
+          "zastrzyk",
+          "ząb",
+          "złamanie",
+          "żołądek"
+        ],
+        "pokryte": 4,
+        "procent": "10.3"
+      },
+      "T1_T2": {
+        "brakujace": [
+          "apteka",
+          "badanie",
+          "bandaż",
+          "ciało",
+          "pacjent",
+          "plaster",
+          "tabletka",
+          "zastrzyk"
+        ],
+        "pokryte": 31,
+        "procent": "79.5"
+      },
+      "spelniony": true,
+      "prog": "0.70"
+    },
+    "srodladowe": null,
+    "odrzucone": {
+      "D": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "T1": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 17
+        },
+        "POZA_STANDARD": {
+          "liczba": 1
+        }
+      },
+      "T2": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 17
+          },
+          "liczba": 1291
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 3760
+        },
+        "POZA_BROAD": {
+          "liczba": 39
+        },
+        "POZA_STANDARD": {
+          "liczba": 24
+        }
+      },
+      "T3": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "razem": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 17
+          },
+          "liczba": 1291
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 3760
+        },
+        "POZA_BROAD": {
+          "liczba": 56
+        },
+        "POZA_STANDARD": {
+          "liczba": 25
+        }
+      }
+    },
+    "t3": null,
+    "wieloznaczny": {
+      "brak_danych": {
+        "liczba": 33,
+        "procent": "1.1",
+        "przyklady": [
+          "anemizować@sgjp-20260823",
+          "atymia@sgjp-20260823",
+          "celoma@sgjp-20260823",
+          "cynestezja@sgjp-20260823",
+          "digitalina@sgjp-20260823",
+          "ekstrasystole@sgjp-20260823",
+          "elektrokaustyka@sgjp-20260823",
+          "faradyzować@sgjp-20260823",
+          "jodol@sgjp-20260823",
+          "karcinogenność@sgjp-20260823"
+        ]
+      },
+      "nie": {
+        "liczba": 1719,
+        "procent": "59.5",
+        "przyklady": [
+          "AIDS@sgjp-20260823",
+          "Al@sgjp-20260823",
+          "Ala@sgjp-20260823",
+          "abazja@sgjp-20260823",
+          "abduktor@sgjp-20260823",
+          "absces@sgjp-20260823",
+          "abulia@sgjp-20260823",
+          "acetonemia@sgjp-20260823",
+          "acetyl@sgjp-20260823",
+          "achalazja@sgjp-20260823"
+        ]
+      },
+      "tak": {
+        "liczba": 1139,
+        "procent": "39.4",
+        "przyklady": [
+          "ablacja@sgjp-20260823",
+          "abominacja@sgjp-20260823",
+          "abrazja@sgjp-20260823",
+          "acefalia@sgjp-20260823",
+          "adrenalina@sgjp-20260823",
+          "afekt@sgjp-20260823",
+          "afektywność@sgjp-20260823",
+          "agonia@sgjp-20260823",
+          "akinezja@sgjp-20260823",
+          "akupunktura@sgjp-20260823"
+        ]
+      }
+    },
+    "wykluczenia": [
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "gladius@sgjp-20260823"
+        ],
+        "lemat": "gladius",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "indywiduacja@sgjp-20260823"
+        ],
+        "lemat": "indywiduacja",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T1"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "macka@sgjp-20260823"
+        ],
+        "lemat": "macka",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "mizogin@sgjp-20260823"
+        ],
+        "lemat": "mizogin",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T1"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "numulit@sgjp-20260823"
+        ],
+        "lemat": "numulit",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "pantofelek:Sm2.m3@sgjp-20260823",
+          "pantofelek:Sm2@sgjp-20260823"
+        ],
+        "lemat": "pantofelek",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "skrzele@sgjp-20260823"
+        ],
+        "lemat": "skrzele",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "inf",
+        "klucze": [
+          "walidować@sgjp-20260823"
+        ],
+        "lemat": "walidować",
+        "powód": "#14: słowo z psych. bez związku z medycyną (operator)",
+        "warstwy": [
+          "T1"
+        ]
+      },
+      {
+        "czesc_mowy": "inf",
+        "klucze": [
+          "logizować@sgjp-20260823"
+        ],
+        "lemat": "logizować",
+        "powód": "#14: słowo z psych. bez związku z medycyną (operator)",
+        "warstwy": [
+          "T1"
+        ]
+      },
+      {
+        "czesc_mowy": "inf",
+        "klucze": [
+          "apercypować@sgjp-20260823"
+        ],
+        "lemat": "apercypować",
+        "powód": "#14: słowo z psych. bez związku z medycyną (operator)",
+        "warstwy": [
+          "T1"
+        ]
+      },
+      {
+        "czesc_mowy": "inf",
+        "klucze": [
+          "rozhamować@sgjp-20260823"
+        ],
+        "lemat": "rozhamować",
+        "powód": "#14: słowo z psych. bez związku z medycyną (operator)",
+        "warstwy": [
+          "T1"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "dezindywiduacja@sgjp-20260823"
+        ],
+        "lemat": "dezindywiduacja",
+        "powód": "#14: słowo z psych. bez związku z medycyną (operator)",
+        "warstwy": [
+          "T1"
+        ]
+      }
+    ],
+    "werdykt": {
+      "automatyczny": "dalej",
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [],
+      "uwaga": "„stop” wybiera tylko operator na bramce"
+    }
+  },
+  "fala": {
+    "temat": "medycyna",
+    "t3_wpisy": 0,
+    "summary_t3_null": true,
+    "srodladowe_null": true,
+    "iate_w_inputs": false,
+    "iate_blok_manifestu": false,
+    "iate_w_plikach": {},
+    "bledy": [],
+    "zgodna": true
+  }
+}

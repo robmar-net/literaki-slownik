@@ -1,11 +1,11 @@
-"""Zapis ocen agenta R2 (#13; kopia z #12 grupa 13.4) do verification/tematy-<id>-review.json.
+"""Zapis ocen agenta R2 (#14; kopia z #13) do verification/tematy-<id>-review.json.
 
 Kopia skryptu z #11 z pętlą po tematach. Oceny leżą w analysis/agent-ratings-<id>.json
 (format: analysis/instrukcja-oceny-agenta.md). Zapis idzie przez scripts/tematy_review.py
 (agent_review + write_review), więc plik przeglądu ma hash ocen i powiązanie z pakietem a.
 Potem checker z --review sprawdza wynik. Zły plik ocen: odmowa, nic nie jest zapisane.
 
-Użycie: python3 record_agent_review.py [id ...]   (bez argumentów: wszystkie 7 tematów v2)
+Użycie: python3 record_agent_review.py [id ...]   (bez argumentów: matematyka i medycyna v3)
 `--ratings` i `--out-dir` są tylko do kontroli 13.1 (plik syntetyczny, wynik poza zadaniem).
 """
 import argparse
@@ -17,8 +17,8 @@ import sys
 
 TASK = Path(__file__).resolve().parents[1]
 REPO = TASK.parents[3]
-TEMATY = ('grzyby', 'pogoda', 'matematyka', 'muzyka', 'sport', 'kuchnia', 'medycyna')
-WERSJA = 'v2-20261029-a'
+TEMATY = ('matematyka', 'medycyna')
+WERSJA = 'v3-20261029-a'
 
 spec = importlib.util.spec_from_file_location('tematy_review', REPO/'scripts/tematy_review.py')
 tr = importlib.util.module_from_spec(spec)
@@ -26,7 +26,7 @@ spec.loader.exec_module(tr)
 
 
 def pakiet(temat):
-    return REPO/f'data/work/tematy-{temat}-{WERSJA}'
+    return REPO/f'data/work/tematy-wydanie-20261029/tematy-{temat}-{WERSJA}'
 
 
 def wczytaj(path):

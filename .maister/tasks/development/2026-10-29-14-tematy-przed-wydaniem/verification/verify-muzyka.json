@@ -1,0 +1,566 @@
+{
+  "topic": "config/generator/tematy/muzyka.json",
+  "topic_sha256": "8a72f45b3589759304a85559479d86ec1a0db4b767d1e1ff311144261c8576cd",
+  "code_identity": {
+    "git_commit": "c563c33acb33cd0cccbd8ba583ea116a5eee5928",
+    "git_dirty": false,
+    "tree_sha256": "79431b64cbc9cc2832e081013d836428d184f06bdd42720cfd8c5619401f0e1f"
+  },
+  "git_status_config_scripts": "pusty",
+  "budowy": {
+    "a": {
+      "start": 1793285983,
+      "end": 1793286025,
+      "exit": 0,
+      "sekundy": 42
+    },
+    "b": {
+      "start": 1793286025,
+      "end": 1793286069,
+      "exit": 0,
+      "sekundy": 44
+    }
+  },
+  "pakiety": [
+    "data/work/tematy-wydanie-20261029/tematy-muzyka-v2-20261029-a",
+    "data/work/tematy-wydanie-20261029/tematy-muzyka-v2-20261029-b"
+  ],
+  "sha256sums_sha256": "951891e87194b5f73a4127271c0041ced11c10b4ba122e643f54868da2a32675",
+  "files_sha256": {
+    "ATTRIBUTIONS.md": "87bb3d8fa3e6de9c2be052a8fbf1f6ec4bfa44d4e35dd836d6546f4331b51569",
+    "LIMITATIONS.md": "06efc6f2de81c872476971c577836f584553258447195c5271fbb3d910372ddf",
+    "MUZYKA.tsv.gz": "201062f767c1f3e62793db960b430390275f7014a0df973cf29250c8cc0ec155",
+    "MUZYKA.txt.gz": "73796afb1d357f75d8329f590d82403f0dbe111541e723edc63cf0ee33d6fa78",
+    "SHA256SUMS": "951891e87194b5f73a4127271c0041ced11c10b4ba122e643f54868da2a32675",
+    "TERMS.md": "7d4f57c1689214535616d0ccba94b84d539e18c4e7c5451c079a848198b61a9e",
+    "method.json": "cf2cb5ace886e52ea931a8d16d4aedaa8ff32293a3d7b08adb3b3c9147b0160c",
+    "release-manifest.json": "ac5eafa0ec11d7b28af901b8827b9daf642c2cc3efe5443fcbce65506108a70b",
+    "reports/raport.md": "1a208c5a6a6504a844dec0ed06c0c8db4c82bd45aaf50d12b0c3c44797cc8f31",
+    "reports/review-template.json": "64a4b17882a4a2cf0edd91b29becdaa23904050851c6fdc52a1bff5b336c6b3d",
+    "reports/sample.json": "24e7eb1793ebef61ce72aa5b5c0b329cdd8ef6e6ff42841c962e5992f966c104",
+    "reports/summary.json": "59b8eef3ff66b79f28944c196effbb6c61d4a92fd8357944d848b2f911149896",
+    "tematy/muzyka.json": "8a72f45b3589759304a85559479d86ec1a0db4b767d1e1ff311144261c8576cd"
+  },
+  "all_files_identical": true,
+  "checker": {
+    "tematy-muzyka-v2-20261029-a": {
+      "exit": 0,
+      "status": "pass"
+    },
+    "tematy-muzyka-v2-20261029-b": {
+      "exit": 0,
+      "status": "pass"
+    }
+  },
+  "checker_wynik_a": {
+    "formy": 9158,
+    "review_checked": false,
+    "sha256sums_sha256": "951891e87194b5f73a4127271c0041ced11c10b4ba122e643f54868da2a32675",
+    "slowa_oczywiste": {
+      "brakujace": [
+        "akord",
+        "dźwięk",
+        "gama",
+        "nagranie",
+        "perkusja",
+        "płyta",
+        "tańczyć",
+        "zespół",
+        "śpiewać"
+      ],
+      "lista": 37,
+      "pokryte": 28
+    },
+    "status": "pass",
+    "temat": "muzyka",
+    "warstwy": {
+      "D": 0,
+      "T1": 224,
+      "T2": 836,
+      "T3": 0
+    },
+    "wpisy": 1060
+  },
+  "summary": {
+    "liczby": {
+      "formy": 9158,
+      "kandydaci": 1128,
+      "warstwy": {
+        "D": 0,
+        "T1": 224,
+        "T2": 836,
+        "T3": 0
+      },
+      "wpisy": 1060
+    },
+    "przeciecia": {
+      "leksemy": {
+        "D": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "T1": {
+          "temat": 224,
+          "pop": {
+            "liczba": 112,
+            "procent": "50.0"
+          },
+          "pop00": {
+            "liczba": 14,
+            "procent": "6.2"
+          }
+        },
+        "T2": {
+          "temat": 836,
+          "pop": {
+            "liczba": 510,
+            "procent": "61.0"
+          },
+          "pop00": {
+            "liczba": 164,
+            "procent": "19.6"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 1060,
+          "pop": {
+            "liczba": 622,
+            "procent": "58.7"
+          },
+          "pop00": {
+            "liczba": 178,
+            "procent": "16.8"
+          }
+        }
+      },
+      "formy": {
+        "D": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "T1": {
+          "temat": 2017,
+          "pop": {
+            "liczba": 835,
+            "procent": "41.4"
+          },
+          "pop00": {
+            "liczba": 115,
+            "procent": "5.7"
+          }
+        },
+        "T2": {
+          "temat": 7377,
+          "pop": {
+            "liczba": 4549,
+            "procent": "61.7"
+          },
+          "pop00": {
+            "liczba": 1431,
+            "procent": "19.4"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 9158,
+          "pop": {
+            "liczba": 5208,
+            "procent": "56.9"
+          },
+          "pop00": {
+            "liczba": 1525,
+            "procent": "16.7"
+          }
+        }
+      }
+    },
+    "diagnostyka": {
+      "D": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "T1": {
+        "formy": {
+          "broad": 2025,
+          "kandydaci": 2257,
+          "procent_broad": "89.7",
+          "procent_standard": "89.4",
+          "standard": 2017
+        },
+        "leksemy": {
+          "broad": 224,
+          "kandydaci": 240,
+          "procent_broad": "93.3",
+          "procent_standard": "93.3",
+          "standard": 224
+        }
+      },
+      "T2": {
+        "formy": {
+          "broad": 7686,
+          "kandydaci": 8044,
+          "procent_broad": "95.5",
+          "procent_standard": "91.7",
+          "standard": 7377
+        },
+        "leksemy": {
+          "broad": 860,
+          "kandydaci": 888,
+          "procent_broad": "96.8",
+          "procent_standard": "94.1",
+          "standard": 836
+        }
+      },
+      "T3": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "razem": {
+        "formy": {
+          "broad": 9474,
+          "kandydaci": 10064,
+          "procent_broad": "94.1",
+          "procent_standard": "91.0",
+          "standard": 9158
+        },
+        "leksemy": {
+          "broad": 1084,
+          "kandydaci": 1128,
+          "procent_broad": "96.1",
+          "procent_standard": "94.0",
+          "standard": 1060
+        }
+      }
+    },
+    "slowa_oczywiste": {
+      "razem": {
+        "brakujace": [
+          "akord",
+          "dźwięk",
+          "gama",
+          "nagranie",
+          "perkusja",
+          "płyta",
+          "tańczyć",
+          "zespół",
+          "śpiewać"
+        ],
+        "pokryte": 28,
+        "procent": "75.7"
+      },
+      "T1": {
+        "brakujace": [
+          "akord",
+          "bas",
+          "bęben",
+          "chór",
+          "dyrygent",
+          "dźwięk",
+          "flet",
+          "fortepian",
+          "gama",
+          "gitara",
+          "harfa",
+          "kompozytor",
+          "koncert",
+          "melodia",
+          "mikrofon",
+          "muzyk",
+          "nagranie",
+          "nuta",
+          "opera",
+          "orkiestra",
+          "perkusja",
+          "pianino",
+          "piosenka",
+          "piosenkarz",
+          "płyta",
+          "rytm",
+          "skrzypce",
+          "taniec",
+          "tańczyć",
+          "trąbka",
+          "zespół",
+          "śpiew",
+          "śpiewać"
+        ],
+        "pokryte": 4,
+        "procent": "10.8"
+      },
+      "T1_T2": {
+        "brakujace": [
+          "akord",
+          "dźwięk",
+          "gama",
+          "nagranie",
+          "perkusja",
+          "płyta",
+          "tańczyć",
+          "zespół",
+          "śpiewać"
+        ],
+        "pokryte": 28,
+        "procent": "75.7"
+      },
+      "spelniony": true,
+      "prog": "0.70"
+    },
+    "srodladowe": null,
+    "odrzucone": {
+      "D": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "T1": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 16
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "T2": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 2
+          },
+          "liczba": 188
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 359
+        },
+        "POZA_BROAD": {
+          "liczba": 28
+        },
+        "POZA_STANDARD": {
+          "liczba": 24
+        }
+      },
+      "T3": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "razem": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 2
+          },
+          "liczba": 188
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 359
+        },
+        "POZA_BROAD": {
+          "liczba": 44
+        },
+        "POZA_STANDARD": {
+          "liczba": 24
+        }
+      }
+    },
+    "t3": null,
+    "wieloznaczny": {
+      "brak_danych": {
+        "liczba": 26,
+        "procent": "2.5",
+        "przyklady": [
+          "anglaise@sgjp-20260823",
+          "buffo:S@sgjp-20260823",
+          "cantabile@sgjp-20260823",
+          "capriccio@sgjp-20260823",
+          "funky@sgjp-20260823",
+          "furiant@sgjp-20260823",
+          "gagaku@sgjp-20260823",
+          "gusla@sgjp-20260823",
+          "guzla@sgjp-20260823",
+          "hemiola@sgjp-20260823"
+        ]
+      },
+      "nie": {
+        "liczba": 495,
+        "procent": "46.7",
+        "przyklady": [
+          "aerofon@sgjp-20260823",
+          "ais@sgjp-20260823",
+          "akompaniator@sgjp-20260823",
+          "akordeon@sgjp-20260823",
+          "akordeonista@sgjp-20260823",
+          "alcista@sgjp-20260823",
+          "alleluja:S@sgjp-20260823",
+          "allemande@sgjp-20260823",
+          "altowiolinista@sgjp-20260823",
+          "altowiolista@sgjp-20260823"
+        ]
+      },
+      "tak": {
+        "liczba": 539,
+        "procent": "50.8",
+        "przyklady": [
+          "Bach:Sf@sgjp-20260823",
+          "Bach:Sm1@sgjp-20260823",
+          "adadżio@sgjp-20260823",
+          "adagio@sgjp-20260823",
+          "agrafa@sgjp-20260823",
+          "akcelerator@sgjp-20260823",
+          "akompaniament@sgjp-20260823",
+          "akustyk@sgjp-20260823",
+          "aleatoryzm@sgjp-20260823",
+          "allegretto@sgjp-20260823"
+        ]
+      }
+    },
+    "wykluczenia": [
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "pokrywa@sgjp-20260823"
+        ],
+        "lemat": "pokrywa",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "różaniec@sgjp-20260823"
+        ],
+        "lemat": "różaniec",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "zakrętka@sgjp-20260823"
+        ],
+        "lemat": "zakrętka",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      }
+    ],
+    "werdykt": {
+      "automatyczny": "dalej",
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [],
+      "uwaga": "„stop” wybiera tylko operator na bramce"
+    }
+  },
+  "fala": {
+    "temat": "muzyka",
+    "t3_wpisy": 0,
+    "summary_t3_null": true,
+    "srodladowe_null": true,
+    "iate_w_inputs": false,
+    "iate_blok_manifestu": false,
+    "iate_w_plikach": {},
+    "bledy": [],
+    "zgodna": true
+  }
+}

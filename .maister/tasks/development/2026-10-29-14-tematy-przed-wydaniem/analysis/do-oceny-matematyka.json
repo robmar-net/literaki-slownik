@@ -1,0 +1,67 @@
+{
+  "temat": "matematyka",
+  "items": [
+    {
+      "key": "centyl@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "centyl",
+          "centyla",
+          "centylach",
+          "centylami",
+          "centyle"
+        ],
+        "key": "centyl@sgjp-20260823",
+        "lemat": "centyl",
+        "liczba_form": 11,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "395055 centyl 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "wierzchołek@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "wierzchołek",
+          "wierzchołka",
+          "wierzchołkach",
+          "wierzchołkami",
+          "wierzchołki"
+        ],
+        "key": "wierzchołek@sgjp-20260823",
+        "lemat": "wierzchołek",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "tak",
+        "znaczenie": {
+          "T2": [
+            "74310 wierzchołek 3"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    }
+  ]
+}

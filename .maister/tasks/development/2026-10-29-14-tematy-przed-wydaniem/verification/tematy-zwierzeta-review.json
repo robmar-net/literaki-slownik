@@ -1,0 +1,622 @@
+{
+  "agent": {
+    "items": [
+      {
+        "key": "amfisben@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Amfisbena to gad beznogi, nazwa gatunku zwierzęcia.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "ariel@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ariel to nazwa zwierzęcia (ptak/gazela) w zoologii.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "bass@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Bass to ryba słodkowodna, nazwa zwierzęcia.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "birkut:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Birkut to orzeł przedni, ptak drapieżny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "bombardier:Sm1@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle to żołnierz; związek ze zwierzęciem tylko w rzadkiej nazwie chrząszcza.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "brzana@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Brzana to ryba karpiowata.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "bydlak:Sm1@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "To głównie obelga o człowieku; jako zwierzę znaczenie potoczne i rzadkie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "bąblowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Bąblowiec to tasiemiec, pasożytnicze zwierzę.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "ceik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ceik to nazwa zwierzęcia z kwalifikatorem zoologicznym.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "cyklop:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Cyklop w tym znaczeniu to drobny skorupiak (oczlik).",
+        "warstwa": "T1"
+      },
+      {
+        "key": "cyrulik@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle to dawny felczer; związek ze zwierzęciem tylko w rzadkim znaczeniu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "czepiak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Czepiak to małpa szerokonosa.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "czernica@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Czernica to gatunek kaczki.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "darniówka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Darniówka to gryzoń z rodziny nornikowatych.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "dingo@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dingo to dziki pies australijski.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "dobijak:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dobijak to zoologiczna nazwa zwierzęcia.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "dog@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dog to rasa psa.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "dromaderka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dromaderka to samica wielbłąda jednogarbnego.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "dzioborożec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dzioborożec to ptak tropikalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "ektotermiczny@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ektotermiczny opisuje zwierzęta zmiennocieplne.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "gazela@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Gazela to antylopa, znane zwierzę.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "gibbon@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Gibbon to małpa człekokształtna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "grabarz:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grabarz w tym znaczeniu to chrząszcz.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "gąsior:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Gąsior to samiec gęsi.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "głuptak:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Głuptak to ptak morski.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "husky@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Husky to rasa psa.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "hydra@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Hydra w tym znaczeniu to stułbia, jamochłon.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "inochodziec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Inochodziec to koń poruszający się inochodem.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "jeż:Sm3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Jeż to powszechnie znane zwierzę.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "karakuł@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Karakuł to rasa owiec.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "karmazyn:Sm1@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle to kolor lub szlachcic; jako ryba znaczenie rzadkie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kiang@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kiang to dziki osioł tybetański.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kiełbik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kiełbik to mała ryba.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kochinchina@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kochinchina to rasa kur, termin hodowlany.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kolcogłów@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kolcogłów to nazwa zwierzęcia z kwalifikatorem zoologicznym.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "konchina@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Konchina to substancja z budowy muszli mięczaków.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "konchiolina@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Konchiolina to białko budujące muszle mięczaków.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kos@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kos to pospolity ptak śpiewający.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kotawiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kotawiec to afrykańska małpa.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kotik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kotik to ssak płetwonogi, kot morski.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kret:Sm3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kret to powszechnie znane zwierzę.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "krzyżak:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Krzyżak w tym znaczeniu to pająk.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kręgowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kręgowiec to grupa systematyczna zwierząt.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kurczaczek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kurczaczek to zdrobnienie od kurczęcia, młodego ptaka.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kłopotek:Sm3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kłopotek to nazwa zwierzęcia w rodzaju zwierzęcym.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "lelek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Lelek to ptak nocny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "lemur@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Lemur to ssak naczelny z Madagaskaru.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "madrepora@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Madrepora to koral, zwierzę morskie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "matołek:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Matołek w tym znaczeniu to nazwa zwierzęcia z kwalifikatorem zoologicznym.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "miś@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Miś to potoczna nazwa niedźwiedzia.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "mustang@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Mustang to dziki koń.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "nazimek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazimek to młoda świnia, termin hodowlany.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "normand@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Normand to rasa zwierząt gospodarskich.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "nornik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nornik to gryzoń.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "norowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Norowiec to gryzoń.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "numulit@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Numulit to wymarła otwornica, organizm kopalny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "ochotka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ochotka to owad, komar bez żądła.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "octówka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Octówka to muszka owocowa.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "okoniopstrąg@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Okoniopstrąg to ryba.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "orlik:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Orlik w tym znaczeniu to ptak drapieżny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "orłosęp@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Orłosęp to ptak drapieżny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "oślica@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Oślica to samica osła.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "patyczak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Patyczak to owad.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pokląskwa@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pokląskwa to ptak śpiewający.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "prosiątko@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Prosiątko to młode świni.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pteranodon@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pteranodon to wymarły gad latający.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pumi@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pumi to rasa psa.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pustelnik:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pustelnik w tym znaczeniu to krab.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "płaszczyniec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Płaszczyniec to nazwa zwierzęcia z kwalifikatorem zoologicznym.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "ramforynch@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ramforynch to wymarły gad latający.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rozgwiazda@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Rozgwiazda to szkarłupień, znane zwierzę morskie.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "roztocz:Sf@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Roztocz to drobny pajęczak.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rynnica@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Rynnica to owad, chrząszcz.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "salonowiec:Sm2@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle o człowieku; o piesku salonowym tylko przenośnie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "skoczek:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Skoczek w tym znaczeniu to gryzoń.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "smoczyca@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Smok to stworzenie baśniowe, nie zwierzę w zwykłym sensie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "smolik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Smolik to owad, chrząszcz.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sorek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Sorek to owad.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "strzykwa@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Strzykwa to szkarłupień morski.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "tarantula@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Tarantula to duży pająk.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "terocefal@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Terocefal to wymarły gad ssakokształtny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "tuatara@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Tuatara to gad z Nowej Zelandii.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "tłuszczak:Sm2.m3@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle to guz tłuszczowy; jako zwierzę znaczenie rzadkie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "walconóg@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Walconóg to wij, bezkręgowiec.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "watussi@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Watussi to rasa bydła.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "welonka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Welonka to odmiana złotej rybki.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "wieprz@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wieprz to samiec świni.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "wszoł@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wszoł to pasożytniczy owad ptaków.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "wystrój:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wystrój w tym znaczeniu to owad z kwalifikatorem zoologicznym.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "włosogłówka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Włosogłówka to pasożytniczy nicień.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "zadzierka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zadzierka to nazwa zwierzęcia w plWordNecie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "zagniazdnik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zagniazdnik to ptak opuszczający gniazdo wcześnie, termin zoologiczny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "zwójka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zwójka to motyl.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "łaskun@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Łaskun to drapieżny ssak.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "ślepuch:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ślepuch to zwierzę z kwalifikatorem zoologicznym.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "śliz:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Śliz to mała ryba.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "świergotek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Świergotek to ptak śpiewający.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "świetlik:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Świetlik w tym znaczeniu to owad.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "żarłacz@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Żarłacz to rekin.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "żółtobrzeżek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Żółtobrzeżek to nazwa zwierzęcia z kwalifikatorem zoologicznym.",
+        "warstwa": "T1"
+      }
+    ],
+    "reviewed_at": "2026-10-29T09:57:15Z",
+    "reviewer": "agent (Claude)"
+  },
+  "agent_sha256": "68d63e474f4193eb6331f1bd30f02831e47676f6d7b1b1cc8d372816e7bf969e",
+  "canonical_index_sha256": "4775a2486c61105975b547ab388c65940543a64d0c7093ae99d40c128541a016",
+  "evidence_sha256": {
+    "ZWIERZETA.txt.gz": "311ac032b3dfe650c82bd2c73a072059de4b22be099191550e5daf4f0ca1a81a",
+    "reports/summary.json": "3ef53c5da2d0e3fe6982936afebe9d3bf49f345f79871f639375ff6e10fa4137"
+  },
+  "kind": "literaki-tematy-review",
+  "method": "tematy-v2",
+  "operator": null,
+  "sample_sha256": "53f0a0a81aefd1b02e8c0237c54f1f1df1e0a235c761a6f95b5580fb66055271",
+  "schema_version": 1,
+  "sha256sums_sha256": "267c39673e4f67f5cd5c621ab7368383fdd36a20ab116db0e97014496412f5cc",
+  "temat": "zwierzeta",
+  "version": "tematy-quality-v1"
+}

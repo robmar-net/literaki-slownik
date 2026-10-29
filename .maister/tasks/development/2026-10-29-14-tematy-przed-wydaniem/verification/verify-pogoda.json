@@ -1,0 +1,531 @@
+{
+  "topic": "config/generator/tematy/pogoda.json",
+  "topic_sha256": "be4deb8d450c92be7d185b1944ac30a27f0a004b35a5c770820d26d6f0d14ace",
+  "code_identity": {
+    "git_commit": "c563c33acb33cd0cccbd8ba583ea116a5eee5928",
+    "git_dirty": false,
+    "tree_sha256": "79431b64cbc9cc2832e081013d836428d184f06bdd42720cfd8c5619401f0e1f"
+  },
+  "git_status_config_scripts": "pusty",
+  "budowy": {
+    "a": {
+      "start": 1793285693,
+      "end": 1793285734,
+      "exit": 0,
+      "sekundy": 41
+    },
+    "b": {
+      "start": 1793285734,
+      "end": 1793285776,
+      "exit": 0,
+      "sekundy": 42
+    }
+  },
+  "pakiety": [
+    "data/work/tematy-wydanie-20261029/tematy-pogoda-v2-20261029-a",
+    "data/work/tematy-wydanie-20261029/tematy-pogoda-v2-20261029-b"
+  ],
+  "sha256sums_sha256": "e22811d7c287b7d4e8449b1815f38bf41211dacba576970c62c5a3cb0e4d5ab0",
+  "files_sha256": {
+    "ATTRIBUTIONS.md": "87bb3d8fa3e6de9c2be052a8fbf1f6ec4bfa44d4e35dd836d6546f4331b51569",
+    "LIMITATIONS.md": "06efc6f2de81c872476971c577836f584553258447195c5271fbb3d910372ddf",
+    "POGODA.tsv.gz": "0c34137690bde64e61eea427efb1d50625058c831d63d808a2bea96b3b622757",
+    "POGODA.txt.gz": "5d676bf40e6fd4db53e76448e8bbb3a8eb11f962d626231888a02e5befdf2aaf",
+    "SHA256SUMS": "e22811d7c287b7d4e8449b1815f38bf41211dacba576970c62c5a3cb0e4d5ab0",
+    "TERMS.md": "7d4f57c1689214535616d0ccba94b84d539e18c4e7c5451c079a848198b61a9e",
+    "method.json": "cf2cb5ace886e52ea931a8d16d4aedaa8ff32293a3d7b08adb3b3c9147b0160c",
+    "release-manifest.json": "dc7cea76aaa486b1cc46627b9879955e21aa554dc5920e71c02c8ab1a02356e6",
+    "reports/raport.md": "32b70206da9dbc58a825a705e9de10f3f3d1866c344db8490167f73d39b6739e",
+    "reports/review-template.json": "6ab8c512f4579176b3217520e1cf491766ec382047abf895e5c6c3e6fed7135d",
+    "reports/sample.json": "3c8f57e3bf79f9998f45590bdc3f77bad08d9dc14602bada27edaba97260421f",
+    "reports/summary.json": "d8201ac8f4d898f5d05a512d60205b8a33d4260d03d24d5f81066b84d401a19a",
+    "tematy/pogoda.json": "be4deb8d450c92be7d185b1944ac30a27f0a004b35a5c770820d26d6f0d14ace"
+  },
+  "all_files_identical": true,
+  "checker": {
+    "tematy-pogoda-v2-20261029-a": {
+      "exit": 0,
+      "status": "pass"
+    },
+    "tematy-pogoda-v2-20261029-b": {
+      "exit": 0,
+      "status": "pass"
+    }
+  },
+  "checker_wynik_a": {
+    "formy": 2191,
+    "review_checked": false,
+    "sha256sums_sha256": "e22811d7c287b7d4e8449b1815f38bf41211dacba576970c62c5a3cb0e4d5ab0",
+    "slowa_oczywiste": {
+      "brakujace": [
+        "jesień",
+        "lato",
+        "lód",
+        "niebo",
+        "wiosna",
+        "zima"
+      ],
+      "lista": 36,
+      "pokryte": 30
+    },
+    "status": "pass",
+    "temat": "pogoda",
+    "warstwy": {
+      "D": 7,
+      "T1": 54,
+      "T2": 178,
+      "T3": 0
+    },
+    "wpisy": 239
+  },
+  "summary": {
+    "liczby": {
+      "formy": 2191,
+      "kandydaci": 244,
+      "warstwy": {
+        "D": 7,
+        "T1": 54,
+        "T2": 178,
+        "T3": 0
+      },
+      "wpisy": 239
+    },
+    "przeciecia": {
+      "leksemy": {
+        "D": {
+          "temat": 7,
+          "pop": {
+            "liczba": 7,
+            "procent": "100.0"
+          },
+          "pop00": {
+            "liczba": 6,
+            "procent": "85.7"
+          }
+        },
+        "T1": {
+          "temat": 54,
+          "pop": {
+            "liczba": 13,
+            "procent": "24.1"
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": "0.0"
+          }
+        },
+        "T2": {
+          "temat": 178,
+          "pop": {
+            "liczba": 125,
+            "procent": "70.2"
+          },
+          "pop00": {
+            "liczba": 46,
+            "procent": "25.8"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 239,
+          "pop": {
+            "liczba": 145,
+            "procent": "60.7"
+          },
+          "pop00": {
+            "liczba": 52,
+            "procent": "21.8"
+          }
+        }
+      },
+      "formy": {
+        "D": {
+          "temat": 87,
+          "pop": {
+            "liczba": 87,
+            "procent": "100.0"
+          },
+          "pop00": {
+            "liczba": 61,
+            "procent": "70.1"
+          }
+        },
+        "T1": {
+          "temat": 527,
+          "pop": {
+            "liczba": 129,
+            "procent": "24.5"
+          },
+          "pop00": {
+            "liczba": 1,
+            "procent": "0.2"
+          }
+        },
+        "T2": {
+          "temat": 1587,
+          "pop": {
+            "liczba": 1134,
+            "procent": "71.5"
+          },
+          "pop00": {
+            "liczba": 458,
+            "procent": "28.9"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 2191,
+          "pop": {
+            "liczba": 1340,
+            "procent": "61.2"
+          },
+          "pop00": {
+            "liczba": 519,
+            "procent": "23.7"
+          }
+        }
+      }
+    },
+    "diagnostyka": {
+      "D": {
+        "formy": {
+          "broad": 87,
+          "kandydaci": 118,
+          "procent_broad": "73.7",
+          "procent_standard": "73.7",
+          "standard": 87
+        },
+        "leksemy": {
+          "broad": 7,
+          "kandydaci": 7,
+          "procent_broad": "100.0",
+          "procent_standard": "100.0",
+          "standard": 7
+        }
+      },
+      "T1": {
+        "formy": {
+          "broad": 540,
+          "kandydaci": 562,
+          "procent_broad": "96.1",
+          "procent_standard": "93.8",
+          "standard": 527
+        },
+        "leksemy": {
+          "broad": 55,
+          "kandydaci": 56,
+          "procent_broad": "98.2",
+          "procent_standard": "96.4",
+          "standard": 54
+        }
+      },
+      "T2": {
+        "formy": {
+          "broad": 1632,
+          "kandydaci": 1632,
+          "procent_broad": "100.0",
+          "procent_standard": "97.2",
+          "standard": 1587
+        },
+        "leksemy": {
+          "broad": 181,
+          "kandydaci": 181,
+          "procent_broad": "100.0",
+          "procent_standard": "98.3",
+          "standard": 178
+        }
+      },
+      "T3": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "razem": {
+        "formy": {
+          "broad": 2249,
+          "kandydaci": 2302,
+          "procent_broad": "97.7",
+          "procent_standard": "95.2",
+          "standard": 2191
+        },
+        "leksemy": {
+          "broad": 243,
+          "kandydaci": 244,
+          "procent_broad": "99.6",
+          "procent_standard": "98.0",
+          "standard": 239
+        }
+      }
+    },
+    "slowa_oczywiste": {
+      "razem": {
+        "brakujace": [
+          "jesień",
+          "lato",
+          "lód",
+          "niebo",
+          "wiosna",
+          "zima"
+        ],
+        "pokryte": 30,
+        "procent": "83.3"
+      },
+      "T1": {
+        "brakujace": [
+          "burza",
+          "błyskawica",
+          "chmura",
+          "chłód",
+          "ciepło",
+          "deszcz",
+          "deszczowy",
+          "grad",
+          "grzmot",
+          "huragan",
+          "jesień",
+          "klimat",
+          "lato",
+          "lód",
+          "mgła",
+          "mróz",
+          "mżawka",
+          "niebo",
+          "piorun",
+          "pochmurny",
+          "rosa",
+          "susza",
+          "szron",
+          "słoneczny",
+          "słońce",
+          "temperatura",
+          "tornado",
+          "tęcza",
+          "ulewa",
+          "upał",
+          "wiatr",
+          "wilgoć",
+          "wiosna",
+          "zamieć",
+          "zima",
+          "śnieg"
+        ],
+        "pokryte": 0,
+        "procent": "0.0"
+      },
+      "T1_T2": {
+        "brakujace": [
+          "chłód",
+          "deszczowy",
+          "jesień",
+          "lato",
+          "lód",
+          "niebo",
+          "pochmurny",
+          "susza",
+          "słoneczny",
+          "temperatura",
+          "wilgoć",
+          "wiosna",
+          "zima"
+        ],
+        "pokryte": 23,
+        "procent": "63.9"
+      },
+      "spelniony": true,
+      "prog": "0.70"
+    },
+    "srodladowe": null,
+    "odrzucone": {
+      "D": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "T1": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 1
+        },
+        "POZA_STANDARD": {
+          "liczba": 1
+        }
+      },
+      "T2": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 11
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 100
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 3
+        }
+      },
+      "T3": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "razem": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 11
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 100
+        },
+        "POZA_BROAD": {
+          "liczba": 1
+        },
+        "POZA_STANDARD": {
+          "liczba": 4
+        }
+      }
+    },
+    "t3": null,
+    "wieloznaczny": {
+      "brak_danych": {
+        "liczba": 8,
+        "procent": "3.3",
+        "przyklady": [
+          "fractocumulus@sgjp-20260823",
+          "harmatan@sgjp-20260823",
+          "izaloterma@sgjp-20260823",
+          "izanomala@sgjp-20260823",
+          "mezostrefa@sgjp-20260823",
+          "mikroatmosfera@sgjp-20260823",
+          "pluwiometr@sgjp-20260823",
+          "simum@sgjp-20260823"
+        ]
+      },
+      "nie": {
+        "liczba": 112,
+        "procent": "46.9",
+        "przyklady": [
+          "afganiec@sgjp-20260823",
+          "altocumulus@sgjp-20260823",
+          "altostratus@sgjp-20260823",
+          "antycyklon@sgjp-20260823",
+          "antypasat@sgjp-20260823",
+          "bajdewind@sgjp-20260823",
+          "bejdewind@sgjp-20260823",
+          "bezwietrze@sgjp-20260823",
+          "bioklimat@sgjp-20260823",
+          "blizzard@sgjp-20260823"
+        ]
+      },
+      "tak": {
+        "liczba": 119,
+        "procent": "49.8",
+        "przyklady": [
+          "adwekcja@sgjp-20260823",
+          "aura@sgjp-20260823",
+          "baksztag@sgjp-20260823",
+          "baranek@sgjp-20260823",
+          "baryczny@sgjp-20260823",
+          "burza@sgjp-20260823",
+          "chmura@sgjp-20260823",
+          "chłód@sgjp-20260823",
+          "ciepło:S@sgjp-20260823",
+          "cisza@sgjp-20260823"
+        ]
+      }
+    },
+    "wykluczenia": [],
+    "werdykt": {
+      "automatyczny": "dalej",
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [],
+      "uwaga": "„stop” wybiera tylko operator na bramce"
+    }
+  },
+  "fala": {
+    "temat": "pogoda",
+    "t3_wpisy": 0,
+    "summary_t3_null": true,
+    "srodladowe_null": true,
+    "iate_w_inputs": false,
+    "iate_blok_manifestu": false,
+    "iate_w_plikach": {},
+    "bledy": [],
+    "zgodna": true
+  }
+}

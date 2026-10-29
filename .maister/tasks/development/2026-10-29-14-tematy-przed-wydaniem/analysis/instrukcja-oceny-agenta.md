@@ -1,4 +1,4 @@
-# Instrukcja oceny agenta — #13, R2 (kopia z #12)
+# Instrukcja oceny agenta — #14, R2 (kopia z #13)
 
 Jedna instrukcja dla 9 tematów. Oceniasz jeden temat w jednej sesji.
 
@@ -7,13 +7,13 @@ Jedna instrukcja dla 9 tematów. Oceniasz jeden temat w jednej sesji.
 Tylko dwa pliki:
 
 1. tę instrukcję;
-2. `.maister/tasks/development/2026-10-29-13-tematy-v2/analysis/do-oceny-<id>.json` swojego tematu.
+2. `.maister/tasks/development/2026-10-29-14-tematy-przed-wydaniem/analysis/do-oceny-<id>.json` swojego tematu.
 
 Nie czytasz innych plików, ocen innych tematów ani kodu. Nie szukasz w sieci.
 
 ## Co oceniasz
 
-Każdą pozycję z `items` w pliku `do-oceny-<id>.json` (#13: tylko pozycje nowe w próbie v2; reszta ocen przechodzi z #12). Słowo opisuje
+Każdą pozycję z `items` w pliku `do-oceny-<id>.json` (#14: tylko pozycje nowe w próbie v3; reszta ocen przechodzi z #13). Słowo opisuje
 `selected_unit`:
 
 - `lemat`, `formy`, `czesci_mowy`;
@@ -63,8 +63,8 @@ Decyzje operatora (`clarifications.md`, `scope-clarifications.md`):
 
 ## Wynik
 
-Plik `.maister/tasks/development/2026-10-29-13-tematy-v2/analysis/nowe-oceny-<id>.json`,
-gdzie `<id>` to: grzyby, pogoda, matematyka, muzyka, sport, kuchnia, medycyna.
+Plik `.maister/tasks/development/2026-10-29-14-tematy-przed-wydaniem/analysis/nowe-oceny-<id>.json`,
+gdzie `<id>` to: matematyka albo medycyna.
 Kodowanie UTF-8, poprawny JSON:
 
 ```json

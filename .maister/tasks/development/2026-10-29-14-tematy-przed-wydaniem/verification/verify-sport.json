@@ -1,0 +1,526 @@
+{
+  "topic": "config/generator/tematy/sport.json",
+  "topic_sha256": "789b24e4a0605866c58196c9202300b765e629f1227b112def1cab43433f612f",
+  "code_identity": {
+    "git_commit": "c563c33acb33cd0cccbd8ba583ea116a5eee5928",
+    "git_dirty": false,
+    "tree_sha256": "79431b64cbc9cc2832e081013d836428d184f06bdd42720cfd8c5619401f0e1f"
+  },
+  "git_status_config_scripts": "pusty",
+  "budowy": {
+    "a": {
+      "start": 1793286134,
+      "end": 1793286174,
+      "exit": 0,
+      "sekundy": 40
+    },
+    "b": {
+      "start": 1793286174,
+      "end": 1793286215,
+      "exit": 0,
+      "sekundy": 41
+    }
+  },
+  "pakiety": [
+    "data/work/tematy-wydanie-20261029/tematy-sport-v2-20261029-a",
+    "data/work/tematy-wydanie-20261029/tematy-sport-v2-20261029-b"
+  ],
+  "sha256sums_sha256": "30cd16985a427c959467c3bd458e06f99ba0a168cd1c9a9488d4e7c1ddd593f3",
+  "files_sha256": {
+    "ATTRIBUTIONS.md": "87bb3d8fa3e6de9c2be052a8fbf1f6ec4bfa44d4e35dd836d6546f4331b51569",
+    "LIMITATIONS.md": "06efc6f2de81c872476971c577836f584553258447195c5271fbb3d910372ddf",
+    "SHA256SUMS": "30cd16985a427c959467c3bd458e06f99ba0a168cd1c9a9488d4e7c1ddd593f3",
+    "SPORT.tsv.gz": "42b6e622cda80a6a7018464bc4b2c91ea3df83ce14e32ab863f90ec4bc6689b8",
+    "SPORT.txt.gz": "d6dce49b9422b6592c3e4073980a96cffdf8b19d44e43e7b09c89bbdca757c8b",
+    "TERMS.md": "7d4f57c1689214535616d0ccba94b84d539e18c4e7c5451c079a848198b61a9e",
+    "method.json": "cf2cb5ace886e52ea931a8d16d4aedaa8ff32293a3d7b08adb3b3c9147b0160c",
+    "release-manifest.json": "e67b8ecb02ad60da40a57e2153764c0bc2ba52dabf6169d1f307bcee42601237",
+    "reports/raport.md": "008df74b6b3870516afd2b2075e1b38fe4c02a302d41a206f5d3c7828192b660",
+    "reports/review-template.json": "534ec8de1d2cdcd569829353991cbcca9b9cdc25fceb7d799406e7c5c12434c6",
+    "reports/sample.json": "e9bf99384f85d2baac3a1f7c531bdfb283e30382500c1bf4671fc7523340f115",
+    "reports/summary.json": "c02018baea5df2424b42df3ad3bb67fd9483c13e5ed27461bed5aa3ff468d925",
+    "tematy/sport.json": "789b24e4a0605866c58196c9202300b765e629f1227b112def1cab43433f612f"
+  },
+  "all_files_identical": true,
+  "checker": {
+    "tematy-sport-v2-20261029-a": {
+      "exit": 0,
+      "status": "pass"
+    },
+    "tematy-sport-v2-20261029-b": {
+      "exit": 0,
+      "status": "pass"
+    }
+  },
+  "checker_wynik_a": {
+    "formy": 8021,
+    "review_checked": false,
+    "sha256sums_sha256": "30cd16985a427c959467c3bd458e06f99ba0a168cd1c9a9488d4e7c1ddd593f3",
+    "slowa_oczywiste": {
+      "brakujace": [
+        "karta",
+        "sędzia"
+      ],
+      "lista": 36,
+      "pokryte": 34
+    },
+    "status": "pass",
+    "temat": "sport",
+    "warstwy": {
+      "D": 14,
+      "T1": 172,
+      "T2": 622,
+      "T3": 0
+    },
+    "wpisy": 808
+  },
+  "summary": {
+    "liczby": {
+      "formy": 8021,
+      "kandydaci": 840,
+      "warstwy": {
+        "D": 14,
+        "T1": 172,
+        "T2": 622,
+        "T3": 0
+      },
+      "wpisy": 808
+    },
+    "przeciecia": {
+      "leksemy": {
+        "D": {
+          "temat": 14,
+          "pop": {
+            "liczba": 14,
+            "procent": "100.0"
+          },
+          "pop00": {
+            "liczba": 14,
+            "procent": "100.0"
+          }
+        },
+        "T1": {
+          "temat": 172,
+          "pop": {
+            "liczba": 115,
+            "procent": "66.9"
+          },
+          "pop00": {
+            "liczba": 16,
+            "procent": "9.3"
+          }
+        },
+        "T2": {
+          "temat": 622,
+          "pop": {
+            "liczba": 457,
+            "procent": "73.5"
+          },
+          "pop00": {
+            "liczba": 152,
+            "procent": "24.4"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 808,
+          "pop": {
+            "liczba": 586,
+            "procent": "72.5"
+          },
+          "pop00": {
+            "liczba": 182,
+            "procent": "22.5"
+          }
+        }
+      },
+      "formy": {
+        "D": {
+          "temat": 210,
+          "pop": {
+            "liczba": 210,
+            "procent": "100.0"
+          },
+          "pop00": {
+            "liczba": 183,
+            "procent": "87.1"
+          }
+        },
+        "T1": {
+          "temat": 2372,
+          "pop": {
+            "liczba": 1188,
+            "procent": "50.1"
+          },
+          "pop00": {
+            "liczba": 208,
+            "procent": "8.8"
+          }
+        },
+        "T2": {
+          "temat": 5571,
+          "pop": {
+            "liczba": 4049,
+            "procent": "72.7"
+          },
+          "pop00": {
+            "liczba": 1367,
+            "procent": "24.5"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 8021,
+          "pop": {
+            "liczba": 5335,
+            "procent": "66.5"
+          },
+          "pop00": {
+            "liczba": 1721,
+            "procent": "21.5"
+          }
+        }
+      }
+    },
+    "diagnostyka": {
+      "D": {
+        "formy": {
+          "broad": 210,
+          "kandydaci": 211,
+          "procent_broad": "99.5",
+          "procent_standard": "99.5",
+          "standard": 210
+        },
+        "leksemy": {
+          "broad": 14,
+          "kandydaci": 14,
+          "procent_broad": "100.0",
+          "procent_standard": "100.0",
+          "standard": 14
+        }
+      },
+      "T1": {
+        "formy": {
+          "broad": 2431,
+          "kandydaci": 2630,
+          "procent_broad": "92.4",
+          "procent_standard": "90.2",
+          "standard": 2372
+        },
+        "leksemy": {
+          "broad": 178,
+          "kandydaci": 188,
+          "procent_broad": "94.7",
+          "procent_standard": "91.5",
+          "standard": 172
+        }
+      },
+      "T2": {
+        "formy": {
+          "broad": 5664,
+          "kandydaci": 5900,
+          "procent_broad": "96.0",
+          "procent_standard": "94.4",
+          "standard": 5571
+        },
+        "leksemy": {
+          "broad": 628,
+          "kandydaci": 638,
+          "procent_broad": "98.4",
+          "procent_standard": "97.5",
+          "standard": 622
+        }
+      },
+      "T3": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "razem": {
+        "formy": {
+          "broad": 8173,
+          "kandydaci": 8609,
+          "procent_broad": "94.9",
+          "procent_standard": "93.2",
+          "standard": 8021
+        },
+        "leksemy": {
+          "broad": 820,
+          "kandydaci": 840,
+          "procent_broad": "97.6",
+          "procent_standard": "96.2",
+          "standard": 808
+        }
+      }
+    },
+    "slowa_oczywiste": {
+      "razem": {
+        "brakujace": [
+          "karta",
+          "sędzia"
+        ],
+        "pokryte": 34,
+        "procent": "94.4"
+      },
+      "T1": {
+        "brakujace": [
+          "bieg",
+          "biegać",
+          "boisko",
+          "boks",
+          "bramka",
+          "drużyna",
+          "gol",
+          "gra",
+          "hokej",
+          "karta",
+          "kibic",
+          "koszykówka",
+          "maraton",
+          "mecz",
+          "medal",
+          "mistrz",
+          "narta",
+          "olimpiada",
+          "piłka",
+          "puchar",
+          "pływanie",
+          "rakieta",
+          "rower",
+          "siatkówka",
+          "skok",
+          "sport",
+          "stadion",
+          "szachy",
+          "sędzia",
+          "trener",
+          "turniej",
+          "wyścig",
+          "zawodnik",
+          "zwycięstwo"
+        ],
+        "pokryte": 2,
+        "procent": "5.6"
+      },
+      "T1_T2": {
+        "brakujace": [
+          "biegać",
+          "boisko",
+          "bramka",
+          "drużyna",
+          "gol",
+          "karta",
+          "kibic",
+          "medal",
+          "mistrz",
+          "narta",
+          "rakieta",
+          "rower",
+          "stadion",
+          "sędzia",
+          "trener",
+          "zwycięstwo"
+        ],
+        "pokryte": 20,
+        "procent": "55.6"
+      },
+      "spelniony": true,
+      "prog": "0.70"
+    },
+    "srodladowe": null,
+    "odrzucone": {
+      "D": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "T1": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 10
+        },
+        "POZA_STANDARD": {
+          "liczba": 6
+        }
+      },
+      "T2": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 2
+          },
+          "liczba": 108
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 310
+        },
+        "POZA_BROAD": {
+          "liczba": 10
+        },
+        "POZA_STANDARD": {
+          "liczba": 6
+        }
+      },
+      "T3": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "razem": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 2
+          },
+          "liczba": 108
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 310
+        },
+        "POZA_BROAD": {
+          "liczba": 20
+        },
+        "POZA_STANDARD": {
+          "liczba": 12
+        }
+      }
+    },
+    "t3": null,
+    "wieloznaczny": {
+      "brak_danych": {
+        "liczba": 23,
+        "procent": "2.8",
+        "przyklady": [
+          "banko@sgjp-20260823",
+          "basket@sgjp-20260823",
+          "brydżorama@sgjp-20260823",
+          "cenzurowane@sgjp-20260823",
+          "crossfit@sgjp-20260823",
+          "deskarka@sgjp-20260823",
+          "dropszot@sgjp-20260823",
+          "holendrować@sgjp-20260823",
+          "karko@sgjp-20260823",
+          "kartingowość@sgjp-20260823"
+        ]
+      },
+      "nie": {
+        "liczba": 354,
+        "procent": "43.8",
+        "przyklady": [
+          "aerobic@sgjp-20260823",
+          "aerobik@sgjp-20260823",
+          "agonistyka@sgjp-20260823",
+          "aikido@sgjp-20260823",
+          "akrobata@sgjp-20260823",
+          "akrobatyka@sgjp-20260823",
+          "alpejczyk@sgjp-20260823",
+          "alpinista@sgjp-20260823",
+          "alpinistyka@sgjp-20260823",
+          "alpinizm@sgjp-20260823"
+        ]
+      },
+      "tak": {
+        "liczba": 431,
+        "procent": "53.3",
+        "przyklady": [
+          "akademik:Sm1@sgjp-20260823",
+          "akademik:Sm3@sgjp-20260823",
+          "akcja@sgjp-20260823",
+          "akrobacja@sgjp-20260823",
+          "amator@sgjp-20260823",
+          "apel@sgjp-20260823",
+          "asysta@sgjp-20260823",
+          "atak@sgjp-20260823",
+          "atleta@sgjp-20260823",
+          "atu@sgjp-20260823"
+        ]
+      }
+    },
+    "wykluczenia": [],
+    "werdykt": {
+      "automatyczny": "dalej",
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [],
+      "uwaga": "„stop” wybiera tylko operator na bramce"
+    }
+  },
+  "fala": {
+    "temat": "sport",
+    "t3_wpisy": 0,
+    "summary_t3_null": true,
+    "srodladowe_null": true,
+    "iate_w_inputs": false,
+    "iate_blok_manifestu": false,
+    "iate_w_plikach": {},
+    "bledy": [],
+    "zgodna": true
+  }
+}

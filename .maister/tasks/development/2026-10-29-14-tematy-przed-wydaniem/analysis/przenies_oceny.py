@@ -1,7 +1,7 @@
-"""Oceny agenta R2 dla pakietów v2 (#13): przeniesienie z #12 i scalenie z nowymi.
+"""Oceny agenta R2 dla matematyki i medycyny v3 (#14; kopia z #13): przeniesienie z #13 i scalenie z nowymi.
 
-Próba to ranking hashem klucza (`tematy-quality-v1`), więc v2 losuje głównie te same klucze co v1.
-Ocena z #12 przechodzi tylko wtedy, gdy klucz i cały `selected_unit` są identyczne. Resztę ocenia agent.
+Próba to ranking hashem klucza (`tematy-quality-v1`), więc v3 losuje głównie te same klucze co v2.
+Ocena z #13 przechodzi tylko wtedy, gdy klucz i cały `selected_unit` są identyczne. Resztę ocenia agent.
 
   python3 przenies_oceny.py przygotuj   → analysis/do-oceny-<id>.json (pozycje do oceny) i podsumowanie
   python3 przenies_oceny.py scal        → analysis/agent-ratings-<id>.json (przeniesione + nowe-oceny-<id>.json)
@@ -15,8 +15,8 @@ from pathlib import Path
 
 TASK = Path(__file__).resolve().parents[1]
 REPO = TASK.parents[3]
-STARE = REPO/'.maister/tasks/development/2026-10-29-12-tematy-fala-1/analysis'
-TEMATY = ('grzyby', 'pogoda', 'matematyka', 'muzyka', 'sport', 'kuchnia', 'medycyna')
+STARE = REPO/'.maister/tasks/development/2026-10-29-13-tematy-v2/analysis'
+TEMATY = ('matematyka', 'medycyna')
 OCENY = {'tak', 'nie', 'niepewne'}
 
 
@@ -29,12 +29,13 @@ def pisz(path, value):
 
 
 def szablon(temat, wersja):
-    return {i['key']: i for i in czytaj(REPO/f'data/work/tematy-{temat}-{wersja}-20261029-a/reports/review-template.json')['items']}
+    katalog = 'data/work/tematy-wydanie-20261029/' if wersja == 'v3' else 'data/work/'
+    return {i['key']: i for i in czytaj(REPO/f'{katalog}tematy-{temat}-{wersja}-20261029-a/reports/review-template.json')['items']}
 
 
 def podziel(temat):
     """Zwraca (przeniesione oceny, pozycje do oceny) dla tematu."""
-    nowe, stare = szablon(temat, 'v2'), szablon(temat, 'v1')
+    nowe, stare = szablon(temat, 'v3'), szablon(temat, 'v2')
     oceny = czytaj(STARE/f'agent-ratings-{temat}.json')['oceny']
     przeniesione, do_oceny = {}, []
     for key, item in nowe.items():

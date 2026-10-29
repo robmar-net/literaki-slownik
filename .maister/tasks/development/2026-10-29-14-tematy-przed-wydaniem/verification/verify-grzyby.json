@@ -1,0 +1,564 @@
+{
+  "topic": "config/generator/tematy/grzyby.json",
+  "topic_sha256": "31a5506ef81341d58e163b50d4607f862b934e0ae8138d80be9bf40e43547105",
+  "code_identity": {
+    "git_commit": "c563c33acb33cd0cccbd8ba583ea116a5eee5928",
+    "git_dirty": false,
+    "tree_sha256": "79431b64cbc9cc2832e081013d836428d184f06bdd42720cfd8c5619401f0e1f"
+  },
+  "git_status_config_scripts": "pusty",
+  "budowy": {
+    "a": {
+      "start": 1793285527,
+      "end": 1793285570,
+      "exit": 0,
+      "sekundy": 43
+    },
+    "b": {
+      "start": 1793285570,
+      "end": 1793285619,
+      "exit": 0,
+      "sekundy": 49
+    }
+  },
+  "pakiety": [
+    "data/work/tematy-wydanie-20261029/tematy-grzyby-v2-20261029-a",
+    "data/work/tematy-wydanie-20261029/tematy-grzyby-v2-20261029-b"
+  ],
+  "sha256sums_sha256": "89bd61c2d36981d299a821fa966e3d80d06660e65d1d9f69f19d86326c6f0df2",
+  "files_sha256": {
+    "ATTRIBUTIONS.md": "87bb3d8fa3e6de9c2be052a8fbf1f6ec4bfa44d4e35dd836d6546f4331b51569",
+    "GRZYBY.tsv.gz": "fb50ea33c1ba14aaaa993308d7712d520312d7046a7df4439047e91136df6dd6",
+    "GRZYBY.txt.gz": "fcb650c4792b6f5bf63163e18a2c258a88e1f0990a02e657b149b136b775dd69",
+    "LIMITATIONS.md": "06efc6f2de81c872476971c577836f584553258447195c5271fbb3d910372ddf",
+    "SHA256SUMS": "89bd61c2d36981d299a821fa966e3d80d06660e65d1d9f69f19d86326c6f0df2",
+    "TERMS.md": "7d4f57c1689214535616d0ccba94b84d539e18c4e7c5451c079a848198b61a9e",
+    "method.json": "cf2cb5ace886e52ea931a8d16d4aedaa8ff32293a3d7b08adb3b3c9147b0160c",
+    "release-manifest.json": "08c21aa966301bb4bce38beaaf60b743b50259f7b4ec593c16e8185a198ea6ff",
+    "reports/raport.md": "fbfb1791176a8c7a3a9c1d8eb3f804238dceb4432f2fad14bd39f1c0665761de",
+    "reports/review-template.json": "98cbc7d8274c3fbd4b8f373f8b70c360b83158899ad525e003e76b0fe53843d1",
+    "reports/sample.json": "52ba21192d10ad881d7f9c6a745c6b7ec157a146cac4f6f7a903ebd38407a3ca",
+    "reports/summary.json": "d07450e297937bde68509454001758eb4c027c0110477d3e7cf2520423e2aa61",
+    "tematy/grzyby.json": "31a5506ef81341d58e163b50d4607f862b934e0ae8138d80be9bf40e43547105"
+  },
+  "all_files_identical": true,
+  "checker": {
+    "tematy-grzyby-v2-20261029-a": {
+      "exit": 0,
+      "status": "pass"
+    },
+    "tematy-grzyby-v2-20261029-b": {
+      "exit": 0,
+      "status": "pass"
+    }
+  },
+  "checker_wynik_a": {
+    "formy": 1848,
+    "review_checked": false,
+    "sha256sums_sha256": "89bd61c2d36981d299a821fa966e3d80d06660e65d1d9f69f19d86326c6f0df2",
+    "slowa_oczywiste": {
+      "brakujace": [
+        "koszyk",
+        "las",
+        "mech",
+        "zbierać"
+      ],
+      "lista": 34,
+      "pokryte": 30
+    },
+    "status": "pass",
+    "temat": "grzyby",
+    "warstwy": {
+      "D": 9,
+      "T1": 54,
+      "T2": 148,
+      "T3": 0
+    },
+    "wpisy": 211
+  },
+  "summary": {
+    "liczby": {
+      "formy": 1848,
+      "kandydaci": 220,
+      "warstwy": {
+        "D": 9,
+        "T1": 54,
+        "T2": 148,
+        "T3": 0
+      },
+      "wpisy": 211
+    },
+    "przeciecia": {
+      "leksemy": {
+        "D": {
+          "temat": 9,
+          "pop": {
+            "liczba": 9,
+            "procent": "100.0"
+          },
+          "pop00": {
+            "liczba": 3,
+            "procent": "33.3"
+          }
+        },
+        "T1": {
+          "temat": 54,
+          "pop": {
+            "liczba": 20,
+            "procent": "37.0"
+          },
+          "pop00": {
+            "liczba": 1,
+            "procent": "1.9"
+          }
+        },
+        "T2": {
+          "temat": 148,
+          "pop": {
+            "liczba": 60,
+            "procent": "40.5"
+          },
+          "pop00": {
+            "liczba": 10,
+            "procent": "6.8"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 211,
+          "pop": {
+            "liczba": 89,
+            "procent": "42.2"
+          },
+          "pop00": {
+            "liczba": 14,
+            "procent": "6.6"
+          }
+        }
+      },
+      "formy": {
+        "D": {
+          "temat": 86,
+          "pop": {
+            "liczba": 86,
+            "procent": "100.0"
+          },
+          "pop00": {
+            "liczba": 40,
+            "procent": "46.5"
+          }
+        },
+        "T1": {
+          "temat": 520,
+          "pop": {
+            "liczba": 193,
+            "procent": "37.1"
+          },
+          "pop00": {
+            "liczba": 10,
+            "procent": "1.9"
+          }
+        },
+        "T2": {
+          "temat": 1364,
+          "pop": {
+            "liczba": 548,
+            "procent": "40.2"
+          },
+          "pop00": {
+            "liczba": 101,
+            "procent": "7.4"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 1848,
+          "pop": {
+            "liczba": 765,
+            "procent": "41.4"
+          },
+          "pop00": {
+            "liczba": 141,
+            "procent": "7.6"
+          }
+        }
+      }
+    },
+    "diagnostyka": {
+      "D": {
+        "formy": {
+          "broad": 86,
+          "kandydaci": 87,
+          "procent_broad": "98.9",
+          "procent_standard": "98.9",
+          "standard": 86
+        },
+        "leksemy": {
+          "broad": 9,
+          "kandydaci": 9,
+          "procent_broad": "100.0",
+          "procent_standard": "100.0",
+          "standard": 9
+        }
+      },
+      "T1": {
+        "formy": {
+          "broad": 520,
+          "kandydaci": 520,
+          "procent_broad": "100.0",
+          "procent_standard": "100.0",
+          "standard": 520
+        },
+        "leksemy": {
+          "broad": 54,
+          "kandydaci": 54,
+          "procent_broad": "100.0",
+          "procent_standard": "100.0",
+          "standard": 54
+        }
+      },
+      "T2": {
+        "formy": {
+          "broad": 1448,
+          "kandydaci": 1458,
+          "procent_broad": "99.3",
+          "procent_standard": "93.6",
+          "standard": 1364
+        },
+        "leksemy": {
+          "broad": 156,
+          "kandydaci": 157,
+          "procent_broad": "99.4",
+          "procent_standard": "94.3",
+          "standard": 148
+        }
+      },
+      "T3": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "razem": {
+        "formy": {
+          "broad": 1932,
+          "kandydaci": 1943,
+          "procent_broad": "99.4",
+          "procent_standard": "95.1",
+          "standard": 1848
+        },
+        "leksemy": {
+          "broad": 219,
+          "kandydaci": 220,
+          "procent_broad": "99.5",
+          "procent_standard": "95.9",
+          "standard": 211
+        }
+      }
+    },
+    "slowa_oczywiste": {
+      "razem": {
+        "brakujace": [
+          "koszyk",
+          "las",
+          "mech",
+          "zbierać"
+        ],
+        "pokryte": 30,
+        "procent": "88.2"
+      },
+      "T1": {
+        "brakujace": [
+          "blaszka",
+          "drożdże",
+          "grzybiarz",
+          "grzybnia",
+          "grzybobranie",
+          "gąska",
+          "jadalny",
+          "kania",
+          "kapelusz",
+          "koszyk",
+          "kurka",
+          "las",
+          "mech",
+          "nóżka",
+          "pleśń",
+          "trujący",
+          "trzon",
+          "zarodnik",
+          "zbierać",
+          "zielonka"
+        ],
+        "pokryte": 14,
+        "procent": "41.2"
+      },
+      "T1_T2": {
+        "brakujace": [
+          "blaszka",
+          "drożdże",
+          "grzybiarz",
+          "grzybobranie",
+          "jadalny",
+          "koszyk",
+          "las",
+          "mech",
+          "nóżka",
+          "trujący",
+          "trzon",
+          "zbierać",
+          "zielonka"
+        ],
+        "pokryte": 21,
+        "procent": "61.8"
+      },
+      "spelniony": true,
+      "prog": "0.70"
+    },
+    "srodladowe": null,
+    "odrzucone": {
+      "D": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "T1": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "T2": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 164
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 1312
+        },
+        "POZA_BROAD": {
+          "liczba": 1
+        },
+        "POZA_STANDARD": {
+          "liczba": 8
+        }
+      },
+      "T3": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "razem": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 164
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 1312
+        },
+        "POZA_BROAD": {
+          "liczba": 1
+        },
+        "POZA_STANDARD": {
+          "liczba": 8
+        }
+      }
+    },
+    "t3": null,
+    "wieloznaczny": {
+      "brak_danych": {
+        "liczba": 5,
+        "procent": "2.4",
+        "przyklady": [
+          "czernidlak@sgjp-20260823",
+          "mun@sgjp-20260823",
+          "obłoczniak@sgjp-20260823",
+          "otoczniak@sgjp-20260823",
+          "surojeszka@sgjp-20260823"
+        ]
+      },
+      "nie": {
+        "liczba": 73,
+        "procent": "34.6",
+        "przyklady": [
+          "aflatoksyna@sgjp-20260823",
+          "bedłkowiec@sgjp-20260823",
+          "borowik@sgjp-20260823",
+          "buławinka@sgjp-20260823",
+          "cystyda@sgjp-20260823",
+          "czernidłak@sgjp-20260823",
+          "dermatofit@sgjp-20260823",
+          "drożdżak@sgjp-20260823",
+          "egzyna@sgjp-20260823",
+          "endospora@sgjp-20260823"
+        ]
+      },
+      "tak": {
+        "liczba": 133,
+        "procent": "63.0",
+        "przyklady": [
+          "antypody@sgjp-20260823",
+          "bielaczek@sgjp-20260823",
+          "bielnik:Sm2@sgjp-20260823",
+          "blaszka@sgjp-20260823",
+          "boczniak@sgjp-20260823",
+          "buławka@sgjp-20260823",
+          "buławnik@sgjp-20260823",
+          "cysta@sgjp-20260823",
+          "czarka@sgjp-20260823",
+          "czubajka@sgjp-20260823"
+        ]
+      }
+    },
+    "wykluczenia": [
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "flagowiec@sgjp-20260823"
+        ],
+        "lemat": "flagowiec",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "megaspora@sgjp-20260823"
+        ],
+        "lemat": "megaspora",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "monada@sgjp-20260823"
+        ],
+        "lemat": "monada",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "promiennik@sgjp-20260823"
+        ],
+        "lemat": "promiennik",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "zrywka@sgjp-20260823"
+        ],
+        "lemat": "zrywka",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      }
+    ],
+    "werdykt": {
+      "automatyczny": "dalej",
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [],
+      "uwaga": "„stop” wybiera tylko operator na bramce"
+    }
+  },
+  "fala": {
+    "temat": "grzyby",
+    "t3_wpisy": 0,
+    "summary_t3_null": true,
+    "srodladowe_null": true,
+    "iate_w_inputs": false,
+    "iate_blok_manifestu": false,
+    "iate_w_plikach": {},
+    "bledy": [],
+    "zgodna": true
+  }
+}

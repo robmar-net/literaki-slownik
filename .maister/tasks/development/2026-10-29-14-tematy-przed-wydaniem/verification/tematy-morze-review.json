@@ -1,0 +1,1075 @@
+{
+  "agent": {
+    "items": [
+      {
+        "key": "achterluk@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "luk na rufie jachtu",
+        "warstwa": "T1"
+      },
+      {
+        "key": "agent@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne; agent żeglugowy to tylko jedno z wielu znaczeń",
+        "warstwa": "T3"
+      },
+      {
+        "key": "bajdewind@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "kurs żaglowy ostro do wiatru",
+        "warstwa": "T1"
+      },
+      {
+        "key": "bananowiec:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "statek do przewozu bananów",
+        "warstwa": "T2"
+      },
+      {
+        "key": "batysfera@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "kabina do badań głębin morskich",
+        "warstwa": "T2"
+      },
+      {
+        "key": "bezan@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "tylny maszt lub żagiel żaglowca",
+        "warstwa": "T1"
+      },
+      {
+        "key": "blindgafel@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "drzewce w omasztowaniu żaglowca",
+        "warstwa": "T1"
+      },
+      {
+        "key": "bramreja@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "reja żaglowca",
+        "warstwa": "T1"
+      },
+      {
+        "key": "bukszpryt@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "drzewce na dziobie żaglowca",
+        "warstwa": "T1"
+      },
+      {
+        "key": "bulaj@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "okrągłe okno w burcie statku",
+        "warstwa": "T1"
+      },
+      {
+        "key": "bulbkilowość@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "cecha kadłuba jachtu z kilem bulbowym; rzadkie, ale żeglarskie",
+        "warstwa": "T1"
+      },
+      {
+        "key": "bulina@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "lina w olinowaniu żaglowca",
+        "warstwa": "T1"
+      },
+      {
+        "key": "bungee@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "skok na linie, nie ma związku z morzem",
+        "warstwa": "T2"
+      },
+      {
+        "key": "bunkrowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "statek zaopatrujący inne statki w paliwo",
+        "warstwa": "T2"
+      },
+      {
+        "key": "burtnica@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "deska poszycia burty łodzi",
+        "warstwa": "T1"
+      },
+      {
+        "key": "ciąg@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne; sens „lina” jest marginalny",
+        "warstwa": "T2"
+      },
+      {
+        "key": "czterorzędowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "galera z czterema rzędami wioseł",
+        "warstwa": "T2"
+      },
+      {
+        "key": "deflektometr@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "przyrząd do pomiaru dewiacji kompasu okrętowego",
+        "warstwa": "T1"
+      },
+      {
+        "key": "dirka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "lina podtrzymująca gafel lub bom",
+        "warstwa": "T1"
+      },
+      {
+        "key": "dozorowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "okręt dozorowy",
+        "warstwa": "T2"
+      },
+      {
+        "key": "drewnowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "statek do przewozu drewna",
+        "warstwa": "T1"
+      },
+      {
+        "key": "drobnicowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "statek do przewozu drobnicy",
+        "warstwa": "T2"
+      },
+      {
+        "key": "dulka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "podpórka wiosła w burcie łodzi",
+        "warstwa": "T2"
+      },
+      {
+        "key": "dyplom@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne",
+        "warstwa": "T3"
+      },
+      {
+        "key": "fin:Sm3~a@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "rzadki termin żeglarski o niejasnym znaczeniu; nie umiem go potwierdzić",
+        "warstwa": "T1"
+      },
+      {
+        "key": "flauta@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "cisza wiatrowa na morzu; przenośnie też zastój",
+        "warstwa": "T1"
+      },
+      {
+        "key": "foksztaksel@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "przedni żagiel sztakslowy",
+        "warstwa": "T1"
+      },
+      {
+        "key": "galera@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "okręt wiosłowy",
+        "warstwa": "T1"
+      },
+      {
+        "key": "grotżagiel@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "główny żagiel",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kabotażowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "statek żeglugi przybrzeżnej",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kapitana@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "galera dowódcy floty",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kilwater@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "ślad torowy za płynącym statkiem",
+        "warstwa": "T1"
+      },
+      {
+        "key": "klamburta@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "nadburcie statku",
+        "warstwa": "T1"
+      },
+      {
+        "key": "klasyfikacja@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne",
+        "warstwa": "T3"
+      },
+      {
+        "key": "kliper@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "szybki żaglowiec",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kluza@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "otwór w burcie na łańcuch kotwiczny",
+        "warstwa": "T1"
+      },
+      {
+        "key": "koga@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "średniowieczny statek handlowy",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kogga@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "wariant zapisu „koga”, statek",
+        "warstwa": "T1"
+      },
+      {
+        "key": "komuły@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "termin rybacki o niejasnym znaczeniu; nie wiem, czy dotyczy rybołówstwa morskiego",
+        "warstwa": "T1"
+      },
+      {
+        "key": "konosament@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "dokument przewozu ładunku morzem",
+        "warstwa": "T3"
+      },
+      {
+        "key": "konteneryzacja@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "dotyczy transportu w ogóle, nie tylko morskiego",
+        "warstwa": "T3"
+      },
+      {
+        "key": "kontrtorpedowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "okręt wojenny, niszczyciel",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kotew@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "dawna nazwa kotwicy",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kotwicowisko@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "miejsce kotwiczenia statków",
+        "warstwa": "T3"
+      },
+      {
+        "key": "kołkownica@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "listwa na żaglowcu do mocowania lin",
+        "warstwa": "T2"
+      },
+      {
+        "key": "krzyżak:Sm2@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne; sens żeglarski jest marginalny",
+        "warstwa": "T2"
+      },
+      {
+        "key": "linka@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne, cienka lina w każdym zastosowaniu",
+        "warstwa": "T2"
+      },
+      {
+        "key": "locja@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "opis wód dla nawigacji morskiej",
+        "warstwa": "T1"
+      },
+      {
+        "key": "loksodroma@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "linia kursu w nawigacji",
+        "warstwa": "T3"
+      },
+      {
+        "key": "marlować@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "owijać lub mocować marlinką",
+        "warstwa": "T1"
+      },
+      {
+        "key": "marsreja@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "reja żaglowca",
+        "warstwa": "T1"
+      },
+      {
+        "key": "mat:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "podoficer marynarki",
+        "warstwa": "T1"
+      },
+      {
+        "key": "matelot:Sm3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "dawniej marynarz",
+        "warstwa": "T1"
+      },
+      {
+        "key": "moderator:Sm3@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "spowalniacz reakcji, chemia i fizyka jądrowa",
+        "warstwa": "T2"
+      },
+      {
+        "key": "nok@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "koniec rei lub bomu",
+        "warstwa": "T2"
+      },
+      {
+        "key": "nośność@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne techniczne; sens „nośność statku” to jedno z wielu użyć",
+        "warstwa": "T3"
+      },
+      {
+        "key": "ocel@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "hacel, kolec podkowy; brak związku z morzem",
+        "warstwa": "T2"
+      },
+      {
+        "key": "oczep@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "belka w budownictwie, np. na palach",
+        "warstwa": "T2"
+      },
+      {
+        "key": "odbojnica@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "belka chroniąca burtę lub nabrzeże; też bariera drogowa",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pelengować@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "namierzać w nawigacji",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pełzacz:Sm1@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "okucie, element mechaniczny; brak wyraźnego związku z morzem",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pik:Sm2.m3@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "róg żagla gaflowego, ale słowo ma wiele ogólnych znaczeń",
+        "warstwa": "T2"
+      },
+      {
+        "key": "piractwo@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "rozbój na morzu; dziś też piractwo komputerowe",
+        "warstwa": "T3"
+      },
+      {
+        "key": "pirat:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "rozbójnik morski; dziś też pirat komputerowy i drogowy",
+        "warstwa": "T2"
+      },
+      {
+        "key": "podróżny:S@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne",
+        "warstwa": "T3"
+      },
+      {
+        "key": "podwalina@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "belka w budownictwie",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pokładnik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "belka pod pokładem statku",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pompownia@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne",
+        "warstwa": "T3"
+      },
+      {
+        "key": "produktowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "zbiornikowiec do przewozu produktów naftowych",
+        "warstwa": "T1"
+      },
+      {
+        "key": "prom@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "statek przewożący pojazdy i ludzi; też promy rzeczne",
+        "warstwa": "T1"
+      },
+      {
+        "key": "przegroda@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne; na statku mówi się zwykle „grodź”",
+        "warstwa": "T3"
+      },
+      {
+        "key": "przetrałować@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "przeszukać trałem łowisko lub akwen",
+        "warstwa": "T1"
+      },
+      {
+        "key": "przeładunek@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "porty, ale też kolej i transport drogowy",
+        "warstwa": "T3"
+      },
+      {
+        "key": "pych@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "drąg do odpychania łodzi; raczej rzeki i płytkie wody",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pętelka@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "mała pętla, słowo ogólne",
+        "warstwa": "T2"
+      },
+      {
+        "key": "radiooficer@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "oficer radiowy na statku",
+        "warstwa": "T3"
+      },
+      {
+        "key": "recepturka@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "gumka recepturka",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rener@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "rzadka nazwa liny o niejasnym znaczeniu; nie umiem potwierdzić sensu morskiego",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rozrusznik@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "urządzenie do uruchamiania silnika",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rzutka@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "lina rzucana ze statku, ale też lotka do gry",
+        "warstwa": "T2"
+      },
+      {
+        "key": "saling@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "poprzeczka na maszcie",
+        "warstwa": "T1"
+      },
+      {
+        "key": "schodnia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "trap łączący statek z nabrzeżem",
+        "warstwa": "T3"
+      },
+      {
+        "key": "siarkowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "statek do przewozu siarki",
+        "warstwa": "T2"
+      },
+      {
+        "key": "siłownia@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "zwykle sala ćwiczeń albo elektrownia; maszynownia statku to sens rzadki",
+        "warstwa": "T3"
+      },
+      {
+        "key": "skrzydło@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne; łopata śruby okrętowej to sens marginalny",
+        "warstwa": "T2"
+      },
+      {
+        "key": "skuner@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "żaglowiec",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sosręb@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "belka stropowa w budownictwie",
+        "warstwa": "T2"
+      },
+      {
+        "key": "spedytor@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "dotyczy transportu w ogóle",
+        "warstwa": "T3"
+      },
+      {
+        "key": "stalnica@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "belka stropowa, budownictwo i górnictwo",
+        "warstwa": "T2"
+      },
+      {
+        "key": "stateczność@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "cecha statku, ale też pojęcie ogólne w fizyce i budownictwie",
+        "warstwa": "T3"
+      },
+      {
+        "key": "sterburta@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "prawa burta statku",
+        "warstwa": "T2"
+      },
+      {
+        "key": "sterówka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "pomieszczenie sterowe statku",
+        "warstwa": "T3"
+      },
+      {
+        "key": "stojan@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "część silnika elektrycznego",
+        "warstwa": "T2"
+      },
+      {
+        "key": "szalanda@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "barka do wywozu urobku z pogłębiania portu",
+        "warstwa": "T2"
+      },
+      {
+        "key": "szandek@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "termin z kwalifikatorem „mors.” o nieznanym mi znaczeniu",
+        "warstwa": "T1"
+      },
+      {
+        "key": "szap@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "jedwab z odpadów, włókiennictwo",
+        "warstwa": "T2"
+      },
+      {
+        "key": "sztafok@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "przedni żagiel sztakslowy",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sztag@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "lina podtrzymująca maszt",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sztagżagiel@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "żagiel na sztagu",
+        "warstwa": "T1"
+      },
+      {
+        "key": "topżagiel@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "żagiel szczytowy",
+        "warstwa": "T1"
+      },
+      {
+        "key": "trałowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "okręt do usuwania min",
+        "warstwa": "T1"
+      },
+      {
+        "key": "trimaran@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "jednostka z trzema kadłubami",
+        "warstwa": "T2"
+      },
+      {
+        "key": "trzon@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne",
+        "warstwa": "T3"
+      },
+      {
+        "key": "tuńczykowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "statek do połowu tuńczyków",
+        "warstwa": "T2"
+      },
+      {
+        "key": "wielorybnik:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "łowca wielorybów",
+        "warstwa": "T2"
+      },
+      {
+        "key": "wieszak@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne",
+        "warstwa": "T2"
+      },
+      {
+        "key": "wodownik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "zbiornikowiec dowożący wodę",
+        "warstwa": "T1"
+      },
+      {
+        "key": "wyładunek@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne, każdy transport",
+        "warstwa": "T3"
+      },
+      {
+        "key": "wzdłużnica@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "wzdłużny element konstrukcji kadłuba, ale też mostów i samolotów",
+        "warstwa": "T2"
+      },
+      {
+        "key": "włóczka@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "przędza do robótek",
+        "warstwa": "T2"
+      },
+      {
+        "key": "zadzior@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "kolec na grocie lub haczyku",
+        "warstwa": "T2"
+      },
+      {
+        "key": "zanurzenie@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "zanurzenie statku, ale słowo jest ogólne",
+        "warstwa": "T3"
+      },
+      {
+        "key": "zarefować@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "zmniejszyć powierzchnię żagla",
+        "warstwa": "T1"
+      },
+      {
+        "key": "zatrzymanie@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne",
+        "warstwa": "T3"
+      },
+      {
+        "key": "załadunek@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne, każdy transport",
+        "warstwa": "T3"
+      },
+      {
+        "key": "zenzowość@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "wariant „zęzowość”, termin okrętowy",
+        "warstwa": "T1"
+      },
+      {
+        "key": "zrefować@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "zmniejszyć powierzchnię żagla",
+        "warstwa": "T1"
+      },
+      {
+        "key": "zęzowość@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "termin okrętowy związany z zęzą",
+        "warstwa": "T1"
+      },
+      {
+        "key": "ładowisko@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "miejsce załadunku; ładownia statku to jeden z sensów",
+        "warstwa": "T2"
+      },
+      {
+        "key": "łącznik:Sm1@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "osoba pośrednicząca; brak związku z morzem",
+        "warstwa": "T2"
+      },
+      {
+        "key": "łącznik:Sm3@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "element przewodu wiertniczego; słowo ogólne",
+        "warstwa": "T2"
+      },
+      {
+        "key": "ścigacz@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "mały okręt, ale dziś zwykle motocykl",
+        "warstwa": "T2"
+      },
+      {
+        "key": "średnica@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "słowo ogólne",
+        "warstwa": "T2"
+      },
+      {
+        "key": "śródokręcie@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "środkowa część statku",
+        "warstwa": "T1"
+      },
+      {
+        "key": "żeglowność@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "zdatność wód do żeglugi; dotyczy też rzek",
+        "warstwa": "T3"
+      },
+      {
+        "key": "żurawik:Sm2@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "leksem żywotny (zdrobnienie od ptaka); sens żurawika szalupowego należy do Sm3",
+        "warstwa": "T3"
+      },
+      {
+        "key": "żurawik:Sm3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "żurawik szalupowy na statku",
+        "warstwa": "T3"
+      }
+    ],
+    "reviewed_at": "2026-10-29T00:22:00Z",
+    "reviewer": "agent (Claude)"
+  },
+  "agent_sha256": "a423e84cfbcfd6e1c3a48aa5617cbd4074df0b1dd94f0e2d5ecef0338f361e4b",
+  "canonical_index_sha256": "83037db13b5ca370c41224c2de37890334c1dcca7271bdbc8c72a48b9fb3b11f",
+  "evidence_sha256": {
+    "MORZE.txt.gz": "6e78d1efc429f51d7ce196c055e9845619697bae5d70652025252ef07954c9d7",
+    "reports/summary.json": "1ac34624e48e03a225fb43c069005ccd44ea1e340c967fb0f2b9e66256a97260"
+  },
+  "kind": "literaki-tematy-review",
+  "method": "tematy-v2",
+  "operator": {
+    "agent_sha256": "a423e84cfbcfd6e1c3a48aa5617cbd4074df0b1dd94f0e2d5ecef0338f361e4b",
+    "items": [
+      {
+        "key": "agent@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "bananowiec:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "bungee@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "bunkrowiec@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "ciąg@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "dozorowiec@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "dyplom@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "kabotażowiec@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "klasyfikacja@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "konosament@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "konteneryzacja@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "kontrtorpedowiec@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kotwicowisko@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "kołkownica@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "linka@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "loksodroma@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "nośność@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "ocel@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "oczep@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pik:Sm2.m3@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "piractwo@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "pirat:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "podróżny:S@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "podwalina@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pompownia@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "przegroda@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "przeładunek@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "radiooficer@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "recepturka@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rener@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rozrusznik@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rzutka@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "schodnia@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "siarkowiec@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "siłownia@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "skrzydło@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "sosręb@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "spedytor@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "stateczność@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "sterburta@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "sterówka@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "stojan@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "szalanda@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "szap@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "trzon@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "wielorybnik:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "wieszak@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "wyładunek@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "wzdłużnica@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "zanurzenie@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "zatrzymanie@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "załadunek@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "łącznik:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "ścigacz@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "żeglowność@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "żurawik:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "żurawik:Sm3@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      }
+    ],
+    "reviewed_at": "2026-10-29T00:51:00Z",
+    "reviewer": "operator"
+  },
+  "sample_sha256": "e6409a78db381065d5bf0ad82b9e97461fc4968184df80948454dfb89a59829a",
+  "schema_version": 1,
+  "sha256sums_sha256": "29750ce419e710b6f5879f7dba9331c0cbd8a2a210fded40900502c08e83b0a4",
+  "temat": "morze",
+  "version": "tematy-quality-v1"
+}
