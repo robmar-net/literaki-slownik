@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ocena R2: rosliny</title>
+<style>
+:root {
+  --bg: #f7f6f2; --card: #ffffff; --text: #1d1d1b; --muted: #5d5d58; --line: #dddcd5;
+  --accent: #1f5f8b; --tak: #1e7a3c; --nie: #b3261e; --niepewne: #8a6100; --on: #ffffff;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141413; --card: #1f1f1d; --text: #ecebe6; --muted: #a8a7a0; --line: #3a3a36;
+    --accent: #7fb6dd; --tak: #5cc27c; --nie: #f2827a; --niepewne: #e0b44a; --on: #141413;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141413; --card: #1f1f1d; --text: #ecebe6; --muted: #a8a7a0; --line: #3a3a36;
+  --accent: #7fb6dd; --tak: #5cc27c; --nie: #f2827a; --niepewne: #e0b44a; --on: #141413;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); overflow-x: hidden;
+  font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 640px; margin: 0 auto; padding: 0 16px 48px; }
+header { position: sticky; top: 0; z-index: 1; background: var(--bg); padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--line); }
+header h1 { margin: 0; font-size: 20px; }
+header p { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+.intro { color: var(--muted); font-size: 15px; margin: 12px 0; }
+h2 { font-size: 18px; margin: 24px 0 8px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin: 10px 0;
+  overflow-wrap: anywhere; }
+.card.done { border-color: var(--accent); }
+.lemat { font-size: 22px; font-weight: 700; margin: 0; }
+.meta { color: var(--muted); font-size: 14px; margin: 2px 0 8px; }
+.zn { margin: 4px 0; font-size: 15px; }
+.zn b { font-weight: 600; }
+.forms { color: var(--muted); font-size: 14px; margin: 6px 0 10px; }
+.btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+button { font: inherit; font-weight: 600; min-height: 52px; border-radius: 10px; border: 2px solid var(--line);
+  background: var(--card); color: var(--text); cursor: pointer; touch-action: manipulation; }
+button[data-v="tak"][aria-pressed="true"] { background: var(--tak); border-color: var(--tak); color: var(--on); }
+button[data-v="nie"][aria-pressed="true"] { background: var(--nie); border-color: var(--nie); color: var(--on); }
+button[data-v="niepewne"][aria-pressed="true"] { background: var(--niepewne); border-color: var(--niepewne); color: var(--on); }
+.out { margin-top: 28px; }
+#copy { width: 100%; background: var(--accent); border-color: var(--accent); color: var(--on); }
+#status { color: var(--muted); font-size: 15px; min-height: 1.4em; margin: 8px 0; }
+textarea { width: 100%; min-height: 160px; font: 13px/1.4 ui-monospace, Menlo, monospace; color: var(--text);
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+</style>
+</head>
+<body>
+<header><h1>Ocena R2: rosliny</h1><p id="progress"></p></header>
+<main>
+<p class="intro">Czy słowo należy do tematu „rosliny”? Wybierz tak, nie albo niepewne.
+Na końcu naciśnij „Kopiuj JSON” i wklej wynik w rozmowę. Szkic zostaje w tej przeglądarce.</p>
+<div id="list"></div>
+<section class="out">
+<button id="copy" type="button">Kopiuj JSON</button>
+<p id="status" role="status"></p>
+<textarea id="json" readonly aria-label="JSON z ocenami"></textarea>
+</section>
+</main>
+<script id="data" type="application/json">{"agent_sha256": "27621e942f6e5d4605710dae631cb9e7c9e40b5b93996b9c4e4bfd95de2d178d", "items": [{"formy": ["milin", "milinach", "milinami", "milinem", "milinie"], "key": "milin@sgjp-20260823", "lemat": "milin", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["381011 milin 1"]}, "zrodla": ["T2"]}, {"formy": ["pistacja", "pistacjach", "pistacjami", "pistacje", "pistacji"], "key": "pistacja@sgjp-20260823", "lemat": "pistacja", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["34030 pistacja 2", "34033 pistacja 1"]}, "zrodla": ["T2"]}, {"formy": ["bananowca", "bananowcach", "bananowcami", "bananowce", "bananowcem"], "key": "bananowiec:Sm1@sgjp-20260823", "lemat": "bananowiec", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["262594 bananowiec 1"]}, "zrodla": ["T2"]}, {"formy": ["gambir", "gambirach", "gambirami", "gambirem", "gambirom"], "key": "gambir@sgjp-20260823", "lemat": "gambir", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["75727 gambir 2"]}, "zrodla": ["T2"]}, {"formy": ["kotnik", "kotnika", "kotnikach", "kotnikami", "kotniki"], "key": "kotnik@sgjp-20260823", "lemat": "kotnik", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["80563 kotnik 1"]}, "zrodla": ["T2"]}, {"formy": ["rzepieni", "rzepienia", "rzepieniach", "rzepieniami", "rzepienie"], "key": "rzepień@sgjp-20260823", "lemat": "rzepień", "liczba_form": 19, "warstwa": "T2", "znaczenie": {"T2": ["256196 rzepień 1"]}, "zrodla": ["T2"]}, {"formy": ["barwinek", "barwinka", "barwinkach", "barwinkami", "barwinki"], "key": "barwinek@sgjp-20260823", "lemat": "barwinek", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["73520 barwinek 1"]}, "zrodla": ["T2"]}, {"formy": ["stręp", "strępach", "strępami", "strępem", "strępie"], "key": "stręp@sgjp-20260823", "lemat": "stręp", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["7089425 stręp 1"]}, "zrodla": ["T2"]}, {"formy": ["wieczornik", "wieczornika", "wieczornikach", "wieczornikami", "wieczorniki"], "key": "wieczornik@sgjp-20260823", "lemat": "wieczornik", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["74035 wieczornik 1"]}, "zrodla": ["T2"]}, {"formy": ["pszeniec", "pszeńca", "pszeńcach", "pszeńcami", "pszeńce"], "key": "pszeniec@sgjp-20260823", "lemat": "pszeniec", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["38508 pszeniec 1"]}, "zrodla": ["T2"]}, {"formy": ["listek", "listka", "listkach", "listkami", "listki"], "key": "listek@sgjp-20260823", "lemat": "listek", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["18257 listek 1", "447113 listek 4"]}, "zrodla": ["T2"]}, {"formy": ["imbir", "imbirach", "imbirami", "imbirem", "imbirom"], "key": "imbir@sgjp-20260823", "lemat": "imbir", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["11081 imbir 2", "389232 imbir 3"]}, "zrodla": ["T2"]}, {"formy": ["araukaria", "araukariach", "araukariami", "araukarie", "araukarii"], "key": "araukaria@sgjp-20260823", "lemat": "araukaria", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["27824 araukaria 1"]}, "zrodla": ["T2"]}, {"formy": ["smotraw", "smotrawa", "smotrawach", "smotrawami", "smotrawie"], "key": "smotrawa@sgjp-20260823", "lemat": "smotrawa", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["256225 smotrawa 1"]}, "zrodla": ["T2"]}, {"formy": ["wężymord", "wężymordach", "wężymordami", "wężymordem", "wężymordom"], "key": "wężymord@sgjp-20260823", "lemat": "wężymord", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["35656 wężymord 1", "390097 wężymord 2"]}, "zrodla": ["T2"]}, {"formy": ["szparag", "szparaga", "szparagach", "szparagami", "szparagi"], "key": "szparag@sgjp-20260823", "lemat": "szparag", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["11219 szparag 2", "11220 szparag 1"]}, "zrodla": ["T2"]}, {"formy": ["czernic", "czernica", "czernicach", "czernicami", "czernice"], "key": "czernica@sgjp-20260823", "lemat": "czernica", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["45949 czernica 2"]}, "zrodla": ["T2"]}, {"formy": ["kampanul", "kampanula", "kampanulach", "kampanulami", "kampanule"], "key": "kampanula@sgjp-20260823", "lemat": "kampanula", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["44047 kampanula 2"]}, "zrodla": ["T2"]}, {"formy": ["gołce", "gołek", "gołka", "gołkach", "gołkami"], "key": "gołka@sgjp-20260823", "lemat": "gołka", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["71508 gołka 2"]}, "zrodla": ["T2"]}, {"formy": ["lubaszce", "lubaszek", "lubaszka", "lubaszkach", "lubaszkami"], "key": "lubaszka@sgjp-20260823", "lemat": "lubaszka", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["43313 lubaszka 1", "43321 lubaszka 2"]}, "zrodla": ["T2"]}, {"formy": ["krzywak", "krzywaka", "krzywakach", "krzywakami", "krzywaki"], "key": "krzywak@sgjp-20260823", "lemat": "krzywak", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["48576 krzywak 2"]}, "zrodla": ["T2"]}, {"formy": ["wilczomlecz", "wilczomlecza", "wilczomleczach", "wilczomleczami", "wilczomlecze"], "key": "wilczomlecz@sgjp-20260823", "lemat": "wilczomlecz", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["29046 wilczomlecz 1"]}, "zrodla": ["T2"]}, {"formy": ["orzechowca", "orzechowcach", "orzechowcami", "orzechowce", "orzechowcem"], "key": "orzechowiec:Sm2@sgjp-20260823", "lemat": "orzechowiec", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["225431 orzechowiec 1"]}, "zrodla": ["T2"]}, {"formy": ["lepczyc", "lepczyca", "lepczycach", "lepczycami", "lepczyce"], "key": "lepczyca@sgjp-20260823", "lemat": "lepczyca", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["395058 lepczyca 1"]}, "zrodla": ["T2"]}, {"formy": ["bobach", "bobami", "bobem", "bobie", "bobom"], "key": "bób@sgjp-20260823", "lemat": "bób", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["13860 bób 1", "13861 bób 2"]}, "zrodla": ["T2"]}, {"formy": ["saradel", "saradela", "saradelach", "saradelami", "saradele"], "key": "saradela@sgjp-20260823", "lemat": "saradela", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["72161 saradela 1"]}, "zrodla": ["T2"]}, {"formy": ["iw", "iwa", "iwach", "iwami", "iwie"], "key": "iwa@sgjp-20260823", "lemat": "iwa", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["32495 iwa 1"]}, "zrodla": ["T2"]}, {"formy": ["ozimin", "ozimina", "oziminach", "oziminami", "oziminie"], "key": "ozimina@sgjp-20260823", "lemat": "ozimina", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["72146 ozimina 1"]}, "zrodla": ["T2"]}, {"formy": ["kłoda", "kłodach", "kłodami", "kłodo", "kłodom"], "key": "kłoda@sgjp-20260823", "lemat": "kłoda", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["8501 kłoda 1"]}, "zrodla": ["T2"]}, {"formy": ["chwast", "chwastach", "chwastami", "chwastem", "chwastom"], "key": "chwast@sgjp-20260823", "lemat": "chwast", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["11270 chwast 1"]}, "zrodla": ["T2"]}], "kind": "literaki-tematy-ocena-operatora", "sample_sha256": "16ac2ef48d0e5ac234c06a0f41942249898cbd6017b8744b8c5892f3939f1fb5", "schema_version": 1, "sha256sums_sha256": "eb977073bd23f9067a9232d02994f1787fbf745faa8849973ea8394972aec5bd", "temat": "rosliny"}</script>
+<script>
+(function () {
+  var data = JSON.parse(document.getElementById('data').textContent);
+  var store = 'tematy-r2-' + data.sample_sha256.slice(0, 16);
+  var oceny = {};
+  try {
+    var saved = JSON.parse(window.localStorage.getItem(store) || '{}');
+    data.items.forEach(function (it) {
+      var v = saved[it.key];
+      if (v === 'tak' || v === 'nie' || v === 'niepewne') { oceny[it.key] = v; }
+    });
+  } catch (e) { oceny = {}; }
+
+  function save() {
+    try { window.localStorage.setItem(store, JSON.stringify(oceny)); } catch (e) { /* szkic tylko w pamięci */ }
+  }
+  function result() {
+    var picked = {};
+    data.items.forEach(function (it) { if (oceny[it.key]) { picked[it.key] = oceny[it.key]; } });
+    return JSON.stringify({kind: data.kind, schema_version: data.schema_version, temat: data.temat,
+      sample_sha256: data.sample_sha256, sha256sums_sha256: data.sha256sums_sha256,
+      agent_sha256: data.agent_sha256, oceny: picked});
+  }
+  function refresh() {
+    var done = data.items.filter(function (it) { return oceny[it.key]; }).length;
+    document.getElementById('progress').textContent = 'Ocenione: ' + done + ' z ' + data.items.length;
+    document.getElementById('json').value = result();
+  }
+  function el(tag, cls, text) {
+    var node = document.createElement(tag);
+    if (cls) { node.className = cls; }
+    if (text !== undefined) { node.textContent = text; }
+    return node;
+  }
+
+  var list = document.getElementById('list');
+  var layer = null;
+  data.items.forEach(function (it) {
+    if (it.warstwa !== layer) {
+      layer = it.warstwa;
+      list.appendChild(el('h2', '', 'Warstwa ' + layer));
+    }
+    var card = el('article', 'card');
+    card.appendChild(el('p', 'lemat', it.lemat));
+    card.appendChild(el('p', 'meta', 'Warstwa ' + it.warstwa + ' · źródła: ' + it.zrodla.join(', ')));
+    Object.keys(it.znaczenie).sort().forEach(function (w) {
+      var p = el('p', 'zn');
+      p.appendChild(el('b', '', w + ': '));
+      p.appendChild(document.createTextNode(it.znaczenie[w].join('; ')));
+      card.appendChild(p);
+    });
+    var more = it.liczba_form > it.formy.length ? ' … (razem ' + it.liczba_form + ')' : '';
+    card.appendChild(el('p', 'forms', 'Formy: ' + it.formy.join(', ') + more));
+    var row = el('div', 'btns');
+    ['tak', 'nie', 'niepewne'].forEach(function (v) {
+      var b = el('button', '', v);
+      b.type = 'button';
+      b.setAttribute('data-v', v);
+      b.setAttribute('aria-pressed', oceny[it.key] === v ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        oceny[it.key] = v;
+        row.querySelectorAll('button').forEach(function (x) {
+          x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+        });
+        card.classList.add('done');
+        save();
+        refresh();
+      });
+      row.appendChild(b);
+    });
+    if (oceny[it.key]) { card.classList.add('done'); }
+    card.appendChild(row);
+    list.appendChild(card);
+  });
+
+  document.getElementById('copy').addEventListener('click', function () {
+    var area = document.getElementById('json');
+    var status = document.getElementById('status');
+    var text = result();
+    area.value = text;
+    function fallback() {
+      area.focus();
+      area.select();
+      area.setSelectionRange(0, text.length);
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      status.textContent = ok ? 'Skopiowano.' : 'Zaznacz tekst poniżej i skopiuj ręcznie.';
+    }
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { status.textContent = 'Skopiowano.'; }, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+  refresh();
+})();
+</script>
+</body>
+</html>

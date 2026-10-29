@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ocena R2: muzyka</title>
+<style>
+:root {
+  --bg: #f7f6f2; --card: #ffffff; --text: #1d1d1b; --muted: #5d5d58; --line: #dddcd5;
+  --accent: #1f5f8b; --tak: #1e7a3c; --nie: #b3261e; --niepewne: #8a6100; --on: #ffffff;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141413; --card: #1f1f1d; --text: #ecebe6; --muted: #a8a7a0; --line: #3a3a36;
+    --accent: #7fb6dd; --tak: #5cc27c; --nie: #f2827a; --niepewne: #e0b44a; --on: #141413;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141413; --card: #1f1f1d; --text: #ecebe6; --muted: #a8a7a0; --line: #3a3a36;
+  --accent: #7fb6dd; --tak: #5cc27c; --nie: #f2827a; --niepewne: #e0b44a; --on: #141413;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); overflow-x: hidden;
+  font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 640px; margin: 0 auto; padding: 0 16px 48px; }
+header { position: sticky; top: 0; z-index: 1; background: var(--bg); padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--line); }
+header h1 { margin: 0; font-size: 20px; }
+header p { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+.intro { color: var(--muted); font-size: 15px; margin: 12px 0; }
+h2 { font-size: 18px; margin: 24px 0 8px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin: 10px 0;
+  overflow-wrap: anywhere; }
+.card.done { border-color: var(--accent); }
+.lemat { font-size: 22px; font-weight: 700; margin: 0; }
+.meta { color: var(--muted); font-size: 14px; margin: 2px 0 8px; }
+.zn { margin: 4px 0; font-size: 15px; }
+.zn b { font-weight: 600; }
+.forms { color: var(--muted); font-size: 14px; margin: 6px 0 10px; }
+.btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+button { font: inherit; font-weight: 600; min-height: 52px; border-radius: 10px; border: 2px solid var(--line);
+  background: var(--card); color: var(--text); cursor: pointer; touch-action: manipulation; }
+button[data-v="tak"][aria-pressed="true"] { background: var(--tak); border-color: var(--tak); color: var(--on); }
+button[data-v="nie"][aria-pressed="true"] { background: var(--nie); border-color: var(--nie); color: var(--on); }
+button[data-v="niepewne"][aria-pressed="true"] { background: var(--niepewne); border-color: var(--niepewne); color: var(--on); }
+.out { margin-top: 28px; }
+#copy { width: 100%; background: var(--accent); border-color: var(--accent); color: var(--on); }
+#status { color: var(--muted); font-size: 15px; min-height: 1.4em; margin: 8px 0; }
+textarea { width: 100%; min-height: 160px; font: 13px/1.4 ui-monospace, Menlo, monospace; color: var(--text);
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+</style>
+</head>
+<body>
+<header><h1>Ocena R2: muzyka</h1><p id="progress"></p></header>
+<main>
+<p class="intro">Czy słowo należy do tematu „muzyka”? Wybierz tak, nie albo niepewne.
+Na końcu naciśnij „Kopiuj JSON” i wklej wynik w rozmowę. Szkic zostaje w tej przeglądarce.</p>
+<div id="list"></div>
+<section class="out">
+<button id="copy" type="button">Kopiuj JSON</button>
+<p id="status" role="status"></p>
+<textarea id="json" readonly aria-label="JSON z ocenami"></textarea>
+</section>
+</main>
+<script id="data" type="application/json">{"agent_sha256": "0d2e220f49aec36d997ea6ee2753bf939b9f0a9dfdc0c14ecd5f935d3426ffbd", "items": [{"formy": ["pantaleon", "pantaleonach", "pantaleonami", "pantaleonem", "pantaleonie"], "key": "pantaleon@sgjp-20260823", "lemat": "pantaleon", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["392296 pantaleon 1"]}, "zrodla": ["T2"]}, {"formy": ["nucie", "nut", "nuta", "nutach", "nutami"], "key": "nuta@sgjp-20260823", "lemat": "nuta", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["250431 nuta 6"]}, "zrodla": ["T2"]}, {"formy": ["marimb", "marimba", "marimbach", "marimbami", "marimbie"], "key": "marimba@sgjp-20260823", "lemat": "marimba", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["26547 marimba 1"]}, "zrodla": ["T2"]}, {"formy": ["basklarnecie", "basklarnet", "basklarnetach", "basklarnetami", "basklarnetem"], "key": "basklarnet@sgjp-20260823", "lemat": "basklarnet", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["45705 basklarnet 1"]}, "zrodla": ["T2"]}, {"formy": ["szpinecie", "szpinet", "szpinetach", "szpinetami", "szpinetem"], "key": "szpinet@sgjp-20260823", "lemat": "szpinet", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["43084 szpinet 1"]}, "zrodla": ["T2"]}, {"formy": ["śpiewak", "śpiewaka", "śpiewakach", "śpiewakami", "śpiewaki"], "key": "śpiewak:Sm2@sgjp-20260823", "lemat": "śpiewak", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["23802 śpiewak 1"]}, "zrodla": ["T2"]}, {"formy": ["gruchawce", "gruchawek", "gruchawka", "gruchawkach", "gruchawkami"], "key": "gruchawka@sgjp-20260823", "lemat": "gruchawka", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["238297 gruchawka 1"]}, "zrodla": ["T2"]}, {"formy": ["thrash", "thrashach", "thrashami", "thrashe", "thrashem"], "key": "thrash@sgjp-20260823", "lemat": "thrash", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["47427 thrash 1"]}, "zrodla": ["T2"]}, {"formy": ["goliard", "goliarda", "goliardach", "goliardami", "goliardem"], "key": "goliard@sgjp-20260823", "lemat": "goliard", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["23097 goliard 1"]}, "zrodla": ["T2"]}, {"formy": ["strunnik", "strunnika", "strunnikach", "strunnikami", "strunniki"], "key": "strunnik@sgjp-20260823", "lemat": "strunnik", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["399899 strunnik 1"]}, "zrodla": ["T2"]}, {"formy": ["różaniec", "różańca", "różańcach", "różańcami", "różańce"], "key": "różaniec@sgjp-20260823", "lemat": "różaniec", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["14497 różaniec 1"]}, "zrodla": ["T2"]}, {"formy": ["języczek", "języczka", "języczkach", "języczkami", "języczki"], "key": "języczek@sgjp-20260823", "lemat": "języczek", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["235548 języczek 3"]}, "zrodla": ["T2"]}, {"formy": ["bitles", "bitlesa", "bitlesach", "bitlesami", "bitlesem"], "key": "bitles@sgjp-20260823", "lemat": "bitles", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["391618 bitles 1"]}, "zrodla": ["T2"]}, {"formy": ["spinecie", "spinet", "spinetach", "spinetami", "spinetem"], "key": "spinet@sgjp-20260823", "lemat": "spinet", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["43084 spinet 1"]}, "zrodla": ["T2"]}, {"formy": ["łącznicy", "łącznik", "łącznika", "łącznikach", "łącznikami"], "key": "łącznik:Sm1@sgjp-20260823", "lemat": "łącznik", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["404924 łącznik 9"]}, "zrodla": ["T2"]}, {"formy": ["chordofon", "chordofonach", "chordofonami", "chordofonem", "chordofonie"], "key": "chordofon@sgjp-20260823", "lemat": "chordofon", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["8267 chordofon 1"]}, "zrodla": ["T2"]}, {"formy": ["klawisz", "klawisza", "klawiszach", "klawiszami", "klawisze"], "key": "klawisz:Sm3@sgjp-20260823", "lemat": "klawisz", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["7471 klawisz 1"]}, "zrodla": ["T2"]}, {"formy": ["organkach", "organkami", "organki", "organkom", "organków"], "key": "organki@sgjp-20260823", "lemat": "organki", "liczba_form": 5, "warstwa": "T2", "znaczenie": {"T2": ["16292 organki 1"]}, "zrodla": ["T2"]}, {"formy": ["bekadeł", "bekadle", "bekadła", "bekadłach", "bekadłami"], "key": "bekadło@sgjp-20260823", "lemat": "bekadło", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["236709 bekadło 1"]}, "zrodla": ["T2"]}, {"formy": ["skacie", "skat", "skata", "skatach", "skatami"], "key": "skat@sgjp-20260823", "lemat": "skat", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["249936 skat 2"]}, "zrodla": ["T2"]}, {"formy": ["tercja", "tercjach", "tercjami", "tercje", "tercji"], "key": "tercja@sgjp-20260823", "lemat": "tercja", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["45868 tercja 3"]}, "zrodla": ["T2"]}, {"formy": ["skrzypek", "skrzypka", "skrzypkach", "skrzypkami", "skrzypki"], "key": "skrzypek@sgjp-20260823", "lemat": "skrzypek", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["16810 skrzypek 1"]}, "zrodla": ["T2"]}, {"formy": ["arabesce", "arabesek", "arabeska", "arabeskach", "arabeskami"], "key": "arabeska@sgjp-20260823", "lemat": "arabeska", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["29499 arabeska 3", "32910 arabeska 2"]}, "zrodla": ["T2"]}, {"formy": ["pip", "pipa", "pipach", "pipami", "pipie"], "key": "pipa@sgjp-20260823", "lemat": "pipa", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["26550 pipa 1"]}, "zrodla": ["T2"]}, {"formy": ["zakrętce", "zakrętek", "zakrętka", "zakrętkach", "zakrętkami"], "key": "zakrętka@sgjp-20260823", "lemat": "zakrętka", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["14804 zakrętka 1"]}, "zrodla": ["T2"]}, {"formy": ["cymbalista", "cymbalistach", "cymbalistami", "cymbalisto", "cymbalistom"], "key": "cymbalista@sgjp-20260823", "lemat": "cymbalista", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["73203 cymbalista 1"]}, "zrodla": ["T2"]}, {"formy": ["kor", "kora", "korach", "korami", "koro"], "key": "kora@sgjp-20260823", "lemat": "kora", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["396757 kora 5"]}, "zrodla": ["T2"]}, {"formy": ["idiofon", "idiofonach", "idiofonami", "idiofonem", "idiofonie"], "key": "idiofon@sgjp-20260823", "lemat": "idiofon", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["26614 idiofon 1"]}, "zrodla": ["T2"]}, {"formy": ["piccola", "piccolach", "piccolami", "piccole", "piccolem"], "key": "piccolo:Sm1@sgjp-20260823", "lemat": "piccolo", "liczba_form": 12, "warstwa": "T2", "znaczenie": {"T2": ["46381 piccolo 1"]}, "zrodla": ["T2"]}, {"formy": ["ukulele"], "key": "ukulele@sgjp-20260823", "lemat": "ukulele", "liczba_form": 1, "warstwa": "T2", "znaczenie": {"T2": ["235424 ukulele 1"]}, "zrodla": ["T2"]}], "kind": "literaki-tematy-ocena-operatora", "sample_sha256": "c635a6aabb40d40884e6654bb78018102cd516dfffb87e3be442b45f0d270a9f", "schema_version": 1, "sha256sums_sha256": "10bb0e1cd1386b75fec0363649c77cd64379891817ad8c63875fbfb6932b594f", "temat": "muzyka"}</script>
+<script>
+(function () {
+  var data = JSON.parse(document.getElementById('data').textContent);
+  var store = 'tematy-r2-' + data.sample_sha256.slice(0, 16);
+  var oceny = {};
+  try {
+    var saved = JSON.parse(window.localStorage.getItem(store) || '{}');
+    data.items.forEach(function (it) {
+      var v = saved[it.key];
+      if (v === 'tak' || v === 'nie' || v === 'niepewne') { oceny[it.key] = v; }
+    });
+  } catch (e) { oceny = {}; }
+
+  function save() {
+    try { window.localStorage.setItem(store, JSON.stringify(oceny)); } catch (e) { /* szkic tylko w pamięci */ }
+  }
+  function result() {
+    var picked = {};
+    data.items.forEach(function (it) { if (oceny[it.key]) { picked[it.key] = oceny[it.key]; } });
+    return JSON.stringify({kind: data.kind, schema_version: data.schema_version, temat: data.temat,
+      sample_sha256: data.sample_sha256, sha256sums_sha256: data.sha256sums_sha256,
+      agent_sha256: data.agent_sha256, oceny: picked});
+  }
+  function refresh() {
+    var done = data.items.filter(function (it) { return oceny[it.key]; }).length;
+    document.getElementById('progress').textContent = 'Ocenione: ' + done + ' z ' + data.items.length;
+    document.getElementById('json').value = result();
+  }
+  function el(tag, cls, text) {
+    var node = document.createElement(tag);
+    if (cls) { node.className = cls; }
+    if (text !== undefined) { node.textContent = text; }
+    return node;
+  }
+
+  var list = document.getElementById('list');
+  var layer = null;
+  data.items.forEach(function (it) {
+    if (it.warstwa !== layer) {
+      layer = it.warstwa;
+      list.appendChild(el('h2', '', 'Warstwa ' + layer));
+    }
+    var card = el('article', 'card');
+    card.appendChild(el('p', 'lemat', it.lemat));
+    card.appendChild(el('p', 'meta', 'Warstwa ' + it.warstwa + ' · źródła: ' + it.zrodla.join(', ')));
+    Object.keys(it.znaczenie).sort().forEach(function (w) {
+      var p = el('p', 'zn');
+      p.appendChild(el('b', '', w + ': '));
+      p.appendChild(document.createTextNode(it.znaczenie[w].join('; ')));
+      card.appendChild(p);
+    });
+    var more = it.liczba_form > it.formy.length ? ' … (razem ' + it.liczba_form + ')' : '';
+    card.appendChild(el('p', 'forms', 'Formy: ' + it.formy.join(', ') + more));
+    var row = el('div', 'btns');
+    ['tak', 'nie', 'niepewne'].forEach(function (v) {
+      var b = el('button', '', v);
+      b.type = 'button';
+      b.setAttribute('data-v', v);
+      b.setAttribute('aria-pressed', oceny[it.key] === v ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        oceny[it.key] = v;
+        row.querySelectorAll('button').forEach(function (x) {
+          x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+        });
+        card.classList.add('done');
+        save();
+        refresh();
+      });
+      row.appendChild(b);
+    });
+    if (oceny[it.key]) { card.classList.add('done'); }
+    card.appendChild(row);
+    list.appendChild(card);
+  });
+
+  document.getElementById('copy').addEventListener('click', function () {
+    var area = document.getElementById('json');
+    var status = document.getElementById('status');
+    var text = result();
+    area.value = text;
+    function fallback() {
+      area.focus();
+      area.select();
+      area.setSelectionRange(0, text.length);
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      status.textContent = ok ? 'Skopiowano.' : 'Zaznacz tekst poniżej i skopiuj ręcznie.';
+    }
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { status.textContent = 'Skopiowano.'; }, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+  refresh();
+})();
+</script>
+</body>
+</html>

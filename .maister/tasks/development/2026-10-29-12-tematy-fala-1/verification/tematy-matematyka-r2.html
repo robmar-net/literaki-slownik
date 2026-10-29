@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ocena R2: matematyka</title>
+<style>
+:root {
+  --bg: #f7f6f2; --card: #ffffff; --text: #1d1d1b; --muted: #5d5d58; --line: #dddcd5;
+  --accent: #1f5f8b; --tak: #1e7a3c; --nie: #b3261e; --niepewne: #8a6100; --on: #ffffff;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141413; --card: #1f1f1d; --text: #ecebe6; --muted: #a8a7a0; --line: #3a3a36;
+    --accent: #7fb6dd; --tak: #5cc27c; --nie: #f2827a; --niepewne: #e0b44a; --on: #141413;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141413; --card: #1f1f1d; --text: #ecebe6; --muted: #a8a7a0; --line: #3a3a36;
+  --accent: #7fb6dd; --tak: #5cc27c; --nie: #f2827a; --niepewne: #e0b44a; --on: #141413;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); overflow-x: hidden;
+  font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 640px; margin: 0 auto; padding: 0 16px 48px; }
+header { position: sticky; top: 0; z-index: 1; background: var(--bg); padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--line); }
+header h1 { margin: 0; font-size: 20px; }
+header p { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+.intro { color: var(--muted); font-size: 15px; margin: 12px 0; }
+h2 { font-size: 18px; margin: 24px 0 8px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin: 10px 0;
+  overflow-wrap: anywhere; }
+.card.done { border-color: var(--accent); }
+.lemat { font-size: 22px; font-weight: 700; margin: 0; }
+.meta { color: var(--muted); font-size: 14px; margin: 2px 0 8px; }
+.zn { margin: 4px 0; font-size: 15px; }
+.zn b { font-weight: 600; }
+.forms { color: var(--muted); font-size: 14px; margin: 6px 0 10px; }
+.btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+button { font: inherit; font-weight: 600; min-height: 52px; border-radius: 10px; border: 2px solid var(--line);
+  background: var(--card); color: var(--text); cursor: pointer; touch-action: manipulation; }
+button[data-v="tak"][aria-pressed="true"] { background: var(--tak); border-color: var(--tak); color: var(--on); }
+button[data-v="nie"][aria-pressed="true"] { background: var(--nie); border-color: var(--nie); color: var(--on); }
+button[data-v="niepewne"][aria-pressed="true"] { background: var(--niepewne); border-color: var(--niepewne); color: var(--on); }
+.out { margin-top: 28px; }
+#copy { width: 100%; background: var(--accent); border-color: var(--accent); color: var(--on); }
+#status { color: var(--muted); font-size: 15px; min-height: 1.4em; margin: 8px 0; }
+textarea { width: 100%; min-height: 160px; font: 13px/1.4 ui-monospace, Menlo, monospace; color: var(--text);
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+</style>
+</head>
+<body>
+<header><h1>Ocena R2: matematyka</h1><p id="progress"></p></header>
+<main>
+<p class="intro">Czy słowo należy do tematu „matematyka”? Wybierz tak, nie albo niepewne.
+Na końcu naciśnij „Kopiuj JSON” i wklej wynik w rozmowę. Szkic zostaje w tej przeglądarce.</p>
+<div id="list"></div>
+<section class="out">
+<button id="copy" type="button">Kopiuj JSON</button>
+<p id="status" role="status"></p>
+<textarea id="json" readonly aria-label="JSON z ocenami"></textarea>
+</section>
+</main>
+<script id="data" type="application/json">{"agent_sha256": "9306b2cb8c789f9b1b977305777732da424513f501d3a125d129a04f482990e3", "items": [{"formy": ["loksodrom", "loksodroma", "loksodromach", "loksodromami", "loksodromie"], "key": "loksodroma@sgjp-20260823", "lemat": "loksodroma", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["78422 loksodroma 1"]}, "zrodla": ["T2"]}, {"formy": ["klas", "klasa", "klasach", "klasami", "klasie"], "key": "klasa@sgjp-20260823", "lemat": "klasa", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["43579 klasa 14"]}, "zrodla": ["T2"]}, {"formy": ["wwozach", "wwozami", "wwozem", "wwozie", "wwozom"], "key": "wwóz@sgjp-20260823", "lemat": "wwóz", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["35489 wwóz 2"]}, "zrodla": ["T2"]}, {"formy": ["półokrąg", "półokręgach", "półokręgami", "półokręgi", "półokręgiem"], "key": "półokrąg@sgjp-20260823", "lemat": "półokrąg", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["18277 półokrąg 2"]}, "zrodla": ["T2"]}, {"formy": ["klin", "klina", "klinach", "klinami", "klinem"], "key": "klin:Sm3@sgjp-20260823", "lemat": "klin", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["14280 klin 2"]}, "zrodla": ["T2"]}, {"formy": ["prostokącie", "prostokąt", "prostokąta", "prostokątach", "prostokątami"], "key": "prostokąt@sgjp-20260823", "lemat": "prostokąt", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["4743 prostokąt 2", "49536 prostokąt 1"]}, "zrodla": ["T2"]}, {"formy": ["pięciobok", "pięciobokach", "pięciobokami", "pięcioboki", "pięciobokiem"], "key": "pięciobok@sgjp-20260823", "lemat": "pięciobok", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["17551 pięciobok 1"]}, "zrodla": ["T2"]}, {"formy": ["półkul", "półkula", "półkulach", "półkulami", "półkule"], "key": "półkula@sgjp-20260823", "lemat": "półkula", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["18279 półkula 2", "40243 półkula 1"]}, "zrodla": ["T2"]}, {"formy": ["eliminacja", "eliminacjach", "eliminacjami", "eliminacje", "eliminacji"], "key": "eliminacja@sgjp-20260823", "lemat": "eliminacja", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["247885 eliminacja 4"]}, "zrodla": ["T2"]}, {"formy": ["funkcjonale", "funkcjonał", "funkcjonałach", "funkcjonałami", "funkcjonałem"], "key": "funkcjonał@sgjp-20260823", "lemat": "funkcjonał", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["26910 funkcjonał 1"]}, "zrodla": ["T2"]}, {"formy": ["dwuścian", "dwuścianach", "dwuścianami", "dwuścianem", "dwuścianie"], "key": "dwuścian@sgjp-20260823", "lemat": "dwuścian", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["20531 dwuścian 3", "244310 dwuścian 1"]}, "zrodla": ["T2"]}, {"formy": ["aksjomatyzacja", "aksjomatyzacje", "aksjomatyzacji", "aksjomatyzacjo", "aksjomatyzacjom"], "key": "aksjomatyzacja@sgjp-20260823", "lemat": "aksjomatyzacja", "liczba_form": 7, "warstwa": "T2", "znaczenie": {"T2": ["40683 aksjomatyzacja 1"]}, "zrodla": ["T2"]}, {"formy": ["bąbelek", "bąbelka", "bąbelkach", "bąbelkami", "bąbelki"], "key": "bąbelek@sgjp-20260823", "lemat": "bąbelek", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["439862 bąbelek 4"]}, "zrodla": ["T2"]}, {"formy": ["warstw", "warstwa", "warstwach", "warstwami", "warstwie"], "key": "warstwa@sgjp-20260823", "lemat": "warstwa", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["7081992 warstwa 7", "7081993 warstwa 8"]}, "zrodla": ["T2"]}, {"formy": ["promieni", "promienia", "promieniach", "promieniami", "promienie"], "key": "promień@sgjp-20260823", "lemat": "promień", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["2615 promień 2"]}, "zrodla": ["T2"]}, {"formy": ["haseł", "hasła", "hasłach", "hasłami", "hasłem"], "key": "hasło@sgjp-20260823", "lemat": "hasło", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["405118 hasło 7"]}, "zrodla": ["T2"]}, {"formy": ["azymucie", "azymut", "azymutach", "azymutami", "azymutem"], "key": "azymut@sgjp-20260823", "lemat": "azymut", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["54262 azymut 1"]}, "zrodla": ["T2"]}, {"formy": ["oszczędności", "oszczędnościach", "oszczędnościami", "oszczędnościom"], "key": "oszczędności@sgjp-20260823", "lemat": "oszczędności", "liczba_form": 4, "warstwa": "T2", "znaczenie": {"T2": ["104728 oszczędności 2"]}, "zrodla": ["T2"]}, {"formy": ["walca", "walcach", "walcami", "walce", "walcem"], "key": "walec@sgjp-20260823", "lemat": "walec", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["466015 walec 6", "4979 walec 3", "5011 walec 1"]}, "zrodla": ["T2"]}, {"formy": ["skal", "skala", "skalach", "skalami", "skale"], "key": "skala@sgjp-20260823", "lemat": "skala", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["102876 skala 3"]}, "zrodla": ["T2"]}, {"formy": ["prostopadła", "prostopadłe", "prostopadłej", "prostopadłych", "prostopadłym"], "key": "prostopadła@sgjp-20260823", "lemat": "prostopadła", "liczba_form": 7, "warstwa": "T2", "znaczenie": {"T2": ["407077 prostopadła 1"]}, "zrodla": ["T2"]}, {"formy": ["banieczce", "banieczek", "banieczka", "banieczkach", "banieczkami"], "key": "banieczka@sgjp-20260823", "lemat": "banieczka", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["30654 banieczka 2"]}, "zrodla": ["T2"]}, {"formy": ["kolur", "kolurach", "kolurami", "kolurem", "kolurom"], "key": "kolur@sgjp-20260823", "lemat": "kolur", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["43668 kolur 1"]}, "zrodla": ["T2"]}, {"formy": ["percentyl", "percentylach", "percentylami", "percentyle", "percentylem"], "key": "percentyl@sgjp-20260823", "lemat": "percentyl", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["395055 percentyl 1"]}, "zrodla": ["T2"]}, {"formy": ["topologia", "topologiach", "topologiami", "topologie", "topologii"], "key": "topologia@sgjp-20260823", "lemat": "topologia", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["27020 topologia 1"]}, "zrodla": ["T2"]}, {"formy": ["deniwelacja", "deniwelacjach", "deniwelacjami", "deniwelacje", "deniwelacji"], "key": "deniwelacja@sgjp-20260823", "lemat": "deniwelacja", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["33179 deniwelacja 1"]}, "zrodla": ["T2"]}, {"formy": ["stożek", "stożka", "stożkach", "stożkami", "stożki"], "key": "stożek@sgjp-20260823", "lemat": "stożek", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["5012 stożek 2"]}, "zrodla": ["T2"]}, {"formy": ["licznik", "licznika", "licznikach", "licznikami", "liczniki"], "key": "licznik@sgjp-20260823", "lemat": "licznik", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["48772 licznik 2"]}, "zrodla": ["T2"]}, {"formy": ["kaustyce", "kaustyk", "kaustyka", "kaustykach", "kaustykami"], "key": "kaustyka@sgjp-20260823", "lemat": "kaustyka", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["384600 kaustyka 1"]}, "zrodla": ["T2"]}, {"formy": ["tożsamości", "tożsamościach", "tożsamościami", "tożsamościom", "tożsamością"], "key": "tożsamość@sgjp-20260823", "lemat": "tożsamość", "liczba_form": 6, "warstwa": "T2", "znaczenie": {"T2": ["8096 tożsamość 2"]}, "zrodla": ["T2"]}], "kind": "literaki-tematy-ocena-operatora", "sample_sha256": "ba3c15214ed21e7b039ced5b9857f861d6a666ca9dd6be931fcb4b2c9e737e67", "schema_version": 1, "sha256sums_sha256": "61b94f432889a6179e32ff96514a6e5d6bc08bc5f7a77b3e92a94ce5ac85b683", "temat": "matematyka"}</script>
+<script>
+(function () {
+  var data = JSON.parse(document.getElementById('data').textContent);
+  var store = 'tematy-r2-' + data.sample_sha256.slice(0, 16);
+  var oceny = {};
+  try {
+    var saved = JSON.parse(window.localStorage.getItem(store) || '{}');
+    data.items.forEach(function (it) {
+      var v = saved[it.key];
+      if (v === 'tak' || v === 'nie' || v === 'niepewne') { oceny[it.key] = v; }
+    });
+  } catch (e) { oceny = {}; }
+
+  function save() {
+    try { window.localStorage.setItem(store, JSON.stringify(oceny)); } catch (e) { /* szkic tylko w pamięci */ }
+  }
+  function result() {
+    var picked = {};
+    data.items.forEach(function (it) { if (oceny[it.key]) { picked[it.key] = oceny[it.key]; } });
+    return JSON.stringify({kind: data.kind, schema_version: data.schema_version, temat: data.temat,
+      sample_sha256: data.sample_sha256, sha256sums_sha256: data.sha256sums_sha256,
+      agent_sha256: data.agent_sha256, oceny: picked});
+  }
+  function refresh() {
+    var done = data.items.filter(function (it) { return oceny[it.key]; }).length;
+    document.getElementById('progress').textContent = 'Ocenione: ' + done + ' z ' + data.items.length;
+    document.getElementById('json').value = result();
+  }
+  function el(tag, cls, text) {
+    var node = document.createElement(tag);
+    if (cls) { node.className = cls; }
+    if (text !== undefined) { node.textContent = text; }
+    return node;
+  }
+
+  var list = document.getElementById('list');
+  var layer = null;
+  data.items.forEach(function (it) {
+    if (it.warstwa !== layer) {
+      layer = it.warstwa;
+      list.appendChild(el('h2', '', 'Warstwa ' + layer));
+    }
+    var card = el('article', 'card');
+    card.appendChild(el('p', 'lemat', it.lemat));
+    card.appendChild(el('p', 'meta', 'Warstwa ' + it.warstwa + ' · źródła: ' + it.zrodla.join(', ')));
+    Object.keys(it.znaczenie).sort().forEach(function (w) {
+      var p = el('p', 'zn');
+      p.appendChild(el('b', '', w + ': '));
+      p.appendChild(document.createTextNode(it.znaczenie[w].join('; ')));
+      card.appendChild(p);
+    });
+    var more = it.liczba_form > it.formy.length ? ' … (razem ' + it.liczba_form + ')' : '';
+    card.appendChild(el('p', 'forms', 'Formy: ' + it.formy.join(', ') + more));
+    var row = el('div', 'btns');
+    ['tak', 'nie', 'niepewne'].forEach(function (v) {
+      var b = el('button', '', v);
+      b.type = 'button';
+      b.setAttribute('data-v', v);
+      b.setAttribute('aria-pressed', oceny[it.key] === v ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        oceny[it.key] = v;
+        row.querySelectorAll('button').forEach(function (x) {
+          x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+        });
+        card.classList.add('done');
+        save();
+        refresh();
+      });
+      row.appendChild(b);
+    });
+    if (oceny[it.key]) { card.classList.add('done'); }
+    card.appendChild(row);
+    list.appendChild(card);
+  });
+
+  document.getElementById('copy').addEventListener('click', function () {
+    var area = document.getElementById('json');
+    var status = document.getElementById('status');
+    var text = result();
+    area.value = text;
+    function fallback() {
+      area.focus();
+      area.select();
+      area.setSelectionRange(0, text.length);
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      status.textContent = ok ? 'Skopiowano.' : 'Zaznacz tekst poniżej i skopiuj ręcznie.';
+    }
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { status.textContent = 'Skopiowano.'; }, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+  refresh();
+})();
+</script>
+</body>
+</html>

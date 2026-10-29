@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Przegląd R2 tematów</title>
+<style>
+:root {
+  --bg: #f7f6f2;
+  --card: #ffffff;
+  --text: #1d1c1a;
+  --muted: #66625a;
+  --border: #dedad0;
+  --accent: #1f5fa8;
+  --done-bg: #e3f2e6;
+  --done-text: #1f6b33;
+  --todo-bg: #f1eee6;
+  --todo-text: #5c574c;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161614;
+    --card: #211f1c;
+    --text: #ece9e2;
+    --muted: #a39e93;
+    --border: #3a3732;
+    --accent: #7fb2ec;
+    --done-bg: #1d3a24;
+    --done-text: #9ed8ab;
+    --todo-bg: #2c2a26;
+    --todo-text: #c3bdb0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161614;
+  --card: #211f1c;
+  --text: #ece9e2;
+  --muted: #a39e93;
+  --border: #3a3732;
+  --accent: #7fb2ec;
+  --done-bg: #1d3a24;
+  --done-text: #9ed8ab;
+  --todo-bg: #2c2a26;
+  --todo-text: #c3bdb0;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+main { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
+h1 { font-size: 1.5rem; margin: 0 0 8px; }
+p.intro { color: var(--muted); margin: 0 0 8px; }
+ol.steps { color: var(--muted); margin: 0 0 20px; padding-left: 20px; }
+.summary { font-weight: 600; margin: 0 0 12px; }
+ul.topics { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+li.topic {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px;
+}
+li.topic .num { color: var(--muted); width: 1.5em; text-align: right; flex: none; }
+li.topic .info { flex: 1; min-width: 0; }
+li.topic a { color: var(--accent); font-weight: 600; text-decoration: none; font-size: 1.05rem; }
+li.topic a:hover, li.topic a:focus-visible { text-decoration: underline; }
+li.topic .count { display: block; color: var(--muted); font-size: 0.9rem; }
+button.state {
+  flex: none; min-height: 44px; padding: 8px 12px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--todo-bg); color: var(--todo-text);
+  font: inherit; font-size: 0.9rem; cursor: pointer;
+}
+button.state[aria-pressed="true"] { background: var(--done-bg); color: var(--done-text); border-color: transparent; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Przegląd R2 tematów</h1>
+  <p class="intro">Dziewięć tematów, w kolejności budowy. Na każdej stronie oceniasz słowa: „tak”, „nie” albo „niepewne”.</p>
+  <ol class="steps">
+    <li>Otwórz temat.</li>
+    <li>Oceń wszystkie słowa.</li>
+    <li>Skopiuj JSON ze strony i wklej go w czacie.</li>
+  </ol>
+  <p class="summary" id="summary"></p>
+  <ul class="topics" id="topics"></ul>
+</main>
+<script>
+(function () {
+  var TOPICS = [
+    { id: 'grzyby', name: 'Grzyby', url: '{{URL:grzyby}}', count: 30 },
+    { id: 'pogoda', name: 'Pogoda', url: '{{URL:pogoda}}', count: 30 },
+    { id: 'matematyka', name: 'Matematyka', url: '{{URL:matematyka}}', count: 30 },
+    { id: 'muzyka', name: 'Muzyka', url: '{{URL:muzyka}}', count: 30 },
+    { id: 'sport', name: 'Sport', url: '{{URL:sport}}', count: 30 },
+    { id: 'kuchnia', name: 'Kuchnia', url: '{{URL:kuchnia}}', count: 30 },
+    { id: 'rosliny', name: 'Rośliny', url: '{{URL:rosliny}}', count: 30 },
+    { id: 'zwierzeta', name: 'Zwierzęta', url: '{{URL:zwierzeta}}', count: 30 },
+    { id: 'medycyna', name: 'Medycyna', url: '{{URL:medycyna}}', count: 60 }
+  ];
+  var KEY = 'r2-zbiorcza-ocenione';
+  var done = {};
+  try {
+    var raw = window.localStorage.getItem(KEY);
+    var parsed = raw ? JSON.parse(raw) : null;
+    if (parsed && typeof parsed === 'object') done = parsed;
+  } catch (e) { done = {}; }
+
+  function save() {
+    try { window.localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) { /* tylko w tej karcie */ }
+  }
+
+  var list = document.getElementById('topics');
+  var summary = document.getElementById('summary');
+
+  function render() {
+    list.textContent = '';
+    var n = 0;
+    TOPICS.forEach(function (t, i) {
+      var isDone = done[t.id] === true;
+      if (isDone) n++;
+      var li = document.createElement('li');
+      li.className = 'topic';
+      var num = document.createElement('span');
+      num.className = 'num';
+      num.textContent = (i + 1) + '.';
+      var info = document.createElement('div');
+      info.className = 'info';
+      var a = document.createElement('a');
+      a.href = t.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = t.name;
+      var count = document.createElement('span');
+      count.className = 'count';
+      count.textContent = t.count + ' słów do oceny';
+      info.appendChild(a);
+      info.appendChild(count);
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'state';
+      b.setAttribute('aria-pressed', isDone ? 'true' : 'false');
+      b.setAttribute('aria-label', t.name + ': ' + (isDone ? 'ocenione' : 'nie ocenione'));
+      b.textContent = isDone ? 'ocenione' : 'nie';
+      b.addEventListener('click', function () {
+        if (done[t.id] === true) delete done[t.id]; else done[t.id] = true;
+        save();
+        render();
+      });
+      li.appendChild(num);
+      li.appendChild(info);
+      li.appendChild(b);
+      list.appendChild(li);
+    });
+    summary.textContent = 'Ocenione: ' + n + ' z ' + TOPICS.length;
+  }
+  render();
+})();
+</script>
+</body>
+</html>

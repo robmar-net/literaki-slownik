@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ocena R2: medycyna</title>
+<style>
+:root {
+  --bg: #f7f6f2; --card: #ffffff; --text: #1d1d1b; --muted: #5d5d58; --line: #dddcd5;
+  --accent: #1f5f8b; --tak: #1e7a3c; --nie: #b3261e; --niepewne: #8a6100; --on: #ffffff;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141413; --card: #1f1f1d; --text: #ecebe6; --muted: #a8a7a0; --line: #3a3a36;
+    --accent: #7fb6dd; --tak: #5cc27c; --nie: #f2827a; --niepewne: #e0b44a; --on: #141413;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141413; --card: #1f1f1d; --text: #ecebe6; --muted: #a8a7a0; --line: #3a3a36;
+  --accent: #7fb6dd; --tak: #5cc27c; --nie: #f2827a; --niepewne: #e0b44a; --on: #141413;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); overflow-x: hidden;
+  font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 640px; margin: 0 auto; padding: 0 16px 48px; }
+header { position: sticky; top: 0; z-index: 1; background: var(--bg); padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--line); }
+header h1 { margin: 0; font-size: 20px; }
+header p { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+.intro { color: var(--muted); font-size: 15px; margin: 12px 0; }
+h2 { font-size: 18px; margin: 24px 0 8px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin: 10px 0;
+  overflow-wrap: anywhere; }
+.card.done { border-color: var(--accent); }
+.lemat { font-size: 22px; font-weight: 700; margin: 0; }
+.meta { color: var(--muted); font-size: 14px; margin: 2px 0 8px; }
+.zn { margin: 4px 0; font-size: 15px; }
+.zn b { font-weight: 600; }
+.forms { color: var(--muted); font-size: 14px; margin: 6px 0 10px; }
+.btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+button { font: inherit; font-weight: 600; min-height: 52px; border-radius: 10px; border: 2px solid var(--line);
+  background: var(--card); color: var(--text); cursor: pointer; touch-action: manipulation; }
+button[data-v="tak"][aria-pressed="true"] { background: var(--tak); border-color: var(--tak); color: var(--on); }
+button[data-v="nie"][aria-pressed="true"] { background: var(--nie); border-color: var(--nie); color: var(--on); }
+button[data-v="niepewne"][aria-pressed="true"] { background: var(--niepewne); border-color: var(--niepewne); color: var(--on); }
+.out { margin-top: 28px; }
+#copy { width: 100%; background: var(--accent); border-color: var(--accent); color: var(--on); }
+#status { color: var(--muted); font-size: 15px; min-height: 1.4em; margin: 8px 0; }
+textarea { width: 100%; min-height: 160px; font: 13px/1.4 ui-monospace, Menlo, monospace; color: var(--text);
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+</style>
+</head>
+<body>
+<header><h1>Ocena R2: medycyna</h1><p id="progress"></p></header>
+<main>
+<p class="intro">Czy słowo należy do tematu „medycyna”? Wybierz tak, nie albo niepewne.
+Na końcu naciśnij „Kopiuj JSON” i wklej wynik w rozmowę. Szkic zostaje w tej przeglądarce.</p>
+<div id="list"></div>
+<section class="out">
+<button id="copy" type="button">Kopiuj JSON</button>
+<p id="status" role="status"></p>
+<textarea id="json" readonly aria-label="JSON z ocenami"></textarea>
+</section>
+</main>
+<script id="data" type="application/json">{"agent_sha256": "9e11db281799f9db9367f45d04a1fde949c5582e9921d7d325babad4fa050497", "items": [{"formy": ["wyściółce", "wyściółek", "wyściółka", "wyściółkach", "wyściółkami"], "key": "wyściółka@sgjp-20260823", "lemat": "wyściółka", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["14418 wyściółka 2"]}, "zrodla": ["T2"]}, {"formy": ["lamblioz", "lamblioza", "lambliozach", "lambliozami", "lambliozie"], "key": "lamblioza@sgjp-20260823", "lemat": "lamblioza", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["24932 lamblioza 1"]}, "zrodla": ["T2"]}, {"formy": ["ftyzjolodzy", "ftyzjolog", "ftyzjologa", "ftyzjologach", "ftyzjologami"], "key": "ftyzjolog@sgjp-20260823", "lemat": "ftyzjolog", "liczba_form": 12, "warstwa": "T2", "znaczenie": {"T2": ["72942 ftyzjolog 1"]}, "zrodla": ["T2"]}, {"formy": ["pneumocystoz", "pneumocystoza", "pneumocystozach", "pneumocystozami", "pneumocystozie"], "key": "pneumocystoza@sgjp-20260823", "lemat": "pneumocystoza", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["387423 pneumocystoza 1"]}, "zrodla": ["T2"]}, {"formy": ["kacheksja", "kacheksjach", "kacheksjami", "kacheksje", "kacheksji"], "key": "kacheksja@sgjp-20260823", "lemat": "kacheksja", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["398146 kacheksja 1"]}, "zrodla": ["T2"]}, {"formy": ["płuc", "płuca", "płucach", "płucami", "płucem"], "key": "płuco@sgjp-20260823", "lemat": "płuco", "liczba_form": 8, "warstwa": "T2", "znaczenie": {"T2": ["12754 płuco 1"]}, "zrodla": ["T2"]}, {"formy": ["żołądek", "żołądka", "żołądkach", "żołądkami", "żołądki"], "key": "żołądek@sgjp-20260823", "lemat": "żołądek", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["6958 żołądek 1"]}, "zrodla": ["T2"]}, {"formy": ["bebech", "bebecha", "bebechach", "bebechami", "bebechem"], "key": "bebech@sgjp-20260823", "lemat": "bebech", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["7064264 bebech 1"]}, "zrodla": ["T2"]}, {"formy": ["miofibryl", "miofibryla", "miofibrylach", "miofibrylami", "miofibryle"], "key": "miofibryla@sgjp-20260823", "lemat": "miofibryla", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["262318 miofibryla 1"]}, "zrodla": ["T2"]}, {"formy": ["tłuszczak", "tłuszczaka", "tłuszczakach", "tłuszczakami", "tłuszczaki"], "key": "tłuszczak:Sm2.m3@sgjp-20260823", "lemat": "tłuszczak", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["40468 tłuszczak 1"]}, "zrodla": ["T2"]}, {"formy": ["fibryl", "fibryla", "fibrylach", "fibrylami", "fibryle"], "key": "fibryl@sgjp-20260823", "lemat": "fibryl", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["15703 fibryl 1"]}, "zrodla": ["T2"]}, {"formy": ["bariatria", "bariatriach", "bariatriami", "bariatrie", "bariatrii"], "key": "bariatria@sgjp-20260823", "lemat": "bariatria", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["431191 bariatria 1"]}, "zrodla": ["T2"]}, {"formy": ["fallus", "fallusa", "fallusach", "fallusami", "fallusem"], "key": "fallus@sgjp-20260823", "lemat": "fallus", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["6449 fallus 1"]}, "zrodla": ["T2"]}, {"formy": ["nadciśnienia", "nadciśnieniach", "nadciśnieniami", "nadciśnienie", "nadciśnieniem"], "key": "nadciśnienie@sgjp-20260823", "lemat": "nadciśnienie", "liczba_form": 8, "warstwa": "T2", "znaczenie": {"T2": ["24967 nadciśnienie 1"], "T3": ["IATE-1527597 2841"]}, "zrodla": ["T2", "T3"]}, {"formy": ["kudeł", "kudłach", "kudłami", "kudłom", "kudły"], "key": "kudły@sgjp-20260823", "lemat": "kudły", "liczba_form": 6, "warstwa": "T2", "znaczenie": {"T2": ["27141 kudły 2"]}, "zrodla": ["T2"]}, {"formy": ["anuria", "anuriach", "anuriami", "anurie", "anurii"], "key": "anuria@sgjp-20260823", "lemat": "anuria", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["74494 anuria 1"]}, "zrodla": ["T2"]}, {"formy": ["rezydenci", "rezydencie", "rezydent", "rezydenta", "rezydentach"], "key": "rezydent@sgjp-20260823", "lemat": "rezydent", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["412343 rezydent 5"]}, "zrodla": ["T2"]}, {"formy": ["filarioz", "filarioza", "filariozach", "filariozami", "filariozie"], "key": "filarioza@sgjp-20260823", "lemat": "filarioza", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["399378 filarioza 1"]}, "zrodla": ["T2"]}, {"formy": ["bąbel", "bąbla", "bąblach", "bąblami", "bąble"], "key": "bąbel:Sm2.m3@sgjp-20260823", "lemat": "bąbel", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["15589 bąbel 1"]}, "zrodla": ["T2"]}, {"formy": ["macce", "macek", "macka", "mackach", "mackami"], "key": "macka@sgjp-20260823", "lemat": "macka", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["6721 macka 1"]}, "zrodla": ["T2"]}, {"formy": ["barotraum", "barotrauma", "barotraumach", "barotraumami", "barotraumie"], "key": "barotrauma@sgjp-20260823", "lemat": "barotrauma", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["259717 barotrauma 1"]}, "zrodla": ["T2"]}, {"formy": ["listek", "listka", "listkach", "listkami", "listki"], "key": "listek@sgjp-20260823", "lemat": "listek", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["404625 listek 2"]}, "zrodla": ["T2"]}, {"formy": ["bezwład", "bezwładach", "bezwładami", "bezwładem", "bezwładom"], "key": "bezwład@sgjp-20260823", "lemat": "bezwład", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["17790 bezwład 2", "19890 bezwład 3"]}, "zrodla": ["T2"]}, {"formy": ["cytologia", "cytologiach", "cytologiami", "cytologie", "cytologii"], "key": "cytologia@sgjp-20260823", "lemat": "cytologia", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["29709 cytologia 2"]}, "zrodla": ["T2"]}, {"formy": ["ablacja", "ablacjach", "ablacjami", "ablacje", "ablacji"], "key": "ablacja@sgjp-20260823", "lemat": "ablacja", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["423620 ablacja 4"]}, "zrodla": ["T2"]}, {"formy": ["otalgia", "otalgiach", "otalgiami", "otalgie", "otalgii"], "key": "otalgia@sgjp-20260823", "lemat": "otalgia", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["44104 otalgia 1"]}, "zrodla": ["T2"]}, {"formy": ["emetyn", "emetyna", "emetynach", "emetynami", "emetynie"], "key": "emetyna@sgjp-20260823", "lemat": "emetyna", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["381066 emetyna 1"]}, "zrodla": ["T2"]}, {"formy": ["skrzela", "skrzelach", "skrzelami", "skrzele", "skrzelem"], "key": "skrzele@sgjp-20260823", "lemat": "skrzele", "liczba_form": 8, "warstwa": "T2", "znaczenie": {"T2": ["17534 skrzele 1"]}, "zrodla": ["T2"]}, {"formy": ["salol", "salolach", "salolami", "salole", "salolem"], "key": "salol@sgjp-20260823", "lemat": "salol", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["386193 salol 1"]}, "zrodla": ["T2"]}, {"formy": ["mikoz", "mikoza", "mikozach", "mikozami", "mikozie"], "key": "mikoza@sgjp-20260823", "lemat": "mikoza", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["24994 mikoza 1"], "T3": ["IATE-1685412 2841"]}, "zrodla": ["T2", "T3"]}, {"formy": ["bakteriocyd", "bakteriocydach", "bakteriocydami", "bakteriocydem", "bakteriocydom"], "key": "bakteriocyd@sgjp-20260823", "lemat": "bakteriocyd", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1073753 2841"]}, "zrodla": ["T3"]}, {"formy": ["garbiak", "garbiaka", "garbiakach", "garbiakami", "garbiaki"], "key": "garbiak@sgjp-20260823", "lemat": "garbiak", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1544253 2841"]}, "zrodla": ["T3"]}, {"formy": ["obrzezania", "obrzezaniach", "obrzezaniami", "obrzezanie", "obrzezaniem"], "key": "obrzezanie@sgjp-20260823", "lemat": "obrzezanie", "liczba_form": 8, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1683745 2841", "IATE-2232215 2841"]}, "zrodla": ["T3"]}, {"formy": ["seria", "seriach", "seriami", "serie", "serii"], "key": "seria@sgjp-20260823", "lemat": "seria", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1737778 2841"]}, "zrodla": ["T3"]}, {"formy": ["kapsyd", "kapsydach", "kapsydami", "kapsydem", "kapsydom"], "key": "kapsyd@sgjp-20260823", "lemat": "kapsyd", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1431837 2841"]}, "zrodla": ["T3"]}, {"formy": ["naciek", "naciekach", "naciekami", "nacieki", "naciekiem"], "key": "naciek@sgjp-20260823", "lemat": "naciek", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1685213 2841"]}, "zrodla": ["T3"]}, {"formy": ["talasoterapia", "talasoterapiach", "talasoterapiami", "talasoterapie", "talasoterapii"], "key": "talasoterapia@sgjp-20260823", "lemat": "talasoterapia", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1159907 2841"]}, "zrodla": ["T3"]}, {"formy": ["podtyp", "podtypach", "podtypami", "podtypem", "podtypie"], "key": "podtyp@sgjp-20260823", "lemat": "podtyp", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-2150200 2841"]}, "zrodla": ["T3"]}, {"formy": ["organogenez", "organogeneza", "organogenezach", "organogenezami", "organogenezie"], "key": "organogeneza@sgjp-20260823", "lemat": "organogeneza", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1684250 2841"]}, "zrodla": ["T3"]}, {"formy": ["koniugacja", "koniugacjach", "koniugacjami", "koniugacje", "koniugacji"], "key": "koniugacja@sgjp-20260823", "lemat": "koniugacja", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1073452 2841"]}, "zrodla": ["T3"]}, {"formy": ["przechowywania", "przechowywanie", "przechowywaniem", "przechowywaniom", "przechowywaniu"], "key": "przechowywanie@sgjp-20260823", "lemat": "przechowywanie", "liczba_form": 6, "warstwa": "T3", "znaczenie": {"T3": ["IATE-3541562 2841"]}, "zrodla": ["T3"]}, {"formy": ["siar", "siara", "siarach", "siarami", "siaro"], "key": "siara@sgjp-20260823", "lemat": "siara", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1532207 2841"]}, "zrodla": ["T3"]}, {"formy": ["tropizm", "tropizmach", "tropizmami", "tropizmem", "tropizmie"], "key": "tropizm@sgjp-20260823", "lemat": "tropizm", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1547206 2841"]}, "zrodla": ["T3"]}, {"formy": ["walidacja", "walidacjach", "walidacjami", "walidacje", "walidacji"], "key": "walidacja@sgjp-20260823", "lemat": "walidacja", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1588484 2841"]}, "zrodla": ["T3"]}, {"formy": ["katecholamin", "katecholamina", "katecholaminach", "katecholaminami", "katecholaminie"], "key": "katecholamina@sgjp-20260823", "lemat": "katecholamina", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1506050 2841"]}, "zrodla": ["T3"]}, {"formy": ["metabolizm", "metabolizmach", "metabolizmami", "metabolizmem", "metabolizmie"], "key": "metabolizm@sgjp-20260823", "lemat": "metabolizm", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1254597 2841", "IATE-3529051 2841"]}, "zrodla": ["T3"]}, {"formy": ["synergia", "synergiach", "synergiami", "synergie", "synergii"], "key": "synergia@sgjp-20260823", "lemat": "synergia", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1667186 2841"]}, "zrodla": ["T3"]}, {"formy": ["umięśnienia", "umięśnieniach", "umięśnieniami", "umięśnienie", "umięśnieniem"], "key": "umięśnienie@sgjp-20260823", "lemat": "umięśnienie", "liczba_form": 8, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1546482 2841"]}, "zrodla": ["T3"]}, {"formy": ["analgezja", "analgezjach", "analgezjami", "analgezje", "analgezji"], "key": "analgezja@sgjp-20260823", "lemat": "analgezja", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1502645 2841"]}, "zrodla": ["T3"]}, {"formy": ["mutagenności", "mutagennościach", "mutagennościami", "mutagennościom", "mutagennością"], "key": "mutagenność@sgjp-20260823", "lemat": "mutagenność", "liczba_form": 6, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1354231 2841"]}, "zrodla": ["T3"]}, {"formy": ["kinezyterapia", "kinezyterapiach", "kinezyterapiami", "kinezyterapie", "kinezyterapii"], "key": "kinezyterapia@sgjp-20260823", "lemat": "kinezyterapia", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1497550 2841"]}, "zrodla": ["T3"]}, {"formy": ["umieralności", "umieralnościach", "umieralnościami", "umieralnościom", "umieralnością"], "key": "umieralność@sgjp-20260823", "lemat": "umieralność", "liczba_form": 6, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1569466 2841"]}, "zrodla": ["T3"]}, {"formy": ["absolucie", "absolut", "absolutach", "absolutami", "absolutem"], "key": "absolut@sgjp-20260823", "lemat": "absolut", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1205780 2841"]}, "zrodla": ["T3"]}, {"formy": ["dominancie", "dominant", "dominanta", "dominantach", "dominantami"], "key": "dominanta@sgjp-20260823", "lemat": "dominanta", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1570865 2841"]}, "zrodla": ["T3"]}, {"formy": ["radiodiagnostyk"], "key": "radiodiagnostyka@sgjp-20260823", "lemat": "radiodiagnostyka", "liczba_form": 1, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1505297 2841"]}, "zrodla": ["T3"]}, {"formy": ["porodach", "porodami", "porodem", "porodom", "porodowi"], "key": "poród@sgjp-20260823", "lemat": "poród", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1215650 2841"]}, "zrodla": ["T3"]}, {"formy": ["smółce", "smółek", "smółka", "smółkach", "smółkami"], "key": "smółka@sgjp-20260823", "lemat": "smółka", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1684260 2841"]}, "zrodla": ["T3"]}, {"formy": ["dodatek", "dodatkach", "dodatkami", "dodatki", "dodatkiem"], "key": "dodatek@sgjp-20260823", "lemat": "dodatek", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1328805 2841"]}, "zrodla": ["T3"]}, {"formy": ["świst", "świstach", "świstami", "świstem", "świstom"], "key": "świst@sgjp-20260823", "lemat": "świst", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1684485 2841"]}, "zrodla": ["T3"]}, {"formy": ["biomateriale", "biomateriał", "biomateriałach", "biomateriałami", "biomateriałem"], "key": "biomateriał@sgjp-20260823", "lemat": "biomateriał", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-3502065 2841"]}, "zrodla": ["T3"]}], "kind": "literaki-tematy-ocena-operatora", "sample_sha256": "933c17b1965b0299b6b06033e2dcbda95ceba9439849c9ceb6511f7c8ad7374b", "schema_version": 1, "sha256sums_sha256": "68855e0a3f8df670bb3bd3b5f6c6a9c957ca9efaa1929ed801d6b03baaf5a4b2", "temat": "medycyna"}</script>
+<script>
+(function () {
+  var data = JSON.parse(document.getElementById('data').textContent);
+  var store = 'tematy-r2-' + data.sample_sha256.slice(0, 16);
+  var oceny = {};
+  try {
+    var saved = JSON.parse(window.localStorage.getItem(store) || '{}');
+    data.items.forEach(function (it) {
+      var v = saved[it.key];
+      if (v === 'tak' || v === 'nie' || v === 'niepewne') { oceny[it.key] = v; }
+    });
+  } catch (e) { oceny = {}; }
+
+  function save() {
+    try { window.localStorage.setItem(store, JSON.stringify(oceny)); } catch (e) { /* szkic tylko w pamięci */ }
+  }
+  function result() {
+    var picked = {};
+    data.items.forEach(function (it) { if (oceny[it.key]) { picked[it.key] = oceny[it.key]; } });
+    return JSON.stringify({kind: data.kind, schema_version: data.schema_version, temat: data.temat,
+      sample_sha256: data.sample_sha256, sha256sums_sha256: data.sha256sums_sha256,
+      agent_sha256: data.agent_sha256, oceny: picked});
+  }
+  function refresh() {
+    var done = data.items.filter(function (it) { return oceny[it.key]; }).length;
+    document.getElementById('progress').textContent = 'Ocenione: ' + done + ' z ' + data.items.length;
+    document.getElementById('json').value = result();
+  }
+  function el(tag, cls, text) {
+    var node = document.createElement(tag);
+    if (cls) { node.className = cls; }
+    if (text !== undefined) { node.textContent = text; }
+    return node;
+  }
+
+  var list = document.getElementById('list');
+  var layer = null;
+  data.items.forEach(function (it) {
+    if (it.warstwa !== layer) {
+      layer = it.warstwa;
+      list.appendChild(el('h2', '', 'Warstwa ' + layer));
+    }
+    var card = el('article', 'card');
+    card.appendChild(el('p', 'lemat', it.lemat));
+    card.appendChild(el('p', 'meta', 'Warstwa ' + it.warstwa + ' · źródła: ' + it.zrodla.join(', ')));
+    Object.keys(it.znaczenie).sort().forEach(function (w) {
+      var p = el('p', 'zn');
+      p.appendChild(el('b', '', w + ': '));
+      p.appendChild(document.createTextNode(it.znaczenie[w].join('; ')));
+      card.appendChild(p);
+    });
+    var more = it.liczba_form > it.formy.length ? ' … (razem ' + it.liczba_form + ')' : '';
+    card.appendChild(el('p', 'forms', 'Formy: ' + it.formy.join(', ') + more));
+    var row = el('div', 'btns');
+    ['tak', 'nie', 'niepewne'].forEach(function (v) {
+      var b = el('button', '', v);
+      b.type = 'button';
+      b.setAttribute('data-v', v);
+      b.setAttribute('aria-pressed', oceny[it.key] === v ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        oceny[it.key] = v;
+        row.querySelectorAll('button').forEach(function (x) {
+          x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+        });
+        card.classList.add('done');
+        save();
+        refresh();
+      });
+      row.appendChild(b);
+    });
+    if (oceny[it.key]) { card.classList.add('done'); }
+    card.appendChild(row);
+    list.appendChild(card);
+  });
+
+  document.getElementById('copy').addEventListener('click', function () {
+    var area = document.getElementById('json');
+    var status = document.getElementById('status');
+    var text = result();
+    area.value = text;
+    function fallback() {
+      area.focus();
+      area.select();
+      area.setSelectionRange(0, text.length);
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      status.textContent = ok ? 'Skopiowano.' : 'Zaznacz tekst poniżej i skopiuj ręcznie.';
+    }
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { status.textContent = 'Skopiowano.'; }, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+  refresh();
+})();
+</script>
+</body>
+</html>

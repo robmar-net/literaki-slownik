@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ocena R2: pogoda</title>
+<style>
+:root {
+  --bg: #f7f6f2; --card: #ffffff; --text: #1d1d1b; --muted: #5d5d58; --line: #dddcd5;
+  --accent: #1f5f8b; --tak: #1e7a3c; --nie: #b3261e; --niepewne: #8a6100; --on: #ffffff;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141413; --card: #1f1f1d; --text: #ecebe6; --muted: #a8a7a0; --line: #3a3a36;
+    --accent: #7fb6dd; --tak: #5cc27c; --nie: #f2827a; --niepewne: #e0b44a; --on: #141413;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141413; --card: #1f1f1d; --text: #ecebe6; --muted: #a8a7a0; --line: #3a3a36;
+  --accent: #7fb6dd; --tak: #5cc27c; --nie: #f2827a; --niepewne: #e0b44a; --on: #141413;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); overflow-x: hidden;
+  font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 640px; margin: 0 auto; padding: 0 16px 48px; }
+header { position: sticky; top: 0; z-index: 1; background: var(--bg); padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--line); }
+header h1 { margin: 0; font-size: 20px; }
+header p { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+.intro { color: var(--muted); font-size: 15px; margin: 12px 0; }
+h2 { font-size: 18px; margin: 24px 0 8px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin: 10px 0;
+  overflow-wrap: anywhere; }
+.card.done { border-color: var(--accent); }
+.lemat { font-size: 22px; font-weight: 700; margin: 0; }
+.meta { color: var(--muted); font-size: 14px; margin: 2px 0 8px; }
+.zn { margin: 4px 0; font-size: 15px; }
+.zn b { font-weight: 600; }
+.forms { color: var(--muted); font-size: 14px; margin: 6px 0 10px; }
+.btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+button { font: inherit; font-weight: 600; min-height: 52px; border-radius: 10px; border: 2px solid var(--line);
+  background: var(--card); color: var(--text); cursor: pointer; touch-action: manipulation; }
+button[data-v="tak"][aria-pressed="true"] { background: var(--tak); border-color: var(--tak); color: var(--on); }
+button[data-v="nie"][aria-pressed="true"] { background: var(--nie); border-color: var(--nie); color: var(--on); }
+button[data-v="niepewne"][aria-pressed="true"] { background: var(--niepewne); border-color: var(--niepewne); color: var(--on); }
+.out { margin-top: 28px; }
+#copy { width: 100%; background: var(--accent); border-color: var(--accent); color: var(--on); }
+#status { color: var(--muted); font-size: 15px; min-height: 1.4em; margin: 8px 0; }
+textarea { width: 100%; min-height: 160px; font: 13px/1.4 ui-monospace, Menlo, monospace; color: var(--text);
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+</style>
+</head>
+<body>
+<header><h1>Ocena R2: pogoda</h1><p id="progress"></p></header>
+<main>
+<p class="intro">Czy słowo należy do tematu „pogoda”? Wybierz tak, nie albo niepewne.
+Na końcu naciśnij „Kopiuj JSON” i wklej wynik w rozmowę. Szkic zostaje w tej przeglądarce.</p>
+<div id="list"></div>
+<section class="out">
+<button id="copy" type="button">Kopiuj JSON</button>
+<p id="status" role="status"></p>
+<textarea id="json" readonly aria-label="JSON z ocenami"></textarea>
+</section>
+</main>
+<script id="data" type="application/json">{"agent_sha256": "ae5d3ed370c1fdd947a4414394a704be5d2872244057e1eb165fd43e5c2d0217", "items": [{"formy": ["szkwale", "szkwał", "szkwałach", "szkwałami", "szkwałem"], "key": "szkwał@sgjp-20260823", "lemat": "szkwał", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["16579 szkwał 1"]}, "zrodla": ["T2"]}, {"formy": ["afganiec", "afgańca", "afgańcach", "afgańcami", "afgańce"], "key": "afganiec@sgjp-20260823", "lemat": "afganiec", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["393838 afganiec 1"]}, "zrodla": ["T2"]}, {"formy": ["słońc", "słońca", "słońcach", "słońcami", "słońce"], "key": "słońce@sgjp-20260823", "lemat": "słońce", "liczba_form": 8, "warstwa": "T2", "znaczenie": {"T2": ["5366 słońce 2"]}, "zrodla": ["T2"]}, {"formy": ["sann", "sanna", "sannach", "sannami", "sannie"], "key": "sanna@sgjp-20260823", "lemat": "sanna", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["42765 sanna 1"]}, "zrodla": ["T2"]}, {"formy": ["błyskawic", "błyskawica", "błyskawicach", "błyskawicami", "błyskawice"], "key": "błyskawica@sgjp-20260823", "lemat": "błyskawica", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["103060 błyskawica 1"]}, "zrodla": ["T2"]}, {"formy": ["półwiatr", "półwiatrach", "półwiatrami", "półwiatrem", "półwiatrom"], "key": "półwiatr@sgjp-20260823", "lemat": "półwiatr", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["43077 półwiatr 1"]}, "zrodla": ["T2"]}, {"formy": ["chmur", "chmura", "chmurach", "chmurami", "chmuro"], "key": "chmura@sgjp-20260823", "lemat": "chmura", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["351 chmura 1"]}, "zrodla": ["T2"]}, {"formy": ["zadymce", "zadymek", "zadymka", "zadymkach", "zadymkami"], "key": "zadymka@sgjp-20260823", "lemat": "zadymka", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["4907 zadymka 1"]}, "zrodla": ["T2"]}, {"formy": ["spiekocie", "spiekot", "spiekota", "spiekotach", "spiekotami"], "key": "spiekota@sgjp-20260823", "lemat": "spiekota", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["2121 spiekota 1"]}, "zrodla": ["T2"]}, {"formy": ["smog", "smogach", "smogami", "smogi", "smogiem"], "key": "smog@sgjp-20260823", "lemat": "smog", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["29411 smog 1"]}, "zrodla": ["T2"]}, {"formy": ["szadzi", "szadziach", "szadziami", "szadzie", "szadziom"], "key": "szadź@sgjp-20260823", "lemat": "szadź", "liczba_form": 7, "warstwa": "T2", "znaczenie": {"T2": ["381977 szadź 1"]}, "zrodla": ["T2"]}, {"formy": ["dmuch", "dmuchach", "dmuchami", "dmuchem", "dmuchom"], "key": "dmuch@sgjp-20260823", "lemat": "dmuch", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["7084096 dmuch 1"]}, "zrodla": ["T2"]}, {"formy": ["wiatr", "wiatrach", "wiatrami", "wiatrem", "wiatrom"], "key": "wiatr@sgjp-20260823", "lemat": "wiatr", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["5328 wiatr 1"]}, "zrodla": ["T2"]}, {"formy": ["tornad", "tornada", "tornadach", "tornadami", "tornadem"], "key": "tornado@sgjp-20260823", "lemat": "tornado", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["5343 tornado 1"]}, "zrodla": ["T2"]}, {"formy": ["opad", "opadach", "opadami", "opadem", "opadom"], "key": "opad@sgjp-20260823", "lemat": "opad", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["5285 opad 2", "549 opad 1"]}, "zrodla": ["T2"]}, {"formy": ["słocie", "słot", "słota", "słotach", "słotami"], "key": "słota@sgjp-20260823", "lemat": "słota", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["19838 słota 1"]}, "zrodla": ["T2"]}, {"formy": ["inwersja", "inwersjach", "inwersjami", "inwersje", "inwersji"], "key": "inwersja@sgjp-20260823", "lemat": "inwersja", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["226711 inwersja 3"]}, "zrodla": ["T2"]}, {"formy": ["gloria", "gloriach", "gloriami", "glorie", "glorii"], "key": "gloria@sgjp-20260823", "lemat": "gloria", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["102912 gloria 2"]}, "zrodla": ["T2"]}, {"formy": ["wyż", "wyża", "wyżach", "wyżami", "wyże"], "key": "wyż:Sm2@sgjp-20260823", "lemat": "wyż", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["12802 wyż 1"]}, "zrodla": ["T2"]}, {"formy": ["gorąc", "gorąca", "gorącach", "gorącami", "gorące"], "key": "gorąc@sgjp-20260823", "lemat": "gorąc", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["34802 gorąc 1"]}, "zrodla": ["T2"]}, {"formy": ["duchocie", "duchot", "duchota", "duchotach", "duchotami"], "key": "duchota@sgjp-20260823", "lemat": "duchota", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["17907 duchota 1"]}, "zrodla": ["T2"]}, {"formy": ["zamieci", "zamieciach", "zamieciami", "zamiecie", "zamieciom"], "key": "zamieć@sgjp-20260823", "lemat": "zamieć", "liczba_form": 7, "warstwa": "T2", "znaczenie": {"T2": ["4907 zamieć 1"]}, "zrodla": ["T2"]}, {"formy": ["chlapanin", "chlapanina", "chlapaninach", "chlapaninami", "chlapaninie"], "key": "chlapanina@sgjp-20260823", "lemat": "chlapanina", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["19838 chlapanina 1"]}, "zrodla": ["T2"]}, {"formy": ["samum", "samumach", "samumami", "samumem", "samumie"], "key": "samum@sgjp-20260823", "lemat": "samum", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["34801 samum 1"]}, "zrodla": ["T2"]}, {"formy": ["bejdewind", "bejdewindach", "bejdewindami", "bejdewindem", "bejdewindom"], "key": "bejdewind@sgjp-20260823", "lemat": "bejdewind", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["77216 bejdewind 1"]}, "zrodla": ["T2"]}, {"formy": ["wietrzności", "wietrznościach", "wietrznościami", "wietrznościom", "wietrznością"], "key": "wietrzność@sgjp-20260823", "lemat": "wietrzność", "liczba_form": 6, "warstwa": "T2", "znaczenie": {"T2": ["399955 wietrzność 2"]}, "zrodla": ["T2"]}, {"formy": ["chlap", "chlapa", "chlapach", "chlapami", "chlapie"], "key": "chlapa@sgjp-20260823", "lemat": "chlapa", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["19838 chlapa 1"]}, "zrodla": ["T2"]}, {"formy": ["tropik", "tropikach", "tropikami", "tropiki", "tropikiem"], "key": "tropik@sgjp-20260823", "lemat": "tropik", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["34805 tropik 3"]}, "zrodla": ["T2"]}, {"formy": ["podmuch", "podmuchach", "podmuchami", "podmuchem", "podmuchom"], "key": "podmuch@sgjp-20260823", "lemat": "podmuch", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["5332 podmuch 1"]}, "zrodla": ["T2"]}, {"formy": ["cyklon", "cyklonach", "cyklonami", "cyklonem", "cyklonie"], "key": "cyklon@sgjp-20260823", "lemat": "cyklon", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["16559 cyklon 1", "3767 cyklon 3"]}, "zrodla": ["T2"]}], "kind": "literaki-tematy-ocena-operatora", "sample_sha256": "3c8f57e3bf79f9998f45590bdc3f77bad08d9dc14602bada27edaba97260421f", "schema_version": 1, "sha256sums_sha256": "f3645ae2a8ed57f58f540dcd695ecd4239c3dc5b5ec583f8f01cd2b07822e120", "temat": "pogoda"}</script>
+<script>
+(function () {
+  var data = JSON.parse(document.getElementById('data').textContent);
+  var store = 'tematy-r2-' + data.sample_sha256.slice(0, 16);
+  var oceny = {};
+  try {
+    var saved = JSON.parse(window.localStorage.getItem(store) || '{}');
+    data.items.forEach(function (it) {
+      var v = saved[it.key];
+      if (v === 'tak' || v === 'nie' || v === 'niepewne') { oceny[it.key] = v; }
+    });
+  } catch (e) { oceny = {}; }
+
+  function save() {
+    try { window.localStorage.setItem(store, JSON.stringify(oceny)); } catch (e) { /* szkic tylko w pamięci */ }
+  }
+  function result() {
+    var picked = {};
+    data.items.forEach(function (it) { if (oceny[it.key]) { picked[it.key] = oceny[it.key]; } });
+    return JSON.stringify({kind: data.kind, schema_version: data.schema_version, temat: data.temat,
+      sample_sha256: data.sample_sha256, sha256sums_sha256: data.sha256sums_sha256,
+      agent_sha256: data.agent_sha256, oceny: picked});
+  }
+  function refresh() {
+    var done = data.items.filter(function (it) { return oceny[it.key]; }).length;
+    document.getElementById('progress').textContent = 'Ocenione: ' + done + ' z ' + data.items.length;
+    document.getElementById('json').value = result();
+  }
+  function el(tag, cls, text) {
+    var node = document.createElement(tag);
+    if (cls) { node.className = cls; }
+    if (text !== undefined) { node.textContent = text; }
+    return node;
+  }
+
+  var list = document.getElementById('list');
+  var layer = null;
+  data.items.forEach(function (it) {
+    if (it.warstwa !== layer) {
+      layer = it.warstwa;
+      list.appendChild(el('h2', '', 'Warstwa ' + layer));
+    }
+    var card = el('article', 'card');
+    card.appendChild(el('p', 'lemat', it.lemat));
+    card.appendChild(el('p', 'meta', 'Warstwa ' + it.warstwa + ' · źródła: ' + it.zrodla.join(', ')));
+    Object.keys(it.znaczenie).sort().forEach(function (w) {
+      var p = el('p', 'zn');
+      p.appendChild(el('b', '', w + ': '));
+      p.appendChild(document.createTextNode(it.znaczenie[w].join('; ')));
+      card.appendChild(p);
+    });
+    var more = it.liczba_form > it.formy.length ? ' … (razem ' + it.liczba_form + ')' : '';
+    card.appendChild(el('p', 'forms', 'Formy: ' + it.formy.join(', ') + more));
+    var row = el('div', 'btns');
+    ['tak', 'nie', 'niepewne'].forEach(function (v) {
+      var b = el('button', '', v);
+      b.type = 'button';
+      b.setAttribute('data-v', v);
+      b.setAttribute('aria-pressed', oceny[it.key] === v ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        oceny[it.key] = v;
+        row.querySelectorAll('button').forEach(function (x) {
+          x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+        });
+        card.classList.add('done');
+        save();
+        refresh();
+      });
+      row.appendChild(b);
+    });
+    if (oceny[it.key]) { card.classList.add('done'); }
+    card.appendChild(row);
+    list.appendChild(card);
+  });
+
+  document.getElementById('copy').addEventListener('click', function () {
+    var area = document.getElementById('json');
+    var status = document.getElementById('status');
+    var text = result();
+    area.value = text;
+    function fallback() {
+      area.focus();
+      area.select();
+      area.setSelectionRange(0, text.length);
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      status.textContent = ok ? 'Skopiowano.' : 'Zaznacz tekst poniżej i skopiuj ręcznie.';
+    }
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { status.textContent = 'Skopiowano.'; }, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+  refresh();
+})();
+</script>
+</body>
+</html>
