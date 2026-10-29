@@ -371,10 +371,15 @@ def load_script(name):
     return module
 
 
-def package_fixture(root):
-    """`inputs_fixture` i zbudowany pakiet `root/pkg` (wpisy: T1 4, T2 4, T3 1)."""
+def package_fixture(root, t3=True, change=None):
+    """`inputs_fixture` i zbudowany pakiet `root/pkg` (wpisy: T1 4, T2 4, T3 1).
+
+    `t3=False`: temat bez `t3` (T3 puste); `change`: zmiana pliku tematu przed budową (#12).
+    """
     from literaki_slownik.tematy import build_package
-    f = inputs_fixture(root)
+    f = inputs_fixture(root, t3)
+    if change is not None:
+        rewrite(f['topic'], change)
     package = Path(f['root'])/'pkg'
     build_package(f['manifest'], f['config'], f['topic'], package)
     return {**f, 'package': package}

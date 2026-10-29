@@ -1,14 +1,15 @@
 """Niezależny checker TEMATY i `--review` (#11, W12, ADR-010 „Bramka”)."""
 import ast
 import gzip
+import json
 import shutil
 import tempfile
 import unittest
 from fractions import Fraction
 from pathlib import Path
 
-from literaki_slownik.canonical import load_json
-from tests.tematy_helpers import ROOT, SOURCE, load_script, package_fixture, reseal
+from literaki_slownik.canonical import load_json, sha256
+from tests.tematy_helpers import ROOT, SOURCE, load_script, package_fixture, reseal, rewrite
 
 SCRIPT = ROOT/'scripts/check_tematy_package.py'
 review_tool = load_script('tematy_review')
@@ -22,11 +23,22 @@ def k(lemma):
 # Wpisy fikstury: T1 bosman, kuter, reja, żeglować; T2 kuter:S2, okręt, statek, łódź; T3 barka.
 AGENT = {k('bosman'): 'tak', k('kuter'): 'tak', k('reja'): 'tak', k('żeglować'): 'niepewne',
          k('kuter:S2'): 'tak', k('okręt'): 'nie', k('statek'): 'tak', k('łódź'): 'niepewne', k('barka'): 'tak'}
-OPERATOR = {k('bosman'): 'tak', k('kuter'): 'tak', k('reja'): 'nie', k('żeglować'): 'niepewne',
-            k('kuter:S2'): 'tak', k('okręt'): 'nie', k('statek'): 'niepewne', k('łódź'): 'tak', k('barka'): 'tak'}
+# Operator ocenia tylko warstwy `operator_warstwy` (T2, T3; #12 W5): `operator_keys` przycina słownik.
+OPERATOR = {k('kuter:S2'): 'tak', k('okręt'): 'nie', k('statek'): 'niepewne', k('łódź'): 'tak', k('barka'): 'tak'}
+
+
+def operator_keys(package):
+    """Klucze próby operatora z `sample.operator.strata`."""
+    return {key for keys in load_json(Path(package)/'reports/sample.json')['operator']['strata'].values()
+            for key in keys}
 
 
 def write_review(f, path, agent, operator=None):
+    """Przegląd z ocenami agenta (pełna próba); oceny operatora przycięte do jego próby."""
+    agent = {key: v for key, v in agent.items()
+             if key in {i['key'] for i in load_json(Path(f['package'])/'reports/sample.json')['items']}}
+    if operator is not None:
+        operator = {key: v for key, v in operator.items() if key in operator_keys(f['package'])}
     ratings = {key: {'ocena': v, 'powod': 'powód testowy ' + key} for key, v in agent.items()}
     review = review_tool.agent_review(f['package'], ratings, 'agent', '2026-10-29T00:00:00Z')
     review_tool.write_review(path, review)
@@ -107,16 +119,15 @@ class CheckTematyPackageTest(unittest.TestCase):
         path = write_review(self.f, self.root/'review-a.json', AGENT, OPERATOR)
         result = self.check(review=path)['przeglad']
         operator, agent = result['operator'], result['agent']
-        # T1: tak, tak, nie, niepewne → „tak” 2 z N = 4; „niepewne” nie jest „tak” (inaczej 3/4).
-        self.assertEqual(operator['T1'], {'N': 4, 'tak': 2, 'nie': 1, 'niepewne': 1,
+        # T2: tak, nie, niepewne, tak → „tak” 2 z N = 4; „niepewne” nie jest „tak”. T1 operator nie ocenia.
+        self.assertEqual(operator['T2'], {'N': 4, 'tak': 2, 'nie': 1, 'niepewne': 1,
                                           'tak_udzial': '1/2', 'nie_udzial': '1/4'})
-        self.assertEqual((operator['T2']['N'], operator['T2']['tak_udzial'], operator['T2']['nie_udzial']),
-                         (4, '1/2', '1/4'))
+        self.assertEqual((operator['T1']['N'], operator['T1']['tak_udzial']), (0, None))
         self.assertEqual((operator['T3']['N'], operator['T3']['tak_udzial']), (1, '1'))
         self.assertEqual((agent['T1']['tak_udzial'], agent['T1']['niepewne']), ('3/4', 1))
-        # Zgodność 6/9. Brzegowe: agent tak 6, nie 1, niepewne 2; operator 5, 2, 2.
-        # p_e = (6·5 + 1·2 + 2·2) / 81 = 4/9; kappa = (2/3 − 4/9) / (1 − 4/9) = 2/5.
-        self.assertEqual(result['zgodnosc'], {'N': 9, 'zgodnosc': '2/3', 'kappa': '2/5', 'oczekiwana': '4/9'})
+        # Zgodność na 5 pozycjach ocenionych przez obu: 3/5. Brzegowe: agent tak 3, nie 1, niepewne 1;
+        # operator tak 3, nie 1, niepewne 1. p_e = (9 + 1 + 1) / 25 = 11/25; kappa = (3/5 − 11/25) / (14/25) = 2/7.
+        self.assertEqual(result['zgodnosc'], {'N': 5, 'zgodnosc': '3/5', 'kappa': '2/7', 'oczekiwana': '11/25'})
         self.assertEqual(checker.agreement({'a': 'tak', 'b': 'nie'}, {'a': 'tak', 'b': 'niepewne'})['zgodnosc'], '1/2')
 
     def test_review_verdict_lists_thresholds_and_small_layers_use_shares(self):
@@ -126,21 +137,17 @@ class CheckTematyPackageTest(unittest.TestCase):
         self.assertEqual([r['prog'] for r in verdict['progi']],
                          ['slowa_oczywiste', 't1_tak', 't2_tak', 't2_nie', 't3_tak', 'zgodnosc'])
         self.assertEqual(verdict['niespelnione'], ['slowa_oczywiste', 't1_tak', 't2_tak', 't2_nie', 'zgodnosc'])
+        self.assertEqual((verdict['czeka_na_ocene'], verdict['nie_dotyczy']), ([], []))
         t3 = next(r for r in verdict['progi'] if r['prog'] == 't3_tak')
         self.assertEqual((t3['wartosc'], t3['granica'], t3['status']), ('1', '2/3', 'spelniony'))  # N = 1, udział 1
-        # Operator wszystko „tak” poza jednym w T1: 3/4 < 0,90 mimo małej warstwy; reszta spełniona.
-        almost = {key: 'tak' for key in OPERATOR}
+        # Agent wszystko „tak” poza jednym w T1: 3/4 < 0,90 mimo małej warstwy; reszta spełniona.
+        almost = {key: 'tak' for key in AGENT}
         almost[k('reja')] = 'nie'
-        path = write_review(self.f, self.root/'review-c.json', {key: 'tak' for key in AGENT}, almost)
+        path = write_review(self.f, self.root/'review-c.json', almost, {key: 'tak' for key in OPERATOR})
         verdict = self.check(review=path)['przeglad']['werdykt']
         self.assertEqual((verdict['wynik'], verdict['niespelnione']), ('popraw', ['slowa_oczywiste', 't1_tak']))
         t1 = next(r for r in verdict['progi'] if r['prog'] == 't1_tak')
         self.assertEqual((t1['wartosc'], t1['status']), ('3/4', 'niespelniony'))
-        # Bez ocen operatora: progi z ocen czekają, 37 słów już rozstrzyga „popraw”.
-        path = write_review(self.f, self.root/'review-d.json', AGENT)
-        verdict = self.check(review=path)['przeglad']['werdykt']
-        self.assertEqual((verdict['wynik'], verdict['czeka_na_ocene']),
-                         ('popraw', ['t1_tak', 't2_tak', 't2_nie', 't3_tak', 'zgodnosc']))
         progi = load_json(self.f['config'])['progi']
         passing = {'slowa_oczywiste': Fraction(26, 37), 't1_tak': Fraction(27, 30), 't2_tak': Fraction(2, 3),
                    't2_nie': Fraction(3, 30), 't3_tak': Fraction(2, 3), 'zgodnosc': Fraction(4, 5)}
@@ -148,6 +155,135 @@ class CheckTematyPackageTest(unittest.TestCase):
         self.assertEqual(checker.verdict(progi, {**passing, 't2_nie': Fraction(4, 30)})['niespelnione'], ['t2_nie'])
         self.assertEqual(checker.verdict(progi, {**passing, 't3_tak': None})['niespelnione'], ['t3_tak'])
 
+    # --- #12 W6, W7 ---
+
+    def test_review_without_operator_counts_t1_from_agent_and_waits_for_operator_layers(self):
+        path = write_review(self.f, self.root/'review-d.json', AGENT)
+        verdict = self.check(review=path)['przeglad']['werdykt']
+        self.assertEqual((verdict['wynik'], verdict['czeka_na_ocene'], verdict['nie_dotyczy']),
+                         ('popraw', ['t2_tak', 't2_nie', 't3_tak', 'zgodnosc'], []))
+        t1 = next(r for r in verdict['progi'] if r['prog'] == 't1_tak')
+        self.assertEqual((t1['wartosc'], t1['status']), ('3/4', 'niespelniony'))
+        path = write_review(self.f, self.root/'review-e.json', {key: 'tak' for key in AGENT})
+        t1 = next(r for r in self.check(review=path)['przeglad']['werdykt']['progi'] if r['prog'] == 't1_tak')
+        self.assertEqual((t1['wartosc'], t1['status']), ('1', 'spelniony'))
+
+    def test_operator_strata_other_than_operator_layers_are_refused(self):
+        config = load_json(self.f['config'])
+        rows = checker.tsv(Path(self.f['package']), 'morze')
+        self.assertEqual(set(checker.check_sample(Path(self.f['package']), rows, config, 'MORZE')['operator']),
+                         {'T2', 'T3'})
+        for layers in (['T1', 'T2', 'T3'], ['T2']):
+            with self.assertRaises(checker.Refused) as caught:
+                checker.check_sample(Path(self.f['package']), rows, {**config, 'operator_warstwy': layers}, 'MORZE')
+            self.assertIn('próba operatora', str(caught.exception))
+
+    def test_tsv_row_with_excluded_lemma_and_class_is_refused(self):
+        package = self.copy('excluded')
+        topic = package/'tematy/morze.json'
+        manifest = package/'release-manifest.json'
+        for p in (topic, manifest):
+            p.chmod(0o644)
+        rewrite(topic, lambda v: v.update(wykluczenia=[{'lemat': 'okręt', 'czesc_mowy': 'subst', 'powód': 'test'}]))
+        rewrite(manifest, lambda m: m['topic'].update(sha256=sha256(topic)))
+        for p in (topic, manifest):
+            p.chmod(0o444)
+        reseal(package)
+        with self.assertRaises(checker.Refused) as caught:
+            self.check(package)
+        self.assertIn('wykluczon', str(caught.exception))
+        self.assertIn('okręt', str(caught.exception))
+
+    def test_topic_with_t3_and_empty_t3_layer_fails_t3_tak(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            # Wykluczenie `barka` opróżnia T3 przy temacie z `t3`.
+            f = package_fixture(tmp, change=lambda v: v.update(
+                wykluczenia=[{'lemat': 'barka', 'czesc_mowy': 'subst', 'powód': 'test pustej T3'}]))
+            report = checker.check(f['package'], f['manifest'], f['config'])
+            self.assertEqual(report['warstwy']['T3'], 0)
+            path = write_review(f, Path(tmp)/'review.json', AGENT)
+            verdict = checker.check(f['package'], f['manifest'], f['config'], path)['przeglad']['werdykt']
+            t3 = next(r for r in verdict['progi'] if r['prog'] == 't3_tak')
+            self.assertEqual((t3['wartosc'], t3['status']), (None, 'niespelniony'))
+            self.assertIn('t3_tak', verdict['niespelnione'])
+            self.assertNotIn('t3_tak', verdict['czeka_na_ocene'])
+
+
+class CheckTematyBezT3Test(unittest.TestCase):
+    """Temat bez `t3` (#12 W2, W6, W7, D6)."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = tempfile.TemporaryDirectory()
+        cls.f = package_fixture(cls.tmp.name, t3=False)
+        cls.root = Path(cls.f['root'])
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.tmp.cleanup()
+
+    def test_pass_without_t3_pins_only_used_inputs_but_manifest_still_needs_iate(self):
+        report = checker.check(self.f['package'], self.f['manifest'], self.f['config'])
+        self.assertEqual((report['status'], report['warstwy']['T3']), ('pass', 0))
+        self.assertNotIn('iate', load_json(self.f['package']/'release-manifest.json')['inputs'])
+        # IATE nieużyte: zmiana pliku IATE nie zmienia odbioru.
+        iate = self.f['paths']['iate']
+        original = iate.read_bytes()
+        try:
+            iate.write_bytes(b'inny zip')
+            self.assertEqual(checker.check(self.f['package'], self.f['manifest'], self.f['config'])['status'], 'pass')
+        finally:
+            iate.write_bytes(original)
+        # Manifest wejść bez `iate` to nadal zły manifest (D6). Pin manifestu wejść sprawdzamy wcześniej,
+        # więc podmieniamy manifest i jego pin w kopii pakietu.
+        source = self.root/'bez-iate.json'
+        value = load_json(self.f['manifest'])
+        del value['inputs']['iate']
+        source.write_text(json.dumps(value), encoding='utf-8')
+        package = self.root/'pkg-bez-iate'
+        shutil.copytree(self.f['package'], package)
+        manifest = package/'release-manifest.json'
+        manifest.chmod(0o644)
+        rewrite(manifest, lambda m: m.update(source_manifest_sha256=sha256(source)))
+        manifest.chmod(0o444)
+        reseal(package)
+        with self.assertRaises(checker.Refused) as caught:
+            checker.check(package, source, self.f['config'])
+        self.assertIn('Zły manifest wejść', str(caught.exception))
+
+    def test_t3_layer_must_be_empty_without_t3(self):
+        # Pakiet z T3 (barka) i podmieniony temat bez `t3`: checker odmawia.
+        with tempfile.TemporaryDirectory() as tmp:
+            f = package_fixture(tmp)
+            package = Path(f['package'])
+            topic, manifest = package/'tematy/morze.json', package/'release-manifest.json'
+            for p in (topic, manifest):
+                p.chmod(0o644)
+            rewrite(topic, lambda v: (v.pop('t3'), v['diagnostyka'].pop('znaczniki_srodladowe')))
+            rewrite(manifest, lambda m: (m['topic'].update(sha256=sha256(topic)), m['inputs'].pop('iate'),
+                                         m.pop('iate')))
+            for p in (topic, manifest):
+                p.chmod(0o444)
+            reseal(package)
+            with self.assertRaises(checker.Refused) as caught:
+                checker.check(package, f['manifest'], f['config'])
+            self.assertIn('T3', str(caught.exception))
+
+    def test_review_without_t3_marks_t3_tak_not_applicable_and_it_does_not_block(self):
+        sample = load_json(self.f['package']/'reports/sample.json')
+        self.assertEqual(sample['operator']['strata']['T3'], [])
+        agent = {i['key']: 'tak' for i in sample['items']}
+        path = write_review(self.f, self.root/'review.json', agent)
+        verdict = checker.check(self.f['package'], self.f['manifest'], self.f['config'], path)['przeglad']['werdykt']
+        self.assertEqual((verdict['nie_dotyczy'], verdict['czeka_na_ocene']),
+                         (['t3_tak'], ['t2_tak', 't2_nie', 'zgodnosc']))
+        t3 = next(r for r in verdict['progi'] if r['prog'] == 't3_tak')
+        self.assertEqual((t3['wartosc'], t3['status']), ('nie_dotyczy', 'nie_dotyczy'))
+        progi = load_json(self.f['config'])['progi']
+        passing = {'slowa_oczywiste': Fraction(26, 37), 't1_tak': Fraction(27, 30), 't2_tak': Fraction(2, 3),
+                   't2_nie': Fraction(3, 30), 't3_tak': 'nie_dotyczy', 'zgodnosc': Fraction(4, 5)}
+        result = checker.verdict(progi, passing)
+        self.assertEqual((result['wynik'], result['nie_dotyczy'], result['niespelnione']), ('dalej', ['t3_tak'], []))
 
 if __name__ == '__main__':
     unittest.main()

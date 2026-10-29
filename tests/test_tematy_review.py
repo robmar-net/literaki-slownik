@@ -9,7 +9,7 @@ from pathlib import Path
 
 from literaki_slownik.canonical import load_json
 from tests.tematy_helpers import ROOT, package_fixture
-from tests.test_check_tematy_package import AGENT, OPERATOR, checker, review_tool, write_review
+from tests.test_check_tematy_package import AGENT, OPERATOR, SOURCE, checker, review_tool, write_review
 
 SCRIPT = ROOT/'scripts/tematy_review.py'
 
@@ -65,9 +65,11 @@ class TematyReviewTest(unittest.TestCase):
         self.assertNotIn('"ocena"', html)
         self.assertNotIn('wieloznaczny', html)
         data = json.loads(re.search(r'<script id="data" type="application/json">(.*?)</script>', html, re.S).group(1))
-        self.assertEqual([i['key'] for i in data['items']],
-                         [key for name in ('T1', 'T2', 'T3')
-                          for key in load_json(self.f['package']/'reports/sample.json')['operator']['strata'][name]])
+        strata = load_json(self.f['package']/'reports/sample.json')['operator']['strata']
+        # Warstwy strony z `sample.operator.strata` (#12 W7): tylko T2 i T3, T1 ocenia agent.
+        self.assertEqual(list(strata), ['T2', 'T3'])
+        self.assertEqual([i['key'] for i in data['items']], [key for name in strata for key in strata[name]])
+        self.assertEqual({i['warstwa'] for i in data['items']}, {'T2', 'T3'})
         self.assertEqual(data['agent_sha256'], load_json(self.review)['agent_sha256'])
         self.assertEqual(set(data['items'][0]), {'key', 'lemat', 'warstwa', 'zrodla', 'znaczenie', 'formy', 'liczba_form'})
         for needle in ('Kopiuj JSON', '<textarea', "['tak', 'nie', 'niepewne']", 'name="viewport"',
@@ -82,10 +84,12 @@ class TematyReviewTest(unittest.TestCase):
         self.assertNotIn('<link', html)
 
     def test_record_refuses_missing_foreign_key_and_wrong_agent_hash(self):
-        missing = self.operator_json(oceny={k: v for k, v in OPERATOR.items() if not k.startswith('reja')})
+        missing = self.operator_json(oceny={k: v for k, v in OPERATOR.items() if not k.startswith('okręt')})
         foreign = self.operator_json(oceny={**OPERATOR, 'obcy@sgjp': 'tak'})
+        layer_t1 = self.operator_json(oceny={**OPERATOR, 'reja@' + SOURCE: 'tak'})  # T1 spoza operator.strata
         wrong = self.operator_json(agent_sha256='0' * 64)
-        for given, message in ((missing, 'Brak oceny'), (foreign, 'Obcy klucz'), (wrong, 'hash ocen agenta')):
+        for given, message in ((missing, 'Brak oceny'), (foreign, 'Obcy klucz'), (layer_t1, 'Obcy klucz'),
+                               (wrong, 'hash ocen agenta')):
             with self.assertRaises(checker.Refused) as caught:
                 review_tool.record(self.f['package'], self.review, given)
             self.assertIn(message, str(caught.exception))
@@ -101,9 +105,10 @@ class TematyReviewTest(unittest.TestCase):
         result = self.run_script('zapisz', '--review', str(target), '--oceny', str(path))
         self.assertEqual(result.returncode, 0, result.stderr)
         saved = load_json(target)
-        self.assertEqual(len(saved['operator']['items']), 9)
+        self.assertEqual([i['warstwa'] for i in saved['operator']['items']].count('T1'), 0)
+        self.assertEqual(len(saved['operator']['items']), 5)
         report = checker.check(self.f['package'], self.f['manifest'], self.f['config'], target)
-        self.assertEqual(report['przeglad']['zgodnosc']['kappa'], '2/5')
+        self.assertEqual(report['przeglad']['zgodnosc']['kappa'], '2/7')
         again = self.run_script('zapisz', '--review', str(target), '--oceny', str(path))
         self.assertEqual(again.returncode, 4)
         self.assertIn('nie nadpisujemy', again.stderr)

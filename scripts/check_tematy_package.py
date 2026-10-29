@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Niezależny odbiór pakietu TEMATY (#11, W12, ADR-010) i przeglądu R2 (`--review`).
+"""Niezależny odbiór pakietu TEMATY (#11 W12, #12 W7; ADR-010, ADR-012) i przeglądu R2 (`--review`).
 
 Bez importu literaki_slownik. Wymaga jawnego manifestu wejść i konfiguracji metody.
 Formy wpisów i przecięcia z POP/POP00 liczy od nowa z przypiętych wejść.
+Pakiety `tematy-v1` sprawdza checker z `a633136` (ADR-012).
 """
 import argparse
 from collections import Counter
@@ -19,7 +20,8 @@ import stat
 import sys
 import unicodedata
 
-METHOD = 'tematy-v1'
+METHOD = 'tematy-v2'
+ADR = 'docs/adr/ADR-012-tematy-fala-1.md'
 KIND = 'literaki-tematy-manifest'
 REVIEW_KIND = 'literaki-tematy-review'
 # D: ręczne dodatki z pliku tematu; po T3, poza próbą R2 (ADR-010, poprawka 2026-10-29).
@@ -33,6 +35,9 @@ TSV_KOLUMNY = ('klucz', 'lemat', 'czesci_mowy', 'warstwa', 'zrodla', 'znaczenie'
 INPUTS = ('base_run', 'database', 'release_manifest', 'standard', 'broad',
           'base_pop', 'base_pop00', 'plwordnet_db', 'iate')
 PROGI = ('slowa_oczywiste', 't1_tak', 't2_tak', 't2_nie', 't3_tak', 'zgodnosc')
+# Próg z ocen R2 → jego warstwa (#12 W6). Kopia `tematy.PROG_WARSTWA` (bez importu).
+PROG_WARSTWA = {'t1_tak': 'T1', 't2_tak': 'T2', 't2_nie': 'T2', 't3_tak': 'T3'}
+NIE_DOTYCZY = 'nie_dotyczy'
 # Kolumny danych redaktorów, których nie wolno mieć przypiętej pochodnej Słowosieci.
 ZAKAZANE_KOLUMNY = {'owner', 'comment', 'error_comment'}
 FRACTION = re.compile(r'0\.[0-9]+|1\.0+|[0-9]+/[1-9][0-9]*')
@@ -217,11 +222,22 @@ def overlap(rows, forms, base):
 
 
 def addenda(topic, rows):
-    """Warstwa D = dodatki tematu: jeden wiersz na dodatek, lemat i `znaczenie` `D: <powód>`."""
-    expected = sorted((d['lemat'], 'D: ' + d['powód']) for d in topic['t3']['dodatki'])
+    """Warstwa D = dodatki tematu (górne `dodatki`, #12 W1): jeden wiersz na dodatek, `znaczenie` `D: <powód>`."""
+    expected = sorted((d['lemat'], 'D: ' + d['powód']) for d in topic['dodatki'])
     found = sorted((r['lemat'], r['znaczenie']) for r in rows.values() if r['warstwa'] == 'D')
     require(found == expected, 'Warstwa D różna od dodatków tematu')
-    require(not topic['wykluczenia'], 'Temat z wykluczeniami lematów')
+
+
+def exclusions(topic, rows, report):
+    """Wykluczenia lematów (#12 W3): żaden wiersz TSV nie ma lematu (kolumna `lemat` = `lemma_base`) i klasy
+    z `wykluczenia` tematu; `summary.json` wymienia te same wykluczenia."""
+    pairs = {(w['lemat'], w['czesc_mowy']) for w in topic['wykluczenia']}
+    for key, row in rows.items():
+        hit = sorted(c for c in row['czesci_mowy'].split(',') if (row['lemat'], c) in pairs)
+        require(not hit, f'Wiersz TSV z wykluczonym lematem: {key} ({row["lemat"]}, {", ".join(hit)})')
+    require([(w['lemat'], w['czesc_mowy'], w['powód']) for w in report['wykluczenia']]
+            == [(w['lemat'], w['czesc_mowy'], w['powód']) for w in topic['wykluczenia']],
+            'Wykluczenia raportu różne od tematu')
 
 
 def obvious_words(topic, rows):
@@ -256,7 +272,9 @@ def check_sample(root, rows, config, list_name):
             membership[item['key']] = name
     require(sample['unique_selected_units'] == len(membership) and sample['overlaps'] == [],
             'Zły licznik albo przecięcia próby')
-    operator = {name: [i['key'] for i in sample['strata'][name]['selected'][:per]] for name in PROBA}
+    # Operator: tylko warstwy `operator_warstwy` (#12 W5, W7).
+    operator = {name: [i['key'] for i in sample['strata'][name]['selected'][:per]]
+                for name in PROBA if name in config['operator_warstwy']}
     require(sample['operator'] == {'per_stratum': per, 'strata': operator}, 'Zła próba operatora')
     items = sample['items']
     require([i.get('key') for i in items] == sorted(membership), 'Złe dane pozycji próby')
@@ -276,14 +294,18 @@ def check_sample(root, rows, config, list_name):
     require(template['items'] == [{'key': k, 'strata': [membership[k]], 'assessment': None, 'reviewer': None,
                                    'source_justification': None, 'selected_unit': by_key[k]}
                                   for k in sorted(membership)], 'Zmieniony szablon przeglądu')
-    return {'sample': sample, 'template': template, 'membership': membership, 'operator': operator}
+    return {'sample': sample, 'template': template, 'membership': membership, 'operator': operator,
+            'populacje': {name: sample['strata'][name]['population'] for name in PROBA}}
 
 
 def load_config(path):
     config = read(path)
-    require(isinstance(config, dict) and config.get('version') == METHOD
-            and set(config) == {'version', 'adr', 'sampling', 'operator_per_stratum', 'progi', 'czesci_mowy',
-                                't3_klasy', 'teksty'}
+    require(isinstance(config, dict) and config.get('version') == METHOD and config.get('adr') == ADR
+            and set(config) == {'version', 'adr', 'sampling', 'operator_per_stratum', 'operator_warstwy', 'progi',
+                                'czesci_mowy', 't3_klasy', 'teksty'}
+            and isinstance(config['operator_warstwy'], list) and config['operator_warstwy']
+            and all(w in PROBA for w in config['operator_warstwy'])
+            and len(set(config['operator_warstwy'])) == len(config['operator_warstwy'])
             and isinstance(config['progi'], dict) and set(config['progi']) == set(PROGI)
             and type(config['operator_per_stratum']) is int
             and 0 < config['operator_per_stratum'] <= config['sampling']['size_per_stratum'], 'Zła metoda', 2)
@@ -297,29 +319,36 @@ def check(root, source_path, config_path, review_path=None):
     root, source_path, config_path = Path(root), Path(source_path).resolve(), Path(config_path).resolve()
     manifest, source, config = read(root/'release-manifest.json'), read(source_path), load_config(config_path)
     require(manifest.get('kind') == KIND and manifest.get('package_id') == 'TEMATY'
-            and manifest.get('status') == 'BUILT' and manifest.get('method') == METHOD, 'Zły format TEMATY')
+            and manifest.get('status') == 'BUILT' and manifest.get('method') == METHOD
+            and manifest.get('adr') == ADR, 'Zły format TEMATY')
     require(manifest['config_sha256'] == digest(config_path) and manifest['source_manifest_sha256'] == digest(source_path),
             'Piny konfiguracji', 3)
+    # Manifest wejść nadal przypina IATE (#12 W2, D6); od `t3` zależy tylko porównanie pinów.
     require(source.get('version') == 'tematy-sources-v1' and source.get('schema_version') == 1
             and set(source['inputs']) == set(INPUTS) | {'plwordnet_zip'}, 'Zły manifest wejść')
-    paths = {k: (source_path.parent/source['inputs'][k]['path']).resolve() for k in INPUTS}
-    pins = {k: source['inputs'][k]['sha256'] for k in INPUTS}
-    require(manifest['inputs'] == pins and all(p.is_file() and digest(p) == pins[k] for k, p in paths.items()),
-            'Piny wejść', 3)
     require(isinstance(manifest.get('topic', {}).get('id'), str)
             and re.fullmatch('[a-z]+', manifest['topic']['id']), 'Zły identyfikator tematu')
-    files(root, manifest)
-    require(read(root/'method.json') == config, 'Zła metoda pakietu')
     topic_id = manifest['topic']['id']
     topic_path = root/f'tematy/{topic_id}.json'
     require(digest(topic_path) == manifest['topic']['sha256'], 'Plik tematu różny od pinu', 3)
     topic = read(topic_path)
     require(topic['id'] == topic_id and topic['wersja'] == manifest['topic']['wersja'], 'Zły temat')
+    t3 = 't3' in topic
+    used = tuple(k for k in INPUTS if k != 'iate' or t3)
+    paths = {k: (source_path.parent/source['inputs'][k]['path']).resolve() for k in used}
+    pins = {k: source['inputs'][k]['sha256'] for k in used}
+    require(manifest['inputs'] == pins and all(p.is_file() and digest(p) == pins[k] for k, p in paths.items()),
+            'Piny wejść', 3)
+    iate = {k: source['inputs']['iate'][k] for k in ('member', 'last_modified', 'bytes')} if t3 else None
+    require(manifest.get('iate') == iate, 'Blok iate manifestu niezgodny z tematem', 3)
+    files(root, manifest)
+    require(read(root/'method.json') == config, 'Zła metoda pakietu')
 
     standard = words(paths['standard'])
     listed = words(root/f'{topic_id.upper()}.txt.gz')
     require(listed <= standard, f'Naruszone {topic_id.upper()} ⊆ STANDARD')
     rows = tsv(root, topic_id)
+    require(t3 or not any(r['warstwa'] == 'T3' for r in rows.values()), 'Warstwa T3 w temacie bez t3')
     addenda(topic, rows)
     forms = recount_forms(paths['database'], rows, standard)
     for key, row in rows.items():
@@ -337,6 +366,7 @@ def check(root, source_path, config_path, review_path=None):
     plwordnet_schema(paths['plwordnet_db'])
 
     report = read(root/'reports/summary.json')
+    exclusions(topic, rows, report)
     counted = {'warstwy': {w: sum(r['warstwa'] == w for r in rows.values()) for w in WARSTWY},
                'wpisy': len(rows), 'formy': len(listed)}
     require(all(report['liczby'][k] == v for k, v in counted.items())
@@ -353,7 +383,7 @@ def check(root, source_path, config_path, review_path=None):
     result = {'status': 'pass', 'temat': topic_id, **counted, 'slowa_oczywiste': obvious,
               'sha256sums_sha256': digest(root/'SHA256SUMS'), 'review_checked': review_path is not None}
     if review_path is not None:
-        result['przeglad'] = check_review(read(review_path), root, config, drawn, obvious)
+        result['przeglad'] = check_review(read(review_path), root, config, drawn, obvious, t3)
     require(all(digest(p) == pins[k] for k, p in paths.items()) and digest(source_path) == manifest['source_manifest_sha256']
             and digest(config_path) == manifest['config_sha256'], 'Wejścia zmieniły się podczas kontroli', 5)
     files(root, manifest)
@@ -441,16 +471,19 @@ def agreement(first, second):
 def verdict(progi, miary):
     """Werdykt „dalej” albo „popraw” (ADR-010 „Bramka”). „stop” wybiera tylko operator.
 
-    `miary`: próg → (wartość jako Fraction albo None, gdy czeka na ocenę). `t2_nie` to górna granica.
-    Wartość przy pustym N (`brak`) nie spełnia progu.
+    `miary`: próg → Fraction, None (pusta N: nie spełnia), `czeka` (na ocenę operatora) albo
+    `nie_dotyczy` (#12 W6: `t3_tak` tematu bez `t3`; nie blokuje „dalej”). `t2_nie` to górna granica.
     """
-    rows, failed, pending = [], [], []
+    rows, failed, pending, skipped = [], [], [], []
     for key in PROGI:
         value = miary[key]
         limit = share(progi[key])
         if value == 'czeka':
             status = 'czeka'
             pending.append(key)
+        elif value == NIE_DOTYCZY:
+            status = NIE_DOTYCZY
+            skipped.append(key)
         elif value is None:
             status = 'niespelniony'
         else:
@@ -458,32 +491,41 @@ def verdict(progi, miary):
         if status == 'niespelniony':
             failed.append(key)
         rows.append({'prog': key, 'granica': progi[key], 'kierunek': '<=' if key == 't2_nie' else '>=',
-                     'wartosc': value if value in ('czeka', None) else str(value), 'status': status})
+                     'wartosc': value if value in ('czeka', NIE_DOTYCZY, None) else str(value), 'status': status})
     wynik = 'popraw' if failed else None if pending else 'dalej'
     return {'wynik': wynik, 'progi': rows, 'niespelnione': failed, 'czeka_na_ocene': pending,
-            'uwaga': '„stop” wybiera tylko operator na bramce'}
+            'nie_dotyczy': skipped, 'uwaga': '„stop” wybiera tylko operator na bramce'}
 
 
-def check_review(review, root, config, drawn, obvious):
+def check_review(review, root, config, drawn, obvious, t3=True):
+    """Werdykt R2 (#12 W6): próg warstwy z `operator_warstwy` z ocen operatora (bez nich `czeka`),
+    pozostałych warstw z ocen agenta, zawsze. Bez `t3`: `t3_tak` nie dotyczy; z `t3` i pustą T3:
+    niespełniony. Zgodność i kappa na pozycjach ocenionych przez obu."""
     binding(review, root)
     membership, operator = drawn['membership'], drawn['operator']
     agent = agent_items(review, membership)
     human = operator_items(review, operator)
-    result = {'agent_sha256': review['agent_sha256'], 'agent': accuracy(agent, membership),
-              'operator': None, 'zgodnosc': None}
+    own = config['operator_warstwy']
+    by_agent = accuracy(agent, membership)
+    layers = None if human is None else accuracy(human, membership)
+    agreed = None if human is None else agreement(agent, human)
+    result = {'agent_sha256': review['agent_sha256'], 'agent': by_agent, 'operator': layers, 'zgodnosc': agreed}
     whole = Fraction(obvious['pokryte'], obvious['lista'])
-    miary = {'slowa_oczywiste': whole, **{k: 'czeka' for k in PROGI if k != 'slowa_oczywiste'}}
-    if human is not None:
-        layers = accuracy(human, membership)
-        agreed = agreement(agent, human)
-        result.update(operator=layers, zgodnosc=agreed)
-
-        def part(name, field):
-            value = layers[name][field]
-            return None if value is None else Fraction(value)
-        miary.update(t1_tak=part('T1', 'tak_udzial'), t2_tak=part('T2', 'tak_udzial'),
-                     t2_nie=part('T2', 'nie_udzial'), t3_tak=part('T3', 'tak_udzial'),
-                     zgodnosc=None if agreed['zgodnosc'] is None else Fraction(agreed['zgodnosc']))
+    field = {'t1_tak': 'tak_udzial', 't2_tak': 'tak_udzial', 't2_nie': 'nie_udzial', 't3_tak': 'tak_udzial'}
+    miary = {'slowa_oczywiste': whole}
+    for key, name in PROG_WARSTWA.items():
+        source = (layers if name in own else by_agent)
+        if key == 't3_tak' and not t3:
+            miary[key] = NIE_DOTYCZY
+        elif not drawn['populacje'][name]:
+            miary[key] = None  # pusta warstwa (np. T3 przy `t3`): błąd konfiguracji, nie „czeka”
+        elif source is None:
+            miary[key] = 'czeka'
+        else:
+            value = source[name][field[key]]
+            miary[key] = None if value is None else Fraction(value)
+    miary['zgodnosc'] = ('czeka' if agreed is None else
+                         None if agreed['zgodnosc'] is None else Fraction(agreed['zgodnosc']))
     result['slowa_oczywiste'] = {**obvious, 'udzial': str(whole)}
     result['werdykt'] = verdict(config['progi'], miary)
     return result

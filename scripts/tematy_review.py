@@ -85,11 +85,15 @@ def _bound_review(root, review_path):
 
 
 def page_items(sample):
-    """Pozycje operatora w kolejności rangi, warstwa po warstwie; bez ocen agenta i flag budowy."""
+    """Pozycje operatora w kolejności rangi, warstwa po warstwie; bez ocen agenta i flag budowy.
+
+    Warstwy z `sample.operator.strata` (#12 W7: tylko `operator_warstwy`), w kolejności T1, T2, T3.
+    """
     by_key = {i['key']: i for i in sample['items']}
+    strata = sample['operator']['strata']
     out = []
-    for name in checker.PROBA:
-        for key in sample['operator']['strata'][name]:
+    for name in (n for n in checker.PROBA if n in strata):
+        for key in strata[name]:
             item = by_key[key]
             out.append({'key': key, 'lemat': item['lemat'], 'warstwa': name, 'zrodla': item['zrodla'],
                          'znaczenie': item['znaczenie'], 'formy': item['formy'], 'liczba_form': item['liczba_form']})
