@@ -329,8 +329,8 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Kroki:** 3
 
 - [ ] 15.0 Decyzja operatora
-  - [ ] 15.1 Orchestrator przedstawia raport bramki (z treścią, nie zapowiedzią). Kontrola: werdykt w raporcie = werdykt checkera.
-  - [ ] 15.2 Operator wybiera „dalej”, „popraw” albo „stop”. Zapis decyzji z datą w `T/decision-log.md`.
+  - [x] 15.1 Orchestrator przedstawia raport bramki (z treścią, nie zapowiedzią). Kontrola: werdykt w raporcie = werdykt checkera.
+  - [x] 15.2 Operator wybiera „dalej”, „popraw” albo „stop”. Zapis decyzji z datą w `T/decision-log.md`.
   - [ ] 15.3 Commit i push `maister: #11 decyzja bramki`. Bez wydania publicznego i bez kolejnych tematów w tym zadaniu.
 
 **Kryteria odbioru:**
