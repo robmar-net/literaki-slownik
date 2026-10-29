@@ -194,6 +194,18 @@ class CheckTematyPackageTest(unittest.TestCase):
         self.assertIn('wykluczon', str(caught.exception))
         self.assertIn('okręt', str(caught.exception))
 
+    def test_summary_exclusions_differing_from_topic_are_refused(self):
+        package = self.copy('summary-excluded')
+        summary = package/'reports/summary.json'
+        summary.chmod(0o644)
+        rewrite(summary, lambda v: v.update(wykluczenia=[
+            {'lemat': 'kot', 'czesc_mowy': 'subst', 'powód': 'test', 'klucze': [k('kot')], 'warstwy': ['T1']}]))
+        summary.chmod(0o444)
+        reseal(package)
+        with self.assertRaises(checker.Refused) as caught:
+            self.check(package)
+        self.assertIn('Wykluczenia raportu', str(caught.exception))
+
     def test_topic_with_t3_and_empty_t3_layer_fails_t3_tak(self):
         with tempfile.TemporaryDirectory() as tmp:
             # Wykluczenie `barka` opróżnia T3 przy temacie z `t3`.

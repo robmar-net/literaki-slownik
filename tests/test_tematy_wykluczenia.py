@@ -76,6 +76,31 @@ class TematyWykluczeniaTest(unittest.TestCase):
         summary = load_json(self.root/'pkg/reports/summary.json')
         self.assertEqual(summary['liczby']['warstwy']['T2'], 3)
 
+    def test_addendum_on_an_excluded_lexeme_is_code_4(self):
+        # Para różna od wykluczenia (load_topic przechodzi), ale ten sam leksem `żeglować` (inf i ger).
+        rewrite(self.f['topic'], lambda v: v.update(
+            wykluczenia=[exclusion('żeglować', 'inf')],
+            dodatki=[{'lemat': 'żeglować', 'czesc_mowy': 'ger', 'powód': 'test'}]))
+        tematy.load_topic(self.f['topic'])
+        with self.assertRaises(tematy.GeneratorError) as caught:
+            self.build()
+        self.assertEqual(caught.exception.code, 4)
+        self.assertIn('wykluczony', str(caught.exception))
+        self.assertFalse((self.root/'pkg').exists())
+
+    def test_topic_with_t3_and_empty_t3_keeps_t3_tak_applicable_in_summary(self):
+        # Pusta T3 przy temacie z `t3` to błąd konfiguracji: `t3_tak` nie może zniknąć jako `nie_dotyczy` (W6).
+        rewrite(self.f['topic'], lambda v: v.update(wykluczenia=[exclusion('barka', 'subst')]))
+        self.build()
+        summary = load_json(self.root/'pkg/reports/summary.json')
+        self.assertEqual(summary['liczby']['warstwy']['T3'], 0)
+        self.assertIsNotNone(summary['t3'])
+        self.assertEqual(summary['werdykt']['nie_dotyczy'], [])
+        self.assertIn('t3_tak', summary['werdykt']['czeka_na_ocene'] + summary['werdykt']['niespelnione'])
+        sample = load_json(self.root/'pkg/reports/sample.json')
+        self.assertEqual(sample['strata']['T3']['coverage'], 'EMPTY_NOT_COVERAGE')
+        self.assertEqual(sample['operator']['strata']['T3'], [])
+
 
 if __name__ == '__main__':
     unittest.main()
