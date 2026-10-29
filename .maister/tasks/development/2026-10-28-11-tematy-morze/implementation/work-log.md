@@ -126,3 +126,25 @@
   - werdykt{automatyczny,niespelnione,czeka_na_ocene}.
 - sample.json zawiera wynik sample_strata oraz operator{per_stratum,strata} i items.
 - Wywołanie CLI: `python3 -m literaki_slownik tematy --manifest config/generator/tematy-sources.json --config config/generator/tematy.json --topic config/generator/tematy/morze.json --output-dir <nowy> [--json]`. Kody wyjścia: 0, 2, 3, 4, 5.
+
+## 2026-10-29T00:06:26Z - Group 11 Complete
+
+**Steps**: 11.1–11.5
+**Standards Applied**: AGENTS.md; wzór c14df5d; spec W13, W14, D13; docs/generator/publikacja.md
+**Tests**: test_documented_names OK; 60 OK w powiązanych modułach; linki do repo istnieją
+**Files Modified**: docs/generator/{cli,raporty,jakosc}.md, docs/runbook-wiki.md, .maister/docs/INDEX.md, ATTRIBUTIONS.md
+**Notes**:
+- Flagi skryptów z grupy 10 trzeba dopisać w cli.md po jej zakończeniu.
+- Pin ATTRIBUTIONS.md w config/generator/release.json był nieaktualny już przed tym zadaniem (POP00 też go nie odświeżył). Poprawka przy najbliższym wydaniu LL-PL; poza zakresem #11.
+
+## 2026-10-29T00:11:52Z - Group 10 Complete
+
+**Steps**: 10.1–10.6
+**Standards Applied**: spec W11, W12, W6, W8, D12, D14; wzór check_pop00_package.py i record_review.py
+**Tests**: 14 OK. Mutacja „niepewne = tak” daje czerwone testy. Strona sprawdzona w Playwright 390×844: bez poziomego przewijania.
+**Files Modified**: scripts/check_tematy_package.py, scripts/tematy_review.py, tests/test_check_tematy_package.py, tests/test_tematy_review.py, tests/tematy_helpers.py
+**Polecenia dla grup 13 i 14**:
+- Oceny agenta: `tr.agent_review(PKG, {key: {ocena, powod}}, 'agent (Claude)', ts)` + `tr.write_review(T/verification/tematy-morze-review.json, review)`. Commit i push przed `strona` (D12).
+- Kontrola: `python3 scripts/check_tematy_package.py --package-dir <PKG> --manifest config/generator/tematy-sources.json --config config/generator/tematy.json [--review <review.json>]`.
+- Strona: `python3 scripts/tematy_review.py strona --package-dir <PKG> --review <review.json> --output $T/verification/tematy-morze-r2.html`.
+- Zapis ocen operatora: `python3 scripts/tematy_review.py zapisz --package-dir <PKG> --review <review.json> --oceny <operator.json|->`.

@@ -238,8 +238,8 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `scripts/check_tematy_package.py`, `scripts/tematy_review.py`, `tests/test_check_tematy_package.py`, `tests/test_tematy_review.py`, `tests/tematy_helpers.py`
 **Kroki:** 6
 
-- [ ] 10.0 Niezależnie sprawdzić pakiet i przegląd
-  - [ ] 10.1 Napisać 7 testów:
+- [x] 10.0 Niezależnie sprawdzić pakiet i przegląd
+  - [x] 10.1 Napisać 7 testów:
     - checker PASS na pakiecie z fikstury; zmieniony bajt w `MORZE.txt.gz` = odmowa;
     - forma spoza STANDARD albo leksem w dwóch warstwach = odmowa;
     - `--review`: trafność na warstwę z rzeczywistym N; „niepewne” nie jest „tak”; zgodność i kappa na 3 kategoriach (wartości policzone ręcznie);
@@ -247,11 +247,11 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
     - `strona` odmawia bez hasha ocen agenta;
     - `strona` nie zawiera ocen agenta; ma przyciski, „kopiuj JSON”, pole tekstowe, `localStorage` w `try/catch`;
     - `zapisz` odrzuca brak klucza, obcy klucz i zły hash ocen agenta.
-  - [ ] 10.2 `check_tematy_package.py` (wzór `check_pop00_package.py`, bez importu `literaki_slownik`): `SHA256SUMS`, manifest, `MORZE.txt` ⊆ STANDARD, TSV spójny z TXT, warstwy rozłączne, przecięcia z POP/POP00 liczone od nowa, brak `owner`/`comment` w przypiętej pochodnej.
-  - [ ] 10.3 `--review`: kompletność, powiązanie z `SHA256SUMS` i `sample_sha256`, trafność, zgodność, kappa, test 37 słów (całość), werdykt.
-  - [ ] 10.4 `tematy_review.py strona`: samodzielny HTML na wąski ekran, duże przyciski tak/nie/niepewne, „kopiuj JSON”, pole z JSON, szkic w `localStorage`; odmowa bez hasha ocen agenta.
-  - [ ] 10.5 `tematy_review.py zapisz`: łączy JSON operatora z plikiem przeglądu; sprawdza klucze, hashe i hash ocen agenta.
-  - [ ] 10.6 Uruchomić 7 nowych testów. Commit `feat(tematy): checker i skrypt przeglądu (#11)`, push.
+  - [x] 10.2 `check_tematy_package.py` (wzór `check_pop00_package.py`, bez importu `literaki_slownik`): `SHA256SUMS`, manifest, `MORZE.txt` ⊆ STANDARD, TSV spójny z TXT, warstwy rozłączne, przecięcia z POP/POP00 liczone od nowa, brak `owner`/`comment` w przypiętej pochodnej.
+  - [x] 10.3 `--review`: kompletność, powiązanie z `SHA256SUMS` i `sample_sha256`, trafność, zgodność, kappa, test 37 słów (całość), werdykt.
+  - [x] 10.4 `tematy_review.py strona`: samodzielny HTML na wąski ekran, duże przyciski tak/nie/niepewne, „kopiuj JSON”, pole z JSON, szkic w `localStorage`; odmowa bez hasha ocen agenta.
+  - [x] 10.5 `tematy_review.py zapisz`: łączy JSON operatora z plikiem przeglądu; sprawdza klucze, hashe i hash ocen agenta.
+  - [x] 10.6 Uruchomić 7 nowych testów. Commit `feat(tematy): checker i skrypt przeglądu (#11)`, push.
 
 **Kryteria odbioru:**
 - 7 testów przechodzi.
@@ -262,12 +262,12 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `docs/generator/cli.md`, `docs/generator/raporty.md`, `docs/generator/jakosc.md`, `docs/runbook-wiki.md`, `.maister/docs/INDEX.md`, `ATTRIBUTIONS.md`
 **Kroki:** 5
 
-- [ ] 11.0 Opisać TEMATY w dokumentach projektu
-  - [ ] 11.1 Kontrola zamiast testów: `tests/test_documented_names.py` i testy dokumentów przechodzą; linki prowadzą do istniejących ścieżek.
-  - [ ] 11.2 `cli.md`: podkomenda `tematy`, argumenty, kody wyjścia, skrypty pobrania i pochodnej. `raporty.md`: pliki pakietu i pola `summary.json`. `jakosc.md`: próba 50/30, skala, progi jako udziały, zgodność i kappa.
-  - [ ] 11.3 `runbook-wiki.md`: sekcja TEMATY (liczby z `counts` i `summary.json`; przykłady sprawdzamy w `MORZE.tsv.gz`, bo `explain` nie ma wariantu tematy; „W przygotowaniu” do wydania).
-  - [ ] 11.4 `ATTRIBUTIONS.md` repo: noty plWordNet i IATE. `.maister/docs/INDEX.md`: ADR-010, ADR-011 i nowe dokumenty.
-  - [ ] 11.5 Commit `docs(tematy): CLI, raporty, jakość, runbook (#11)`, push.
+- [x] 11.0 Opisać TEMATY w dokumentach projektu
+  - [x] 11.1 Kontrola zamiast testów: `tests/test_documented_names.py` i testy dokumentów przechodzą; linki prowadzą do istniejących ścieżek.
+  - [x] 11.2 `cli.md`: podkomenda `tematy`, argumenty, kody wyjścia, skrypty pobrania i pochodnej. `raporty.md`: pliki pakietu i pola `summary.json`. `jakosc.md`: próba 50/30, skala, progi jako udziały, zgodność i kappa.
+  - [x] 11.3 `runbook-wiki.md`: sekcja TEMATY (liczby z `counts` i `summary.json`; przykłady sprawdzamy w `MORZE.tsv.gz`, bo `explain` nie ma wariantu tematy; „W przygotowaniu” do wydania).
+  - [x] 11.4 `ATTRIBUTIONS.md` repo: noty plWordNet i IATE. `.maister/docs/INDEX.md`: ADR-010, ADR-011 i nowe dokumenty.
+  - [x] 11.5 Commit `docs(tematy): CLI, raporty, jakość, runbook (#11)`, push.
 
 **Kryteria odbioru:**
 - Każdy nowy plik i nazwa z kodu ma opis w `docs/`.
