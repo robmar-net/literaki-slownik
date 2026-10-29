@@ -1,0 +1,9 @@
+{
+  "reviewer": "agent (Claude)",
+  "reviewed_at": "2026-10-29T14:11:21Z",
+  "oceny": {
+    "kok:Sm3@sgjp-20260823": {"ocena": "tak", "powod": "Kok to kucharz na statku, czyli osoba przyrządzająca posiłki."},
+    "nektarynka@sgjp-20260823": {"ocena": "tak", "powod": "Nektarynka to popularny owoc jadalny."},
+    "por:Sm3@sgjp-20260823": {"ocena": "tak", "powod": "Por to zwykłe warzywo używane w kuchni."}
+  }
+}

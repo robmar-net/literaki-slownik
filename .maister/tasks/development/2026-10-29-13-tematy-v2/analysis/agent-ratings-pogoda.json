@@ -1,0 +1,406 @@
+{
+  "reviewer": "agent (Claude)",
+  "reviewed_at": "2026-10-29T14:11:37Z",
+  "oceny": {
+    "afganiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Lokalny wiatr w Afganistanie, zjawisko pogodowe."
+    },
+    "altocumulus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj chmury."
+    },
+    "altostratus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj chmury."
+    },
+    "antycyklon@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Układ wysokiego ciśnienia z prognozy pogody."
+    },
+    "baryczny@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przymiotnik od ciśnienia atmosferycznego, np. układ baryczny."
+    },
+    "bejdewind@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Termin żeglarski o kursie względem wiatru, słaby związek z pogodą."
+    },
+    "bora@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zimny, porywisty wiatr."
+    },
+    "burza@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Podstawowe zjawisko pogodowe."
+    },
+    "błyskawica@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zjawisko towarzyszące burzy."
+    },
+    "chamsin@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gorący wiatr pustynny."
+    },
+    "chlapa@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Potocznie mokra, deszczowa pogoda."
+    },
+    "chlapanina@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Potocznie słotna pogoda z błotem i deszczem."
+    },
+    "chmura@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Podstawowy element pogody."
+    },
+    "cirrocumulus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj chmury."
+    },
+    "cirrostratus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj chmury."
+    },
+    "cirrus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj chmury."
+    },
+    "cumulonimbus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Chmura burzowa."
+    },
+    "cumulus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj chmury."
+    },
+    "cyklon@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Niż lub wir atmosferyczny."
+    },
+    "deszcz@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Podstawowy opad atmosferyczny."
+    },
+    "deszczomierz@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przyrząd do pomiaru opadów."
+    },
+    "dmuch@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Podmuch wiatru."
+    },
+    "duchota@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Parna, duszna pogoda."
+    },
+    "fen:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ciepły wiatr górski."
+    },
+    "firn@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Zleżały śnieg na lodowcu, termin bardziej glacjologiczny."
+    },
+    "fractocumulus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj chmury."
+    },
+    "fractostratus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj chmury."
+    },
+    "frontoliza@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zanikanie frontu atmosferycznego."
+    },
+    "globula@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Kuleczka lub kropelka, związek z pogodą tylko specjalistyczny."
+    },
+    "gloria@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Rzadkie zjawisko optyczne w atmosferze, zwykle słowo znaczy co innego."
+    },
+    "gorąc@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Upał."
+    },
+    "gołoledź@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Lód na drogach po marznącym deszczu."
+    },
+    "gradobicie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Opad gradu."
+    },
+    "harmatan@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Suchy wiatr afrykański."
+    },
+    "heterosfera@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Warstwa atmosfery."
+    },
+    "homosfera@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Warstwa atmosfery."
+    },
+    "huragan@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gwałtowna burza tropikalna."
+    },
+    "hydrometeor@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zjawisko wodne w atmosferze, np. opad."
+    },
+    "inwersja@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Inwersja temperatury to termin specjalistyczny, zwykle słowo znaczy co innego."
+    },
+    "izalobara@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Izolinia na mapie meteorologicznej."
+    },
+    "izaloterma@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Izolinia na mapie meteorologicznej."
+    },
+    "izanomala@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Izolinia anomalii klimatycznych."
+    },
+    "izoamplituda@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Izolinia amplitud temperatur."
+    },
+    "izobara@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Linia równego ciśnienia na mapie pogody."
+    },
+    "izohieta@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Linia równych opadów."
+    },
+    "izohipsa@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Głównie poziomica na mapie, związek z pogodą specjalistyczny."
+    },
+    "izoterma@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Linia równej temperatury."
+    },
+    "izotermia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Stała temperatura w warstwie powietrza."
+    },
+    "kanikuła@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Okres letnich upałów."
+    },
+    "lodoszreń@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zmarznięta skorupa na śniegu."
+    },
+    "meteorograf@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przyrząd meteorologiczny."
+    },
+    "meteorogram@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wykres prognozy pogody."
+    },
+    "mezoklimat@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Klimat obszaru średniej skali."
+    },
+    "mezostrefa@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Termin meteorologiczny dotyczący strefy atmosfery."
+    },
+    "mikroatmosfera@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Termin meteorologiczny o lokalnej atmosferze."
+    },
+    "mistral@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zimny wiatr we Francji."
+    },
+    "monsun@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sezonowy wiatr i pora deszczowa."
+    },
+    "mżawka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Drobny deszcz."
+    },
+    "nawałnica@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gwałtowna burza."
+    },
+    "nimbostratus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj chmury."
+    },
+    "nimbus@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Chmura deszczowa to znaczenie rzadkie, zwykle znaczy aureolę."
+    },
+    "ocieplenie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wzrost temperatury, także ocieplenie klimatu."
+    },
+    "opad@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Opad atmosferyczny."
+    },
+    "ozonosfera@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Warstwa atmosfery."
+    },
+    "pasat@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Stały wiatr strefy tropikalnej."
+    },
+    "pluwiograf@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przyrząd rejestrujący opady."
+    },
+    "pluwiogram@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zapis przebiegu opadów."
+    },
+    "pluwiometr@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Deszczomierz."
+    },
+    "podmuch@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nagły ruch wiatru."
+    },
+    "pogoda@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa tematu."
+    },
+    "pompa@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Ulewa to rzadkie, potoczne znaczenie, zwykle to urządzenie."
+    },
+    "puch@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Świeży śnieg to znaczenie potoczne i poboczne, zwykle to pióra."
+    },
+    "purga@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Śnieżna zamieć."
+    },
+    "półwiatr@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Termin żeglarski o kursie względem wiatru."
+    },
+    "radiosonda@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przyrząd do pomiarów atmosfery."
+    },
+    "samum@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gorący wiatr pustynny."
+    },
+    "sanna@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Jazda saniami po śniegu, związek z zimą pośredni."
+    },
+    "simum@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gorący wiatr pustynny."
+    },
+    "smog@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zanieczyszczenie powietrza zależne od pogody."
+    },
+    "spiekota@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Upał."
+    },
+    "stratocumulus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj chmury."
+    },
+    "stratosfera@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Warstwa atmosfery."
+    },
+    "stratus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj chmury."
+    },
+    "szadź@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Osad lodowy w czasie mrozu i mgły."
+    },
+    "szkwał@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nagły, silny wiatr."
+    },
+    "szreń@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zmarznięta skorupa śniegu."
+    },
+    "słota@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Deszczowa, zimna pogoda."
+    },
+    "słońce@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Słoneczna pogoda."
+    },
+    "termika@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wznoszące prądy ciepłego powietrza."
+    },
+    "tornado@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Trąba powietrzna."
+    },
+    "tropik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Upał lub klimat tropikalny."
+    },
+    "troposfera@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Warstwa atmosfery, w której tworzy się pogoda."
+    },
+    "wiatr@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Podstawowe zjawisko pogodowe."
+    },
+    "wietrzność@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wietrzna pogoda."
+    },
+    "wyładowanie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wyładowanie atmosferyczne, czyli piorun."
+    },
+    "wyż:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wyż baryczny z prognozy pogody."
+    },
+    "zadymka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Śnieżyca z wiatrem."
+    },
+    "zamieć@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Śnieżyca z wiatrem."
+    },
+    "śniegomierz@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przyrząd do pomiaru śniegu."
+    },
+    "śnieżyczka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Drobny śnieg lub płatek śniegu."
+    }
+  }
+}

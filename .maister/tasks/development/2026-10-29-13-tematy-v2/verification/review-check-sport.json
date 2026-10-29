@@ -1,0 +1,119 @@
+{
+  "formy": 8021,
+  "przeglad": {
+    "agent": {
+      "T1": {
+        "N": 50,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 2,
+        "tak": 48,
+        "tak_udzial": "24/25"
+      },
+      "T2": {
+        "N": 50,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 6,
+        "tak": 44,
+        "tak_udzial": "22/25"
+      },
+      "T3": {
+        "N": 0,
+        "nie": 0,
+        "nie_udzial": null,
+        "niepewne": 0,
+        "tak": 0,
+        "tak_udzial": null
+      }
+    },
+    "agent_sha256": "396ce466a8bd8be43f15ea41aeb53a9dbc8fadb3d8d228ab90b7a9a647dab9ac",
+    "operator": null,
+    "slowa_oczywiste": {
+      "brakujace": [
+        "karta",
+        "sędzia"
+      ],
+      "lista": 36,
+      "pokryte": 34,
+      "udzial": "17/18"
+    },
+    "werdykt": {
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [],
+      "progi": [
+        {
+          "granica": "0.70",
+          "kierunek": ">=",
+          "prog": "slowa_oczywiste",
+          "status": "spelniony",
+          "wartosc": "17/18"
+        },
+        {
+          "granica": "0.90",
+          "kierunek": ">=",
+          "prog": "t1_tak",
+          "status": "spelniony",
+          "wartosc": "24/25"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t2_tak",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "0.10",
+          "kierunek": "<=",
+          "prog": "t2_nie",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t3_tak",
+          "status": "nie_dotyczy",
+          "wartosc": "nie_dotyczy"
+        },
+        {
+          "granica": "0.80",
+          "kierunek": ">=",
+          "prog": "zgodnosc",
+          "status": "czeka",
+          "wartosc": "czeka"
+        }
+      ],
+      "uwaga": "„stop” wybiera tylko operator na bramce",
+      "wynik": null
+    },
+    "zgodnosc": null
+  },
+  "review_checked": true,
+  "sha256sums_sha256": "43233451d23d9516ad7daf5323999a0c06844c1f809ab4ef8bc73ec40829862d",
+  "slowa_oczywiste": {
+    "brakujace": [
+      "karta",
+      "sędzia"
+    ],
+    "lista": 36,
+    "pokryte": 34
+  },
+  "status": "pass",
+  "temat": "sport",
+  "warstwy": {
+    "D": 14,
+    "T1": 172,
+    "T2": 622,
+    "T3": 0
+  },
+  "wpisy": 808
+}

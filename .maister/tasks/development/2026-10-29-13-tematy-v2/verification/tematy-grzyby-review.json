@@ -1,0 +1,622 @@
+{
+  "agent": {
+    "items": [
+      {
+        "key": "bedłkowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grupy grzybów blaszkowych.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "bielnik:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "boczniak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularny grzyb jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "borowik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularny grzyb jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "buławka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "cysta@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Forma przetrwalna w biologii, z grzybami związana tylko specjalistycznie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "czernidlak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wariant nazwy grzyba czernidłak.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "czernidłak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "czubajka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Znany grzyb, np. czubajka kania.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "dermatofit@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Grzyb, ale kojarzony głównie z grzybicą, czyli z medycyną.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "drożdżak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb drożdżopodobny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "endospora@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Termin specjalistyczny, częściej kojarzony z bakteriami niż z grzybami.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "galaretnica@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "gałęziak:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "gmatwek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb nadrzewny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "goryczak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "goździeniec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "grzyb:Sm1.m2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Słowo grzyb to rdzeń tematu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "grzyb:Sm2.m3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Słowo grzyb to rdzeń tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "gąska@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Znany grzyb jadalny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "głownia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb pasożytniczy zbóż i wywoływana przez niego choroba roślin.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "huba@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb nadrzewny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "hubka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb nadrzewny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "jeleniak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kania@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularny grzyb jadalny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "korzeniówka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "koźlarz:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularny grzyb jadalny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "koźlarz:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularny grzyb jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kropidlak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pleśń, mieści się w temacie.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "krowiak:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "lakówka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "lejkowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Lejkowiec to rodzaj grzyba kapeluszowego.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "lejkówka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "majówka@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Majówka jako gatunek grzyba to rzadkie znaczenie obok zwykłego wypadu majowego.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "maślak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularny grzyb jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "mikoryza@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Współżycie grzybni z korzeniami.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "muchomor@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Znany grzyb trujący.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "muchomór@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wariant nazwy muchomor.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "mun@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb mun znany z kuchni.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "obrost@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Porost, mieści się w temacie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "obłoczniak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "odnożyca@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Porost, mieści się w temacie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "olszówka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Znany grzyb.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "opieńka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularny grzyb jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "otoczniak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "piaskowiec:Sm2.m3@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle skała, grzyb to rzadkie znaczenie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "piaskowiec:Sm2@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle skała, grzyb to rzadkie znaczenie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pieczarka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularny grzyb jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pieniążek:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pieprznik:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb, np. pieprznik jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "piestrzenica@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Znany grzyb trujący.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "plemnia@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Organ rozmnażania, z grzybami tylko w botanice.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pleśniak:Sm2.m3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb pleśniowy.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pleśniak:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb pleśniowy.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pleśń@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pleśń mieści się w temacie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "podbrzeźniak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Znany grzyb jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "podgrzybek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularny grzyb jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "podosiniak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "podstawczak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb z dużej grupy podstawczaków.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "prawdziwek:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularny grzyb jadalny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "prawdziwek:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularny grzyb jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "przetrwalnik@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Termin biologiczny dotyczący głównie bakterii, z grzybami związany luźno.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "przęślik@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle część wrzeciona, grzybowe znaczenie rzadkie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "purchawka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Znany grzyb.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pępówka@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle pępowina, grzyb to rzadkie znaczenie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pływka@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Specjalistyczny termin o zarodnikach ruchliwych.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rdza@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle korozja, choroba grzybowa roślin to znaczenie specjalistyczne.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rozetka@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle ozdoba lub układ liści, znaczenie grzybowe rzadkie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rydz@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularny grzyb jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sarniak@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle samiec sarny, grzyb to rzadkie znaczenie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "sierpik:Sm2.m3@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Rzadkie, specjalistyczne znaczenie grzybowe.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "sierpik:Sm3@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Znaczenie grzybowe jest rzadkie i mało znane graczom.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "smardz@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Znany grzyb jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sromotnikowiec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb, np. sromotnik bezwstydny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "surojadka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Znany grzyb.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "surojeszka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wariant nazwy grzyba surojadka.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "szmaciak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "trufla@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Znany grzyb jadalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "trzonek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Trzon grzyba to część owocnika.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "trąbka@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle instrument, grzyb to rzadkie znaczenie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "twardziak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "tęgoskór@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Znany grzyb.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "wieruszka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pleśń lub grzyb, mieści się w temacie.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "wodniak:Sm2.m3@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Rzadkie, specjalistyczne znaczenie grzybowe.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "wodnicha@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "worek@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle przedmiot, worek grzybów workowych to termin specjalistyczny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "workowiec:Sm2.m3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb z grupy workowców.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "workowiec:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb z grupy workowców.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "wrośniak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb nadrzewny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "włośnia@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Rzadka nazwa specjalistyczna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "zasłonak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "zoospora@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Specjalistyczny termin o zarodnikach.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "zębak@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Rzadka nazwa specjalistyczna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "łuskowiec@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle ssak łuskowiec, grzyb to rzadkie znaczenie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "łuszczak:Sm2.m3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "łuszczak:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa grzyba, wprost z tematu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "łysak@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle łysy człowiek, grzybowe znaczenie rzadkie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "ślimak:Sm3@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle zwierzę, grzyb to rzadkie znaczenie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "śluzak@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle nowotwór, grzybowe znaczenie rzadkie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "śnieć@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb pasożytniczy zbóż i choroba przez niego wywoływana.",
+        "warstwa": "T1"
+      }
+    ],
+    "reviewed_at": "2026-10-29T14:11:37Z",
+    "reviewer": "agent (Claude)"
+  },
+  "agent_sha256": "2e303943b5c9d162e673f766cb067dce35edc6d474a05c3a63d748adb8ab407f",
+  "canonical_index_sha256": "fb50ea33c1ba14aaaa993308d7712d520312d7046a7df4439047e91136df6dd6",
+  "evidence_sha256": {
+    "GRZYBY.txt.gz": "fcb650c4792b6f5bf63163e18a2c258a88e1f0990a02e657b149b136b775dd69",
+    "reports/summary.json": "d07450e297937bde68509454001758eb4c027c0110477d3e7cf2520423e2aa61"
+  },
+  "kind": "literaki-tematy-review",
+  "method": "tematy-v2",
+  "operator": null,
+  "sample_sha256": "52ba21192d10ad881d7f9c6a745c6b7ec157a146cac4f6f7a903ebd38407a3ca",
+  "schema_version": 1,
+  "sha256sums_sha256": "3afa65aae61da9d431c0bfdc4800591526f7caece7cf21005e8fe6d83603225b",
+  "temat": "grzyby",
+  "version": "tematy-quality-v1"
+}

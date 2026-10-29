@@ -1,0 +1,406 @@
+{
+  "reviewer": "agent (Claude)",
+  "reviewed_at": "2026-10-29T14:11:37Z",
+  "oceny": {
+    "ais@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa dźwięku a podwyższonego o pół tonu."
+    },
+    "akompaniator@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Muzyk towarzyszący solistom."
+    },
+    "allegretto@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Oznaczenie tempa i część utworu muzycznego."
+    },
+    "alt:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Głos lub rejestr śpiewaczy."
+    },
+    "altówka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Instrument smyczkowy."
+    },
+    "ambitus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zakres skali głosu lub melodii."
+    },
+    "andante@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Oznaczenie tempa i część utworu."
+    },
+    "anglez:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dawny taniec, a taniec należy do muzyki."
+    },
+    "arabeska@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Utwór muzyczny i figura baletowa."
+    },
+    "basetlista@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Muzyk grający na basetli, czyli wykonawca."
+    },
+    "basklarnet@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Instrument dęty drewniany."
+    },
+    "bekadło@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Rzadka nazwa ludowego przyrządu, mało znana graczom."
+    },
+    "bitles@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Potoczne określenie fana zespołu lub długowłosego młodzieńca, związek z muzyką pośredni."
+    },
+    "chordofon@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Klasa instrumentów strunowych."
+    },
+    "crescendo@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Termin dynamiki muzycznej."
+    },
+    "cymbalista@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Muzyk grający na cymbałach."
+    },
+    "czardasz@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Węgierski taniec i utwór muzyczny."
+    },
+    "dajna@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Litewska pieśń ludowa."
+    },
+    "des@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa dźwięku d obniżonego o pół tonu."
+    },
+    "diafonia@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Wczesna forma wielogłosowości to specjalistyczny termin teorii muzyki."
+    },
+    "diminuendo@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Termin dynamiki muzycznej."
+    },
+    "disco@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gatunek muzyki."
+    },
+    "drabant:Sm2@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Znaczenie taneczne jest rzadkie, zwykle słowo oznacza strażnika."
+    },
+    "duda:Sf@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ludowy instrument dęty."
+    },
+    "eis@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa dźwięku e podwyższonego o pół tonu."
+    },
+    "falset@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rejestr głosu śpiewaczego."
+    },
+    "fes@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa dźwięku f obniżonego o pół tonu."
+    },
+    "goliard@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Średniowieczny wędrowny poeta i pieśniarz, związek z muzyką historyczny."
+    },
+    "gospel@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gatunek muzyki religijnej."
+    },
+    "gruchawka@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Rzadka nazwa ludowego instrumentu, mało znana."
+    },
+    "gryf:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Część instrumentu strunowego."
+    },
+    "gusla@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ludowy instrument smyczkowy."
+    },
+    "gęśl@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dawny instrument strunowy."
+    },
+    "hajduk:Sm2@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Znaczenie taneczne jest rzadkie, zwykle słowo oznacza żołnierza."
+    },
+    "hit@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przebój muzyczny."
+    },
+    "idiofon@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Klasa instrumentów muzycznych."
+    },
+    "języczek@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Znaczenie muzyczne (stroik) jest specjalistyczne."
+    },
+    "kamerton@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przyrząd do strojenia instrumentów."
+    },
+    "kankan@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Taniec rewiowy."
+    },
+    "karafułka@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Bardzo rzadkie słowo, związek z muzyką trudny do rozpoznania."
+    },
+    "klarnet:Sm1@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Klarnecista lub instrument dęty."
+    },
+    "klawiatura@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Część fortepianu i organów."
+    },
+    "klawisz:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Element klawiatury instrumentu."
+    },
+    "koloratura@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ozdobny śpiew i rodzaj sopranu."
+    },
+    "kontredansik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zdrobnienie nazwy tańca."
+    },
+    "kora@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Afrykański instrument to rzadkie znaczenie, zwykle słowo oznacza korę drzewa."
+    },
+    "krzesany:S@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Góralski taniec."
+    },
+    "la:S@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa dźwięku w solmizacji."
+    },
+    "litaury@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kotły, instrument perkusyjny."
+    },
+    "major:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tonacja durowa."
+    },
+    "majufes@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Żydowska pieśń szabatowa."
+    },
+    "marimba@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Instrument perkusyjny."
+    },
+    "mazur@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Polski taniec narodowy."
+    },
+    "mazurzysta@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tancerz mazura."
+    },
+    "metronom@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przyrząd do odmierzania tempa."
+    },
+    "minor:Sm3.n_ncol@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tonacja molowa."
+    },
+    "nuta@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Znak zapisu muzycznego."
+    },
+    "organki@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Instrument dęty."
+    },
+    "pantaleon@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dawny instrument strunowy."
+    },
+    "parlando@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sposób wykonania śpiewu."
+    },
+    "piccolo:Sm1@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Mały flet lub grający na nim muzyk."
+    },
+    "pipa@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Chiński instrument strunowy."
+    },
+    "pizzicato@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Technika gry szarpanej na smyczkowych."
+    },
+    "piła@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Piła jako instrument to rzadkie znaczenie."
+    },
+    "pląs@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pląs to taniec, który należy do muzyki."
+    },
+    "prospekt@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Prospekt organowy to znaczenie specjalistyczne."
+    },
+    "punk:Sm2.m3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gatunek muzyki rockowej."
+    },
+    "re@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa dźwięku w solmizacji."
+    },
+    "remiks@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przetworzona wersja utworu muzycznego."
+    },
+    "rytmik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Muzyk grający w sekcji rytmicznej."
+    },
+    "sarabanda@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dawny taniec i część suity."
+    },
+    "septymola@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Grupa rytmiczna siedmiu nut."
+    },
+    "singel:Sm1@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Płyta z jednym utworem muzycznym."
+    },
+    "skat@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Śpiew scatowy to znaczenie specjalistyczne, zwykle słowo oznacza grę w karty."
+    },
+    "skrzypek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Muzyk grający na skrzypcach."
+    },
+    "smyczek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przyrząd do gry na smyczkowych."
+    },
+    "solo:S@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Partia wykonywana przez jednego muzyka."
+    },
+    "spinet@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dawny instrument klawiszowy."
+    },
+    "staccato@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sposób artykulacji dźwięków."
+    },
+    "strofa@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Zwrotka pieśni, ale słowo dotyczy głównie poezji."
+    },
+    "strunnik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Część instrumentu smyczkowego."
+    },
+    "suita@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Forma muzyczna."
+    },
+    "szpinet@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dawny instrument klawiszowy."
+    },
+    "sztos:Sm3@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Slangowe znaczenie bez wyraźnego związku z muzyką."
+    },
+    "słuchawki@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Służą do słuchania muzyki, ale to sprzęt ogólny."
+    },
+    "tarantela@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Włoski taniec."
+    },
+    "tercja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Interwał muzyczny."
+    },
+    "thrash@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Odmiana muzyki metalowej."
+    },
+    "trójdźwięk@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Akord złożony z trzech dźwięków."
+    },
+    "tusz@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Krótka fanfara orkiestry to rzadkie znaczenie."
+    },
+    "twist:Sm2.m3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Taniec i muzyka do niego."
+    },
+    "twist:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Taniec i muzyka do niego."
+    },
+    "ukulele@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Instrument strunowy."
+    },
+    "walc@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Taniec i utwór muzyczny."
+    },
+    "wibrato@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Technika drgania dźwięku."
+    },
+    "wiola@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dawny instrument smyczkowy."
+    },
+    "łącznik:Sm1@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Ewentualne znaczenie muzyczne jest rzadkie."
+    },
+    "łącznik:Sm3@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Ewentualne znaczenie muzyczne jest rzadkie."
+    },
+    "śpiewak:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wokalista, wykonawca muzyki."
+    },
+    "żiga@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dawny taniec i część suity."
+    }
+  }
+}

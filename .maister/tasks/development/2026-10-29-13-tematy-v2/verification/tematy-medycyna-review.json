@@ -1,0 +1,622 @@
+{
+  "agent": {
+    "items": [
+      {
+        "key": "ablacja@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zabieg medyczny, np. ablacja serca.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "acefalia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wada rozwojowa płodu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "afekt@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Pojęcie psychologiczne, z medycyną łączy się tylko w psychiatrii.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "alergia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Powszechna choroba.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "antyseptyka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Odkażanie ran i narzędzi w medycynie.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "anuria@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Bezmocz, objaw chorobowy.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "artykulator@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Przyrząd protetyki stomatologicznej, ale też termin fonetyczny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "arytmia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zaburzenie rytmu serca.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "bariatria@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dziedzina medycyny lecząca otyłość.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "barotrauma@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Uraz ciśnieniowy ciała.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "bebech@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Potoczna nazwa brzucha lub wnętrzności.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "bezwład@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Paraliż, niewładność kończyn.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "bąbel:Sm2.m3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pęcherz na skórze, np. po oparzeniu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "błonica@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Choroba zakaźna.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "błędnik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Narząd równowagi w uchu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "chemioterapia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Leczenie nowotworów lekami.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "ciemieniowy@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Odnosi się do kości ciemieniowej czaszki.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "cyklotymik@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Osoba z cyklotymią, termin psychologiczny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "cytologia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularne badanie medyczne.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "cytoplazma@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Pojęcie biologii komórki, nie typowo medyczne.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "czerniak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nowotwór skóry.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "diplokok@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Bakteria chorobotwórcza.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "dychawica@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dawna nazwa astmy.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "dymieniczny@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Jak w nazwie dżuma dymienicza.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "ekstrasystole@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dodatkowe skurcze serca.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "emetyna@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Lek wymiotny i przeciwpierwotniakowy.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "endometrium@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Błona śluzowa macicy.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "epilepsja@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Choroba neurologiczna.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "fallus@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Częściej symbol członka niż termin anatomiczny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "fibryl@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Rzadki termin z biologii tkanek.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "filarioza@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Choroba pasożytnicza.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "ftyzjolog@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Lekarz od gruźlicy.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "gestoza@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Powikłanie ciąży.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "glaukoma@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Jaskra, choroba oczu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "hymen@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Błona dziewicza, anatomia.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "inwalidztwo@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Trwała niesprawność orzekana przez lekarzy.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "izogameta@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "Termin biologii rozmnażania, nie medycyny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "jajnik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Narząd rozrodczy.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "języczek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Część podniebienia miękkiego.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kacheksja@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wyniszczenie organizmu w chorobie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "karcinogenność@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zdolność wywoływania raka.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kardiogram@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zapis pracy serca.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kiła@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Choroba weneryczna.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "koksartroza@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zwyrodnienie stawu biodrowego.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kolaps@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zapaść krążeniowa.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "koronawirus@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wirus wywołujący choroby.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "krioekstraktor@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Narzędzie chirurgii oka.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kudły@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Potocznie włosy na głowie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "lamblioza@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Choroba pasożytnicza jelit.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "laparoskopia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zabieg chirurgiczny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "laryngologia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dziedzina medycyny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "leukotomia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zabieg neurochirurgiczny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "listek@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle część rośliny, medycznie tylko listek tabletek.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "marskość@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Choroba wątroby.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "martwak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Obumarły fragment kości.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "mikoza@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzybica, choroba.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "miofibryla@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Specjalistyczny termin z histologii mięśni.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "naczyniak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nowotwór z naczyń krwionośnych.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "nadciśnienie@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Powszechna choroba.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "nasieniak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nowotwór jądra.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "nerwoból@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ból nerwu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "neuralgia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ból nerwu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "neuron@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Komórka nerwowa.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "niedokrwistość@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Anemia, choroba krwi.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "obducent@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Lekarz przeprowadzający sekcję zwłok.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "obducentka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Lekarka przeprowadzająca sekcję zwłok.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "oczodół@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Część czaszki człowieka.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "odwykówka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Potocznie leczenie odwykowe.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "okostna@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Błona pokrywająca kość.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "oskrzelik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Część dróg oddechowych.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "otalgia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ból ucha.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "parkinsonizm@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zespół chorobowy.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "perystaltyka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ruchy jelit, fizjologia.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pneumocystoza@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Choroba płuc.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pneumokok@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Bakteria chorobotwórcza.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "polucja@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Mimowolny wytrysk, fizjologia ciała.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "powięź@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Błona łącznotkankowa mięśni.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "przepona@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Mięsień oddechowy.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "przodomózgowie@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Część mózgu, anatomia.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "płuco@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Narząd oddechowy.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rezydent@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Lekarz rezydent to zwykłe znaczenie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "ropień@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zbiornik ropy w tkance.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rozstrzeń@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Choroba, np. rozstrzeń oskrzeli.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "salol@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Lek odkażający.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "schizofrenik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Chory na schizofrenię.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "siatsu@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Masaż niekonwencjonalny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "skirtotymik@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Rzadki termin psychologiczny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sporysznik@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Grzyb, dawniej surowiec leczniczy.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "stomatologia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dziedzina medycyny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "szczękonóżka@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "Odnóże skorupiaków, nie człowieka.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "transfuzjolog@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Lekarz specjalista transfuzji.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "trzewioczaszka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Część czaszki, anatomia człowieka.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "twardziel:Sf@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Choroba tkanki łącznej.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "tłuszczak:Sm2.m3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Łagodny nowotwór.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "upośledzenie@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zaburzenie funkcji organizmu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "wyściółka@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Zwykle materiał, medycznie tylko wyściółka narządu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "zgorzel@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Martwica tkanek.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "zoofilia@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Dewiacja seksualna, związek z medycyną tylko psychiatryczny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "żołądek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Narząd trawienny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "żołądź:Sf@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Anatomiczne znaczenie rzadsze niż owoc dębu.",
+        "warstwa": "T1"
+      }
+    ],
+    "reviewed_at": "2026-10-29T14:11:37Z",
+    "reviewer": "agent (Claude)"
+  },
+  "agent_sha256": "e9d6d68a6e5016781455410c64734ab3b360c96be5df65766218be38e6e5231d",
+  "canonical_index_sha256": "98a0ce6da8e53e7662d4d308910a83add3dab24381c51687926eb55355774713",
+  "evidence_sha256": {
+    "MEDYCYNA.txt.gz": "77293012627b878f853732a578ad9f6ca7b6c78758a6a4b3e7210aa83be5a1c4",
+    "reports/summary.json": "71bf880ba26aa99c24ca7adba4b9c1bbbfc273b2ad7a3ddb85ee5bf863b6c946"
+  },
+  "kind": "literaki-tematy-review",
+  "method": "tematy-v2",
+  "operator": null,
+  "sample_sha256": "56d6206fddcba2576ab1944b3b1f0129842c72515c34d5941dbdd51ba3a8ebd0",
+  "schema_version": 1,
+  "sha256sums_sha256": "64b480e2bc7a06fa6f3b727b5beabb931f6c5ee81a6530db686f336cf3b46190",
+  "temat": "medycyna",
+  "version": "tematy-quality-v1"
+}

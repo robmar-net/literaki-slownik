@@ -1,0 +1,11 @@
+{
+  "reviewer": "agent (Claude)",
+  "reviewed_at": "2026-10-29T14:11:21Z",
+  "oceny": {
+    "endospora@sgjp-20260823": {"ocena": "niepewne", "powod": "Termin specjalistyczny, częściej kojarzony z bakteriami niż z grzybami."},
+    "lejkowiec@sgjp-20260823": {"ocena": "tak", "powod": "Lejkowiec to rodzaj grzyba kapeluszowego."},
+    "majówka@sgjp-20260823": {"ocena": "niepewne", "powod": "Majówka jako gatunek grzyba to rzadkie znaczenie obok zwykłego wypadu majowego."},
+    "przetrwalnik@sgjp-20260823": {"ocena": "niepewne", "powod": "Termin biologiczny dotyczący głównie bakterii, z grzybami związany luźno."},
+    "sierpik:Sm3@sgjp-20260823": {"ocena": "niepewne", "powod": "Znaczenie grzybowe jest rzadkie i mało znane graczom."}
+  }
+}

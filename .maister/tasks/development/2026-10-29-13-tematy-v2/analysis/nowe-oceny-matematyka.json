@@ -1,0 +1,12 @@
+{
+  "reviewer": "agent (Claude)",
+  "reviewed_at": "2026-10-29T14:11:21Z",
+  "oceny": {
+    "ekliptyka@sgjp-20260823": {"ocena": "niepewne", "powod": "Pojęcie astronomiczne, z matematyką łączy je tylko geometria sfery niebieskiej."},
+    "inwersja@sgjp-20260823": {"ocena": "tak", "powod": "Inwersja to zwykłe pojęcie geometrii i kombinatoryki (przekształcenie, inwersja permutacji)."},
+    "kwaternion@sgjp-20260823": {"ocena": "tak", "powod": "Kwaternion to obiekt algebraiczny, uogólnienie liczb zespolonych."},
+    "lemniskata@sgjp-20260823": {"ocena": "tak", "powod": "Lemniskata to znana krzywa płaska w geometrii."},
+    "pryzma@sgjp-20260823": {"ocena": "nie", "powod": "Pryzma to zwykle kopiec ziemi lub stos materiału, nie pojęcie matematyczne."},
+    "reeksport@sgjp-20260823": {"ocena": "nie", "powod": "Reeksport to termin handlu zagranicznego, bez związku z matematyką."}
+  }
+}

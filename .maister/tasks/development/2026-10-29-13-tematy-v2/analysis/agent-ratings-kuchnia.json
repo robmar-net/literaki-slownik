@@ -1,0 +1,406 @@
+{
+  "reviewer": "agent (Claude)",
+  "reviewed_at": "2026-10-29T14:11:37Z",
+  "oceny": {
+    "agrest@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Owoc jadalny używany na przetwory i desery."
+    },
+    "antrykot@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kawałek wołowiny i danie z niego."
+    },
+    "armagnac@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Francuski alkohol, czyli napój."
+    },
+    "bananowiec:Sm1@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "To roślina; z kuchnią łączy się tylko przez owoc."
+    },
+    "beaujolais@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gatunek wina, czyli napój."
+    },
+    "benedyktyn:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "W tym znaczeniu to likier."
+    },
+    "brandy@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Mocny alkohol, napój."
+    },
+    "brzozówka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nalewka lub napój z brzozy."
+    },
+    "bób@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Popularne jadalne warzywo strączkowe."
+    },
+    "cabernet@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Szczep i gatunek wina."
+    },
+    "canelloni@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj makaronu i potrawy włoskiej."
+    },
+    "cheeseburger@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Znana potrawa typu fast food."
+    },
+    "chilli@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ostra przyprawa i papryczka."
+    },
+    "czapati@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Indyjski płaski chleb."
+    },
+    "czwórniak@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj miodu pitnego."
+    },
+    "cząber@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zioło używane jako przyprawa."
+    },
+    "drożdże@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Podstawowy produkt do pieczenia ciasta."
+    },
+    "dwuchwytnik@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Nazwa rzadka; związek z naczyniami kuchennymi niepewny."
+    },
+    "dymka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Młoda cebula używana w kuchni."
+    },
+    "dziad:Sm1~zie@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Kulinarne znaczenie tego słowa jest rzadkie i mało znane."
+    },
+    "esencja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Mocny napar herbaty to zwykłe znaczenie kuchenne."
+    },
+    "flaki@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tradycyjna polska zupa."
+    },
+    "gnocchi@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Włoskie kluski ziemniaczane."
+    },
+    "gorgonzola@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gatunek sera."
+    },
+    "gołka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Góralski ser wędzony."
+    },
+    "grenadyna@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Syrop do napojów i koktajli."
+    },
+    "grzybek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Grzyb jadalny, częsty w potrawach."
+    },
+    "guma@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Guma do żucia to produkt spożywczy."
+    },
+    "gyros@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Greckie danie mięsne."
+    },
+    "gzik:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Twarożek ze śmietaną, potrawa wielkopolska."
+    },
+    "herbatka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Napój, napar."
+    },
+    "herbatnik:Sm1@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj ciastka."
+    },
+    "hummus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pasta z ciecierzycy."
+    },
+    "humus:Sm2.m3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "W tym znaczeniu to pasta z ciecierzycy."
+    },
+    "imbir@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Popularna przyprawa."
+    },
+    "inka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kawa zbożowa, napój."
+    },
+    "jarzębinówka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nalewka z jarzębiny."
+    },
+    "kafetiera@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Naczynie do parzenia kawy."
+    },
+    "kapar:Sm2.m3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pąki kaparów to przyprawa i dodatek."
+    },
+    "kebab@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Popularne danie mięsne."
+    },
+    "kieliszek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Naczynie do picia alkoholu."
+    },
+    "kimchi@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Koreańska kiszona kapusta."
+    },
+    "kiper:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Degustator wina, zawód kulinarny."
+    },
+    "klin:Sm3@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Tylko potoczne znaczenie alkoholu na kaca."
+    },
+    "kok:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kok to kucharz na statku, czyli osoba przyrządzająca posiłki."
+    },
+    "krokiet@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Potrawa smażona w panierce."
+    },
+    "kruża@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dzban, naczynie na napoje."
+    },
+    "kuchnia:S@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Samo słowo tematu, sztuka gotowania."
+    },
+    "kukurydza@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Jadalne ziarno i warzywo."
+    },
+    "kumberland@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sos do mięs."
+    },
+    "listek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Listek laurowy to zwykła przyprawa."
+    },
+    "lubaszka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Odmiana śliwki, owoc jadalny."
+    },
+    "mamałyga@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Potrawa z mąki kukurydzianej."
+    },
+    "marcepan@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Słodycz z migdałów."
+    },
+    "martini@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wermut i koktajl."
+    },
+    "migdał@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Jadalny orzech, składnik ciast."
+    },
+    "mun@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Grzyb mun używany w kuchni azjatyckiej."
+    },
+    "nektarynka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nektarynka to popularny owoc jadalny."
+    },
+    "orzechowiec:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "W tym znaczeniu to ciasto orzechowe."
+    },
+    "paprykarz@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Potrawa, np. paprykarz szczeciński."
+    },
+    "papu@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dziecięce słowo na jedzenie."
+    },
+    "pascha@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wielkanocny deser z twarogu."
+    },
+    "peklówka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Mięso peklowane."
+    },
+    "pestkówka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nalewka na pestkach."
+    },
+    "pielmieni@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rosyjskie pierożki."
+    },
+    "pieróg@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Popularna potrawa z ciasta."
+    },
+    "pistacja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Jadalny orzech."
+    },
+    "por:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Por to zwykłe warzywo używane w kuchni."
+    },
+    "porto@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gatunek wina."
+    },
+    "prażonka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Potrawa z ziemniaków."
+    },
+    "pulpet@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Klopsik, potrawa mięsna."
+    },
+    "racja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Racja żywnościowa to porcja jedzenia."
+    },
+    "risotto@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Włoska potrawa z ryżu."
+    },
+    "roladka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Mała rolada, potrawa lub ciasto."
+    },
+    "romadur@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gatunek sera."
+    },
+    "rosół@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Klasyczna zupa."
+    },
+    "rukola@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sałata używana w kuchni."
+    },
+    "rzodkiewka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Jadalne warzywo."
+    },
+    "sandwicz:Sm2.m3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kanapka."
+    },
+    "sarnina@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Mięso z sarny."
+    },
+    "sałatka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Popularna potrawa."
+    },
+    "skrzydło@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Skrzydełko drobiowe jako mięso."
+    },
+    "soba@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Japoński makaron gryczany."
+    },
+    "sos@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dodatek do potraw."
+    },
+    "spirytus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Alkohol używany do napojów i nalewek."
+    },
+    "suflaki@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Greckie szaszłyki."
+    },
+    "suflet@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Spulchniona potrawa zapiekana."
+    },
+    "szabelkówka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa kulinarna, rodzaj nalewki."
+    },
+    "sznycel@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kotlet mięsny."
+    },
+    "szparag@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Jadalne warzywo."
+    },
+    "tahina@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pasta sezamowa."
+    },
+    "tapenada@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pasta z oliwek."
+    },
+    "tapenade@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pasta z oliwek."
+    },
+    "tofu@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Produkt z soi."
+    },
+    "tortownica@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Forma do pieczenia tortów."
+    },
+    "trójniak@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj miodu pitnego."
+    },
+    "udko@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Część kurczaka podawana jako mięso."
+    },
+    "wasabi@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ostra japońska przyprawa."
+    },
+    "wężymord@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Roślina; jej korzeń jako warzywo jest mało znany."
+    },
+    "ćwikła@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Buraczki z chrzanem."
+    }
+  }
+}

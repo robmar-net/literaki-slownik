@@ -1,0 +1,406 @@
+{
+  "reviewer": "agent (Claude)",
+  "reviewed_at": "2026-10-29T14:11:37Z",
+  "oceny": {
+    "agregat:Sm1@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Znaczenie matematyczne agregatu jest rzadkie, zwykle to maszyna lub zespół urządzeń."
+    },
+    "aksjomatyzacja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Oparcie teorii na aksjomatach to pojęcie matematyczne i logiczne."
+    },
+    "algorytm@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Algorytm to podstawowe pojęcie matematyki i informatyki."
+    },
+    "amplituda@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Amplituda funkcji trygonometrycznej to pojęcie matematyczne."
+    },
+    "azymut@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Azymut to kąt, ale kojarzy się głównie z nawigacją i geodezją."
+    },
+    "banieczka@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Związek z matematyką możliwy tylko w rzadkim, specjalistycznym znaczeniu."
+    },
+    "bąbelek@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Związek z matematyką możliwy tylko w rzadkim, specjalistycznym znaczeniu."
+    },
+    "całkowanie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Całkowanie to działanie analizy matematycznej."
+    },
+    "cosecans@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Cosecans to funkcja trygonometryczna."
+    },
+    "cosinusoida@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Cosinusoida to wykres funkcji cosinus."
+    },
+    "cotangens@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Cotangens to funkcja trygonometryczna."
+    },
+    "cotangensoida@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Cotangensoida to wykres funkcji cotangens."
+    },
+    "czworościan@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Czworościan to bryła geometryczna."
+    },
+    "dwumian@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dwumian to wyrażenie algebraiczne."
+    },
+    "dwuścian@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dwuścian to pojęcie geometrii przestrzennej."
+    },
+    "dystrybuanta@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dystrybuanta to pojęcie rachunku prawdopodobieństwa."
+    },
+    "dzielna@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dzielna to składnik działania dzielenia."
+    },
+    "dzielnik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dzielnik to liczba, przez którą się dzieli."
+    },
+    "ekliptyka@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Pojęcie astronomiczne, z matematyką łączy je tylko geometria sfery niebieskiej."
+    },
+    "eliminacja@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Eliminacja zmiennych to rzadsze znaczenie, zwykle słowo oznacza odpadnięcie z rywalizacji."
+    },
+    "elipsoida@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Elipsoida to bryła i powierzchnia geometryczna."
+    },
+    "epicykloida@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Epicykloida to krzywa geometryczna."
+    },
+    "funkcjonał@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Funkcjonał to pojęcie analizy funkcjonalnej."
+    },
+    "iloczyn@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Iloczyn to wynik mnożenia."
+    },
+    "iloraz@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Iloraz to wynik dzielenia."
+    },
+    "iniekcja@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Funkcja różnowartościowa to znaczenie specjalistyczne, zwykle iniekcja to zastrzyk."
+    },
+    "integrał@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Integrał to dawna nazwa całki."
+    },
+    "inwersja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Inwersja to zwykłe pojęcie geometrii i kombinatoryki (przekształcenie, inwersja permutacji)."
+    },
+    "jednomian@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Jednomian to wyrażenie algebraiczne."
+    },
+    "kaustyka@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Kaustyka to krzywa z pogranicza optyki i geometrii, rzadko znana."
+    },
+    "klasa@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Klasa w teorii mnogości to znaczenie specjalistyczne."
+    },
+    "klin:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Klin to bryła geometryczna."
+    },
+    "konchoida@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Konchoida to krzywa płaska."
+    },
+    "kosekans@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kosekans to funkcja trygonometryczna."
+    },
+    "kosinusoida@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kosinusoida to wykres funkcji cosinus."
+    },
+    "kotangens@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kotangens to funkcja trygonometryczna."
+    },
+    "kotangensoida@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kotangensoida to wykres funkcji kotangens."
+    },
+    "kwadratowy@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Funkcja i równanie kwadratowe to pojęcia matematyczne."
+    },
+    "kwadrylion:S@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kwadrylion to nazwa liczby."
+    },
+    "kwartyl@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kwartyl to miara statystyczna."
+    },
+    "kwaternion@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kwaternion to obiekt algebraiczny, uogólnienie liczb zespolonych."
+    },
+    "lemniskata@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Lemniskata to znana krzywa płaska w geometrii."
+    },
+    "licznik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Licznik ułamka to pojęcie matematyczne."
+    },
+    "logarytmicznie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Słowo opisuje zależność logarytmiczną."
+    },
+    "logarytmiczność@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Słowo odnosi się do logarytmu."
+    },
+    "logika@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Logika formalna należy do matematyki."
+    },
+    "loksodroma@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Loksodroma to krzywa znana głównie z nawigacji."
+    },
+    "minor:Sm3.n_ncol@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Minor macierzy to znaczenie specjalistyczne, słowo jest mało znane."
+    },
+    "minor:Sm3@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Minor macierzy to znaczenie specjalistyczne, słowo jest mało znane."
+    },
+    "mnogościowość@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Słowo odnosi się do teorii mnogości."
+    },
+    "mnogościowy@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Teoria mnogości to dział matematyki."
+    },
+    "mnożna@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Mnożna to składnik mnożenia."
+    },
+    "mnożnik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Mnożnik to składnik mnożenia."
+    },
+    "nabla@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nabla to operator różniczkowy."
+    },
+    "odbieg@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Związek z matematyką tylko w rzadkim, specjalistycznym znaczeniu."
+    },
+    "odjemna@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Odjemna to składnik odejmowania."
+    },
+    "odjemnik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Odjemnik to składnik odejmowania."
+    },
+    "odpowiedź@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Odpowiedź do zadania wiąże się z matematyką tylko luźno."
+    },
+    "operator:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Operator działania to pojęcie matematyczne."
+    },
+    "ostrosłup@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ostrosłup to bryła geometryczna."
+    },
+    "ośmiokąt@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ośmiokąt to figura geometryczna."
+    },
+    "ośmiościan@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ośmiościan to bryła geometryczna."
+    },
+    "percentyl@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Percentyl to miara statystyczna."
+    },
+    "pierwiastkować@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pierwiastkowanie to działanie matematyczne."
+    },
+    "pięciobok@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pięciobok to figura geometryczna."
+    },
+    "probabilistyka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Probabilistyka to rachunek prawdopodobieństwa."
+    },
+    "promień@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Promień okręgu to pojęcie geometryczne."
+    },
+    "prostokąt@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Prostokąt to figura geometryczna."
+    },
+    "prostopadła@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Prostopadła to prosta w geometrii."
+    },
+    "pryzma@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Pryzma to zwykle kopiec ziemi lub stos materiału, nie pojęcie matematyczne."
+    },
+    "przyprostokątna@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przyprostokątna to bok trójkąta prostokątnego."
+    },
+    "punkt@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Punkt to podstawowe pojęcie geometrii."
+    },
+    "półkula@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Półkula to bryła geometryczna."
+    },
+    "półokrąg@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Półokrąg to figura geometryczna."
+    },
+    "reeksport@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Reeksport to termin handlu zagranicznego, bez związku z matematyką."
+    },
+    "rzędna@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rzędna to współrzędna punktu."
+    },
+    "sekans@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sekans to funkcja trygonometryczna."
+    },
+    "sieczna@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sieczna to prosta przecinająca krzywą."
+    },
+    "silnia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Silnia to działanie matematyczne."
+    },
+    "sinusoida@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sinusoida to wykres funkcji sinus."
+    },
+    "skala@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Skala to stosunek podobieństwa liczony w matematyce."
+    },
+    "splot@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Splot funkcji to znaczenie specjalistyczne, zwykle to przeplecione włókna."
+    },
+    "stożek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Stożek to bryła geometryczna."
+    },
+    "sześcian@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sześcian to bryła i trzecia potęga liczby."
+    },
+    "tangens@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tangens to funkcja trygonometryczna."
+    },
+    "tangensoida@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tangensoida to wykres funkcji tangens."
+    },
+    "term@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Term to wyrażenie w logice formalnej."
+    },
+    "topologia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Topologia to dział matematyki."
+    },
+    "torsja@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Torsja krzywej to rzadkie, specjalistyczne znaczenie."
+    },
+    "tożsamość@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tożsamość to równość prawdziwa dla wszystkich wartości."
+    },
+    "traktrysa@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Traktrysa to krzywa płaska."
+    },
+    "trygonometria@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Trygonometria to dział matematyki."
+    },
+    "tworząca@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tworząca to odcinek tworzący bryłę obrotową."
+    },
+    "walec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Walec to bryła geometryczna."
+    },
+    "warstwa@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Warstwa w algebrze to znaczenie specjalistyczne."
+    },
+    "wektor@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wektor to pojęcie matematyczne."
+    },
+    "wielokrotna@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wielokrotność liczby to pojęcie matematyczne."
+    },
+    "wielomian@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wielomian to wyrażenie algebraiczne."
+    },
+    "wielościan@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wielościan to bryła geometryczna."
+    },
+    "współrzędna@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Współrzędna to liczba określająca położenie punktu."
+    }
+  }
+}

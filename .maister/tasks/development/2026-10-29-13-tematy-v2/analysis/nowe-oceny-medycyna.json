@@ -1,0 +1,70 @@
+{
+  "reviewer": "agent (Claude)",
+  "reviewed_at": "2026-10-29T14:11:21Z",
+  "oceny": {
+    "alergia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Powszechna choroba."
+    },
+    "arytmia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zaburzenie rytmu serca."
+    },
+    "czerniak@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nowotwór skóry."
+    },
+    "epilepsja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Choroba neurologiczna."
+    },
+    "inwalidztwo@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Trwała niesprawność orzekana przez lekarzy."
+    },
+    "izogameta@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Termin biologii rozmnażania, nie medycyny."
+    },
+    "mikoza@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Grzybica, choroba."
+    },
+    "nadciśnienie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Powszechna choroba."
+    },
+    "niedokrwistość@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Anemia, choroba krwi."
+    },
+    "oczodół@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Część czaszki człowieka."
+    },
+    "perystaltyka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ruchy jelit, fizjologia."
+    },
+    "przodomózgowie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Część mózgu, anatomia."
+    },
+    "szczękonóżka@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Odnóże skorupiaków, nie człowieka."
+    },
+    "trzewioczaszka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Część czaszki, anatomia człowieka."
+    },
+    "upośledzenie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zaburzenie funkcji organizmu."
+    },
+    "żołądź:Sf@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Anatomiczne znaczenie rzadsze niż owoc dębu."
+    }
+  }
+}
