@@ -31,3 +31,8 @@
 **Zmiany**: IATE tylko przy t3 (rejestr, manifest), _no_t3, _exclude (kod 4 bez trafienia), osiągalność wykluczeń poddrzew, summary.wykluczenia, sekcja raportu „Wykluczenia”. Fikstura second_topic (zwierzeta bez t3).
 **Morze na fiksturze**: TXT, TSV, raport, LIMITATIONS bajtowo bez zmian; summary +"wykluczenia": [].
 **Dla grupy 5**: LIMITATIONS bez T3 ma jeszcze @@SRODLADOWE@@; „MORZE” w TL;DR raportu; linie T3 w „Źródła”. Grupa 6: srodladowe może być None.
+
+## 2026-10-29T02:13:48Z - Group 2 w toku (2.1–2.3)
+**Commit**: 78abb49 (strona i generator T/analysis/strona_slowa.py). Kontrola WebKit/Chromium 390 px, jasny/ciemny: PASS.
+**Artefakt**: https://claude.ai/artifact/4XiPDXkEs7dxRE78ohghJ9 (prywatny). szkic_sha256 22014ec4…8f5b (kanoniczny JSON pola szkic).
+**Czeka**: 2.4 operator (rano).
