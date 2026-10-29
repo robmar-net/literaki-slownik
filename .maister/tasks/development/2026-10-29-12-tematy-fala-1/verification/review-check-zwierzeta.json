@@ -1,0 +1,113 @@
+{
+  "formy": 23880,
+  "przeglad": {
+    "agent": {
+      "T1": {
+        "N": 50,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 0,
+        "tak": 50,
+        "tak_udzial": "1"
+      },
+      "T2": {
+        "N": 50,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 7,
+        "tak": 43,
+        "tak_udzial": "43/50"
+      },
+      "T3": {
+        "N": 0,
+        "nie": 0,
+        "nie_udzial": null,
+        "niepewne": 0,
+        "tak": 0,
+        "tak_udzial": null
+      }
+    },
+    "agent_sha256": "68d63e474f4193eb6331f1bd30f02831e47676f6d7b1b1cc8d372816e7bf969e",
+    "operator": null,
+    "slowa_oczywiste": {
+      "brakujace": [],
+      "lista": 37,
+      "pokryte": 37,
+      "udzial": "1"
+    },
+    "werdykt": {
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [],
+      "progi": [
+        {
+          "granica": "0.70",
+          "kierunek": ">=",
+          "prog": "slowa_oczywiste",
+          "status": "spelniony",
+          "wartosc": "1"
+        },
+        {
+          "granica": "0.90",
+          "kierunek": ">=",
+          "prog": "t1_tak",
+          "status": "spelniony",
+          "wartosc": "1"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t2_tak",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "0.10",
+          "kierunek": "<=",
+          "prog": "t2_nie",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t3_tak",
+          "status": "nie_dotyczy",
+          "wartosc": "nie_dotyczy"
+        },
+        {
+          "granica": "0.80",
+          "kierunek": ">=",
+          "prog": "zgodnosc",
+          "status": "czeka",
+          "wartosc": "czeka"
+        }
+      ],
+      "uwaga": "„stop” wybiera tylko operator na bramce",
+      "wynik": null
+    },
+    "zgodnosc": null
+  },
+  "review_checked": true,
+  "sha256sums_sha256": "1ee1e1f713d20e07a956153b208583960ef241f8a2f8bd2f75b46d62f3e70d9f",
+  "slowa_oczywiste": {
+    "brakujace": [],
+    "lista": 37,
+    "pokryte": 37
+  },
+  "status": "pass",
+  "temat": "zwierzeta",
+  "warstwy": {
+    "D": 0,
+    "T1": 696,
+    "T2": 2069,
+    "T3": 0
+  },
+  "wpisy": 2765
+}

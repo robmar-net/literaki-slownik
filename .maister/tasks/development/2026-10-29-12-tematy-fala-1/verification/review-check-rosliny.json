@@ -1,0 +1,113 @@
+{
+  "formy": 22244,
+  "przeglad": {
+    "agent": {
+      "T1": {
+        "N": 50,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 3,
+        "tak": 47,
+        "tak_udzial": "47/50"
+      },
+      "T2": {
+        "N": 50,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 12,
+        "tak": 38,
+        "tak_udzial": "19/25"
+      },
+      "T3": {
+        "N": 0,
+        "nie": 0,
+        "nie_udzial": null,
+        "niepewne": 0,
+        "tak": 0,
+        "tak_udzial": null
+      }
+    },
+    "agent_sha256": "27621e942f6e5d4605710dae631cb9e7c9e40b5b93996b9c4e4bfd95de2d178d",
+    "operator": null,
+    "slowa_oczywiste": {
+      "brakujace": [],
+      "lista": 38,
+      "pokryte": 38,
+      "udzial": "1"
+    },
+    "werdykt": {
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [],
+      "progi": [
+        {
+          "granica": "0.70",
+          "kierunek": ">=",
+          "prog": "slowa_oczywiste",
+          "status": "spelniony",
+          "wartosc": "1"
+        },
+        {
+          "granica": "0.90",
+          "kierunek": ">=",
+          "prog": "t1_tak",
+          "status": "spelniony",
+          "wartosc": "47/50"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t2_tak",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "0.10",
+          "kierunek": "<=",
+          "prog": "t2_nie",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t3_tak",
+          "status": "nie_dotyczy",
+          "wartosc": "nie_dotyczy"
+        },
+        {
+          "granica": "0.80",
+          "kierunek": ">=",
+          "prog": "zgodnosc",
+          "status": "czeka",
+          "wartosc": "czeka"
+        }
+      ],
+      "uwaga": "„stop” wybiera tylko operator na bramce",
+      "wynik": null
+    },
+    "zgodnosc": null
+  },
+  "review_checked": true,
+  "sha256sums_sha256": "eb977073bd23f9067a9232d02994f1787fbf745faa8849973ea8394972aec5bd",
+  "slowa_oczywiste": {
+    "brakujace": [],
+    "lista": 38,
+    "pokryte": 38
+  },
+  "status": "pass",
+  "temat": "rosliny",
+  "warstwy": {
+    "D": 0,
+    "T1": 422,
+    "T2": 1949,
+    "T3": 0
+  },
+  "wpisy": 2371
+}

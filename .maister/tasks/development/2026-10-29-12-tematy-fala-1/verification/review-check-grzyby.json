@@ -1,0 +1,143 @@
+{
+  "formy": 1812,
+  "przeglad": {
+    "agent": {
+      "T1": {
+        "N": 50,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 0,
+        "tak": 50,
+        "tak_udzial": "1"
+      },
+      "T2": {
+        "N": 50,
+        "nie": 5,
+        "nie_udzial": "1/10",
+        "niepewne": 22,
+        "tak": 23,
+        "tak_udzial": "23/50"
+      },
+      "T3": {
+        "N": 0,
+        "nie": 0,
+        "nie_udzial": null,
+        "niepewne": 0,
+        "tak": 0,
+        "tak_udzial": null
+      }
+    },
+    "agent_sha256": "2bd41f5bb332fa4fd2af48d05afbd636372c90ad167b48db89e79cf765d3ec2e",
+    "operator": null,
+    "slowa_oczywiste": {
+      "brakujace": [
+        "blaszka",
+        "drożdże",
+        "grzybiarz",
+        "grzybobranie",
+        "jadalny",
+        "koszyk",
+        "las",
+        "mech",
+        "nóżka",
+        "trujący",
+        "trzon",
+        "zbierać",
+        "zielonka"
+      ],
+      "lista": 34,
+      "pokryte": 21,
+      "udzial": "21/34"
+    },
+    "werdykt": {
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [
+        "slowa_oczywiste"
+      ],
+      "progi": [
+        {
+          "granica": "0.70",
+          "kierunek": ">=",
+          "prog": "slowa_oczywiste",
+          "status": "niespelniony",
+          "wartosc": "21/34"
+        },
+        {
+          "granica": "0.90",
+          "kierunek": ">=",
+          "prog": "t1_tak",
+          "status": "spelniony",
+          "wartosc": "1"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t2_tak",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "0.10",
+          "kierunek": "<=",
+          "prog": "t2_nie",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t3_tak",
+          "status": "nie_dotyczy",
+          "wartosc": "nie_dotyczy"
+        },
+        {
+          "granica": "0.80",
+          "kierunek": ">=",
+          "prog": "zgodnosc",
+          "status": "czeka",
+          "wartosc": "czeka"
+        }
+      ],
+      "uwaga": "„stop” wybiera tylko operator na bramce",
+      "wynik": "popraw"
+    },
+    "zgodnosc": null
+  },
+  "review_checked": true,
+  "sha256sums_sha256": "9e922c55a73012c247ece70fee5c99edce84fea423176be9db941c573c7d04c9",
+  "slowa_oczywiste": {
+    "brakujace": [
+      "blaszka",
+      "drożdże",
+      "grzybiarz",
+      "grzybobranie",
+      "jadalny",
+      "koszyk",
+      "las",
+      "mech",
+      "nóżka",
+      "trujący",
+      "trzon",
+      "zbierać",
+      "zielonka"
+    ],
+    "lista": 34,
+    "pokryte": 21
+  },
+  "status": "pass",
+  "temat": "grzyby",
+  "warstwy": {
+    "D": 0,
+    "T1": 54,
+    "T2": 153,
+    "T3": 0
+  },
+  "wpisy": 207
+}

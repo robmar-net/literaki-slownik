@@ -1,0 +1,149 @@
+{
+  "formy": 7811,
+  "przeglad": {
+    "agent": {
+      "T1": {
+        "N": 50,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 2,
+        "tak": 48,
+        "tak_udzial": "24/25"
+      },
+      "T2": {
+        "N": 50,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 6,
+        "tak": 44,
+        "tak_udzial": "22/25"
+      },
+      "T3": {
+        "N": 0,
+        "nie": 0,
+        "nie_udzial": null,
+        "niepewne": 0,
+        "tak": 0,
+        "tak_udzial": null
+      }
+    },
+    "agent_sha256": "396ce466a8bd8be43f15ea41aeb53a9dbc8fadb3d8d228ab90b7a9a647dab9ac",
+    "operator": null,
+    "slowa_oczywiste": {
+      "brakujace": [
+        "biegać",
+        "boisko",
+        "bramka",
+        "drużyna",
+        "gol",
+        "karta",
+        "kibic",
+        "medal",
+        "mistrz",
+        "narta",
+        "rakieta",
+        "rower",
+        "stadion",
+        "sędzia",
+        "trener",
+        "zwycięstwo"
+      ],
+      "lista": 36,
+      "pokryte": 20,
+      "udzial": "5/9"
+    },
+    "werdykt": {
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [
+        "slowa_oczywiste"
+      ],
+      "progi": [
+        {
+          "granica": "0.70",
+          "kierunek": ">=",
+          "prog": "slowa_oczywiste",
+          "status": "niespelniony",
+          "wartosc": "5/9"
+        },
+        {
+          "granica": "0.90",
+          "kierunek": ">=",
+          "prog": "t1_tak",
+          "status": "spelniony",
+          "wartosc": "24/25"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t2_tak",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "0.10",
+          "kierunek": "<=",
+          "prog": "t2_nie",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t3_tak",
+          "status": "nie_dotyczy",
+          "wartosc": "nie_dotyczy"
+        },
+        {
+          "granica": "0.80",
+          "kierunek": ">=",
+          "prog": "zgodnosc",
+          "status": "czeka",
+          "wartosc": "czeka"
+        }
+      ],
+      "uwaga": "„stop” wybiera tylko operator na bramce",
+      "wynik": "popraw"
+    },
+    "zgodnosc": null
+  },
+  "review_checked": true,
+  "sha256sums_sha256": "d54a74f4b4dfffa618cfa5c6745011f15ed242b0e1bb0b2e071459d75fb8172f",
+  "slowa_oczywiste": {
+    "brakujace": [
+      "biegać",
+      "boisko",
+      "bramka",
+      "drużyna",
+      "gol",
+      "karta",
+      "kibic",
+      "medal",
+      "mistrz",
+      "narta",
+      "rakieta",
+      "rower",
+      "stadion",
+      "sędzia",
+      "trener",
+      "zwycięstwo"
+    ],
+    "lista": 36,
+    "pokryte": 20
+  },
+  "status": "pass",
+  "temat": "sport",
+  "warstwy": {
+    "D": 0,
+    "T1": 172,
+    "T2": 622,
+    "T3": 0
+  },
+  "wpisy": 794
+}

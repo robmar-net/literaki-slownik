@@ -1,0 +1,2257 @@
+{
+  "kolejnosc": [
+    "grzyby",
+    "pogoda",
+    "matematyka",
+    "muzyka",
+    "sport",
+    "kuchnia",
+    "rosliny",
+    "zwierzeta",
+    "medycyna",
+    "morze"
+  ],
+  "medycyna_t3": 342,
+  "metoda_r2": "Trafność T2 i T3 z ocen agenta (decyzja operatora 2026-10-29, scope-clarifications.md, „Zmiana metody R2”); progi z config/generator/tematy.json; zgodność i kappa: nie dotyczy. Werdykt checkera podany bez zmian obok.",
+  "nakladanie": [
+    {
+      "a": "grzyby",
+      "b": "pogoda",
+      "przyklady": [],
+      "wspolne": 0
+    },
+    {
+      "a": "grzyby",
+      "b": "matematyka",
+      "przyklady": [],
+      "wspolne": 0
+    },
+    {
+      "a": "grzyby",
+      "b": "muzyka",
+      "przyklady": [
+        "koźlarz",
+        "trąbka",
+        "ślimak"
+      ],
+      "wspolne": 3
+    },
+    {
+      "a": "grzyby",
+      "b": "sport",
+      "przyklady": [
+        "wodniak"
+      ],
+      "wspolne": 1
+    },
+    {
+      "a": "grzyby",
+      "b": "kuchnia",
+      "przyklady": [
+        "gołąbek",
+        "korzeniówka",
+        "koźlak",
+        "lejek",
+        "maślanka",
+        "mun",
+        "pleśniak",
+        "trufla"
+      ],
+      "wspolne": 8
+    },
+    {
+      "a": "grzyby",
+      "b": "rosliny",
+      "przyklady": [
+        "antypody",
+        "buławnik",
+        "cysta",
+        "egzyna",
+        "endospora",
+        "galaretnica",
+        "galaretówka",
+        "gametangium",
+        "gałęziak",
+        "gemula"
+      ],
+      "wspolne": 42
+    },
+    {
+      "a": "grzyby",
+      "b": "zwierzeta",
+      "przyklady": [
+        "bielaczek",
+        "flagowiec",
+        "kania",
+        "kolczak",
+        "koźlak",
+        "monetka",
+        "owocnik",
+        "piaskowiec",
+        "rozetka",
+        "sarniak"
+      ],
+      "wspolne": 19
+    },
+    {
+      "a": "grzyby",
+      "b": "medycyna",
+      "przyklady": [
+        "antypody",
+        "cysta",
+        "cystyda",
+        "egzyna",
+        "endospora",
+        "galaretnica",
+        "gametangium",
+        "gemula",
+        "grzyb",
+        "konidium"
+      ],
+      "wspolne": 42
+    },
+    {
+      "a": "grzyby",
+      "b": "morze",
+      "przyklady": [
+        "flagowiec"
+      ],
+      "wspolne": 1
+    },
+    {
+      "a": "pogoda",
+      "b": "matematyka",
+      "przyklady": [
+        "inwersja"
+      ],
+      "wspolne": 1
+    },
+    {
+      "a": "pogoda",
+      "b": "muzyka",
+      "przyklady": [
+        "gloria"
+      ],
+      "wspolne": 1
+    },
+    {
+      "a": "pogoda",
+      "b": "sport",
+      "przyklady": [
+        "tęcza"
+      ],
+      "wspolne": 1
+    },
+    {
+      "a": "pogoda",
+      "b": "kuchnia",
+      "przyklady": [
+        "firn",
+        "kapuśniaczek",
+        "mleko",
+        "parówka"
+      ],
+      "wspolne": 4
+    },
+    {
+      "a": "pogoda",
+      "b": "rosliny",
+      "przyklady": [
+        "komórka",
+        "kłąb",
+        "śnieżyca",
+        "śnieżyczka"
+      ],
+      "wspolne": 4
+    },
+    {
+      "a": "pogoda",
+      "b": "zwierzeta",
+      "przyklady": [
+        "baranek"
+      ],
+      "wspolne": 1
+    },
+    {
+      "a": "pogoda",
+      "b": "medycyna",
+      "przyklady": [
+        "aura",
+        "depresja",
+        "duszność",
+        "komórka",
+        "kłąb",
+        "ogień",
+        "parówa",
+        "parówka"
+      ],
+      "wspolne": 8
+    },
+    {
+      "a": "pogoda",
+      "b": "morze",
+      "przyklady": [
+        "bajdewind",
+        "baksztag",
+        "flauta",
+        "fordewind",
+        "sztorm"
+      ],
+      "wspolne": 5
+    },
+    {
+      "a": "matematyka",
+      "b": "muzyka",
+      "przyklady": [
+        "ascendent",
+        "harmonika",
+        "minor",
+        "nabla",
+        "odpowiedź",
+        "piramida",
+        "trójkąt",
+        "wariacja",
+        "wałek"
+      ],
+      "wspolne": 9
+    },
+    {
+      "a": "matematyka",
+      "b": "sport",
+      "przyklady": [
+        "dziesiątka",
+        "jedenastka",
+        "kwadrant",
+        "piętnastka",
+        "setka",
+        "tysiąc"
+      ],
+      "wspolne": 6
+    },
+    {
+      "a": "matematyka",
+      "b": "kuchnia",
+      "przyklady": [
+        "dwunastka",
+        "klin",
+        "kulka",
+        "makaron",
+        "obwarzanek",
+        "oczko",
+        "osiemnastka",
+        "setka",
+        "ćwiartka"
+      ],
+      "wspolne": 9
+    },
+    {
+      "a": "matematyka",
+      "b": "rosliny",
+      "przyklady": [
+        "podziałka",
+        "pryzma",
+        "skala",
+        "strzałka",
+        "włókno",
+        "zero"
+      ],
+      "wspolne": 6
+    },
+    {
+      "a": "matematyka",
+      "b": "zwierzeta",
+      "przyklady": [
+        "bąk",
+        "kappa",
+        "strzałka"
+      ],
+      "wspolne": 3
+    },
+    {
+      "a": "matematyka",
+      "b": "medycyna",
+      "przyklady": [
+        "bok",
+        "czerep",
+        "dominanta",
+        "działanie",
+        "elongacja",
+        "gradient",
+        "homologia",
+        "konwersja",
+        "kostka",
+        "labirynt"
+      ],
+      "wspolne": 25
+    },
+    {
+      "a": "matematyka",
+      "b": "morze",
+      "przyklady": [
+        "bąk",
+        "cięciwa",
+        "dziesiątka",
+        "ligatura",
+        "loksodroma",
+        "oczko",
+        "owręż",
+        "pętla"
+      ],
+      "wspolne": 8
+    },
+    {
+      "a": "muzyka",
+      "b": "sport",
+      "przyklady": [
+        "bagatela",
+        "bek",
+        "freestyle",
+        "leader",
+        "lider",
+        "oldboj",
+        "oldboy",
+        "pas",
+        "róg",
+        "singel"
+      ],
+      "wspolne": 23
+    },
+    {
+      "a": "muzyka",
+      "b": "kuchnia",
+      "przyklady": [
+        "chmurka",
+        "kadryl",
+        "kocioł",
+        "kora",
+        "legawka",
+        "mazurek",
+        "palcówka",
+        "rąbanka",
+        "salsa",
+        "sieczka"
+      ],
+      "wspolne": 13
+    },
+    {
+      "a": "muzyka",
+      "b": "rosliny",
+      "przyklady": [
+        "chmiel",
+        "cis",
+        "dusza",
+        "dzwon",
+        "gryf",
+        "kora",
+        "podkład",
+        "podstrunnica",
+        "podstrunnik",
+        "szanta"
+      ],
+      "wspolne": 10
+    },
+    {
+      "a": "muzyka",
+      "b": "zwierzeta",
+      "przyklady": [
+        "basista",
+        "kastrat",
+        "koza",
+        "kozioł",
+        "lira",
+        "mazurek",
+        "organista",
+        "piła",
+        "rap",
+        "skoczek"
+      ],
+      "wspolne": 13
+    },
+    {
+      "a": "muzyka",
+      "b": "medycyna",
+      "przyklady": [
+        "bat",
+        "bębenek",
+        "dekiel",
+        "dudka",
+        "duma",
+        "dur",
+        "dusza",
+        "dziób",
+        "fistuła",
+        "fuga"
+      ],
+      "wspolne": 33
+    },
+    {
+      "a": "muzyka",
+      "b": "morze",
+      "przyklady": [
+        "bat",
+        "dynamik",
+        "dziób",
+        "folga",
+        "klapa",
+        "koza",
+        "lider",
+        "matelot",
+        "mostek",
+        "tambor"
+      ],
+      "wspolne": 12
+    },
+    {
+      "a": "sport",
+      "b": "kuchnia",
+      "przyklady": [
+        "brazyliana",
+        "czempion",
+        "główka",
+        "karniak",
+        "krokiet",
+        "mors",
+        "raki",
+        "setka",
+        "starter",
+        "sztos"
+      ],
+      "wspolne": 11
+    },
+    {
+      "a": "sport",
+      "b": "rosliny",
+      "przyklady": [
+        "czempion",
+        "główka",
+        "matka",
+        "motylek",
+        "orlik",
+        "pomocnik",
+        "słupek",
+        "tyczka"
+      ],
+      "wspolne": 8
+    },
+    {
+      "a": "sport",
+      "b": "zwierzeta",
+      "przyklady": [
+        "biegacz",
+        "bokser",
+        "bombardier",
+        "champion",
+        "czempion",
+        "delfin",
+        "gigant",
+        "matka",
+        "mors",
+        "mruczek"
+      ],
+      "wspolne": 20
+    },
+    {
+      "a": "sport",
+      "b": "medycyna",
+      "przyklady": [
+        "atak",
+        "blokada",
+        "brazyliana",
+        "chód",
+        "dyscyplina",
+        "gała",
+        "kontuzja",
+        "noga",
+        "ostroga",
+        "podanie"
+      ],
+      "wspolne": 22
+    },
+    {
+      "a": "sport",
+      "b": "morze",
+      "przyklady": [
+        "balon",
+        "bokser",
+        "bom",
+        "ciężarek",
+        "debel",
+        "drifter",
+        "dziesiątka",
+        "garda",
+        "jumper",
+        "kapitan"
+      ],
+      "wspolne": 21
+    },
+    {
+      "a": "kuchnia",
+      "b": "rosliny",
+      "przyklady": [
+        "acerola",
+        "agar",
+        "agrest",
+        "allil",
+        "ambrozja",
+        "ananas",
+        "antonówka",
+        "anyż",
+        "anyżek",
+        "arabika"
+      ],
+      "wspolne": 359
+    },
+    {
+      "a": "kuchnia",
+      "b": "zwierzeta",
+      "przyklady": [
+        "babka",
+        "bażant",
+        "bekon",
+        "burek",
+        "całusek",
+        "cieciorka",
+        "cukrówka",
+        "czempion",
+        "gorbusza",
+        "gzik"
+      ],
+      "wspolne": 75
+    },
+    {
+      "a": "kuchnia",
+      "b": "medycyna",
+      "przyklady": [
+        "Ala",
+        "adenina",
+        "adenozyna",
+        "agar",
+        "aglutynina",
+        "agranulocyt",
+        "aktyna",
+        "alanina",
+        "albumina",
+        "allil"
+      ],
+      "wspolne": 170
+    },
+    {
+      "a": "kuchnia",
+      "b": "morze",
+      "przyklady": [
+        "bananowiec",
+        "kok",
+        "kuk",
+        "mars",
+        "moździerz",
+        "nitka",
+        "oczko",
+        "pęto",
+        "rozgrzewacz",
+        "skrzydełko"
+      ],
+      "wspolne": 13
+    },
+    {
+      "a": "rosliny",
+      "b": "zwierzeta",
+      "przyklady": [
+        "babka",
+        "bernardyn",
+        "brzanka",
+        "cap",
+        "chochoł",
+        "chrobotek",
+        "cieciorka",
+        "cierniówka",
+        "cukrówka",
+        "czempion"
+      ],
+      "wspolne": 98
+    },
+    {
+      "a": "rosliny",
+      "b": "medycyna",
+      "przyklady": [
+        "absolut",
+        "agar",
+        "allil",
+        "antypody",
+        "arbuz",
+        "badyl",
+        "bania",
+        "benzopirol",
+        "betulina",
+        "blaszka"
+      ],
+      "wspolne": 181
+    },
+    {
+      "a": "rosliny",
+      "b": "morze",
+      "przyklady": [
+        "balsa",
+        "bananowiec",
+        "cap",
+        "drapacz",
+        "drapak",
+        "drzewce",
+        "grajcar",
+        "grzęda",
+        "gur",
+        "hacel"
+      ],
+      "wspolne": 29
+    },
+    {
+      "a": "zwierzeta",
+      "b": "medycyna",
+      "przyklady": [
+        "ameba",
+        "bielik",
+        "borsuk",
+        "bąblowiec",
+        "chimera",
+        "chirurg",
+        "chrobotek",
+        "czop",
+        "czułek",
+        "dójka"
+      ],
+      "wspolne": 66
+    },
+    {
+      "a": "zwierzeta",
+      "b": "morze",
+      "przyklady": [
+        "admirał",
+        "angora",
+        "argonauta",
+        "białoryb",
+        "bokser",
+        "bączek",
+        "bąk",
+        "błotniarka",
+        "cap",
+        "czajka"
+      ],
+      "wspolne": 32
+    },
+    {
+      "a": "medycyna",
+      "b": "morze",
+      "przyklady": [
+        "bark",
+        "bat",
+        "czwórka",
+        "dziób",
+        "gardziel",
+        "hak",
+        "kadłub",
+        "katgut",
+        "ketgut",
+        "knaga"
+      ],
+      "wspolne": 31
+    }
+  ],
+  "progi": {
+    "slowa_oczywiste": "0.70",
+    "t1_tak": "0.90",
+    "t2_nie": "0.10",
+    "t2_tak": "2/3",
+    "t3_tak": "2/3",
+    "zgodnosc": "0.80"
+  },
+  "tematy": [
+    {
+      "agent": {
+        "T1": {
+          "N": 50,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 0,
+          "tak": 50,
+          "tak_udzial": "1"
+        },
+        "T2": {
+          "N": 50,
+          "nie": 5,
+          "nie_udzial": "1/10",
+          "niepewne": 22,
+          "tak": 23,
+          "tak_udzial": "23/50"
+        },
+        "T3": "nie dotyczy"
+      },
+      "agent_nie": [
+        "flagowiec",
+        "megaspora",
+        "monada",
+        "promiennik",
+        "zrywka"
+      ],
+      "bramka": {
+        "czeka_na_ocene": [],
+        "metoda": "R2 z ocen agenta (operator 2026-10-29); zgodność operator–agent nie dotyczy",
+        "nie_dotyczy": [
+          "t3_tak",
+          "zgodnosc"
+        ],
+        "niespelnione": [
+          "slowa_oczywiste",
+          "t2_tak"
+        ],
+        "progi": [
+          {
+            "granica": "0.70",
+            "kierunek": ">=",
+            "prog": "slowa_oczywiste",
+            "status": "niespelniony",
+            "wartosc": "21/34"
+          },
+          {
+            "granica": "0.90",
+            "kierunek": ">=",
+            "prog": "t1_tak",
+            "status": "spelniony",
+            "wartosc": "1"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t2_tak",
+            "status": "niespelniony",
+            "wartosc": "23/50"
+          },
+          {
+            "granica": "0.10",
+            "kierunek": "<=",
+            "prog": "t2_nie",
+            "status": "spelniony",
+            "wartosc": "1/10"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t3_tak",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          },
+          {
+            "granica": "0.80",
+            "kierunek": ">=",
+            "prog": "zgodnosc",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          }
+        ],
+        "wynik": "popraw"
+      },
+      "decyzja_operatora": null,
+      "diagnostyka": {
+        "formy": {
+          "broad": 1896,
+          "kandydaci": 1906,
+          "standard": 1812
+        },
+        "leksemy": {
+          "broad": 215,
+          "kandydaci": 216,
+          "standard": 207
+        }
+      },
+      "formy": 1812,
+      "operator": {
+        "T2": "brak ocen",
+        "T3": "nie dotyczy"
+      },
+      "pakiet": "tematy-grzyby-v1-20261029-a",
+      "przeciecia": {
+        "formy": {
+          "pop": 709,
+          "pop00": 101,
+          "pop00_procent": "5.6",
+          "pop_procent": "39.1"
+        },
+        "leksemy": {
+          "pop": 83,
+          "pop00": 11,
+          "pop00_procent": "5.3",
+          "pop_procent": "40.1"
+        }
+      },
+      "slowa_oczywiste": {
+        "brakujace": [
+          "blaszka",
+          "drożdże",
+          "grzybiarz",
+          "grzybobranie",
+          "jadalny",
+          "koszyk",
+          "las",
+          "mech",
+          "nóżka",
+          "trujący",
+          "trzon",
+          "zbierać",
+          "zielonka"
+        ],
+        "lista": 34,
+        "pokryte": 21,
+        "procent": "61.8"
+      },
+      "t3": false,
+      "temat": "grzyby",
+      "warstwy": {
+        "D": 0,
+        "T1": 54,
+        "T2": 153,
+        "T3": "nie dotyczy"
+      },
+      "werdykt_checkera": {
+        "czeka_na_ocene": [
+          "t2_tak",
+          "t2_nie",
+          "zgodnosc"
+        ],
+        "nie_dotyczy": [
+          "t3_tak"
+        ],
+        "niespelnione": [
+          "slowa_oczywiste"
+        ],
+        "wynik": "popraw"
+      },
+      "wersja_tematu": "grzyby-v1",
+      "wpisy": 207,
+      "zgodnosc": "nie dotyczy"
+    },
+    {
+      "agent": {
+        "T1": {
+          "N": 50,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 2,
+          "tak": 48,
+          "tak_udzial": "24/25"
+        },
+        "T2": {
+          "N": 50,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 9,
+          "tak": 41,
+          "tak_udzial": "41/50"
+        },
+        "T3": "nie dotyczy"
+      },
+      "agent_nie": [],
+      "bramka": {
+        "czeka_na_ocene": [],
+        "metoda": "R2 z ocen agenta (operator 2026-10-29); zgodność operator–agent nie dotyczy",
+        "nie_dotyczy": [
+          "t3_tak",
+          "zgodnosc"
+        ],
+        "niespelnione": [
+          "slowa_oczywiste"
+        ],
+        "progi": [
+          {
+            "granica": "0.70",
+            "kierunek": ">=",
+            "prog": "slowa_oczywiste",
+            "status": "niespelniony",
+            "wartosc": "23/36"
+          },
+          {
+            "granica": "0.90",
+            "kierunek": ">=",
+            "prog": "t1_tak",
+            "status": "spelniony",
+            "wartosc": "24/25"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t2_tak",
+            "status": "spelniony",
+            "wartosc": "41/50"
+          },
+          {
+            "granica": "0.10",
+            "kierunek": "<=",
+            "prog": "t2_nie",
+            "status": "spelniony",
+            "wartosc": "0"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t3_tak",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          },
+          {
+            "granica": "0.80",
+            "kierunek": ">=",
+            "prog": "zgodnosc",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          }
+        ],
+        "wynik": "popraw"
+      },
+      "decyzja_operatora": null,
+      "diagnostyka": {
+        "formy": {
+          "broad": 2163,
+          "kandydaci": 2185,
+          "standard": 2105
+        },
+        "leksemy": {
+          "broad": 236,
+          "kandydaci": 237,
+          "standard": 232
+        }
+      },
+      "formy": 2105,
+      "operator": {
+        "T2": "brak ocen",
+        "T3": "nie dotyczy"
+      },
+      "pakiet": "tematy-pogoda-v1-20261029-a",
+      "przeciecia": {
+        "formy": {
+          "pop": 1254,
+          "pop00": 459,
+          "pop00_procent": "21.8",
+          "pop_procent": "59.6"
+        },
+        "leksemy": {
+          "pop": 138,
+          "pop00": 46,
+          "pop00_procent": "19.8",
+          "pop_procent": "59.5"
+        }
+      },
+      "slowa_oczywiste": {
+        "brakujace": [
+          "chłód",
+          "deszczowy",
+          "jesień",
+          "lato",
+          "lód",
+          "niebo",
+          "pochmurny",
+          "susza",
+          "słoneczny",
+          "temperatura",
+          "wilgoć",
+          "wiosna",
+          "zima"
+        ],
+        "lista": 36,
+        "pokryte": 23,
+        "procent": "63.9"
+      },
+      "t3": false,
+      "temat": "pogoda",
+      "warstwy": {
+        "D": 0,
+        "T1": 54,
+        "T2": 178,
+        "T3": "nie dotyczy"
+      },
+      "werdykt_checkera": {
+        "czeka_na_ocene": [
+          "t2_tak",
+          "t2_nie",
+          "zgodnosc"
+        ],
+        "nie_dotyczy": [
+          "t3_tak"
+        ],
+        "niespelnione": [
+          "slowa_oczywiste"
+        ],
+        "wynik": "popraw"
+      },
+      "wersja_tematu": "pogoda-v1",
+      "wpisy": 232,
+      "zgodnosc": "nie dotyczy"
+    },
+    {
+      "agent": {
+        "T1": {
+          "N": 50,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 1,
+          "tak": 49,
+          "tak_udzial": "49/50"
+        },
+        "T2": {
+          "N": 50,
+          "nie": 6,
+          "nie_udzial": "3/25",
+          "niepewne": 15,
+          "tak": 29,
+          "tak_udzial": "29/50"
+        },
+        "T3": "nie dotyczy"
+      },
+      "agent_nie": [
+        "deniwelacja",
+        "eksport",
+        "hasło",
+        "kolur",
+        "oszczędności",
+        "wwóz"
+      ],
+      "bramka": {
+        "czeka_na_ocene": [],
+        "metoda": "R2 z ocen agenta (operator 2026-10-29); zgodność operator–agent nie dotyczy",
+        "nie_dotyczy": [
+          "t3_tak",
+          "zgodnosc"
+        ],
+        "niespelnione": [
+          "t2_tak",
+          "t2_nie"
+        ],
+        "progi": [
+          {
+            "granica": "0.70",
+            "kierunek": ">=",
+            "prog": "slowa_oczywiste",
+            "status": "spelniony",
+            "wartosc": "4/5"
+          },
+          {
+            "granica": "0.90",
+            "kierunek": ">=",
+            "prog": "t1_tak",
+            "status": "spelniony",
+            "wartosc": "49/50"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t2_tak",
+            "status": "niespelniony",
+            "wartosc": "29/50"
+          },
+          {
+            "granica": "0.10",
+            "kierunek": "<=",
+            "prog": "t2_nie",
+            "status": "niespelniony",
+            "wartosc": "3/25"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t3_tak",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          },
+          {
+            "granica": "0.80",
+            "kierunek": ">=",
+            "prog": "zgodnosc",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          }
+        ],
+        "wynik": "popraw"
+      },
+      "decyzja_operatora": null,
+      "diagnostyka": {
+        "formy": {
+          "broad": 4431,
+          "kandydaci": 4691,
+          "standard": 4320
+        },
+        "leksemy": {
+          "broad": 480,
+          "kandydaci": 486,
+          "standard": 475
+        }
+      },
+      "formy": 4320,
+      "operator": {
+        "T2": "brak ocen",
+        "T3": "nie dotyczy"
+      },
+      "pakiet": "tematy-matematyka-v1-20261029-a",
+      "przeciecia": {
+        "formy": {
+          "pop": 2769,
+          "pop00": 1347,
+          "pop00_procent": "31.2",
+          "pop_procent": "64.1"
+        },
+        "leksemy": {
+          "pop": 291,
+          "pop00": 133,
+          "pop00_procent": "28.0",
+          "pop_procent": "61.3"
+        }
+      },
+      "slowa_oczywiste": {
+        "brakujace": [
+          "cyfra",
+          "kalkulator",
+          "równanie",
+          "wykres",
+          "wzór",
+          "zadanie",
+          "średnica"
+        ],
+        "lista": 35,
+        "pokryte": 28,
+        "procent": "80.0"
+      },
+      "t3": false,
+      "temat": "matematyka",
+      "warstwy": {
+        "D": 0,
+        "T1": 60,
+        "T2": 415,
+        "T3": "nie dotyczy"
+      },
+      "werdykt_checkera": {
+        "czeka_na_ocene": [
+          "t2_tak",
+          "t2_nie",
+          "zgodnosc"
+        ],
+        "nie_dotyczy": [
+          "t3_tak"
+        ],
+        "niespelnione": [],
+        "wynik": "czeka"
+      },
+      "wersja_tematu": "matematyka-v1",
+      "wpisy": 475,
+      "zgodnosc": "nie dotyczy"
+    },
+    {
+      "agent": {
+        "T1": {
+          "N": 50,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 3,
+          "tak": 47,
+          "tak_udzial": "47/50"
+        },
+        "T2": {
+          "N": 50,
+          "nie": 3,
+          "nie_udzial": "3/50",
+          "niepewne": 15,
+          "tak": 32,
+          "tak_udzial": "16/25"
+        },
+        "T3": "nie dotyczy"
+      },
+      "agent_nie": [
+        "pokrywa",
+        "różaniec",
+        "zakrętka"
+      ],
+      "bramka": {
+        "czeka_na_ocene": [],
+        "metoda": "R2 z ocen agenta (operator 2026-10-29); zgodność operator–agent nie dotyczy",
+        "nie_dotyczy": [
+          "t3_tak",
+          "zgodnosc"
+        ],
+        "niespelnione": [
+          "t2_tak"
+        ],
+        "progi": [
+          {
+            "granica": "0.70",
+            "kierunek": ">=",
+            "prog": "slowa_oczywiste",
+            "status": "spelniony",
+            "wartosc": "28/37"
+          },
+          {
+            "granica": "0.90",
+            "kierunek": ">=",
+            "prog": "t1_tak",
+            "status": "spelniony",
+            "wartosc": "47/50"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t2_tak",
+            "status": "niespelniony",
+            "wartosc": "16/25"
+          },
+          {
+            "granica": "0.10",
+            "kierunek": "<=",
+            "prog": "t2_nie",
+            "status": "spelniony",
+            "wartosc": "3/50"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t3_tak",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          },
+          {
+            "granica": "0.80",
+            "kierunek": ">=",
+            "prog": "zgodnosc",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          }
+        ],
+        "wynik": "popraw"
+      },
+      "decyzja_operatora": null,
+      "diagnostyka": {
+        "formy": {
+          "broad": 9504,
+          "kandydaci": 10094,
+          "standard": 9188
+        },
+        "leksemy": {
+          "broad": 1087,
+          "kandydaci": 1131,
+          "standard": 1063
+        }
+      },
+      "formy": 9188,
+      "operator": {
+        "T2": "brak ocen",
+        "T3": "nie dotyczy"
+      },
+      "pakiet": "tematy-muzyka-v1-20261029-a",
+      "przeciecia": {
+        "formy": {
+          "pop": 5238,
+          "pop00": 1545,
+          "pop00_procent": "16.8",
+          "pop_procent": "57.0"
+        },
+        "leksemy": {
+          "pop": 625,
+          "pop00": 180,
+          "pop00_procent": "16.9",
+          "pop_procent": "58.8"
+        }
+      },
+      "slowa_oczywiste": {
+        "brakujace": [
+          "akord",
+          "dźwięk",
+          "gama",
+          "nagranie",
+          "perkusja",
+          "płyta",
+          "tańczyć",
+          "zespół",
+          "śpiewać"
+        ],
+        "lista": 37,
+        "pokryte": 28,
+        "procent": "75.7"
+      },
+      "t3": false,
+      "temat": "muzyka",
+      "warstwy": {
+        "D": 0,
+        "T1": 224,
+        "T2": 839,
+        "T3": "nie dotyczy"
+      },
+      "werdykt_checkera": {
+        "czeka_na_ocene": [
+          "t2_tak",
+          "t2_nie",
+          "zgodnosc"
+        ],
+        "nie_dotyczy": [
+          "t3_tak"
+        ],
+        "niespelnione": [],
+        "wynik": "czeka"
+      },
+      "wersja_tematu": "muzyka-v1",
+      "wpisy": 1063,
+      "zgodnosc": "nie dotyczy"
+    },
+    {
+      "agent": {
+        "T1": {
+          "N": 50,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 2,
+          "tak": 48,
+          "tak_udzial": "24/25"
+        },
+        "T2": {
+          "N": 50,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 6,
+          "tak": 44,
+          "tak_udzial": "22/25"
+        },
+        "T3": "nie dotyczy"
+      },
+      "agent_nie": [],
+      "bramka": {
+        "czeka_na_ocene": [],
+        "metoda": "R2 z ocen agenta (operator 2026-10-29); zgodność operator–agent nie dotyczy",
+        "nie_dotyczy": [
+          "t3_tak",
+          "zgodnosc"
+        ],
+        "niespelnione": [
+          "slowa_oczywiste"
+        ],
+        "progi": [
+          {
+            "granica": "0.70",
+            "kierunek": ">=",
+            "prog": "slowa_oczywiste",
+            "status": "niespelniony",
+            "wartosc": "5/9"
+          },
+          {
+            "granica": "0.90",
+            "kierunek": ">=",
+            "prog": "t1_tak",
+            "status": "spelniony",
+            "wartosc": "24/25"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t2_tak",
+            "status": "spelniony",
+            "wartosc": "22/25"
+          },
+          {
+            "granica": "0.10",
+            "kierunek": "<=",
+            "prog": "t2_nie",
+            "status": "spelniony",
+            "wartosc": "0"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t3_tak",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          },
+          {
+            "granica": "0.80",
+            "kierunek": ">=",
+            "prog": "zgodnosc",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          }
+        ],
+        "wynik": "popraw"
+      },
+      "decyzja_operatora": null,
+      "diagnostyka": {
+        "formy": {
+          "broad": 7963,
+          "kandydaci": 8398,
+          "standard": 7811
+        },
+        "leksemy": {
+          "broad": 806,
+          "kandydaci": 826,
+          "standard": 794
+        }
+      },
+      "formy": 7811,
+      "operator": {
+        "T2": "brak ocen",
+        "T3": "nie dotyczy"
+      },
+      "pakiet": "tematy-sport-v1-20261029-a",
+      "przeciecia": {
+        "formy": {
+          "pop": 5125,
+          "pop00": 1538,
+          "pop00_procent": "19.7",
+          "pop_procent": "65.6"
+        },
+        "leksemy": {
+          "pop": 572,
+          "pop00": 168,
+          "pop00_procent": "21.2",
+          "pop_procent": "72.0"
+        }
+      },
+      "slowa_oczywiste": {
+        "brakujace": [
+          "biegać",
+          "boisko",
+          "bramka",
+          "drużyna",
+          "gol",
+          "karta",
+          "kibic",
+          "medal",
+          "mistrz",
+          "narta",
+          "rakieta",
+          "rower",
+          "stadion",
+          "sędzia",
+          "trener",
+          "zwycięstwo"
+        ],
+        "lista": 36,
+        "pokryte": 20,
+        "procent": "55.6"
+      },
+      "t3": false,
+      "temat": "sport",
+      "warstwy": {
+        "D": 0,
+        "T1": 172,
+        "T2": 622,
+        "T3": "nie dotyczy"
+      },
+      "werdykt_checkera": {
+        "czeka_na_ocene": [
+          "t2_tak",
+          "t2_nie",
+          "zgodnosc"
+        ],
+        "nie_dotyczy": [
+          "t3_tak"
+        ],
+        "niespelnione": [
+          "slowa_oczywiste"
+        ],
+        "wynik": "popraw"
+      },
+      "wersja_tematu": "sport-v1",
+      "wpisy": 794,
+      "zgodnosc": "nie dotyczy"
+    },
+    {
+      "agent": {
+        "T1": {
+          "N": 50,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 0,
+          "tak": 50,
+          "tak_udzial": "1"
+        },
+        "T2": {
+          "N": 50,
+          "nie": 3,
+          "nie_udzial": "3/50",
+          "niepewne": 5,
+          "tak": 42,
+          "tak_udzial": "21/25"
+        },
+        "T3": "nie dotyczy"
+      },
+      "agent_nie": [
+        "cytoplazma",
+        "sadzeniak",
+        "tyrozynaza"
+      ],
+      "bramka": {
+        "czeka_na_ocene": [],
+        "metoda": "R2 z ocen agenta (operator 2026-10-29); zgodność operator–agent nie dotyczy",
+        "nie_dotyczy": [
+          "t3_tak",
+          "zgodnosc"
+        ],
+        "niespelnione": [],
+        "progi": [
+          {
+            "granica": "0.70",
+            "kierunek": ">=",
+            "prog": "slowa_oczywiste",
+            "status": "spelniony",
+            "wartosc": "31/37"
+          },
+          {
+            "granica": "0.90",
+            "kierunek": ">=",
+            "prog": "t1_tak",
+            "status": "spelniony",
+            "wartosc": "1"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t2_tak",
+            "status": "spelniony",
+            "wartosc": "21/25"
+          },
+          {
+            "granica": "0.10",
+            "kierunek": "<=",
+            "prog": "t2_nie",
+            "status": "spelniony",
+            "wartosc": "3/50"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t3_tak",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          },
+          {
+            "granica": "0.80",
+            "kierunek": ">=",
+            "prog": "zgodnosc",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          }
+        ],
+        "wynik": "dalej"
+      },
+      "decyzja_operatora": null,
+      "diagnostyka": {
+        "formy": {
+          "broad": 16496,
+          "kandydaci": 16726,
+          "standard": 16094
+        },
+        "leksemy": {
+          "broad": 1850,
+          "kandydaci": 1874,
+          "standard": 1818
+        }
+      },
+      "formy": 16094,
+      "operator": {
+        "T2": "brak ocen",
+        "T3": "nie dotyczy"
+      },
+      "pakiet": "tematy-kuchnia-v1-20261029-a",
+      "przeciecia": {
+        "formy": {
+          "pop": 10390,
+          "pop00": 2531,
+          "pop00_procent": "15.7",
+          "pop_procent": "64.6"
+        },
+        "leksemy": {
+          "pop": 1161,
+          "pop00": 262,
+          "pop00_procent": "14.4",
+          "pop_procent": "63.9"
+        }
+      },
+      "slowa_oczywiste": {
+        "brakujace": [
+          "gotować",
+          "nóż",
+          "piec",
+          "smażyć",
+          "widelec",
+          "łyżka"
+        ],
+        "lista": 37,
+        "pokryte": 31,
+        "procent": "83.8"
+      },
+      "t3": false,
+      "temat": "kuchnia",
+      "warstwy": {
+        "D": 0,
+        "T1": 157,
+        "T2": 1661,
+        "T3": "nie dotyczy"
+      },
+      "werdykt_checkera": {
+        "czeka_na_ocene": [
+          "t2_tak",
+          "t2_nie",
+          "zgodnosc"
+        ],
+        "nie_dotyczy": [
+          "t3_tak"
+        ],
+        "niespelnione": [],
+        "wynik": "czeka"
+      },
+      "wersja_tematu": "kuchnia-v1",
+      "wpisy": 1818,
+      "zgodnosc": "nie dotyczy"
+    },
+    {
+      "agent": {
+        "T1": {
+          "N": 50,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 3,
+          "tak": 47,
+          "tak_udzial": "47/50"
+        },
+        "T2": {
+          "N": 50,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 12,
+          "tak": 38,
+          "tak_udzial": "19/25"
+        },
+        "T3": "nie dotyczy"
+      },
+      "agent_nie": [],
+      "bramka": {
+        "czeka_na_ocene": [],
+        "metoda": "R2 z ocen agenta (operator 2026-10-29); zgodność operator–agent nie dotyczy",
+        "nie_dotyczy": [
+          "t3_tak",
+          "zgodnosc"
+        ],
+        "niespelnione": [],
+        "progi": [
+          {
+            "granica": "0.70",
+            "kierunek": ">=",
+            "prog": "slowa_oczywiste",
+            "status": "spelniony",
+            "wartosc": "1"
+          },
+          {
+            "granica": "0.90",
+            "kierunek": ">=",
+            "prog": "t1_tak",
+            "status": "spelniony",
+            "wartosc": "47/50"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t2_tak",
+            "status": "spelniony",
+            "wartosc": "19/25"
+          },
+          {
+            "granica": "0.10",
+            "kierunek": "<=",
+            "prog": "t2_nie",
+            "status": "spelniony",
+            "wartosc": "0"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t3_tak",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          },
+          {
+            "granica": "0.80",
+            "kierunek": ">=",
+            "prog": "zgodnosc",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          }
+        ],
+        "wynik": "dalej"
+      },
+      "decyzja_operatora": null,
+      "diagnostyka": {
+        "formy": {
+          "broad": 22762,
+          "kandydaci": 22916,
+          "standard": 22244
+        },
+        "leksemy": {
+          "broad": 2405,
+          "kandydaci": 2410,
+          "standard": 2371
+        }
+      },
+      "formy": 22244,
+      "operator": {
+        "T2": "brak ocen",
+        "T3": "nie dotyczy"
+      },
+      "pakiet": "tematy-rosliny-v1-20261029-a",
+      "przeciecia": {
+        "formy": {
+          "pop": 8963,
+          "pop00": 1960,
+          "pop00_procent": "8.8",
+          "pop_procent": "40.3"
+        },
+        "leksemy": {
+          "pop": 978,
+          "pop00": 203,
+          "pop00_procent": "8.6",
+          "pop_procent": "41.2"
+        }
+      },
+      "slowa_oczywiste": {
+        "brakujace": [],
+        "lista": 38,
+        "pokryte": 38,
+        "procent": "100.0"
+      },
+      "t3": false,
+      "temat": "rosliny",
+      "warstwy": {
+        "D": 0,
+        "T1": 422,
+        "T2": 1949,
+        "T3": "nie dotyczy"
+      },
+      "werdykt_checkera": {
+        "czeka_na_ocene": [
+          "t2_tak",
+          "t2_nie",
+          "zgodnosc"
+        ],
+        "nie_dotyczy": [
+          "t3_tak"
+        ],
+        "niespelnione": [],
+        "wynik": "czeka"
+      },
+      "wersja_tematu": "rosliny-v1",
+      "wpisy": 2371,
+      "zgodnosc": "nie dotyczy"
+    },
+    {
+      "agent": {
+        "T1": {
+          "N": 50,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 0,
+          "tak": 50,
+          "tak_udzial": "1"
+        },
+        "T2": {
+          "N": 50,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 7,
+          "tak": 43,
+          "tak_udzial": "43/50"
+        },
+        "T3": "nie dotyczy"
+      },
+      "agent_nie": [],
+      "bramka": {
+        "czeka_na_ocene": [],
+        "metoda": "R2 z ocen agenta (operator 2026-10-29); zgodność operator–agent nie dotyczy",
+        "nie_dotyczy": [
+          "t3_tak",
+          "zgodnosc"
+        ],
+        "niespelnione": [],
+        "progi": [
+          {
+            "granica": "0.70",
+            "kierunek": ">=",
+            "prog": "slowa_oczywiste",
+            "status": "spelniony",
+            "wartosc": "1"
+          },
+          {
+            "granica": "0.90",
+            "kierunek": ">=",
+            "prog": "t1_tak",
+            "status": "spelniony",
+            "wartosc": "1"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t2_tak",
+            "status": "spelniony",
+            "wartosc": "43/50"
+          },
+          {
+            "granica": "0.10",
+            "kierunek": "<=",
+            "prog": "t2_nie",
+            "status": "spelniony",
+            "wartosc": "0"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t3_tak",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          },
+          {
+            "granica": "0.80",
+            "kierunek": ">=",
+            "prog": "zgodnosc",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          }
+        ],
+        "wynik": "dalej"
+      },
+      "decyzja_operatora": null,
+      "diagnostyka": {
+        "formy": {
+          "broad": 24504,
+          "kandydaci": 24788,
+          "standard": 23880
+        },
+        "leksemy": {
+          "broad": 2814,
+          "kandydaci": 2831,
+          "standard": 2765
+        }
+      },
+      "formy": 23880,
+      "operator": {
+        "T2": "brak ocen",
+        "T3": "nie dotyczy"
+      },
+      "pakiet": "tematy-zwierzeta-v1-20261029-a",
+      "przeciecia": {
+        "formy": {
+          "pop": 10102,
+          "pop00": 1821,
+          "pop00_procent": "7.6",
+          "pop_procent": "42.3"
+        },
+        "leksemy": {
+          "pop": 1217,
+          "pop00": 217,
+          "pop00_procent": "7.8",
+          "pop_procent": "44.0"
+        }
+      },
+      "slowa_oczywiste": {
+        "brakujace": [],
+        "lista": 37,
+        "pokryte": 37,
+        "procent": "100.0"
+      },
+      "t3": false,
+      "temat": "zwierzeta",
+      "warstwy": {
+        "D": 0,
+        "T1": 696,
+        "T2": 2069,
+        "T3": "nie dotyczy"
+      },
+      "werdykt_checkera": {
+        "czeka_na_ocene": [
+          "t2_tak",
+          "t2_nie",
+          "zgodnosc"
+        ],
+        "nie_dotyczy": [
+          "t3_tak"
+        ],
+        "niespelnione": [],
+        "wynik": "czeka"
+      },
+      "wersja_tematu": "zwierzeta-v1",
+      "wpisy": 2765,
+      "zgodnosc": "nie dotyczy"
+    },
+    {
+      "agent": {
+        "T1": {
+          "N": 50,
+          "nie": 2,
+          "nie_udzial": "1/25",
+          "niepewne": 6,
+          "tak": 42,
+          "tak_udzial": "21/25"
+        },
+        "T2": {
+          "N": 50,
+          "nie": 5,
+          "nie_udzial": "1/10",
+          "niepewne": 7,
+          "tak": 38,
+          "tak_udzial": "19/25"
+        },
+        "T3": {
+          "N": 50,
+          "nie": 11,
+          "nie_udzial": "11/50",
+          "niepewne": 17,
+          "tak": 22,
+          "tak_udzial": "11/25"
+        }
+      },
+      "agent_nie": [
+        "absolut",
+        "dodatek",
+        "dominanta",
+        "gladius",
+        "indywiduacja",
+        "koniugacja",
+        "macka",
+        "mizogin",
+        "numulit",
+        "pantofelek:Sm2",
+        "podmiot",
+        "podtyp",
+        "przechowywanie",
+        "seria",
+        "skrzele",
+        "tropizm",
+        "walidacja",
+        "wytrzymałość"
+      ],
+      "bramka": {
+        "czeka_na_ocene": [],
+        "metoda": "R2 z ocen agenta (operator 2026-10-29); zgodność operator–agent nie dotyczy",
+        "nie_dotyczy": [
+          "zgodnosc"
+        ],
+        "niespelnione": [
+          "t1_tak",
+          "t3_tak"
+        ],
+        "progi": [
+          {
+            "granica": "0.70",
+            "kierunek": ">=",
+            "prog": "slowa_oczywiste",
+            "status": "spelniony",
+            "wartosc": "32/39"
+          },
+          {
+            "granica": "0.90",
+            "kierunek": ">=",
+            "prog": "t1_tak",
+            "status": "niespelniony",
+            "wartosc": "21/25"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t2_tak",
+            "status": "spelniony",
+            "wartosc": "19/25"
+          },
+          {
+            "granica": "0.10",
+            "kierunek": "<=",
+            "prog": "t2_nie",
+            "status": "spelniony",
+            "wartosc": "1/10"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t3_tak",
+            "status": "niespelniony",
+            "wartosc": "11/25"
+          },
+          {
+            "granica": "0.80",
+            "kierunek": ">=",
+            "prog": "zgodnosc",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          }
+        ],
+        "wynik": "popraw"
+      },
+      "decyzja_operatora": null,
+      "diagnostyka": {
+        "formy": {
+          "broad": 30585,
+          "kandydaci": 32194,
+          "standard": 29775
+        },
+        "leksemy": {
+          "broad": 3272,
+          "kandydaci": 3335,
+          "standard": 3246
+        }
+      },
+      "formy": 29775,
+      "operator": {
+        "T2": "brak ocen",
+        "T3": "brak ocen"
+      },
+      "pakiet": "tematy-medycyna-v1-20261029-a",
+      "przeciecia": {
+        "formy": {
+          "pop": 16347,
+          "pop00": 5327,
+          "pop00_procent": "17.9",
+          "pop_procent": "54.9"
+        },
+        "leksemy": {
+          "pop": 1818,
+          "pop00": 549,
+          "pop00_procent": "16.9",
+          "pop_procent": "56.0"
+        }
+      },
+      "slowa_oczywiste": {
+        "brakujace": [
+          "badanie",
+          "bandaż",
+          "ciało",
+          "pacjent",
+          "plaster",
+          "tabletka",
+          "zastrzyk"
+        ],
+        "lista": 39,
+        "pokryte": 32,
+        "procent": "82.1"
+      },
+      "t3": true,
+      "temat": "medycyna",
+      "warstwy": {
+        "D": 0,
+        "T1": 275,
+        "T2": 2629,
+        "T3": 342
+      },
+      "werdykt_checkera": {
+        "czeka_na_ocene": [
+          "t2_tak",
+          "t2_nie",
+          "t3_tak",
+          "zgodnosc"
+        ],
+        "nie_dotyczy": [],
+        "niespelnione": [
+          "t1_tak"
+        ],
+        "wynik": "popraw"
+      },
+      "wersja_tematu": "medycyna-v1",
+      "wpisy": 3246,
+      "zgodnosc": "nie dotyczy"
+    },
+    {
+      "agent": {
+        "T1": {
+          "N": 50,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 4,
+          "tak": 46,
+          "tak_udzial": "23/25"
+        },
+        "T2": {
+          "N": 50,
+          "nie": 23,
+          "nie_udzial": "23/50",
+          "niepewne": 6,
+          "tak": 21,
+          "tak_udzial": "21/50"
+        },
+        "T3": {
+          "N": 27,
+          "nie": 14,
+          "nie_udzial": "14/27",
+          "niepewne": 4,
+          "tak": 9,
+          "tak_udzial": "1/3"
+        }
+      },
+      "agent_nie": [
+        "agent",
+        "bungee",
+        "ciąg",
+        "dyplom",
+        "klasyfikacja",
+        "krzyżak:Sm2",
+        "linka",
+        "moderator:Sm3",
+        "nośność",
+        "ocel",
+        "oczep",
+        "pełzacz:Sm1",
+        "podróżny:S",
+        "podwalina",
+        "pompownia",
+        "przegroda",
+        "pętelka",
+        "recepturka",
+        "rozrusznik",
+        "siłownia",
+        "skrzydło",
+        "sosręb",
+        "spedytor",
+        "stalnica",
+        "stojan",
+        "szap",
+        "trzon",
+        "wieszak",
+        "wyładunek",
+        "włóczka",
+        "zadzior",
+        "zatrzymanie",
+        "załadunek",
+        "łącznik:Sm1",
+        "łącznik:Sm3",
+        "średnica",
+        "żurawik:Sm2"
+      ],
+      "bramka": {
+        "czeka_na_ocene": [],
+        "metoda": "R2 z ocen agenta (operator 2026-10-29); zgodność operator–agent nie dotyczy",
+        "nie_dotyczy": [
+          "zgodnosc"
+        ],
+        "niespelnione": [
+          "t2_tak",
+          "t2_nie",
+          "t3_tak"
+        ],
+        "progi": [
+          {
+            "granica": "0.70",
+            "kierunek": ">=",
+            "prog": "slowa_oczywiste",
+            "status": "spelniony",
+            "wartosc": "1"
+          },
+          {
+            "granica": "0.90",
+            "kierunek": ">=",
+            "prog": "t1_tak",
+            "status": "spelniony",
+            "wartosc": "23/25"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t2_tak",
+            "status": "niespelniony",
+            "wartosc": "21/50"
+          },
+          {
+            "granica": "0.10",
+            "kierunek": "<=",
+            "prog": "t2_nie",
+            "status": "niespelniony",
+            "wartosc": "23/50"
+          },
+          {
+            "granica": "2/3",
+            "kierunek": ">=",
+            "prog": "t3_tak",
+            "status": "niespelniony",
+            "wartosc": "1/3"
+          },
+          {
+            "granica": "0.80",
+            "kierunek": ">=",
+            "prog": "zgodnosc",
+            "status": "nie_dotyczy",
+            "wartosc": "nie_dotyczy"
+          }
+        ],
+        "wynik": "popraw"
+      },
+      "decyzja_operatora": null,
+      "diagnostyka": {
+        "formy": {
+          "broad": 11317,
+          "kandydaci": 11741,
+          "standard": 11035
+        },
+        "leksemy": {
+          "broad": 988,
+          "kandydaci": 996,
+          "standard": 970
+        }
+      },
+      "formy": 11035,
+      "operator": {
+        "T2": {
+          "N": 30,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 0,
+          "tak": 30,
+          "tak_udzial": "1"
+        },
+        "T3": {
+          "N": 27,
+          "nie": 0,
+          "nie_udzial": "0",
+          "niepewne": 0,
+          "tak": 27,
+          "tak_udzial": "1"
+        }
+      },
+      "pakiet": "tematy-morze-v2-20261029-a",
+      "przeciecia": {
+        "formy": {
+          "pop": 4103,
+          "pop00": 1071,
+          "pop00_procent": "9.7",
+          "pop_procent": "37.2"
+        },
+        "leksemy": {
+          "pop": 432,
+          "pop00": 113,
+          "pop00_procent": "11.6",
+          "pop_procent": "44.5"
+        }
+      },
+      "slowa_oczywiste": {
+        "brakujace": [],
+        "lista": 37,
+        "pokryte": 37,
+        "procent": "100.0"
+      },
+      "t3": true,
+      "temat": "morze",
+      "warstwy": {
+        "D": 6,
+        "T1": 246,
+        "T2": 691,
+        "T3": 27
+      },
+      "werdykt_checkera": {
+        "czeka_na_ocene": [],
+        "nie_dotyczy": [],
+        "niespelnione": [
+          "zgodnosc"
+        ],
+        "wynik": "popraw"
+      },
+      "wersja_tematu": "morze-v2",
+      "wpisy": 970,
+      "zgodnosc": {
+        "N": 57,
+        "kappa": "0",
+        "zgodnosc": "20/57"
+      }
+    }
+  ],
+  "zadanie": "#12 W14, grupa 16"
+}

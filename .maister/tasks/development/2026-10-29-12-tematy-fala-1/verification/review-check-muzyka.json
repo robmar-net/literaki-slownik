@@ -1,0 +1,133 @@
+{
+  "formy": 9188,
+  "przeglad": {
+    "agent": {
+      "T1": {
+        "N": 50,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 3,
+        "tak": 47,
+        "tak_udzial": "47/50"
+      },
+      "T2": {
+        "N": 50,
+        "nie": 3,
+        "nie_udzial": "3/50",
+        "niepewne": 15,
+        "tak": 32,
+        "tak_udzial": "16/25"
+      },
+      "T3": {
+        "N": 0,
+        "nie": 0,
+        "nie_udzial": null,
+        "niepewne": 0,
+        "tak": 0,
+        "tak_udzial": null
+      }
+    },
+    "agent_sha256": "0d2e220f49aec36d997ea6ee2753bf939b9f0a9dfdc0c14ecd5f935d3426ffbd",
+    "operator": null,
+    "slowa_oczywiste": {
+      "brakujace": [
+        "akord",
+        "dźwięk",
+        "gama",
+        "nagranie",
+        "perkusja",
+        "płyta",
+        "tańczyć",
+        "zespół",
+        "śpiewać"
+      ],
+      "lista": 37,
+      "pokryte": 28,
+      "udzial": "28/37"
+    },
+    "werdykt": {
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [],
+      "progi": [
+        {
+          "granica": "0.70",
+          "kierunek": ">=",
+          "prog": "slowa_oczywiste",
+          "status": "spelniony",
+          "wartosc": "28/37"
+        },
+        {
+          "granica": "0.90",
+          "kierunek": ">=",
+          "prog": "t1_tak",
+          "status": "spelniony",
+          "wartosc": "47/50"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t2_tak",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "0.10",
+          "kierunek": "<=",
+          "prog": "t2_nie",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t3_tak",
+          "status": "nie_dotyczy",
+          "wartosc": "nie_dotyczy"
+        },
+        {
+          "granica": "0.80",
+          "kierunek": ">=",
+          "prog": "zgodnosc",
+          "status": "czeka",
+          "wartosc": "czeka"
+        }
+      ],
+      "uwaga": "„stop” wybiera tylko operator na bramce",
+      "wynik": null
+    },
+    "zgodnosc": null
+  },
+  "review_checked": true,
+  "sha256sums_sha256": "10bb0e1cd1386b75fec0363649c77cd64379891817ad8c63875fbfb6932b594f",
+  "slowa_oczywiste": {
+    "brakujace": [
+      "akord",
+      "dźwięk",
+      "gama",
+      "nagranie",
+      "perkusja",
+      "płyta",
+      "tańczyć",
+      "zespół",
+      "śpiewać"
+    ],
+    "lista": 37,
+    "pokryte": 28
+  },
+  "status": "pass",
+  "temat": "muzyka",
+  "warstwy": {
+    "D": 0,
+    "T1": 224,
+    "T2": 839,
+    "T3": 0
+  },
+  "wpisy": 1063
+}

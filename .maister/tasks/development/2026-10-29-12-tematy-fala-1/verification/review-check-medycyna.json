@@ -1,0 +1,130 @@
+{
+  "formy": 29775,
+  "przeglad": {
+    "agent": {
+      "T1": {
+        "N": 50,
+        "nie": 2,
+        "nie_udzial": "1/25",
+        "niepewne": 6,
+        "tak": 42,
+        "tak_udzial": "21/25"
+      },
+      "T2": {
+        "N": 50,
+        "nie": 5,
+        "nie_udzial": "1/10",
+        "niepewne": 7,
+        "tak": 38,
+        "tak_udzial": "19/25"
+      },
+      "T3": {
+        "N": 50,
+        "nie": 11,
+        "nie_udzial": "11/50",
+        "niepewne": 17,
+        "tak": 22,
+        "tak_udzial": "11/25"
+      }
+    },
+    "agent_sha256": "9e11db281799f9db9367f45d04a1fde949c5582e9921d7d325babad4fa050497",
+    "operator": null,
+    "slowa_oczywiste": {
+      "brakujace": [
+        "badanie",
+        "bandaż",
+        "ciało",
+        "pacjent",
+        "plaster",
+        "tabletka",
+        "zastrzyk"
+      ],
+      "lista": 39,
+      "pokryte": 32,
+      "udzial": "32/39"
+    },
+    "werdykt": {
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "t3_tak",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [],
+      "niespelnione": [
+        "t1_tak"
+      ],
+      "progi": [
+        {
+          "granica": "0.70",
+          "kierunek": ">=",
+          "prog": "slowa_oczywiste",
+          "status": "spelniony",
+          "wartosc": "32/39"
+        },
+        {
+          "granica": "0.90",
+          "kierunek": ">=",
+          "prog": "t1_tak",
+          "status": "niespelniony",
+          "wartosc": "21/25"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t2_tak",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "0.10",
+          "kierunek": "<=",
+          "prog": "t2_nie",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t3_tak",
+          "status": "czeka",
+          "wartosc": "czeka"
+        },
+        {
+          "granica": "0.80",
+          "kierunek": ">=",
+          "prog": "zgodnosc",
+          "status": "czeka",
+          "wartosc": "czeka"
+        }
+      ],
+      "uwaga": "„stop” wybiera tylko operator na bramce",
+      "wynik": "popraw"
+    },
+    "zgodnosc": null
+  },
+  "review_checked": true,
+  "sha256sums_sha256": "68855e0a3f8df670bb3bd3b5f6c6a9c957ca9efaa1929ed801d6b03baaf5a4b2",
+  "slowa_oczywiste": {
+    "brakujace": [
+      "badanie",
+      "bandaż",
+      "ciało",
+      "pacjent",
+      "plaster",
+      "tabletka",
+      "zastrzyk"
+    ],
+    "lista": 39,
+    "pokryte": 32
+  },
+  "status": "pass",
+  "temat": "medycyna",
+  "warstwy": {
+    "D": 0,
+    "T1": 275,
+    "T2": 2629,
+    "T3": 342
+  },
+  "wpisy": 3246
+}
