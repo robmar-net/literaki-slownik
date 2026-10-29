@@ -36,3 +36,9 @@
 **Commit**: 78abb49 (strona i generator T/analysis/strona_slowa.py). Kontrola WebKit/Chromium 390 px, jasny/ciemny: PASS.
 **Artefakt**: https://claude.ai/artifact/4XiPDXkEs7dxRE78ohghJ9 (prywatny). szkic_sha256 22014ec4…8f5b (kanoniczny JSON pola szkic).
 **Czeka**: 2.4 operator (rano).
+
+## 2026-10-29T02:17:55Z - Group 5 Complete
+**Commit**: 6a6915e. **Tests**: test_tematy_teksty + test_tematy_package 14/14; 6 znanych czerwonych dla grupy 7.
+**Zmiany**: odcinki()/teksty_pakietu() (reguła bajtowa W4), segmenty <!--T3--> / <!--SRODLADOWE--> w tekstach, nowe hashe w tematy.json, summary.t3 null bez t3, raport bez „MORZE”.
+**Bajty**: fikstura morze TXT/TSV/ATTRIBUTIONS/TERMS identyczne, LIMITATIONS tylko linie T2 i T3; prawdziwe teksty po stripie = stare hashe (d6673156…, b4250289…).
+**Uwaga dla 9**: raport.md morza będzie inny (dozwolone W8).

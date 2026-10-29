@@ -129,20 +129,20 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `literaki_slownik/tematy.py`, `config/generator/tematy-teksty/ATTRIBUTIONS-tematy.md`, `config/generator/tematy-teksty/LIMITATIONS.md`, `config/generator/tematy-teksty/TERMS.md`, `config/generator/tematy.json`, `tests/tematy_helpers.py`, `tests/test_tematy_teksty.py`, `tests/test_tematy_package.py`
 **Kroki:** 7
 
-- [ ] 5.0 Zdejmować odcinki T3 i SRODLADOWE według tematu
-  - [ ] 5.1 Napisać 6 testów w nowym `tests/test_tematy_teksty.py`:
+- [x] 5.0 Zdejmować odcinki T3 i SRODLADOWE według tematu
+  - [x] 5.1 Napisać 6 testów w nowym `tests/test_tematy_teksty.py`:
     - temat z T3 i znacznikami: `ATTRIBUTIONS-tematy.md` po zdjęciu znaczników ma stary hash `d6673156…`, a `TERMS.md` stary hash `b4250289…`;
     - `LIMITATIONS.md` równa się staremu tekstowi z podmienionymi tylko punktami T2 i T3 (W4);
     - temat bez T3: teksty pakietu bez „IATE” i bez „śródląd”;
     - odcinek niezamknięty, zagnieżdżony albo `@@SRODLADOWE@@` poza odcinkiem lub nie raz daje kod 2;
     - temat z T3 bez znaczników (wzór medycyny): `summary.srodladowe` = `null`, raport bez sekcji i wiersza TL;DR o śródlądowych, `summary.t3` niepuste;
     - temat o innym `id`: `raport.md` i komunikaty bez „MORZE”, lista użytych warstw zamiast „T1 < T2 < T3”; bez `t3` pole `summary.t3` = `null`.
-  - [ ] 5.2 Jedna funkcja zdejmowania odcinków w `_write_package`, przed podmianą `@@SRODLADOWE@@`. Reguła bajtowa z W4: w zachowanym odcinku usuwamy tylko bajty znaczników; usunięty odcinek tracimy od `<!--X-->` do `<!--/X-->` włącznie.
-  - [ ] 5.3 Teksty w `tematy-teksty/`: odcinek T3 obejmuje sekcję IATE w `ATTRIBUTIONS-tematy.md`, zdanie o IATE w `TERMS.md` (spacja wewnątrz odcinka) i punkt T3 w `LIMITATIONS.md`. Odcinek SRODLADOWE obejmuje punkt śródlądowy (od `\n- `). Nowe brzmienie punktów T2 i T3 według W4.
-  - [ ] 5.4 `config/generator/tematy.json`: nowe hashe w `teksty`.
-  - [ ] 5.5 `summary` i `raport`: nazwa listy z `id`, sekcje T3 i „Żegluga śródlądowa (T3)” tylko przy T3 albo znacznikach, `srodladowe` = `null` bez znaczników (D2), pole `t3` = `null` bez `t3`.
-  - [ ] 5.6 `tests/tematy_helpers.py` i `tests/test_tematy_package.py`: fikstura tekstów ze znacznikami; poprawić asercje, które czytały stary `LIMITATIONS.md`.
-  - [ ] 5.7 Uruchomić 6 nowych testów oraz `tests.test_tematy_package`. Commit i push: `feat(tematy): teksty i raport zależne od tematu (#12)`.
+  - [x] 5.2 Jedna funkcja zdejmowania odcinków w `_write_package`, przed podmianą `@@SRODLADOWE@@`. Reguła bajtowa z W4: w zachowanym odcinku usuwamy tylko bajty znaczników; usunięty odcinek tracimy od `<!--X-->` do `<!--/X-->` włącznie.
+  - [x] 5.3 Teksty w `tematy-teksty/`: odcinek T3 obejmuje sekcję IATE w `ATTRIBUTIONS-tematy.md`, zdanie o IATE w `TERMS.md` (spacja wewnątrz odcinka) i punkt T3 w `LIMITATIONS.md`. Odcinek SRODLADOWE obejmuje punkt śródlądowy (od `\n- `). Nowe brzmienie punktów T2 i T3 według W4.
+  - [x] 5.4 `config/generator/tematy.json`: nowe hashe w `teksty`.
+  - [x] 5.5 `summary` i `raport`: nazwa listy z `id`, sekcje T3 i „Żegluga śródlądowa (T3)” tylko przy T3 albo znacznikach, `srodladowe` = `null` bez znaczników (D2), pole `t3` = `null` bez `t3`.
+  - [x] 5.6 `tests/tematy_helpers.py` i `tests/test_tematy_package.py`: fikstura tekstów ze znacznikami; poprawić asercje, które czytały stary `LIMITATIONS.md`.
+  - [x] 5.7 Uruchomić 6 nowych testów oraz `tests.test_tematy_package`. Commit i push: `feat(tematy): teksty i raport zależne od tematu (#12)`.
 
 **Kryteria odbioru:**
 - 6 testów przechodzi; stare hashe `ATTRIBUTIONS-tematy.md` i `TERMS.md` są przypięte w teście.
