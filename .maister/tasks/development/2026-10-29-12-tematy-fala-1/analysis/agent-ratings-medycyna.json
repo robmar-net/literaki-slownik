@@ -1,0 +1,606 @@
+{
+  "reviewer": "agent (Claude)",
+  "reviewed_at": "2026-10-29T09:57:15Z",
+  "oceny": {
+    "ablacja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zabieg medyczny, np. ablacja serca."
+    },
+    "absolut@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Pojęcie filozoficzne, bez zwykłego związku z medycyną."
+    },
+    "acefalia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wada rozwojowa płodu."
+    },
+    "afekt@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Pojęcie psychologiczne, z medycyną łączy się tylko w psychiatrii."
+    },
+    "alergen@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Czynnik wywołujący alergię."
+    },
+    "alergia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Powszechnie znana choroba."
+    },
+    "analgezja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Znoszenie bólu, termin medyczny."
+    },
+    "antyseptyka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Odkażanie ran i narzędzi w medycynie."
+    },
+    "anuria@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Bezmocz, objaw chorobowy."
+    },
+    "artykulator@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Przyrząd protetyki stomatologicznej, ale też termin fonetyczny."
+    },
+    "arytmia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zaburzenie rytmu serca."
+    },
+    "autopsja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sekcja zwłok wykonywana przez lekarza."
+    },
+    "bakteriocyd@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Środek bakteriobójczy."
+    },
+    "bariatria@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dziedzina medycyny lecząca otyłość."
+    },
+    "barotrauma@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Uraz ciśnieniowy ciała."
+    },
+    "bebech@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Potoczna nazwa brzucha lub wnętrzności."
+    },
+    "bezwład@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Paraliż, niewładność kończyn."
+    },
+    "bilirubina@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Barwnik żółciowy badany we krwi."
+    },
+    "biomateriał@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Materiał do implantów, termin specjalistyczny."
+    },
+    "bąbel:Sm2.m3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pęcherz na skórze, np. po oparzeniu."
+    },
+    "błonica@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Choroba zakaźna."
+    },
+    "błędnik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Narząd równowagi w uchu."
+    },
+    "chemioterapia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Leczenie nowotworów lekami."
+    },
+    "ciemieniowy@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Odnosi się do kości ciemieniowej czaszki."
+    },
+    "cyklotymik@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Osoba z cyklotymią, termin psychologiczny."
+    },
+    "cytologia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Popularne badanie medyczne."
+    },
+    "cytoplazma@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Pojęcie biologii komórki, nie typowo medyczne."
+    },
+    "dawka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dawka leku."
+    },
+    "diplokok@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Bakteria chorobotwórcza."
+    },
+    "dodatek@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Słowo ogólne bez związku z medycyną."
+    },
+    "dominanta@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Termin statystyczny i muzyczny."
+    },
+    "dopamina@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Neuroprzekaźnik i lek."
+    },
+    "dozymetria@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Pomiar promieniowania, z medycyną łączy się pośrednio."
+    },
+    "dychawica@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dawna nazwa astmy."
+    },
+    "dymieniczny@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Jak w nazwie dżuma dymienicza."
+    },
+    "ekstrasystole@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dodatkowe skurcze serca."
+    },
+    "emetyna@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Lek wymiotny i przeciwpierwotniakowy."
+    },
+    "endometrium@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Błona śluzowa macicy."
+    },
+    "epilepsja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Choroba neurologiczna."
+    },
+    "fallus@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Częściej symbol członka niż termin anatomiczny."
+    },
+    "farmaceuta@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zawód związany z lekami."
+    },
+    "farmakologia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nauka o lekach."
+    },
+    "fibryl@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Rzadki termin z biologii tkanek."
+    },
+    "filarioza@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Choroba pasożytnicza."
+    },
+    "ftyzjolog@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Lekarz od gruźlicy."
+    },
+    "garbiak@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Słowo nieznane szerzej, związek z medycyną niejasny."
+    },
+    "gestoza@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Powikłanie ciąży."
+    },
+    "gladius@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Rzymski miecz albo część ciała głowonoga."
+    },
+    "glaukoma@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Jaskra, choroba oczu."
+    },
+    "hymen@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Błona dziewicza, anatomia."
+    },
+    "indywiduacja@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Pojęcie filozoficzne i psychologiczne."
+    },
+    "jajnik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Narząd rozrodczy."
+    },
+    "języczek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Część podniebienia miękkiego."
+    },
+    "kacheksja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wyniszczenie organizmu w chorobie."
+    },
+    "kapsyd@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Płaszcz białkowy wirusa, termin biologiczny."
+    },
+    "karcinogenność@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zdolność wywoływania raka."
+    },
+    "kardiogram@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zapis pracy serca."
+    },
+    "katecholamina@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Hormon i lek, np. adrenalina."
+    },
+    "kinezyterapia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Leczenie ruchem w rehabilitacji."
+    },
+    "kiła@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Choroba weneryczna."
+    },
+    "koksartroza@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zwyrodnienie stawu biodrowego."
+    },
+    "kolaps@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zapaść krążeniowa."
+    },
+    "koniugacja@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Głównie termin gramatyczny."
+    },
+    "koronawirus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wirus wywołujący choroby."
+    },
+    "krioekstraktor@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Narzędzie chirurgii oka."
+    },
+    "kudły@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Potocznie włosy na głowie."
+    },
+    "kurczliwość@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Cecha mięśni, termin fizjologiczny."
+    },
+    "lamblioza@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Choroba pasożytnicza jelit."
+    },
+    "laparoskopia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zabieg chirurgiczny."
+    },
+    "laryngologia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dziedzina medycyny."
+    },
+    "leukotomia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zabieg neurochirurgiczny."
+    },
+    "listek@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Zwykle część rośliny, medycznie tylko listek tabletek."
+    },
+    "macka@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Narząd zwierząt, nie człowieka."
+    },
+    "marskość@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Choroba wątroby."
+    },
+    "martwak@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Obumarły fragment kości."
+    },
+    "metabolizm@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przemiana materii w organizmie."
+    },
+    "mikoza@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Grzybica, choroba."
+    },
+    "miofibryla@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Specjalistyczny termin z histologii mięśni."
+    },
+    "mizogin@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Cecha postawy, nie choroba."
+    },
+    "mutagenność@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Termin z genetyki i toksykologii."
+    },
+    "naciek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Naciek zapalny lub nowotworowy w tkance."
+    },
+    "naczyniak@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nowotwór z naczyń krwionośnych."
+    },
+    "nadciśnienie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Powszechna choroba."
+    },
+    "nasieniak@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nowotwór jądra."
+    },
+    "nerwoból@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ból nerwu."
+    },
+    "neuralgia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ból nerwu."
+    },
+    "neuron@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Komórka nerwowa."
+    },
+    "niedokrwistość@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Anemia, choroba krwi."
+    },
+    "nietoksyczność@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Cecha substancji, termin toksykologiczny."
+    },
+    "numulit@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Skamieniały otwornic."
+    },
+    "obducent@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Lekarz przeprowadzający sekcję zwłok."
+    },
+    "obducentka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Lekarka przeprowadzająca sekcję zwłok."
+    },
+    "obrzezanie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zabieg na ciele."
+    },
+    "odwykówka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Potocznie leczenie odwykowe."
+    },
+    "okostna@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Błona pokrywająca kość."
+    },
+    "organogeneza@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Termin embriologiczny."
+    },
+    "oskrzelik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Część dróg oddechowych."
+    },
+    "otalgia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ból ucha."
+    },
+    "pantofelek:Sm2@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Pierwotniak, nie medycyna."
+    },
+    "parkinsonizm@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zespół chorobowy."
+    },
+    "peroksydaza@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Enzym, termin biochemiczny."
+    },
+    "perystaltyka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ruchy jelit."
+    },
+    "pneumocystoza@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Choroba płuc."
+    },
+    "pneumokok@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Bakteria chorobotwórcza."
+    },
+    "podmiot@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Słowo ogólne lub gramatyczne."
+    },
+    "podtyp@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Słowo ogólne."
+    },
+    "polucja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Mimowolny wytrysk, fizjologia ciała."
+    },
+    "poród@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wydanie dziecka na świat."
+    },
+    "powięź@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Błona łącznotkankowa mięśni."
+    },
+    "prostaglandyna@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Związek biochemiczny, używany też jako lek."
+    },
+    "przechowywanie@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Słowo ogólne."
+    },
+    "przepona@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Mięsień oddechowy."
+    },
+    "prześwit@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Medycznie tylko prześwit naczynia lub jelita."
+    },
+    "przodomózgowie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Część mózgu."
+    },
+    "płuco@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Narząd oddechowy."
+    },
+    "radiodiagnostyka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Diagnostyka obrazowa."
+    },
+    "rezydent@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Lekarz rezydent to zwykłe znaczenie."
+    },
+    "ropień@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zbiornik ropy w tkance."
+    },
+    "rozstrzeń@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Choroba, np. rozstrzeń oskrzeli."
+    },
+    "rozszerzenie@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Słowo ogólne, medycznie np. rozszerzenie źrenic."
+    },
+    "salol@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Lek odkażający."
+    },
+    "schizofrenik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Chory na schizofrenię."
+    },
+    "seria@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Słowo ogólne."
+    },
+    "siara@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Pierwsze mleko matki, termin fizjologiczny."
+    },
+    "siatsu@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Masaż niekonwencjonalny."
+    },
+    "skirtotymik@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Rzadki termin psychologiczny."
+    },
+    "skrzele@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Narząd oddechowy ryb."
+    },
+    "smółka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pierwszy stolec noworodka."
+    },
+    "sporysznik@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Grzyb, dawniej surowiec leczniczy."
+    },
+    "stomatologia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dziedzina medycyny."
+    },
+    "synergia@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Słowo ogólne, medycznie współdziałanie leków."
+    },
+    "talasoterapia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Leczenie klimatem morskim."
+    },
+    "transfuzjolog@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Lekarz specjalista transfuzji."
+    },
+    "tropizm@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Termin botaniczny."
+    },
+    "tuberkulina@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Preparat do testu na gruźlicę."
+    },
+    "twardziel:Sf@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Choroba tkanki łącznej."
+    },
+    "tłuszczak:Sm2.m3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Łagodny nowotwór."
+    },
+    "umieralność@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Termin demograficzny, też epidemiologiczny."
+    },
+    "umięśnienie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Mięśnie ciała."
+    },
+    "walidacja@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Słowo ogólne."
+    },
+    "wirulencja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zjadliwość drobnoustrojów."
+    },
+    "wydzielanie@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Słowo ogólne, medycznie wydzielanie hormonów."
+    },
+    "wytrzymałość@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "Słowo ogólne."
+    },
+    "wyściółka@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Zwykle materiał, medycznie tylko wyściółka narządu."
+    },
+    "zapadalność@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zapadalność na choroby."
+    },
+    "zgorzel@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Martwica tkanek."
+    },
+    "zoofilia@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Dewiacja seksualna, związek z medycyną tylko psychiatryczny."
+    },
+    "świst@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Zwykle dźwięk, medycznie objaw osłuchowy."
+    },
+    "żołądek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Narząd trawienny."
+    },
+    "żołądź:Sf@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Część prącia."
+    }
+  }
+}

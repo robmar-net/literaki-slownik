@@ -1,0 +1,406 @@
+{
+  "reviewer": "agent (Claude)",
+  "reviewed_at": "2026-10-29T09:57:08Z",
+  "oceny": {
+    "alpinia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tropikalna roślina z rodziny imbirowatych."
+    },
+    "araukaria@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Drzewo iglaste, popularne też jako roślina doniczkowa."
+    },
+    "bagno@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Zwykle to mokradło; roślina bagno zwyczajne to znaczenie rzadkie."
+    },
+    "bananowiec:Sm1@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Bananowiec to powszechna nazwa rośliny bananowej."
+    },
+    "barwinek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Znana roślina okrywowa."
+    },
+    "batat:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina uprawna o jadalnych bulwach."
+    },
+    "bazia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kwiatostan wierzby i innych drzew."
+    },
+    "begonia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Popularna roślina ozdobna."
+    },
+    "bergamota@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Drzewo cytrusowe i jego owoc."
+    },
+    "biegunecznik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa rośliny z kwalifikatorem botanicznym."
+    },
+    "biel:Sm3@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Zwykle to kolor; jako młode drewno pnia to termin specjalistyczny."
+    },
+    "brunatnica@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Glon brunatny, obiekt botaniki."
+    },
+    "brzoskiew@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dawna nazwa rośliny uprawnej."
+    },
+    "bukszpan@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Krzew ozdobny."
+    },
+    "bób@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina strączkowa i jej nasiona."
+    },
+    "chmiel:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pnącze uprawiane do piwa."
+    },
+    "chwast@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Niechciana roślina w uprawie."
+    },
+    "cynia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kwiat ogrodowy."
+    },
+    "czernica@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Jako borówka czarna to nazwa regionalna, częściej kojarzy się z kaczką."
+    },
+    "damaszka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Odmiana śliwy uprawianej w sadach."
+    },
+    "dymka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Cebula dymka to znane pojęcie ogrodnicze."
+    },
+    "dziad:Sm1~zie@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Roślinne znaczenie słowa dziad jest rzadkie i ludowe."
+    },
+    "fasola@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina strączkowa."
+    },
+    "floks@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kwiat ogrodowy."
+    },
+    "gambir@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tropikalna roślina dostarczająca garbników."
+    },
+    "gawia@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Gracz zna gawię raczej jako ptaka, roślinne znaczenie jest rzadkie."
+    },
+    "gołka@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Roślinne znaczenie słowa jest rzadkie i mało znane."
+    },
+    "gryka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina uprawna, z której robi się kaszę."
+    },
+    "guawa@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tropikalne drzewo owocowe."
+    },
+    "imbir@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina przyprawowa."
+    },
+    "iwa@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gatunek wierzby."
+    },
+    "jakobinka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Inna nazwa kwiatu cynii."
+    },
+    "jarząb:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Drzewo, jarzębina."
+    },
+    "jawor@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gatunek klonu."
+    },
+    "jonatan@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Odmiana jabłoni."
+    },
+    "kabaczek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Warzywo z rodziny dyniowatych."
+    },
+    "kaktus@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Znana roślina."
+    },
+    "kalcyfob@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Termin botaniczny dla roślin unikających wapnia."
+    },
+    "kampanula@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Łacińska nazwa dzwonka, rośliny ozdobnej."
+    },
+    "kanarecznik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Trawa, nazwa rośliny."
+    },
+    "kitnia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj trawy."
+    },
+    "koper@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina przyprawowa."
+    },
+    "kora@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zewnętrzna warstwa pnia drzewa."
+    },
+    "kotnik@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Mało znana nazwa, roślinne znaczenie rzadkie."
+    },
+    "krowiziół@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa rośliny z kwalifikatorem botanicznym."
+    },
+    "kryptofit@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Termin botaniczny określający formę życiową roślin."
+    },
+    "krzywak@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Związek z roślinami tylko w rzadkim znaczeniu."
+    },
+    "kukurydza@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina uprawna."
+    },
+    "kłoda@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gruby kawałek pnia drzewa."
+    },
+    "lepczyca@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa rośliny zielnej."
+    },
+    "listek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Mały liść."
+    },
+    "lotos@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina wodna."
+    },
+    "lubaszka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa rośliny."
+    },
+    "makadamia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Drzewo dające orzechy."
+    },
+    "migdał@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Drzewo migdałowe i jego nasiono."
+    },
+    "milin@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pnącze ozdobne."
+    },
+    "mlecz:Sm2.m3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Popularna nazwa mniszka."
+    },
+    "mokrzycznik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa rośliny."
+    },
+    "mąkinia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gatunek jarzębu."
+    },
+    "nadbrodnik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj paproci."
+    },
+    "nektarynka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Odmiana brzoskwini i jej owoc."
+    },
+    "ocel@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Roślinne znaczenie tego słowa jest rzadkie i mało znane."
+    },
+    "odowocować@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Czynność ogrodnicza związana z owocowaniem."
+    },
+    "orlik:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Orlik to znany kwiat ogrodowy."
+    },
+    "orzechowiec:Sm2@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Jako drzewo orzechowe to nazwa rzadka."
+    },
+    "ozimina@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zboże siane jesienią."
+    },
+    "pestczak@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj drzewa iglastego."
+    },
+    "pistacja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Drzewo i jego orzech."
+    },
+    "pochrzynowate@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzina roślin."
+    },
+    "pomydło@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa rośliny z kwalifikatorem botanicznym."
+    },
+    "por:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Warzywo."
+    },
+    "połonicznik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina zielna."
+    },
+    "pszeniec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina zielna."
+    },
+    "rotacznica@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Nazwa mało znana, związek z roślinami niepewny."
+    },
+    "roślęża@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa rośliny z kwalifikatorem botanicznym."
+    },
+    "rukola@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina sałatowa."
+    },
+    "rumian@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina podobna do rumianku."
+    },
+    "rzemienica@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa rośliny lub glonu z kwalifikatorem botanicznym."
+    },
+    "rzepień@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina zielna."
+    },
+    "rzodkiewka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Warzywo."
+    },
+    "sadzeniak@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Bulwa ziemniaka przeznaczona do sadzenia."
+    },
+    "sadzulec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Termin ogrodniczy związany z uprawą."
+    },
+    "salwinia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Paproć wodna."
+    },
+    "saradela@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina pastewna."
+    },
+    "smotrawa@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa rośliny."
+    },
+    "sosręb@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Słowo kojarzy się z belką, roślinne znaczenie rzadkie."
+    },
+    "sporysz@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "To grzyb pasożytujący na zbożach, a nie roślina."
+    },
+    "stręp@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Słowo mało znane, związek z roślinami niepewny."
+    },
+    "szparag@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Warzywo."
+    },
+    "słoniorośl@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazwa rośliny."
+    },
+    "słonorośl@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina rosnąca na glebach zasolonych."
+    },
+    "trzykrotka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina doniczkowa."
+    },
+    "ukwap@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina zielna."
+    },
+    "wargowe@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dawna nazwa rodziny roślin jasnotowatych."
+    },
+    "wieczornik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina ozdobna."
+    },
+    "wilczomlecz@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rodzaj roślin."
+    },
+    "wiązar@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Zwykle to element konstrukcji dachu, roślinne znaczenie rzadkie."
+    },
+    "wrotycz@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina zielna."
+    },
+    "wężymord@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina zielna."
+    },
+    "złoć@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roślina cebulowa."
+    }
+  }
+}

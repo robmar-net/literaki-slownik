@@ -1,0 +1,406 @@
+{
+  "reviewer": "agent (Claude)",
+  "reviewed_at": "2026-10-29T09:57:15Z",
+  "oceny": {
+    "amfisben@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Amfisbena to gad beznogi, nazwa gatunku zwierzęcia."
+    },
+    "ariel@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ariel to nazwa zwierzęcia (ptak/gazela) w zoologii."
+    },
+    "bass@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Bass to ryba słodkowodna, nazwa zwierzęcia."
+    },
+    "birkut:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Birkut to orzeł przedni, ptak drapieżny."
+    },
+    "bombardier:Sm1@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Zwykle to żołnierz; związek ze zwierzęciem tylko w rzadkiej nazwie chrząszcza."
+    },
+    "brzana@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Brzana to ryba karpiowata."
+    },
+    "bydlak:Sm1@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "To głównie obelga o człowieku; jako zwierzę znaczenie potoczne i rzadkie."
+    },
+    "bąblowiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Bąblowiec to tasiemiec, pasożytnicze zwierzę."
+    },
+    "ceik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ceik to nazwa zwierzęcia z kwalifikatorem zoologicznym."
+    },
+    "cyklop:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Cyklop w tym znaczeniu to drobny skorupiak (oczlik)."
+    },
+    "cyrulik@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Zwykle to dawny felczer; związek ze zwierzęciem tylko w rzadkim znaczeniu."
+    },
+    "czepiak@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Czepiak to małpa szerokonosa."
+    },
+    "czernica@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Czernica to gatunek kaczki."
+    },
+    "darniówka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Darniówka to gryzoń z rodziny nornikowatych."
+    },
+    "dingo@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dingo to dziki pies australijski."
+    },
+    "dobijak:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dobijak to zoologiczna nazwa zwierzęcia."
+    },
+    "dog@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dog to rasa psa."
+    },
+    "dromaderka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dromaderka to samica wielbłąda jednogarbnego."
+    },
+    "dzioborożec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dzioborożec to ptak tropikalny."
+    },
+    "ektotermiczny@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ektotermiczny opisuje zwierzęta zmiennocieplne."
+    },
+    "gazela@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gazela to antylopa, znane zwierzę."
+    },
+    "gibbon@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gibbon to małpa człekokształtna."
+    },
+    "grabarz:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Grabarz w tym znaczeniu to chrząszcz."
+    },
+    "gąsior:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gąsior to samiec gęsi."
+    },
+    "głuptak:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Głuptak to ptak morski."
+    },
+    "husky@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Husky to rasa psa."
+    },
+    "hydra@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Hydra w tym znaczeniu to stułbia, jamochłon."
+    },
+    "inochodziec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Inochodziec to koń poruszający się inochodem."
+    },
+    "jeż:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Jeż to powszechnie znane zwierzę."
+    },
+    "karakuł@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Karakuł to rasa owiec."
+    },
+    "karmazyn:Sm1@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Zwykle to kolor lub szlachcic; jako ryba znaczenie rzadkie."
+    },
+    "kiang@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kiang to dziki osioł tybetański."
+    },
+    "kiełbik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kiełbik to mała ryba."
+    },
+    "kochinchina@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kochinchina to rasa kur, termin hodowlany."
+    },
+    "kolcogłów@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kolcogłów to nazwa zwierzęcia z kwalifikatorem zoologicznym."
+    },
+    "konchina@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Konchina to substancja z budowy muszli mięczaków."
+    },
+    "konchiolina@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Konchiolina to białko budujące muszle mięczaków."
+    },
+    "kos@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kos to pospolity ptak śpiewający."
+    },
+    "kotawiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kotawiec to afrykańska małpa."
+    },
+    "kotik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kotik to ssak płetwonogi, kot morski."
+    },
+    "kret:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kret to powszechnie znane zwierzę."
+    },
+    "krzyżak:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Krzyżak w tym znaczeniu to pająk."
+    },
+    "kręgowiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kręgowiec to grupa systematyczna zwierząt."
+    },
+    "kurczaczek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kurczaczek to zdrobnienie od kurczęcia, młodego ptaka."
+    },
+    "kłopotek:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kłopotek to nazwa zwierzęcia w rodzaju zwierzęcym."
+    },
+    "lelek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Lelek to ptak nocny."
+    },
+    "lemur@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Lemur to ssak naczelny z Madagaskaru."
+    },
+    "madrepora@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Madrepora to koral, zwierzę morskie."
+    },
+    "matołek:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Matołek w tym znaczeniu to nazwa zwierzęcia z kwalifikatorem zoologicznym."
+    },
+    "miś@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Miś to potoczna nazwa niedźwiedzia."
+    },
+    "mustang@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Mustang to dziki koń."
+    },
+    "nazimek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nazimek to młoda świnia, termin hodowlany."
+    },
+    "normand@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Normand to rasa zwierząt gospodarskich."
+    },
+    "nornik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nornik to gryzoń."
+    },
+    "norowiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Norowiec to gryzoń."
+    },
+    "numulit@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Numulit to wymarła otwornica, organizm kopalny."
+    },
+    "ochotka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ochotka to owad, komar bez żądła."
+    },
+    "octówka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Octówka to muszka owocowa."
+    },
+    "okoniopstrąg@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Okoniopstrąg to ryba."
+    },
+    "orlik:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Orlik w tym znaczeniu to ptak drapieżny."
+    },
+    "orłosęp@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Orłosęp to ptak drapieżny."
+    },
+    "oślica@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Oślica to samica osła."
+    },
+    "patyczak@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Patyczak to owad."
+    },
+    "pokląskwa@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pokląskwa to ptak śpiewający."
+    },
+    "prosiątko@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Prosiątko to młode świni."
+    },
+    "pteranodon@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pteranodon to wymarły gad latający."
+    },
+    "pumi@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pumi to rasa psa."
+    },
+    "pustelnik:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pustelnik w tym znaczeniu to krab."
+    },
+    "płaszczyniec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Płaszczyniec to nazwa zwierzęcia z kwalifikatorem zoologicznym."
+    },
+    "ramforynch@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ramforynch to wymarły gad latający."
+    },
+    "rozgwiazda@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rozgwiazda to szkarłupień, znane zwierzę morskie."
+    },
+    "roztocz:Sf@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roztocz to drobny pajęczak."
+    },
+    "rynnica@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rynnica to owad, chrząszcz."
+    },
+    "salonowiec:Sm2@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Zwykle o człowieku; o piesku salonowym tylko przenośnie."
+    },
+    "skoczek:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Skoczek w tym znaczeniu to gryzoń."
+    },
+    "smoczyca@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Smok to stworzenie baśniowe, nie zwierzę w zwykłym sensie."
+    },
+    "smolik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Smolik to owad, chrząszcz."
+    },
+    "sorek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sorek to owad."
+    },
+    "strzykwa@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Strzykwa to szkarłupień morski."
+    },
+    "tarantula@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tarantula to duży pająk."
+    },
+    "terocefal@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Terocefal to wymarły gad ssakokształtny."
+    },
+    "tuatara@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tuatara to gad z Nowej Zelandii."
+    },
+    "tłuszczak:Sm2.m3@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Zwykle to guz tłuszczowy; jako zwierzę znaczenie rzadkie."
+    },
+    "walconóg@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Walconóg to wij, bezkręgowiec."
+    },
+    "watussi@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Watussi to rasa bydła."
+    },
+    "welonka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Welonka to odmiana złotej rybki."
+    },
+    "wieprz@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wieprz to samiec świni."
+    },
+    "wszoł@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wszoł to pasożytniczy owad ptaków."
+    },
+    "wystrój:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wystrój w tym znaczeniu to owad z kwalifikatorem zoologicznym."
+    },
+    "włosogłówka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Włosogłówka to pasożytniczy nicień."
+    },
+    "zadzierka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zadzierka to nazwa zwierzęcia w plWordNecie."
+    },
+    "zagniazdnik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zagniazdnik to ptak opuszczający gniazdo wcześnie, termin zoologiczny."
+    },
+    "zwójka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zwójka to motyl."
+    },
+    "łaskun@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Łaskun to drapieżny ssak."
+    },
+    "ślepuch:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ślepuch to zwierzę z kwalifikatorem zoologicznym."
+    },
+    "śliz:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Śliz to mała ryba."
+    },
+    "świergotek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Świergotek to ptak śpiewający."
+    },
+    "świetlik:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Świetlik w tym znaczeniu to owad."
+    },
+    "żarłacz@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Żarłacz to rekin."
+    },
+    "żółtobrzeżek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Żółtobrzeżek to nazwa zwierzęcia z kwalifikatorem zoologicznym."
+    }
+  }
+}

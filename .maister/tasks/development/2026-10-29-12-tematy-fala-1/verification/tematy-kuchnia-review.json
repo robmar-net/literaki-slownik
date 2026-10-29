@@ -1,0 +1,622 @@
+{
+  "agent": {
+    "items": [
+      {
+        "key": "agrest@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Owoc jadalny używany na przetwory i desery.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "antrykot@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kawałek wołowiny i danie z niego.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "armagnac@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Francuski alkohol, czyli napój.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "bananowiec:Sm1@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "To roślina; z kuchnią łączy się tylko przez owoc.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "beaujolais@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Gatunek wina, czyli napój.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "benedyktyn:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "W tym znaczeniu to likier.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "brandy@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Mocny alkohol, napój.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "brzozówka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nalewka lub napój z brzozy.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "bób@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularne jadalne warzywo strączkowe.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "cabernet@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Szczep i gatunek wina.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "canelloni@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Rodzaj makaronu i potrawy włoskiej.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "cheeseburger@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Znana potrawa typu fast food.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "chilli@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ostra przyprawa i papryczka.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "cytoplazma@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "Pojęcie z biologii komórki, bez związku z kuchnią.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "czapati@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Indyjski płaski chleb.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "czwórniak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Rodzaj miodu pitnego.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "cząber@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Zioło używane jako przyprawa.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "drożdże@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Podstawowy produkt do pieczenia ciasta.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "dwuchwytnik@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Nazwa rzadka; związek z naczyniami kuchennymi niepewny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "dymka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Młoda cebula używana w kuchni.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "dziad:Sm1~zie@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Kulinarne znaczenie tego słowa jest rzadkie i mało znane.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "esencja@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Mocny napar herbaty to zwykłe znaczenie kuchenne.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "flaki@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Tradycyjna polska zupa.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "gnocchi@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Włoskie kluski ziemniaczane.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "gorgonzola@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Gatunek sera.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "gołka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Góralski ser wędzony.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "grenadyna@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Syrop do napojów i koktajli.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "grzybek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb jadalny, częsty w potrawach.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "guma@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Guma do żucia to produkt spożywczy.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "gyros@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Greckie danie mięsne.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "gzik:Sm3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Twarożek ze śmietaną, potrawa wielkopolska.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "herbatka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Napój, napar.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "herbatnik:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Rodzaj ciastka.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "hummus@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pasta z ciecierzycy.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "humus:Sm2.m3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "W tym znaczeniu to pasta z ciecierzycy.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "imbir@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularna przyprawa.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "inka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kawa zbożowa, napój.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "jarzębinówka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nalewka z jarzębiny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kafetiera@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Naczynie do parzenia kawy.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kapar:Sm2.m3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pąki kaparów to przyprawa i dodatek.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kebab@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularne danie mięsne.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kieliszek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Naczynie do picia alkoholu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kimchi@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Koreańska kiszona kapusta.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kiper:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Degustator wina, zawód kulinarny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "klin:Sm3@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Tylko potoczne znaczenie alkoholu na kaca.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "krokiet@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Potrawa smażona w panierce.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kruża@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dzban, naczynie na napoje.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kuchnia:S@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Samo słowo tematu, sztuka gotowania.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kukurydza@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Jadalne ziarno i warzywo.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kumberland@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Sos do mięs.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "listek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Listek laurowy to zwykła przyprawa.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "lubaszka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Odmiana śliwki, owoc jadalny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "mamałyga@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Potrawa z mąki kukurydzianej.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "marcepan@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Słodycz z migdałów.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "martini@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wermut i koktajl.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "migdał@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Jadalny orzech, składnik ciast.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "mun@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Grzyb mun używany w kuchni azjatyckiej.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "orzechowiec:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "W tym znaczeniu to ciasto orzechowe.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "paprykarz@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Potrawa, np. paprykarz szczeciński.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "papu@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dziecięce słowo na jedzenie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pascha@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wielkanocny deser z twarogu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "peklówka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Mięso peklowane.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pestkówka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nalewka na pestkach.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pielmieni@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Rosyjskie pierożki.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pieróg@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularna potrawa z ciasta.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pistacja@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Jadalny orzech.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "porto@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Gatunek wina.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "prażonka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Potrawa z ziemniaków.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pulpet@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Klopsik, potrawa mięsna.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "racja@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Racja żywnościowa to porcja jedzenia.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "risotto@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Włoska potrawa z ryżu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "roladka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Mała rolada, potrawa lub ciasto.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "romadur@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Gatunek sera.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rosół@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Klasyczna zupa.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rukola@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Sałata używana w kuchni.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "rzodkiewka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Jadalne warzywo.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sadzeniak@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "Bulwa do sadzenia, pojęcie rolnicze.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "sandwicz:Sm2.m3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kanapka.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sarnina@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Mięso z sarny.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "sałatka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Popularna potrawa.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "skrzydło@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Skrzydełko drobiowe jako mięso.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "soba@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Japoński makaron gryczany.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sos@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dodatek do potraw.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "spirytus@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Alkohol używany do napojów i nalewek.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "suflaki@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Greckie szaszłyki.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "suflet@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Spulchniona potrawa zapiekana.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "szabelkówka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nazwa kulinarna, rodzaj nalewki.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sznycel@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kotlet mięsny.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "szparag@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Jadalne warzywo.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "tahina@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pasta sezamowa.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "tapenada@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pasta z oliwek.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "tapenade@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pasta z oliwek.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "tofu@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Produkt z soi.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "tortownica@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Forma do pieczenia tortów.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "trójniak@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Rodzaj miodu pitnego.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "tyrozynaza@sgjp-20260823",
+        "ocena": "nie",
+        "powod": "Enzym, pojęcie biochemiczne.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "udko@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Część kurczaka podawana jako mięso.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "wasabi@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ostra japońska przyprawa.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "wężymord@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Roślina; jej korzeń jako warzywo jest mało znany.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "ćwikła@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Buraczki z chrzanem.",
+        "warstwa": "T1"
+      }
+    ],
+    "reviewed_at": "2026-10-29T09:56:55Z",
+    "reviewer": "agent (Claude)"
+  },
+  "agent_sha256": "c75d129da1b5e0b42dbee824a699ca5c94d39168f5e044dbcdeda0f93a9089e4",
+  "canonical_index_sha256": "19832c8f5d5db75cc757bd2d83cbb0e811fa2dec7eaab763060e96719734aabc",
+  "evidence_sha256": {
+    "KUCHNIA.txt.gz": "eae18756e19149fd75e042b918c7b77acde724c49f71113c656865944a61c9a4",
+    "reports/summary.json": "5f811013d458e938b1b9656814cb533e42b635c4e52848b8835d0ce978162fb1"
+  },
+  "kind": "literaki-tematy-review",
+  "method": "tematy-v2",
+  "operator": null,
+  "sample_sha256": "5e34f134fabd44ea5c4d1a27b0c36f8782e629b11171e2cedf7a0673654f43bd",
+  "schema_version": 1,
+  "sha256sums_sha256": "78438e39c9595a336dda80c8c2b8867cf96418f3b87f5da4b6b303cd218f0fd8",
+  "temat": "kuchnia",
+  "version": "tematy-quality-v1"
+}

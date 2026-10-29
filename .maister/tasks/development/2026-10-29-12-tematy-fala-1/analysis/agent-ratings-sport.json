@@ -1,0 +1,406 @@
+{
+  "reviewer": "agent (Claude)",
+  "reviewed_at": "2026-10-29T09:57:10Z",
+  "oceny": {
+    "bandy@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Bandy to dyscyplina, odmiana hokeja na lodzie."
+    },
+    "banko@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Banko to gra hazardowa, a gry należą do sportu."
+    },
+    "basket@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Basket to potoczna nazwa koszykówki."
+    },
+    "bejsbolista@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Bejsbolista to zawodnik uprawiający bejsbol."
+    },
+    "bezik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Bezik to gra karciana."
+    },
+    "bierka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Bierka to element gry w bierki i figura szachowa."
+    },
+    "blokada@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Blokada to zwykłe zagranie w siatkówce i innych grach."
+    },
+    "bobsleje@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Bobsleje to dyscyplina sportów zimowych."
+    },
+    "bombardier:Sm1@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Bombardierem nazywa się skutecznego strzelca bramek."
+    },
+    "bridż@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "To wariant zapisu nazwy brydża, gry karcianej."
+    },
+    "brydż@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Brydż to popularna gra karciana uprawiana sportowo."
+    },
+    "brydżorama@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Brydżorama to tablica do pokazywania rozdań brydżowych."
+    },
+    "centra@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Centra to dośrodkowanie piłki w piłce nożnej."
+    },
+    "chłopek:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Chłopek to karta (walet) w grach karcianych."
+    },
+    "czwórbój@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Czwórbój to konkurencja wielobojowa."
+    },
+    "deskarka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Deskarka to zawodniczka jeżdżąca na desce."
+    },
+    "dograna@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Związek ze sportem jest tylko w rzadkim, specjalistycznym użyciu."
+    },
+    "dribler@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dribler to zawodnik dobrze dryblujący piłkę."
+    },
+    "dryblować@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dryblowanie to podstawowa czynność w grach z piłką."
+    },
+    "dureń:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dureń to gra karciana."
+    },
+    "dyskobol@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dyskobol to miotacz dyskiem."
+    },
+    "dżudo@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Dżudo to sztuka walki i dyscyplina olimpijska."
+    },
+    "ekwilibrysta@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Ekwilibrysta kojarzy się bardziej z cyrkiem niż ze sportem."
+    },
+    "fit:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Fit to termin brydżowy oznaczający dopasowanie w kolorze."
+    },
+    "ful:S@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Ful to układ kart w pokerze."
+    },
+    "gem@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gem to część seta w tenisie."
+    },
+    "gigant:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gigant to slalom gigant w narciarstwie alpejskim."
+    },
+    "gimnastyka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Gimnastyka to dyscyplina sportowa i ćwiczenia ruchowe."
+    },
+    "golf:Sm3~u@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Golf to dyscyplina sportowa."
+    },
+    "hetman:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Hetman to figura szachowa."
+    },
+    "himalaizm@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Himalaizm to wspinaczka wysokogórska, dyscyplina sportowa."
+    },
+    "jeździectwo@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Jeździectwo to dyscyplina sportowa."
+    },
+    "judo@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Judo to sztuka walki i dyscyplina olimpijska."
+    },
+    "kanadyjkarz@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kanadyjkarz to zawodnik pływający kanadyjką."
+    },
+    "kendo@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kendo to japońska sztuka walki uprawiana sportowo."
+    },
+    "kickbokser@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kickbokser to zawodnik uprawiający kickboxing."
+    },
+    "kierki@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kierki to gra karciana."
+    },
+    "kitesurfer@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kitesurfer to osoba uprawiająca kitesurfing."
+    },
+    "koksiarz@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Koksiarz to potoczne określenie bywalca siłowni."
+    },
+    "koksownik:Sm3@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Jako rzecz to piec na koks, a sportowy sens jest tylko slangowy."
+    },
+    "krokietować@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Krokietować to grać w krokieta lub wykonać jego zagranie."
+    },
+    "kros@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kros to bieg przełajowy."
+    },
+    "krykiet@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Krykiet to dyscyplina sportowa."
+    },
+    "kwalifikacje@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Kwalifikacje to eliminacje przed zawodami."
+    },
+    "lansada@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Lansada to figura w jeździectwie."
+    },
+    "liftować@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Liftować to podkręcać piłkę w tenisie."
+    },
+    "lonżować@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Lonżowanie to praca z koniem w jeździectwie."
+    },
+    "marszobieg@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Marszobieg to forma treningu biegowego."
+    },
+    "matador:Sm2@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Karciane znaczenie jest rzadkie, a zwykły sens to torreador."
+    },
+    "mistrzostwa@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Mistrzostwa to zawody sportowe."
+    },
+    "nunczaku@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nunczaku to broń używana w sztukach walki."
+    },
+    "nurkowanie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Nurkowanie to dyscyplina i rekreacja sportowa."
+    },
+    "orlik:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Orlik to popularne boisko sportowe."
+    },
+    "palant:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Palant to gra zespołowa z kijem i piłką."
+    },
+    "paragliding@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Paragliding to sport lotniczy."
+    },
+    "pas:Sm3~s~u@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pas to zwykła odzywka w brydżu."
+    },
+    "pasiak@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Związek ze sportem jest tylko w rzadkim, potocznym znaczeniu."
+    },
+    "pionek:Sm2.m3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pionek to figura w szachach i grach planszowych."
+    },
+    "pięciobój@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Pięciobój to konkurencja wielobojowa."
+    },
+    "podcięcie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Podcięcie to zagranie lub faul w sporcie."
+    },
+    "poręcze:Sn_pt@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Poręcze to przyrząd gimnastyczny."
+    },
+    "prosty:S@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Prosty to rodzaj ciosu w boksie."
+    },
+    "przedmecz@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przedmecz to mecz rozgrywany przed głównym spotkaniem."
+    },
+    "przedryblować@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Przedryblować to minąć rywala dryblingiem."
+    },
+    "rakietka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rakietka to sprzęt do tenisa stołowego."
+    },
+    "roberek@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Roberek to rozgrywka w brydżu."
+    },
+    "rozgrywający@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Rozgrywający to pozycja zawodnika w grach zespołowych."
+    },
+    "saneczkarstwo@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Saneczkarstwo to dyscyplina sportów zimowych."
+    },
+    "sekwens@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sekwens to układ kart w kolejności."
+    },
+    "setbol@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Setbol to piłka setowa w tenisie i siatkówce."
+    },
+    "siatkarstwo@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Siatkarstwo to dyscyplina sportowa."
+    },
+    "singel:Sm1@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Jako osoba singel to zwykle ktoś samotny, a sportowy sens jest rzadki."
+    },
+    "skeet@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Skeet to konkurencja strzelectwa sportowego."
+    },
+    "skit@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Skit to konkurencja strzelectwa sportowego."
+    },
+    "skoczek:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Skoczek to figura szachowa i zawodnik skaczący."
+    },
+    "slalom@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Slalom to konkurencja narciarska."
+    },
+    "sportsmen@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sportsmen to osoba uprawiająca sport."
+    },
+    "starter:Sm1@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Starter to sędzia dający sygnał startu."
+    },
+    "stoper:Sm1@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Stoper to środkowy obrońca w piłce nożnej."
+    },
+    "stretching@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Stretching to ćwiczenia rozciągające."
+    },
+    "surfing@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Surfing to dyscyplina sportowa."
+    },
+    "szermierz@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Szermierz to zawodnik uprawiający szermierkę."
+    },
+    "sześciodniówka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sześciodniówka to wyścig kolarski torowy."
+    },
+    "szpadzista@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Szpadzista to szermierz walczący szpadą."
+    },
+    "sztos:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Sztos to dawna gra hazardowa w karty."
+    },
+    "taekwondo@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Taekwondo to sztuka walki i dyscyplina olimpijska."
+    },
+    "taternictwo@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Taternictwo to wspinaczka górska."
+    },
+    "trefl@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Trefl to kolor w kartach."
+    },
+    "trójbój@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Trójbój to konkurencja wielobojowa."
+    },
+    "tyczka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tyczka to sprzęt do skoku o tyczce."
+    },
+    "tysiąc:Sm2@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Tysiąc to gra karciana."
+    },
+    "uniwersjada@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Uniwersjada to zawody sportowe studentów."
+    },
+    "wielobój@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Wielobój to konkurencja lekkoatletyczna."
+    },
+    "windsurfer@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Windsurfer to osoba uprawiająca windsurfing."
+    },
+    "woltyżerka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Woltyżerka to dyscyplina jeździecka."
+    },
+    "wózkować@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "To rzadki, specjalistyczny termin sportowy."
+    },
+    "zbijak@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Zbijak to gra ruchowa z piłką."
+    },
+    "łucznik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Łucznik to zawodnik strzelający z łuku."
+    },
+    "łącznik:Sm1@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "Łącznik to pozycja zawodnika w piłce nożnej."
+    },
+    "łącznik:Sm3@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "Jako rzecz to element łączący, a sportowy sens dotyczy osoby."
+    }
+  }
+}
