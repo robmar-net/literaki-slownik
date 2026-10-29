@@ -126,6 +126,49 @@ identyfikator analizy, grupę filtra i dowód użycia. NO_PUBLISHED_EVIDENCE nie
 Kontroler jest niezależny od buildera; odtwarza decyzje z bazy, a nie tylko sprawdza sumy.
 Przegląd musi obejmować całą próbkę, odpowiadać sumom pakietu i nie mieć nierozstrzygniętych pozycji.
 
+## TEMATY (`tematy`)
+
+Metoda `tematy-v1`: [ADR-010](../adr/ADR-010-tematy-v1.md), źródła: [ADR-011](../adr/ADR-011-zrodla-slowosiec-iate.md).
+Pilotaż #11, temat `morze`. Lista to leksemy SGJP ∩ STANDARD w trzech rozłącznych warstwach:
+T1 etykiety SGJP, T2 Słowosieć 4.5, T3 IATE 2019. Nie zmienia słownika stołu.
+
+Źródła pobieramy osobno, z siecią. Budowa sieci nie używa.
+
+```sh
+python3 scripts/fetch_tematy_sources.py iate        # → cache/iate/IATE_download.zip
+python3 scripts/fetch_tematy_sources.py plwordnet   # → cache/plwordnet/wordnet_work_4_5.zip
+python3 -I scripts/build_plwordnet_db.py --zip cache/plwordnet/wordnet_work_4_5.zip \
+  --output cache/plwordnet/plwn45-tematy.sqlite
+python3 -m literaki_slownik tematy --manifest config/generator/tematy-sources.json \
+  --config config/generator/tematy.json --topic config/generator/tematy/morze.json \
+  --output-dir data/work/tematy-nowy [--json]
+python3 scripts/check_tematy_package.py ...          # niezależny checker, opcja --review
+python3 scripts/tematy_review.py strona|zapisz ...   # przegląd R2
+```
+
+- `fetch_tematy_sources.py`: `curl -fL` do pliku tymczasowego, potem przeniesienie bez nadpisania.
+  Wypisuje rekord JSON (`url`, `retrieved_at`, `sha256`, `bytes`, `path`; dla IATE też
+  `last_modified` i `member`). Zip Słowosieci musi mieć przypięty hash. Kod 1: błąd pobrania lub hasha.
+- `build_plwordnet_db.py`: pochodna SQLite ze zrzutu w zipie. Tylko tabele i kolumny z listy
+  dozwolonych, bez danych redaktorów; relacje `valid=1`; tabela `meta` wiąże ją z zipem.
+  Dwa uruchomienia dają ten sam plik. Kod 1: cel istnieje, błąd zrzutu albo nazw relacji.
+- `tematy`: `--manifest` przypina wejścia (`tematy-sources.json`), `--config` metodę
+  (`tematy.json`), `--topic` temat (`tematy/morze.json`), `--output-dir` nowy katalog poza wejściami.
+  Każdy czytany plik trafia do rejestru z hashem; przed przeniesieniem budowa hashuje go ponownie.
+  Kody: 0 pakiet BUILT; 2 konfiguracja, nieznane pole albo cel w wejściach; 3 brak lub niezgodny pin
+  (także manifest wydania, POP, POP00, `meta` pochodnej); 4 dane albo istniejący cel;
+  5 przebieg nie FROZEN albo zmiana wejścia w trakcie budowy.
+- `check_tematy_package.py`: nie importuje `literaki_slownik`. Sprawdza sumy, manifest,
+  `MORZE.txt` ⊆ STANDARD, TSV wobec TXT, rozłączne warstwy, przecięcia z POP i POP00.
+  Z `--review` liczy trafność, zgodność, kappę, test 37 słów i werdykt ([jakosc.md](jakosc.md#próbki-tematy-tematy-quality-v1)).
+- `tematy_review.py`: `strona` robi stronę HTML z pozycjami operatora (bez ocen agenta; odmawia bez
+  hasha ocen agenta); `zapisz` łączy JSON operatora z plikiem przeglądu i sprawdza klucze i hashe.
+
+Pakiet BUILT (13 plików, tylko do odczytu): `MORZE.txt.gz`, `MORZE.tsv.gz`, `tematy/morze.json`,
+`method.json`, `reports/{summary.json,raport.md,sample.json,review-template.json}`,
+`ATTRIBUTIONS.md`, `LIMITATIONS.md`, `TERMS.md`, `release-manifest.json`, `SHA256SUMS`.
+Opis plików: [raporty.md](raporty.md#raporty-tematy). `explain` nie ma wariantu tematy.
+
 ## Indeks morfologii SGJP (`morph-index`)
 
 Dla serwera Literaki (#1862): forma BROAD → analizy z eksportu SGJP (lemat, tag, kwalifikatory). Uruchamiany ręcznie; wynik trafia do `lexicons/sgjpindex/` w repo serwera.

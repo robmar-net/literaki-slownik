@@ -55,3 +55,19 @@ Przykłady diagnostyczne zatwierdzonego planu są wyłączone z populacji niezal
 Puste warstwy pozostają EMPTY_NOT_COVERAGE. Automatyczna próbka ma UNREVIEWED.
 `scripts/check_pop00_package.py --review` sprawdza pełną próbkę, powody z bazy i hashe przeglądu.
 Przegląd technicznej zgodności z polityką nie dowodzi rozpoznawalności przez graczy.
+
+## Próbki TEMATY (`tematy-quality-v1`)
+
+- Seed `literaki-slownik-tematy-v1`, ten sam algorytm SHA256. Warstwy: T1, T2, T3; klucze to leksemy.
+- Próba agenta: `min(50, N)` na warstwę (`quality.sample_strata`). Operator: pierwsze `min(30, N)`
+  z próby agenta w kolejności rangi (`operator_per_stratum` w `tematy.json`). Mała warstwa: cała.
+- Skala: tak / nie / niepewne. Trafność warstwy = „tak” / N, gdzie N to rzeczywista liczba ocen.
+  „niepewne” nie jest ani „tak”, ani „nie”.
+- Progi (udziały, dokładne ułamki): test 37 słów ≥ 0,70 (wynik całości); T1 „tak” ≥ 0,90;
+  T2 „tak” ≥ 2/3 i „nie” ≤ 0,10; T3 „tak” ≥ 2/3; zgodność ≥ 0,80.
+- Zgodność: odsetek identycznych ocen na pozycjach ocenionych przez obu. Kappa Cohena na tych samych
+  pozycjach, 3 kategorie.
+- Kolejność: agent ocenia wszystkie pozycje, hash jego ocen trafia do pliku przeglądu przed stroną
+  operatora. Strona nie pokazuje ocen agenta.
+- Budowa daje tylko werdykt `dalej` albo `popraw` z testu 37 słów; reszta czeka na przegląd.
+  `scripts/check_tematy_package.py --review` liczy werdykt z ocen ([cli.md](cli.md#tematy-tematy)).

@@ -7,7 +7,7 @@
 
 ## Key Decisions
 - **Gdzie:** wiki to osobne repozytorium `robmar-net/literaki-slownik.wiki`. Lokalnie klonujemy je obok projektu: `~/Projects/Literaki/wiki-literaki-slownik` (katalog pasuje do wzorca `/wiki-*/` w `.gitignore` workspace).
-- **Strony:** `Home`, `Slownik-BROAD`, `Slownik-STANDARD`, `Slownik-POP`, `Slownik-POP0`, `Slownik-POP00`, `Boty-na-mniejszych-slownikach`, `Porownanie-z-SJP.pl`, `Brakujace-slowa-SJP.pl`, `Slowa-spoza-SJP.pl`, `Historia-zmian`, `_Sidebar`. Nowy rodzaj słownika dostaje nową stronę `Slownik-<NAZWA>` z tym samym układem.
+- **Strony:** `Home`, `Slownik-BROAD`, `Slownik-STANDARD`, `Slownik-POP`, `Slownik-POP0`, `Slownik-POP00`, `Slownik-TEMATY`, `Boty-na-mniejszych-slownikach`, `Porownanie-z-SJP.pl`, `Brakujace-slowa-SJP.pl`, `Slowa-spoza-SJP.pl`, `Historia-zmian`, `_Sidebar`. Nowy rodzaj słownika dostaje nową stronę `Slownik-<NAZWA>` z tym samym układem.
 - **Układ strony słownika:**
   - cel w 1–2 zdaniach;
   - stan: liczba słów, wersja polityki i link do pobrania albo „jeszcze niewydany”;
@@ -70,3 +70,10 @@
 - Przykłady sprawdzaj przez `explain --variant pop00 --pop00-dir <pakiet>`.
 - Stan BUILT i przegląd techniczny nie oznaczają empirycznej kalibracji znajomości graczy.
 - Przy gotowym pakiecie aktualizuj POP00, Home, POP0, _Sidebar i historię; odnośnik pobrania dodaj po odbiorze wydania.
+
+## TEMATY
+- Strona `Slownik-TEMATY` ma „W przygotowaniu” do wydania, bez linku pobrania. Polityka: [ADR-010](adr/ADR-010-tematy-v1.md), źródła: [ADR-011](adr/ADR-011-zrodla-slowosiec-iate.md).
+- Źródło liczb: `counts.morze` w `release-manifest.json` pakietu i `reports/summary.json`. Przy liczbach podaj wersję tematu, datę i stan BUILT.
+- Przykłady sprawdzaj w `MORZE.tsv.gz` pakietu (`gzip -dc MORZE.tsv.gz | grep`), bo `explain` nie ma wariantu tematy. Przykład „jest w temacie” musi mieć wiersz w TSV.
+- Tabela źródeł na `Home` ma wiersze Słowosieć 4.5 i IATE (2019); ich zmiana zmienia też ten wiersz.
+- Przy gotowym pakiecie aktualizuj TEMATY, Home, STANDARD, _Sidebar i historię. Po wydaniu usuń „W przygotowaniu” na wszystkich stronach.

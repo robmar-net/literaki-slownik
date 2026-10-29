@@ -81,3 +81,30 @@ Pokrycie ma dwa jawne mianowniki: opublikowane małoliterowe tokeny KWJP orth/al
 oraz wszystkie opublikowane małoliterowe tokeny tej listy. Nie jest miarą znajomości ani grywalności.
 Nieobecność w KWJP ma NO_PUBLISHED_EVIDENCE, bez imputacji zera. Brak analizy albo utrata
 całego leksemu jest błędem budowy. Szczegóły polityki: [ADR-009](../adr/ADR-009-pop00-v1.md).
+
+## Raporty TEMATY
+
+Metoda `tematy-v1`, [ADR-010](../adr/ADR-010-tematy-v1.md). Pliki pakietu:
+- `MORZE.txt.gz`: formy tematu ∩ STANDARD, posortowane, gzip bez nazwy i czasu.
+- `MORZE.tsv.gz`: wiersz na leksem; kolumny `klucz`, `lemat`, `czesci_mowy`, `warstwa`, `zrodla`,
+  `znaczenie`, `wieloznaczny`, `formy` (liczba form). Warstwa to najniższa z T1 < T2 < T3, źródła to wszystkie.
+- `tematy/morze.json`, `method.json`: kopia tematu i metody.
+- `reports/summary.json` i `reports/raport.md` (te same liczby, tekst dla człowieka).
+- `reports/sample.json`, `reports/review-template.json`: próba R2 ([jakosc.md](jakosc.md#próbki-tematy-tematy-quality-v1)).
+- `ATTRIBUTIONS.md` (plik pakietu POP plus Słowosieć i IATE), `LIMITATIONS.md`, `TERMS.md`.
+- `release-manifest.json` (`literaki-tematy-manifest`, `status: BUILT`, `counts.morze`, `overlap`, `files`) i `SHA256SUMS`.
+
+Pola `summary.json`:
+- `liczby`: kandydaci, wpisy, formy, `warstwy` T1/T2/T3.
+- `przeciecia`: `leksemy` i `formy`, dla T1, T2, T3 i `razem`: `temat`, `pop` i `pop00` (`liczba`, `procent`
+  względem tematu). Leksem w POP00 = członek POP0; forma = napis z `POP.txt.gz` albo `POP00.txt.gz`.
+- `diagnostyka`: przed ∩ STANDARD; kandydaci, ∩ BROAD, ∩ STANDARD i udziały, na warstwę, w leksemach i formach.
+- `odrzucone`: `BRAK_LEKSEMU` (z podliczbą `ger`), `NIE_JEDNO_SLOWO`, `POZA_BROAD`, `POZA_STANDARD`;
+  liczba i do 10 przykładów na powód i warstwę.
+- `t1`, `t2`, `t3`: atomy SGJP; synsety, sztuczne, jednostki, lematy; liczby haseł IATE według typu i powody odrzuceń.
+- `wieloznaczny`: `tak`/`nie`/`brak_danych`, liczba, procent, 10 przykładów.
+- `slowa_oczywiste`: test 37 słów; do progu idzie `razem`, `T1` i `T1_T2` są diagnostyką.
+- `srodladowe`: żegluga śródlądowa w T3 (`kandydaci_t3` główna miara, `wpisy_t3` dodatkowo).
+- `werdykt`: `automatyczny` (`dalej` albo `popraw`), `niespelnione`, `czeka_na_ocene`. „stop” wybiera tylko operator.
+
+Procenty liczymy z dokładnych ułamków (jedno miejsce); pusty mianownik daje `null`.

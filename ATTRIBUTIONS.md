@@ -74,6 +74,35 @@ Dotyczy pakietów, które używają NKJP (POP, POP0 oraz POP00 dziedziczący wyb
   na miary popularności. Surowego pliku nie redystrybuujemy.
 - Autorzy NKJP i IPI PAN nie popierają tego projektu ani jego wyników. Decyzja: [ADR-006](docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md).
 
+## Słowosieć (plWordNet) 4.5
+
+Dotyczy pakietów TEMATY (warstwa T2). Pełna nota pakietu: [ATTRIBUTIONS-tematy.md](config/generator/tematy-teksty/ATTRIBUTIONS-tematy.md).
+
+- Zasób: Słowosieć 4.5, zrzut `wordnet_work_4_5.zip`
+  (SHA256 `30edc5f85c06408d372a897f1d1ff3d03fa939b8680b176c1f97351f4a72dcbc`), https://clarin-pl.eu/dspace/handle/11321/834.
+- Twórca: Politechnika Wrocławska (Wrocław University of Technology).
+- Licencja: plWordNet License, wzorowana na licencji Princeton WordNet; tekst ze strony
+  https://slowosiec.pl/pl/about, sekcja „Licencja” (dostęp 2026-10-29). Nota: „plWordNet 4.2 © 2020 by
+  Wrocław University of Technology. All rights reserved.”
+- Zastrzeżenie: nota dotyczy wydania 4.2, dane to 4.5. Link licencji z repozytorium zwraca 404, a zip nie ma
+  pliku LICENSE. Przyjmujemy tekst ze strony projektu ([ADR-011](docs/adr/ADR-011-zrodla-slowosiec-iate.md)).
+- Użycie: lematy z domknięcia od korzeni tematu. Pochodna SQLite ma tylko wybrane tabele, bez danych
+  redaktorów. Zrzutu ani pochodnej nie redystrybuujemy.
+- Autorzy Słowosieci i Politechnika Wrocławska nie popierają tego projektu ani jego wyników.
+
+## IATE
+
+Dotyczy pakietów TEMATY (warstwa T3).
+
+- Zasób: IATE, pełny plik pobrania TBX (`IATE_export_26022019.tbx` w `IATE_download.zip`,
+  Last-Modified 30.09.2019, SHA256 `ac50c2a701484f3108eec6aea80ee23b5da0c0a2062fd5cc72790ac57ccf5c6f`),
+  https://iate.europa.eu/em-api/artifacts/full-tbx.
+- Warunki: https://iate.europa.eu/assets/i18n/en/static_pages/iate_dl_conditions.html — wolno kopiować,
+  rozpowszechniać i tworzyć utwory pochodne, także komercyjnie, z podaniem źródła.
+- Atrybucja: Download IATE, European Union, 2019.
+- Użycie: polskie terminy jednowyrazowe (`fullForm`) z dziedzin tematu. Pliku TBX nie redystrybuujemy.
+- Unia Europejska nie popiera tego projektu ani jego wyników.
+
 ## Pozostałe materiały
 
 Oryginalne dokumenty zewnętrzne, cytaty i materiały dowodowe zachowują wskazane przy nich
