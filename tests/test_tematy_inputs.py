@@ -1,12 +1,13 @@
-"""Wejścia TEMATY i rejestr czytanych plików (#11, W3, W6)."""
+"""Wejścia TEMATY i rejestr czytanych plików (#11, W3, W6; #12 W2)."""
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 from urllib.parse import unquote
 
 from literaki_slownik import tematy
-from literaki_slownik.canonical import sha256
+from literaki_slownik.canonical import load_json, sha256
 from literaki_slownik.pop import write_gzip
 from tests.tematy_helpers import inputs_fixture, rewrite
 
@@ -107,6 +108,50 @@ class TematyInputsTest(unittest.TestCase):
                                                            f['manifest'])}, opened)
         self.assertLessEqual(opened, registry)
         self.assertTrue(all(sha256(p) == h for p, h in data['registry'].items()))
+
+
+
+class TematyTopicInputsTest(unittest.TestCase):
+    """#12 W2: IATE tylko przy `t3`; manifest pakietu z użytymi wejściami."""
+
+    def build(self, tmp, **kwargs):
+        f = inputs_fixture(tmp, **kwargs)
+        global OPENED
+        OPENED = set()
+        try:
+            data = tematy.check_inputs(f['manifest'], f['config'], f['topic'])
+            tematy.build_package(f['manifest'], f['config'], f['topic'], Path(tmp)/'pkg')
+        finally:
+            opened, OPENED = OPENED, None
+        return f, data, opened, load_json(Path(tmp)/'pkg/release-manifest.json')
+
+    def test_topic_without_t3_skips_iate(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            f, data, opened, manifest = self.build(tmp, t3=False, temat='zwierzeta')
+            iate = f['paths']['iate'].resolve()
+            self.assertNotIn(iate, set(data['registry']))
+            self.assertNotIn('iate', data['paths'])
+            # Kontrola pozytywna: hak widział bazę; zip IATE nie był otwierany.
+            self.assertIn(f['paths']['database'].resolve(), {p.resolve() for p in opened})
+            self.assertNotIn(iate, {p.resolve() for p in opened})
+            self.assertEqual(set(manifest['inputs']), set(tematy.INPUTS) - {'iate'})
+            self.assertNotIn('iate', manifest)
+            summary = load_json(Path(tmp)/'pkg/reports/summary.json')
+            self.assertEqual(summary['liczby']['warstwy'], {'T1': 0, 'T2': 1, 'T3': 0, 'D': 0})
+            self.assertIsNone(summary['srodladowe'])
+            self.assertTrue((Path(tmp)/'pkg/ZWIERZETA.txt.gz').is_file())
+            with patch.object(tematy, 't3_candidates', side_effect=AssertionError('IATE')) as t3:
+                cands = tematy.candidates(data)
+            t3.assert_not_called()
+            self.assertEqual((cands['t3']['terminy'], cands['t3']['hasla']), ({}, {}))
+
+    def test_topic_with_t3_keeps_iate_block_and_pin(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            f, data, opened, manifest = self.build(tmp)
+            refs = load_json(f['manifest'])['inputs']
+            self.assertEqual(manifest['iate'], {k: refs['iate'][k] for k in ('member', 'last_modified', 'bytes')})
+            self.assertEqual(manifest['inputs'], {k: refs[k]['sha256'] for k in tematy.INPUTS})
+            self.assertIn(f['paths']['iate'].resolve(), set(data['registry']))
 
 
 if __name__ == '__main__':

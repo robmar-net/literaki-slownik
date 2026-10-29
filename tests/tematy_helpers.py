@@ -252,13 +252,34 @@ def _plwordnet_writer():
     return module
 
 
-def inputs_fixture(root, t3=True):
-    """`config_fixture` z prawdziwymi małymi wejściami: przebieg, wydanie, POP, POP00, pochodna, IATE."""
+def second_topic(f, topic_id='zwierzeta'):
+    """Drugi temat bez `t3` (#12 W2): inny `id`, korzeń `kot 1` z małej Słowosieci fikstury.
+
+    Plik `tematy/<id>.json` obok morza; `f['topic']` wskazuje na niego. Jedyny wpis: `kot` (T2).
+    """
+    path = Path(f['root'])/'tematy'/(topic_id + '.json')
+    write_json(path, {'id': topic_id, 'nazwa': 'Temat fikstury', 'wersja': topic_id + '-v1',
+                      't1': {'atomy_sgjp': ['zool.']},
+                      't2': {'korzenie': [{'synset': 500, 'nazwa': 'kot 1'}], 'relacje': [11], 'tryb': 'pelne',
+                             'wykluczenia_poddrzew': []},
+                      'dodatki': [], 'wykluczenia': [], 'diagnostyka': {'slowa_oczywiste': ['kot', 'pies']},
+                      'uwagi': 'fikstura'})
+    f['topic'] = path
+    return f
+
+
+def inputs_fixture(root, t3=True, temat=None):
+    """`config_fixture` z prawdziwymi małymi wejściami: przebieg, wydanie, POP, POP00, pochodna, IATE.
+
+    `temat`: id drugiego tematu (`second_topic`) zamiast morza.
+    """
     import hashlib
     import sqlite3
     from contextlib import closing
     from literaki_slownik.pop import write_gzip
     f = config_fixture(root, t3)
+    if temat is not None:
+        second_topic(f, temat)
     root = f['root']
     run, release, pop, pop00, cache = (root/n for n in ('run', 'release', 'pop', 'pop00', 'cache'))
     for p in (run/'lists', release, pop/'reports', pop00, cache):

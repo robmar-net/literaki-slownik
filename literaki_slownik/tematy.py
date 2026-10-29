@@ -258,8 +258,10 @@ def check_inputs(manifest, config, topic):
     topic_path = _unpinned(data, topic)
     topic = load_topic(topic_path)
     refs = source['inputs']
-    pins = {k: refs[k]['sha256'] for k in INPUTS}
-    paths = {k: register(data, checked_file(manifest.parent, refs[k]), pins[k]) for k in INPUTS}
+    # IATE rejestrujemy i haszujemy tylko dla tematu z `t3` (#12 W2); manifest wejść nadal je przypina.
+    used = tuple(k for k in INPUTS if k != 'iate' or 't3' in topic)
+    pins = {k: refs[k]['sha256'] for k in used}
+    paths = {k: register(data, checked_file(manifest.parent, refs[k]), pins[k]) for k in used}
     run, release = load_json(paths['base_run']), load_json(paths['release_manifest'])
     pop, pop00 = load_json(paths['base_pop']), load_json(paths['base_pop00'])
     if run.get('readiness') != 'FROZEN':
@@ -380,15 +382,24 @@ def t2_candidates(data):
         _check_names(db, t2['korzenie'], 'korzeń')
         _check_names(db, t2['wykluczenia_poddrzew'], 'wykluczenie')
         excluded = {item['synset'] for item in t2['wykluczenia_poddrzew']}
-        reached = {k['synset'] for k in t2['korzenie']} - excluded
-        queue = deque(sorted(reached))
-        while queue:
-            for (child,) in db.execute(f'SELECT CHILD_ID FROM synsetrelation WHERE PARENT_ID = ? '
-                                       f'AND REL_ID IN ({marks}) ORDER BY CHILD_ID', (queue.popleft(), *relations)):
-                if child not in reached and child not in excluded:
-                    reached.add(child)
-                    queue.append(child)
-        synsets = sorted(reached)
+        roots = {k['synset'] for k in t2['korzenie']}
+
+        def closure(skip):
+            reached = roots - skip
+            queue = deque(sorted(reached))
+            while queue:
+                for (child,) in db.execute(f'SELECT CHILD_ID FROM synsetrelation WHERE PARENT_ID = ? '
+                                           f'AND REL_ID IN ({marks}) ORDER BY CHILD_ID', (queue.popleft(), *relations)):
+                    if child not in reached and child not in skip:
+                        reached.add(child)
+                        queue.append(child)
+            return reached
+        # #12 W1: wykluczone poddrzewo musi wychodzić z korzeni (domknięcie bez wykluczeń); inaczej kod 4.
+        unreachable = sorted(excluded - closure(set())) if excluded else []
+        if unreachable:
+            raise GeneratorError('Wykluczenie poddrzewa TEMATY nieosiągalne z korzeni: '
+                                 + ', '.join(map(str, unreachable)), 4)
+        synsets = sorted(closure(excluded))
         abstract, units = set(), []
         for start in range(0, len(synsets), 500):
             chunk = synsets[start:start + 500]
@@ -541,9 +552,16 @@ def _entry(element, iate, terms, entries, rejected, counts, matched):
                              'kody': tuple(sorted(matched))}
 
 
+def _no_t3():
+    """T3 tematu bez `t3` (#12 W2): puste, w kształcie wyniku `t3_candidates`."""
+    return {'terminy': {}, 'hasla': {}, 'odrzucone': {},
+            'liczniki': {'hasla': 0, 'hasla_pl': 0, 'termType': {}, 'status': {}, 'przyjete': 0, 'przyjete_rozne': 0}}
+
+
 def candidates(data):
-    """Kandydaci trzech źródeł; każdy plik z `data['paths']` (rejestr z `check_inputs`)."""
-    return {'sgjp': scan_sgjp(data), 't2': t2_candidates(data), 't3': t3_candidates(data)}
+    """Kandydaci trzech źródeł; każdy plik z `data['paths']` (rejestr z `check_inputs`). IATE tylko przy `t3`."""
+    t3 = t3_candidates(data) if 't3' in data['topic'] else _no_t3()
+    return {'sgjp': scan_sgjp(data), 't2': t2_candidates(data), 't3': t3}
 
 
 # --- Leksemy, warstwy i formy (W7, W8, D15) ---
@@ -651,9 +669,32 @@ def _read_forms(db, data, ids):
     return forms
 
 
+def _exclude(items, sources, rows, klasy):
+    """Wykluczenia lematów (#12 W3): usuwa z `sources` leksemy T1–T3 o `lemma_base` = lemat i z klasą.
+
+    Zwraca wpisy `{lemat, czesc_mowy, powód, klucze, warstwy}` i zbiór usuniętych id; brak trafienia = kod 4.
+    """
+    by_base = {}
+    for ident in sources:
+        by_base.setdefault(rows[ident][2], []).append(ident)
+    report, removed = [], set()
+    for item in items:
+        ids = sorted(i for i in by_base.get(item['lemat'], ()) if item['czesc_mowy'] in klasy.get(i, ()))
+        if not ids:
+            raise GeneratorError(f'Wykluczenie TEMATY bez trafienia: {item["lemat"]} ({item["czesc_mowy"]})', 4)
+        layers = set().union(*(sources[i] for i in ids))
+        report.append({**item, 'klucze': sorted(_label(rows[i][:2]) for i in ids),
+                       'warstwy': sorted(layers, key=WARSTWY.index)})
+        removed.update(ids)
+    for ident in removed:
+        del sources[ident]
+    return report, removed
+
+
 def build_entries(data, cands):
     """Kandydaci (`candidates`) → leksemy z warstwą, źródłami, flagą i formami; diagnostyka BROAD/STANDARD.
 
+    Wykluczenia tematu (`wykluczenia`) usuwają leksemy T1–T3 przed dodatkami, formami i diagnostyką (#12 W3).
     Dodatki tematu (`dodatki`) dają warstwę D: dokładnie jeden leksem spoza T1–T3, z formą w STANDARD,
     `znaczenie` D = powód; inaczej kod 4.
 
@@ -661,6 +702,7 @@ def build_entries(data, cands):
     - `kandydaci`: klucz `lemma_id@source_id` → {`klucz`, `lemat`, `czesci_mowy`, `warstwa`, `zrodla`,
       `znaczenie` (warstwa → napisy), `iate` (id haseł T3), `wieloznaczny`, `formy` (wszystkie, posortowane),
       `powod` (None, `POZA_BROAD` albo `POZA_STANDARD`)};
+    - `wykluczenia`: wpisy `{lemat, czesc_mowy, powód, klucze, warstwy}` (`_exclude`);
     - `wpisy`: kandydaci z formą w STANDARD; `formy` = formy ∩ STANDARD;
     - `warstwy`: warstwa → posortowane klucze wpisów (rozłączne); `formy`: posortowane formy tematu ∩ STANDARD;
     - `diagnostyka`: warstwa i `razem` → {`leksemy`, `formy`} → {`kandydaci`, `broad`, `standard`};
@@ -689,8 +731,11 @@ def build_entries(data, cands):
                 iate.setdefault(ident, set()).update(entry_ids)
                 sources.setdefault(ident, {}).setdefault('T3', set()).update(
                     f'{e} {",".join(t3["hasla"][e]["kody"])}' for e in entry_ids)
+        wykluczenia, excluded = _exclude(data['topic']['wykluczenia'], sources, rows, klasy)
         for item in data['topic']['dodatki']:
             ident, rows[ident] = _dodatek(db, item, klasy, sources)
+            if ident in excluded:
+                raise GeneratorError(f'Dodatek TEMATY {item["lemat"]} ({item["czesc_mowy"]}): leksem wykluczony', 4)
             sources[ident] = {'D': (item['powód'],)}
         candidates_rows = {i: rows[i] for i in sources}
         homonyms = {}
@@ -742,7 +787,7 @@ def build_entries(data, cands):
             'POZA_BROAD': [e['klucz'] for e in items if e['powod'] == 'POZA_BROAD'],
             'POZA_STANDARD': [e['klucz'] for e in items if e['powod'] == 'POZA_STANDARD']}
         ger[name] = sorted(set().union(*(gerunds.get(w, ()) for w in layers)))
-    return {'kandydaci': kandydaci, 'wpisy': wpisy,
+    return {'kandydaci': kandydaci, 'wpisy': wpisy, 'wykluczenia': wykluczenia,
             'warstwy': {w: tuple(k for k, e in wpisy.items() if e['warstwa'] == w) for w in WARSTWY},
             'formy': tuple(sorted({f for e in wpisy.values() for f in e['formy']})),
             'diagnostyka': diag, 'odrzucone': odrzucone, 'ger': ger}
@@ -842,7 +887,10 @@ def srodladowe_hasla(hasla, znaczniki):
 
 
 def _inland(topic, t3, built):
-    marks = topic['diagnostyka']['znaczniki_srodladowe']
+    """Udział śródlądowych (W10); `None` bez znaczników w temacie (#12 D2)."""
+    marks = topic['diagnostyka'].get('znaczniki_srodladowe')
+    if marks is None:
+        return None
     hasla = t3['hasla']
     found = srodladowe_hasla(hasla, marks)
     entries = [built['wpisy'][k] for k in built['warstwy']['T3']]
@@ -878,6 +926,7 @@ def summary(data, cands, built):
         'wieloznaczny': {v: {**_part(len(keys), len(wpisy)), 'przyklady': keys[:PRZYKLADY]} for v, keys in flags.items()},
         'slowa_oczywiste': words,
         'srodladowe': _inland(topic, t3, built),
+        'wykluczenia': built['wykluczenia'],
         'werdykt': {'automatyczny': 'popraw' if failed else 'dalej', 'niespelnione': failed,
                     'czeka_na_ocene': list(CZEKA), 'uwaga': '„stop” wybiera tylko operator na bramce'},
     }
@@ -898,7 +947,7 @@ def raport(report):
     lex, forms = over['leksemy'], over['formy']
     warstwy = ', '.join(f'{w} {n["warstwy"][w]}' for w in WARSTWY)
     total = words['razem']
-    cand = inland['kandydaci_t3']
+    cand = inland and inland['kandydaci_t3']
     failed = ', '.join(verdict['niespelnione']) or 'brak'
     lines = [
         f'# Raport TEMATY: {report["temat"]} ({report["wersja_tematu"]}, {report["method"]})', '',
@@ -908,7 +957,8 @@ def raport(report):
         f'leksemów; w POP00: {_share_text(lex["razem"]["pop00"]["liczba"], lex["razem"]["temat"], lex["razem"]["pop00"]["procent"])}.',
         f'- Test {words["lista"]} słów: {_share_text(total["pokryte"], words["lista"], total["procent"])}, '
         f'próg {words["prog"]}: {"spełniony" if words["spelniony"] else "niespełniony"}.',
-        f'- Śródlądowe wśród haseł T3 kandydatów: {_share_text(cand["srodladowe"], cand["hasla"], cand["procent"])}.',
+        *([f'- Śródlądowe wśród haseł T3 kandydatów: {_share_text(cand["srodladowe"], cand["hasla"], cand["procent"])}.']
+          if inland else []),
         f'- Werdykt automatyczny: {verdict["automatyczny"]} (niespełnione: {failed}). '
         f'Progi z ocen ({", ".join(verdict["czeka_na_ocene"])}): czeka na ocenę.', '',
         '## Kluczowe decyzje',
@@ -959,14 +1009,19 @@ def raport(report):
         row = words[name]
         lines.append(f'- {title}: {_share_text(row["pokryte"], words["lista"], row["procent"])}. '
                      f'Brakuje: {", ".join(row["brakujace"]) or "nic"}.')
-    entries = inland['wpisy_t3']
-    lines += ['', '## Żegluga śródlądowa (T3)',
-              f'- Znaczniki PL: {", ".join(inland["znaczniki"]["pl"])}; EN: {", ".join(inland["znaczniki"]["en"])}.',
-              f'- Hasła T3 kandydatów (miara główna): {_share_text(cand["srodladowe"], cand["hasla"], cand["procent"])}. '
-              + _list(cand['przyklady']),
-              f'- Wpisy T3: {_share_text(entries["srodladowe"], entries["wpisy"], entries["procent"])}. '
-              + _list(entries['przyklady']),
-              '', '## Werdykt',
+    if inland:
+        entries = inland['wpisy_t3']
+        lines += ['', '## Żegluga śródlądowa (T3)',
+                  f'- Znaczniki PL: {", ".join(inland["znaczniki"]["pl"])}; EN: {", ".join(inland["znaczniki"]["en"])}.',
+                  f'- Hasła T3 kandydatów (miara główna): '
+                  f'{_share_text(cand["srodladowe"], cand["hasla"], cand["procent"])}. ' + _list(cand['przyklady']),
+                  f'- Wpisy T3: {_share_text(entries["srodladowe"], entries["wpisy"], entries["procent"])}. '
+                  + _list(entries['przyklady'])]
+    if report['wykluczenia']:
+        lines += ['', '## Wykluczenia', 'Lematy usunięte z kandydatów T1–T3 decyzją z pliku tematu.']
+        lines += [f'- {w["lemat"]} ({w["czesc_mowy"]}): {w["powód"]}. Leksemy: {", ".join(w["klucze"])}; '
+                  f'warstwy: {", ".join(w["warstwy"])}.' for w in report['wykluczenia']]
+    lines += ['', '## Werdykt',
               f'- Automatyczny: {verdict["automatyczny"]}. Niespełnione progi: {failed}.',
               f'- Czeka na ocenę: {", ".join(verdict["czeka_na_ocene"])}.', '']
     return '\n'.join(lines)
@@ -1041,9 +1096,11 @@ def _write_package(staging, data, sources, cands, built):
                                              encoding='utf-8')
     if texts['LIMITATIONS.md'].count(ZNACZNIK) != 1:
         raise _bad('LIMITATIONS.md wymaga jednego znacznika ' + ZNACZNIK)
-    cand = report['srodladowe']['kandydaci_t3']
-    (staging / 'LIMITATIONS.md').write_text(texts['LIMITATIONS.md'].replace(
-        ZNACZNIK, _share_text(cand['srodladowe'], cand['hasla'], cand['procent'])), encoding='utf-8')
+    limits = texts['LIMITATIONS.md']
+    if report['srodladowe'] is not None:
+        cand = report['srodladowe']['kandydaci_t3']
+        limits = limits.replace(ZNACZNIK, _share_text(cand['srodladowe'], cand['hasla'], cand['procent']))
+    (staging / 'LIMITATIONS.md').write_text(limits, encoding='utf-8')
     (staging / 'TERMS.md').write_text(texts['TERMS.md'], encoding='utf-8')
     files = {p.relative_to(staging).as_posix(): {'sha256': sha256(p), 'bytes': p.stat().st_size}
              for p in sorted(staging.rglob('*')) if p.is_file()}
@@ -1053,9 +1110,11 @@ def _write_package(staging, data, sources, cands, built):
                 'topic': {'id': topic['id'], 'wersja': topic['wersja'], 'sha256': sources['topic']},
                 'config_sha256': sources['config'], 'source_manifest_sha256': sources['manifest'],
                 'inputs': data['pins'], 'plwordnet_zip_sha256': refs['plwordnet_zip']['sha256'],
-                'iate': {k: refs['iate'][k] for k in ('member', 'last_modified', 'bytes')},
                 'code_identity': code_identity(), 'counts': {topic['id']: report['liczby']},
                 'overlap': report['przeciecia'], 'files': files}
+    # #12 W2: `inputs` to użyte wejścia (`data['pins']`); blok `iate` tylko przy `t3`.
+    if 't3' in topic:
+        manifest['iate'] = {k: refs['iate'][k] for k in ('member', 'last_modified', 'bytes')}
     write_json(staging / 'release-manifest.json', manifest)
     (staging / 'SHA256SUMS').write_text(''.join(f'{sha256(p)}  {p.relative_to(staging).as_posix()}\n'
                                                 for p in sorted(staging.rglob('*')) if p.is_file()), encoding='utf-8')
