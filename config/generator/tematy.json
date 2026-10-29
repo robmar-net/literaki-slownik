@@ -1,6 +1,6 @@
 {
-  "version": "tematy-v1",
-  "adr": "docs/adr/ADR-010-tematy-v1.md",
+  "version": "tematy-v2",
+  "adr": "docs/adr/ADR-012-tematy-fala-1.md",
   "sampling": {
     "version": "tematy-quality-v1",
     "seed": "literaki-slownik-tematy-v1",
@@ -8,6 +8,10 @@
     "encoding": "canonical JSON array [seed,stratum,key], UTF-8"
   },
   "operator_per_stratum": 30,
+  "operator_warstwy": [
+    "T2",
+    "T3"
+  ],
   "progi": {
     "slowa_oczywiste": "0.70",
     "t1_tak": "0.90",

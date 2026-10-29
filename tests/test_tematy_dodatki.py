@@ -17,7 +17,7 @@ def label(lemma_id):
 
 
 def with_addenda(f, items):
-    rewrite(f['topic'], lambda v: (v['t3'].update(dodatki=items), v.update(wersja='morze-v2')))
+    rewrite(f['topic'], lambda v: (v.update(dodatki=items), v.update(wersja='morze-v2')))
 
 
 class TematyDodatkiTest(unittest.TestCase):
@@ -46,11 +46,11 @@ class TematyDodatkiTest(unittest.TestCase):
         finally:
             with_addenda(self.f, [KOT])
 
-    def test_topic_accepts_addenda_and_vn_version_but_not_lemma_exclusions(self):
+    def test_topic_accepts_addenda_and_vn_version_but_not_the_same_pair_excluded(self):
         topic = tematy.load_topic(self.f['topic'])
-        self.assertEqual((topic['wersja'], topic['t3']['dodatki']), ('morze-v2', [KOT]))
+        self.assertEqual((topic['wersja'], topic['dodatki']), ('morze-v2', [KOT]))
         for change in (lambda v: v.update(wersja='morze-v'), lambda v: v.update(wersja='morze-2'),
-                       lambda v: v.update(wykluczenia=[KOT]), lambda v: v['t3'].update(dodatki=[KOT, KOT])):
+                       lambda v: v.update(wykluczenia=[KOT]), lambda v: v.update(dodatki=[KOT, KOT])):
             rewrite(self.f['topic'], change)
             with self.assertRaises(GeneratorError) as caught:
                 tematy.load_topic(self.f['topic'])

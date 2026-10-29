@@ -56,40 +56,40 @@
         "deprecatedTerm-admn-sts",
         "supersededTerm-admn-sts"
       ]
-    },
-    "dodatki": [
-      {
-        "lemat": "sztorm",
-        "czesc_mowy": "subst",
-        "powód": "test 37 słów; decyzja operatora 2026-10-29"
-      },
-      {
-        "lemat": "rybak",
-        "czesc_mowy": "subst",
-        "powód": "test 37 słów; decyzja operatora 2026-10-29"
-      },
-      {
-        "lemat": "falochron",
-        "czesc_mowy": "subst",
-        "powód": "test 37 słów; decyzja operatora 2026-10-29"
-      },
-      {
-        "lemat": "nabrzeże",
-        "czesc_mowy": "subst",
-        "powód": "test 37 słów; decyzja operatora 2026-10-29"
-      },
-      {
-        "lemat": "trał",
-        "czesc_mowy": "subst",
-        "powód": "test 37 słów; decyzja operatora 2026-10-29"
-      },
-      {
-        "lemat": "cumować",
-        "czesc_mowy": "inf",
-        "powód": "test 37 słów; decyzja operatora 2026-10-29"
-      }
-    ]
+    }
   },
+  "dodatki": [
+    {
+      "lemat": "sztorm",
+      "czesc_mowy": "subst",
+      "powód": "test 37 słów; decyzja operatora 2026-10-29"
+    },
+    {
+      "lemat": "rybak",
+      "czesc_mowy": "subst",
+      "powód": "test 37 słów; decyzja operatora 2026-10-29"
+    },
+    {
+      "lemat": "falochron",
+      "czesc_mowy": "subst",
+      "powód": "test 37 słów; decyzja operatora 2026-10-29"
+    },
+    {
+      "lemat": "nabrzeże",
+      "czesc_mowy": "subst",
+      "powód": "test 37 słów; decyzja operatora 2026-10-29"
+    },
+    {
+      "lemat": "trał",
+      "czesc_mowy": "subst",
+      "powód": "test 37 słów; decyzja operatora 2026-10-29"
+    },
+    {
+      "lemat": "cumować",
+      "czesc_mowy": "inf",
+      "powód": "test 37 słów; decyzja operatora 2026-10-29"
+    }
+  ],
   "wykluczenia": [],
   "diagnostyka": {
     "slowa_oczywiste": [

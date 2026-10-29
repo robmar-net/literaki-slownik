@@ -11,8 +11,11 @@ PATH_INPUTS = ('base_run', 'database', 'release_manifest', 'standard', 'broad',
                'base_pop', 'base_pop00', 'plwordnet_db', 'iate')
 
 
-def config_fixture(root):
-    """Konfiguracja metody, temat i manifest wejść w `root`; pliki wejść to zaślepki."""
+def config_fixture(root, t3=True):
+    """Konfiguracja metody, temat i manifest wejść w `root`; pliki wejść to zaślepki.
+
+    `t3=False`: temat bez `t3` i bez znaczników śródlądowych (W1 #12).
+    """
     root = Path(root)
     texts, inputs = root/'tematy-teksty', root/'inputs'
     for p in (texts, inputs, root/'tematy'):
@@ -29,7 +32,9 @@ def config_fixture(root):
     topic = root/'tematy/morze.json'
     topic.write_bytes((CONFIG/'tematy/morze.json').read_bytes())
     # Dodatki prawdziwego tematu nie istnieją w fikstury SGJP; testy warstwy D dopisują własne.
-    rewrite(topic, lambda v: v['t3'].update(dodatki=[]))
+    rewrite(topic, lambda v: v.update(dodatki=[]))
+    if not t3:
+        rewrite(topic, lambda v: (v.pop('t3'), v['diagnostyka'].pop('znaczniki_srodladowe')))
     refs = {}
     for key in PATH_INPUTS:
         path = inputs/(key + '.bin')
@@ -247,13 +252,13 @@ def _plwordnet_writer():
     return module
 
 
-def inputs_fixture(root):
+def inputs_fixture(root, t3=True):
     """`config_fixture` z prawdziwymi małymi wejściami: przebieg, wydanie, POP, POP00, pochodna, IATE."""
     import hashlib
     import sqlite3
     from contextlib import closing
     from literaki_slownik.pop import write_gzip
-    f = config_fixture(root)
+    f = config_fixture(root, t3)
     root = f['root']
     run, release, pop, pop00, cache = (root/n for n in ('run', 'release', 'pop', 'pop00', 'cache'))
     for p in (run/'lists', release, pop/'reports', pop00, cache):

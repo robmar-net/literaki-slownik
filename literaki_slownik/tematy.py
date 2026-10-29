@@ -17,12 +17,13 @@ from .canonical import dumps, load_json, sha256, write_json
 from .export import rename_noreplace
 from .inputs import GeneratorError, checked_file
 from .pop import _label, load_constructions, write_gzip
+from .policy import CLASS_MATRIX
 from .pop00 import package_file, read_words
 from .quality import _config, review_template, sample_strata
 from .run import code_identity
 
-METHOD = 'tematy-v1'
-ADR = 'docs/adr/ADR-010-tematy-v1.md'
+METHOD = 'tematy-v2'
+ADR = 'docs/adr/ADR-012-tematy-fala-1.md'
 # Przypięte kody części mowy Słowosieci → klasy tagów SGJP; kody 5–8 (angielskie) pomijamy.
 CZESCI_MOWY = {'1': ['inf'], '2': ['subst', 'depr'], '3': ['adv'], '4': ['adj']}
 T3_KLASY = ['subst', 'depr']
@@ -65,13 +66,19 @@ def _share(text):
 
 
 def load_method(path):
-    """Konfiguracja metody (W4); zwraca ją z progami jako ułamkami i ścieżkami tekstów."""
+    """Konfiguracja metody (W4; #12 W5); zwraca ją z progami jako ułamkami i ścieżkami tekstów."""
     path = Path(path).resolve()
     value = load_json(path)
     if (not isinstance(value, dict) or set(value) != {'version', 'adr', 'sampling', 'operator_per_stratum',
-                                                      'progi', 'czesci_mowy', 't3_klasy', 'teksty'}
+                                                      'operator_warstwy', 'progi', 'czesci_mowy', 't3_klasy',
+                                                      'teksty'}
             or value['version'] != METHOD or value['adr'] != ADR):
         raise _bad('pola metody')
+    layers = value['operator_warstwy']
+    # Warstwy, które ocenia operator: niepusty podzbiór próby R2 bez powtórzeń.
+    if (not isinstance(layers, list) or not layers or not all(isinstance(w, str) and w in PROBA for w in layers)
+            or len(set(layers)) != len(layers)):
+        raise _bad('operator_warstwy')
     _config(value['sampling'])
     operator = value['operator_per_stratum']
     if not _int(operator) or not 0 < operator <= value['sampling']['size_per_stratum']:
@@ -98,18 +105,31 @@ def _named(items, keys):
         for i in items)
 
 
+# Klucze pliku tematu poza opcjonalnym `t3` (#12 W1).
+TOPIC_KEYS = frozenset(('id', 'nazwa', 'wersja', 't1', 't2', 'dodatki', 'wykluczenia', 'diagnostyka', 'uwagi'))
+
+
+def _lemmas(items, what, *, classes=None):
+    """Lista `{lemat, czesc_mowy, powód}`: unikalna para, powód bez tabulacji i nowej linii; zwraca pary."""
+    if (not _named(items, ('lemat', 'czesc_mowy', 'powód'))
+            or len({(d['lemat'], d['czesc_mowy']) for d in items}) != len(items)
+            or any('\t' in d['powód'] or '\n' in d['powód'] for d in items)
+            or classes is not None and any(d['czesc_mowy'] not in classes for d in items)):
+        raise _bad(what)
+    return {(d['lemat'], d['czesc_mowy']) for d in items}
+
+
 def load_topic(path):
-    """Plik tematu (W5): zbiór kluczy, typy i zamknięte wartości; wersja `<id>-v<n>`."""
+    """Plik tematu (W5; #12 W1): zbiór kluczy, typy i zamknięte wartości; wersja `<id>-v<n>`; `t3` opcjonalne."""
     path = Path(path).resolve()
     v = load_json(path)
-    if (not isinstance(v, dict) or set(v) != {'id', 'nazwa', 'wersja', 't1', 't2', 't3',
-                                              'wykluczenia', 'diagnostyka', 'uwagi'}
+    if (not isinstance(v, dict) or set(v) - {'t3'} != TOPIC_KEYS
             or v['id'] != path.stem or not re.fullmatch('[a-z]+', v['id'])
             or not isinstance(v['wersja'], str) or not re.fullmatch(re.escape(v['id']) + '-v[1-9][0-9]*', v['wersja'])
             or not isinstance(v['nazwa'], str) or not v['nazwa']
             or not isinstance(v['uwagi'], str)):
         raise _bad('pola tematu')
-    t1, t2, t3, diag = v['t1'], v['t2'], v['t3'], v['diagnostyka']
+    t1, t2, t3, diag = v['t1'], v['t2'], v.get('t3'), v['diagnostyka']
     if not isinstance(t1, dict) or set(t1) != {'atomy_sgjp'} or not _texts(t1['atomy_sgjp']) or not t1['atomy_sgjp']:
         raise _bad('t1')
     if (not isinstance(t2, dict) or set(t2) != {'korzenie', 'relacje', 'tryb', 'wykluczenia_poddrzew'}
@@ -123,29 +143,30 @@ def load_topic(path):
         raise _bad('t2.relacje (dozwolone 11, 25, 27)')
     if t2['tryb'] != 'pelne':
         raise _bad('t2.tryb (v1: pelne)')
-    iate = t3.get('iate') if isinstance(t3, dict) else None
-    if (not isinstance(t3, dict) or set(t3) != {'iate', 'dodatki'} or not isinstance(iate, dict)
-            or set(iate) != {'kody_dziedzin', 'typ', 'jedno_slowo', 'niezawodnosc_min', 'odrzuc_status'}
-            or not _texts(iate['kody_dziedzin']) or not iate['kody_dziedzin']
-            or not all(k.isdigit() for k in iate['kody_dziedzin'])
-            or iate['typ'] != 'fullForm' or iate['jedno_slowo'] is not True
-            or not _int(iate['niezawodnosc_min']) or not 1 <= iate['niezawodnosc_min'] <= 4
-            or not _texts(iate['odrzuc_status'])
-            or not _named(t3['dodatki'], ('lemat', 'czesc_mowy', 'powód'))
-            or len({(d['lemat'], d['czesc_mowy']) for d in t3['dodatki']}) != len(t3['dodatki'])
-            or any('\t' in d['powód'] or '\n' in d['powód'] for d in t3['dodatki'])):
-        raise _bad('t3')
-    if not _named(v['wykluczenia'], ('lemat', 'czesc_mowy', 'powód')):
-        raise _bad('wykluczenia')
-    # ADR-010: dodatki tworzą warstwę D (poprawka 2026-10-29); wykluczeń budowa nie czyta, więc muszą być puste.
-    if v['wykluczenia']:
-        raise _bad('wykluczenia (puste)')
+    if 't3' in v:
+        iate = t3.get('iate') if isinstance(t3, dict) else None
+        if (not isinstance(t3, dict) or set(t3) != {'iate'} or not isinstance(iate, dict)
+                or set(iate) != {'kody_dziedzin', 'typ', 'jedno_slowo', 'niezawodnosc_min', 'odrzuc_status'}
+                or not _texts(iate['kody_dziedzin']) or not iate['kody_dziedzin']
+                or not all(k.isdigit() for k in iate['kody_dziedzin'])
+                or iate['typ'] != 'fullForm' or iate['jedno_slowo'] is not True
+                or not _int(iate['niezawodnosc_min']) or not 1 <= iate['niezawodnosc_min'] <= 4
+                or not _texts(iate['odrzuc_status'])):
+            raise _bad('t3')
+    # D: ręczne dodatki (warstwa D, ADR-010 poprawka 2026-10-29); wykluczenia lematów (#12 W3) stosuje budowa.
+    added = _lemmas(v['dodatki'], 'dodatki')
+    if added & _lemmas(v['wykluczenia'], 'wykluczenia', classes=CLASS_MATRIX):
+        raise _bad('ta sama para w dodatki i wykluczenia')
     marks = diag.get('znaczniki_srodladowe') if isinstance(diag, dict) else None
-    if (not isinstance(diag, dict) or set(diag) != {'slowa_oczywiste', 'znaczniki_srodladowe'}
+    if (not isinstance(diag, dict) or set(diag) - {'znaczniki_srodladowe'} != {'slowa_oczywiste'}
             or not _texts(diag['slowa_oczywiste'], lower=True) or not diag['slowa_oczywiste']
-            or not isinstance(marks, dict) or set(marks) != {'pl', 'en'}
-            or not all(_texts(m, lower=True) and m for m in marks.values())):
+            or 'znaczniki_srodladowe' in diag and (
+                not isinstance(marks, dict) or set(marks) != {'pl', 'en'}
+                or not all(_texts(m, lower=True) and m for m in marks.values()))):
         raise _bad('diagnostyka')
+    # Żegluga śródlądowa to dziedzina IATE 4821 (#12 W1, D7): znaczniki tylko przy niej.
+    if 'znaczniki_srodladowe' in diag and (t3 is None or '4821' not in t3['iate']['kody_dziedzin']):
+        raise _bad('diagnostyka.znaczniki_srodladowe (tylko przy t3 z kodem 4821)')
     return v
 
 
@@ -633,7 +654,7 @@ def _read_forms(db, data, ids):
 def build_entries(data, cands):
     """Kandydaci (`candidates`) → leksemy z warstwą, źródłami, flagą i formami; diagnostyka BROAD/STANDARD.
 
-    Dodatki tematu (`t3.dodatki`) dają warstwę D: dokładnie jeden leksem spoza T1–T3, z formą w STANDARD,
+    Dodatki tematu (`dodatki`) dają warstwę D: dokładnie jeden leksem spoza T1–T3, z formą w STANDARD,
     `znaczenie` D = powód; inaczej kod 4.
 
     Zwraca:
@@ -668,7 +689,7 @@ def build_entries(data, cands):
                 iate.setdefault(ident, set()).update(entry_ids)
                 sources.setdefault(ident, {}).setdefault('T3', set()).update(
                     f'{e} {",".join(t3["hasla"][e]["kody"])}' for e in entry_ids)
-        for item in data['topic']['t3']['dodatki']:
+        for item in data['topic']['dodatki']:
             ident, rows[ident] = _dodatek(db, item, klasy, sources)
             sources[ident] = {'D': (item['powód'],)}
         candidates_rows = {i: rows[i] for i in sources}
