@@ -1,7 +1,7 @@
 {
   "id": "kuchnia",
   "nazwa": "Kuchnia",
-  "wersja": "kuchnia-v1",
+  "wersja": "kuchnia-v2",
   "t1": {
     "atomy_sgjp": [
       "kulin.",
@@ -80,7 +80,23 @@
     "wykluczenia_poddrzew": []
   },
   "dodatki": [],
-  "wykluczenia": [],
+  "wykluczenia": [
+    {
+      "lemat": "cytoplazma",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "sadzeniak",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "tyrozynaza",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    }
+  ],
   "diagnostyka": {
     "slowa_oczywiste": [
       "chleb",
@@ -122,5 +138,5 @@
       "śniadanie"
     ]
   },
-  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Napoje, także alkoholowe, należą do kuchni. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Napoje, także alkoholowe, należą do kuchni. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12). v2 (#13, ADR-013): zmiany z bramki #12."
 }

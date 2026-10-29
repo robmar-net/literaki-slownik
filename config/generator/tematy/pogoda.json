@@ -1,7 +1,7 @@
 {
   "id": "pogoda",
   "nazwa": "Pogoda",
-  "wersja": "pogoda-v1",
+  "wersja": "pogoda-v2",
   "t1": {
     "atomy_sgjp": [
       "meteor."
@@ -58,7 +58,43 @@
     "tryb": "pelne",
     "wykluczenia_poddrzew": []
   },
-  "dodatki": [],
+  "dodatki": [
+    {
+      "lemat": "chłód",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "deszczowy",
+      "czesc_mowy": "adj",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "pochmurny",
+      "czesc_mowy": "adj",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "słoneczny",
+      "czesc_mowy": "adj",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "susza",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "temperatura",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "wilgoć",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    }
+  ],
   "wykluczenia": [],
   "diagnostyka": {
     "slowa_oczywiste": [
@@ -100,5 +136,5 @@
       "śnieg"
     ]
   },
-  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12). v2 (#13, ADR-013): zmiany z bramki #12."
 }

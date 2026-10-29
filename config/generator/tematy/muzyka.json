@@ -1,7 +1,7 @@
 {
   "id": "muzyka",
   "nazwa": "Muzyka",
-  "wersja": "muzyka-v1",
+  "wersja": "muzyka-v2",
   "t1": {
     "atomy_sgjp": [
       "muz.",
@@ -68,7 +68,23 @@
     "wykluczenia_poddrzew": []
   },
   "dodatki": [],
-  "wykluczenia": [],
+  "wykluczenia": [
+    {
+      "lemat": "pokrywa",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "różaniec",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "zakrętka",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    }
+  ],
   "diagnostyka": {
     "slowa_oczywiste": [
       "akord",
@@ -110,5 +126,5 @@
       "śpiewać"
     ]
   },
-  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Taniec (chor., taniec 1 i 2) należy do muzyki. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Taniec (chor., taniec 1 i 2) należy do muzyki. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12). v2 (#13, ADR-013): zmiany z bramki #12."
 }

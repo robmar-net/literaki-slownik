@@ -1,7 +1,7 @@
 {
   "id": "grzyby",
   "nazwa": "Grzyby",
-  "wersja": "grzyby-v1",
+  "wersja": "grzyby-v2",
   "t1": {
     "atomy_sgjp": [
       "mikol."
@@ -34,8 +34,80 @@
     "tryb": "pelne",
     "wykluczenia_poddrzew": []
   },
-  "dodatki": [],
-  "wykluczenia": [],
+  "dodatki": [
+    {
+      "lemat": "blaszka",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "drożdże",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "grzybiarz",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "grzybobranie",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "jadalny",
+      "czesc_mowy": "adj",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "nóżka",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "trujący",
+      "czesc_mowy": "adj",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "trzon",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "zielonka",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    }
+  ],
+  "wykluczenia": [
+    {
+      "lemat": "flagowiec",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "megaspora",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "monada",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "promiennik",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "zrywka",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    }
+  ],
   "diagnostyka": {
     "slowa_oczywiste": [
       "blaszka",
@@ -74,5 +146,5 @@
       "zielonka"
     ]
   },
-  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Grzybica należy do medycyny, nie do grzybów. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Grzybica należy do medycyny, nie do grzybów. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12). v2 (#13, ADR-013): zmiany z bramki #12."
 }

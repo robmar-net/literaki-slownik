@@ -1,7 +1,7 @@
 {
   "id": "medycyna",
   "nazwa": "Medycyna i ciało",
-  "wersja": "medycyna-v1",
+  "wersja": "medycyna-v2",
   "t1": {
     "atomy_sgjp": [
       "med.",
@@ -112,22 +112,44 @@
       }
     ]
   },
-  "t3": {
-    "iate": {
-      "kody_dziedzin": [
-        "2841"
-      ],
-      "typ": "fullForm",
-      "jedno_slowo": true,
-      "niezawodnosc_min": 3,
-      "odrzuc_status": [
-        "deprecatedTerm-admn-sts",
-        "supersededTerm-admn-sts"
-      ]
-    }
-  },
   "dodatki": [],
-  "wykluczenia": [],
+  "wykluczenia": [
+    {
+      "lemat": "gladius",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "indywiduacja",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "macka",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "mizogin",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "numulit",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "pantofelek",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "skrzele",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: ocena agenta R2 „nie”"
+    }
+  ],
   "diagnostyka": {
     "slowa_oczywiste": [
       "alergia",
@@ -171,5 +193,5 @@
       "żołądek"
     ]
   },
-  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Grzybica należy do medycyny, nie do grzybów. Wycięte poddrzewa organów i tkanek roślin (4 477 → 4 063, odpadają m.in. batat, bazylia, cytryna, groch, kawa). T3 = IATE 2841 tylko w tym temacie, bez znaczników śródlądowych. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Grzybica należy do medycyny, nie do grzybów. Wycięte poddrzewa organów i tkanek roślin (4 477 → 4 063, odpadają m.in. batat, bazylia, cytryna, groch, kawa). T3 = IATE 2841 tylko w tym temacie, bez znaczników śródlądowych. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12). v2 (#13, ADR-013): zmiany z bramki #12; bez T3 (IATE): 11 z 18 słów „nie” było tylko w T3."
 }

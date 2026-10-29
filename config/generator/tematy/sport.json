@@ -1,7 +1,7 @@
 {
   "id": "sport",
   "nazwa": "Sport",
-  "wersja": "sport-v1",
+  "wersja": "sport-v2",
   "t1": {
     "atomy_sgjp": [
       "sport.",
@@ -49,7 +49,78 @@
     "tryb": "pelne",
     "wykluczenia_poddrzew": []
   },
-  "dodatki": [],
+  "dodatki": [
+    {
+      "lemat": "biegać",
+      "czesc_mowy": "inf",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "boisko",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "bramka",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "drużyna",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "gol",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "kibic",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "medal",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "mistrz",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "narta",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "rakieta",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "rower",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "stadion",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "trener",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    },
+    {
+      "lemat": "zwycięstwo",
+      "czesc_mowy": "subst",
+      "powód": "bramka #12: brakujące słowo oczywiste tematu"
+    }
+  ],
   "wykluczenia": [],
   "diagnostyka": {
     "slowa_oczywiste": [
@@ -91,5 +162,5 @@
       "zwycięstwo"
     ]
   },
-  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Gry, szachy i karty (gry, szach., karc.) należą do sportu. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Gry, szachy i karty (gry, szach., karc.) należą do sportu. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12). v2 (#13, ADR-013): zmiany z bramki #12."
 }
