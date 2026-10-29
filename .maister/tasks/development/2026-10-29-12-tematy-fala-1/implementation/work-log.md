@@ -86,3 +86,9 @@ Operator: „wszystkie listy wygladaja ok”. Szkic przyjęty bez zmian jako `wy
 | grzyby | 963 | 351 | 351 | OK |
 
 `powód` wykluczeń poddrzew dopisany przez agenta (W11 go nie podawał): zwierzęta — człowiek/hominid to nie zwierzęta w tym temacie; medycyna — organy i tkanki roślin.
+
+## 2026-10-29 — Grupa 12 zakończona
+
+18 budów z HEAD `265f1e8`, 09:15–09:40Z (~25 min). 9/9: a = b, checker pass/pass, kontrola fali OK. Commit `420b698`. Zestawienie: `verification/builds.json`.
+T3 tylko w medycynie: 342 wpisy. D = 0 wszędzie. `srodladowe` = null wszędzie.
+Test słów oczywistych (próg 0,70) nie przeszedł: grzyby 61,8%, pogoda 63,9%, sport 55,6% → werdykt auto „popraw”; reszta „dalej”. Braki to głównie słowa ogólne (las, zima, boisko, drużyna) — do bramki (W14).

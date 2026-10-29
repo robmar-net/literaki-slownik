@@ -269,13 +269,13 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `T/analysis/verify_real.py`, `T/analysis/buduj_fale.sh`, `T/verification/builds.json`, `T/work-log.md`
 **Kroki:** 6
 
-- [ ] 12.0 Zbudować każdy temat dwa razy
-  - [ ] 12.1 Kontrola zamiast testów: `verify_real.py` z grupy 9 dla każdego tematu. Rozszerzenie: T3 niepuste tylko w medycynie; IATE tylko w jej `inputs`, `ATTRIBUTIONS.md`, `TERMS.md` i `LIMITATIONS.md`; `srodladowe` = `null` we wszystkich 9.
-  - [ ] 12.2 Przed serią: drzewo czyste i wypchnięte, HEAD zapisany. Od teraz do 12.6 nie ma commitów. Grupy 13–20 jeszcze nie ruszyły.
-  - [ ] 12.3 `T/analysis/buduj_fale.sh` w tle, po kolei: grzyby, pogoda, matematyka, muzyka, sport, kuchnia, rośliny, zwierzęta, medycyna. Każdy temat buduje `data/work/tematy-<id>-v1-<data>-a`, potem `-b`, potem checker na obu. Nigdy równolegle. Czas każdej budowy idzie do logu.
-  - [ ] 12.4 Po każdym temacie czytamy werdykt checkera i `verify_real.py`. Błąd = zatrzymanie serii. Poprawka `fix(tematy)` w grupach 3–7, a seria startuje od nowa od tematu, który padł.
-  - [ ] 12.5 `T/verification/builds.json`: temat, katalog, `SHA256SUMS`, czas, wpisy, formy, warstwy, test słów. Liczbę T3 medycyny zapisujemy osobno (idzie do raportu bramki i ADR-012).
-  - [ ] 12.6 Po ostatniej budowie: commit i push `maister: #12 budowy fali`.
+- [x] 12.0 Zbudować każdy temat dwa razy
+  - [x] 12.1 Kontrola zamiast testów: `verify_real.py` z grupy 9 dla każdego tematu. Rozszerzenie: T3 niepuste tylko w medycynie; IATE tylko w jej `inputs`, `ATTRIBUTIONS.md`, `TERMS.md` i `LIMITATIONS.md`; `srodladowe` = `null` we wszystkich 9.
+  - [x] 12.2 Przed serią: drzewo czyste i wypchnięte, HEAD zapisany. Od teraz do 12.6 nie ma commitów. Grupy 13–20 jeszcze nie ruszyły.
+  - [x] 12.3 `T/analysis/buduj_fale.sh` w tle, po kolei: grzyby, pogoda, matematyka, muzyka, sport, kuchnia, rośliny, zwierzęta, medycyna. Każdy temat buduje `data/work/tematy-<id>-v1-<data>-a`, potem `-b`, potem checker na obu. Nigdy równolegle. Czas każdej budowy idzie do logu.
+  - [x] 12.4 Po każdym temacie czytamy werdykt checkera i `verify_real.py`. Błąd = zatrzymanie serii. Poprawka `fix(tematy)` w grupach 3–7, a seria startuje od nowa od tematu, który padł.
+  - [x] 12.5 `T/verification/builds.json`: temat, katalog, `SHA256SUMS`, czas, wpisy, formy, warstwy, test słów. Liczbę T3 medycyny zapisujemy osobno (idzie do raportu bramki i ADR-012).
+  - [x] 12.6 Po ostatniej budowie: commit i push `maister: #12 budowy fali`.
 
 **Kryteria odbioru:**
 - 9 tematów: a = b, checker PASS na a i b.
