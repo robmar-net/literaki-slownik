@@ -81,8 +81,8 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `literaki_slownik/tematy.py`, `config/generator/tematy.json`, `config/generator/tematy/morze.json`, `tests/tematy_helpers.py`, `tests/test_tematy_config.py`, `tests/test_tematy_dodatki.py`
 **Kroki:** 7
 
-- [ ] 3.0 Uogólnić plik tematu i podbić metodę
-  - [ ] 3.1 Napisać 7 testów w `tests/test_tematy_config.py`:
+- [x] 3.0 Uogólnić plik tematu i podbić metodę
+  - [x] 3.1 Napisać 7 testów w `tests/test_tematy_config.py`:
     - temat bez `t3` przechodzi `load_topic`; `t3` z kluczem innym niż `iate` (np. `t3.dodatki`) daje kod 2;
     - `dodatki` na górnym poziomie przechodzą; para powtórzona albo powód z tabulacją daje kod 2;
     - `wykluczenia` niepuste przechodzą; para powtórzona, powód z tabulacją lub nową linią albo `czesc_mowy` spoza klas SGJP daje kod 2;
@@ -90,12 +90,12 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
     - `znaczniki_srodladowe` bez `t3` albo przy `t3` bez kodu `4821` dają kod 2; bez znaczników temat przechodzi;
     - `operator_warstwy`: pusty, z powtórzeniem albo spoza `PROBA` daje kod 2; `["T2", "T3"]` przechodzi;
     - prawdziwe `tematy.json` i `morze.json` ładują się z wersją `tematy-v2` i `morze-v2`.
-  - [ ] 3.2 `load_topic`: nowe klucze według W1 (`t3` opcjonalne, `dodatki` i `wykluczenia` na górnym poziomie, `diagnostyka.znaczniki_srodladowe` opcjonalne). Usunąć wymóg „wykluczenia puste” (`tematy.py` ~139–140). Dodatki czytać z górnego poziomu wszędzie, gdzie dziś czyta się `t3.dodatki` (`_dodatek`, raport).
-  - [ ] 3.3 `load_method`: `METHOD = 'tematy-v2'`, `ADR = 'docs/adr/ADR-012-tematy-fala-1.md'`, pole `operator_warstwy` z walidacją. `sampling` i `progi` bez zmian.
-  - [ ] 3.4 `config/generator/tematy.json`: `version`, `adr`, `operator_warstwy: ["T2", "T3"]`. Hashe `teksty` zostają do grupy 5.
-  - [ ] 3.5 `morze.json`: przenieść 6 dodatków z `t3.dodatki` na górny poziom, dodać `wykluczenia: []`. Wersja zostaje `morze-v2`, reszta bez zmian (porównać `json` przed i po bez pola `dodatki`).
-  - [ ] 3.6 `tests/tematy_helpers.py` i `tests/test_tematy_dodatki.py`: dodatki na górnym poziomie, metoda `tematy-v2`; fikstura dostaje parametr `t3=True|False`.
-  - [ ] 3.7 Uruchomić 7 nowych testów oraz `tests.test_tematy_config` i `tests.test_tematy_dodatki`. Commit i push: `feat(tematy): schemat tematu i metoda tematy-v2 (#12)`.
+  - [x] 3.2 `load_topic`: nowe klucze według W1 (`t3` opcjonalne, `dodatki` i `wykluczenia` na górnym poziomie, `diagnostyka.znaczniki_srodladowe` opcjonalne). Usunąć wymóg „wykluczenia puste” (`tematy.py` ~139–140). Dodatki czytać z górnego poziomu wszędzie, gdzie dziś czyta się `t3.dodatki` (`_dodatek`, raport).
+  - [x] 3.3 `load_method`: `METHOD = 'tematy-v2'`, `ADR = 'docs/adr/ADR-012-tematy-fala-1.md'`, pole `operator_warstwy` z walidacją. `sampling` i `progi` bez zmian.
+  - [x] 3.4 `config/generator/tematy.json`: `version`, `adr`, `operator_warstwy: ["T2", "T3"]`. Hashe `teksty` zostają do grupy 5.
+  - [x] 3.5 `morze.json`: przenieść 6 dodatków z `t3.dodatki` na górny poziom, dodać `wykluczenia: []`. Wersja zostaje `morze-v2`, reszta bez zmian (porównać `json` przed i po bez pola `dodatki`).
+  - [x] 3.6 `tests/tematy_helpers.py` i `tests/test_tematy_dodatki.py`: dodatki na górnym poziomie, metoda `tematy-v2`; fikstura dostaje parametr `t3=True|False`.
+  - [x] 3.7 Uruchomić 7 nowych testów oraz `tests.test_tematy_config` i `tests.test_tematy_dodatki`. Commit i push: `feat(tematy): schemat tematu i metoda tematy-v2 (#12)`.
 
 **Kryteria odbioru:**
 - 7 testów przechodzi, poprawione moduły też.

@@ -14,3 +14,9 @@
 ## 2026-10-29T02:06:15Z - Group 8 Complete
 **Steps**: 8.1–8.4. **Commit**: 5259900. **Files**: docs/adr/ADR-012-tematy-fala-1.md (nowy), ADR-010 (+1 linia). INDEX.md: wpis ADR-012 (orchestrator).
 **Standards**: AGENTS.md; format ADR-010/011.
+
+## 2026-10-29T02:07:12Z - Group 3 Complete
+**Steps**: 3.1–3.7. **Commit**: 8757039. **Tests**: test_tematy_config 13/13; test_tematy_dodatki 6/7 — 1 błąd i 5 w test_check_tematy_package/test_tematy_review: checker „Zła metoda” (tematy-v1) → grupa 7.
+**Files**: tematy.py (METHOD tematy-v2, TOPIC_KEYS, _lemmas, operator_warstwy), tematy.json, morze.json (dodatki na górze), tests/tematy_helpers.py (t3=True|False), test_tematy_config, test_tematy_dodatki.
+**Standards**: AGENTS.md; policy.CLASS_MATRIX jako klasy SGJP dla wykluczeń.
+**Uwagi dla dalszych grup**: 4 — t3_candidates/check_inputs zakładają t3, osiągalność wykluczeń poddrzew; 5 — raport czyta znaczniki_srodladowe (KeyError), hashe tekstów w tematy.json; hash morze.json zmieniony (W8).
