@@ -311,8 +311,8 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Kroki:** 7
 
 - [ ] 14.0 Zebrać oceny operatora i przygotować bramkę
-  - [ ] 14.1 Kontrola zamiast testów: `check_tematy_package.py --review` na pliku przeglądu.
-  - [ ] 14.2 `tematy_review.py strona` → `T/verification/tematy-morze-r2.html`. Opublikować jako prywatny artefakt claude.ai.
+  - [x] 14.1 Kontrola zamiast testów: `check_tematy_package.py --review` na pliku przeglądu.
+  - [x] 14.2 `tematy_review.py strona` → `T/verification/tematy-morze-r2.html`. Opublikować jako prywatny artefakt claude.ai.
   - [ ] 14.3 Operator sprawdza stronę na iPhonie (wąski ekran, przyciski, „kopiuj JSON”). Poprawki strony = grupa 10 i nowa strona.
   - [ ] 14.4 Operator ocenia do 90 pozycji i wkleja JSON. `tematy_review.py zapisz` dopisuje oceny do pliku przeglądu.
   - [ ] 14.5 `check_tematy_package.py --review` → `T/verification/review-check.json`: trafność z rzeczywistym N, zgodność, kappa, test 37 słów, werdykt „dalej”/„popraw”.
