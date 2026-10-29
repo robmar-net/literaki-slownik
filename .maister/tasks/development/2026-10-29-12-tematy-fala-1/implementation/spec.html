@@ -91,31 +91,52 @@ ol.flow li { margin:4px 0; }
     <tr><td>Metoda <code>tematy-v2</code></td><td>Reguły warstw się nie zmieniają. Zmienia się przegląd: <code>operator_warstwy</code>, <code>t1_tak</code> z ocen agenta, <code>t3_tak</code> „nie dotyczy”. Losowanie bez zmian.</td></tr>
     <tr><td><code>morze.json</code> zostaje <code>morze-v2</code></td><td><code>dodatki</code> przechodzą na górny poziom. Lista się nie zmienia, co potwierdza regresja bajtowa.</td></tr>
     <tr><td>T3 tylko w medycynie (IATE 2841)</td><td>Bez <code>t3</code> nie ma hasha IATE, parsowania TBX ani IATE w tekstach i manifeście.</td></tr>
-    <tr><td>Znaczniki śródlądowe tylko w morzu</td><td>Pole opcjonalne, dozwolone tylko przy <code>t3</code>.</td></tr>
+    <tr><td>Znaczniki śródlądowe tylko w morzu</td><td>Pole opcjonalne, dozwolone tylko przy <code>t3</code> z kodem <code>4821</code>.</td></tr>
     <tr><td>Teksty przez odcinki <code>&lt;!--T3--&gt;</code> i <code>&lt;!--SRODLADOWE--&gt;</code></td><td>Wspólne pliki zamiast wariantów każdego tekstu.</td></tr>
     <tr><td>Wykluczenia lematów działają</td><td>Wykluczenie bez trafienia daje kod 4. To samo dotyczy wykluczenia poddrzewa nieosiągalnego z korzeni.</td></tr>
     <tr><td>Zwierzęta: relacje <code>[11, 27]</code></td><td>269 celów relacji 25 to części ciała, wytwory zwierząt i gwara łowiecka. Odpada 275 lematów.</td></tr>
     <tr><td>Medycyna: 5 poddrzew roślinnych poza tematem</td><td>Odpada 414 lematów, m.in. owoce, warzywa i nasiona.</td></tr>
-    <tr><td>Atomy: +<code>ogr.</code>, <code>psych.</code>, <code>wet.</code>, <code>farm.</code></td><td>Szerokie granice. Bez <code>biol.</code>, <code>biochem.</code>, <code>hydrol.</code>, <code>łow.</code></td></tr>
+    <tr><td>Atomy: +<code>ogr.</code>, <code>psych.</code>, <code>wet.</code>, <code>farm.</code></td><td>Szerokie granice; <span class="pass">zatwierdzone przez operatora</span> 2026-10-29 („Tak, audyt”). Bez <code>biol.</code>, <code>biochem.</code>, <code>hydrol.</code>, <code>łow.</code></td></tr>
+    <tr><td>Sport bez korzeni T2 dla gier, szachów i kart</td><td>Niesie je T1. <span class="pass">Zatwierdzone przez operatora</span> 2026-10-29.</td></tr>
     <tr><td>Grzybica bez wykluczenia w grzybach</td><td>Poddrzewo 24994 jest osiągalne tylko z medycyny.</td></tr>
     <tr><td>Pakiety <code>tematy-&lt;wersja tematu&gt;-YYYYMMDD-{a,b}</code></td><td>Stary schemat mylił wersję tematu z wersją metody.</td></tr>
   </table>
 
   <h2>Otwarte pytania i ryzyka</h2>
   <ul>
-    <li><span class="sev warning">warning</span>Do akceptacji operatora: atomy <code>ogr.</code>, <code>psych.</code>, <code>wet.</code>, <code>farm.</code>; relacje zwierząt <code>[11, 27]</code>; 5 poddrzew medycyny (decyzje o składzie list).</li>
     <li><span class="sev warning">warning</span>Bump do <code>tematy-v2</code> zmienia jedną decyzję techniczną z <code>scope-clarifications.md</code>.</li>
     <li><span class="sev warning">warning</span>Małe tematy (pogoda 209, grzyby 351, matematyka 543 lematów T2) mogą nie przejść progu 0,70.</li>
     <li><span class="sev warning">warning</span>Zgodność agent–operator dla morza wyniosła 47/87. Wpływu szerokiej instrukcji nie zmierzono.</li>
-    <li><span class="sev info">info</span>Sport w T2 nie ma korzeni gier, szachów ani kart. Niesie je tylko T1.</li>
-    <li><span class="sev info">info</span>Czas: 20 budów i 20 checkerów, każdy przebieg dwa razy haszuje 22 GB. Razem ok. 1–1,5 h, tylko po kolei.</li>
-    <li><span class="sev info">info</span>Nakład operatora: ok. 315 słów oczywistych i 300 ocen R2.</li>
+    <li><span class="sev info">info</span>Sport w T2 nie ma korzeni gier, szachów ani kart (zatwierdzone). Brak pokaże test słów.</li>
+    <li><span class="sev warning">warning</span><code>t1_tak</code> z ocen agenta to słaba bramka (morze: 46/50 przy zgodności 20/57).</li>
+    <li><span class="sev info">info</span>Wspólny seed: wspólny lemat ma tę samą rangę w każdym temacie, próby się korelują.</li>
+    <li><span class="sev info">info</span>Czas maszyny: 20 budów i ≥ 30 przebiegów checkera (20 pakietów, 10 <code>--review</code>), każdy dwa razy haszuje 22 GB. Razem 2–3 h, tylko po kolei.</li>
+    <li><span class="sev info">info</span>Agent: ok. 950 ocen R2 i 315 słów oczywistych. Operator: ok. 315 słów oczywistych i 300 ocen R2.</li>
   </ul>
 </section>
 
-<nav class="toc">Spis: <a href="#zakres">Zakres</a> · <a href="#historie">Historie</a> · <a href="#wymagania">Wymagania</a> · <a href="#tematy">Tematy</a> · <a href="#regresja">Regresja</a> · <a href="#kolejnosc">Kolejność</a> · <a href="#reuzycie">Reużycie</a> · <a href="#testy">Testy</a> · <a href="#sukces">Sukces</a></nav>
+<nav class="toc">Spis: <a href="#audyt">Zmiany po audycie</a> · <a href="#zakres">Zakres</a> · <a href="#historie">Historie</a> · <a href="#wymagania">Wymagania</a> · <a href="#tematy">Tematy</a> · <a href="#regresja">Regresja</a> · <a href="#kolejnosc">Kolejność</a> · <a href="#reuzycie">Reużycie</a> · <a href="#testy">Testy</a> · <a href="#sukces">Sukces</a></nav>
 
 <main>
+<h2 id="audyt">Zmiany po audycie</h2>
+<div class="card scroll"><p style="margin-top:0">Audyt <code>verification/spec-audit.md</code>: 0 krytycznych, 5 ważnych, 9 drobnych. Operator: „Popraw i do planu”. Wszystkie przyjęte.</p><table>
+  <tr><th>Uwaga</th><th>Poprawka</th></tr>
+  <tr><td><span class="sev warning">W1</span></td><td>Przepięcie morza (W9) kopiuje <code>sample_sha256</code>, <code>canonical_index_sha256</code>, <code>evidence_sha256</code>, <code>version</code> z nowego szablonu i hash <code>SHA256SUMS</code>.</td></tr>
+  <tr><td><span class="sev warning">W2</span></td><td>Skrypt słów oczywistych (W10) wymaga <code>lemma_base</code> z klasą i formy w STANDARD.</td></tr>
+  <tr><td><span class="sev warning">W3</span></td><td>Zgoda operatora na atomy i sport zapisana (2026-10-29, „Tak, audyt”); krok 0 niepotrzebny.</td></tr>
+  <tr><td><span class="sev warning">W4</span></td><td>Bajtowa reguła zdejmowania znaczników (W4); test przypina stare hashe tekstów (W8).</td></tr>
+  <tr><td><span class="sev warning">W5</span></td><td>Budżet: ≥ 30 przebiegów checkera, ok. 950 ocen agenta.</td></tr>
+  <tr><td><span class="sev info">D1</span></td><td>Bez commitu w trakcie serii budów (W12).</td></tr>
+  <tr><td><span class="sev info">D2</span></td><td><code>srodladowe</code> = null bez znaczników, także w medycynie.</td></tr>
+  <tr><td><span class="sev info">D3</span></td><td>Progi z ocen agenta liczymy zawsze (W6).</td></tr>
+  <tr><td><span class="sev info">D4</span></td><td>Oczekiwany werdykt morza: <code>t1_tak</code> 23/25, T2 i T3 = 1, zgodność 20/57, „popraw”.</td></tr>
+  <tr><td><span class="sev info">D5</span></td><td>Wiki: dochodzą <code>Slownik-STANDARD</code> i <code>_Sidebar</code>; klon <code>wiki-literaki-slownik</code>.</td></tr>
+  <tr><td><span class="sev info">D6</span></td><td>Manifest wejść nadal z <code>iate</code>; od <code>t3</code> zależą tylko piny; temat czytany przed pinami.</td></tr>
+  <tr><td><span class="sev info">D7</span></td><td>Punkt T3 w <code>LIMITATIONS.md</code> bez „T3 jest mała”; znaczniki tylko przy <code>4821</code>.</td></tr>
+  <tr><td><span class="sev info">D8</span></td><td>Stare pakiety sprawdza checker z <code>a633136</code> (ADR-012).</td></tr>
+  <tr><td><span class="sev info">D9</span></td><td>Przypis o wielkości liter w liczbach T2 (W11).</td></tr>
+</table></div>
+
 <h2 id="zakres">Zakres</h2>
 <div class="grid2">
   <div class="card"><b class="pass">W zakresie</b>
@@ -152,21 +173,21 @@ ol.flow li { margin:4px 0; }
 <h2 id="wymagania">Wymagania</h2>
 <div class="card scroll"><table>
   <tr><th>Id</th><th>Wymaganie</th><th>Priorytet</th></tr>
-  <tr><td>W1</td><td>Schemat tematu: <code>t3</code> opcjonalne (<code>{iate}</code>), <code>dodatki</code> na górnym poziomie, niepuste <code>wykluczenia</code>, znaczniki tylko przy <code>t3</code>. Wykluczone poddrzewo nieosiągalne daje kod 4.</td><td>musi</td></tr>
+  <tr><td>W1</td><td>Schemat tematu: <code>t3</code> opcjonalne (<code>{iate}</code>), <code>dodatki</code> na górnym poziomie, niepuste <code>wykluczenia</code>, znaczniki tylko przy <code>t3</code>. Wykluczone poddrzewo nieosiągalne daje kod 4. Znaczniki tylko przy kodzie <code>4821</code>.</td><td>musi</td></tr>
   <tr><td>W2</td><td>IATE haszowane i parsowane tylko przy <code>t3</code>. <code>inputs</code> manifestu zawiera tylko użyte wejścia.</td><td>musi</td></tr>
   <tr><td>W3</td><td>Wykluczenia lematów usuwają leksemy (lemat i klasa) w T1–T3. Bez trafienia: kod 4. Raport <code>wykluczenia</code>, kontrola w checkerze.</td><td>musi</td></tr>
-  <tr><td>W4</td><td>Teksty z odcinkami T3 i SRODLADOWE. Raport i komunikaty bez „MORZE”. <code>summary</code> bez T3: <code>t3</code> i <code>srodladowe</code> = null.</td><td>musi</td></tr>
+  <tr><td>W4</td><td>Teksty z odcinkami T3 i SRODLADOWE, bajtowa reguła zdejmowania. Punkty T2 i T3 w <code>LIMITATIONS.md</code> bez treści morza. Raport bez „MORZE”. <code>t3</code> = null bez T3, <code>srodladowe</code> = null bez znaczników.</td><td>musi</td></tr>
   <tr><td>W5</td><td><code>tematy.json</code>: <code>tematy-v2</code>, ADR-012, <code>operator_warstwy: [T2, T3]</code>. Losowanie i progi bez zmian.</td><td>musi</td></tr>
-  <tr><td>W6</td><td>Werdykt: próg warstwy z ocen operatora albo agenta (według <code>operator_warstwy</code>). <code>t3_tak</code> „nie dotyczy” bez <code>t3</code>. Zgodność ≥ 0,80 na wspólnych pozycjach.</td><td>musi</td></tr>
-  <tr><td>W7</td><td>Checker i <code>tematy_review.py</code> według W1–W6, bez stałej <code>PROBA</code> w stronie R2.</td><td>musi</td></tr>
+  <tr><td>W6</td><td>Werdykt: próg warstwy z ocen operatora albo agenta (według <code>operator_warstwy</code>). <code>t3_tak</code> „nie dotyczy” bez <code>t3</code>. Progi z ocen agenta liczymy zawsze. Zgodność ≥ 0,80 na wspólnych pozycjach.</td><td>musi</td></tr>
+  <tr><td>W7</td><td>Checker i <code>tematy_review.py</code> według W1–W6. Manifest wejść nadal z <code>iate</code>; piny tylko użytych wejść; temat czytany przed pinami. Strona R2 bez stałej <code>PROBA</code>.</td><td>musi</td></tr>
   <tr><td>W8</td><td>Regresja morza wobec <code>tematy-v2-20261029-a</code> (szczegóły niżej).</td><td>musi</td></tr>
-  <tr><td>W9</td><td>Przepięcie ocen morza: agent bez zmian, operator T2 (30) i T3 (27).</td><td>musi</td></tr>
-  <tr><td>W10</td><td>Słowa oczywiste: agent bez wglądu w wyniki, ∈ STANDARD, jedna strona, JSON, commit przed budową.</td><td>musi</td></tr>
+  <tr><td>W9</td><td>Przepięcie ocen morza: agent bez zmian, operator T2 (30) i T3 (27); 4 pola z nowego szablonu. Oczekiwany werdykt „popraw” (zgodność 20/57).</td><td>musi</td></tr>
+  <tr><td>W10</td><td>Słowa oczywiste: agent bez wglądu w wyniki; każde słowo to <code>lemma_base</code> z klasą i formą w STANDARD; jedna strona, JSON, commit przed budową.</td><td>musi</td></tr>
   <tr><td>W11</td><td>9 plików tematów (tabela niżej).</td><td>musi</td></tr>
-  <tr><td>W12</td><td>Budowy: od małych tematów, a/b po kolei, czyste drzewo, a = b, checker PASS, <code>builds.json</code>.</td><td>musi</td></tr>
+  <tr><td>W12</td><td>Budowy: od małych tematów, a/b po kolei, czyste drzewo, bez commitu w trakcie serii, a = b, checker PASS, <code>builds.json</code>.</td><td>musi</td></tr>
   <tr><td>W13</td><td>R2: instrukcja agenta, agent 50 na warstwę, hash przed stroną, 9 stron, strona zbiorcza, <code>review-check-&lt;id&gt;.json</code>.</td><td>musi</td></tr>
   <tr><td>W14</td><td>Zestawienie 10 tematów, macierz nakładania lematów, decyzje bramki dla każdego tematu.</td><td>musi</td></tr>
-  <tr><td>W15</td><td>ADR-012, odsyłacz w ADR-010, cli/raporty/jakosc, INDEX, runbook, wiki (TEMATY, Home, Historia-zmian).</td><td>musi</td></tr>
+  <tr><td>W15</td><td>ADR-012 (w tym: stare pakiety sprawdza checker z <code>a633136</code>), odsyłacz w ADR-010, cli/raporty/jakosc, INDEX, runbook, wiki (TEMATY, Home, STANDARD, _Sidebar, Historia-zmian).</td><td>musi</td></tr>
 </table></div>
 
 <h2 id="tematy">Tematy (W11)</h2>
@@ -196,12 +217,12 @@ ol.flow li { margin:4px 0; }
 <div class="card scroll"><table>
   <tr><th>Plik</th><th>Wymóg</th></tr>
   <tr><td><code>MORZE.txt.gz</code>, <code>MORZE.tsv.gz</code>, <code>ATTRIBUTIONS.md</code>, <code>TERMS.md</code></td><td class="pass">bajtowo równe</td></tr>
-  <tr><td><code>LIMITATIONS.md</code></td><td>różni się tylko punktem T2</td></tr>
+  <tr><td><code>LIMITATIONS.md</code></td><td>różni się tylko punktami T2 i T3</td></tr>
   <tr><td><code>reports/summary.json</code></td><td>równy po usunięciu <code>method</code>, <code>wykluczenia</code> i <code>werdykt.nie_dotyczy</code></td></tr>
   <tr><td><code>reports/sample.json</code></td><td>równe <code>strata</code>, <code>items</code>, liczniki; <code>operator.strata</code> = T2 i T3</td></tr>
   <tr><td><code>tematy/morze.json</code>, <code>method.json</code>, <code>raport.md</code>, <code>review-template.json</code>, <code>release-manifest.json</code>, <code>SHA256SUMS</code></td><td>mogą się różnić</td></tr>
 </table>
-<p>a = b, checker PASS, 970 wpisów, 11 035 form, test 37/37.</p></div>
+<p>a = b, checker PASS, 970 wpisów, 11 035 form, test 37/37. Test tekstów: <code>ATTRIBUTIONS-tematy.md</code> = <code>d6673156…</code>, <code>TERMS.md</code> = <code>b4250289…</code> po zdjęciu znaczników.</p></div>
 
 <h2 id="kolejnosc">Kolejność prac</h2>
 <div class="card"><ol class="flow">
@@ -242,8 +263,9 @@ ol.flow li { margin:4px 0; }
 <details class="card" open><summary>2–8 testów na grupę; pełny zestaw raz na końcu</summary>
   <ul>
     <li>Temat bez <code>t3</code>: T3 puste, IATE poza rejestrem i <code>inputs</code>, teksty bez „IATE” i „śródląd”.</li>
-    <li><code>t3.dodatki</code> albo znaczniki bez <code>t3</code> dają kod 2.</li>
-    <li>Teksty z odcinkami dla tematu z T3 i znacznikami są bajtowo równe dzisiejszym; niezamknięty odcinek daje kod 2.</li>
+    <li><code>t3.dodatki</code>, znaczniki bez <code>t3</code> albo bez kodu <code>4821</code> dają kod 2.</li>
+    <li>Teksty według W8 (stare hashe, <code>LIMITATIONS.md</code> z podmienionymi T2 i T3); niezamknięty odcinek daje kod 2. Medycyna: <code>srodladowe</code> = null.</li>
+    <li>Przepięcie morza daje oczekiwany werdykt. Skrypt słów odrzuca formę, która nie jest lematem.</li>
     <li>Wykluczenie lematu: usunięty z TSV i wpisany do <code>summary.wykluczenia</code>. Bez trafienia: kod 4. Konflikt z dodatkiem: kod 2.</li>
     <li>Wykluczenie poddrzewa nieosiągalne: kod 4.</li>
     <li><code>operator_warstwy</code>: <code>operator.strata</code> bez T1, strona R2 tylko z T2 i T3.</li>
@@ -261,7 +283,7 @@ ol.flow li { margin:4px 0; }
   <li>9 tematów: a = b, checker PASS, T3 i IATE tylko w medycynie.</li>
   <li>Hash ocen agenta przed stroną R2 każdego tematu. Operator ocenił ok. 300 pozycji. <code>review-check</code> dla 10 tematów.</li>
   <li><code>gate-report.md</code>: tabela 10 tematów, macierz nakładania, decyzja dla każdego tematu.</li>
-  <li>ADR-012, dokumenty, runbook i wiki zaktualizowane, stan „W przygotowaniu”.</li>
+  <li>ADR-012, dokumenty, runbook i wiki (TEMATY, Home, STANDARD, _Sidebar, Historia-zmian) zaktualizowane, stan „W przygotowaniu”.</li>
 </ol></div>
 </main>
 </body>
