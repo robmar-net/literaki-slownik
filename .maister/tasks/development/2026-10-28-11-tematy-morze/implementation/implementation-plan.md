@@ -292,14 +292,14 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `T/analysis/verify_real.py`, `T/analysis/record_agent_review.py`, `T/verification/real-builds.json`, `T/verification/tematy-morze-review.json`, `T/work-log.md`
 **Kroki:** 7
 
-- [ ] 13.0 Zbudować pakiet dwa razy i ocenić próbę
-  - [ ] 13.1 Kontrola zamiast testów: `verify_real.py` (wzór POP00) sprawdza `git_dirty: false`, identyczne bajty a/b, checker PASS na obu.
-  - [ ] 13.2 Puścić w tle budowę `data/work/tematy-v1-<data>-a`, potem `-b` (po kolei). Zapisać czasy startu i końca w work-logu. Czytać wynik, nie tylko zakończenie.
-  - [ ] 13.3 `verify_real.py`: identyczne `SHA256SUMS`, checker PASS na a i b; dowód do `T/verification/real-builds.json` z `summary.json`.
-  - [ ] 13.4 Sprawdzić wynik wobec kryteriów sukcesu: T3 niepusta, liczby `termType`, przecięcia, diagnostyka z podliczbą `ger`, test 37 słów, udział śródlądowych. Odstępstwo od spec = zatrzymanie i poprawka w grupach 5–9 (nowe budowy).
-  - [ ] 13.5 Agent ocenia wszystkie pozycje próby (do 150): tak/nie/niepewne z powodem.
-  - [ ] 13.6 `record_agent_review.py` zapisuje `T/verification/tematy-morze-review.json`: oceny agenta, ich hash, `SHA256SUMS` pakietu, `sample_sha256`.
-  - [ ] 13.7 Commit i push `maister: #11 budowy a/b i ocena agenta` — przed wygenerowaniem strony operatora (D12).
+- [x] 13.0 Zbudować pakiet dwa razy i ocenić próbę
+  - [x] 13.1 Kontrola zamiast testów: `verify_real.py` (wzór POP00) sprawdza `git_dirty: false`, identyczne bajty a/b, checker PASS na obu.
+  - [x] 13.2 Puścić w tle budowę `data/work/tematy-v1-<data>-a`, potem `-b` (po kolei). Zapisać czasy startu i końca w work-logu. Czytać wynik, nie tylko zakończenie.
+  - [x] 13.3 `verify_real.py`: identyczne `SHA256SUMS`, checker PASS na a i b; dowód do `T/verification/real-builds.json` z `summary.json`.
+  - [x] 13.4 Sprawdzić wynik wobec kryteriów sukcesu: T3 niepusta, liczby `termType`, przecięcia, diagnostyka z podliczbą `ger`, test 37 słów, udział śródlądowych. Odstępstwo od spec = zatrzymanie i poprawka w grupach 5–9 (nowe budowy).
+  - [x] 13.5 Agent ocenia wszystkie pozycje próby (do 150): tak/nie/niepewne z powodem.
+  - [x] 13.6 `record_agent_review.py` zapisuje `T/verification/tematy-morze-review.json`: oceny agenta, ich hash, `SHA256SUMS` pakietu, `sample_sha256`.
+  - [x] 13.7 Commit i push `maister: #11 budowy a/b i ocena agenta` — przed wygenerowaniem strony operatora (D12).
 
 **Kryteria odbioru:**
 - Dwie budowy mają identyczne `SHA256SUMS`; checker PASS na obu.

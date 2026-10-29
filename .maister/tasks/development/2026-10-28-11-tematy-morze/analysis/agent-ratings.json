@@ -1,0 +1,514 @@
+{
+  "oceny": {
+    "achterluk@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "luk na rufie jachtu"
+    },
+    "agent@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne; agent żeglugowy to tylko jedno z wielu znaczeń"
+    },
+    "bajdewind@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "kurs żaglowy ostro do wiatru"
+    },
+    "bananowiec:Sm1@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "statek do przewozu bananów"
+    },
+    "batysfera@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "kabina do badań głębin morskich"
+    },
+    "bezan@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "tylny maszt lub żagiel żaglowca"
+    },
+    "blindgafel@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "drzewce w omasztowaniu żaglowca"
+    },
+    "bramreja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "reja żaglowca"
+    },
+    "bukszpryt@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "drzewce na dziobie żaglowca"
+    },
+    "bulaj@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "okrągłe okno w burcie statku"
+    },
+    "bulbkilowość@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "cecha kadłuba jachtu z kilem bulbowym; rzadkie, ale żeglarskie"
+    },
+    "bulina@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "lina w olinowaniu żaglowca"
+    },
+    "bungee@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "skok na linie, nie ma związku z morzem"
+    },
+    "bunkrowiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "statek zaopatrujący inne statki w paliwo"
+    },
+    "burtnica@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "deska poszycia burty łodzi"
+    },
+    "ciąg@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne; sens „lina” jest marginalny"
+    },
+    "czterorzędowiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "galera z czterema rzędami wioseł"
+    },
+    "deflektometr@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "przyrząd do pomiaru dewiacji kompasu okrętowego"
+    },
+    "dirka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "lina podtrzymująca gafel lub bom"
+    },
+    "dozorowiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "okręt dozorowy"
+    },
+    "drewnowiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "statek do przewozu drewna"
+    },
+    "drobnicowiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "statek do przewozu drobnicy"
+    },
+    "dulka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "podpórka wiosła w burcie łodzi"
+    },
+    "dyplom@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne"
+    },
+    "fin:Sm3~a@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "rzadki termin żeglarski o niejasnym znaczeniu; nie umiem go potwierdzić"
+    },
+    "flauta@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "cisza wiatrowa na morzu; przenośnie też zastój"
+    },
+    "foksztaksel@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "przedni żagiel sztakslowy"
+    },
+    "galera@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "okręt wiosłowy"
+    },
+    "grotżagiel@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "główny żagiel"
+    },
+    "kabotażowiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "statek żeglugi przybrzeżnej"
+    },
+    "kapitana@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "galera dowódcy floty"
+    },
+    "kilwater@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "ślad torowy za płynącym statkiem"
+    },
+    "klamburta@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "nadburcie statku"
+    },
+    "klasyfikacja@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne"
+    },
+    "kliper@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "szybki żaglowiec"
+    },
+    "kluza@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "otwór w burcie na łańcuch kotwiczny"
+    },
+    "koga@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "średniowieczny statek handlowy"
+    },
+    "kogga@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "wariant zapisu „koga”, statek"
+    },
+    "komuły@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "termin rybacki o niejasnym znaczeniu; nie wiem, czy dotyczy rybołówstwa morskiego"
+    },
+    "konosament@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "dokument przewozu ładunku morzem"
+    },
+    "konteneryzacja@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "dotyczy transportu w ogóle, nie tylko morskiego"
+    },
+    "kontrtorpedowiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "okręt wojenny, niszczyciel"
+    },
+    "kotew@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "dawna nazwa kotwicy"
+    },
+    "kotwicowisko@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "miejsce kotwiczenia statków"
+    },
+    "kołkownica@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "listwa na żaglowcu do mocowania lin"
+    },
+    "krzyżak:Sm2@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne; sens żeglarski jest marginalny"
+    },
+    "linka@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne, cienka lina w każdym zastosowaniu"
+    },
+    "locja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "opis wód dla nawigacji morskiej"
+    },
+    "loksodroma@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "linia kursu w nawigacji"
+    },
+    "marlować@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "owijać lub mocować marlinką"
+    },
+    "marsreja@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "reja żaglowca"
+    },
+    "mat:Sm1@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "podoficer marynarki"
+    },
+    "matelot:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "dawniej marynarz"
+    },
+    "moderator:Sm3@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "spowalniacz reakcji, chemia i fizyka jądrowa"
+    },
+    "nok@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "koniec rei lub bomu"
+    },
+    "nośność@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne techniczne; sens „nośność statku” to jedno z wielu użyć"
+    },
+    "ocel@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "hacel, kolec podkowy; brak związku z morzem"
+    },
+    "oczep@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "belka w budownictwie, np. na palach"
+    },
+    "odbojnica@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "belka chroniąca burtę lub nabrzeże; też bariera drogowa"
+    },
+    "pelengować@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "namierzać w nawigacji"
+    },
+    "pełzacz:Sm1@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "okucie, element mechaniczny; brak wyraźnego związku z morzem"
+    },
+    "pik:Sm2.m3@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "róg żagla gaflowego, ale słowo ma wiele ogólnych znaczeń"
+    },
+    "piractwo@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "rozbój na morzu; dziś też piractwo komputerowe"
+    },
+    "pirat:Sm1@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "rozbójnik morski; dziś też pirat komputerowy i drogowy"
+    },
+    "podróżny:S@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne"
+    },
+    "podwalina@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "belka w budownictwie"
+    },
+    "pokładnik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "belka pod pokładem statku"
+    },
+    "pompownia@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne"
+    },
+    "produktowiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "zbiornikowiec do przewozu produktów naftowych"
+    },
+    "prom@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "statek przewożący pojazdy i ludzi; też promy rzeczne"
+    },
+    "przegroda@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne; na statku mówi się zwykle „grodź”"
+    },
+    "przetrałować@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "przeszukać trałem łowisko lub akwen"
+    },
+    "przeładunek@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "porty, ale też kolej i transport drogowy"
+    },
+    "pych@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "drąg do odpychania łodzi; raczej rzeki i płytkie wody"
+    },
+    "pętelka@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "mała pętla, słowo ogólne"
+    },
+    "radiooficer@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "oficer radiowy na statku"
+    },
+    "recepturka@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "gumka recepturka"
+    },
+    "rener@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "rzadka nazwa liny o niejasnym znaczeniu; nie umiem potwierdzić sensu morskiego"
+    },
+    "rozrusznik@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "urządzenie do uruchamiania silnika"
+    },
+    "rzutka@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "lina rzucana ze statku, ale też lotka do gry"
+    },
+    "saling@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "poprzeczka na maszcie"
+    },
+    "schodnia@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "trap łączący statek z nabrzeżem"
+    },
+    "siarkowiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "statek do przewozu siarki"
+    },
+    "siłownia@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "zwykle sala ćwiczeń albo elektrownia; maszynownia statku to sens rzadki"
+    },
+    "skrzydło@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne; łopata śruby okrętowej to sens marginalny"
+    },
+    "skuner@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "żaglowiec"
+    },
+    "sosręb@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "belka stropowa w budownictwie"
+    },
+    "spedytor@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "dotyczy transportu w ogóle"
+    },
+    "stalnica@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "belka stropowa, budownictwo i górnictwo"
+    },
+    "stateczność@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "cecha statku, ale też pojęcie ogólne w fizyce i budownictwie"
+    },
+    "sterburta@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "prawa burta statku"
+    },
+    "sterówka@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "pomieszczenie sterowe statku"
+    },
+    "stojan@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "część silnika elektrycznego"
+    },
+    "szalanda@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "barka do wywozu urobku z pogłębiania portu"
+    },
+    "szandek@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "termin z kwalifikatorem „mors.” o nieznanym mi znaczeniu"
+    },
+    "szap@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "jedwab z odpadów, włókiennictwo"
+    },
+    "sztafok@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "przedni żagiel sztakslowy"
+    },
+    "sztag@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "lina podtrzymująca maszt"
+    },
+    "sztagżagiel@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "żagiel na sztagu"
+    },
+    "topżagiel@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "żagiel szczytowy"
+    },
+    "trałowiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "okręt do usuwania min"
+    },
+    "trimaran@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "jednostka z trzema kadłubami"
+    },
+    "trzon@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne"
+    },
+    "tuńczykowiec@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "statek do połowu tuńczyków"
+    },
+    "wielorybnik:Sm1@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "łowca wielorybów"
+    },
+    "wieszak@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne"
+    },
+    "wodownik@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "zbiornikowiec dowożący wodę"
+    },
+    "wyładunek@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne, każdy transport"
+    },
+    "wzdłużnica@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "wzdłużny element konstrukcji kadłuba, ale też mostów i samolotów"
+    },
+    "włóczka@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "przędza do robótek"
+    },
+    "zadzior@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "kolec na grocie lub haczyku"
+    },
+    "zanurzenie@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "zanurzenie statku, ale słowo jest ogólne"
+    },
+    "zarefować@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "zmniejszyć powierzchnię żagla"
+    },
+    "zatrzymanie@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne"
+    },
+    "załadunek@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne, każdy transport"
+    },
+    "zenzowość@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "wariant „zęzowość”, termin okrętowy"
+    },
+    "zrefować@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "zmniejszyć powierzchnię żagla"
+    },
+    "zęzowość@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "termin okrętowy związany z zęzą"
+    },
+    "ładowisko@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "miejsce załadunku; ładownia statku to jeden z sensów"
+    },
+    "łącznik:Sm1@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "osoba pośrednicząca; brak związku z morzem"
+    },
+    "łącznik:Sm3@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "element przewodu wiertniczego; słowo ogólne"
+    },
+    "ścigacz@sgjp-20260823": {
+      "ocena": "niepewne",
+      "powod": "mały okręt, ale dziś zwykle motocykl"
+    },
+    "średnica@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "słowo ogólne"
+    },
+    "śródokręcie@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "środkowa część statku"
+    },
+    "żeglowność@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "zdatność wód do żeglugi; dotyczy też rzek"
+    },
+    "żurawik:Sm2@sgjp-20260823": {
+      "ocena": "nie",
+      "powod": "leksem żywotny (zdrobnienie od ptaka); sens żurawika szalupowego należy do Sm3"
+    },
+    "żurawik:Sm3@sgjp-20260823": {
+      "ocena": "tak",
+      "powod": "żurawik szalupowy na statku"
+    }
+  },
+  "reviewed_at": "2026-10-29T00:22:00Z",
+  "reviewer": "agent (Claude)"
+}

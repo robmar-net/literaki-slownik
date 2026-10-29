@@ -1,0 +1,512 @@
+{
+  "code_identity": {
+    "git_commit": "e519b9ce45f3209f39684d14e1defa3f5989c344",
+    "git_dirty": false,
+    "tree_sha256": "ffb5c76fdbe601d04153d674d493c55851c23f9a4f300595a1bf3b587a53b908"
+  },
+  "budowy": {
+    "a": {
+      "start": "2026-10-29T00:15:47Z",
+      "end": "2026-10-29T00:17:10Z",
+      "exit": 0,
+      "status": "ok",
+      "diagnostics": [],
+      "release_manifest_sha256": "8fa49fcc21f6d43af81889dfe7f9832742db06fa97830de4bb8abe557d4db786"
+    },
+    "b": {
+      "start": "2026-10-29T00:17:10Z",
+      "end": "2026-10-29T00:18:29Z",
+      "exit": 0,
+      "status": "ok",
+      "diagnostics": [],
+      "release_manifest_sha256": "8fa49fcc21f6d43af81889dfe7f9832742db06fa97830de4bb8abe557d4db786"
+    }
+  },
+  "pakiety": [
+    "data/work/tematy-v1-20261029-a",
+    "data/work/tematy-v1-20261029-b"
+  ],
+  "sha256sums_sha256": "724f2e812940e74edb995ace2f07634d2e0f72ae73a28615a24c8eb0fc9530a9",
+  "files_sha256": {
+    "ATTRIBUTIONS.md": "a3a221e966899c3020634b328ce647aa4fe4377081ffc55706041b38da0ce282",
+    "LIMITATIONS.md": "20fe66f807b0b40b557488db4423d0426e4543db82d9d68e3c25981137b742c3",
+    "MORZE.tsv.gz": "5030c7c392c20560931b367eff2b3fc8452607540f5f520ba74d63fb47163a7c",
+    "MORZE.txt.gz": "0d8f353a70c8ed14652ae78e9a1e44075e22c42077e3c6153588d3bb8aa812f2",
+    "SHA256SUMS": "724f2e812940e74edb995ace2f07634d2e0f72ae73a28615a24c8eb0fc9530a9",
+    "TERMS.md": "b42502890ca2c830da72652360e3db8b6f131bf4bf9e02379f99a86f234c9651",
+    "method.json": "93dbf61a48a37c15d4185b1a2fae1f74da5cd0a981b7e697dc7c6e8b661cfd33",
+    "release-manifest.json": "8fa49fcc21f6d43af81889dfe7f9832742db06fa97830de4bb8abe557d4db786",
+    "reports/raport.md": "7553bd39263255188d3a4a53f2db94eaaea5822b4ab5e21bf45db9b24806d4fd",
+    "reports/review-template.json": "c6110d630ae7fc4a0a055970e1564814f6d1e81d78c10012885c7b1cdb4bce2c",
+    "reports/sample.json": "95179d52f633f4d32350f4253c3d3dfee7f18b2129cbade2e1555c89022f9efe",
+    "reports/summary.json": "b392965481a2ec9854ddb8793bfabe4af67f968f326b1c05b63e4a7d0ae82af6",
+    "tematy/morze.json": "53887bf7e3ba0bd7f153dc8602bbbe817799e271db080ce1d9b59b03fb82ae43"
+  },
+  "all_files_identical": true,
+  "checker": {
+    "tematy-v1-20261029-a": {
+      "exit": 0,
+      "status": "pass"
+    },
+    "tematy-v1-20261029-b": {
+      "exit": 0,
+      "status": "pass"
+    }
+  },
+  "checker_wynik_a": {
+    "formy": 10883,
+    "review_checked": false,
+    "sha256sums_sha256": "724f2e812940e74edb995ace2f07634d2e0f72ae73a28615a24c8eb0fc9530a9",
+    "slowa_oczywiste": {
+      "brakujace": [
+        "sztorm",
+        "rybak",
+        "cumować",
+        "falochron",
+        "nabrzeże",
+        "trał"
+      ],
+      "lista": 37,
+      "pokryte": 31
+    },
+    "status": "pass",
+    "temat": "morze",
+    "warstwy": {
+      "T1": 246,
+      "T2": 691,
+      "T3": 27
+    },
+    "wpisy": 964
+  },
+  "summary": {
+    "liczby": {
+      "formy": 10883,
+      "kandydaci": 990,
+      "warstwy": {
+        "T1": 246,
+        "T2": 691,
+        "T3": 27
+      },
+      "wpisy": 964
+    },
+    "przeciecia": {
+      "leksemy": {
+        "T1": {
+          "temat": 246,
+          "pop": {
+            "liczba": 60,
+            "procent": "24.4"
+          },
+          "pop00": {
+            "liczba": 4,
+            "procent": "1.6"
+          }
+        },
+        "T2": {
+          "temat": 691,
+          "pop": {
+            "liczba": 347,
+            "procent": "50.2"
+          },
+          "pop00": {
+            "liczba": 99,
+            "procent": "14.3"
+          }
+        },
+        "T3": {
+          "temat": 27,
+          "pop": {
+            "liczba": 20,
+            "procent": "74.1"
+          },
+          "pop00": {
+            "liczba": 7,
+            "procent": "25.9"
+          }
+        },
+        "razem": {
+          "temat": 964,
+          "pop": {
+            "liczba": 427,
+            "procent": "44.3"
+          },
+          "pop00": {
+            "liczba": 110,
+            "procent": "11.4"
+          }
+        }
+      },
+      "formy": {
+        "T1": {
+          "temat": 4522,
+          "pop": {
+            "liczba": 768,
+            "procent": "17.0"
+          },
+          "pop00": {
+            "liczba": 91,
+            "procent": "2.0"
+          }
+        },
+        "T2": {
+          "temat": 6236,
+          "pop": {
+            "liczba": 3094,
+            "procent": "49.6"
+          },
+          "pop00": {
+            "liczba": 896,
+            "procent": "14.4"
+          }
+        },
+        "T3": {
+          "temat": 233,
+          "pop": {
+            "liczba": 179,
+            "procent": "76.8"
+          },
+          "pop00": {
+            "liczba": 73,
+            "procent": "31.3"
+          }
+        },
+        "razem": {
+          "temat": 10883,
+          "pop": {
+            "liczba": 3961,
+            "procent": "36.4"
+          },
+          "pop00": {
+            "liczba": 1042,
+            "procent": "9.6"
+          }
+        }
+      }
+    },
+    "diagnostyka": {
+      "T1": {
+        "formy": {
+          "broad": 4655,
+          "kandydaci": 4997,
+          "procent_broad": "93.2",
+          "procent_standard": "90.5",
+          "standard": 4522
+        },
+        "leksemy": {
+          "broad": 249,
+          "kandydaci": 254,
+          "procent_broad": "98.0",
+          "procent_standard": "96.9",
+          "standard": 246
+        }
+      },
+      "T2": {
+        "formy": {
+          "broad": 6383,
+          "kandydaci": 6451,
+          "procent_broad": "98.9",
+          "procent_standard": "96.7",
+          "standard": 6236
+        },
+        "leksemy": {
+          "broad": 706,
+          "kandydaci": 708,
+          "procent_broad": "99.7",
+          "procent_standard": "97.6",
+          "standard": 691
+        }
+      },
+      "T3": {
+        "formy": {
+          "broad": 235,
+          "kandydaci": 248,
+          "procent_broad": "94.8",
+          "procent_standard": "94.0",
+          "standard": 233
+        },
+        "leksemy": {
+          "broad": 27,
+          "kandydaci": 28,
+          "procent_broad": "96.4",
+          "procent_standard": "96.4",
+          "standard": 27
+        }
+      },
+      "razem": {
+        "formy": {
+          "broad": 11165,
+          "kandydaci": 11588,
+          "procent_broad": "96.3",
+          "procent_standard": "93.9",
+          "standard": 10883
+        },
+        "leksemy": {
+          "broad": 982,
+          "kandydaci": 990,
+          "procent_broad": "99.2",
+          "procent_standard": "97.4",
+          "standard": 964
+        }
+      }
+    },
+    "slowa_oczywiste": {
+      "razem": {
+        "brakujace": [
+          "sztorm",
+          "rybak",
+          "cumować",
+          "falochron",
+          "nabrzeże",
+          "trał"
+        ],
+        "pokryte": 31,
+        "procent": "83.8"
+      },
+      "T1": {
+        "brakujace": [
+          "kotwica",
+          "maszt",
+          "żagiel",
+          "ster",
+          "bosman",
+          "rufa",
+          "burta",
+          "pokład",
+          "statek",
+          "okręt",
+          "marynarz",
+          "jacht",
+          "sztorm",
+          "szalupa",
+          "kuter",
+          "rybak",
+          "mesa",
+          "kabestan",
+          "sternik",
+          "cumować",
+          "falochron",
+          "nabrzeże",
+          "sterburta",
+          "grot",
+          "knaga",
+          "szkuta",
+          "trał"
+        ],
+        "pokryte": 10,
+        "procent": "27.0"
+      },
+      "T1_T2": {
+        "brakujace": [
+          "sztorm",
+          "rybak",
+          "cumować",
+          "falochron",
+          "nabrzeże",
+          "trał"
+        ],
+        "pokryte": 31,
+        "procent": "83.8"
+      },
+      "spelniony": true,
+      "prog": "0.70"
+    },
+    "srodladowe": {
+      "kandydaci_t3": {
+        "hasla": 74,
+        "procent": "0.0",
+        "srodladowe": 0
+      },
+      "wpisy_t3": {
+        "procent": "0.0",
+        "srodladowe": 0,
+        "wpisy": 27
+      },
+      "znaczniki": {
+        "en": [
+          "inland",
+          "river",
+          "canal",
+          "lake",
+          "lock",
+          "barge"
+        ],
+        "pl": [
+          "śródląd",
+          "rzek",
+          "rzeczn",
+          "kanał",
+          "jezior",
+          "śluz",
+          "barka"
+        ]
+      }
+    },
+    "odrzucone": {
+      "T1": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 5
+        },
+        "POZA_STANDARD": {
+          "liczba": 3
+        }
+      },
+      "T2": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 101
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 503
+        },
+        "POZA_BROAD": {
+          "liczba": 2
+        },
+        "POZA_STANDARD": {
+          "liczba": 15
+        }
+      },
+      "T3": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 9
+          },
+          "liczba": 20
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 481
+        },
+        "POZA_BROAD": {
+          "liczba": 1
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "razem": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 9
+          },
+          "liczba": 121
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 976
+        },
+        "POZA_BROAD": {
+          "liczba": 8
+        },
+        "POZA_STANDARD": {
+          "liczba": 18
+        }
+      }
+    },
+    "t3": {
+      "hasla": 3992,
+      "hasla_kandydaci": 74,
+      "hasla_pl": 577,
+      "odrzucone": {
+        "NIEZAWODNOSC": {
+          "liczba": 81
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 485
+        },
+        "STATUS": {
+          "liczba": 12
+        },
+        "TYP": {
+          "liczba": 78
+        },
+        "WIELKA_LITERA": {
+          "liczba": 9
+        }
+      },
+      "przyjete": 78,
+      "przyjete_rozne": 74,
+      "status": {
+        "BRAK": 716,
+        "deprecatedTerm-admn-sts": 5,
+        "preferredTerm-admn-sts": 13,
+        "supersededTerm-admn-sts": 9
+      },
+      "termType": {
+        "abbreviation": 50,
+        "fullForm": 665,
+        "shortForm": 28
+      }
+    },
+    "wieloznaczny": {
+      "brak_danych": {
+        "liczba": 75,
+        "procent": "7.8",
+        "przyklady": [
+          "FAS@sgjp-20260823",
+          "achterluk@sgjp-20260823",
+          "arymaż@sgjp-20260823",
+          "braszpil@sgjp-20260823",
+          "bulbkil@sgjp-20260823",
+          "bulbkilowość@sgjp-20260823",
+          "bulbkilowy@sgjp-20260823",
+          "bulina@sgjp-20260823",
+          "burtnica@sgjp-20260823",
+          "chief@sgjp-20260823"
+        ]
+      },
+      "nie": {
+        "liczba": 459,
+        "procent": "47.6",
+        "przyklady": [
+          "achterdek@sgjp-20260823",
+          "achterpik@sgjp-20260823",
+          "achtersztag@sgjp-20260823",
+          "arkan@sgjp-20260823",
+          "atomowiec@sgjp-20260823",
+          "bajdak@sgjp-20260823",
+          "bajorek@sgjp-20260823",
+          "bakbort@sgjp-20260823",
+          "bakburta@sgjp-20260823",
+          "balonfok@sgjp-20260823"
+        ]
+      },
+      "tak": {
+        "liczba": 430,
+        "procent": "44.6",
+        "przyklady": [
+          "admirał:Sm1@sgjp-20260823",
+          "admirał:Sm2@sgjp-20260823",
+          "agent@sgjp-20260823",
+          "angora@sgjp-20260823",
+          "anilana@sgjp-20260823",
+          "argonauta:Sm1@sgjp-20260823",
+          "argonauta:Sm2@sgjp-20260823",
+          "arka@sgjp-20260823",
+          "armator@sgjp-20260823",
+          "atłasek@sgjp-20260823"
+        ]
+      }
+    },
+    "werdykt": {
+      "automatyczny": "dalej",
+      "czeka_na_ocene": [
+        "t1_tak",
+        "t2_tak",
+        "t2_nie",
+        "t3_tak",
+        "zgodnosc"
+      ],
+      "niespelnione": [],
+      "uwaga": "„stop” wybiera tylko operator na bramce"
+    }
+  }
+}

@@ -156,3 +156,21 @@
 **Bug fixed**: `load_topic` przyjmował niepuste `t3.dodatki` i `wykluczenia`, a budowa ich nie czytała, więc wpis był po cichu pomijany. Teraz v1 daje kod 2. ADR-010 dostał o tym zdanie.
 **Files Modified**: literaki_slownik/tematy.py, tests/test_tematy_{config,layers,package}.py, docs/generator/cli.md (dokładne flagi skryptów), docs/adr/ADR-010-tematy-v1.md
 **Uwaga**: wykluczenia rzecznych terminów po przeglądzie (decyzja operatora) wymagają w v2 obsługi `wykluczenia` w budowie.
+
+## 2026-10-29T00:24:00Z - Group 13 Complete
+
+**Steps**: 13.1–13.7
+**Budowy**:
+- a: 00:15:47–00:17:10Z (83 s); b: 00:17:10–00:18:29Z (79 s). Obie: status ok, bez diagnostyk.
+- 13 plików identycznych bajt w bajt. SHA256SUMS sha256 724f2e81…30a9. Checker PASS na a i na b.
+**Wyniki**:
+- Wpisy 964 (T1 246, T2 691, T3 27); MORZE ma 10 883 formy.
+- Przecięcie leksemów: POP 44,3%, POP00 11,4%. Przecięcie form: POP 36,4%, POP00 9,6%.
+- Test 37 słów: 31/37 (83,8%), próg spełniony. Brakuje: sztorm, rybak, cumować, falochron, nabrzeże, trał.
+- Żegluga śródlądowa: 0/74 kandydatów T3. Terminy śródlądowe są wielowyrazowe i odpadają wcześniej.
+**Ocena agenta (127 pozycji)**:
+- T1: 46/50 tak.
+- T2: 21/50 tak, 23 nie. To szum pełnego domknięcia: liny, belki, pętle, części maszyn.
+- T3: 9/27 tak, 14 nie (ogólne słowa z dziedziny IATE).
+- agent_sha256 a423e84c…1e4b.
+**Files**: analysis/{verify_real.py,record_agent_review.py,agent-ratings.json}, verification/{real-builds.json,tematy-morze-review.json}
