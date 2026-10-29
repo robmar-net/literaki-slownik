@@ -64,7 +64,7 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `T/verification/slowa-oczywiste.html`, `T/analysis/slowa-oczywiste.json`, `T/verification/slowa-oczywiste-check.json`
 **Kroki:** 6
 
-- [ ] 2.0 Dać operatorowi jedną stronę i zamrozić listy
+- [x] 2.0 Dać operatorowi jedną stronę i zamrozić listy
   - [x] 2.1 Kontrola zamiast testów: strona działa offline, ma 9 list, skreślanie, pole „dopisz” na temat, przycisk „kopiuj JSON” i szkic w `localStorage` w `try/catch`. Sprawdzamy to w wąskim oknie przeglądarki.
   - [x] 2.2 `T/verification/slowa-oczywiste.html`: samodzielny HTML na iPhone'a z dużymi polami dotyku. JSON wyjściowy ma postać `{<id>: [słowa]}` dla 9 tematów.
   - [x] 2.3 Opublikować stronę jako prywatny artefakt claude.ai i przekazać link orchestratorowi.

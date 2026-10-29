@@ -1,6 +1,6 @@
 orchestrator:
   started_phase: phase-1
-  completed_phases: [phase-1, phase-2, phase-5, phase-6, phase-7]
+  completed_phases: [phase-1, phase-2, phase-5, phase-6, phase-7, phase-8]
   failed_phases: []
   auto_fix_attempts: {}
   options:
