@@ -174,3 +174,9 @@
 - T3: 9/27 tak, 14 nie (ogólne słowa z dziedziny IATE).
 - agent_sha256 a423e84c…1e4b.
 **Files**: analysis/{verify_real.py,record_agent_review.py,agent-ratings.json}, verification/{real-builds.json,tematy-morze-review.json}
+
+## 2026-10-29T00:24:54Z - Group 14 w toku
+
+- 14.1: check --review PASS (przed oceną operatora).
+- 14.2: strona R2 `verification/tematy-morze-r2.html` opublikowana jako prywatny artefakt https://claude.ai/artifact/JA8v14hjvz4skM6MT1PAQB. Ma 87 pozycji: T1 30, T2 30, T3 27. Ocen agenta na stronie nie ma.
+- Czekamy na JSON od operatora (14.3–14.4).

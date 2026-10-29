@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ocena R2: morze</title>
+<style>
+:root {
+  --bg: #f7f6f2; --card: #ffffff; --text: #1d1d1b; --muted: #5d5d58; --line: #dddcd5;
+  --accent: #1f5f8b; --tak: #1e7a3c; --nie: #b3261e; --niepewne: #8a6100; --on: #ffffff;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141413; --card: #1f1f1d; --text: #ecebe6; --muted: #a8a7a0; --line: #3a3a36;
+    --accent: #7fb6dd; --tak: #5cc27c; --nie: #f2827a; --niepewne: #e0b44a; --on: #141413;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141413; --card: #1f1f1d; --text: #ecebe6; --muted: #a8a7a0; --line: #3a3a36;
+  --accent: #7fb6dd; --tak: #5cc27c; --nie: #f2827a; --niepewne: #e0b44a; --on: #141413;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); overflow-x: hidden;
+  font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 640px; margin: 0 auto; padding: 0 16px 48px; }
+header { position: sticky; top: 0; z-index: 1; background: var(--bg); padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--line); }
+header h1 { margin: 0; font-size: 20px; }
+header p { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+.intro { color: var(--muted); font-size: 15px; margin: 12px 0; }
+h2 { font-size: 18px; margin: 24px 0 8px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin: 10px 0;
+  overflow-wrap: anywhere; }
+.card.done { border-color: var(--accent); }
+.lemat { font-size: 22px; font-weight: 700; margin: 0; }
+.meta { color: var(--muted); font-size: 14px; margin: 2px 0 8px; }
+.zn { margin: 4px 0; font-size: 15px; }
+.zn b { font-weight: 600; }
+.forms { color: var(--muted); font-size: 14px; margin: 6px 0 10px; }
+.btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+button { font: inherit; font-weight: 600; min-height: 52px; border-radius: 10px; border: 2px solid var(--line);
+  background: var(--card); color: var(--text); cursor: pointer; touch-action: manipulation; }
+button[data-v="tak"][aria-pressed="true"] { background: var(--tak); border-color: var(--tak); color: var(--on); }
+button[data-v="nie"][aria-pressed="true"] { background: var(--nie); border-color: var(--nie); color: var(--on); }
+button[data-v="niepewne"][aria-pressed="true"] { background: var(--niepewne); border-color: var(--niepewne); color: var(--on); }
+.out { margin-top: 28px; }
+#copy { width: 100%; background: var(--accent); border-color: var(--accent); color: var(--on); }
+#status { color: var(--muted); font-size: 15px; min-height: 1.4em; margin: 8px 0; }
+textarea { width: 100%; min-height: 160px; font: 13px/1.4 ui-monospace, Menlo, monospace; color: var(--text);
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+</style>
+</head>
+<body>
+<header><h1>Ocena R2: morze</h1><p id="progress"></p></header>
+<main>
+<p class="intro">Czy słowo należy do tematu „morze”? Wybierz tak, nie albo niepewne.
+Na końcu naciśnij „Kopiuj JSON” i wklej wynik w rozmowę. Szkic zostaje w tej przeglądarce.</p>
+<div id="list"></div>
+<section class="out">
+<button id="copy" type="button">Kopiuj JSON</button>
+<p id="status" role="status"></p>
+<textarea id="json" readonly aria-label="JSON z ocenami"></textarea>
+</section>
+</main>
+<script id="data" type="application/json">{"agent_sha256": "a423e84cfbcfd6e1c3a48aa5617cbd4074df0b1dd94f0e2d5ecef0338f361e4b", "items": [{"formy": ["komułach", "komułami", "komułom", "komuły", "komułów"], "key": "komuły@sgjp-20260823", "lemat": "komuły", "liczba_form": 5, "warstwa": "T1", "znaczenie": {"T1": ["ryb."]}, "zrodla": ["T1"]}, {"formy": ["zenzowości", "zenzowościach", "zenzowościami", "zenzowościom", "zenzowością"], "key": "zenzowość@sgjp-20260823", "lemat": "zenzowość", "liczba_form": 6, "warstwa": "T1", "znaczenie": {"T1": ["żegl."]}, "zrodla": ["T1"]}, {"formy": ["bulai", "bulaj", "bulajach", "bulajami", "bulaje"], "key": "bulaj@sgjp-20260823", "lemat": "bulaj", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["żegl."]}, "zrodla": ["T1"]}, {"formy": ["trałowca", "trałowcach", "trałowcami", "trałowce", "trałowcem"], "key": "trałowiec@sgjp-20260823", "lemat": "trałowiec", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["mors."], "T2": ["30634 trałowiec 1"]}, "zrodla": ["T1", "T2"]}, {"formy": ["pokładnik", "pokładnika", "pokładnikach", "pokładnikami", "pokładniki"], "key": "pokładnik@sgjp-20260823", "lemat": "pokładnik", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["mors."], "T2": ["39590 pokładnik 1"]}, "zrodla": ["T1", "T2"]}, {"formy": ["deflektometr", "deflektometrach", "deflektometrami", "deflektometrem", "deflektometrom"], "key": "deflektometr@sgjp-20260823", "lemat": "deflektometr", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["żegl."]}, "zrodla": ["T1"]}, {"formy": ["śródokręci", "śródokręcia", "śródokręciach", "śródokręciami", "śródokręcie"], "key": "śródokręcie@sgjp-20260823", "lemat": "śródokręcie", "liczba_form": 9, "warstwa": "T1", "znaczenie": {"T1": ["żegl."], "T2": ["27748 śródokręcie 1"]}, "zrodla": ["T1", "T2"]}, {"formy": ["bezan", "bezana", "bezanach", "bezanami", "bezanem"], "key": "bezan@sgjp-20260823", "lemat": "bezan", "liczba_form": 11, "warstwa": "T1", "znaczenie": {"T1": ["żegl."], "T2": ["32670 bezan 1", "32673 bezan 2"]}, "zrodla": ["T1", "T2"]}, {"formy": ["marsrei", "marsrej", "marsreja", "marsrejach", "marsrejami"], "key": "marsreja@sgjp-20260823", "lemat": "marsreja", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["żegl."], "T2": ["80242 marsreja 1"]}, "zrodla": ["T1", "T2"]}, {"formy": ["locja", "locjach", "locjami", "locje", "locji"], "key": "locja@sgjp-20260823", "lemat": "locja", "liczba_form": 9, "warstwa": "T1", "znaczenie": {"T1": ["mors."]}, "zrodla": ["T1"]}, {"formy": ["kilwater", "kilwatera", "kilwaterach", "kilwaterami", "kilwaterem"], "key": "kilwater@sgjp-20260823", "lemat": "kilwater", "liczba_form": 11, "warstwa": "T1", "znaczenie": {"T1": ["żegl."]}, "zrodla": ["T1"]}, {"formy": ["saling", "salingach", "salingami", "salingi", "salingiem"], "key": "saling@sgjp-20260823", "lemat": "saling", "liczba_form": 9, "warstwa": "T1", "znaczenie": {"T1": ["żegl."], "T2": ["39604 saling 1"]}, "zrodla": ["T1", "T2"]}, {"formy": ["flaucie", "flaut", "flauta", "flautach", "flautami"], "key": "flauta@sgjp-20260823", "lemat": "flauta", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["mors.", "żegl."]}, "zrodla": ["T1"]}, {"formy": ["niepelengowana", "niepelengowane", "niepelengowanej", "niepelengowani", "niepelengowania"], "key": "pelengować@sgjp-20260823", "lemat": "pelengować", "liczba_form": 87, "warstwa": "T1", "znaczenie": {"T1": ["mors."]}, "zrodla": ["T1"]}, {"formy": ["pych", "pychach", "pychami", "pychem", "pychom"], "key": "pych@sgjp-20260823", "lemat": "pych", "liczba_form": 9, "warstwa": "T1", "znaczenie": {"T1": ["żegl."]}, "zrodla": ["T1"]}, {"formy": ["kogdze", "kogg", "kogga", "koggach", "koggami"], "key": "kogga@sgjp-20260823", "lemat": "kogga", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["mors."], "T2": ["26121 kogga 1"]}, "zrodla": ["T1", "T2"]}, {"formy": ["dirce", "direk", "dirka", "dirkach", "dirkami"], "key": "dirka@sgjp-20260823", "lemat": "dirka", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["żegl."], "T2": ["41311 dirka 1"]}, "zrodla": ["T1", "T2"]}, {"formy": ["niezrefowana", "niezrefowane", "niezrefowanego", "niezrefowanej", "niezrefowanemu"], "key": "zrefować@sgjp-20260823", "lemat": "zrefować", "liczba_form": 83, "warstwa": "T1", "znaczenie": {"T1": ["żegl."]}, "zrodla": ["T1"]}, {"formy": ["prom", "promach", "promami", "promem", "promie"], "key": "prom@sgjp-20260823", "lemat": "prom", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["żegl."], "T2": ["13697 prom 1"]}, "zrodla": ["T1", "T2"]}, {"formy": ["skuner", "skunera", "skunerach", "skunerami", "skunerem"], "key": "skuner@sgjp-20260823", "lemat": "skuner", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["żegl."]}, "zrodla": ["T1"]}, {"formy": ["kliper", "klipera", "kliperach", "kliperami", "kliperem"], "key": "kliper@sgjp-20260823", "lemat": "kliper", "liczba_form": 20, "warstwa": "T1", "znaczenie": {"T1": ["żegl."], "T2": ["30597 kliper 1"]}, "zrodla": ["T1", "T2"]}, {"formy": ["blindgafel", "blindgafla", "blindgaflach", "blindgaflami", "blindgafle"], "key": "blindgafel@sgjp-20260823", "lemat": "blindgafel", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["żegl."], "T2": ["258386 blindgafel 1"]}, "zrodla": ["T1", "T2"]}, {"formy": ["grotżagiel", "grotżagla", "grotżaglach", "grotżaglami", "grotżagle"], "key": "grotżagiel@sgjp-20260823", "lemat": "grotżagiel", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["żegl."], "T2": ["37345 grotżagiel 1"]}, "zrodla": ["T1", "T2"]}, {"formy": ["marlowali", "marlowaliby", "marlowalibyście", "marlowalibyśmy", "marlowaliście"], "key": "marlować@sgjp-20260823", "lemat": "marlować", "liczba_form": 103, "warstwa": "T1", "znaczenie": {"T1": ["żegl."]}, "zrodla": ["T1"]}, {"formy": ["szandek", "szandekach", "szandekami", "szandeki", "szandekiem"], "key": "szandek@sgjp-20260823", "lemat": "szandek", "liczba_form": 9, "warstwa": "T1", "znaczenie": {"T1": ["mors."]}, "zrodla": ["T1"]}, {"formy": ["kluz", "kluza", "kluzach", "kluzami", "kluzie"], "key": "kluza@sgjp-20260823", "lemat": "kluza", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["żegl."], "T2": ["18514 kluza 1"]}, "zrodla": ["T1", "T2"]}, {"formy": ["topżagiel", "topżagla", "topżaglach", "topżaglami", "topżagle"], "key": "topżagiel@sgjp-20260823", "lemat": "topżagiel", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["żegl."], "T2": ["37346 topżagiel 1"]}, "zrodla": ["T1", "T2"]}, {"formy": ["maci", "macie", "mat", "mata", "matach"], "key": "mat:Sm1@sgjp-20260823", "lemat": "mat", "liczba_form": 11, "warstwa": "T1", "znaczenie": {"T1": ["mors."], "T2": ["14383 mat 1"]}, "zrodla": ["T1", "T2"]}, {"formy": ["bajdewind", "bajdewindach", "bajdewindami", "bajdewindem", "bajdewindom"], "key": "bajdewind@sgjp-20260823", "lemat": "bajdewind", "liczba_form": 10, "warstwa": "T1", "znaczenie": {"T1": ["żegl."]}, "zrodla": ["T1"]}, {"formy": ["zęzowości", "zęzowościach", "zęzowościami", "zęzowościom", "zęzowością"], "key": "zęzowość@sgjp-20260823", "lemat": "zęzowość", "liczba_form": 6, "warstwa": "T1", "znaczenie": {"T1": ["żegl."]}, "zrodla": ["T1"]}, {"formy": ["kontrtorpedowca", "kontrtorpedowce", "kontrtorpedowcu"], "key": "kontrtorpedowiec@sgjp-20260823", "lemat": "kontrtorpedowiec", "liczba_form": 3, "warstwa": "T2", "znaczenie": {"T2": ["13671 kontrtorpedowiec 1"]}, "zrodla": ["T2"]}, {"formy": ["bananowca", "bananowcach", "bananowcami", "bananowce", "bananowcem"], "key": "bananowiec:Sm1@sgjp-20260823", "lemat": "bananowiec", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["227653 bananowiec 3"]}, "zrodla": ["T2"]}, {"formy": ["pik", "pika", "pikach", "pikami", "piki"], "key": "pik:Sm2.m3@sgjp-20260823", "lemat": "pik", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["51724 pik 4", "51725 pik 5"]}, "zrodla": ["T2"]}, {"formy": ["bungee"], "key": "bungee@sgjp-20260823", "lemat": "bungee", "liczba_form": 1, "warstwa": "T2", "znaczenie": {"T2": ["7072683 bungee 1"]}, "zrodla": ["T2"]}, {"formy": ["kabotażowca", "kabotażowcach", "kabotażowcami", "kabotażowce", "kabotażowcem"], "key": "kabotażowiec@sgjp-20260823", "lemat": "kabotażowiec", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["41830 kabotażowiec 1"]}, "zrodla": ["T2"]}, {"formy": ["oczep", "oczepach", "oczepami", "oczepem", "oczepie"], "key": "oczep@sgjp-20260823", "lemat": "oczep", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["75345 oczep 1"]}, "zrodla": ["T2"]}, {"formy": ["piraci", "piracie", "pirat", "pirata", "piratach"], "key": "pirat:Sm1@sgjp-20260823", "lemat": "pirat", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["477406 pirat 4"]}, "zrodla": ["T2"]}, {"formy": ["szap", "szapach", "szapami", "szapem", "szapie"], "key": "szap@sgjp-20260823", "lemat": "szap", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["389375 szap 1"]}, "zrodla": ["T2"]}, {"formy": ["recepturce", "recepturek", "recepturka", "recepturkach", "recepturkami"], "key": "recepturka@sgjp-20260823", "lemat": "recepturka", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["78852 recepturka 1"]}, "zrodla": ["T2"]}, {"formy": ["łącznicy", "łącznik", "łącznika", "łącznikach", "łącznikami"], "key": "łącznik:Sm1@sgjp-20260823", "lemat": "łącznik", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["404925 łącznik 10"]}, "zrodla": ["T2"]}, {"formy": ["szaland", "szalanda", "szalandach", "szalandami", "szalando"], "key": "szalanda@sgjp-20260823", "lemat": "szalanda", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["40521 szalanda 1"]}, "zrodla": ["T2"]}, {"formy": ["dozorowca", "dozorowcach", "dozorowcami", "dozorowce", "dozorowcem"], "key": "dozorowiec@sgjp-20260823", "lemat": "dozorowiec", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["420260 dozorowiec 1"]}, "zrodla": ["T2"]}, {"formy": ["ocel", "ocela", "ocelach", "ocelami", "ocele"], "key": "ocel@sgjp-20260823", "lemat": "ocel", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["47776 ocel 1"]}, "zrodla": ["T2"]}, {"formy": ["sterburcie", "sterburt", "sterburta", "sterburtach", "sterburtami"], "key": "sterburta@sgjp-20260823", "lemat": "sterburta", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["17598 sterburta 1"]}, "zrodla": ["T2"]}, {"formy": ["skrzydeł", "skrzydle", "skrzydła", "skrzydłach", "skrzydłami"], "key": "skrzydło@sgjp-20260823", "lemat": "skrzydło", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["54146 skrzydło 3"]}, "zrodla": ["T2"]}, {"formy": ["sosręb", "sosrębach", "sosrębami", "sosrębem", "sosrębie"], "key": "sosręb@sgjp-20260823", "lemat": "sosręb", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["381970 sosręb 1"]}, "zrodla": ["T2"]}, {"formy": ["podwalin", "podwalina", "podwalinach", "podwalinami", "podwalinie"], "key": "podwalina@sgjp-20260823", "lemat": "podwalina", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["16972 podwalina 2"]}, "zrodla": ["T2"]}, {"formy": ["bunkrowca", "bunkrowcach", "bunkrowcami", "bunkrowce", "bunkrowcem"], "key": "bunkrowiec@sgjp-20260823", "lemat": "bunkrowiec", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["72462 bunkrowiec 1"]}, "zrodla": ["T2"]}, {"formy": ["siarkowca", "siarkowcach", "siarkowcami", "siarkowce", "siarkowcem"], "key": "siarkowiec@sgjp-20260823", "lemat": "siarkowiec", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["38603 siarkowiec 1"]}, "zrodla": ["T2"]}, {"formy": ["wielorybnicy", "wielorybnik", "wielorybnika", "wielorybnikach", "wielorybnikami"], "key": "wielorybnik:Sm1@sgjp-20260823", "lemat": "wielorybnik", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["31150 wielorybnik 2"]}, "zrodla": ["T2"]}, {"formy": ["stojan", "stojana", "stojanach", "stojanami", "stojanem"], "key": "stojan@sgjp-20260823", "lemat": "stojan", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["76167 stojan 1"]}, "zrodla": ["T2"]}, {"formy": ["kołkownic", "kołkownica", "kołkownicach", "kołkownicami", "kołkownice"], "key": "kołkownica@sgjp-20260823", "lemat": "kołkownica", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["237702 kołkownica 2"]}, "zrodla": ["T2"]}, {"formy": ["wzdłużnic", "wzdłużnica", "wzdłużnicach", "wzdłużnicami", "wzdłużnice"], "key": "wzdłużnica@sgjp-20260823", "lemat": "wzdłużnica", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["43018 wzdłużnica 1"]}, "zrodla": ["T2"]}, {"formy": ["ścigacz", "ścigacza", "ścigaczach", "ścigaczami", "ścigacze"], "key": "ścigacz@sgjp-20260823", "lemat": "ścigacz", "liczba_form": 11, "warstwa": "T2", "znaczenie": {"T2": ["30628 ścigacz 1"]}, "zrodla": ["T2"]}, {"formy": ["lince", "linek", "linka", "linkach", "linkami"], "key": "linka@sgjp-20260823", "lemat": "linka", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["14783 linka 1"]}, "zrodla": ["T2"]}, {"formy": ["rzutce", "rzutek", "rzutka", "rzutkach", "rzutkami"], "key": "rzutka@sgjp-20260823", "lemat": "rzutka", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["18165 rzutka 1"]}, "zrodla": ["T2"]}, {"formy": ["wieszak", "wieszaka", "wieszakach", "wieszakami", "wieszaki"], "key": "wieszak@sgjp-20260823", "lemat": "wieszak", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["14852 wieszak 3"]}, "zrodla": ["T2"]}, {"formy": ["ciąg", "ciągach", "ciągami", "ciągi", "ciągiem"], "key": "ciąg@sgjp-20260823", "lemat": "ciąg", "liczba_form": 9, "warstwa": "T2", "znaczenie": {"T2": ["65101 ciąg 7"]}, "zrodla": ["T2"]}, {"formy": ["rozrusznik", "rozrusznika", "rozrusznikach", "rozrusznikami", "rozruszniki"], "key": "rozrusznik@sgjp-20260823", "lemat": "rozrusznik", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["13712 rozrusznik 1"]}, "zrodla": ["T2"]}, {"formy": ["rener", "renera", "renerach", "renerami", "renerem"], "key": "rener@sgjp-20260823", "lemat": "rener", "liczba_form": 10, "warstwa": "T2", "znaczenie": {"T2": ["35241 rener 1"]}, "zrodla": ["T2"]}, {"formy": ["żurawik", "żurawika", "żurawikach", "żurawikami", "żurawiki"], "key": "żurawik:Sm2@sgjp-20260823", "lemat": "żurawik", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1593497 4821"]}, "zrodla": ["T3"]}, {"formy": ["siłowni", "siłownia", "siłowniach", "siłowniami", "siłownie"], "key": "siłownia@sgjp-20260823", "lemat": "siłownia", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1146675 4821"]}, "zrodla": ["T3"]}, {"formy": ["klasyfikacja", "klasyfikacjach", "klasyfikacjami", "klasyfikacje", "klasyfikacji"], "key": "klasyfikacja@sgjp-20260823", "lemat": "klasyfikacja", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-3528844 4821"]}, "zrodla": ["T3"]}, {"formy": ["przegroda", "przegrodach", "przegrodami", "przegrodo", "przegrodom"], "key": "przegroda@sgjp-20260823", "lemat": "przegroda", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1146539 4821"]}, "zrodla": ["T3"]}, {"formy": ["konteneryzacja", "konteneryzacje", "konteneryzacji", "konteneryzacjo", "konteneryzacjom"], "key": "konteneryzacja@sgjp-20260823", "lemat": "konteneryzacja", "liczba_form": 7, "warstwa": "T3", "znaczenie": {"T3": ["IATE-795348 4821"]}, "zrodla": ["T3"]}, {"formy": ["zatrzymania", "zatrzymaniach", "zatrzymaniami", "zatrzymanie", "zatrzymaniem"], "key": "zatrzymanie@sgjp-20260823", "lemat": "zatrzymanie", "liczba_form": 8, "warstwa": "T3", "znaczenie": {"T3": ["IATE-781497 4821", "IATE-793705 4821"]}, "zrodla": ["T3"]}, {"formy": ["stateczności", "statecznościach", "statecznościami", "statecznościom", "statecznością"], "key": "stateczność@sgjp-20260823", "lemat": "stateczność", "liczba_form": 6, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1593339 4821"]}, "zrodla": ["T3"]}, {"formy": ["żurawik", "żurawika", "żurawikach", "żurawikami", "żurawiki"], "key": "żurawik:Sm3@sgjp-20260823", "lemat": "żurawik", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1593497 4821"]}, "zrodla": ["T3"]}, {"formy": ["piractw", "piractwa", "piractwach", "piractwami", "piractwem"], "key": "piractwo@sgjp-20260823", "lemat": "piractwo", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-793746 4821"]}, "zrodla": ["T3"]}, {"formy": ["wyładunek", "wyładunkach", "wyładunkami", "wyładunki", "wyładunkiem"], "key": "wyładunek@sgjp-20260823", "lemat": "wyładunek", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-804669 4821"]}, "zrodla": ["T3"]}, {"formy": ["podróżne", "podróżnego", "podróżnemu", "podróżni", "podróżny"], "key": "podróżny:S@sgjp-20260823", "lemat": "podróżny", "liczba_form": 8, "warstwa": "T3", "znaczenie": {"T3": ["IATE-752576 4821"]}, "zrodla": ["T3"]}, {"formy": ["przeładunek", "przeładunkach", "przeładunkami", "przeładunki", "przeładunkiem"], "key": "przeładunek@sgjp-20260823", "lemat": "przeładunek", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1419823 4821"]}, "zrodla": ["T3"]}, {"formy": ["trzon", "trzonach", "trzonami", "trzonem", "trzonie"], "key": "trzon@sgjp-20260823", "lemat": "trzon", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1593451 4821"]}, "zrodla": ["T3"]}, {"formy": ["dyplom", "dyplomach", "dyplomami", "dyplomem", "dyplomie"], "key": "dyplom@sgjp-20260823", "lemat": "dyplom", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1481000 4821"]}, "zrodla": ["T3"]}, {"formy": ["zanurzenia", "zanurzeniach", "zanurzeniami", "zanurzenie", "zanurzeniem"], "key": "zanurzenie@sgjp-20260823", "lemat": "zanurzenie", "liczba_form": 8, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1593165 4821"]}, "zrodla": ["T3"]}, {"formy": ["kotwicowisk", "kotwicowiska", "kotwicowiskach", "kotwicowiskami", "kotwicowiskiem"], "key": "kotwicowisko@sgjp-20260823", "lemat": "kotwicowisko", "liczba_form": 8, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1593440 4821"]}, "zrodla": ["T3"]}, {"formy": ["agenci", "agencie", "agent", "agenta", "agentach"], "key": "agent@sgjp-20260823", "lemat": "agent", "liczba_form": 11, "warstwa": "T3", "znaczenie": {"T3": ["IATE-884941 4821"]}, "zrodla": ["T3"]}, {"formy": ["nośności", "nośnościach", "nośnościami", "nośnościom", "nośnością"], "key": "nośność@sgjp-20260823", "lemat": "nośność", "liczba_form": 6, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1594075 4821"]}, "zrodla": ["T3"]}, {"formy": ["pompowni", "pompownia", "pompowniach", "pompowniami", "pompownie"], "key": "pompownia@sgjp-20260823", "lemat": "pompownia", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1377446 4821"]}, "zrodla": ["T3"]}, {"formy": ["schodni", "schodnia", "schodniach", "schodniami", "schodnie"], "key": "schodnia@sgjp-20260823", "lemat": "schodnia", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1593209 4821"]}, "zrodla": ["T3"]}, {"formy": ["konosamencie", "konosament", "konosamentach", "konosamentami", "konosamentem"], "key": "konosament@sgjp-20260823", "lemat": "konosament", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1698986 4821"]}, "zrodla": ["T3"]}, {"formy": ["sterówce", "sterówek", "sterówka", "sterówkach", "sterówkami"], "key": "sterówka@sgjp-20260823", "lemat": "sterówka", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1593383 4821"]}, "zrodla": ["T3"]}, {"formy": ["żeglowności", "żeglownościach", "żeglownościami", "żeglownościom", "żeglownością"], "key": "żeglowność@sgjp-20260823", "lemat": "żeglowność", "liczba_form": 6, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1759193 4821"]}, "zrodla": ["T3"]}, {"formy": ["załadunek", "załadunkach", "załadunkami", "załadunki", "załadunkiem"], "key": "załadunek@sgjp-20260823", "lemat": "załadunek", "liczba_form": 9, "warstwa": "T3", "znaczenie": {"T3": ["IATE-809580 4821"]}, "zrodla": ["T3"]}, {"formy": ["spedytor", "spedytora", "spedytorach", "spedytorami", "spedytorem"], "key": "spedytor@sgjp-20260823", "lemat": "spedytor", "liczba_form": 11, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1876249 4821"]}, "zrodla": ["T3"]}, {"formy": ["radiooficer", "radiooficera", "radiooficerach", "radiooficerami", "radiooficerem"], "key": "radiooficer@sgjp-20260823", "lemat": "radiooficer", "liczba_form": 12, "warstwa": "T3", "znaczenie": {"T3": ["IATE-812544 4821"]}, "zrodla": ["T3"]}, {"formy": ["loksodrom", "loksodroma", "loksodromach", "loksodromami", "loksodromie"], "key": "loksodroma@sgjp-20260823", "lemat": "loksodroma", "liczba_form": 10, "warstwa": "T3", "znaczenie": {"T3": ["IATE-1348050 4821"]}, "zrodla": ["T3"]}], "kind": "literaki-tematy-ocena-operatora", "sample_sha256": "95179d52f633f4d32350f4253c3d3dfee7f18b2129cbade2e1555c89022f9efe", "schema_version": 1, "sha256sums_sha256": "724f2e812940e74edb995ace2f07634d2e0f72ae73a28615a24c8eb0fc9530a9", "temat": "morze"}</script>
+<script>
+(function () {
+  var data = JSON.parse(document.getElementById('data').textContent);
+  var store = 'tematy-r2-' + data.sample_sha256.slice(0, 16);
+  var oceny = {};
+  try {
+    var saved = JSON.parse(window.localStorage.getItem(store) || '{}');
+    data.items.forEach(function (it) {
+      var v = saved[it.key];
+      if (v === 'tak' || v === 'nie' || v === 'niepewne') { oceny[it.key] = v; }
+    });
+  } catch (e) { oceny = {}; }
+
+  function save() {
+    try { window.localStorage.setItem(store, JSON.stringify(oceny)); } catch (e) { /* szkic tylko w pamięci */ }
+  }
+  function result() {
+    var picked = {};
+    data.items.forEach(function (it) { if (oceny[it.key]) { picked[it.key] = oceny[it.key]; } });
+    return JSON.stringify({kind: data.kind, schema_version: data.schema_version, temat: data.temat,
+      sample_sha256: data.sample_sha256, sha256sums_sha256: data.sha256sums_sha256,
+      agent_sha256: data.agent_sha256, oceny: picked});
+  }
+  function refresh() {
+    var done = data.items.filter(function (it) { return oceny[it.key]; }).length;
+    document.getElementById('progress').textContent = 'Ocenione: ' + done + ' z ' + data.items.length;
+    document.getElementById('json').value = result();
+  }
+  function el(tag, cls, text) {
+    var node = document.createElement(tag);
+    if (cls) { node.className = cls; }
+    if (text !== undefined) { node.textContent = text; }
+    return node;
+  }
+
+  var list = document.getElementById('list');
+  var layer = null;
+  data.items.forEach(function (it) {
+    if (it.warstwa !== layer) {
+      layer = it.warstwa;
+      list.appendChild(el('h2', '', 'Warstwa ' + layer));
+    }
+    var card = el('article', 'card');
+    card.appendChild(el('p', 'lemat', it.lemat));
+    card.appendChild(el('p', 'meta', 'Warstwa ' + it.warstwa + ' · źródła: ' + it.zrodla.join(', ')));
+    Object.keys(it.znaczenie).sort().forEach(function (w) {
+      var p = el('p', 'zn');
+      p.appendChild(el('b', '', w + ': '));
+      p.appendChild(document.createTextNode(it.znaczenie[w].join('; ')));
+      card.appendChild(p);
+    });
+    var more = it.liczba_form > it.formy.length ? ' … (razem ' + it.liczba_form + ')' : '';
+    card.appendChild(el('p', 'forms', 'Formy: ' + it.formy.join(', ') + more));
+    var row = el('div', 'btns');
+    ['tak', 'nie', 'niepewne'].forEach(function (v) {
+      var b = el('button', '', v);
+      b.type = 'button';
+      b.setAttribute('data-v', v);
+      b.setAttribute('aria-pressed', oceny[it.key] === v ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        oceny[it.key] = v;
+        row.querySelectorAll('button').forEach(function (x) {
+          x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+        });
+        card.classList.add('done');
+        save();
+        refresh();
+      });
+      row.appendChild(b);
+    });
+    if (oceny[it.key]) { card.classList.add('done'); }
+    card.appendChild(row);
+    list.appendChild(card);
+  });
+
+  document.getElementById('copy').addEventListener('click', function () {
+    var area = document.getElementById('json');
+    var status = document.getElementById('status');
+    var text = result();
+    area.value = text;
+    function fallback() {
+      area.focus();
+      area.select();
+      area.setSelectionRange(0, text.length);
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      status.textContent = ok ? 'Skopiowano.' : 'Zaznacz tekst poniżej i skopiuj ręcznie.';
+    }
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { status.textContent = 'Skopiowano.'; }, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+  refresh();
+})();
+</script>
+</body>
+</html>
