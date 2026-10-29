@@ -42,3 +42,8 @@
 **Zmiany**: odcinki()/teksty_pakietu() (reguła bajtowa W4), segmenty <!--T3--> / <!--SRODLADOWE--> w tekstach, nowe hashe w tematy.json, summary.t3 null bez t3, raport bez „MORZE”.
 **Bajty**: fikstura morze TXT/TSV/ATTRIBUTIONS/TERMS identyczne, LIMITATIONS tylko linie T2 i T3; prawdziwe teksty po stripie = stare hashe (d6673156…, b4250289…).
 **Uwaga dla 9**: raport.md morza będzie inny (dozwolone W8).
+
+## 2026-10-29T02:20:33Z - Group 6 Complete
+**Commit**: 823332e. **Tests**: test_tematy_package 12/12 (4 nowe); znane czerwone dla grupy 7 + nowy w test_tematy_review (pętla po PROBA zamiast operator.strata).
+**Zmiany**: czeka(method,t3), PROG_WARSTWA, operator.strata wg operator_warstwy, werdykt.nie_dotyczy, linia raportu.
+**Korekta W8 (decyzja orchestratora)**: porównanie summary.json morza pomija też werdykt.czeka_na_ocene (t1_tak wypada z czekających, bo T1 ocenia tylko agent) — oczekiwane [t2_tak,t2_nie,t3_tak,zgodnosc].

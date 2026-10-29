@@ -153,15 +153,15 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `literaki_slownik/tematy.py`, `tests/tematy_helpers.py`, `tests/test_tematy_package.py`
 **Kroki:** 4
 
-- [ ] 6.0 Ograniczyć próbę operatora do `operator_warstwy`
-  - [ ] 6.1 Napisać 4 testy w `tests/test_tematy_package.py`:
+- [x] 6.0 Ograniczyć próbę operatora do `operator_warstwy`
+  - [x] 6.1 Napisać 4 testy w `tests/test_tematy_package.py`:
     - `sample.json` losuje T1, T2 i T3 (pusta T3 ma `EMPTY_NOT_COVERAGE`), a `operator.strata` ma tylko T2 i T3;
     - `strata`, `items` i `unique_selected_units` są równe dla `tematy-v1` i `tematy-v2` na tej samej fiksturze (losowanie bez zmian);
     - temat bez `t3`: `summary.werdykt.nie_dotyczy` = `["t3_tak"]`, a `t3_tak` nie ma w `czeka`;
     - temat z `t3`: `nie_dotyczy` pusty; `t1_tak` nie ma w `czeka` (liczony z ocen agenta).
-  - [ ] 6.2 `sample` i `review_template`: `operator.strata` tylko z `operator_warstwy`, `operator_per_stratum` bez zmian.
-  - [ ] 6.3 `CZEKA` i `summary.werdykt`: progi warstw operatora i zgodność czekają; `nie_dotyczy` według W6.
-  - [ ] 6.4 Uruchomić 4 nowe testy oraz `tests.test_tematy_package`. Commit i push: `feat(tematy): próba operatora według operator_warstwy (#12)`.
+  - [x] 6.2 `sample` i `review_template`: `operator.strata` tylko z `operator_warstwy`, `operator_per_stratum` bez zmian.
+  - [x] 6.3 `CZEKA` i `summary.werdykt`: progi warstw operatora i zgodność czekają; `nie_dotyczy` według W6.
+  - [x] 6.4 Uruchomić 4 nowe testy oraz `tests.test_tematy_package`. Commit i push: `feat(tematy): próba operatora według operator_warstwy (#12)`.
 
 **Kryteria odbioru:**
 - 4 testy przechodzą.
