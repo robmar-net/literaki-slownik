@@ -72,7 +72,7 @@ Zadanie E wymienia trzy metody. Statusy: **E1 (n-gramy KWJP): słaba**, pilotaż
 - Korzenie T2: 7354 `statek 1`, 2149 `okręt 1`, 4511 `łódź 2`, 6214 `marynarz 1`, 14136 `żegluga 1`,
   14515 `żeglarstwo 1`. Nazwę sprawdza budowa ([ADR-011](ADR-011-zrodla-slowosiec-iate.md)).
 - Relacja spoza {11, 25, 27} albo `t2.tryb` inny niż `pelne` to błąd w v1.
-- Dodatek spoza STANDARD to błąd. W v1 dodatki są puste.
+- Dodatek spoza STANDARD to błąd. W v1 dodatki i wykluczenia lematów są puste; niepuste dają kod 2 (budowa ich jeszcze nie stosuje).
 - Znaczniki śródlądowe ustalone przed pierwszą budową. PL: `śródląd`, `rzek`, `rzeczn`, `kanał`, `jezior`,
   `śluz`, `barka`. EN: `inland`, `river`, `canal`, `lake`, `lock`, `barge`. Nie zmieniamy ich po wynikach.
   Główna miara: hasła kandydatów T3; dodatkowo wpisy T3 po ∩ STANDARD.

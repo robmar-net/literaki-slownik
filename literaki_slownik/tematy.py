@@ -134,6 +134,9 @@ def load_topic(path):
         raise _bad('t3')
     if not _named(v['wykluczenia'], ('lemat', 'czesc_mowy', 'powód')):
         raise _bad('wykluczenia')
+    # ADR-010: v1 bez dodatków i wykluczeń; budowa ich nie czyta, więc wpis byłby cicho pominięty.
+    if t3['dodatki'] or v['wykluczenia']:
+        raise _bad('t3.dodatki i wykluczenia (v1: puste)')
     marks = diag.get('znaczniki_srodladowe') if isinstance(diag, dict) else None
     if (not isinstance(diag, dict) or set(diag) != {'slowa_oczywiste', 'znaczniki_srodladowe'}
             or not _texts(diag['slowa_oczywiste'], lower=True) or not diag['slowa_oczywiste']
