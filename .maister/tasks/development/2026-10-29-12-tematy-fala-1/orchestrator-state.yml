@@ -1,6 +1,6 @@
 orchestrator:
   started_phase: phase-1
-  completed_phases: [phase-1]
+  completed_phases: [phase-1, phase-2]
   failed_phases: []
   auto_fix_attempts: {}
   options:
@@ -15,7 +15,7 @@ orchestrator:
     reality_check_enabled: true
     production_check_enabled: true
   created: 2026-10-29T00:59:06Z
-  updated: 2026-10-29T01:15:34Z
+  updated: 2026-10-29T01:20:39Z
   task_path: .maister/tasks/development/2026-10-29-12-tematy-fala-1
 task:
   title: "TEMATY: pierwsza fala — 9 tematów (#12)"
@@ -38,7 +38,7 @@ task:
 task_context:
   risk_level: medium
   clarifications_resolved: true
-  scope_expanded: null
+  scope_expanded: true
   architecture_decision: null
   task_characteristics: {has_reproducible_defect: false, modifies_existing_code: true, creates_new_entities: true, involves_data_operations: true, ui_heavy: false}
   research_reference:
@@ -61,5 +61,6 @@ task_context:
       integration_points: [config/generator/tematy/<id>.json, literaki_slownik/cli.py, scripts/tematy_review.py, scripts/check_tematy_package.py, wiki Slownik-TEMATY, docs/runbook-wiki.md]
       decisions: [{decision: "Jeden pakiet na temat; T3 opcjonalne; dodatki poza t3; metoda tematy-v1", rationale: "decyzje techniczne (ADR-012)"}, {decision: "Regresja morze-v2: lista i TSV bajtowo identyczne", rationale: "zgodność ścisła"}]
       risks: ["Brak usuwania pojedynczych lematów", "Obciążenie przeglądu operatora", "Szum zwierzęta/medycyna"]
-      artifacts: [{path: analysis/gap-analysis.md, label: Analiza luk, html: null}]
+      decisions_made: ["R2: operator tylko T2 (+T3 medycyna), ~300", "Agent z szerokimi granicami, próg 0,80", "Wykluczenia lematów teraz", "Progi jak morze", "Wycięcie zmierzonego szumu", "Operator przegląda listy słów oczywistych przed budową", "IATE 2841 tylko medycyna", "D dopiero po ocenie"]
+      artifacts: [{path: analysis/gap-analysis.md, label: Analiza luk, html: null}, {path: analysis/scope-clarifications.md, label: Decyzje zakresu, html: null}]
     clarifications: ["Słowa wspólne zostają w każdym temacie", "Taniec → muzyka; gry, szachy, karty → sport; napoje → kuchnia", "Dinozaury tak, łow. nie", "Grzybica → medycyna"]
