@@ -129,3 +129,7 @@ Commit `1f86e2a`: ADR-012 (regresja morza, T3 medycyny 342, zmiana metody R2 i s
 ## 2026-10-29 — Grupa 20: bramka
 
 Decyzje operatora w gate-report.md i decision-log.md. Dalej: kuchnia, rośliny, zwierzęta, morze. Popraw: grzyby, pogoda, sport, matematyka, muzyka, medycyna. Bez wydania. Wszystkie kroki planu zamknięte.
+
+## 2026-10-29 — Zadanie zakończone
+
+Weryfikacja: przegląd kodu i kompletność (`63ee833`). #12 zamknięte; v2 w #13. Fazy 13 (wiki = dokumentacja użytkownika, grupa 18) i 14 zamknięte.
