@@ -196,11 +196,11 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `docs/adr/ADR-012-tematy-fala-1.md`, `docs/adr/ADR-010-tematy-v1.md`
 **Kroki:** 4
 
-- [ ] 8.0 Zapisać zmianę metody przy kodzie
-  - [ ] 8.1 Kontrola zamiast testów: format jak `ADR-010` (TL;DR, Kluczowe decyzje, Otwarte pytania). Linki prowadzą do istniejących ścieżek. Jedyna nazwa gry to Literaki.
-  - [ ] 8.2 `ADR-012-tematy-fala-1.md`: metoda `tematy-v2` i powód; T3 opcjonalne; `dodatki` na górnym poziomie; wykluczenia lematów i poddrzew z regułą „bez trafienia”; teksty z odcinkami (reguła bajtowa); `operator_warstwy` i `nie_dotyczy`. Dalej: granice tematów z `clarifications.md`, zgoda operatora na atomy i sport (2026-10-29), wycięcia z pomiarami (W11), nazwy pakietów. Regresja morza (W8) jako plan, wynik dopisuje grupa 17. Stare pakiety sprawdza checker z `a633136` (D8).
-  - [ ] 8.3 `ADR-010-tematy-v1.md`: odsyłacz „Przegląd i schemat tematu zmienia ADR-012”.
-  - [ ] 8.4 Commit i push: `docs(tematy): ADR-012 pierwsza fala tematów (#12)`.
+- [x] 8.0 Zapisać zmianę metody przy kodzie
+  - [x] 8.1 Kontrola zamiast testów: format jak `ADR-010` (TL;DR, Kluczowe decyzje, Otwarte pytania). Linki prowadzą do istniejących ścieżek. Jedyna nazwa gry to Literaki.
+  - [x] 8.2 `ADR-012-tematy-fala-1.md`: metoda `tematy-v2` i powód; T3 opcjonalne; `dodatki` na górnym poziomie; wykluczenia lematów i poddrzew z regułą „bez trafienia”; teksty z odcinkami (reguła bajtowa); `operator_warstwy` i `nie_dotyczy`. Dalej: granice tematów z `clarifications.md`, zgoda operatora na atomy i sport (2026-10-29), wycięcia z pomiarami (W11), nazwy pakietów. Regresja morza (W8) jako plan, wynik dopisuje grupa 17. Stare pakiety sprawdza checker z `a633136` (D8).
+  - [x] 8.3 `ADR-010-tematy-v1.md`: odsyłacz „Przegląd i schemat tematu zmienia ADR-012”.
+  - [x] 8.4 Commit i push: `docs(tematy): ADR-012 pierwsza fala tematów (#12)`.
 
 **Kryteria odbioru:**
 - Plik ADR-012 istnieje przed regresją morza (9), bo `tematy.json` na niego wskazuje.

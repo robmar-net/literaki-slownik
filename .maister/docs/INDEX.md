@@ -16,8 +16,9 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [ADR-007: metoda POP/POP0](../../docs/adr/ADR-007-metoda-pop-v1.md) — decyzje D1–D9, rewizje 2–4 (metoda `pop-v2`).
 - [ADR-008: metoda `pop-v3`](../../docs/adr/ADR-008-pop-v3-staly-prog.md) — POP stała punktacja ≥ −1,042878629 (tymczasowo, #6), POP0 20 000 leksemów.
 - [ADR-009: POP00](../../docs/adr/ADR-009-pop00-v1.md) — zatwierdzona ochrona zwykłej odmiany i próg wybranych form; osobny pakiet ze źródłowymi decyzjami.
-- [ADR-010: TEMATY](../../docs/adr/ADR-010-tematy-v1.md) — metoda `tematy-v1`: trzy warstwy (SGJP, Słowosieć, IATE), pełne domknięcie T2, tylko BUILT, progi jako udziały.
+- [ADR-010: TEMATY](../../docs/adr/ADR-010-tematy-v1.md) — metoda `tematy-v1`: warstwy SGJP, Słowosieć, IATE i dodatki (D), pełne domknięcie T2, tylko BUILT, progi jako udziały.
 - [ADR-011: Słowosieć i IATE](../../docs/adr/ADR-011-zrodla-slowosiec-iate.md) — pochodna Słowosieci 4.5, IATE 2019 `fullForm`, licencje i pobranie.
+- [ADR-012: TEMATY, pierwsza fala](../../docs/adr/ADR-012-tematy-fala-1.md) — metoda `tematy-v2`: T3 opcjonalne, wykluczenia lematów, dodatki (warstwa D), przegląd operatora T2/T3, 9 tematów.
 - [Konstrukcja nie- v2](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/nie-prefix-v2-decision.md) — bez zaimków i nieodmiennych (#5); wejdzie przy następnym buildzie.
 - [Zadanie POP/POP0](../tasks/development/2026-10-11-slowniki-pop-pop0/implementation/spec.md) — słowniki popularnych słów (#3); pop-v1 wycofane, pop-v2.
 - [Zadanie TEMATY „morze”](../tasks/development/2026-10-28-11-tematy-morze/implementation/spec.md) — pilotaż słownika tematycznego (#11); CLI `tematy` w [cli.md](../../docs/generator/cli.md#tematy-tematy), raporty, próba R2, sekcja TEMATY w [runbooku wiki](../../docs/runbook-wiki.md).

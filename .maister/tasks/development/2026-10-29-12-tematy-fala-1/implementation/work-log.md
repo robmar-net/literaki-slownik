@@ -10,3 +10,7 @@
 
 ### Loaded Per Group
 (Entries added as groups execute)
+
+## 2026-10-29T02:06:15Z - Group 8 Complete
+**Steps**: 8.1–8.4. **Commit**: 5259900. **Files**: docs/adr/ADR-012-tematy-fala-1.md (nowy), ADR-010 (+1 linia). INDEX.md: wpis ADR-012 (orchestrator).
+**Standards**: AGENTS.md; format ADR-010/011.
