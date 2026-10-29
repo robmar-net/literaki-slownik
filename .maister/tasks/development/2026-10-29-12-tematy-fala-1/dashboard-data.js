@@ -2,7 +2,7 @@ window.MAISTER_DATA = {
   generated: "2026-10-29T02:35:06Z",
   task: {title: "TEMATY: pierwsza fala — 9 tematów (#12)", type: "development", status: "in_progress",
     description: "9 tematów metodą tematy-v1; budowy, raporty przecięć, strony R2; ocena wspólna.", path: ".maister/tasks/development/2026-10-29-12-tematy-fala-1",
-    current_activity: "Czeka na operatora: słowa oczywiste (2.4)"},
+    current_activity: "Czeka na operatora: oceny R2 (15.2)"},
   characteristics: {has_reproducible_defect:false,modifies_existing_code:true,creates_new_entities:true,involves_data_operations:true,ui_heavy:false},
   phases: [
     {id:"phase-1",name:"Analiza kodu i doprecyzowanie",icon_hint:"analysis",status:"completed",started:"2026-10-29T00:59:06Z",completed:"2026-10-29T01:12:36Z",skip_reason:null,summary:"Generator wymaga T3 i znaczników śródlądowych; dane wystarczą na 9 tematów; IATE tylko medycyna.",decisions:[],risks:[],artifacts:[{path:"analysis/codebase-analysis.md",label:"Analiza kodu i danych",html:null},{path:"analysis/clarifications.md",label:"Doprecyzowania",html:null}],gate:null},

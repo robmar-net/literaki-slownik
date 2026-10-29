@@ -286,12 +286,12 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `T/analysis/instrukcja-oceny-agenta.md`, `T/analysis/record_agent_review.py`, `T/analysis/agent-ratings-<id>.json` (9 plików), `T/verification/tematy-<id>-review.json` (9 plików)
 **Kroki:** 5
 
-- [ ] 13.0 Ocenić próbę każdego tematu przed stroną operatora
+- [x] 13.0 Ocenić próbę każdego tematu przed stroną operatora
   - [x] 13.1 Kontrola zamiast testów: `record_agent_review.py` używa `tematy_review.agent_review`, który odrzuca brak klucza, obcy klucz i złą ocenę. Plik przeglądu przechodzi checker `--review` (bez ocen operatora: „czeka” tylko dla T2, T3 i zgodności).
   - [x] 13.2 `T/analysis/instrukcja-oceny-agenta.md` według W13.1 (szeroki „tak”, „nie”, „niepewne”, granice z `clarifications.md`, lemat wspólny zostaje). Commit i push przed pierwszą oceną: `maister: #12 instrukcja oceny agenta`.
-  - [ ] 13.3 Agent ocenia całą próbę każdego tematu (T1, T2, T3 po `min(50, N)`, z powodem). Jedna sesja na temat, sesje mogą iść równolegle. Agent czyta tylko instrukcję i `review-template.json` swojego tematu. Wynik: `T/analysis/agent-ratings-<id>.json`.
-  - [ ] 13.4 `T/analysis/record_agent_review.py` (kopia z #11 z pętlą po tematach) zapisuje `T/verification/tematy-<id>-review.json` z `agent_sha256`.
-  - [ ] 13.5 Commit i push: `maister: #12 oceny agenta R2` (9 hashy w treści commita). Ten commit musi być przed grupą 14.
+  - [x] 13.3 Agent ocenia całą próbę każdego tematu (T1, T2, T3 po `min(50, N)`, z powodem). Jedna sesja na temat, sesje mogą iść równolegle. Agent czyta tylko instrukcję i `review-template.json` swojego tematu. Wynik: `T/analysis/agent-ratings-<id>.json`.
+  - [x] 13.4 `T/analysis/record_agent_review.py` (kopia z #11 z pętlą po tematach) zapisuje `T/verification/tematy-<id>-review.json` z `agent_sha256`.
+  - [x] 13.5 Commit i push: `maister: #12 oceny agenta R2` (9 hashy w treści commita). Ten commit musi być przed grupą 14.
 
 **Kryteria odbioru:**
 - 9 plików przeglądu; hash ocen agenta każdego tematu jest w commicie przed stroną R2.
@@ -302,11 +302,11 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `T/verification/tematy-<id>-r2.html` (9 plików), `T/verification/r2-zbiorcza.html`
 **Kroki:** 4
 
-- [ ] 14.0 Dać operatorowi 9 stron i jedną stronę wejścia
-  - [ ] 14.1 Kontrola zamiast testów: każda strona ma tylko pozycje T2 (i T3 w medycynie), nie pokazuje ocen agenta i powstała dopiero po commicie z 13.5 (`tematy_review.py strona` odmawia bez hasha).
-  - [ ] 14.2 `tematy_review.py strona` dla 9 tematów → `T/verification/tematy-<id>-r2.html`. Każdą publikujemy jako prywatny artefakt claude.ai.
-  - [ ] 14.3 `T/verification/r2-zbiorcza.html`: 9 linków z nazwą tematu, liczbą pozycji i stanem „ocenione / nie”. Kolejność jak budowy. Publikujemy jako prywatny artefakt.
-  - [ ] 14.4 Przekazać orchestratorowi link do strony zbiorczej.
+- [x] 14.0 Dać operatorowi 9 stron i jedną stronę wejścia
+  - [x] 14.1 Kontrola zamiast testów: każda strona ma tylko pozycje T2 (i T3 w medycynie), nie pokazuje ocen agenta i powstała dopiero po commicie z 13.5 (`tematy_review.py strona` odmawia bez hasha).
+  - [x] 14.2 `tematy_review.py strona` dla 9 tematów → `T/verification/tematy-<id>-r2.html`. Każdą publikujemy jako prywatny artefakt claude.ai.
+  - [x] 14.3 `T/verification/r2-zbiorcza.html`: 9 linków z nazwą tematu, liczbą pozycji i stanem „ocenione / nie”. Kolejność jak budowy. Publikujemy jako prywatny artefakt.
+  - [x] 14.4 Przekazać orchestratorowi link do strony zbiorczej.
 
 **Kryteria odbioru:**
 - 9 stron i strona zbiorcza opublikowane; ok. 300 pozycji razem.

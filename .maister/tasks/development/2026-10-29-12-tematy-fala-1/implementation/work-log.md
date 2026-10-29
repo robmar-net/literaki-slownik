@@ -97,3 +97,11 @@ Test słów oczywistych (próg 0,70) nie przeszedł: grzyby 61,8%, pogoda 63,9%,
 
 Instrukcja oceny agenta i `record_agent_review.py` (pętla po tematach), commit `45d36f8`. Kontrola na sztucznych ocenach: brak/obcy klucz, zła ocena, pusty powód — odmowa; poprawny plik przechodzi checker `--review`. 13.3: 9 niezależnych sesji oceniających (każda czyta tylko instrukcję i swój `review-template.json`), razem 950 ocen.
 Uwaga: test słów oczywistych nie zależy od ocen, więc grzyby, pogoda i sport dostaną „popraw” niezależnie od R2.
+
+## 2026-10-29 — Grupy 13–14 zakończone
+
+Oceny agenta: 950, commit `913f496` (9 hashy). Strony R2: commit `5f17bcc` (po ocenach). Tak/nie/niepewne w T2: grzyby 23/5/22, pogoda 41/0/9, matematyka 29/6/15, muzyka 32/3/15, sport 44/0/6, kuchnia 42/3/5, rośliny 38/0/12, zwierzęta 43/0/7, medycyna 38/5/7; T3 medycyny 22/11/17.
+Opublikowane: strona zbiorcza https://claude.ai/artifact/YbQQhcwinGG7ZistFiMAeG; tematy: grzyby J5EzrRHN3GqDB65YRxfLDw, pogoda 1B1ka5pXotDHv2wLzyb262, matematyka Vx8EAUUMbBQiogmT7F4feN, muzyka AV6sr5j3kAkVuHsv1dfvmW, sport QkoDnx8mh3KCN3LfkzeLjQ, kuchnia WHcJ2cPj11r5EGHszcVCNR, rośliny 6jXHjUmTBUvkurUkJZEToY, zwierzęta L8faHrWkHDSLu6dPGYdB7T, medycyna GmCnntS4ittxg6FzRBwtuu.
+Uwaga: `strona` odmawia bez hasha w pliku przeglądu, ale nie sprawdza commita — kolejność pilnowana procedurą.
+
+## Pauza: czekamy na operatora (15.2) — oceny R2, 300 pozycji.
