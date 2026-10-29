@@ -1,0 +1,497 @@
+{
+  "topic": "config/generator/tematy/zwierzeta.json",
+  "topic_sha256": "5f3e6fd0b6a97b9df775b0aac5bc6b3a362e963a7e8357f922cb73bdb5d24814",
+  "code_identity": {
+    "git_commit": "265f1e86b8d16f5e125ef3779935bcaf2a103c02",
+    "git_dirty": false,
+    "tree_sha256": "0951e813c5b264165d03a325a3165e89d1d2c8f83f09da5112394d5255c438fa"
+  },
+  "git_status_config_scripts": "pusty",
+  "budowy": {
+    "a": {
+      "start": 1793266416,
+      "end": 1793266462,
+      "exit": 0,
+      "sekundy": 46
+    },
+    "b": {
+      "start": 1793266462,
+      "end": 1793266508,
+      "exit": 0,
+      "sekundy": 46
+    }
+  },
+  "pakiety": [
+    "data/work/tematy-zwierzeta-v1-20261029-a",
+    "data/work/tematy-zwierzeta-v1-20261029-b"
+  ],
+  "sha256sums_sha256": "1ee1e1f713d20e07a956153b208583960ef241f8a2f8bd2f75b46d62f3e70d9f",
+  "files_sha256": {
+    "ATTRIBUTIONS.md": "87bb3d8fa3e6de9c2be052a8fbf1f6ec4bfa44d4e35dd836d6546f4331b51569",
+    "LIMITATIONS.md": "06efc6f2de81c872476971c577836f584553258447195c5271fbb3d910372ddf",
+    "SHA256SUMS": "1ee1e1f713d20e07a956153b208583960ef241f8a2f8bd2f75b46d62f3e70d9f",
+    "TERMS.md": "7d4f57c1689214535616d0ccba94b84d539e18c4e7c5451c079a848198b61a9e",
+    "ZWIERZETA.tsv.gz": "4775a2486c61105975b547ab388c65940543a64d0c7093ae99d40c128541a016",
+    "ZWIERZETA.txt.gz": "311ac032b3dfe650c82bd2c73a072059de4b22be099191550e5daf4f0ca1a81a",
+    "method.json": "cf2cb5ace886e52ea931a8d16d4aedaa8ff32293a3d7b08adb3b3c9147b0160c",
+    "release-manifest.json": "e2c28dae9e43087a0693a5ee59242ad8cdaa8a6d8bd850b25fbc71599d57a3eb",
+    "reports/raport.md": "fae4bfa23c8ca8fec319a0b127f9236c4b72b63f7609e088527bebe9f3b9ad77",
+    "reports/review-template.json": "4d6fe8102097f6b9d2bbcdfbabc2907ef72e5c45fcece675d8a3bfe8a0b252bd",
+    "reports/sample.json": "53f0a0a81aefd1b02e8c0237c54f1f1df1e0a235c761a6f95b5580fb66055271",
+    "reports/summary.json": "3ef53c5da2d0e3fe6982936afebe9d3bf49f345f79871f639375ff6e10fa4137",
+    "tematy/zwierzeta.json": "5f3e6fd0b6a97b9df775b0aac5bc6b3a362e963a7e8357f922cb73bdb5d24814"
+  },
+  "all_files_identical": true,
+  "checker": {
+    "tematy-zwierzeta-v1-20261029-a": {
+      "exit": 0,
+      "status": "pass"
+    },
+    "tematy-zwierzeta-v1-20261029-b": {
+      "exit": 0,
+      "status": "pass"
+    }
+  },
+  "checker_wynik_a": {
+    "formy": 23880,
+    "review_checked": false,
+    "sha256sums_sha256": "1ee1e1f713d20e07a956153b208583960ef241f8a2f8bd2f75b46d62f3e70d9f",
+    "slowa_oczywiste": {
+      "brakujace": [],
+      "lista": 37,
+      "pokryte": 37
+    },
+    "status": "pass",
+    "temat": "zwierzeta",
+    "warstwy": {
+      "D": 0,
+      "T1": 696,
+      "T2": 2069,
+      "T3": 0
+    },
+    "wpisy": 2765
+  },
+  "summary": {
+    "liczby": {
+      "formy": 23880,
+      "kandydaci": 2831,
+      "warstwy": {
+        "D": 0,
+        "T1": 696,
+        "T2": 2069,
+        "T3": 0
+      },
+      "wpisy": 2765
+    },
+    "przeciecia": {
+      "leksemy": {
+        "D": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "T1": {
+          "temat": 696,
+          "pop": {
+            "liczba": 316,
+            "procent": "45.4"
+          },
+          "pop00": {
+            "liczba": 47,
+            "procent": "6.8"
+          }
+        },
+        "T2": {
+          "temat": 2069,
+          "pop": {
+            "liczba": 901,
+            "procent": "43.5"
+          },
+          "pop00": {
+            "liczba": 170,
+            "procent": "8.2"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 2765,
+          "pop": {
+            "liczba": 1217,
+            "procent": "44.0"
+          },
+          "pop00": {
+            "liczba": 217,
+            "procent": "7.8"
+          }
+        }
+      },
+      "formy": {
+        "D": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "T1": {
+          "temat": 6623,
+          "pop": {
+            "liczba": 3143,
+            "procent": "47.5"
+          },
+          "pop00": {
+            "liczba": 539,
+            "procent": "8.1"
+          }
+        },
+        "T2": {
+          "temat": 18524,
+          "pop": {
+            "liczba": 7903,
+            "procent": "42.7"
+          },
+          "pop00": {
+            "liczba": 1520,
+            "procent": "8.2"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 23880,
+          "pop": {
+            "liczba": 10102,
+            "procent": "42.3"
+          },
+          "pop00": {
+            "liczba": 1821,
+            "procent": "7.6"
+          }
+        }
+      }
+    },
+    "diagnostyka": {
+      "D": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "T1": {
+        "formy": {
+          "broad": 6700,
+          "kandydaci": 6876,
+          "procent_broad": "97.4",
+          "procent_standard": "96.3",
+          "standard": 6623
+        },
+        "leksemy": {
+          "broad": 701,
+          "kandydaci": 713,
+          "procent_broad": "98.3",
+          "procent_standard": "97.6",
+          "standard": 696
+        }
+      },
+      "T2": {
+        "formy": {
+          "broad": 19071,
+          "kandydaci": 19179,
+          "procent_broad": "99.4",
+          "procent_standard": "96.6",
+          "standard": 18524
+        },
+        "leksemy": {
+          "broad": 2113,
+          "kandydaci": 2118,
+          "procent_broad": "99.8",
+          "procent_standard": "97.7",
+          "standard": 2069
+        }
+      },
+      "T3": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "razem": {
+        "formy": {
+          "broad": 24504,
+          "kandydaci": 24788,
+          "procent_broad": "98.9",
+          "procent_standard": "96.3",
+          "standard": 23880
+        },
+        "leksemy": {
+          "broad": 2814,
+          "kandydaci": 2831,
+          "procent_broad": "99.4",
+          "procent_standard": "97.7",
+          "standard": 2765
+        }
+      }
+    },
+    "slowa_oczywiste": {
+      "razem": {
+        "brakujace": [],
+        "pokryte": 37,
+        "procent": "100.0"
+      },
+      "T1": {
+        "brakujace": [
+          "baran",
+          "bocian",
+          "borsuk",
+          "byk",
+          "foka",
+          "jeleń",
+          "kaczka",
+          "kot",
+          "koza",
+          "koń",
+          "krowa",
+          "królik",
+          "kura",
+          "lis",
+          "małpa",
+          "mysz",
+          "osioł",
+          "pies",
+          "ryba",
+          "sowa",
+          "szczur",
+          "słoń",
+          "tygrys",
+          "wiewiórka",
+          "wilk",
+          "wąż",
+          "zając",
+          "żaba"
+        ],
+        "pokryte": 9,
+        "procent": "24.3"
+      },
+      "T1_T2": {
+        "brakujace": [],
+        "pokryte": 37,
+        "procent": "100.0"
+      },
+      "spelniony": true,
+      "prog": "0.70"
+    },
+    "srodladowe": null,
+    "odrzucone": {
+      "D": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "T1": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 12
+        },
+        "POZA_STANDARD": {
+          "liczba": 5
+        }
+      },
+      "T2": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 2143
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 9898
+        },
+        "POZA_BROAD": {
+          "liczba": 5
+        },
+        "POZA_STANDARD": {
+          "liczba": 44
+        }
+      },
+      "T3": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "razem": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 2143
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 9898
+        },
+        "POZA_BROAD": {
+          "liczba": 17
+        },
+        "POZA_STANDARD": {
+          "liczba": 49
+        }
+      }
+    },
+    "t3": null,
+    "wieloznaczny": {
+      "brak_danych": {
+        "liczba": 100,
+        "procent": "3.6",
+        "przyklady": [
+          "afrodyta@sgjp-20260823",
+          "agreściak@sgjp-20260823",
+          "alosaur@sgjp-20260823",
+          "amfisben@sgjp-20260823",
+          "amfizben@sgjp-20260823",
+          "arion@sgjp-20260823",
+          "bankiwa@sgjp-20260823",
+          "bargieł@sgjp-20260823",
+          "berkut@sgjp-20260823",
+          "białogon@sgjp-20260823"
+        ]
+      },
+      "nie": {
+        "liczba": 1474,
+        "procent": "53.3",
+        "przyklady": [
+          "abisobiont@sgjp-20260823",
+          "adaks@sgjp-20260823",
+          "agama@sgjp-20260823",
+          "aguti@sgjp-20260823",
+          "aksolotl@sgjp-20260823",
+          "albakora@sgjp-20260823",
+          "albatros@sgjp-20260823",
+          "alczyk@sgjp-20260823",
+          "aligator@sgjp-20260823",
+          "alka@sgjp-20260823"
+        ]
+      },
+      "tak": {
+        "liczba": 1191,
+        "procent": "43.1",
+        "przyklady": [
+          "admirał:Sm1@sgjp-20260823",
+          "admirał:Sm2@sgjp-20260823",
+          "afgan:Sm2@sgjp-20260823",
+          "afgan:Sm3@sgjp-20260823",
+          "aga:Sf@sgjp-20260823",
+          "aga:Sm1@sgjp-20260823",
+          "alpaka@sgjp-20260823",
+          "amazonka@sgjp-20260823",
+          "ameba@sgjp-20260823",
+          "amonit:Sm2@sgjp-20260823"
+        ]
+      }
+    },
+    "wykluczenia": [],
+    "werdykt": {
+      "automatyczny": "dalej",
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [],
+      "uwaga": "„stop” wybiera tylko operator na bramce"
+    }
+  },
+  "fala": {
+    "temat": "zwierzeta",
+    "t3_wpisy": 0,
+    "summary_t3_null": true,
+    "srodladowe_null": true,
+    "iate_w_inputs": false,
+    "iate_blok_manifestu": false,
+    "iate_w_plikach": {},
+    "bledy": [],
+    "zgodna": true
+  }
+}

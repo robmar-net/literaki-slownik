@@ -1,0 +1,601 @@
+{
+  "zadanie": "#12 W12, grupa 12",
+  "head_serii": "265f1e86b8d16f5e125ef3779935bcaf2a103c02",
+  "kolejnosc": [
+    "grzyby",
+    "pogoda",
+    "matematyka",
+    "muzyka",
+    "sport",
+    "kuchnia",
+    "rosliny",
+    "zwierzeta",
+    "medycyna"
+  ],
+  "medycyna_t3": 342,
+  "uwaga_t2": "t2_lematy_grupa_11 to kandydaci Słowosieci przed SGJP ∩ STANDARD; t2_po_standard to wpisy warstwy T2 pakietu",
+  "tematy": [
+    {
+      "temat": "grzyby",
+      "katalogi": [
+        "data/work/tematy-grzyby-v1-20261029-a",
+        "data/work/tematy-grzyby-v1-20261029-b"
+      ],
+      "sha256sums_sha256": "9e922c55a73012c247ece70fee5c99edce84fea423176be9db941c573c7d04c9",
+      "a_rowne_b": true,
+      "checker": {
+        "tematy-grzyby-v1-20261029-a": {
+          "exit": 0,
+          "status": "pass"
+        },
+        "tematy-grzyby-v1-20261029-b": {
+          "exit": 0,
+          "status": "pass"
+        }
+      },
+      "kontrola_fali": true,
+      "czas_s": {
+        "a": 42,
+        "b": 42
+      },
+      "wpisy": 207,
+      "formy": 1812,
+      "kandydaci": 216,
+      "warstwy": {
+        "D": 0,
+        "T1": 54,
+        "T2": 153,
+        "T3": 0
+      },
+      "t2_lematy_grupa_11": 351,
+      "t2_po_standard": 153,
+      "slowa_oczywiste": {
+        "lista": 34,
+        "razem": {
+          "pokryte": 21,
+          "procent": "61.8",
+          "brakujace": [
+            "blaszka",
+            "drożdże",
+            "grzybiarz",
+            "grzybobranie",
+            "jadalny",
+            "koszyk",
+            "las",
+            "mech",
+            "nóżka",
+            "trujący",
+            "trzon",
+            "zbierać",
+            "zielonka"
+          ]
+        },
+        "T1": {
+          "pokryte": 14,
+          "procent": "41.2"
+        },
+        "T1_T2": {
+          "pokryte": 21,
+          "procent": "61.8"
+        },
+        "prog": "0.70",
+        "spelniony": false
+      },
+      "werdykt_automatyczny": "popraw",
+      "code_commit": "265f1e86b8d16f5e125ef3779935bcaf2a103c02",
+      "dowod": "verification/verify-grzyby.json"
+    },
+    {
+      "temat": "pogoda",
+      "katalogi": [
+        "data/work/tematy-pogoda-v1-20261029-a",
+        "data/work/tematy-pogoda-v1-20261029-b"
+      ],
+      "sha256sums_sha256": "f3645ae2a8ed57f58f540dcd695ecd4239c3dc5b5ec583f8f01cd2b07822e120",
+      "a_rowne_b": true,
+      "checker": {
+        "tematy-pogoda-v1-20261029-a": {
+          "exit": 0,
+          "status": "pass"
+        },
+        "tematy-pogoda-v1-20261029-b": {
+          "exit": 0,
+          "status": "pass"
+        }
+      },
+      "kontrola_fali": true,
+      "czas_s": {
+        "a": 42,
+        "b": 42
+      },
+      "wpisy": 232,
+      "formy": 2105,
+      "kandydaci": 237,
+      "warstwy": {
+        "D": 0,
+        "T1": 54,
+        "T2": 178,
+        "T3": 0
+      },
+      "t2_lematy_grupa_11": 209,
+      "t2_po_standard": 178,
+      "slowa_oczywiste": {
+        "lista": 36,
+        "razem": {
+          "pokryte": 23,
+          "procent": "63.9",
+          "brakujace": [
+            "chłód",
+            "deszczowy",
+            "jesień",
+            "lato",
+            "lód",
+            "niebo",
+            "pochmurny",
+            "susza",
+            "słoneczny",
+            "temperatura",
+            "wilgoć",
+            "wiosna",
+            "zima"
+          ]
+        },
+        "T1": {
+          "pokryte": 0,
+          "procent": "0.0"
+        },
+        "T1_T2": {
+          "pokryte": 23,
+          "procent": "63.9"
+        },
+        "prog": "0.70",
+        "spelniony": false
+      },
+      "werdykt_automatyczny": "popraw",
+      "code_commit": "265f1e86b8d16f5e125ef3779935bcaf2a103c02",
+      "dowod": "verification/verify-pogoda.json"
+    },
+    {
+      "temat": "matematyka",
+      "katalogi": [
+        "data/work/tematy-matematyka-v1-20261029-a",
+        "data/work/tematy-matematyka-v1-20261029-b"
+      ],
+      "sha256sums_sha256": "61b94f432889a6179e32ff96514a6e5d6bc08bc5f7a77b3e92a94ce5ac85b683",
+      "a_rowne_b": true,
+      "checker": {
+        "tematy-matematyka-v1-20261029-a": {
+          "exit": 0,
+          "status": "pass"
+        },
+        "tematy-matematyka-v1-20261029-b": {
+          "exit": 0,
+          "status": "pass"
+        }
+      },
+      "kontrola_fali": true,
+      "czas_s": {
+        "a": 43,
+        "b": 41
+      },
+      "wpisy": 475,
+      "formy": 4320,
+      "kandydaci": 486,
+      "warstwy": {
+        "D": 0,
+        "T1": 60,
+        "T2": 415,
+        "T3": 0
+      },
+      "t2_lematy_grupa_11": 543,
+      "t2_po_standard": 415,
+      "slowa_oczywiste": {
+        "lista": 35,
+        "razem": {
+          "pokryte": 28,
+          "procent": "80.0",
+          "brakujace": [
+            "cyfra",
+            "kalkulator",
+            "równanie",
+            "wykres",
+            "wzór",
+            "zadanie",
+            "średnica"
+          ]
+        },
+        "T1": {
+          "pokryte": 2,
+          "procent": "5.7"
+        },
+        "T1_T2": {
+          "pokryte": 28,
+          "procent": "80.0"
+        },
+        "prog": "0.70",
+        "spelniony": true
+      },
+      "werdykt_automatyczny": "dalej",
+      "code_commit": "265f1e86b8d16f5e125ef3779935bcaf2a103c02",
+      "dowod": "verification/verify-matematyka.json"
+    },
+    {
+      "temat": "muzyka",
+      "katalogi": [
+        "data/work/tematy-muzyka-v1-20261029-a",
+        "data/work/tematy-muzyka-v1-20261029-b"
+      ],
+      "sha256sums_sha256": "10bb0e1cd1386b75fec0363649c77cd64379891817ad8c63875fbfb6932b594f",
+      "a_rowne_b": true,
+      "checker": {
+        "tematy-muzyka-v1-20261029-a": {
+          "exit": 0,
+          "status": "pass"
+        },
+        "tematy-muzyka-v1-20261029-b": {
+          "exit": 0,
+          "status": "pass"
+        }
+      },
+      "kontrola_fali": true,
+      "czas_s": {
+        "a": 40,
+        "b": 41
+      },
+      "wpisy": 1063,
+      "formy": 9188,
+      "kandydaci": 1131,
+      "warstwy": {
+        "D": 0,
+        "T1": 224,
+        "T2": 839,
+        "T3": 0
+      },
+      "t2_lematy_grupa_11": 1148,
+      "t2_po_standard": 839,
+      "slowa_oczywiste": {
+        "lista": 37,
+        "razem": {
+          "pokryte": 28,
+          "procent": "75.7",
+          "brakujace": [
+            "akord",
+            "dźwięk",
+            "gama",
+            "nagranie",
+            "perkusja",
+            "płyta",
+            "tańczyć",
+            "zespół",
+            "śpiewać"
+          ]
+        },
+        "T1": {
+          "pokryte": 4,
+          "procent": "10.8"
+        },
+        "T1_T2": {
+          "pokryte": 28,
+          "procent": "75.7"
+        },
+        "prog": "0.70",
+        "spelniony": true
+      },
+      "werdykt_automatyczny": "dalej",
+      "code_commit": "265f1e86b8d16f5e125ef3779935bcaf2a103c02",
+      "dowod": "verification/verify-muzyka.json"
+    },
+    {
+      "temat": "sport",
+      "katalogi": [
+        "data/work/tematy-sport-v1-20261029-a",
+        "data/work/tematy-sport-v1-20261029-b"
+      ],
+      "sha256sums_sha256": "d54a74f4b4dfffa618cfa5c6745011f15ed242b0e1bb0b2e071459d75fb8172f",
+      "a_rowne_b": true,
+      "checker": {
+        "tematy-sport-v1-20261029-a": {
+          "exit": 0,
+          "status": "pass"
+        },
+        "tematy-sport-v1-20261029-b": {
+          "exit": 0,
+          "status": "pass"
+        }
+      },
+      "kontrola_fali": true,
+      "czas_s": {
+        "a": 43,
+        "b": 46
+      },
+      "wpisy": 794,
+      "formy": 7811,
+      "kandydaci": 826,
+      "warstwy": {
+        "D": 0,
+        "T1": 172,
+        "T2": 622,
+        "T3": 0
+      },
+      "t2_lematy_grupa_11": 757,
+      "t2_po_standard": 622,
+      "slowa_oczywiste": {
+        "lista": 36,
+        "razem": {
+          "pokryte": 20,
+          "procent": "55.6",
+          "brakujace": [
+            "biegać",
+            "boisko",
+            "bramka",
+            "drużyna",
+            "gol",
+            "karta",
+            "kibic",
+            "medal",
+            "mistrz",
+            "narta",
+            "rakieta",
+            "rower",
+            "stadion",
+            "sędzia",
+            "trener",
+            "zwycięstwo"
+          ]
+        },
+        "T1": {
+          "pokryte": 2,
+          "procent": "5.6"
+        },
+        "T1_T2": {
+          "pokryte": 20,
+          "procent": "55.6"
+        },
+        "prog": "0.70",
+        "spelniony": false
+      },
+      "werdykt_automatyczny": "popraw",
+      "code_commit": "265f1e86b8d16f5e125ef3779935bcaf2a103c02",
+      "dowod": "verification/verify-sport.json"
+    },
+    {
+      "temat": "kuchnia",
+      "katalogi": [
+        "data/work/tematy-kuchnia-v1-20261029-a",
+        "data/work/tematy-kuchnia-v1-20261029-b"
+      ],
+      "sha256sums_sha256": "78438e39c9595a336dda80c8c2b8867cf96418f3b87f5da4b6b303cd218f0fd8",
+      "a_rowne_b": true,
+      "checker": {
+        "tematy-kuchnia-v1-20261029-a": {
+          "exit": 0,
+          "status": "pass"
+        },
+        "tematy-kuchnia-v1-20261029-b": {
+          "exit": 0,
+          "status": "pass"
+        }
+      },
+      "kontrola_fali": true,
+      "czas_s": {
+        "a": 48,
+        "b": 47
+      },
+      "wpisy": 1818,
+      "formy": 16094,
+      "kandydaci": 1874,
+      "warstwy": {
+        "D": 0,
+        "T1": 157,
+        "T2": 1661,
+        "T3": 0
+      },
+      "t2_lematy_grupa_11": 2434,
+      "t2_po_standard": 1661,
+      "slowa_oczywiste": {
+        "lista": 37,
+        "razem": {
+          "pokryte": 31,
+          "procent": "83.8",
+          "brakujace": [
+            "gotować",
+            "nóż",
+            "piec",
+            "smażyć",
+            "widelec",
+            "łyżka"
+          ]
+        },
+        "T1": {
+          "pokryte": 3,
+          "procent": "8.1"
+        },
+        "T1_T2": {
+          "pokryte": 31,
+          "procent": "83.8"
+        },
+        "prog": "0.70",
+        "spelniony": true
+      },
+      "werdykt_automatyczny": "dalej",
+      "code_commit": "265f1e86b8d16f5e125ef3779935bcaf2a103c02",
+      "dowod": "verification/verify-kuchnia.json"
+    },
+    {
+      "temat": "rosliny",
+      "katalogi": [
+        "data/work/tematy-rosliny-v1-20261029-a",
+        "data/work/tematy-rosliny-v1-20261029-b"
+      ],
+      "sha256sums_sha256": "eb977073bd23f9067a9232d02994f1787fbf745faa8849973ea8394972aec5bd",
+      "a_rowne_b": true,
+      "checker": {
+        "tematy-rosliny-v1-20261029-a": {
+          "exit": 0,
+          "status": "pass"
+        },
+        "tematy-rosliny-v1-20261029-b": {
+          "exit": 0,
+          "status": "pass"
+        }
+      },
+      "kontrola_fali": true,
+      "czas_s": {
+        "a": 49,
+        "b": 47
+      },
+      "wpisy": 2371,
+      "formy": 22244,
+      "kandydaci": 2410,
+      "warstwy": {
+        "D": 0,
+        "T1": 422,
+        "T2": 1949,
+        "T3": 0
+      },
+      "t2_lematy_grupa_11": 3111,
+      "t2_po_standard": 1949,
+      "slowa_oczywiste": {
+        "lista": 38,
+        "razem": {
+          "pokryte": 38,
+          "procent": "100.0",
+          "brakujace": []
+        },
+        "T1": {
+          "pokryte": 12,
+          "procent": "31.6"
+        },
+        "T1_T2": {
+          "pokryte": 38,
+          "procent": "100.0"
+        },
+        "prog": "0.70",
+        "spelniony": true
+      },
+      "werdykt_automatyczny": "dalej",
+      "code_commit": "265f1e86b8d16f5e125ef3779935bcaf2a103c02",
+      "dowod": "verification/verify-rosliny.json"
+    },
+    {
+      "temat": "zwierzeta",
+      "katalogi": [
+        "data/work/tematy-zwierzeta-v1-20261029-a",
+        "data/work/tematy-zwierzeta-v1-20261029-b"
+      ],
+      "sha256sums_sha256": "1ee1e1f713d20e07a956153b208583960ef241f8a2f8bd2f75b46d62f3e70d9f",
+      "a_rowne_b": true,
+      "checker": {
+        "tematy-zwierzeta-v1-20261029-a": {
+          "exit": 0,
+          "status": "pass"
+        },
+        "tematy-zwierzeta-v1-20261029-b": {
+          "exit": 0,
+          "status": "pass"
+        }
+      },
+      "kontrola_fali": true,
+      "czas_s": {
+        "a": 46,
+        "b": 46
+      },
+      "wpisy": 2765,
+      "formy": 23880,
+      "kandydaci": 2831,
+      "warstwy": {
+        "D": 0,
+        "T1": 696,
+        "T2": 2069,
+        "T3": 0
+      },
+      "t2_lematy_grupa_11": 4452,
+      "t2_po_standard": 2069,
+      "slowa_oczywiste": {
+        "lista": 37,
+        "razem": {
+          "pokryte": 37,
+          "procent": "100.0",
+          "brakujace": []
+        },
+        "T1": {
+          "pokryte": 9,
+          "procent": "24.3"
+        },
+        "T1_T2": {
+          "pokryte": 37,
+          "procent": "100.0"
+        },
+        "prog": "0.70",
+        "spelniony": true
+      },
+      "werdykt_automatyczny": "dalej",
+      "code_commit": "265f1e86b8d16f5e125ef3779935bcaf2a103c02",
+      "dowod": "verification/verify-zwierzeta.json"
+    },
+    {
+      "temat": "medycyna",
+      "katalogi": [
+        "data/work/tematy-medycyna-v1-20261029-a",
+        "data/work/tematy-medycyna-v1-20261029-b"
+      ],
+      "sha256sums_sha256": "68855e0a3f8df670bb3bd3b5f6c6a9c957ca9efaa1929ed801d6b03baaf5a4b2",
+      "a_rowne_b": true,
+      "checker": {
+        "tematy-medycyna-v1-20261029-a": {
+          "exit": 0,
+          "status": "pass"
+        },
+        "tematy-medycyna-v1-20261029-b": {
+          "exit": 0,
+          "status": "pass"
+        }
+      },
+      "kontrola_fali": true,
+      "czas_s": {
+        "a": 87,
+        "b": 84
+      },
+      "wpisy": 3246,
+      "formy": 29775,
+      "kandydaci": 3335,
+      "warstwy": {
+        "D": 0,
+        "T1": 275,
+        "T2": 2629,
+        "T3": 342
+      },
+      "t2_lematy_grupa_11": 4063,
+      "t2_po_standard": 2629,
+      "slowa_oczywiste": {
+        "lista": 39,
+        "razem": {
+          "pokryte": 32,
+          "procent": "82.1",
+          "brakujace": [
+            "badanie",
+            "bandaż",
+            "ciało",
+            "pacjent",
+            "plaster",
+            "tabletka",
+            "zastrzyk"
+          ]
+        },
+        "T1": {
+          "pokryte": 4,
+          "procent": "10.3"
+        },
+        "T1_T2": {
+          "pokryte": 31,
+          "procent": "79.5"
+        },
+        "prog": "0.70",
+        "spelniony": true
+      },
+      "werdykt_automatyczny": "dalej",
+      "code_commit": "265f1e86b8d16f5e125ef3779935bcaf2a103c02",
+      "dowod": "verification/verify-medycyna.json"
+    }
+  ]
+}

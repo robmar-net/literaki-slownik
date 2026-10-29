@@ -1,0 +1,495 @@
+{
+  "topic": "config/generator/tematy/rosliny.json",
+  "topic_sha256": "743d411f4ef3176e190910755b4d1774f9fa471bf20345d70acc6b58cb207e86",
+  "code_identity": {
+    "git_commit": "265f1e86b8d16f5e125ef3779935bcaf2a103c02",
+    "git_dirty": false,
+    "tree_sha256": "0951e813c5b264165d03a325a3165e89d1d2c8f83f09da5112394d5255c438fa"
+  },
+  "git_status_config_scripts": "pusty",
+  "budowy": {
+    "a": {
+      "start": 1793266253,
+      "end": 1793266302,
+      "exit": 0,
+      "sekundy": 49
+    },
+    "b": {
+      "start": 1793266302,
+      "end": 1793266349,
+      "exit": 0,
+      "sekundy": 47
+    }
+  },
+  "pakiety": [
+    "data/work/tematy-rosliny-v1-20261029-a",
+    "data/work/tematy-rosliny-v1-20261029-b"
+  ],
+  "sha256sums_sha256": "eb977073bd23f9067a9232d02994f1787fbf745faa8849973ea8394972aec5bd",
+  "files_sha256": {
+    "ATTRIBUTIONS.md": "87bb3d8fa3e6de9c2be052a8fbf1f6ec4bfa44d4e35dd836d6546f4331b51569",
+    "LIMITATIONS.md": "06efc6f2de81c872476971c577836f584553258447195c5271fbb3d910372ddf",
+    "ROSLINY.tsv.gz": "2857e24bc63acd8006985711461aabd4b1da7795a3ff9e444d1dbba27bee29e5",
+    "ROSLINY.txt.gz": "95ade6ccbab285cceb0a07a67214fedcd5be56ac260d76f3c4a922acdad0764a",
+    "SHA256SUMS": "eb977073bd23f9067a9232d02994f1787fbf745faa8849973ea8394972aec5bd",
+    "TERMS.md": "7d4f57c1689214535616d0ccba94b84d539e18c4e7c5451c079a848198b61a9e",
+    "method.json": "cf2cb5ace886e52ea931a8d16d4aedaa8ff32293a3d7b08adb3b3c9147b0160c",
+    "release-manifest.json": "defdb7873183e51acd58fe2271a6dd8c62c6d870faa8c4f96eb843e4c63019fc",
+    "reports/raport.md": "ec86fb70f2612762b0211f13d3e70aff523d35523dced0a5ea3f564817db2b94",
+    "reports/review-template.json": "522c3420234371fa86a4a43e290bf95f9aa0f99ccda9d378fa2251ab00a97329",
+    "reports/sample.json": "16ac2ef48d0e5ac234c06a0f41942249898cbd6017b8744b8c5892f3939f1fb5",
+    "reports/summary.json": "31f8d09b18ee9e0864b93a98b422ce56b22dd91b609f72de7f15f4d22920fcbf",
+    "tematy/rosliny.json": "743d411f4ef3176e190910755b4d1774f9fa471bf20345d70acc6b58cb207e86"
+  },
+  "all_files_identical": true,
+  "checker": {
+    "tematy-rosliny-v1-20261029-a": {
+      "exit": 0,
+      "status": "pass"
+    },
+    "tematy-rosliny-v1-20261029-b": {
+      "exit": 0,
+      "status": "pass"
+    }
+  },
+  "checker_wynik_a": {
+    "formy": 22244,
+    "review_checked": false,
+    "sha256sums_sha256": "eb977073bd23f9067a9232d02994f1787fbf745faa8849973ea8394972aec5bd",
+    "slowa_oczywiste": {
+      "brakujace": [],
+      "lista": 38,
+      "pokryte": 38
+    },
+    "status": "pass",
+    "temat": "rosliny",
+    "warstwy": {
+      "D": 0,
+      "T1": 422,
+      "T2": 1949,
+      "T3": 0
+    },
+    "wpisy": 2371
+  },
+  "summary": {
+    "liczby": {
+      "formy": 22244,
+      "kandydaci": 2410,
+      "warstwy": {
+        "D": 0,
+        "T1": 422,
+        "T2": 1949,
+        "T3": 0
+      },
+      "wpisy": 2371
+    },
+    "przeciecia": {
+      "leksemy": {
+        "D": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "T1": {
+          "temat": 422,
+          "pop": {
+            "liczba": 143,
+            "procent": "33.9"
+          },
+          "pop00": {
+            "liczba": 13,
+            "procent": "3.1"
+          }
+        },
+        "T2": {
+          "temat": 1949,
+          "pop": {
+            "liczba": 835,
+            "procent": "42.8"
+          },
+          "pop00": {
+            "liczba": 190,
+            "procent": "9.7"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 2371,
+          "pop": {
+            "liczba": 978,
+            "procent": "41.2"
+          },
+          "pop00": {
+            "liczba": 203,
+            "procent": "8.6"
+          }
+        }
+      },
+      "formy": {
+        "D": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "T1": {
+          "temat": 4331,
+          "pop": {
+            "liczba": 1450,
+            "procent": "33.5"
+          },
+          "pop00": {
+            "liczba": 171,
+            "procent": "3.9"
+          }
+        },
+        "T2": {
+          "temat": 18285,
+          "pop": {
+            "liczba": 7771,
+            "procent": "42.5"
+          },
+          "pop00": {
+            "liczba": 1829,
+            "procent": "10.0"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 22244,
+          "pop": {
+            "liczba": 8963,
+            "procent": "40.3"
+          },
+          "pop00": {
+            "liczba": 1960,
+            "procent": "8.8"
+          }
+        }
+      }
+    },
+    "diagnostyka": {
+      "D": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "T1": {
+        "formy": {
+          "broad": 4373,
+          "kandydaci": 4468,
+          "procent_broad": "97.9",
+          "procent_standard": "96.9",
+          "standard": 4331
+        },
+        "leksemy": {
+          "broad": 423,
+          "kandydaci": 424,
+          "procent_broad": "99.8",
+          "procent_standard": "99.5",
+          "standard": 422
+        }
+      },
+      "T2": {
+        "formy": {
+          "broad": 18761,
+          "kandydaci": 18820,
+          "procent_broad": "99.7",
+          "procent_standard": "97.2",
+          "standard": 18285
+        },
+        "leksemy": {
+          "broad": 1982,
+          "kandydaci": 1986,
+          "procent_broad": "99.8",
+          "procent_standard": "98.1",
+          "standard": 1949
+        }
+      },
+      "T3": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "razem": {
+        "formy": {
+          "broad": 22762,
+          "kandydaci": 22916,
+          "procent_broad": "99.3",
+          "procent_standard": "97.1",
+          "standard": 22244
+        },
+        "leksemy": {
+          "broad": 2405,
+          "kandydaci": 2410,
+          "procent_broad": "99.8",
+          "procent_standard": "98.4",
+          "standard": 2371
+        }
+      }
+    },
+    "slowa_oczywiste": {
+      "razem": {
+        "brakujace": [],
+        "pokryte": 38,
+        "procent": "100.0"
+      },
+      "T1": {
+        "brakujace": [
+          "drzewo",
+          "dąb",
+          "fiołek",
+          "goździk",
+          "irys",
+          "jabłoń",
+          "jodła",
+          "klon",
+          "krzew",
+          "kwiat",
+          "lilia",
+          "lipa",
+          "liść",
+          "mak",
+          "mech",
+          "modrzew",
+          "pokrzywa",
+          "rumianek",
+          "róża",
+          "sosna",
+          "stokrotka",
+          "storczyk",
+          "słonecznik",
+          "trawa",
+          "wierzba",
+          "świerk"
+        ],
+        "pokryte": 12,
+        "procent": "31.6"
+      },
+      "T1_T2": {
+        "brakujace": [],
+        "pokryte": 38,
+        "procent": "100.0"
+      },
+      "spelniony": true,
+      "prog": "0.70"
+    },
+    "srodladowe": null,
+    "odrzucone": {
+      "D": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "T1": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 1
+        },
+        "POZA_STANDARD": {
+          "liczba": 1
+        }
+      },
+      "T2": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 2
+          },
+          "liczba": 925
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 6135
+        },
+        "POZA_BROAD": {
+          "liczba": 4
+        },
+        "POZA_STANDARD": {
+          "liczba": 33
+        }
+      },
+      "T3": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "razem": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 2
+          },
+          "liczba": 925
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 6135
+        },
+        "POZA_BROAD": {
+          "liczba": 5
+        },
+        "POZA_STANDARD": {
+          "liczba": 34
+        }
+      }
+    },
+    "t3": null,
+    "wieloznaczny": {
+      "brak_danych": {
+        "liczba": 85,
+        "procent": "3.6",
+        "przyklady": [
+          "andrzejowskia@sgjp-20260823",
+          "anemogam@sgjp-20260823",
+          "aplegier@sgjp-20260823",
+          "balsamodrzew@sgjp-20260823",
+          "bereka@sgjp-20260823",
+          "biegunecznik@sgjp-20260823",
+          "bystroń@sgjp-20260823",
+          "chamerops@sgjp-20260823",
+          "chęch@sgjp-20260823",
+          "damaszka@sgjp-20260823"
+        ]
+      },
+      "nie": {
+        "liczba": 1399,
+        "procent": "59.0",
+        "przyklady": [
+          "ablegier@sgjp-20260823",
+          "acerola@sgjp-20260823",
+          "acydofit@sgjp-20260823",
+          "adiantum@sgjp-20260823",
+          "afelandra@sgjp-20260823",
+          "agapant@sgjp-20260823",
+          "agawa@sgjp-20260823",
+          "agrest@sgjp-20260823",
+          "akonit@sgjp-20260823",
+          "aksamitek@sgjp-20260823"
+        ]
+      },
+      "tak": {
+        "liczba": 887,
+        "procent": "37.4",
+        "przyklady": [
+          "ablaktować@sgjp-20260823",
+          "absolut@sgjp-20260823",
+          "adonis:Sm1@sgjp-20260823",
+          "adonis:Sm2.m3@sgjp-20260823",
+          "agar@sgjp-20260823",
+          "akacja@sgjp-20260823",
+          "akant@sgjp-20260823",
+          "aksamitka@sgjp-20260823",
+          "aleuryt@sgjp-20260823",
+          "alfa@sgjp-20260823"
+        ]
+      }
+    },
+    "wykluczenia": [],
+    "werdykt": {
+      "automatyczny": "dalej",
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [],
+      "uwaga": "„stop” wybiera tylko operator na bramce"
+    }
+  },
+  "fala": {
+    "temat": "rosliny",
+    "t3_wpisy": 0,
+    "summary_t3_null": true,
+    "srodladowe_null": true,
+    "iate_w_inputs": false,
+    "iate_blok_manifestu": false,
+    "iate_w_plikach": {},
+    "bledy": [],
+    "zgodna": true
+  }
+}
