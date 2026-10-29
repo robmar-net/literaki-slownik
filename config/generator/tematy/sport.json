@@ -1,0 +1,95 @@
+{
+  "id": "sport",
+  "nazwa": "Sport",
+  "wersja": "sport-v1",
+  "t1": {
+    "atomy_sgjp": [
+      "sport.",
+      "gry",
+      "szach.",
+      "karc."
+    ]
+  },
+  "t2": {
+    "korzenie": [
+      {
+        "synset": 12622,
+        "nazwa": "sport 1"
+      },
+      {
+        "synset": 5963,
+        "nazwa": "sportowiec 1"
+      },
+      {
+        "synset": 6558,
+        "nazwa": "zawody 2"
+      },
+      {
+        "synset": 4286,
+        "nazwa": "zawodnik 1"
+      },
+      {
+        "synset": 233326,
+        "nazwa": "dyscyplina sportowa 1"
+      },
+      {
+        "synset": 14502,
+        "nazwa": "gimnastyka 1"
+      },
+      {
+        "synset": 427828,
+        "nazwa": "sprzęt sportowy 1"
+      }
+    ],
+    "relacje": [
+      11,
+      25,
+      27
+    ],
+    "tryb": "pelne",
+    "wykluczenia_poddrzew": []
+  },
+  "dodatki": [],
+  "wykluczenia": [],
+  "diagnostyka": {
+    "slowa_oczywiste": [
+      "bieg",
+      "biegać",
+      "boisko",
+      "boks",
+      "bramka",
+      "drużyna",
+      "gol",
+      "gra",
+      "hokej",
+      "karta",
+      "kibic",
+      "koszykówka",
+      "maraton",
+      "mecz",
+      "medal",
+      "mistrz",
+      "narta",
+      "olimpiada",
+      "pionek",
+      "piłka",
+      "puchar",
+      "pływanie",
+      "rakieta",
+      "rower",
+      "siatkówka",
+      "skok",
+      "sport",
+      "stadion",
+      "szachy",
+      "sędzia",
+      "tenis",
+      "trener",
+      "turniej",
+      "wyścig",
+      "zawodnik",
+      "zwycięstwo"
+    ]
+  },
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Gry, szachy i karty (gry, szach., karc.) należą do sportu. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+}

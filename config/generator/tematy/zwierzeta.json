@@ -1,0 +1,86 @@
+{
+  "id": "zwierzeta",
+  "nazwa": "Zwierzęta",
+  "wersja": "zwierzeta-v1",
+  "t1": {
+    "atomy_sgjp": [
+      "zool.",
+      "zootechn.",
+      "hip.",
+      "paleont."
+    ]
+  },
+  "t2": {
+    "korzenie": [
+      {
+        "synset": 5621,
+        "nazwa": "zwierzę 1"
+      },
+      {
+        "synset": 403786,
+        "nazwa": "zwierzę 2"
+      }
+    ],
+    "relacje": [
+      11,
+      27
+    ],
+    "tryb": "pelne",
+    "wykluczenia_poddrzew": [
+      {
+        "synset": 6047,
+        "nazwa": "człowiek 1",
+        "powód": "człowiek i hominidy to nie zwierzęta w temacie; szum zmierzony przed budową (#12 W11, operator 2026-10-29)"
+      },
+      {
+        "synset": 78303,
+        "nazwa": "hominid 1",
+        "powód": "człowiek i hominidy to nie zwierzęta w temacie; szum zmierzony przed budową (#12 W11, operator 2026-10-29)"
+      }
+    ]
+  },
+  "dodatki": [],
+  "wykluczenia": [],
+  "diagnostyka": {
+    "slowa_oczywiste": [
+      "baran",
+      "bocian",
+      "borsuk",
+      "byk",
+      "dinozaur",
+      "foka",
+      "jeleń",
+      "jeż",
+      "kaczka",
+      "kogut",
+      "kot",
+      "koza",
+      "koń",
+      "krowa",
+      "królik",
+      "kura",
+      "lew",
+      "lis",
+      "małpa",
+      "mysz",
+      "niedźwiedź",
+      "osioł",
+      "owca",
+      "pies",
+      "ryba",
+      "sarna",
+      "sowa",
+      "szczur",
+      "słoń",
+      "tygrys",
+      "wiewiórka",
+      "wilk",
+      "wróbel",
+      "wąż",
+      "zając",
+      "żaba",
+      "żyrafa"
+    ]
+  },
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Wymarłe zwierzęta i paleont. należą do tematu; bez gwary łowieckiej (łow.). Relacja 25 (meronimia) pominięta: części ciała dodawały 275 lematów szumu (4 727 → 4 452, np. dziób, kieł, jelito, guzik). Wycięte poddrzewa człowiek 1 i hominid 1. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+}

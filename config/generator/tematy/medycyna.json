@@ -1,0 +1,175 @@
+{
+  "id": "medycyna",
+  "nazwa": "Medycyna i ciało",
+  "wersja": "medycyna-v1",
+  "t1": {
+    "atomy_sgjp": [
+      "med.",
+      "anat.",
+      "psych.",
+      "wet.",
+      "farm."
+    ]
+  },
+  "t2": {
+    "korzenie": [
+      {
+        "synset": 7729,
+        "nazwa": "schorzenie 1"
+      },
+      {
+        "synset": 7227,
+        "nazwa": "lekarstwo 1"
+      },
+      {
+        "synset": 2180,
+        "nazwa": "organ 3"
+      },
+      {
+        "synset": 441043,
+        "nazwa": "część ciała 1"
+      },
+      {
+        "synset": 5999,
+        "nazwa": "tkanka 1"
+      },
+      {
+        "synset": 1649,
+        "nazwa": "mięsień 1"
+      },
+      {
+        "synset": 6476,
+        "nazwa": "kość 1"
+      },
+      {
+        "synset": 15615,
+        "nazwa": "gruczoł 1"
+      },
+      {
+        "synset": 10877,
+        "nazwa": "medycyna 1"
+      },
+      {
+        "synset": 597,
+        "nazwa": "lekarz 2"
+      },
+      {
+        "synset": 30333,
+        "nazwa": "zabieg 1"
+      },
+      {
+        "synset": 4113,
+        "nazwa": "operacja 1"
+      },
+      {
+        "synset": 259726,
+        "nazwa": "uraz 1"
+      },
+      {
+        "synset": 2850,
+        "nazwa": "nowotwór 1"
+      },
+      {
+        "synset": 4813,
+        "nazwa": "szpital 1"
+      },
+      {
+        "synset": 6377,
+        "nazwa": "pielęgniarka 1"
+      }
+    ],
+    "relacje": [
+      11,
+      25,
+      27
+    ],
+    "tryb": "pelne",
+    "wykluczenia_poddrzew": [
+      {
+        "synset": 244560,
+        "nazwa": "organ roślinny 1",
+        "powód": "organy i tkanki roślin pod organ 3 i tkanka 1 to nie medycyna; szum zmierzony przed budową (#12 W11, operator 2026-10-29)"
+      },
+      {
+        "synset": 38995,
+        "nazwa": "narząd płciowy rośliny 1",
+        "powód": "organy i tkanki roślin pod organ 3 i tkanka 1 to nie medycyna; szum zmierzony przed budową (#12 W11, operator 2026-10-29)"
+      },
+      {
+        "synset": 32240,
+        "nazwa": "tkanka roślinna 1",
+        "powód": "organy i tkanki roślin pod organ 3 i tkanka 1 to nie medycyna; szum zmierzony przed budową (#12 W11, operator 2026-10-29)"
+      },
+      {
+        "synset": 4722,
+        "nazwa": "nasiono 1",
+        "powód": "organy i tkanki roślin pod organ 3 i tkanka 1 to nie medycyna; szum zmierzony przed budową (#12 W11, operator 2026-10-29)"
+      },
+      {
+        "synset": 27813,
+        "nazwa": "zarodnia 1",
+        "powód": "organy i tkanki roślin pod organ 3 i tkanka 1 to nie medycyna; szum zmierzony przed budową (#12 W11, operator 2026-10-29)"
+      }
+    ]
+  },
+  "t3": {
+    "iate": {
+      "kody_dziedzin": [
+        "2841"
+      ],
+      "typ": "fullForm",
+      "jedno_slowo": true,
+      "niezawodnosc_min": 3,
+      "odrzuc_status": [
+        "deprecatedTerm-admn-sts",
+        "supersededTerm-admn-sts"
+      ]
+    }
+  },
+  "dodatki": [],
+  "wykluczenia": [],
+  "diagnostyka": {
+    "slowa_oczywiste": [
+      "alergia",
+      "apteka",
+      "badanie",
+      "bandaż",
+      "brzuch",
+      "choroba",
+      "ciało",
+      "dentysta",
+      "gorączka",
+      "grypa",
+      "grzybica",
+      "głowa",
+      "kaszel",
+      "katar",
+      "kolano",
+      "kość",
+      "krew",
+      "lek",
+      "lekarz",
+      "nerka",
+      "noga",
+      "oko",
+      "operacja",
+      "pacjent",
+      "pielęgniarka",
+      "plaster",
+      "płuco",
+      "rana",
+      "ręka",
+      "serce",
+      "szczepionka",
+      "szpital",
+      "tabletka",
+      "ucho",
+      "wątroba",
+      "zastrzyk",
+      "ząb",
+      "złamanie",
+      "żołądek"
+    ]
+  },
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Grzybica należy do medycyny, nie do grzybów. Wycięte poddrzewa organów i tkanek roślin (4 477 → 4 063, odpadają m.in. batat, bazylia, cytryna, groch, kawa). T3 = IATE 2841 tylko w tym temacie, bez znaczników śródlądowych. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+}

@@ -1,0 +1,104 @@
+{
+  "id": "pogoda",
+  "nazwa": "Pogoda",
+  "wersja": "pogoda-v1",
+  "t1": {
+    "atomy_sgjp": [
+      "meteor."
+    ]
+  },
+  "t2": {
+    "korzenie": [
+      {
+        "synset": 2402,
+        "nazwa": "pogoda 1"
+      },
+      {
+        "synset": 5353,
+        "nazwa": "zjawisko atmosferyczne 1"
+      },
+      {
+        "synset": 5330,
+        "nazwa": "burza 1"
+      },
+      {
+        "synset": 5328,
+        "nazwa": "wiatr 1"
+      },
+      {
+        "synset": 549,
+        "nazwa": "opad 1"
+      },
+      {
+        "synset": 5285,
+        "nazwa": "opad 2"
+      },
+      {
+        "synset": 351,
+        "nazwa": "chmura 1"
+      },
+      {
+        "synset": 5324,
+        "nazwa": "deszcz 1"
+      },
+      {
+        "synset": 42764,
+        "nazwa": "śnieg 2"
+      },
+      {
+        "synset": 5749,
+        "nazwa": "klimat 2"
+      }
+    ],
+    "relacje": [
+      11,
+      25,
+      27
+    ],
+    "tryb": "pelne",
+    "wykluczenia_poddrzew": []
+  },
+  "dodatki": [],
+  "wykluczenia": [],
+  "diagnostyka": {
+    "slowa_oczywiste": [
+      "burza",
+      "błyskawica",
+      "chmura",
+      "chłód",
+      "ciepło",
+      "deszcz",
+      "deszczowy",
+      "grad",
+      "grzmot",
+      "huragan",
+      "jesień",
+      "klimat",
+      "lato",
+      "lód",
+      "mgła",
+      "mróz",
+      "mżawka",
+      "niebo",
+      "piorun",
+      "pochmurny",
+      "rosa",
+      "susza",
+      "szron",
+      "słoneczny",
+      "słońce",
+      "temperatura",
+      "tornado",
+      "tęcza",
+      "ulewa",
+      "upał",
+      "wiatr",
+      "wilgoć",
+      "wiosna",
+      "zamieć",
+      "zima",
+      "śnieg"
+    ]
+  },
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+}

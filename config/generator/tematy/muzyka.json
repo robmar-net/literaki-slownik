@@ -1,0 +1,114 @@
+{
+  "id": "muzyka",
+  "nazwa": "Muzyka",
+  "wersja": "muzyka-v1",
+  "t1": {
+    "atomy_sgjp": [
+      "muz.",
+      "chor."
+    ]
+  },
+  "t2": {
+    "korzenie": [
+      {
+        "synset": 1720,
+        "nazwa": "muzyka 1"
+      },
+      {
+        "synset": 8272,
+        "nazwa": "instrument muzyczny 1"
+      },
+      {
+        "synset": 6994,
+        "nazwa": "utwór muzyczny 1"
+      },
+      {
+        "synset": 5860,
+        "nazwa": "muzyk 1"
+      },
+      {
+        "synset": 10970,
+        "nazwa": "taniec 1"
+      },
+      {
+        "synset": 10972,
+        "nazwa": "taniec 2"
+      },
+      {
+        "synset": 2324,
+        "nazwa": "piosenka 1"
+      },
+      {
+        "synset": 23802,
+        "nazwa": "śpiewak 1"
+      },
+      {
+        "synset": 7139,
+        "nazwa": "śpiew 2"
+      },
+      {
+        "synset": 27623,
+        "nazwa": "dźwięk muzyczny 1"
+      },
+      {
+        "synset": 19153,
+        "nazwa": "muzykant 1"
+      },
+      {
+        "synset": 7767,
+        "nazwa": "orkiestra 1"
+      }
+    ],
+    "relacje": [
+      11,
+      25,
+      27
+    ],
+    "tryb": "pelne",
+    "wykluczenia_poddrzew": []
+  },
+  "dodatki": [],
+  "wykluczenia": [],
+  "diagnostyka": {
+    "slowa_oczywiste": [
+      "akord",
+      "bas",
+      "bęben",
+      "chór",
+      "dyrygent",
+      "dźwięk",
+      "flet",
+      "fortepian",
+      "gama",
+      "gitara",
+      "harfa",
+      "kompozytor",
+      "koncert",
+      "melodia",
+      "mikrofon",
+      "muzyk",
+      "nagranie",
+      "nuta",
+      "opera",
+      "orkiestra",
+      "perkusja",
+      "pianino",
+      "piosenka",
+      "piosenkarz",
+      "polka",
+      "płyta",
+      "rytm",
+      "saksofon",
+      "skrzypce",
+      "tango",
+      "taniec",
+      "tańczyć",
+      "trąbka",
+      "walc",
+      "zespół",
+      "śpiew",
+      "śpiewać"
+    ]
+  },
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Taniec (chor., taniec 1 i 2) należy do muzyki. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+}

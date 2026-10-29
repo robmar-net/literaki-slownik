@@ -1,0 +1,99 @@
+{
+  "id": "matematyka",
+  "nazwa": "Matematyka",
+  "wersja": "matematyka-v1",
+  "t1": {
+    "atomy_sgjp": [
+      "mat."
+    ]
+  },
+  "t2": {
+    "korzenie": [
+      {
+        "synset": 8086,
+        "nazwa": "pojęcie matematyczne 1"
+      },
+      {
+        "synset": 46351,
+        "nazwa": "obiekt matematyczny 1"
+      },
+      {
+        "synset": 48390,
+        "nazwa": "figura geometryczna 1"
+      },
+      {
+        "synset": 20685,
+        "nazwa": "liczba 2"
+      },
+      {
+        "synset": 885,
+        "nazwa": "funkcja 3"
+      },
+      {
+        "synset": 8076,
+        "nazwa": "działanie matematyczne 1"
+      },
+      {
+        "synset": 13154,
+        "nazwa": "matematyk 1"
+      },
+      {
+        "synset": 8122,
+        "nazwa": "matematyka 1"
+      },
+      {
+        "synset": 4984,
+        "nazwa": "figura geometryczna 2"
+      }
+    ],
+    "relacje": [
+      11,
+      25,
+      27
+    ],
+    "tryb": "pelne",
+    "wykluczenia_poddrzew": []
+  },
+  "dodatki": [],
+  "wykluczenia": [],
+  "diagnostyka": {
+    "slowa_oczywiste": [
+      "algebra",
+      "bok",
+      "cyfra",
+      "dodawanie",
+      "dzielenie",
+      "figura",
+      "geometria",
+      "iloczyn",
+      "kalkulator",
+      "koło",
+      "kwadrat",
+      "kąt",
+      "liczba",
+      "linia",
+      "mnożenie",
+      "odcinek",
+      "odejmowanie",
+      "okrąg",
+      "pierwiastek",
+      "potęga",
+      "procent",
+      "promień",
+      "prostokąt",
+      "punkt",
+      "równanie",
+      "różnica",
+      "suma",
+      "trójkąt",
+      "ułamek",
+      "wykres",
+      "wynik",
+      "wzór",
+      "zadanie",
+      "zero",
+      "średnica"
+    ]
+  },
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+}

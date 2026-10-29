@@ -1,0 +1,75 @@
+{
+  "id": "rosliny",
+  "nazwa": "Rośliny",
+  "wersja": "rosliny-v1",
+  "t1": {
+    "atomy_sgjp": [
+      "bot.",
+      "ogr."
+    ]
+  },
+  "t2": {
+    "korzenie": [
+      {
+        "synset": 4603,
+        "nazwa": "roślina 1"
+      },
+      {
+        "synset": 4609,
+        "nazwa": "drzewo 2"
+      }
+    ],
+    "relacje": [
+      11,
+      25,
+      27
+    ],
+    "tryb": "pelne",
+    "wykluczenia_poddrzew": []
+  },
+  "dodatki": [],
+  "wykluczenia": [],
+  "diagnostyka": {
+    "slowa_oczywiste": [
+      "bratek",
+      "brzoza",
+      "drzewo",
+      "dąb",
+      "fiołek",
+      "goździk",
+      "grusza",
+      "irys",
+      "jabłoń",
+      "jodła",
+      "kaktus",
+      "kasztan",
+      "klon",
+      "korzeń",
+      "krzew",
+      "kwiat",
+      "lilia",
+      "lipa",
+      "liść",
+      "mak",
+      "mech",
+      "modrzew",
+      "niezapominajka",
+      "paproć",
+      "pokrzywa",
+      "rumianek",
+      "róża",
+      "sosna",
+      "stokrotka",
+      "storczyk",
+      "słonecznik",
+      "trawa",
+      "tulipan",
+      "wierzba",
+      "wrzos",
+      "łodyga",
+      "świerk",
+      "żonkil"
+    ]
+  },
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+}

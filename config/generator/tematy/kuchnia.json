@@ -1,0 +1,126 @@
+{
+  "id": "kuchnia",
+  "nazwa": "Kuchnia",
+  "wersja": "kuchnia-v1",
+  "t1": {
+    "atomy_sgjp": [
+      "kulin.",
+      "spoż."
+    ]
+  },
+  "t2": {
+    "korzenie": [
+      {
+        "synset": 11077,
+        "nazwa": "potrawa 1"
+      },
+      {
+        "synset": 10738,
+        "nazwa": "jedzenie 2"
+      },
+      {
+        "synset": 11041,
+        "nazwa": "przyprawa 1"
+      },
+      {
+        "synset": 5268,
+        "nazwa": "napój 1"
+      },
+      {
+        "synset": 10933,
+        "nazwa": "napój 2"
+      },
+      {
+        "synset": 11038,
+        "nazwa": "ciasto 1"
+      },
+      {
+        "synset": 11015,
+        "nazwa": "mięso 1"
+      },
+      {
+        "synset": 11150,
+        "nazwa": "ser 1"
+      },
+      {
+        "synset": 11099,
+        "nazwa": "wędlina 1"
+      },
+      {
+        "synset": 11178,
+        "nazwa": "zupa 1"
+      },
+      {
+        "synset": 11211,
+        "nazwa": "sos 1"
+      },
+      {
+        "synset": 14646,
+        "nazwa": "naczynie kuchenne 1"
+      },
+      {
+        "synset": 13142,
+        "nazwa": "kucharz 1"
+      },
+      {
+        "synset": 11010,
+        "nazwa": "warzywo 2"
+      },
+      {
+        "synset": 11005,
+        "nazwa": "owoc 2"
+      }
+    ],
+    "relacje": [
+      11,
+      25,
+      27
+    ],
+    "tryb": "pelne",
+    "wykluczenia_poddrzew": []
+  },
+  "dodatki": [],
+  "wykluczenia": [],
+  "diagnostyka": {
+    "slowa_oczywiste": [
+      "chleb",
+      "ciasto",
+      "cukier",
+      "czajnik",
+      "garnek",
+      "gotować",
+      "herbata",
+      "jajko",
+      "kawa",
+      "kiełbasa",
+      "kolacja",
+      "kotlet",
+      "makaron",
+      "masło",
+      "mleko",
+      "mąka",
+      "nóż",
+      "obiad",
+      "patelnia",
+      "piec",
+      "pieróg",
+      "piwo",
+      "przyprawa",
+      "sałatka",
+      "ser",
+      "smażyć",
+      "sok",
+      "sól",
+      "talerz",
+      "widelec",
+      "wino",
+      "woda",
+      "wódka",
+      "ziemniak",
+      "zupa",
+      "łyżka",
+      "śniadanie"
+    ]
+  },
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Napoje, także alkoholowe, należą do kuchni. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+}

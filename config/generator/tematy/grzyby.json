@@ -1,0 +1,78 @@
+{
+  "id": "grzyby",
+  "nazwa": "Grzyby",
+  "wersja": "grzyby-v1",
+  "t1": {
+    "atomy_sgjp": [
+      "mikol."
+    ]
+  },
+  "t2": {
+    "korzenie": [
+      {
+        "synset": 4617,
+        "nazwa": "grzyb 1"
+      },
+      {
+        "synset": 20964,
+        "nazwa": "grzyb jadalny 1"
+      },
+      {
+        "synset": 15924,
+        "nazwa": "pleśń 1"
+      },
+      {
+        "synset": 27820,
+        "nazwa": "plecha 1"
+      }
+    ],
+    "relacje": [
+      11,
+      25,
+      27
+    ],
+    "tryb": "pelne",
+    "wykluczenia_poddrzew": []
+  },
+  "dodatki": [],
+  "wykluczenia": [],
+  "diagnostyka": {
+    "slowa_oczywiste": [
+      "blaszka",
+      "borowik",
+      "drożdże",
+      "grzyb",
+      "grzybiarz",
+      "grzybnia",
+      "grzybobranie",
+      "gąska",
+      "huba",
+      "jadalny",
+      "kania",
+      "kapelusz",
+      "koszyk",
+      "koźlarz",
+      "kurka",
+      "las",
+      "maślak",
+      "mech",
+      "muchomor",
+      "nóżka",
+      "opieńka",
+      "pieczarka",
+      "pleśń",
+      "podgrzybek",
+      "prawdziwek",
+      "purchawka",
+      "rydz",
+      "smardz",
+      "trufla",
+      "trujący",
+      "trzon",
+      "zarodnik",
+      "zbierać",
+      "zielonka"
+    ]
+  },
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Grzybica należy do medycyny, nie do grzybów. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12)."
+}
