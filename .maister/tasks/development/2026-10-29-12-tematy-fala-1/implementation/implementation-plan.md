@@ -172,8 +172,8 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `scripts/check_tematy_package.py`, `scripts/tematy_review.py`, `tests/test_check_tematy_package.py`, `tests/test_tematy_review.py`, `tests/tematy_helpers.py`
 **Kroki:** 6
 
-- [ ] 7.0 Dostosować odbiór pakietu i przeglądu
-  - [ ] 7.1 Napisać 7 testów:
+- [x] 7.0 Dostosować odbiór pakietu i przeglądu
+  - [x] 7.1 Napisać 7 testów:
     - checker PASS na pakiecie bez `t3`; manifest wejść nadal wymaga `iate`, a piny porównujemy tylko dla użytych wejść; T3 musi być puste;
     - wiersz TSV z lematem i klasą z `wykluczenia` tematu daje odmowę;
     - `check_sample`: `operator.strata` różne od `operator_warstwy` daje odmowę;
@@ -181,11 +181,11 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
     - `--review` temat bez `t3`: `t3_tak` = `nie_dotyczy` i nie blokuje „dalej”;
     - `--review` temat z `t3` i pustą T3: `t3_tak` niespełniony;
     - `tematy_review.py strona` i `zapisz` biorą warstwy z `sample.operator.strata`, więc na stronie są tylko T2 i T3.
-  - [ ] 7.2 `check_tematy_package.py`: `METHOD`, `ADR`, `load_config` z `operator_warstwy`. Temat z pakietu czytamy przed porównaniem pinów (dziś wiersze 304–316) i porównujemy piny tylko użytych wejść. `addenda` czyta górne `dodatki`. Dochodzi kontrola wykluczeń (W3) i usuwamy wymóg „temat bez wykluczeń”.
-  - [ ] 7.3 `verdict` i `check_review` według W6: progi warstw spoza `operator_warstwy` z ocen agenta, zawsze; `nie_dotyczy` przy braku `t3`; zgodność i kappa na pozycjach ocenionych przez obu.
-  - [ ] 7.4 `tematy_review.py`: `page_items` i `record` iterują po `sample.operator.strata` zamiast `PROBA`. Wygląd strony bez zmian.
-  - [ ] 7.5 Kontrola: `grep -n "literaki_slownik" scripts/check_tematy_package.py` bez importu.
-  - [ ] 7.6 Uruchomić 7 nowych testów oraz `tests.test_check_tematy_package` i `tests.test_tematy_review`. Commit i push: `feat(tematy): checker i strona R2 dla tematy-v2 (#12)`.
+  - [x] 7.2 `check_tematy_package.py`: `METHOD`, `ADR`, `load_config` z `operator_warstwy`. Temat z pakietu czytamy przed porównaniem pinów (dziś wiersze 304–316) i porównujemy piny tylko użytych wejść. `addenda` czyta górne `dodatki`. Dochodzi kontrola wykluczeń (W3) i usuwamy wymóg „temat bez wykluczeń”.
+  - [x] 7.3 `verdict` i `check_review` według W6: progi warstw spoza `operator_warstwy` z ocen agenta, zawsze; `nie_dotyczy` przy braku `t3`; zgodność i kappa na pozycjach ocenionych przez obu.
+  - [x] 7.4 `tematy_review.py`: `page_items` i `record` iterują po `sample.operator.strata` zamiast `PROBA`. Wygląd strony bez zmian.
+  - [x] 7.5 Kontrola: `grep -n "literaki_slownik" scripts/check_tematy_package.py` bez importu.
+  - [x] 7.6 Uruchomić 7 nowych testów oraz `tests.test_check_tematy_package` i `tests.test_tematy_review`. Commit i push: `feat(tematy): checker i strona R2 dla tematy-v2 (#12)`.
 
 **Kryteria odbioru:**
 - 7 testów przechodzi.

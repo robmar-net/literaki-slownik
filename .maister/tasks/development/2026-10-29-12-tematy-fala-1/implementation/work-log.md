@@ -47,3 +47,8 @@
 **Commit**: 823332e. **Tests**: test_tematy_package 12/12 (4 nowe); znane czerwone dla grupy 7 + nowy w test_tematy_review (pętla po PROBA zamiast operator.strata).
 **Zmiany**: czeka(method,t3), PROG_WARSTWA, operator.strata wg operator_warstwy, werdykt.nie_dotyczy, linia raportu.
 **Korekta W8 (decyzja orchestratora)**: porównanie summary.json morza pomija też werdykt.czeka_na_ocene (t1_tak wypada z czekających, bo T1 ocenia tylko agent) — oczekiwane [t2_tak,t2_nie,t3_tak,zgodnosc].
+
+## 2026-10-29T02:25:32Z - Group 7 Complete
+**Commit**: 486a991. **Tests**: test_tematy* 68 OK, test_check_tematy* 11 OK — wszystkie moduły TEMATY zielone.
+**Zmiany**: checker tematy-v2 (adr, operator_warstwy, temat przed pinami, blok iate tylko z t3, pusty T3 bez t3, exclusions(), werdykt W6); tematy_review.page_items po operator.strata.
+**Dla 10**: binding = sample_sha256, canonical_index_sha256, evidence_sha256, version z review-template + sha256sums; operator bez T1 (57 pozycji).
