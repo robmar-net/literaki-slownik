@@ -1,0 +1,119 @@
+{
+  "nowy": "data/work/tematy-morze-v2-20261029-a",
+  "stary": "data/work/tematy-v2-20261029-a",
+  "poprawka_orkiestratora": "summary.json porównany także bez werdykt.czeka_na_ocene (t1_tak już nie czeka); raport.md może się różnić (W8)",
+  "stary_sha256sums_zgodne": true,
+  "bajtowo_rowne": {
+    "MORZE.txt.gz": {
+      "nowy": "6e78d1efc429f51d7ce196c055e9845619697bae5d70652025252ef07954c9d7",
+      "stary": "6e78d1efc429f51d7ce196c055e9845619697bae5d70652025252ef07954c9d7",
+      "oczekiwany_prefiks": "6e78d1ef",
+      "zgodny": true
+    },
+    "MORZE.tsv.gz": {
+      "nowy": "83037db13b5ca370c41224c2de37890334c1dcca7271bdbc8c72a48b9fb3b11f",
+      "stary": "83037db13b5ca370c41224c2de37890334c1dcca7271bdbc8c72a48b9fb3b11f",
+      "oczekiwany_prefiks": "83037db1",
+      "zgodny": true
+    },
+    "ATTRIBUTIONS.md": {
+      "nowy": "a3a221e966899c3020634b328ce647aa4fe4377081ffc55706041b38da0ce282",
+      "stary": "a3a221e966899c3020634b328ce647aa4fe4377081ffc55706041b38da0ce282",
+      "oczekiwany_prefiks": "a3a221e9",
+      "zgodny": true
+    },
+    "TERMS.md": {
+      "nowy": "b42502890ca2c830da72652360e3db8b6f131bf4bf9e02379f99a86f234c9651",
+      "stary": "b42502890ca2c830da72652360e3db8b6f131bf4bf9e02379f99a86f234c9651",
+      "oczekiwany_prefiks": "b4250289",
+      "zgodny": true
+    }
+  },
+  "pliki_rozne": [
+    "LIMITATIONS.md",
+    "SHA256SUMS",
+    "method.json",
+    "release-manifest.json",
+    "reports/raport.md",
+    "reports/review-template.json",
+    "reports/sample.json",
+    "reports/summary.json",
+    "tematy/morze.json"
+  ],
+  "pliki_rozne_poza_lista": [],
+  "limitations": {
+    "diff": [
+      "--- stary/LIMITATIONS.md",
+      "+++ nowy/LIMITATIONS.md",
+      "@@ -5 +5 @@",
+      "-- T2 to pełne domknięcie od ręcznie wybranych korzeni. Daje szum (np. `angora`, `bungee`). Korzenie wybrał jeden oceniający.",
+      "+- T2 to pełne domknięcie od ręcznie wybranych korzeni. Daje szum; przykłady w `reports/raport.md` i próbie R2. Korzenie wybrał jeden oceniający.",
+      "@@ -7 +7 @@",
+      "-- T3 jest mała: IATE ma niewiele polskich terminów jednowyrazowych w dziedzinie tematu. Dane IATE pochodzą z 2019 r.",
+      "+- T3 to polskie terminy jednowyrazowe IATE z dziedzin tematu; liczba w `reports/raport.md`. Dane IATE pochodzą z 2019 r."
+    ],
+    "tylko_T2_T3": true
+  },
+  "summary": {
+    "usuniete": [
+      "method",
+      "wykluczenia",
+      "werdykt.nie_dotyczy",
+      "werdykt.czeka_na_ocene"
+    ],
+    "roznice_po_usunieciu": [],
+    "method": {
+      "stary": "tematy-v1",
+      "nowy": "tematy-v2"
+    },
+    "wykluczenia_nowy": [],
+    "nie_dotyczy_nowy": [],
+    "czeka_na_ocene": {
+      "stary": [
+        "t1_tak",
+        "t2_tak",
+        "t2_nie",
+        "t3_tak",
+        "zgodnosc"
+      ],
+      "nowy": [
+        "t2_tak",
+        "t2_nie",
+        "t3_tak",
+        "zgodnosc"
+      ],
+      "oczekiwany": [
+        "t2_tak",
+        "t2_nie",
+        "t3_tak",
+        "zgodnosc"
+      ]
+    },
+    "t3_obecne": true,
+    "srodladowe_obecne": true
+  },
+  "sample": {
+    "rowne": {
+      "strata": true,
+      "items": true,
+      "unique_selected_units": true,
+      "overlaps": true
+    },
+    "operator_strata": [
+      "T2",
+      "T3"
+    ],
+    "operator_strata_ok": true,
+    "operator_klucze_T2_T3_jak_w_starym": true,
+    "inne_roznice": [
+      "operator.strata.T1"
+    ]
+  },
+  "liczby": {
+    "wpisy": 970,
+    "formy": 11035,
+    "test": "37/37"
+  },
+  "bledy": [],
+  "werdykt": "ZGODNE"
+}
