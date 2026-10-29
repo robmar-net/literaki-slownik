@@ -325,3 +325,37 @@ def inputs_fixture(root):
     rewrite(f['manifest'], change)
     return {**f, 'run': run, 'release': release, 'pop': pop, 'pop00': pop00, 'paths': paths,
             'pop_files': pop_files, 'zip_sha256': zip_sha}
+
+
+# --- Grupa 10: checker i przegląd R2 (skrypty bez importu pakietu). ---
+def load_script(name):
+    """Moduł z `scripts/<name>.py` (skrypty nie są pakietem)."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(name, ROOT/'scripts'/(name + '.py'))
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def package_fixture(root):
+    """`inputs_fixture` i zbudowany pakiet `root/pkg` (wpisy: T1 4, T2 4, T3 1)."""
+    from literaki_slownik.tematy import build_package
+    f = inputs_fixture(root)
+    package = Path(f['root'])/'pkg'
+    build_package(f['manifest'], f['config'], f['topic'], package)
+    return {**f, 'package': package}
+
+
+def reseal(package):
+    """Po zmianie pliku pakietu: nowe hashe w manifeście i SHA256SUMS (fałszerz z pełnym dostępem)."""
+    package = Path(package)
+    manifest = package/'release-manifest.json'
+    for p in (manifest, package/'SHA256SUMS'):
+        p.chmod(0o644)
+    rewrite(manifest, lambda m: m.update(files={n: {'sha256': sha256(package/n), 'bytes': (package/n).stat().st_size}
+                                                for n in m['files']}))
+    (package/'SHA256SUMS').write_text(''.join(f'{sha256(p)}  {p.relative_to(package).as_posix()}\n'
+                                              for p in sorted(package.rglob('*'))
+                                              if p.is_file() and p.name != 'SHA256SUMS'), encoding='utf-8')
+    for p in (manifest, package/'SHA256SUMS'):
+        p.chmod(0o444)
