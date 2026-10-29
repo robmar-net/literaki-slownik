@@ -68,9 +68,9 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
   - [x] 2.1 Kontrola zamiast testów: strona działa offline, ma 9 list, skreślanie, pole „dopisz” na temat, przycisk „kopiuj JSON” i szkic w `localStorage` w `try/catch`. Sprawdzamy to w wąskim oknie przeglądarki.
   - [x] 2.2 `T/verification/slowa-oczywiste.html`: samodzielny HTML na iPhone'a z dużymi polami dotyku. JSON wyjściowy ma postać `{<id>: [słowa]}` dla 9 tematów.
   - [x] 2.3 Opublikować stronę jako prywatny artefakt claude.ai i przekazać link orchestratorowi.
-  - [ ] 2.4 **ZATRZYMANIE (orchestrator):** operator przegląda ok. 315 słów, skreśla, dopisuje i wkleja JSON. Kod (grupy 3–8) idzie w tym czasie dalej.
-  - [ ] 2.5 Słowa dopisane przez operatora sprawdzić skryptem z 1.3. Słowo, które odpada, wraca do operatora z powodem: jako wybór „wymień” albo „usuń”, a nie po cichu. Wynik dopisujemy do `slowa-oczywiste-check.json`.
-  - [ ] 2.6 Zapisać `wynik` w `T/analysis/slowa-oczywiste.json`. Commit i push: `maister: #12 słowa oczywiste zamrożone`. Gdy trwa seria budów (9), commit czeka do jej końca.
+  - [x] 2.4 **ZATRZYMANIE (orchestrator):** operator przegląda ok. 315 słów, skreśla, dopisuje i wkleja JSON. Kod (grupy 3–8) idzie w tym czasie dalej.
+  - [x] 2.5 Słowa dopisane przez operatora sprawdzić skryptem z 1.3. Słowo, które odpada, wraca do operatora z powodem: jako wybór „wymień” albo „usuń”, a nie po cichu. Wynik dopisujemy do `slowa-oczywiste-check.json`.
+  - [x] 2.6 Zapisać `wynik` w `T/analysis/slowa-oczywiste.json`. Commit i push: `maister: #12 słowa oczywiste zamrożone`. Gdy trwa seria budów (9), commit czeka do jej końca.
 
 **Kryteria odbioru:**
 - `wynik` ma 9 list, każde słowo przechodzi skrypt.
