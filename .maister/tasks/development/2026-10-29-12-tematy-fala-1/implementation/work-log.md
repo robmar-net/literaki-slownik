@@ -52,3 +52,8 @@
 **Commit**: 486a991. **Tests**: test_tematy* 68 OK, test_check_tematy* 11 OK — wszystkie moduły TEMATY zielone.
 **Zmiany**: checker tematy-v2 (adr, operator_warstwy, temat przed pinami, blok iate tylko z t3, pusty T3 bez t3, exclusions(), werdykt W6); tematy_review.page_items po operator.strata.
 **Dla 10**: binding = sample_sha256, canonical_index_sha256, evidence_sha256, version z review-template + sha256sums; operator bez T1 (57 pozycji).
+
+## 2026-10-29T02:31:32Z - Group 9 Complete
+**HEAD przed seriami**: 048d57e (bez commitów do końca porównania). **Budowy**: tematy-morze-v2-20261029-a 86 s, -b 80 s; SHA256SUMS a=b 108077a4…; checker pass na obu (970 wpisów, 11 035 form, 37/37).
+**W8**: ZGODNE — MORZE.txt/tsv, ATTRIBUTIONS, TERMS bajtowo jak tematy-v2-20261029-a; LIMITATIONS tylko linie T2/T3; summary równy po korekcie (czeka_na_ocene); sample strata/items równe, operator.strata T2/T3. Kontrola negatywna na starej parze łapie 3 różnice.
+**Commit**: 4a7022c (+ verification/verify-morze.json).

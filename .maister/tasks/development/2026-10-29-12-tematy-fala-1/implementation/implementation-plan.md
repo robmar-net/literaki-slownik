@@ -210,19 +210,19 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `T/analysis/verify_real.py`, `T/analysis/regresja_morze.py`, `T/verification/regresja-morze.json`, `T/work-log.md`
 **Kroki:** 6
 
-- [ ] 9.0 Potwierdzić, że morze-v2 się nie zmieniło
-  - [ ] 9.1 Kontrola zamiast testów: `T/analysis/verify_real.py` (kopia z #11 z argumentami `--topic`, `--a`, `--b`) sprawdza `git_dirty: false`, pusty `git status --porcelain` dla `config/` i `scripts/`, równe `SHA256SUMS` a i b oraz checker PASS na obu.
-  - [ ] 9.2 Przed serią: drzewo czyste i wypchnięte, HEAD zapisany w work-logu. Od tej chwili do 9.4 nie ma commitów (D1).
-  - [ ] 9.3 W tle zbudować `data/work/tematy-morze-v2-<data>-a`, potem `-b`. Następnie checker na obu. Czas każdej budowy idzie do work-logu. Czytamy werdykt, nie tylko kod wyjścia.
-  - [ ] 9.4 `T/analysis/regresja_morze.py` porównuje nowy pakiet a z `data/work/tematy-v2-20261029-a` według W8:
+- [x] 9.0 Potwierdzić, że morze-v2 się nie zmieniło
+  - [x] 9.1 Kontrola zamiast testów: `T/analysis/verify_real.py` (kopia z #11 z argumentami `--topic`, `--a`, `--b`) sprawdza `git_dirty: false`, pusty `git status --porcelain` dla `config/` i `scripts/`, równe `SHA256SUMS` a i b oraz checker PASS na obu.
+  - [x] 9.2 Przed serią: drzewo czyste i wypchnięte, HEAD zapisany w work-logu. Od tej chwili do 9.4 nie ma commitów (D1).
+  - [x] 9.3 W tle zbudować `data/work/tematy-morze-v2-<data>-a`, potem `-b`. Następnie checker na obu. Czas każdej budowy idzie do work-logu. Czytamy werdykt, nie tylko kod wyjścia.
+  - [x] 9.4 `T/analysis/regresja_morze.py` porównuje nowy pakiet a z `data/work/tematy-v2-20261029-a` według W8:
     - bajtowo równe `MORZE.txt.gz` (`6e78d1ef…`), `MORZE.tsv.gz` (`83037db1…`), `ATTRIBUTIONS.md` (`a3a221e9…`) i `TERMS.md` (`b4250289…`);
     - `LIMITATIONS.md` różni się tylko punktami T2 i T3 (`diff`);
     - `summary.json` równy po usunięciu `method`, `wykluczenia` i `werdykt.nie_dotyczy`;
     - `sample.json`: równe `strata`, `items`, `unique_selected_units` i `overlaps`, a `operator.strata` = T2, T3;
     - liczby: 970 wpisów, 11 035 form, test 37/37.
     Wynik zapisujemy do `T/verification/regresja-morze.json`.
-  - [ ] 9.5 Różnica poza listą „mogą się różnić” z W8 = zatrzymanie. Poprawka idzie w grupach 3–7 (`fix(tematy)`), potem powtarzamy grupę 9.
-  - [ ] 9.6 Po serii: commit i push `maister: #12 regresja morza`.
+  - [x] 9.5 Różnica poza listą „mogą się różnić” z W8 = zatrzymanie. Poprawka idzie w grupach 3–7 (`fix(tematy)`), potem powtarzamy grupę 9.
+  - [x] 9.6 Po serii: commit i push `maister: #12 regresja morza`.
 
 **Kryteria odbioru:**
 - a = b, checker PASS na obu; wszystkie punkty W8 zgodne.
