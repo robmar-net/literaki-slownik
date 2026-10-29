@@ -3,9 +3,11 @@ import gzip
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from literaki_slownik import tematy
 from literaki_slownik.canonical import load_json
+from tests import tematy_helpers
 from tests.tematy_helpers import SOURCE, inputs_fixture, rewrite
 
 
@@ -87,6 +89,27 @@ class TematyWykluczeniaTest(unittest.TestCase):
         self.assertEqual(caught.exception.code, 4)
         self.assertIn('wykluczony', str(caught.exception))
         self.assertFalse((self.root/'pkg').exists())
+
+    def test_addendum_on_a_homonym_of_an_excluded_lemma_is_code_4(self):
+        # Wykluczenie jest bezwzględne (#13, ADR-013). `bosman` (T1, subst) wykluczony; homonim `bosman:A`
+        # (adj i subst, poza T1–T3) jako dodatek adj ma klasę subst wykluczenia, więc checker by go odrzucił.
+        homonym = [('bosmański', 'bosman:A', 'adj:sg:nom:m1:pos', ''), ('bosmana', 'bosman:A', 'subst:sg:gen:m1', '')]
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.object(tematy_helpers, 'SGJP', tematy_helpers.SGJP + homonym):
+            self.f, self.root = inputs_fixture(tmp), Path(tmp)
+            rewrite(self.f['topic'], lambda v: v.update(
+                wykluczenia=[exclusion('bosman', 'subst')],
+                dodatki=[{'lemat': 'bosman', 'czesc_mowy': 'adj', 'powód': 'test'}]))
+            tematy.load_topic(self.f['topic'])
+            with self.assertRaises(tematy.GeneratorError) as caught:
+                self.build()
+            self.assertEqual(caught.exception.code, 4)
+            self.assertIn('wykluczony', str(caught.exception))
+            self.assertFalse((self.root/'pkg').exists())
+            # Kontrola pozytywna: bez wykluczenia ten sam dodatek przechodzi jako D.
+            rewrite(self.f['topic'], lambda v: v.update(wykluczenia=[]))
+            self.build()
+            summary = load_json(self.root/'pkg/reports/summary.json')
+            self.assertEqual(summary['liczby']['warstwy']['D'], 1)
 
     def test_topic_with_t3_and_empty_t3_keeps_t3_tak_applicable_in_summary(self):
         # Pusta T3 przy temacie z `t3` to błąd konfiguracji: `t3_tak` nie może zniknąć jako `nie_dotyczy` (W6).

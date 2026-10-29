@@ -695,6 +695,7 @@ def build_entries(data, cands):
     """Kandydaci (`candidates`) → leksemy z warstwą, źródłami, flagą i formami; diagnostyka BROAD/STANDARD.
 
     Wykluczenia tematu (`wykluczenia`) usuwają leksemy T1–T3 przed dodatkami, formami i diagnostyką (#12 W3).
+    Są bezwzględne (#13): dodatek z lematem i klasą wykluczenia to kod 4.
     Dodatki tematu (`dodatki`) dają warstwę D: dokładnie jeden leksem spoza T1–T3, z formą w STANDARD,
     `znaczenie` D = powód; inaczej kod 4.
 
@@ -731,10 +732,12 @@ def build_entries(data, cands):
                 iate.setdefault(ident, set()).update(entry_ids)
                 sources.setdefault(ident, {}).setdefault('T3', set()).update(
                     f'{e} {",".join(t3["hasla"][e]["kody"])}' for e in entry_ids)
-        wykluczenia, excluded = _exclude(data['topic']['wykluczenia'], sources, rows, klasy)
+        wykluczenia, _ = _exclude(data['topic']['wykluczenia'], sources, rows, klasy)
+        # Wykluczenie jest bezwzględne (#13, ADR-013): dodatek nie może mieć lematu i klasy wykluczenia.
+        pairs = {(w['lemat'], w['czesc_mowy']) for w in data['topic']['wykluczenia']}
         for item in data['topic']['dodatki']:
             ident, rows[ident] = _dodatek(db, item, klasy, sources)
-            if ident in excluded:
+            if any((rows[ident][2], c) in pairs for c in klasy.get(ident, ())):
                 raise GeneratorError(f'Dodatek TEMATY {item["lemat"]} ({item["czesc_mowy"]}): leksem wykluczony', 4)
             sources[ident] = {'D': (item['powód'],)}
         candidates_rows = {i: rows[i] for i in sources}
