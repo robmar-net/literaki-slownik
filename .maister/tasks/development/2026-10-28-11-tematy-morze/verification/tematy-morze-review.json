@@ -775,7 +775,448 @@
   },
   "kind": "literaki-tematy-review",
   "method": "tematy-v1",
-  "operator": null,
+  "operator": {
+    "agent_sha256": "a423e84cfbcfd6e1c3a48aa5617cbd4074df0b1dd94f0e2d5ecef0338f361e4b",
+    "items": [
+      {
+        "key": "agent@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "bajdewind@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "bananowiec:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "bezan@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "blindgafel@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "bulaj@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "bungee@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "bunkrowiec@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "ciąg@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "deflektometr@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "dirka@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "dozorowiec@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "dyplom@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "flauta@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "grotżagiel@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kabotażowiec@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kilwater@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "klasyfikacja@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "kliper@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kluza@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kogga@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "komuły@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "konosament@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "konteneryzacja@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "kontrtorpedowiec@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kotwicowisko@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "kołkownica@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "linka@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "locja@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "loksodroma@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "marlować@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "marsreja@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "mat:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "nośność@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "ocel@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "oczep@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pelengować@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pik:Sm2.m3@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "piractwo@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "pirat:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "podróżny:S@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "podwalina@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pokładnik@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pompownia@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "prom@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "przegroda@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "przeładunek@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "pych@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "radiooficer@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "recepturka@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rener@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rozrusznik@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rzutka@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "saling@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "schodnia@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "siarkowiec@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "siłownia@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "skrzydło@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "skuner@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sosręb@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "spedytor@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "stateczność@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "sterburta@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "sterówka@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "stojan@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "szalanda@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "szandek@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "szap@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "topżagiel@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "trałowiec@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "trzon@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "wielorybnik:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "wieszak@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "wyładunek@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "wzdłużnica@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "zanurzenie@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "zatrzymanie@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "załadunek@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "zenzowość@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "zrefować@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "zęzowość@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "łącznik:Sm1@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "ścigacz@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T2"
+      },
+      {
+        "key": "śródokręcie@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T1"
+      },
+      {
+        "key": "żeglowność@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "żurawik:Sm2@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      },
+      {
+        "key": "żurawik:Sm3@sgjp-20260823",
+        "ocena": "tak",
+        "warstwa": "T3"
+      }
+    ],
+    "reviewed_at": "2026-10-29T00:51:00Z",
+    "reviewer": "operator"
+  },
   "sample_sha256": "95179d52f633f4d32350f4253c3d3dfee7f18b2129cbade2e1555c89022f9efe",
   "schema_version": 1,
   "sha256sums_sha256": "724f2e812940e74edb995ace2f07634d2e0f72ae73a28615a24c8eb0fc9530a9",

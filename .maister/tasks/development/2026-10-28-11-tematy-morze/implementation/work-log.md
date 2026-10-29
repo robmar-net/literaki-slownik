@@ -180,3 +180,10 @@
 - 14.1: check --review PASS (przed oceną operatora).
 - 14.2: strona R2 `verification/tematy-morze-r2.html` opublikowana jako prywatny artefakt https://claude.ai/artifact/JA8v14hjvz4skM6MT1PAQB. Ma 87 pozycji: T1 30, T2 30, T3 27. Ocen agenta na stronie nie ma.
 - Czekamy na JSON od operatora (14.3–14.4).
+
+## 2026-10-29T00:52:16Z - Group 14 Complete
+
+- Operator: „trudno rozdzielić morze i żeglugę, ja bym wszystkie słowa z listy przyjął”. Zapisano 87 × tak (`tematy_review.py zapisz`, rc 0).
+- Checker `--review`: PASS, werdykt „popraw” (tylko zgodność 47/87, kappa 0).
+- Wiki f35fa4f: liczby na Slownik-TEMATY, Home i Historia-zmian; nadal „W przygotowaniu”.
+- `verification/gate-report.md` zapisany.

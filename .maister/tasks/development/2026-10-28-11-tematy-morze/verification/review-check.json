@@ -1,0 +1,151 @@
+{
+  "formy": 10883,
+  "przeglad": {
+    "agent": {
+      "T1": {
+        "N": 50,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 4,
+        "tak": 46,
+        "tak_udzial": "23/25"
+      },
+      "T2": {
+        "N": 50,
+        "nie": 23,
+        "nie_udzial": "23/50",
+        "niepewne": 6,
+        "tak": 21,
+        "tak_udzial": "21/50"
+      },
+      "T3": {
+        "N": 27,
+        "nie": 14,
+        "nie_udzial": "14/27",
+        "niepewne": 4,
+        "tak": 9,
+        "tak_udzial": "1/3"
+      }
+    },
+    "agent_sha256": "a423e84cfbcfd6e1c3a48aa5617cbd4074df0b1dd94f0e2d5ecef0338f361e4b",
+    "operator": {
+      "T1": {
+        "N": 30,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 0,
+        "tak": 30,
+        "tak_udzial": "1"
+      },
+      "T2": {
+        "N": 30,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 0,
+        "tak": 30,
+        "tak_udzial": "1"
+      },
+      "T3": {
+        "N": 27,
+        "nie": 0,
+        "nie_udzial": "0",
+        "niepewne": 0,
+        "tak": 27,
+        "tak_udzial": "1"
+      }
+    },
+    "slowa_oczywiste": {
+      "brakujace": [
+        "sztorm",
+        "rybak",
+        "cumować",
+        "falochron",
+        "nabrzeże",
+        "trał"
+      ],
+      "lista": 37,
+      "pokryte": 31,
+      "udzial": "31/37"
+    },
+    "werdykt": {
+      "czeka_na_ocene": [],
+      "niespelnione": [
+        "zgodnosc"
+      ],
+      "progi": [
+        {
+          "granica": "0.70",
+          "kierunek": ">=",
+          "prog": "slowa_oczywiste",
+          "status": "spelniony",
+          "wartosc": "31/37"
+        },
+        {
+          "granica": "0.90",
+          "kierunek": ">=",
+          "prog": "t1_tak",
+          "status": "spelniony",
+          "wartosc": "1"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t2_tak",
+          "status": "spelniony",
+          "wartosc": "1"
+        },
+        {
+          "granica": "0.10",
+          "kierunek": "<=",
+          "prog": "t2_nie",
+          "status": "spelniony",
+          "wartosc": "0"
+        },
+        {
+          "granica": "2/3",
+          "kierunek": ">=",
+          "prog": "t3_tak",
+          "status": "spelniony",
+          "wartosc": "1"
+        },
+        {
+          "granica": "0.80",
+          "kierunek": ">=",
+          "prog": "zgodnosc",
+          "status": "niespelniony",
+          "wartosc": "47/87"
+        }
+      ],
+      "uwaga": "„stop” wybiera tylko operator na bramce",
+      "wynik": "popraw"
+    },
+    "zgodnosc": {
+      "N": 87,
+      "kappa": "0",
+      "oczekiwana": "47/87",
+      "zgodnosc": "47/87"
+    }
+  },
+  "review_checked": true,
+  "sha256sums_sha256": "724f2e812940e74edb995ace2f07634d2e0f72ae73a28615a24c8eb0fc9530a9",
+  "slowa_oczywiste": {
+    "brakujace": [
+      "sztorm",
+      "rybak",
+      "cumować",
+      "falochron",
+      "nabrzeże",
+      "trał"
+    ],
+    "lista": 37,
+    "pokryte": 31
+  },
+  "status": "pass",
+  "temat": "morze",
+  "warstwy": {
+    "T1": 246,
+    "T2": 691,
+    "T3": 27
+  },
+  "wpisy": 964
+}
