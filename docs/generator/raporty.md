@@ -84,16 +84,17 @@ całego leksemu jest błędem budowy. Szczegóły polityki: [ADR-009](../adr/ADR
 
 ## Raporty TEMATY
 
-Metoda `tematy-v1`, [ADR-010](../adr/ADR-010-tematy-v1.md). Pliki pakietu:
-- `MORZE.txt.gz`: formy tematu ∩ STANDARD, posortowane, gzip bez nazwy i czasu.
-- `MORZE.tsv.gz`: wiersz na leksem; kolumny `klucz`, `lemat`, `czesci_mowy`, `warstwa`, `zrodla`,
+Metoda `tematy-v2`, [ADR-012](../adr/ADR-012-tematy-fala-1.md) (warstwy z [ADR-010](../adr/ADR-010-tematy-v1.md)).
+Pliki pakietu (`<id>` z pliku tematu, `<ID>` wielkimi literami, np. `MORZE`):
+- `<ID>.txt.gz`: formy tematu ∩ STANDARD, posortowane, gzip bez nazwy i czasu.
+- `<ID>.tsv.gz`: wiersz na leksem; kolumny `klucz`, `lemat`, `czesci_mowy`, `warstwa`, `zrodla`,
   `znaczenie`, `wieloznaczny`, `formy` (liczba form). Warstwa to najniższa z T1 < T2 < T3, źródła to wszystkie.
   D: ręczny dodatek z pliku tematu, tylko źródło D, `znaczenie` = `D: <powód>`.
-- `tematy/morze.json`, `method.json`: kopia tematu i metody.
+- `tematy/<id>.json`, `method.json`: kopia tematu i metody.
 - `reports/summary.json` i `reports/raport.md` (te same liczby, tekst dla człowieka).
 - `reports/sample.json`, `reports/review-template.json`: próba R2 ([jakosc.md](jakosc.md#próbki-tematy-tematy-quality-v1)).
 - `ATTRIBUTIONS.md` (plik pakietu POP plus Słowosieć i IATE), `LIMITATIONS.md`, `TERMS.md`.
-- `release-manifest.json` (`literaki-tematy-manifest`, `status: BUILT`, `counts.morze`, `overlap`, `files`) i `SHA256SUMS`.
+- `release-manifest.json` (`literaki-tematy-manifest`, `status: BUILT`, `counts.<id>`, `overlap`, `files`) i `SHA256SUMS`.
 
 Pola `summary.json`:
 - `liczby`: kandydaci, wpisy, formy, `warstwy` T1/T2/T3/D.
@@ -103,9 +104,14 @@ Pola `summary.json`:
 - `odrzucone`: `BRAK_LEKSEMU` (z podliczbą `ger`), `NIE_JEDNO_SLOWO`, `POZA_BROAD`, `POZA_STANDARD`;
   liczba i do 10 przykładów na powód i warstwę.
 - `t1`, `t2`, `t3`: atomy SGJP; synsety, sztuczne, jednostki, lematy; liczby haseł IATE według typu i powody odrzuceń.
+  Temat bez `t3` ma `t3: null`.
+- `wykluczenia`: wpis na wykluczenie tematu: `lemat`, `czesc_mowy`, `powód`, usunięte `klucze` i ich `warstwy`;
+  pusta lista, gdy temat nic nie wyklucza. Przy niepustej `raport.md` ma sekcję „Wykluczenia”.
 - `wieloznaczny`: `tak`/`nie`/`brak_danych`, liczba, procent, 10 przykładów.
-- `slowa_oczywiste`: test 37 słów; do progu idzie `razem`, `T1` i `T1_T2` są diagnostyką.
-- `srodladowe`: żegluga śródlądowa w T3 (`kandydaci_t3` główna miara, `wpisy_t3` dodatkowo).
-- `werdykt`: `automatyczny` (`dalej` albo `popraw`), `niespelnione`, `czeka_na_ocene`. „stop” wybiera tylko operator.
+- `slowa_oczywiste`: test słów oczywistych z pliku tematu (morze: 37); do progu idzie `razem`, `T1` i `T1_T2` są diagnostyką.
+- `srodladowe`: żegluga śródlądowa w T3 (`kandydaci_t3` główna miara, `wpisy_t3` dodatkowo). Tylko przy
+  `diagnostyka.znaczniki_srodladowe` (w fali 1 tylko morze); bez znaczników `null`.
+- `werdykt`: `automatyczny` (`dalej` albo `popraw`), `niespelnione`, `czeka_na_ocene`, `nie_dotyczy`
+  (`t3_tak` tematu bez `t3`; nie blokuje „dalej”). „stop” wybiera tylko operator.
 
 Procenty liczymy z dokładnych ułamków (jedno miejsce); pusty mianownik daje `null`.

@@ -128,26 +128,29 @@ Przegląd musi obejmować całą próbkę, odpowiadać sumom pakietu i nie mieć
 
 ## TEMATY (`tematy`)
 
-Metoda `tematy-v1`: [ADR-010](../adr/ADR-010-tematy-v1.md), źródła: [ADR-011](../adr/ADR-011-zrodla-slowosiec-iate.md).
-Pilotaż #11, temat `morze`. Lista to leksemy SGJP ∩ STANDARD w rozłącznych warstwach:
-T1 etykiety SGJP, T2 Słowosieć 4.5, T3 IATE 2019, D ręczne dodatki z pliku tematu. Nie zmienia słownika stołu.
+Metoda `tematy-v2`: [ADR-012](../adr/ADR-012-tematy-fala-1.md) (warstwy z [ADR-010](../adr/ADR-010-tematy-v1.md)),
+źródła: [ADR-011](../adr/ADR-011-zrodla-slowosiec-iate.md). Pilotaż #11 (`morze`), fala 1 #12 (9 tematów).
+Lista to leksemy SGJP ∩ STANDARD w rozłącznych warstwach: T1 etykiety SGJP, T2 Słowosieć 4.5,
+T3 IATE 2019 (opcjonalne), D ręczne dodatki z pliku tematu. Nie zmienia słownika stołu.
+Temat to plik `config/generator/tematy/<id>.json`; `<id>` to jego `id` (np. `morze`), `<ID>` to `id` wielkimi
+literami (`MORZE`).
 
 Źródła pobieramy osobno, z siecią. Budowa sieci nie używa.
 
 ```sh
-python3 scripts/fetch_tematy_sources.py iate        # → cache/iate/IATE_download.zip
+python3 scripts/fetch_tematy_sources.py iate        # → cache/iate/IATE_download.zip (tylko tematy z t3)
 python3 scripts/fetch_tematy_sources.py plwordnet   # → cache/plwordnet/wordnet_work_4_5.zip
 python3 -I scripts/build_plwordnet_db.py --zip cache/plwordnet/wordnet_work_4_5.zip \
   --output cache/plwordnet/plwn45-tematy.sqlite
 python3 -m literaki_slownik tematy --manifest config/generator/tematy-sources.json \
-  --config config/generator/tematy.json --topic config/generator/tematy/morze.json \
-  --output-dir data/work/tematy-nowy [--json]
-python3 scripts/check_tematy_package.py --package-dir data/work/tematy-nowy \
+  --config config/generator/tematy.json --topic config/generator/tematy/<id>.json \
+  --output-dir data/work/tematy-<wersja tematu>-YYYYMMDD-a [--json]
+python3 scripts/check_tematy_package.py --package-dir data/work/tematy-<wersja tematu>-YYYYMMDD-a \
   --manifest config/generator/tematy-sources.json --config config/generator/tematy.json \
   [--review review.json]                            # niezależny checker
-python3 scripts/tematy_review.py strona --package-dir data/work/tematy-nowy \
+python3 scripts/tematy_review.py strona --package-dir data/work/tematy-<wersja tematu>-YYYYMMDD-a \
   --review review.json --output r2.html             # strona przeglądu R2
-python3 scripts/tematy_review.py zapisz --package-dir data/work/tematy-nowy \
+python3 scripts/tematy_review.py zapisz --package-dir data/work/tematy-<wersja tematu>-YYYYMMDD-a \
   --review review.json --oceny operator.json|- [--reviewer operator]   # oceny operatora
 ```
 
@@ -158,19 +161,22 @@ python3 scripts/tematy_review.py zapisz --package-dir data/work/tematy-nowy \
   dozwolonych, bez danych redaktorów; relacje `valid=1`; tabela `meta` wiąże ją z zipem.
   Dwa uruchomienia dają ten sam plik. Kod 1: cel istnieje, błąd zrzutu albo nazw relacji.
 - `tematy`: `--manifest` przypina wejścia (`tematy-sources.json`), `--config` metodę
-  (`tematy.json`), `--topic` temat (`tematy/morze.json`), `--output-dir` nowy katalog poza wejściami.
+  (`tematy.json`), `--topic` temat (`tematy/<id>.json`), `--output-dir` nowy katalog poza wejściami.
+  Nazwa pakietu: `data/work/tematy-<wersja tematu>-YYYYMMDD-{a,b}`, np. `tematy-grzyby-v1-20261029-a`.
+  Temat bez `t3` nie czyta IATE; IATE nie trafia wtedy do tekstów ani do `inputs` manifestu.
   Każdy czytany plik trafia do rejestru z hashem; przed przeniesieniem budowa hashuje go ponownie.
   Kody: 0 pakiet BUILT; 2 konfiguracja, nieznane pole albo cel w wejściach; 3 brak lub niezgodny pin
   (także manifest wydania, POP, POP00, `meta` pochodnej); 4 dane albo istniejący cel;
   5 przebieg nie FROZEN albo zmiana wejścia w trakcie budowy.
 - `check_tematy_package.py`: nie importuje `literaki_slownik`. Sprawdza sumy, manifest,
-  `MORZE.txt` ⊆ STANDARD, TSV wobec TXT, rozłączne warstwy, warstwę D wobec dodatków tematu,
-  przecięcia z POP i POP00.
-  Z `--review` liczy trafność, zgodność, kappę, test 37 słów i werdykt ([jakosc.md](jakosc.md#próbki-tematy-tematy-quality-v1)).
+  `<ID>.txt` ⊆ STANDARD, TSV wobec TXT, rozłączne warstwy, warstwę D wobec dodatków tematu,
+  brak wykluczonych par w TSV, przecięcia z POP i POP00. Zna tylko `tematy-v2`; starsze pakiety
+  sprawdza checker z commitu `a633136`.
+  Z `--review` liczy trafność, zgodność, kappę, test słów oczywistych i werdykt ([jakosc.md](jakosc.md#próbki-tematy-tematy-quality-v1)).
 - `tematy_review.py`: `strona` robi stronę HTML z pozycjami operatora (bez ocen agenta; odmawia bez
   hasha ocen agenta); `zapisz` łączy JSON operatora z plikiem przeglądu i sprawdza klucze i hashe.
 
-Pakiet BUILT (13 plików, tylko do odczytu): `MORZE.txt.gz`, `MORZE.tsv.gz`, `tematy/morze.json`,
+Pakiet BUILT (13 plików, tylko do odczytu): `<ID>.txt.gz`, `<ID>.tsv.gz`, `tematy/<id>.json`,
 `method.json`, `reports/{summary.json,raport.md,sample.json,review-template.json}`,
 `ATTRIBUTIONS.md`, `LIMITATIONS.md`, `TERMS.md`, `release-manifest.json`, `SHA256SUMS`.
 Opis plików: [raporty.md](raporty.md#raporty-tematy). `explain` nie ma wariantu tematy.

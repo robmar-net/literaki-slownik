@@ -145,7 +145,7 @@ Po zmianach kodu (W1–W7) i migracji `morze.json` budujemy dwa pakiety morza: `
 
 ### W10. Słowa oczywiste (przed każdą budową nowego tematu)
 1. Agent dostaje tylko nazwę tematu i granice z `clarifications.md`. Nie widzi kandydatów, list Słowosieci ani pakietów. Pisze ok. 35 słów na temat: lematy małymi literami, jedno słowo.
-2. Skrypt sprawdza każde słowo tak, jak liczy test: słowo musi być `lemma_base` leksemu SGJP z klasą z `czesci_mowy` (`inf`, `subst`, `depr`, `adv`, `adj`), a leksem musi mieć formę w STANDARD v31. Wzór: `map_lemmas` (`tematy.py:552`) i `_read_forms`. Sama forma w STANDARD nie wystarcza (np. `nuty`, `zawody`). Słowo, które nie przejdzie, agent wymienia, zanim lista trafi do operatora.
+2. Skrypt sprawdza każde słowo tak, jak liczy test: słowo musi być `lemma_base` leksemu SGJP z klasą z `czesci_mowy` (`inf`, `subst`, `depr`, `adv`, `adj`), a leksem musi mieć formę w STANDARD v31. Wzór: `map_lemmas` (`tematy.py:552`) i `_read_forms`. Sama forma w STANDARD nie wystarcza (np. `psy`, `koty` to formy, nie lematy). Słowo, które nie przejdzie, agent wymienia, zanim lista trafi do operatora.
 3. Jedna strona (prywatny artefakt claude.ai, iPhone): 9 list, skreślanie, pole „dopisz”, przycisk „kopiuj JSON”, szkic w `localStorage` w `try/catch`.
 4. JSON operatora trafia do `analysis/slowa-oczywiste.json` (szkic agenta i wynik). Commit przed pierwszą budową nowego tematu.
 5. Pliki tematów kopiują listy dokładnie. Test porównuje każdy temat z tym plikiem. Po budowie list nie zmieniamy (zmiana = nowa wersja tematu po wspólnej ocenie).

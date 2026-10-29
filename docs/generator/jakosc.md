@@ -60,14 +60,24 @@ Przegląd technicznej zgodności z polityką nie dowodzi rozpoznawalności przez
 
 - Seed `literaki-slownik-tematy-v1`, ten sam algorytm SHA256. Warstwy: T1, T2, T3; klucze to leksemy. Warstwy D (dodatki ręczne) próba nie losuje.
 - Próba agenta: `min(50, N)` na warstwę (`quality.sample_strata`). Operator: pierwsze `min(30, N)`
-  z próby agenta w kolejności rangi (`operator_per_stratum` w `tematy.json`). Mała warstwa: cała.
+  z próby agenta w kolejności rangi (`operator_per_stratum` w `tematy.json`), tylko w warstwach
+  z `operator_warstwy` (metoda `tematy-v2`: `["T2", "T3"]`, [ADR-012](../adr/ADR-012-tematy-fala-1.md)).
+  Mała warstwa: cała.
 - Skala: tak / nie / niepewne. Trafność warstwy = „tak” / N, gdzie N to rzeczywista liczba ocen.
   „niepewne” nie jest ani „tak”, ani „nie”.
-- Progi (udziały, dokładne ułamki): test 37 słów ≥ 0,70 (wynik całości); T1 „tak” ≥ 0,90;
+- Progi (udziały, dokładne ułamki): test słów oczywistych ≥ 0,70 (wynik całości); T1 „tak” ≥ 0,90;
   T2 „tak” ≥ 2/3 i „nie” ≤ 0,10; T3 „tak” ≥ 2/3; zgodność ≥ 0,80.
 - Zgodność: odsetek identycznych ocen na pozycjach ocenionych przez obu. Kappa Cohena na tych samych
   pozycjach, 3 kategorie.
 - Kolejność: agent ocenia wszystkie pozycje, hash jego ocen trafia do pliku przeglądu przed stroną
   operatora. Strona nie pokazuje ocen agenta.
-- Budowa daje tylko werdykt `dalej` albo `popraw` z testu 37 słów; reszta czeka na przegląd.
+- Źródło ocen progu: warstwa z `operator_warstwy` liczy się z ocen operatora (bez nich „czeka”), pozostałe
+  (w `tematy-v2`: T1) z ocen agenta. Zgodność liczymy na pozycjach ocenionych przez obu.
+- `nie_dotyczy`: `t3_tak` tematu bez `t3`. Nie blokuje „dalej”.
+- Budowa daje tylko werdykt `dalej` albo `popraw` z testu słów oczywistych; reszta czeka na przegląd.
   `scripts/check_tematy_package.py --review` liczy werdykt z ocen ([cli.md](cli.md#tematy-tematy)).
+- **Fala 1 (#12): bramka z ocen agenta.** Operator nie ocenił R2 (decyzja 2026-10-29, ADR-012
+  „Zmiana metody R2”). Na bramce T2 i T3 liczyliśmy z ocen agenta, z tymi samymi progami; zgodność
+  „nie dotyczy”. To sposób użycia, nie zmiana kodu: checker dalej czeka na oceny operatora. Wynik bramki
+  liczy skrypt zadania `analysis/zestawienie_fali.py` funkcją `verdict` checkera. Agent ocenia surowiej
+  niż operator (morze: T2 21/50 wobec 30/30).

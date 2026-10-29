@@ -5,15 +5,16 @@ Dziewięć nowych tematów, każdy w osobnym pakiecie: zwierzęta, rośliny, med
 sport, matematyka, pogoda, grzyby. Warstwy liczymy jak dla morza ([ADR-010](ADR-010-tematy-v1.md)).
 Zmienia się przegląd i schemat pliku tematu, więc metoda to `tematy-v2`.
 T3 jest opcjonalne, `dodatki` leżą na górnym poziomie, wykluczenia lematów działają.
-Operator ocenia tylko warstwy z `operator_warstwy` (T2, T3). T1 ocenia agent.
-Morze zostaje `morze-v2`; przebudowa ma dać bajtowo tę samą listę.
+Operator miał oceniać tylko warstwy z `operator_warstwy` (T2, T3), a T1 agent. W fali 1 operator nie ocenił
+R2; trafność T2 i T3 na bramce liczymy z ocen agenta ([Zmiana metody R2](#zmiana-metody-r2-2026-10-29)).
+Morze zostaje `morze-v2`; przebudowa dała bajtowo tę samą listę.
 
 ## Kluczowe decyzje
 - **Metoda `tematy-v2`.** Reguły warstw się nie zmieniają. Zmienia się przegląd (`operator_warstwy`,
   `nie_dotyczy`) i schemat tematu. Pakiet zbudowany według innych reguł musi mieć inną nazwę metody.
   Losowanie bez zmian: `tematy-quality-v1`, ten sam seed, 50 na warstwę.
 - **Jeden pakiet na temat.** Kontrakt pakietu, checker i przegląd zostają jednotematowe.
-- **T3 tylko w medycynie** (IATE `2841`). Bez `t3` budowa nie czyta IATE, a IATE nie trafia do tekstów
+- **T3 tylko w medycynie** (IATE `2841`, 342 wpisy T3). Bez `t3` budowa nie czyta IATE, a IATE nie trafia do tekstów
   ani do `inputs` manifestu.
 - **Wykluczenia lematów i poddrzew bez trafienia dają kod 4.**
 - **Granice tematów szerokie**, z decyzji operatora. Atomy `ogr.`, `psych.`, `wet.`, `farm.` i sport bez
@@ -25,11 +26,12 @@ Morze zostaje `morze-v2`; przebudowa ma dać bajtowo tę samą listę.
 - **Bump metody** zmienia decyzję techniczną z
   [scope-clarifications.md](../../.maister/tasks/development/2026-10-29-12-tematy-fala-1/analysis/scope-clarifications.md)
   („metoda `tematy-v1`”). Reguły warstw zostają.
-- **Małe tematy** (pogoda ok. 209 lematów T2, grzyby 351, matematyka 543) mogą nie przejść progu 0,70
-  w teście słów oczywistych. W v1 tematu nie ma dodatków D.
+- **Małe tematy.** Testu słów oczywistych (0,70) nie przeszły grzyby, pogoda i sport. W v1 tematu nie ma
+  dodatków D.
 - **`t1_tak` z ocen agenta to słaba bramka.** Dla morza agent dał T1 46/50, a zgodność z operatorem
   wyniosła 20/57. Decyzja operatora.
-- **Zgodność agent–operator** ma poprawić instrukcja z szerokimi granicami. Tego nie zmierzono.
+- **Zgodność agent–operator** w fali 1 nie dotyczy (operator nie ocenił R2). Agent ocenia surowiej
+  niż operator (morze, niżej).
 - **Wspólny seed.** Wspólny lemat ma tę samą rangę w każdym temacie, więc próby tematów się korelują.
 
 ## Dlaczego `tematy-v2`
@@ -122,7 +124,7 @@ Wykluczeń lematów w v1 tematów fali nie ma. Pojedyncze złe słowa usuwa v2 t
 `data/work/tematy-<wersja tematu>-YYYYMMDD-{a,b}`, np. `tematy-grzyby-v1-20261029-a`.
 Stary schemat `tematy-v2-…` mylił wersję tematu (`morze-v2`) z wersją metody.
 
-## Regresja morza (plan)
+## Regresja morza
 Po zmianie kodu budujemy `tematy-morze-v2-YYYYMMDD-{a,b}` i porównujemy z `data/work/tematy-v2-20261029-a`:
 - bajtowo równe `MORZE.txt.gz`, `MORZE.tsv.gz`, `ATTRIBUTIONS.md`, `TERMS.md`;
 - `LIMITATIONS.md` różni się tylko punktami T2 i T3;
@@ -130,7 +132,33 @@ Po zmianie kodu budujemy `tematy-morze-v2-YYYYMMDD-{a,b}` i porównujemy z `data
 - `sample.json`: równe `strata`, `items`, `unique_selected_units`, `overlaps`; `operator.strata` ma T2 i T3;
 - a = b, checker PASS; 970 wpisów, 11 035 form, test 37/37.
 
-Wynik dopisujemy po regresji.
+**Wynik (2026-10-29): ZGODNE.** Cztery pliki bajtowo równe (`MORZE.txt.gz` `6e78d1ef…`,
+`MORZE.tsv.gz` `83037db1…`), różnice tylko w plikach z listy, `summary.json` i `sample.json` jak wyżej,
+970 wpisów, 11 035 form, test 37/37, bez błędów. W `summary.json` porównaliśmy też bez
+`werdykt.czeka_na_ocene`, bo `t1_tak` już nie czeka. Dowód: [regresja-morze.json](../../.maister/tasks/development/2026-10-29-12-tematy-fala-1/verification/regresja-morze.json).
+
+## Zmiana metody R2 (2026-10-29)
+Operator przejrzał 9 stron R2, ale ocen nie zaznaczył: większość terminów musiałby sprawdzać
+w wyszukiwarce. Decyzja operatora
+([scope-clarifications.md](../../.maister/tasks/development/2026-10-29-12-tematy-fala-1/analysis/scope-clarifications.md),
+„Zmiana metody R2”):
+- trafność T2 i T3 na bramce liczymy z ocen agenta, z tymi samymi progami;
+- zgodność operator–agent i kappa: „nie dotyczy”;
+- checker się nie zmienia: bez ocen operatora T2, T3 i zgodność mają „czeka”. Wynik bramki liczy
+  `analysis/zestawienie_fali.py` tą samą funkcją `verdict` (opis w [jakosc.md](../generator/jakosc.md#próbki-tematy-tematy-quality-v1)).
+
+**Znane obciążenie.** Agent ocenia surowiej niż operator. Morze: operator T2 30/30, T3 27/27;
+agent T2 21/50 („nie” 23), T3 9/27 („nie” 14); zgodność 20/57, κ 0. Bramka z ocen agenta może więc
+odrzucić temat, który operator by przyjął.
+
+**Wynik bramki** ([gate-report.md](../../.maister/tasks/development/2026-10-29-12-tematy-fala-1/verification/gate-report.md)):
+„dalej” dla kuchni, roślin i zwierząt; „popraw” dla 7 tematów:
+- słowa oczywiste < 0,70: grzyby, pogoda, sport;
+- T2 tak < 2/3: grzyby (23/50), matematyka (29/50, też T2 nie 6/50), muzyka (32/50);
+- medycyna: T1 tak 42/50, T3 tak 22/50;
+- morze (oceny agenta): T2 tak 21/50, T2 nie 23/50, T3 tak 9/27.
+
+Decyzje operatora (dalej / popraw / stop) jeszcze nie zapadły.
 
 ## Stare pakiety
 Pakiety `tematy-v1-*` i `tematy-v2-20261029-*` (metoda `tematy-v1`) sprawdza checker z commitu `a633136`.

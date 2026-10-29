@@ -72,8 +72,9 @@
 - Przy gotowym pakiecie aktualizuj POP00, Home, POP0, _Sidebar i historię; odnośnik pobrania dodaj po odbiorze wydania.
 
 ## TEMATY
-- Strona `Slownik-TEMATY` ma „W przygotowaniu” do wydania, bez linku pobrania. Polityka: [ADR-010](adr/ADR-010-tematy-v1.md), źródła: [ADR-011](adr/ADR-011-zrodla-slowosiec-iate.md).
-- Źródło liczb: `counts.morze` w `release-manifest.json` pakietu i `reports/summary.json`. Przy liczbach podaj wersję tematu, datę i stan BUILT.
-- Przykłady sprawdzaj w `MORZE.tsv.gz` pakietu (`gzip -dc MORZE.tsv.gz | grep`), bo `explain` nie ma wariantu tematy. Przykład „jest w temacie” musi mieć wiersz w TSV.
+- Strona `Slownik-TEMATY` ma „W przygotowaniu” do wydania, bez linku pobrania. Polityka: [ADR-010](adr/ADR-010-tematy-v1.md) i [ADR-012](adr/ADR-012-tematy-fala-1.md) (`tematy-v2`), źródła: [ADR-011](adr/ADR-011-zrodla-slowosiec-iate.md).
+- Jeden pakiet na temat. Strona ma jedną tabelę wszystkich tematów (wersja tematu, wpisy, formy, ∩ POP, ∩ POP00, test słów, stan).
+- Źródło liczb: `counts.<id>` (np. `counts.grzyby`) w `release-manifest.json` pakietu i `reports/summary.json`. Przy liczbach podaj wersję tematu, datę i stan BUILT.
+- Przykłady sprawdzaj w `<ID>.tsv.gz` pakietu danego tematu (np. `gzip -dc GRZYBY.tsv.gz | grep`), bo `explain` nie ma wariantu tematy. Przykład „jest w temacie” musi mieć wiersz w TSV.
 - Tabela źródeł na `Home` ma wiersze Słowosieć 4.5 i IATE (2019); ich zmiana zmienia też ten wiersz.
 - Przy gotowym pakiecie aktualizuj TEMATY, Home, STANDARD, _Sidebar i historię. Po wydaniu usuń „W przygotowaniu” na wszystkich stronach.
