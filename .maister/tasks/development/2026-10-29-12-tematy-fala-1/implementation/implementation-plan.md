@@ -333,15 +333,15 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `T/analysis/zestawienie_fali.py`, `T/analysis/test_zestawienie_fali.py`, `T/verification/zestawienie-fali.json`, `T/verification/gate-report.md`
 **Kroki:** 5
 
-- [ ] 16.0 Zestawić 10 tematów dla wspólnej oceny
-  - [ ] 16.1 Napisać 3 testy w `T/analysis/test_zestawienie_fali.py` (małe pakiety syntetyczne):
+- [x] 16.0 Zestawić 10 tematów dla wspólnej oceny
+  - [x] 16.1 Napisać 3 testy w `T/analysis/test_zestawienie_fali.py` (małe pakiety syntetyczne):
     - macierz nakładania: liczba wspólnych lematów dla pary i do 10 przykładów, posortowanych deterministycznie;
     - wiersz tematu bierze liczby z `summary.json`, `release-manifest.json` i `review-check-<id>.json`, a nie z pamięci;
     - temat bez T3 ma w kolumnie T3 „nie dotyczy”, a nie 0.
-  - [ ] 16.2 `T/analysis/zestawienie_fali.py`: czyta 10 pakietów (9 z grupy 12, morze z grupy 9) i 10 plików `review-check-*`. Wynik: `T/verification/zestawienie-fali.json`.
-  - [ ] 16.3 `T/verification/gate-report.md` (TL;DR, Kluczowe decyzje, Otwarte pytania). Tabela 10 tematów: wpisy i warstwy, formy, ∩ POP i ∩ POP00 (leksemy, formy), diagnostyka kandydaci → BROAD → STANDARD, test słów z brakującymi, trafność R2 (agent dla każdej warstwy, operator T2 i T3), zgodność, kappa, werdykt automatyczny. Do tego macierz nakładania, liczba T3 medycyny i puste pola na decyzje operatora.
-  - [ ] 16.4 Uruchomić 3 nowe testy.
-  - [ ] 16.5 Commit i push: `maister: #12 zestawienie fali`.
+  - [x] 16.2 `T/analysis/zestawienie_fali.py`: czyta 10 pakietów (9 z grupy 12, morze z grupy 9) i 10 plików `review-check-*`. Wynik: `T/verification/zestawienie-fali.json`.
+  - [x] 16.3 `T/verification/gate-report.md` (TL;DR, Kluczowe decyzje, Otwarte pytania). Tabela 10 tematów: wpisy i warstwy, formy, ∩ POP i ∩ POP00 (leksemy, formy), diagnostyka kandydaci → BROAD → STANDARD, test słów z brakującymi, trafność R2 (agent dla każdej warstwy, operator T2 i T3), zgodność, kappa, werdykt automatyczny. Do tego macierz nakładania, liczba T3 medycyny i puste pola na decyzje operatora.
+  - [x] 16.4 Uruchomić 3 nowe testy.
+  - [x] 16.5 Commit i push: `maister: #12 zestawienie fali`.
 
 **Kryteria odbioru:**
 - 3 testy przechodzą; tabela ma 10 wierszy, werdykty równe checkerowi.

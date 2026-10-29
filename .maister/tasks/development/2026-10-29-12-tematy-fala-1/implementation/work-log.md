@@ -109,3 +109,9 @@ Uwaga: `strona` odmawia bez hasha w pliku przeglądu, ale nie sprawdza commita �
 ## 2026-10-29 — Grupa 15 zastąpiona
 
 Operator nie ocenia R2 (terminy wymagają wyszukiwarki). Decyzja: trafność T2/T3 z ocen agenta, zgodność nie dotyczy (scope-clarifications.md). Uwaga operatora: cytoplazma ≠ kuchnia (zgodnie z agentem).
+
+## 2026-10-29 — Grupa 16 zakończona
+
+Commit `7d2b714`. Bramka metodą z ocen agenta: dalej — kuchnia, rośliny, zwierzęta; popraw — grzyby (słowa 61,8%, T2 0,46), pogoda (słowa), matematyka (T2 0,58, nie 0,12), muzyka (T2 0,64), sport (słowa), medycyna (T1 0,84, T3 0,44), morze.
+Ważne: na morzu agent jest dużo surowszy od operatora (T2 21/50 vs operator 30/30; T3 9/27 vs 27/27; 37 lematów „tak” operatora agent ocenił „nie”). Ocena agenta zaniża trafność → pytanie do bramki 20.2.
+Decyzje operatora w gate-report.md puste do 20.2.
