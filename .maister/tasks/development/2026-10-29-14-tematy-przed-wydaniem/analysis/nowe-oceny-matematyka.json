@@ -1,0 +1,8 @@
+{
+  "reviewer": "agent (Claude)",
+  "reviewed_at": "2026-10-29T15:23:24Z",
+  "oceny": {
+    "centyl@sgjp-20260823": {"ocena": "tak", "powod": "Centyl to pojęcie statystyki matematycznej."},
+    "wierzchołek@sgjp-20260823": {"ocena": "tak", "powod": "Wierzchołek kąta lub wielokąta to zwykłe pojęcie geometrii."}
+  }
+}

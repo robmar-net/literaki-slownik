@@ -1,0 +1,622 @@
+{
+  "agent": {
+    "items": [
+      {
+        "key": "agregat:Sm1@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Znaczenie matematyczne agregatu jest rzadkie, zwykle to maszyna lub zespół urządzeń.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "aksjomatyzacja@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Oparcie teorii na aksjomatach to pojęcie matematyczne i logiczne.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "algorytm@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Algorytm to podstawowe pojęcie matematyki i informatyki.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "amplituda@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Amplituda funkcji trygonometrycznej to pojęcie matematyczne.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "azymut@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Azymut to kąt, ale kojarzy się głównie z nawigacją i geodezją.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "banieczka@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Związek z matematyką możliwy tylko w rzadkim, specjalistycznym znaczeniu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "bąbelek@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Związek z matematyką możliwy tylko w rzadkim, specjalistycznym znaczeniu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "całkowanie@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Całkowanie to działanie analizy matematycznej.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "centyl@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Centyl to pojęcie statystyki matematycznej.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "cosecans@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Cosecans to funkcja trygonometryczna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "cosinusoida@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Cosinusoida to wykres funkcji cosinus.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "cotangens@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Cotangens to funkcja trygonometryczna.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "cotangensoida@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Cotangensoida to wykres funkcji cotangens.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "czworościan@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Czworościan to bryła geometryczna.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "dwumian@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dwumian to wyrażenie algebraiczne.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "dwuścian@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dwuścian to pojęcie geometrii przestrzennej.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "dystrybuanta@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dystrybuanta to pojęcie rachunku prawdopodobieństwa.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "dzielna@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dzielna to składnik działania dzielenia.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "dzielnik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Dzielnik to liczba, przez którą się dzieli.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "ekliptyka@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Pojęcie astronomiczne, z matematyką łączy je tylko geometria sfery niebieskiej.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "eliminacja@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Eliminacja zmiennych to rzadsze znaczenie, zwykle słowo oznacza odpadnięcie z rywalizacji.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "elipsoida@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Elipsoida to bryła i powierzchnia geometryczna.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "epicykloida@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Epicykloida to krzywa geometryczna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "funkcjonał@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Funkcjonał to pojęcie analizy funkcjonalnej.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "iloczyn@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Iloczyn to wynik mnożenia.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "iloraz@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Iloraz to wynik dzielenia.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "iniekcja@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Funkcja różnowartościowa to znaczenie specjalistyczne, zwykle iniekcja to zastrzyk.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "integrał@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Integrał to dawna nazwa całki.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "inwersja@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Inwersja to zwykłe pojęcie geometrii i kombinatoryki (przekształcenie, inwersja permutacji).",
+        "warstwa": "T2"
+      },
+      {
+        "key": "jednomian@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Jednomian to wyrażenie algebraiczne.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kaustyka@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Kaustyka to krzywa z pogranicza optyki i geometrii, rzadko znana.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "klasa@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Klasa w teorii mnogości to znaczenie specjalistyczne.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "klin:Sm3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Klin to bryła geometryczna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "konchoida@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Konchoida to krzywa płaska.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kosekans@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kosekans to funkcja trygonometryczna.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kosinusoida@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kosinusoida to wykres funkcji cosinus.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kotangens@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kotangens to funkcja trygonometryczna.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kotangensoida@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kotangensoida to wykres funkcji kotangens.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kwadratowy@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Funkcja i równanie kwadratowe to pojęcia matematyczne.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kwadrylion:S@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kwadrylion to nazwa liczby.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "kwartyl@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kwartyl to miara statystyczna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "kwaternion@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Kwaternion to obiekt algebraiczny, uogólnienie liczb zespolonych.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "lemniskata@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Lemniskata to znana krzywa płaska w geometrii.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "licznik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Licznik ułamka to pojęcie matematyczne.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "logarytmicznie@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Słowo opisuje zależność logarytmiczną.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "logarytmiczność@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Słowo odnosi się do logarytmu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "logika@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Logika formalna należy do matematyki.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "loksodroma@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Loksodroma to krzywa znana głównie z nawigacji.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "minor:Sm3.n_ncol@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Minor macierzy to znaczenie specjalistyczne, słowo jest mało znane.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "minor:Sm3@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Minor macierzy to znaczenie specjalistyczne, słowo jest mało znane.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "mnogościowość@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Słowo odnosi się do teorii mnogości.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "mnogościowy@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Teoria mnogości to dział matematyki.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "mnożna@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Mnożna to składnik mnożenia.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "mnożnik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Mnożnik to składnik mnożenia.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "nabla@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Nabla to operator różniczkowy.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "odbieg@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Związek z matematyką tylko w rzadkim, specjalistycznym znaczeniu.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "odjemna@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Odjemna to składnik odejmowania.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "odjemnik@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Odjemnik to składnik odejmowania.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "odpowiedź@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Odpowiedź do zadania wiąże się z matematyką tylko luźno.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "operator:Sm3@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Operator działania to pojęcie matematyczne.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "ostrosłup@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ostrosłup to bryła geometryczna.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "ośmiokąt@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ośmiokąt to figura geometryczna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "ośmiościan@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Ośmiościan to bryła geometryczna.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "percentyl@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Percentyl to miara statystyczna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "pierwiastkować@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pierwiastkowanie to działanie matematyczne.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "pięciobok@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Pięciobok to figura geometryczna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "probabilistyka@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Probabilistyka to rachunek prawdopodobieństwa.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "promień@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Promień okręgu to pojęcie geometryczne.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "prostokąt@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Prostokąt to figura geometryczna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "prostopadła@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Prostopadła to prosta w geometrii.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "przyprostokątna@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Przyprostokątna to bok trójkąta prostokątnego.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "punkt@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Punkt to podstawowe pojęcie geometrii.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "półkula@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Półkula to bryła geometryczna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "półokrąg@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Półokrąg to figura geometryczna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "rzędna@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Rzędna to współrzędna punktu.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sekans@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Sekans to funkcja trygonometryczna.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sieczna@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Sieczna to prosta przecinająca krzywą.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "silnia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Silnia to działanie matematyczne.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "sinusoida@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Sinusoida to wykres funkcji sinus.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "skala@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Skala to stosunek podobieństwa liczony w matematyce.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "splot@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Splot funkcji to znaczenie specjalistyczne, zwykle to przeplecione włókna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "stożek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Stożek to bryła geometryczna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "sześcian@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Sześcian to bryła i trzecia potęga liczby.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "tangens@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Tangens to funkcja trygonometryczna.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "tangensoida@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Tangensoida to wykres funkcji tangens.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "term@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Term to wyrażenie w logice formalnej.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "topologia@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Topologia to dział matematyki.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "torsja@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Torsja krzywej to rzadkie, specjalistyczne znaczenie.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "tożsamość@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Tożsamość to równość prawdziwa dla wszystkich wartości.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "traktrysa@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Traktrysa to krzywa płaska.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "trygonometria@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Trygonometria to dział matematyki.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "tworząca@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Tworząca to odcinek tworzący bryłę obrotową.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "walec@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Walec to bryła geometryczna.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "warstwa@sgjp-20260823",
+        "ocena": "niepewne",
+        "powod": "Warstwa w algebrze to znaczenie specjalistyczne.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "wektor@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wektor to pojęcie matematyczne.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "wielokrotna@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wielokrotność liczby to pojęcie matematyczne.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "wielomian@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wielomian to wyrażenie algebraiczne.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "wielościan@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wielościan to bryła geometryczna.",
+        "warstwa": "T1"
+      },
+      {
+        "key": "wierzchołek@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Wierzchołek kąta lub wielokąta to zwykłe pojęcie geometrii.",
+        "warstwa": "T2"
+      },
+      {
+        "key": "współrzędna@sgjp-20260823",
+        "ocena": "tak",
+        "powod": "Współrzędna to liczba określająca położenie punktu.",
+        "warstwa": "T1"
+      }
+    ],
+    "reviewed_at": "2026-10-29T15:23:36Z",
+    "reviewer": "agent (Claude)"
+  },
+  "agent_sha256": "7b1f61f90ada1e1b77da9e75f693506f1be170ce00917adef27becc7c9d3d699",
+  "canonical_index_sha256": "d2601aecd343710b40458840e0f98e65aaeb50b9d03266f7455a72878fe5cb6e",
+  "evidence_sha256": {
+    "MATEMATYKA.txt.gz": "7c3063b35cd919cee59cb2eb3e719b77f207722871977c86e740a17b2430e371",
+    "reports/summary.json": "90e6c14bf7a62c8af7965d03f20d82444b3a4276aef4d30bcbc9f67e7a56656e"
+  },
+  "kind": "literaki-tematy-review",
+  "method": "tematy-v2",
+  "operator": null,
+  "sample_sha256": "8829b54e7bca0de2f87b85c69b6b63149ab22e4917e6e27ab1ed7358ab811a91",
+  "schema_version": 1,
+  "sha256sums_sha256": "b3244d377ff59820c10950cbe1423ca15fd2a742eda41e5d37b5930935cb41ce",
+  "temat": "matematyka",
+  "version": "tematy-quality-v1"
+}

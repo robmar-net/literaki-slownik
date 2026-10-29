@@ -30,14 +30,21 @@ mimo jednego progu poniżej granicy. Bez wydania.
 ## Otwarte pytania / ryzyka
 - **Test słów oczywistych w grzybach, pogodzie i sporcie** przestał mierzyć pokrycie generatora: dodatki D
   pochodzą z tej listy. Wynik 30/34, 30/36, 34/36 mówi tylko, że braki uzupełniono ręcznie.
-- **Matematyka:** dwa słowa „nie” (pryzma, reeksport) zostają. Wykluczymy je przy następnej wersji,
-  najpóźniej przed wydaniem.
-- **Medycyna T1:** atomy `psych.` i `med.` dają słowa „niepewne” (afekt, cyklotymik). Przy wydaniu do
-  rozważenia węższe atomy.
+- **Matematyka:** dwa słowa „nie” (pryzma, reeksport) — wykluczone w v3 (#14).
+- **Medycyna T1:** atomy `psych.` i `med.` dają słowa „niepewne” (afekt, cyklotymik). W #14 atomy zostały, 5 słów wykluczonych.
 - Checker zgłasza KeyError zamiast kodu wyjścia przy brakującym polu. Cytat licencji Słowosieci nie ma
   końcowej kropki. Nie robiliśmy tego w #13.
-- Pakiety „dalej” zbudowano różnym kodem: rośliny, zwierzęta i morze w #12, reszta w #13. Wydanie
-  przebuduje wszystkie jednym commitem.
+- Pakiety z jednego commita: zrobione w #14.
+
+## Przed wydaniem (#14, 2026-10-29)
+- **Matematyka v3:** bez pryzma i reeksport, 467 wpisów. Teraz przechodzi wszystkie progi (T2 tak 17/25).
+- **Medycyna v3:** atomy T1 bez zmian (operator). Wykluczone 5 słów z `psych.`, które nie mają związku
+  z medycyną: walidować, logizować, apercypować, rozhamować, dezindywiduacja. 2 891 wpisów. T1 tak 43/50 bez zmian,
+  bo tych słów nie było w próbce.
+- **Jedna seria:** 10 tematów, 20 budów z commita `c563c33` (`data/work/tematy-wydanie-20261029/`).
+  Pakiety a i b są bajtowo identyczne, checker przechodzi. 8 tematów bez zmiany składu jest bajtowo jak
+  wcześniej, poza manifestem i sumami. Przeglądy R2 przepięto na nowe pakiety.
+- Szczegóły: [gate-report.md](../../.maister/tasks/development/2026-10-29-14-tematy-przed-wydaniem/verification/gate-report.md).
 
 ## Wyniki
 Pakiety `data/work/tematy-<id>-v2-20261029-{a,b}`: 14 budów, a = b bajtowo, checker pass.
