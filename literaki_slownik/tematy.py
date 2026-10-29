@@ -803,8 +803,9 @@ ZNACZNIK = '@@SRODLADOWE@@'
 ODCINKI = ('T3', 'SRODLADOWE')
 ODCINEK = re.compile(r'<!--(/?)(' + '|'.join(ODCINKI) + r')-->')
 TSV_KOLUMNY = ('klucz', 'lemat', 'czesci_mowy', 'warstwa', 'zrodla', 'znaczenie', 'wieloznaczny', 'formy')
-# Progi z ocen R2; automat ich nie rozstrzyga („czeka na ocenę”).
+# Progi z ocen R2 i ich warstwy; automat ich nie rozstrzyga („czeka na ocenę”).
 CZEKA = ('t1_tak', 't2_tak', 't2_nie', 't3_tak', 'zgodnosc')
+PROG_WARSTWA = {'t1_tak': 'T1', 't2_tak': 'T2', 't2_nie': 'T2', 't3_tak': 'T3'}
 GRUPY = (*WARSTWY, 'razem')
 WIELOZNACZNY = ('tak', 'nie', 'brak_danych')
 POP00_LEKSEMY = 'POP00 na poziomie leksemów = członkowie POP0 z reports/units.json POP (pop-v3)'
@@ -906,6 +907,18 @@ def _inland(topic, t3, built):
                          'przyklady': inland[:PRZYKLADY_SRODLADOWE]}}
 
 
+def czeka(method, t3):
+    """Progi (#12 W6): `(czeka, nie_dotyczy)`.
+
+    Czekają progi warstw z `operator_warstwy` i zgodność. Progi pozostałych warstw liczy się z ocen
+    agenta, zawsze (D3), więc nie czekają. Bez `t3` próg `t3_tak` nie dotyczy tematu.
+    """
+    skip = [] if t3 else ['t3_tak']
+    layers = method['operator_warstwy']
+    wait = [k for k in CZEKA if k not in skip and (k not in PROG_WARSTWA or PROG_WARSTWA[k] in layers)]
+    return wait, skip
+
+
 def summary(data, cands, built):
     """`reports/summary.json` (W8–W10); `raport.md` powstaje z tych samych liczb."""
     topic, config, t2, t3 = data['topic'], data['method']['config'], cands['t2'], cands['t3']
@@ -913,6 +926,7 @@ def summary(data, cands, built):
     words = slowa_oczywiste(topic['diagnostyka']['slowa_oczywiste'], wpisy, data['method']['progi']['slowa_oczywiste'])
     words['prog'] = config['progi']['slowa_oczywiste']
     failed = [] if words['spelniony'] else ['slowa_oczywiste']
+    wait, skip = czeka(config, 't3' in topic)
     flags = {v: [k for k, e in wpisy.items() if e['wieloznaczny'] == v] for v in WIELOZNACZNY}
     return {
         'method': METHOD, 'temat': topic['id'], 'wersja_tematu': topic['wersja'],
@@ -931,7 +945,7 @@ def summary(data, cands, built):
         'srodladowe': _inland(topic, t3, built),
         'wykluczenia': built['wykluczenia'],
         'werdykt': {'automatyczny': 'popraw' if failed else 'dalej', 'niespelnione': failed,
-                    'czeka_na_ocene': list(CZEKA), 'uwaga': '„stop” wybiera tylko operator na bramce'},
+                    'czeka_na_ocene': wait, 'nie_dotyczy': skip, 'uwaga': '„stop” wybiera tylko operator na bramce'},
     }
 
 
@@ -1030,7 +1044,9 @@ def raport(report):
                   f'warstwy: {", ".join(w["warstwy"])}.' for w in report['wykluczenia']]
     lines += ['', '## Werdykt',
               f'- Automatyczny: {verdict["automatyczny"]}. Niespełnione progi: {failed}.',
-              f'- Czeka na ocenę: {", ".join(verdict["czeka_na_ocene"])}.', '']
+              f'- Czeka na ocenę: {", ".join(verdict["czeka_na_ocene"])}.',
+              *([f'- Nie dotyczy tematu: {", ".join(verdict["nie_dotyczy"])}.'] if verdict['nie_dotyczy'] else []),
+              '']
     return '\n'.join(lines)
 
 
@@ -1053,13 +1069,15 @@ def _payload(entry):
 def sample(layers, payloads, method):
     """Próba R2 (W11): `min(size, N)` na warstwę przez `quality.sample_strata`.
 
-    Operator: pierwsze `min(operator_per_stratum, N)` wybranych w kolejności rangi (`selected`).
+    Operator: pierwsze `min(operator_per_stratum, N)` wybranych w kolejności rangi (`selected`),
+    tylko w warstwach `operator_warstwy` (#12 W5). Próba agenta (`strata`, `items`) bez zmian.
     `items` niesie dane wpisu do `quality.review_template`.
     """
     result = sample_strata({w: list(keys) for w, keys in layers.items()}, method['sampling'])
-    per = method['operator_per_stratum']
+    per, own = method['operator_per_stratum'], method['operator_warstwy']
     result['operator'] = {'per_stratum': per, 'strata': {
-        name: [item['key'] for item in stratum['selected'][:per]] for name, stratum in sorted(result['strata'].items())}}
+        name: [item['key'] for item in stratum['selected'][:per]]
+        for name, stratum in sorted(result['strata'].items()) if name in own}}
     keys = sorted({item['key'] for stratum in result['strata'].values() for item in stratum['selected']})
     result['items'] = [payloads[k] for k in keys]
     return result

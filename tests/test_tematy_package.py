@@ -103,7 +103,7 @@ class TematyPackageTest(unittest.TestCase):
         self.assertEqual((words['prog'], words['spelniony']), ('0.70', False))
         verdict = self.summary['werdykt']
         self.assertEqual((verdict['automatyczny'], verdict['niespelnione']), ('popraw', ['slowa_oczywiste']))
-        self.assertEqual(verdict['czeka_na_ocene'], ['t1_tak', 't2_tak', 't2_nie', 't3_tak', 'zgodnosc'])
+        self.assertEqual(verdict['czeka_na_ocene'], ['t2_tak', 't2_nie', 't3_tak', 'zgodnosc'])
         inland = self.summary['srodladowe']
         # IATE-1 (EN „inland”), IATE-4 (PL „statek rzeczny”), IATE-5 (PL „barka”, EN „barge”).
         self.assertEqual((inland['kandydaci_t3']['hasla'], inland['kandydaci_t3']['srodladowe']), (3, 3))
@@ -119,8 +119,10 @@ class TematyPackageTest(unittest.TestCase):
         sample = tematy.sample(layers, payloads, method)
         sizes = {w: (s['population'], s['sample_size']) for w, s in sample['strata'].items()}
         self.assertEqual(sizes, {'T1': (70, 50), 'T2': (40, 40), 'T3': (10, 10)})
-        for name, stratum in sample['strata'].items():
-            ranked = [item['key'] for item in stratum['selected']]
+        # #12 W5: operator tylko w warstwach `operator_warstwy` (T2, T3).
+        self.assertEqual(sorted(sample['operator']['strata']), ['T2', 'T3'])
+        for name in ('T2', 'T3'):
+            ranked = [item['key'] for item in sample['strata'][name]['selected']]
             self.assertEqual(sample['operator']['strata'][name], ranked[:min(30, len(ranked))])
         self.assertEqual(sample['operator']['per_stratum'], 30)
         built = load_json(self.root/'a/reports/sample.json')
@@ -204,6 +206,66 @@ class TematyPackageTest(unittest.TestCase):
         fresh = subprocess.run(cmd[:-2] + [str(self.root/'cli-human')], capture_output=True, text=True, cwd=ROOT)
         self.assertEqual(fresh.returncode, 0, fresh.stderr)
         self.assertIn('Pakiet TEMATY', fresh.stdout)
+
+
+class TematyOperatorTest(unittest.TestCase):
+    """#12 W5, W6: próba operatora według `operator_warstwy` i werdykt w `summary.json`."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = tempfile.TemporaryDirectory()
+        root = Path(cls.tmp.name)
+        cls.morze = inputs_fixture(root/'morze')
+        cls.zwierzeta = inputs_fixture(root/'zwierzeta', t3=False, temat='zwierzeta')
+        for f in (cls.morze, cls.zwierzeta):
+            build(f, f['root']/'a')
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.tmp.cleanup()
+
+    def read(self, f, name):
+        return load_json(f['root']/'a/reports'/name)
+
+    def test_sample_draws_t1_t3_but_operator_only_t2_t3(self):
+        drawn = self.read(self.zwierzeta, 'sample.json')
+        self.assertEqual(sorted(drawn['strata']), ['T1', 'T2', 'T3'])
+        self.assertEqual(drawn['strata']['T3']['coverage'], 'EMPTY_NOT_COVERAGE')
+        self.assertEqual(sorted(drawn['operator']['strata']), ['T2', 'T3'])
+        self.assertEqual(drawn['operator']['strata']['T3'], [])
+        self.assertEqual(drawn['operator']['per_stratum'], 30)
+        morze = self.read(self.morze, 'sample.json')
+        self.assertEqual(sorted(morze['operator']['strata']), ['T2', 'T3'])
+        self.assertEqual(morze['operator']['strata']['T3'], [label('barka')])
+        # Szablon przeglądu: wszystkie pozycje próby agenta, także T1.
+        template = self.read(self.morze, 'review-template.json')
+        keys = {item['key'] for s in morze['strata'].values() for item in s['selected']}
+        self.assertEqual({i['key'] for i in template['items']}, keys)
+
+    def test_agent_sample_equal_for_v1_and_v2(self):
+        v2 = load_json(self.morze['config'])
+        v1 = {**v2, 'version': 'tematy-v1', 'operator_warstwy': list(tematy.PROBA)}
+        layers = {'T1': [f'a{i:03d}@s' for i in range(70)], 'T2': [f'b{i:03d}@s' for i in range(40)], 'T3': []}
+        payloads = {k: {'key': k} for keys in layers.values() for k in keys}
+        old, new = (tematy.sample(layers, payloads, m) for m in (v1, v2))
+        for field in ('version', 'strata', 'items', 'unique_selected_units'):
+            self.assertEqual(old[field], new[field], field)
+        self.assertEqual(sorted(old['operator']['strata']), ['T1', 'T2', 'T3'])
+        self.assertEqual({w: new['operator']['strata'][w] for w in ('T2', 'T3')},
+                         {w: old['operator']['strata'][w] for w in ('T2', 'T3')})
+
+    def test_topic_without_t3_marks_t3_tak_not_applicable(self):
+        verdict = self.read(self.zwierzeta, 'summary.json')['werdykt']
+        self.assertEqual(verdict['nie_dotyczy'], ['t3_tak'])
+        self.assertEqual(verdict['czeka_na_ocene'], ['t2_tak', 't2_nie', 'zgodnosc'])
+        self.assertNotIn('t3_tak', verdict['niespelnione'])
+
+    def test_topic_with_t3_waits_for_operator_layers_only(self):
+        verdict = self.read(self.morze, 'summary.json')['werdykt']
+        self.assertEqual(verdict['nie_dotyczy'], [])
+        self.assertEqual(verdict['czeka_na_ocene'], ['t2_tak', 't2_nie', 't3_tak', 'zgodnosc'])
+        self.assertNotIn('t1_tak', verdict['czeka_na_ocene'])
+        self.assertEqual(tematy.czeka({'operator_warstwy': ['T2']}, True), (['t2_tak', 't2_nie', 'zgodnosc'], []))
 
 
 if __name__ == '__main__':
