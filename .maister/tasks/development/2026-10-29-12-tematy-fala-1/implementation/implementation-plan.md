@@ -367,12 +367,12 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `WIKI/Slownik-TEMATY.md`, `WIKI/Home.md`, `WIKI/Slownik-STANDARD.md`, `WIKI/_Sidebar.md`, `WIKI/Historia-zmian.md`
 **Kroki:** 5
 
-- [ ] 18.0 Pokazać 10 tematów na wiki, nadal „W przygotowaniu”
-  - [ ] 18.1 Kontrola zamiast testów: lista z runbooka (`docs/runbook-wiki.md:79`). Jeden ekran na stronę, linki `[X](Slownik-X)`, bez list słów, jedyna nazwa gry to Literaki. Liczby pochodzą z `zestawienie-fali.json` i manifestów, a przykłady sprawdzamy w `<ID>.tsv.gz`.
-  - [ ] 18.2 `git -C WIKI pull --ff-only`. `Slownik-TEMATY.md`: tabela 10 tematów (wersja, wpisy, formy, ∩ POP, ∩ POP00, test słów, stan) i krótki opis metody. Strona zostaje „W przygotowaniu”, bez linku pobrania.
-  - [ ] 18.3 `Home.md`: wiersz TEMATY z liczbą tematów. `Slownik-STANDARD.md`: odsyłacz do TEMATY z liczbą tematów. `_Sidebar.md`: sprawdzić, że wpis TEMATY prowadzi do strony z 10 tematami.
-  - [ ] 18.4 `Historia-zmian.md`: wpis #12.
-  - [ ] 18.5 Commit i push w repo wiki: `wiki: TEMATY pierwsza fala (#12)`. Sprawdzić publiczny HTML strony; wpis w `T/work-log.md`.
+- [x] 18.0 Pokazać 10 tematów na wiki, nadal „W przygotowaniu”
+  - [x] 18.1 Kontrola zamiast testów: lista z runbooka (`docs/runbook-wiki.md:79`). Jeden ekran na stronę, linki `[X](Slownik-X)`, bez list słów, jedyna nazwa gry to Literaki. Liczby pochodzą z `zestawienie-fali.json` i manifestów, a przykłady sprawdzamy w `<ID>.tsv.gz`.
+  - [x] 18.2 `git -C WIKI pull --ff-only`. `Slownik-TEMATY.md`: tabela 10 tematów (wersja, wpisy, formy, ∩ POP, ∩ POP00, test słów, stan) i krótki opis metody. Strona zostaje „W przygotowaniu”, bez linku pobrania.
+  - [x] 18.3 `Home.md`: wiersz TEMATY z liczbą tematów. `Slownik-STANDARD.md`: odsyłacz do TEMATY z liczbą tematów. `_Sidebar.md`: sprawdzić, że wpis TEMATY prowadzi do strony z 10 tematami.
+  - [x] 18.4 `Historia-zmian.md`: wpis #12.
+  - [x] 18.5 Commit i push w repo wiki: `wiki: TEMATY pierwsza fala (#12)`. Sprawdzić publiczny HTML strony; wpis w `T/work-log.md`.
 
 **Kryteria odbioru:**
 - Pięć stron zaktualizowanych; liczby zgodne z artefaktami; stan „W przygotowaniu”.
@@ -382,12 +382,12 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `tests/test_tematy_*.py`, `tests/test_check_tematy_package.py`, `tests/test_tematy_review.py`, `tests/tematy_helpers.py`
 **Kroki:** 5
 
-- [ ] 19.0 Przejrzeć testy i uruchomić raz cały zestaw
-  - [ ] 19.1 Przejrzeć 41 nowych testów z grup 1, 3–7, 10, 11 i 16 wobec listy „Do pokrycia” w spec.
-  - [ ] 19.2 Wypisać luki tylko dla #12, np. wykluczenie trafiające w dodatek (kod 2) albo temat z `t3` i pustą T3 w `summary`.
-  - [ ] 19.3 Dopisać najwyżej 10 testów.
-  - [ ] 19.4 Raz uruchomić pełny zestaw: `python3 -m unittest discover -s tests -p 'test_*.py'` (oczekiwane ok. 553–563 OK) oraz `python3 -m unittest discover -s scripts -p 'test_audit_sgjp.py'` (5 OK). Czytamy linię wyniku, nie tylko kod wyjścia. Czerwony test w generatorze daje `fix(tematy)` i ponowne budowy tematów, których dotyczy.
-  - [ ] 19.5 Commit i push: `test(tematy): domknij luki (#12)`.
+- [x] 19.0 Przejrzeć testy i uruchomić raz cały zestaw
+  - [x] 19.1 Przejrzeć 41 nowych testów z grup 1, 3–7, 10, 11 i 16 wobec listy „Do pokrycia” w spec.
+  - [x] 19.2 Wypisać luki tylko dla #12, np. wykluczenie trafiające w dodatek (kod 2) albo temat z `t3` i pustą T3 w `summary`.
+  - [x] 19.3 Dopisać najwyżej 10 testów.
+  - [x] 19.4 Raz uruchomić pełny zestaw: `python3 -m unittest discover -s tests -p 'test_*.py'` (oczekiwane ok. 553–563 OK) oraz `python3 -m unittest discover -s scripts -p 'test_audit_sgjp.py'` (5 OK). Czytamy linię wyniku, nie tylko kod wyjścia. Czerwony test w generatorze daje `fix(tematy)` i ponowne budowy tematów, których dotyczy.
+  - [x] 19.5 Commit i push: `test(tematy): domknij luki (#12)`.
 
 **Kryteria odbioru:**
 - Pełny zestaw przechodzi; dodano najwyżej 10 testów.

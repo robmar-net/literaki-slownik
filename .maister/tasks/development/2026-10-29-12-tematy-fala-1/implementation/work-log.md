@@ -119,3 +119,9 @@ Decyzje operatora w gate-report.md puste do 20.2.
 ## 2026-10-29 — Grupa 17 zakończona
 
 Commit `1f86e2a`: ADR-012 (regresja morza, T3 medycyny 342, zmiana metody R2 i stronniczość agenta), cli/raporty/jakosc, runbook-wiki, INDEX. Przykład nuty/zawody poprawiony w spec W10.2 (psy, koty); w ADR-012 go nie było. test_documented_names 4/4.
+
+## 2026-10-29 — Grupy 18–19 zakończone
+
+- 18: wiki `b0b202f` — Slownik-TEMATY (tabela 10 tematów, „W przygotowaniu”, bez wstępnych werdyktów), Home, Slownik-STANDARD, _Sidebar, Historia-zmian. Publiczna strona sprawdzona.
+- 19: +3 testy (`7f30ebd`): dodatek na wykluczonym leksemie → kod 4; temat z t3 i pustą T3 w summary; checker odrzuca obce `summary.wykluczenia`. Pełny zestaw: 555 OK; test_audit_sgjp 5 OK.
+- Decyzja techniczna: summary przed oceną pokazuje `t3_tak` jako „czeka” przy pustej T3 (checker po ocenie daje `niespelniony`). Zostawiamy — nie dotyczy fali (medycyna ma T3 = 342), poprawka wymagałaby przebudów. Do rozważenia przy v2.
