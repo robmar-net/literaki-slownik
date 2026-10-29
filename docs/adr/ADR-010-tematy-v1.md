@@ -8,6 +8,7 @@ Wpis to leksem SGJP z formami ∩ STANDARD. Pakiet ma tylko stan BUILT; przeglą
 Bramka: automat podaje „dalej” albo „popraw”; „stop” wybiera tylko operator.
 To słownik tematyczny. Jego reguły nie zmieniają dopuszczalności przy stole.
 Źródła i pochodną Słowosieci opisuje [ADR-011](ADR-011-zrodla-slowosiec-iate.md).
+Przegląd i schemat tematu zmienia [ADR-012](ADR-012-tematy-fala-1.md).
 
 ## Kluczowe decyzje
 - **Warstwy T1/T2/T3.** Wpis z kilku warstw dostaje najniższą (T1 < T2 < T3) i listę wszystkich źródeł.
