@@ -1,0 +1,51 @@
+orchestrator:
+  started_phase: phase-1
+  completed_phases: []
+  failed_phases: []
+  auto_fix_attempts: {}
+  options:
+    html_output: true
+    mockup_format: html
+    spec_audit_enabled: true
+    skip_test_suite: true
+    e2e_enabled: null
+    user_docs_enabled: null
+    code_review_enabled: true
+    pragmatic_review_enabled: true
+    reality_check_enabled: true
+    production_check_enabled: true
+  created: 2026-10-29T00:59:06Z
+  updated: 2026-10-29T00:59:06Z
+  task_path: .maister/tasks/development/2026-10-29-12-tematy-fala-1
+task:
+  title: "TEMATY: pierwsza fala — 9 tematów (#12)"
+  issue: 12
+  repo: robmar-net/literaki-slownik
+  description: >-
+    Dziewięć tematów obok „morza”: zwierzęta, rośliny, medycyna i ciało, muzyka, kuchnia, sport,
+    matematyka, pogoda, grzyby. Metoda tematy-v1 (#11, ADR-010/011) z ręcznymi dodatkami (warstwa D,
+    grupa 16 #11). Plik tematu na temat: atomy SGJP, korzenie Słowosieci, lista słów oczywistych przed
+    budową; T3 tylko gdzie dziedzina IATE pasuje. Dwie identyczne budowy, raport przecięć, strona R2 na
+    temat. Ocena wspólna z operatorem po zbudowaniu wszystkich; bez wydania.
+  constraints:
+    - Granice tematów szerokie (operator, 2026-10-29).
+    - Poza zakresem rolnictwo, Wikisłownik, LLM, kontakt z autorami.
+    - Grupa 16 #11 trwa; nie ruszać tematy.py i powiązanych do jej końca.
+    - Polski, zwięźle; TL;DR / Kluczowe decyzje / Otwarte pytania; bez gier słownych poza Literaki i Kurnik.
+    - Commit i push po każdym zapisie w .maister/tasks.
+  status: in_progress
+  tags: [tematy, fala-1]
+task_context:
+  risk_level: null
+  clarifications_resolved: null
+  scope_expanded: null
+  architecture_decision: null
+  task_characteristics: {has_reproducible_defect: false, modifies_existing_code: false, creates_new_entities: false, involves_data_operations: false, ui_heavy: false}
+  research_reference:
+    path: .maister/tasks/research/2026-10-27-slowniki-tematyczne
+    research_type: mixed
+    confidence_level: medium
+  related_task: .maister/tasks/development/2026-10-28-11-tematy-morze
+  project_context:
+    project_doc_paths: [.maister/docs/INDEX.md, AGENTS.md, docs/runbook-wiki.md, docs/generator/cli.md, docs/adr/ADR-010-tematy-v1.md, docs/adr/ADR-011-zrodla-slowosiec-iate.md]
+  phase_summaries: {}
