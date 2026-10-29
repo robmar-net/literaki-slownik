@@ -16,7 +16,7 @@ Nota i warunki licencji (cytat):
 >
 > THIS SOFTWARE AND DATABASE IS PROVIDED "AS IS" AND WROCŁAW UNIVERSITY OF TECHNOLOGY MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. BY WAY OF EXAMPLE, BUT NOT LIMITATION, WROCŁAW UNIVERSITY OF TECHNOLOGY MAKES NO REPRESENTATIONS OR WARRANTIES OF MERCHANT-ABILITY OR MERCHANT-FITNESS FOR ANY PARTICULAR PURPOSE; NOR DOES WROCŁAW UNIVERSITY OF TECHNOLOGY MAKE ANY REPRESENTATIONS OR WARRANTIES THAT THE USE OF THE LICENSED SOFTWARE, DATABASE OR DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
 >
-> The name of Wrocław University of Technology may not be used in advertising or publicity pertaining to distribution of the software, the database or both. Title to copyright in this software, database and any associated documentation shall at all times remain with Wrocław University of Technology, and LICENSEE agrees to preserve this copyright
+> The name of Wrocław University of Technology may not be used in advertising or publicity pertaining to distribution of the software, the database or both. Title to copyright in this software, database and any associated documentation shall at all times remain with Wrocław University of Technology, and LICENSEE agrees to preserve this copyright<!--T3-->
 
 ## IATE
 
@@ -25,4 +25,4 @@ Nota i warunki licencji (cytat):
 - warunki: https://iate.europa.eu/assets/i18n/en/static_pages/iate_dl_conditions.html — wolno kopiować, rozpowszechniać i tworzyć utwory pochodne, także komercyjnie, z podaniem źródła
 - atrybucja: Download IATE, European Union, 2019
 - użycie: warstwa T3, polskie terminy jednowyrazowe (`fullForm`) z dziedzin tematu. Pakiet nie zawiera pliku TBX.
-- Unia Europejska nie popiera tego projektu ani jego wyników.
+- Unia Europejska nie popiera tego projektu ani jego wyników.<!--/T3-->

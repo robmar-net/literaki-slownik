@@ -799,6 +799,9 @@ PACKAGE_ID = 'TEMATY'
 PRZYKLADY = 10
 PRZYKLADY_SRODLADOWE = 20
 ZNACZNIK = '@@SRODLADOWE@@'
+# Odcinki tekstów (#12 W4): `<!--X-->…<!--/X-->` zostaje tylko przy T3 albo znacznikach śródlądowych.
+ODCINKI = ('T3', 'SRODLADOWE')
+ODCINEK = re.compile(r'<!--(/?)(' + '|'.join(ODCINKI) + r')-->')
 TSV_KOLUMNY = ('klucz', 'lemat', 'czesci_mowy', 'warstwa', 'zrodla', 'znaczenie', 'wieloznaczny', 'formy')
 # Progi z ocen R2; automat ich nie rozstrzyga („czeka na ocenę”).
 CZEKA = ('t1_tak', 't2_tak', 't2_nie', 't3_tak', 'zgodnosc')
@@ -922,7 +925,7 @@ def summary(data, cands, built):
         't2': {'synsety': len(t2['synsety']), 'sztuczne': len(t2['sztuczne']), 'jednostki': len(t2['jednostki']),
                'lematy': len(t2['lematy']), 'odrzucone': {k: _examples(v) for k, v in t2['odrzucone'].items()}},
         't3': {**t3['liczniki'], 'hasla_kandydaci': len(t3['hasla']),
-               'odrzucone': {r: _examples(t3['odrzucone'].get(r, ())) for r in T3_POWODY}},
+               'odrzucone': {r: _examples(t3['odrzucone'].get(r, ())) for r in T3_POWODY}} if 't3' in topic else None,
         'wieloznaczny': {v: {**_part(len(keys), len(wpisy)), 'przyklady': keys[:PRZYKLADY]} for v, keys in flags.items()},
         'slowa_oczywiste': words,
         'srodladowe': _inland(topic, t3, built),
@@ -945,14 +948,16 @@ def raport(report):
     n, over, words, inland, verdict = (report[k] for k in ('liczby', 'przeciecia', 'slowa_oczywiste',
                                                            'srodladowe', 'werdykt'))
     lex, forms = over['leksemy'], over['formy']
-    warstwy = ', '.join(f'{w} {n["warstwy"][w]}' for w in WARSTWY)
+    # Warstwy użyte przez temat (#12 W4): T3 tylko przy `t3`.
+    used = PROBA if report['t3'] is not None else PROBA[:2]
+    warstwy = ', '.join(f'{w} {n["warstwy"][w]}' for w in (*used, 'D'))
     total = words['razem']
     cand = inland and inland['kandydaci_t3']
     failed = ', '.join(verdict['niespelnione']) or 'brak'
     lines = [
         f'# Raport TEMATY: {report["temat"]} ({report["wersja_tematu"]}, {report["method"]})', '',
         '## TL;DR',
-        f'- Wpisy: {n["wpisy"]} ({warstwy}); formy w MORZE: {n["formy"]}.',
+        f'- Wpisy: {n["wpisy"]} ({warstwy}); formy w {report["temat"].upper()}: {n["formy"]}.',
         f'- W POP: {_share_text(lex["razem"]["pop"]["liczba"], lex["razem"]["temat"], lex["razem"]["pop"]["procent"])} '
         f'leksemów; w POP00: {_share_text(lex["razem"]["pop00"]["liczba"], lex["razem"]["temat"], lex["razem"]["pop00"]["procent"])}.',
         f'- Test {words["lista"]} słów: {_share_text(total["pokryte"], words["lista"], total["procent"])}, '
@@ -962,13 +967,14 @@ def raport(report):
         f'- Werdykt automatyczny: {verdict["automatyczny"]} (niespełnione: {failed}). '
         f'Progi z ocen ({", ".join(verdict["czeka_na_ocene"])}): czeka na ocenę.', '',
         '## Kluczowe decyzje',
-        '- Wpis to leksem SGJP z formą w STANDARD. Warstwa to najniższa z T1 < T2 < T3; źródła to wszystkie.',
+        f'- Wpis to leksem SGJP z formą w STANDARD. Warstwa to najniższa z {" < ".join(used)}; źródła to wszystkie.',
         f'- D to ręczne dodatki z pliku tematu ({n["warstwy"]["D"]}); powód w `znaczenie`. Próba R2 losuje tylko T1–T3.',
         f'- {POP00_LEKSEMY}. Formy liczymy z POP.txt.gz i POP00.txt.gz.',
         '- Werdykt automatyczny to tylko „dalej” albo „popraw”. „stop” wybiera operator na bramce.', '',
         '## Otwarte pytania',
         '- Trafność warstw i zgodność ocen: czeka na przegląd R2 (agent i operator).',
-        f'- Wpisy T3: {n["warstwy"]["T3"]}. Szum pełnego domknięcia T2 oceni przegląd.', '',
+        *([f'- Wpisy T3: {n["warstwy"]["T3"]}.'] if 'T3' in used else []),
+        '- Szum pełnego domknięcia T2 oceni przegląd.', '',
         '## Przecięcia z POP i POP00',
         '| Warstwa | Leksemy | w POP | w POP00 (POP0) | Formy | w POP | w POP00 |',
         '|---|---|---|---|---|---|---|']
@@ -994,17 +1000,18 @@ def raport(report):
               f'- T1: atomy {", ".join(report["t1"]["atomy"])}; leksemy z etykietą: {report["t1"]["leksemy"]}.',
               f'- T2: synsety {t2["synsety"]} (sztuczne {t2["sztuczne"]}), jednostki {t2["jednostki"]}, '
               f'lematy {t2["lematy"]}. Odrzucone: ' +
-              '; '.join(f'{k} {v["liczba"]}' for k, v in t2['odrzucone'].items()) + '.',
-              f'- T3: hasła z kodem dziedziny {t3["hasla"]}, z terminem PL {t3["hasla_pl"]}, kandydaci '
-              f'{t3["hasla_kandydaci"]}; terminy przyjęte {t3["przyjete"]} ({t3["przyjete_rozne"]} różnych).',
-              '- T3 termType: ' + _counts(t3['termType']) + '.',
-              '- T3 status: ' + _counts(t3['status']) + '.',
-              '- T3 odrzucone: ' + '; '.join(f'{r} {v["liczba"]}' for r, v in t3['odrzucone'].items()) + '.',
-              '', '## Flaga wieloznaczny']
+              '; '.join(f'{k} {v["liczba"]}' for k, v in t2['odrzucone'].items()) + '.']
+    if t3 is not None:
+        lines += [f'- T3: hasła z kodem dziedziny {t3["hasla"]}, z terminem PL {t3["hasla_pl"]}, kandydaci '
+                  f'{t3["hasla_kandydaci"]}; terminy przyjęte {t3["przyjete"]} ({t3["przyjete_rozne"]} różnych).',
+                  '- T3 termType: ' + _counts(t3['termType']) + '.',
+                  '- T3 status: ' + _counts(t3['status']) + '.',
+                  '- T3 odrzucone: ' + '; '.join(f'{r} {v["liczba"]}' for r, v in t3['odrzucone'].items()) + '.']
+    lines += ['', '## Flaga wieloznaczny']
     for value, row in report['wieloznaczny'].items():
         lines.append(f'- {value}: {row["liczba"]} ({_pl(row["procent"])}). ' + _list(row['przyklady']))
     lines += ['', f'## Test {words["lista"]} słów',
-              f'Do progu idzie wynik całości T1 ∪ T2 ∪ T3. T1 oraz T1 ∪ T2 to diagnostyka.']
+              f'Do progu idzie wynik całości {" ∪ ".join(used)}. T1 oraz T1 ∪ T2 to diagnostyka.']
     for name, title in (('razem', 'całość'), ('T1', 'T1'), ('T1_T2', 'T1 ∪ T2')):
         row = words[name]
         lines.append(f'- {title}: {_share_text(row["pokryte"], words["lista"], row["procent"])}. '
@@ -1058,16 +1065,53 @@ def sample(layers, payloads, method):
     return result
 
 
-def _tsv_rows(wpisy):
+def _tsv_rows(wpisy, name):
     rows = ['\t'.join(TSV_KOLUMNY)]
     for key, e in wpisy.items():
         cells = (key, e['lemat'], ','.join(e['czesci_mowy']), e['warstwa'], ','.join(e['zrodla']),
                  ' | '.join(f'{w}: {"; ".join(v)}' for w, v in e['znaczenie'].items()),
                  e['wieloznaczny'], str(len(e['formy'])))
         if any('\t' in c or '\n' in c for c in cells):
-            raise ValueError('Tabulacja albo nowa linia w wierszu MORZE.tsv: ' + key)
+            raise ValueError(f'Tabulacja albo nowa linia w wierszu {name}.tsv: ' + key)
         rows.append('\t'.join(cells))
     return rows
+
+
+def odcinki(text, keep):
+    """Zdejmij odcinki (#12 W4). Zachowany traci tylko bajty znaczników; usunięty znika od `<!--X-->`
+    do `<!--/X-->` włącznie. Odcinek niezamknięty, zagnieżdżony albo inny komentarz HTML: kod 2."""
+    out, start, open_ = [], 0, None
+    for match in ODCINEK.finditer(text):
+        closing_, name = match.groups()
+        if '<!--' in text[start:match.start()]:
+            raise _bad('nieznany komentarz w tekście')
+        if not closing_ and open_ is None:
+            out.append(text[start:match.start()])
+            open_ = name
+        elif closing_ and open_ == name:
+            if name in keep:
+                out.append(text[start:match.start()])
+            open_ = None
+        else:
+            raise _bad('odcinek ' + name + ' zagnieżdżony albo bez pary')
+        start = match.end()
+    if open_ is not None:
+        raise _bad('odcinek ' + open_ + ' niezamknięty')
+    if '<!--' in text[start:]:
+        raise _bad('nieznany komentarz w tekście')
+    return ''.join(out) + text[start:]
+
+
+def teksty_pakietu(texts, topic):
+    """Teksty pakietu po zdjęciu odcinków; `ZNACZNIK` dokładnie raz, w odcinku SRODLADOWE `LIMITATIONS.md`."""
+    keep = {name for name, on in (('T3', 't3' in topic),
+                                  ('SRODLADOWE', 'znaczniki_srodladowe' in topic['diagnostyka'])) if on}
+    for name, text in texts.items():
+        expected = 1 if name == 'LIMITATIONS.md' else 0
+        inside = odcinki(text, {'SRODLADOWE'}).count(ZNACZNIK) - odcinki(text, set()).count(ZNACZNIK)
+        if text.count(ZNACZNIK) != expected or inside != expected:
+            raise _bad(f'{name}: {ZNACZNIK} ma wystąpić {expected} raz, w odcinku SRODLADOWE')
+    return {name: odcinki(text, keep) for name, text in texts.items()}
 
 
 def _write_package(staging, data, sources, cands, built):
@@ -1077,7 +1121,7 @@ def _write_package(staging, data, sources, cands, built):
     (staging / 'reports').mkdir()
     (staging / 'tematy').mkdir()
     write_gzip(staging / f'{name}.txt.gz', built['formy'])
-    write_gzip(staging / f'{name}.tsv.gz', _tsv_rows(built['wpisy']))
+    write_gzip(staging / f'{name}.tsv.gz', _tsv_rows(built['wpisy'], name))
     (staging / 'tematy' / f'{topic["id"]}.json').write_bytes(sources['topic_path'].read_bytes())
     write_json(staging / 'method.json', data['method']['config'])
     report = summary(data, cands, built)
@@ -1091,11 +1135,9 @@ def _write_package(staging, data, sources, cands, built):
     review = review_template(drawn, canonical_index_sha256=sha256(staging / f'{name}.tsv.gz'),
                              evidence_sha256=evidence)
     write_json(staging / 'reports/review-template.json', review)
-    texts = {k: p.read_text(encoding='utf-8') for k, p in data['texts'].items()}
+    texts = teksty_pakietu({k: p.read_text(encoding='utf-8') for k, p in data['texts'].items()}, topic)
     (staging / 'ATTRIBUTIONS.md').write_text(data['attribution'].rstrip('\n') + '\n\n' + texts['ATTRIBUTIONS-tematy.md'],
                                              encoding='utf-8')
-    if texts['LIMITATIONS.md'].count(ZNACZNIK) != 1:
-        raise _bad('LIMITATIONS.md wymaga jednego znacznika ' + ZNACZNIK)
     limits = texts['LIMITATIONS.md']
     if report['srodladowe'] is not None:
         cand = report['srodladowe']['kandydaci_t3']
@@ -1144,7 +1186,7 @@ def build_package(manifest, config, topic, output_dir):
         cands = candidates(data)
         built = build_entries(data, cands)
         if not set(built['formy']) <= data['standard']:
-            raise GeneratorError('Naruszone MORZE ⊆ STANDARD', 4)
+            raise GeneratorError(f'Naruszone {data["topic"]["id"].upper()} ⊆ STANDARD', 4)
         staging = Path(tempfile.mkdtemp(prefix='.' + target.name + '.staging-', dir=target.parent))
         report = _write_package(staging, data, sources, cands, built)
         confirm_unchanged(data)

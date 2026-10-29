@@ -42,15 +42,15 @@
   "teksty": {
     "ATTRIBUTIONS-tematy.md": {
       "path": "tematy-teksty/ATTRIBUTIONS-tematy.md",
-      "sha256": "d667315606d06a79c3dac617127641fb09fb4483e1919559a1c1e7f236d85f4e"
+      "sha256": "18453aa0739f77fd7c033a3fbcc11931fbf6bd9d7d60f8b51a542875541aca5d"
     },
     "LIMITATIONS.md": {
       "path": "tematy-teksty/LIMITATIONS.md",
-      "sha256": "faca2603d2005fe183785a70924351f6ce2f70ed1c2b79863f6571b70efe2b4d"
+      "sha256": "e9dc8bc944a3bf4506401979b72354e68598ded203d13a6833c6abcff0af3a5e"
     },
     "TERMS.md": {
       "path": "tematy-teksty/TERMS.md",
-      "sha256": "b42502890ca2c830da72652360e3db8b6f131bf4bf9e02379f99a86f234c9651"
+      "sha256": "b0db3d414dd8a78d8d5f8423c10cf4972f71aa8bb94f463f61198b91286853cd"
     }
   }
 }

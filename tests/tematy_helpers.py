@@ -21,9 +21,8 @@ def config_fixture(root, t3=True):
     for p in (texts, inputs, root/'tematy'):
         p.mkdir(parents=True)
     for name in TEXTS:
-        # LIMITATIONS ma znacznik, który budowa podmienia na udział śródlądowych (grupa 9).
-        marker = 'Udział śródlądowych: @@SRODLADOWE@@.\n' if name == 'LIMITATIONS.md' else ''
-        (texts/name).write_text('# Fikstura ' + name + '\n' + marker, encoding='utf-8')
+        # Prawdziwe teksty z odcinkami T3 i SRODLADOWE (#12 W4); hashe niżej liczy fikstura.
+        (texts/name).write_bytes((CONFIG/'tematy-teksty'/name).read_bytes())
     method = json.loads((CONFIG/'tematy.json').read_text(encoding='utf-8'))
     method['teksty'] = {name: {'path': 'tematy-teksty/' + name, 'sha256': sha256(texts/name)}
                         for name in TEXTS}
@@ -47,6 +46,13 @@ def config_fixture(root, t3=True):
     manifest = root/'tematy-sources.json'
     write_json(manifest, {'schema_version': 1, 'version': 'tematy-sources-v1', 'inputs': refs})
     return {'root': root, 'config': config, 'topic': topic, 'manifest': manifest, 'texts': texts}
+
+
+def set_text(f, name, text):
+    """Podmień tekst fikstury i przypnij jego nowy hash w konfiguracji metody."""
+    path = Path(f['texts'])/name
+    path.write_text(text, encoding='utf-8')
+    rewrite(f['config'], lambda v: v['teksty'][name].update(sha256=sha256(path)))
 
 
 def rewrite(path, change):
