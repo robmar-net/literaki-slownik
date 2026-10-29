@@ -48,3 +48,11 @@ Agent odrzucał słowa takie jak `bananowiec`, `bungee`, `stojan`, `rozrusznik` 
 „popraw”. Niespełniony jest tylko próg zgodności. „stop” może wybrać tylko operator.
 
 Plik: `verification/review-check.json`.
+
+## Poprawka v2 (grupa 16, 2026-10-29)
+- Temat `morze-v2`: 6 ręcznych dodatków w warstwie D (sztorm, rybak, cumować, falochron, nabrzeże, trał).
+- Pakiet `tematy-v2-20261029-a` = `-b` (SHA256SUMS `037ec490…7cec5`), checker PASS. Kod: 2bd0dab, a633136.
+- 970 leksemów (T1 246, T2 691, T3 27, D 6), 11 035 form. ∩ POP 432 (44,5%), ∩ POP00 113 (11,6%).
+- Test 37 słów: 37/37.
+- Próba R2 bez zmian (`sample_sha256` `95179d52…`); oceny agenta i operatora przepięte na v2: `verification/tematy-morze-v2-review.json`, `review-check-v2.json`.
+- Werdykt automatyczny nadal „popraw” tylko przez zgodność 47/87. Operator: metoda się sprawdziła; ocena wspólna z tematami #12.

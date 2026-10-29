@@ -328,10 +328,10 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `T/decision-log.md`, `T/work-log.md`
 **Kroki:** 3
 
-- [ ] 15.0 Decyzja operatora
+- [x] 15.0 Decyzja operatora
   - [x] 15.1 Orchestrator przedstawia raport bramki (z treścią, nie zapowiedzią). Kontrola: werdykt w raporcie = werdykt checkera.
   - [x] 15.2 Operator wybiera „dalej”, „popraw” albo „stop”. Zapis decyzji z datą w `T/decision-log.md`.
-  - [ ] 15.3 Commit i push `maister: #11 decyzja bramki`. Bez wydania publicznego i bez kolejnych tematów w tym zadaniu.
+  - [x] 15.3 Commit i push `maister: #11 decyzja bramki`. Bez wydania publicznego i bez kolejnych tematów w tym zadaniu.
 
 **Kryteria odbioru:**
 - Decyzja operatora zapisana. Tarballa ani Release nie ma.
@@ -341,13 +341,13 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `literaki_slownik/tematy.py`, `scripts/check_tematy_package.py`, `scripts/tematy_review.py`, `config/generator/tematy/morze.json`, `config/generator/tematy-teksty/LIMITATIONS.md`, `docs/adr/ADR-010-tematy-v1.md`, `docs/generator/*.md`, `tests/test_tematy_*.py`, `tests/tematy_helpers.py`
 **Kroki:** 6
 
-- [ ] 16.0 Dodatki ręczne w budowie
-  - [ ] 16.1 Testy: dodatek trafia do pakietu z warstwą `D`; dodatek spoza STANDARD albo bez leksemu → kod 4; dodatek, który już jest w T1–T3 → kod 2/4; próba R2 nie losuje warstwy `D`; checker liczy `D`.
-  - [ ] 16.2 `load_topic`: niepuste `t3.dodatki` dozwolone, `wykluczenia` nadal puste; wersja tematu `morze-v2`.
-  - [ ] 16.3 Budowa: dodatek → leksem SGJP (lemat + część mowy), formy ∩ STANDARD, warstwa `D`, źródło `dodatek`, znaczenie = powód. Raport i summary pokazują `D` osobno.
-  - [ ] 16.4 `morze.json`: 6 dodatków (sztorm, rybak, falochron, nabrzeże, trał — subst; cumować — inf). ADR-010, docs, LIMITATIONS.
-  - [ ] 16.5 Budowy a/b z czystego drzewa, identyczne SHA256SUMS, checker PASS, test 37 słów 37/37.
-  - [ ] 16.6 Przegląd: ta sama próba T1–T3 → przepiąć oceny agenta i operatora na nowy pakiet; checker `--review`; raport bramki v2; wiki.
+- [x] 16.0 Dodatki ręczne w budowie
+  - [x] 16.1 Testy: dodatek trafia do pakietu z warstwą `D`; dodatek spoza STANDARD albo bez leksemu → kod 4; dodatek, który już jest w T1–T3 → kod 2/4; próba R2 nie losuje warstwy `D`; checker liczy `D`.
+  - [x] 16.2 `load_topic`: niepuste `t3.dodatki` dozwolone, `wykluczenia` nadal puste; wersja tematu `morze-v2`.
+  - [x] 16.3 Budowa: dodatek → leksem SGJP (lemat + część mowy), formy ∩ STANDARD, warstwa `D`, źródło `dodatek`, znaczenie = powód. Raport i summary pokazują `D` osobno.
+  - [x] 16.4 `morze.json`: 6 dodatków (sztorm, rybak, falochron, nabrzeże, trał — subst; cumować — inf). ADR-010, docs, LIMITATIONS.
+  - [x] 16.5 Budowy a/b z czystego drzewa, identyczne SHA256SUMS, checker PASS, test 37 słów 37/37.
+  - [x] 16.6 Przegląd: ta sama próba T1–T3 → przepiąć oceny agenta i operatora na nowy pakiet; checker `--review`; raport bramki v2; wiki.
 
 ## Kolejność wykonania
 1. Grupy 1, 2, 3 — równolegle (różne pliki). Grupa 3 ma długi krok z siecią.

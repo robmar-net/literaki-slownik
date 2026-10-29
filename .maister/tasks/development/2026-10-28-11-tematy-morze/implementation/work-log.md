@@ -187,3 +187,7 @@
 - Checker `--review`: PASS, werdykt „popraw” (tylko zgodność 47/87, kappa 0).
 - Wiki f35fa4f: liczby na Slownik-TEMATY, Home i Historia-zmian; nadal „W przygotowaniu”.
 - `verification/gate-report.md` zapisany.
+
+## 2026-10-29T01:06:21Z - Groups 15–16 Complete
+- 15: decyzja „popraw” (decision-log.md).
+- 16: dodatki D (2bd0dab, a633136); 520 + 5 testów OK; v2 a=b, checker PASS, 37/37; oceny przepięte (sample bez zmian).
