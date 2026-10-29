@@ -8,14 +8,14 @@ orchestrator:
     mockup_format: html
     spec_audit_enabled: true
     skip_test_suite: true
-    e2e_enabled: null
-    user_docs_enabled: null
+    e2e_enabled: false
+    user_docs_enabled: true
     code_review_enabled: true
     pragmatic_review_enabled: true
     reality_check_enabled: true
     production_check_enabled: true
   created: 2026-10-29T00:59:06Z
-  updated: 2026-10-29T01:12:36Z
+  updated: 2026-10-29T01:15:34Z
   task_path: .maister/tasks/development/2026-10-29-12-tematy-fala-1
 task:
   title: "TEMATY: pierwsza fala — 9 tematów (#12)"
@@ -30,7 +30,7 @@ task:
   constraints:
     - Granice tematów szerokie (operator, 2026-10-29).
     - Poza zakresem rolnictwo, Wikisłownik, LLM, kontakt z autorami.
-    - Grupa 16 #11 trwa; nie ruszać tematy.py i powiązanych do jej końca.
+    - Grupa 16 #11 zakończona (2bd0dab, a633136); morze-v2 to test regresji.
     - Polski, zwięźle; TL;DR / Kluczowe decyzje / Otwarte pytania; bez gier słownych poza Literaki i Kurnik.
     - Commit i push po każdym zapisie w .maister/tasks.
   status: in_progress
@@ -40,7 +40,7 @@ task_context:
   clarifications_resolved: true
   scope_expanded: null
   architecture_decision: null
-  task_characteristics: {has_reproducible_defect: false, modifies_existing_code: false, creates_new_entities: false, involves_data_operations: false, ui_heavy: false}
+  task_characteristics: {has_reproducible_defect: false, modifies_existing_code: true, creates_new_entities: true, involves_data_operations: true, ui_heavy: false}
   research_reference:
     path: .maister/tasks/research/2026-10-27-slowniki-tematyczne
     research_type: mixed
@@ -56,4 +56,10 @@ task_context:
       decisions: [{decision: "Jeden pakiet na temat", rationale: "bez zmiany kontraktu pakietu"}, {decision: "T3 opcjonalne; t3_tak nie dotyczy przy pustym T3", rationale: "IATE pasuje tylko do medycyny"}]
       risks: ["Zwierzęta: bez wykluczenia 6047 człowiek 1 lista ludzi", "Medycyna: biochemia i organy roślin", "18 × haszowanie 22 GB"]
       artifacts: [{path: analysis/codebase-analysis.md, label: Analiza kodu i danych, html: null}, {path: analysis/clarifications.md, label: Doprecyzowania, html: null}]
+    gap_analysis:
+      summary: "Temat bez T3 dziś niemożliwy (IATE, znaczniki, t3_tak None); wykluczenia lematów niezaimplementowane, więc przegląd nie usunie słowa; R2 wg zasad morza ok. 570 słów; wiki tylko o morzu."
+      integration_points: [config/generator/tematy/<id>.json, literaki_slownik/cli.py, scripts/tematy_review.py, scripts/check_tematy_package.py, wiki Slownik-TEMATY, docs/runbook-wiki.md]
+      decisions: [{decision: "Jeden pakiet na temat; T3 opcjonalne; dodatki poza t3; metoda tematy-v1", rationale: "decyzje techniczne (ADR-012)"}, {decision: "Regresja morze-v2: lista i TSV bajtowo identyczne", rationale: "zgodność ścisła"}]
+      risks: ["Brak usuwania pojedynczych lematów", "Obciążenie przeglądu operatora", "Szum zwierzęta/medycyna"]
+      artifacts: [{path: analysis/gap-analysis.md, label: Analiza luk, html: null}]
     clarifications: ["Słowa wspólne zostają w każdym temacie", "Taniec → muzyka; gry, szachy, karty → sport; napoje → kuchnia", "Dinozaury tak, łow. nie", "Grzybica → medycyna"]
