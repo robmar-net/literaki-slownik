@@ -3,8 +3,14 @@
 Kopia skryptu z #11 (`2026-10-28-11-tematy-morze/analysis/verify_real.py`) z argumentami
 --topic, --a, --b. Budowy robi CLI `tematy`; ten skrypt ich nie uruchamia, tylko sprawdza
 i zapisuje dowód. Czasy budów podaje się argumentem --times (JSON {a: {start, end, exit}, b: {...}}).
+
+#12 W12 (grupa 12): `--fala` dokłada kontrolę fali 1. T3 niepuste tylko w medycynie; IATE tylko
+w medycynie (`inputs`, blok `iate`, ATTRIBUTIONS.md, TERMS.md, LIMITATIONS.md), a w innych
+tematach nigdzie w pakiecie (także w rozpakowanych .gz); `srodladowe` = null we wszystkich 9.
 """
 import argparse
+import gzip
+import re
 import json
 from pathlib import Path
 import subprocess
@@ -53,6 +59,51 @@ def kluczowe(summary):
     }
 
 
+Z_T3 = {'medycyna'}
+IATE_PLIKI = ('ATTRIBUTIONS.md', 'TERMS.md', 'LIMITATIONS.md')
+# Całe słowo: „kwiatek”, „świateł” zawierają „iate” i nie są IATE.
+IATE_RE = re.compile(r'(?<![^\W\d_])iate(?![^\W\d_])', re.IGNORECASE)
+
+
+def tekst(path):
+    data = path.read_bytes()
+    return (gzip.decompress(data) if path.suffix == '.gz' else data).decode('utf-8')
+
+
+def kontrola_fali(topic_id, pakiet, summary):
+    """Kontrola W12 (#12): T3 i IATE tylko w medycynie, `srodladowe` = null wszędzie."""
+    manifest = load_json(pakiet/'release-manifest.json')
+    t3_liczba = summary['liczby']['warstwy'].get('T3', 0)
+    iate_w_plikach = {n: len(IATE_RE.findall(tekst(pakiet/n))) for n in files(pakiet)}
+    iate_w_plikach = {n: c for n, c in iate_w_plikach.items() if c}
+    wynik = {
+        'temat': topic_id,
+        't3_wpisy': t3_liczba,
+        'summary_t3_null': summary.get('t3') is None,
+        'srodladowe_null': summary.get('srodladowe') is None,
+        'iate_w_inputs': 'iate' in manifest['inputs'],
+        'iate_blok_manifestu': 'iate' in manifest,
+        'iate_w_plikach': iate_w_plikach,
+    }
+    bledy = []
+    if not wynik['srodladowe_null']:
+        bledy.append('srodladowe nie jest null')
+    if topic_id in Z_T3:
+        if not t3_liczba or wynik['summary_t3_null']:
+            bledy.append('medycyna bez T3')
+        if not (wynik['iate_w_inputs'] and wynik['iate_blok_manifestu']):
+            bledy.append('medycyna bez IATE w inputs albo bez bloku iate')
+        bledy += [f'brak IATE w {n}' for n in IATE_PLIKI if n not in iate_w_plikach]
+    else:
+        if t3_liczba or not wynik['summary_t3_null']:
+            bledy.append(f'T3 poza medycyną: {t3_liczba}')
+        if wynik['iate_w_inputs'] or wynik['iate_blok_manifestu'] or iate_w_plikach:
+            bledy.append(f'IATE poza medycyną: {sorted(iate_w_plikach)}')
+    wynik['bledy'] = bledy
+    wynik['zgodna'] = not bledy
+    return wynik
+
+
 def git_porcelain(*paths):
     return subprocess.run(['git', 'status', '--porcelain', '--untracked-files=normal', '--', *paths],
                           cwd=REPO, capture_output=True, text=True, check=True).stdout
@@ -65,6 +116,7 @@ def main():
     ap.add_argument('--b', required=True, help='katalog pakietu b')
     ap.add_argument('--times', required=True)
     ap.add_argument('--output', required=True)
+    ap.add_argument('--fala', action='store_true', help='kontrola fali 1 (#12 W12): T3/IATE tylko w medycynie')
     args = ap.parse_args()
     times = json.loads(Path(args.times).read_text())
     pakiety = [(REPO/args.a).resolve(), (REPO/args.b).resolve()]
@@ -103,6 +155,12 @@ def main():
         print('Checker', p.name, out.get('status'), flush=True)
 
     summary = load_json(pakiety[0]/'reports/summary.json')
+    fala = None
+    if args.fala:
+        topic_id = load_json(REPO/args.topic)['id']
+        fala = kontrola_fali(topic_id, pakiety[0], summary)
+        print('Kontrola fali', topic_id, 'zgodna' if fala['zgodna'] else 'NIEZGODNA: ' + '; '.join(fala['bledy']),
+              flush=True)
     proof = {
         'topic': args.topic,
         'topic_sha256': topic_sha,
@@ -117,8 +175,12 @@ def main():
         'checker_wynik_a': checks[pakiety[0].name]['wynik'],
         'summary': kluczowe(summary),
     }
+    if fala is not None:
+        proof['fala'] = fala
     Path(args.output).write_text(json.dumps(proof, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print('Zapisano', args.output, flush=True)
+    if fala is not None and not fala['zgodna']:
+        sys.exit(1)
 
 
 if __name__ == '__main__':
