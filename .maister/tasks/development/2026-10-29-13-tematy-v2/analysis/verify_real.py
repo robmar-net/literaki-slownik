@@ -77,7 +77,8 @@ def kontrola_fali(topic_id, pakiet, summary):
     """Kontrola W12 (#12): T3 i IATE tylko w medycynie, `srodladowe` = null wszędzie."""
     manifest = load_json(pakiet/'release-manifest.json')
     t3_liczba = summary['liczby']['warstwy'].get('T3', 0)
-    iate_w_plikach = {n: len(IATE_RE.findall(tekst(pakiet/n))) for n in files(pakiet)}
+    # #13: kopia pliku tematu pomija skan; `uwagi` medycyny v2 opisują usunięcie IATE (nie atrybucja).
+    iate_w_plikach = {n: len(IATE_RE.findall(tekst(pakiet/n))) for n in files(pakiet) if n != f'tematy/{topic_id}.json'}
     iate_w_plikach = {n: c for n, c in iate_w_plikach.items() if c}
     wynik = {
         'temat': topic_id,

@@ -1,0 +1,519 @@
+{
+  "temat": "medycyna",
+  "items": [
+    {
+      "key": "alergia@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "alergia",
+          "alergiach",
+          "alergiami",
+          "alergie",
+          "alergii"
+        ],
+        "key": "alergia@sgjp-20260823",
+        "lemat": "alergia",
+        "liczba_form": 9,
+        "warstwa": "T1",
+        "wieloznaczny": "tak",
+        "znaczenie": {
+          "T1": [
+            "med."
+          ],
+          "T2": [
+            "45 alergia 1"
+          ]
+        },
+        "zrodla": [
+          "T1",
+          "T2"
+        ]
+      },
+      "strata": [
+        "T1"
+      ]
+    },
+    {
+      "key": "arytmia@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "arytmia",
+          "arytmiach",
+          "arytmiami",
+          "arytmie",
+          "arytmii"
+        ],
+        "key": "arytmia@sgjp-20260823",
+        "lemat": "arytmia",
+        "liczba_form": 9,
+        "warstwa": "T2",
+        "wieloznaczny": "tak",
+        "znaczenie": {
+          "T2": [
+            "25333 arytmia 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "czerniak@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "czerniak",
+          "czerniaka",
+          "czerniakach",
+          "czerniakami",
+          "czerniaki"
+        ],
+        "key": "czerniak@sgjp-20260823",
+        "lemat": "czerniak",
+        "liczba_form": 10,
+        "warstwa": "T1",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T1": [
+            "med."
+          ],
+          "T2": [
+            "73901 czerniak 1",
+            "73902 czerniak 2"
+          ]
+        },
+        "zrodla": [
+          "T1",
+          "T2"
+        ]
+      },
+      "strata": [
+        "T1"
+      ]
+    },
+    {
+      "key": "epilepsja@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "epilepsja",
+          "epilepsjach",
+          "epilepsjami",
+          "epilepsje",
+          "epilepsji"
+        ],
+        "key": "epilepsja@sgjp-20260823",
+        "lemat": "epilepsja",
+        "liczba_form": 9,
+        "warstwa": "T1",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T1": [
+            "med."
+          ],
+          "T2": [
+            "12975 epilepsja 1"
+          ]
+        },
+        "zrodla": [
+          "T1",
+          "T2"
+        ]
+      },
+      "strata": [
+        "T1"
+      ]
+    },
+    {
+      "key": "inwalidztwo@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "inwalidztw",
+          "inwalidztwa",
+          "inwalidztwach",
+          "inwalidztwami",
+          "inwalidztwem"
+        ],
+        "key": "inwalidztwo@sgjp-20260823",
+        "lemat": "inwalidztwo",
+        "liczba_form": 9,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "5780 inwalidztwo 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "izogameta@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "izogamecie",
+          "izogamet",
+          "izogameta",
+          "izogametach",
+          "izogametami"
+        ],
+        "key": "izogameta@sgjp-20260823",
+        "lemat": "izogameta",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "397516 izogameta 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "mikoza@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "mikoz",
+          "mikoza",
+          "mikozach",
+          "mikozami",
+          "mikozie"
+        ],
+        "key": "mikoza@sgjp-20260823",
+        "lemat": "mikoza",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "24994 mikoza 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "nadciśnienie@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "nadciśnienia",
+          "nadciśnieniach",
+          "nadciśnieniami",
+          "nadciśnienie",
+          "nadciśnieniem"
+        ],
+        "key": "nadciśnienie@sgjp-20260823",
+        "lemat": "nadciśnienie",
+        "liczba_form": 8,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "24967 nadciśnienie 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "niedokrwistość@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "niedokrwistości",
+          "niedokrwistość"
+        ],
+        "key": "niedokrwistość@sgjp-20260823",
+        "lemat": "niedokrwistość",
+        "liczba_form": 2,
+        "warstwa": "T1",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T1": [
+            "med."
+          ],
+          "T2": [
+            "12608 niedokrwistość 1"
+          ]
+        },
+        "zrodla": [
+          "T1",
+          "T2"
+        ]
+      },
+      "strata": [
+        "T1"
+      ]
+    },
+    {
+      "key": "oczodół@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "oczodole",
+          "oczodołach",
+          "oczodołami",
+          "oczodołem",
+          "oczodołom"
+        ],
+        "key": "oczodół@sgjp-20260823",
+        "lemat": "oczodół",
+        "liczba_form": 10,
+        "warstwa": "T1",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T1": [
+            "anat."
+          ],
+          "T2": [
+            "12725 oczodół 1"
+          ]
+        },
+        "zrodla": [
+          "T1",
+          "T2"
+        ]
+      },
+      "strata": [
+        "T1"
+      ]
+    },
+    {
+      "key": "perystaltyka@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "perystaltyce",
+          "perystaltyk",
+          "perystaltyka",
+          "perystaltykach",
+          "perystaltykami"
+        ],
+        "key": "perystaltyka@sgjp-20260823",
+        "lemat": "perystaltyka",
+        "liczba_form": 10,
+        "warstwa": "T1",
+        "wieloznaczny": "tak",
+        "znaczenie": {
+          "T1": [
+            "med."
+          ]
+        },
+        "zrodla": [
+          "T1"
+        ]
+      },
+      "strata": [
+        "T1"
+      ]
+    },
+    {
+      "key": "przodomózgowie@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "przodomózgowi",
+          "przodomózgowia",
+          "przodomózgowie",
+          "przodomózgowiem",
+          "przodomózgowiom"
+        ],
+        "key": "przodomózgowie@sgjp-20260823",
+        "lemat": "przodomózgowie",
+        "liczba_form": 6,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "47110 przodomózgowie 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "szczękonóżka@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "szczękonóżce",
+          "szczękonóżek",
+          "szczękonóżka",
+          "szczękonóżkach",
+          "szczękonóżkami"
+        ],
+        "key": "szczękonóżka@sgjp-20260823",
+        "lemat": "szczękonóżka",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "47541 szczękonóżka 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "trzewioczaszka@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "trzewioczaszce",
+          "trzewioczaszek",
+          "trzewioczaszka",
+          "trzewioczaszki",
+          "trzewioczaszko"
+        ],
+        "key": "trzewioczaszka@sgjp-20260823",
+        "lemat": "trzewioczaszka",
+        "liczba_form": 8,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "76844 trzewioczaszka 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "upośledzenie@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "upośledzenia",
+          "upośledzeniach",
+          "upośledzeniami",
+          "upośledzenie",
+          "upośledzeniem"
+        ],
+        "key": "upośledzenie@sgjp-20260823",
+        "lemat": "upośledzenie",
+        "liczba_form": 8,
+        "warstwa": "T2",
+        "wieloznaczny": "tak",
+        "znaczenie": {
+          "T2": [
+            "10978 upośledzenie 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "żołądź:Sf@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "żołądź",
+          "żołędzi",
+          "żołędziach",
+          "żołędziami",
+          "żołędzie"
+        ],
+        "key": "żołądź:Sf@sgjp-20260823",
+        "lemat": "żołądź",
+        "liczba_form": 7,
+        "warstwa": "T1",
+        "wieloznaczny": "tak",
+        "znaczenie": {
+          "T1": [
+            "anat."
+          ]
+        },
+        "zrodla": [
+          "T1"
+        ]
+      },
+      "strata": [
+        "T1"
+      ]
+    }
+  ]
+}

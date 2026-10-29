@@ -1,0 +1,160 @@
+{
+  "temat": "grzyby",
+  "items": [
+    {
+      "key": "endospora@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "endospor",
+          "endospora",
+          "endosporach",
+          "endosporami",
+          "endosporo"
+        ],
+        "key": "endospora@sgjp-20260823",
+        "lemat": "endospora",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "39506 endospora 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "lejkowiec@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "lejkowca",
+          "lejkowcach",
+          "lejkowcami",
+          "lejkowce",
+          "lejkowcem"
+        ],
+        "key": "lejkowiec@sgjp-20260823",
+        "lemat": "lejkowiec",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "386863 lejkowiec 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "majówka@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "majówce",
+          "majówek",
+          "majówka",
+          "majówkach",
+          "majówkami"
+        ],
+        "key": "majówka@sgjp-20260823",
+        "lemat": "majówka",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "tak",
+        "znaczenie": {
+          "T2": [
+            "383896 majówka 4"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "przetrwalnik@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "przetrwalnik",
+          "przetrwalnika",
+          "przetrwalnikach",
+          "przetrwalnikami",
+          "przetrwalniki"
+        ],
+        "key": "przetrwalnik@sgjp-20260823",
+        "lemat": "przetrwalnik",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "39506 przetrwalnik 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "sierpik:Sm3@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "sierpik",
+          "sierpika",
+          "sierpikach",
+          "sierpikami",
+          "sierpiki"
+        ],
+        "key": "sierpik:Sm3@sgjp-20260823",
+        "lemat": "sierpik",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "tak",
+        "znaczenie": {
+          "T2": [
+            "47643 sierpik 4"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    }
+  ]
+}

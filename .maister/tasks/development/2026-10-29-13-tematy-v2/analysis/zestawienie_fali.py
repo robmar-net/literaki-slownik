@@ -1,8 +1,9 @@
-"""Zestawienie fali TEMATY (#12, W14, grupa 16.2) dla wspólnej oceny na bramce.
+"""Zestawienie v2 fali TEMATY (#13; kopia skryptu #12) dla bramki v2.
 
-Czyta 10 pakietów (9 z grupy 12 i morze z grupy 9) oraz 10 plików `verification/review-check-<id>.json`.
+Czyta 10 pakietów: 7 v2 z #13 i rośliny, zwierzęta, morze z #12 (bez zmian), oraz pliki
+`verification/review-check-<id>.json` (v2 z tego zadania, pozostałe z #12).
 Liczby bierzemy z `reports/summary.json`, `release-manifest.json` i `review-check-<id>.json`;
-lematy do macierzy nakładania z `<ID>.tsv.gz`. Wynik: `verification/zestawienie-fali.json`.
+lematy do macierzy nakładania z `<ID>.tsv.gz`. Wynik: `verification/zestawienie-v2.json`.
 
 Dwa werdykty na temat:
 - `werdykt_checkera`: werdykt checkera bez zmian (bez ocen operatora T2/T3 i zgodność „czeka”);
@@ -22,8 +23,10 @@ from pathlib import Path
 TASK = Path(__file__).resolve().parents[1]
 REPO = TASK.parents[3]
 VER = TASK/'verification'
+VER12 = REPO/'.maister/tasks/development/2026-10-29-12-tematy-fala-1/verification'
 TEMATY = ('grzyby', 'pogoda', 'matematyka', 'muzyka', 'sport', 'kuchnia', 'rosliny', 'zwierzeta', 'medycyna')
-PAKIETY = {**{t: REPO/f'data/work/tematy-{t}-v1-20261029-a' for t in TEMATY},
+V2 = ('grzyby', 'pogoda', 'matematyka', 'muzyka', 'sport', 'kuchnia', 'medycyna')
+PAKIETY = {**{t: REPO/f'data/work/tematy-{t}-{"v2" if t in V2 else "v1"}-20261029-a' for t in TEMATY},
            'morze': REPO/'data/work/tematy-morze-v2-20261029-a'}
 NIE_DOTYCZY = 'nie dotyczy'
 BRAK_OCEN = 'brak ocen'
@@ -128,24 +131,20 @@ def wiersz(root, check_path, review_path=None):
 
 def main():
     kolejnosc = list(TEMATY) + ['morze']
-    wiersze = [wiersz(PAKIETY[t], VER/f'review-check-{t}.json', VER/f'tematy-{t}-review.json') for t in kolejnosc]
-    builds = czytaj(VER/'builds.json')
-    med = next(w for w in wiersze if w['temat'] == 'medycyna')['warstwy']['T3']
-    if med != builds['medycyna_t3']:
-        raise ValueError(f'T3 medycyny: pakiet {med}, builds.json {builds["medycyna_t3"]}')
+    wiersze = [wiersz(PAKIETY[t], (VER if t in V2 else VER12)/f'review-check-{t}.json',
+                      (VER if t in V2 else VER12)/f'tematy-{t}-review.json') for t in kolejnosc]
     zbiory = {t: lematy(PAKIETY[t], t) for t in kolejnosc}
     wynik = {
-        'zadanie': '#12 W14, grupa 16',
+        'zadanie': '#13, v2 po bramce #12',
         'metoda_r2': 'Trafność T2 i T3 z ocen agenta (decyzja operatora 2026-10-29, scope-clarifications.md, '
                      '„Zmiana metody R2”); progi z config/generator/tematy.json; zgodność i kappa: nie dotyczy. '
                      'Werdykt checkera podany bez zmian obok.',
         'progi': PROGI,
         'kolejnosc': kolejnosc,
-        'medycyna_t3': med,
         'tematy': wiersze,
         'nakladanie': macierz(zbiory, kolejnosc),
     }
-    out = VER/'zestawienie-fali.json'
+    out = VER/'zestawienie-v2.json'
     out.write_text(json.dumps(wynik, ensure_ascii=False, sort_keys=True, indent=2) + '\n', encoding='utf-8')
     for w in wiersze:
         print(w['temat'], 'checker:', w['werdykt_checkera']['wynik'], 'bramka:', w['bramka']['wynik'],

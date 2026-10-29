@@ -1,0 +1,9 @@
+{
+  "reviewer": "agent (Claude)",
+  "reviewed_at": "2026-10-29T14:11:21Z",
+  "oceny": {
+    "basetlista@sgjp-20260823": {"ocena": "tak", "powod": "Muzyk grający na basetli, czyli wykonawca."},
+    "diafonia@sgjp-20260823": {"ocena": "niepewne", "powod": "Wczesna forma wielogłosowości to specjalistyczny termin teorii muzyki."},
+    "pląs@sgjp-20260823": {"ocena": "tak", "powod": "Pląs to taniec, który należy do muzyki."}
+  }
+}

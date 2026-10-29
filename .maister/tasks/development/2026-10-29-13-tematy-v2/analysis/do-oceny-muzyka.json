@@ -1,0 +1,99 @@
+{
+  "temat": "muzyka",
+  "items": [
+    {
+      "key": "basetlista@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "depr",
+          "subst"
+        ],
+        "formy": [
+          "basetlista",
+          "basetlistach",
+          "basetlistami",
+          "basetlisto",
+          "basetlistom"
+        ],
+        "key": "basetlista@sgjp-20260823",
+        "lemat": "basetlista",
+        "liczba_form": 11,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "232842 basetlista 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "diafonia@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "diafonia",
+          "diafoniach",
+          "diafoniami",
+          "diafonie",
+          "diafonii"
+        ],
+        "key": "diafonia@sgjp-20260823",
+        "lemat": "diafonia",
+        "liczba_form": 9,
+        "warstwa": "T2",
+        "wieloznaczny": "tak",
+        "znaczenie": {
+          "T2": [
+            "43989 diafonia 2"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "pląs@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "pląs",
+          "pląsach",
+          "pląsami",
+          "pląsem",
+          "pląsie"
+        ],
+        "key": "pląs@sgjp-20260823",
+        "lemat": "pląs",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "34563 pląs 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    }
+  ]
+}

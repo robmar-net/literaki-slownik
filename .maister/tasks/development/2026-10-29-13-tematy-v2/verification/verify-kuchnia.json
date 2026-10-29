@@ -1,0 +1,558 @@
+{
+  "topic": "config/generator/tematy/kuchnia.json",
+  "topic_sha256": "94566de774228c806feab8080e04531b9662bf6e52efa6d7beee870c6902da3a",
+  "code_identity": {
+    "git_commit": "a56b815791ee105410c60f94d28ef25d5a6ac530",
+    "git_dirty": false,
+    "tree_sha256": "79431b64cbc9cc2832e081013d836428d184f06bdd42720cfd8c5619401f0e1f"
+  },
+  "git_status_config_scripts": "pusty",
+  "budowy": {
+    "a": {
+      "start": 1793282662,
+      "end": 1793282702,
+      "exit": 0,
+      "sekundy": 40
+    },
+    "b": {
+      "start": 1793282702,
+      "end": 1793282744,
+      "exit": 0,
+      "sekundy": 42
+    }
+  },
+  "pakiety": [
+    "data/work/tematy-kuchnia-v2-20261029-a",
+    "data/work/tematy-kuchnia-v2-20261029-b"
+  ],
+  "sha256sums_sha256": "790b1e8850543c6758df50351f74f17dd8b30f926f52234384687a2f92d16b41",
+  "files_sha256": {
+    "ATTRIBUTIONS.md": "87bb3d8fa3e6de9c2be052a8fbf1f6ec4bfa44d4e35dd836d6546f4331b51569",
+    "KUCHNIA.tsv.gz": "c5ff6fa2aef575d820dbb023df3ba9d778444ed0fdcd1ba95383c8dc83b0a25e",
+    "KUCHNIA.txt.gz": "225e961fbeea5e69ad1feb2b8b818558e1dff4330c5fff88c2ecc01b4bf0dd1e",
+    "LIMITATIONS.md": "06efc6f2de81c872476971c577836f584553258447195c5271fbb3d910372ddf",
+    "SHA256SUMS": "790b1e8850543c6758df50351f74f17dd8b30f926f52234384687a2f92d16b41",
+    "TERMS.md": "7d4f57c1689214535616d0ccba94b84d539e18c4e7c5451c079a848198b61a9e",
+    "method.json": "cf2cb5ace886e52ea931a8d16d4aedaa8ff32293a3d7b08adb3b3c9147b0160c",
+    "release-manifest.json": "16dc0fb83bdffcd8069a6bf7d508a1be2060c9800aeb0b788f12d77375c47dc1",
+    "reports/raport.md": "51d563251383b6d6f206066169f4cce7cb791a9b2b280b82d07f9a882d9093ed",
+    "reports/review-template.json": "3b3262dae18f027ad12ddd8083e2059996a4f2be852c7905867e4db5ed269a2b",
+    "reports/sample.json": "5ea28b1260519c8790b46546be675bd9a67f3d9537e687ee3b32a3abfde2ae77",
+    "reports/summary.json": "ad1b1f25e50b9502567c6995d391118a13102ca657b08872f961c16442e4e3d7",
+    "tematy/kuchnia.json": "94566de774228c806feab8080e04531b9662bf6e52efa6d7beee870c6902da3a"
+  },
+  "all_files_identical": true,
+  "checker": {
+    "tematy-kuchnia-v2-20261029-a": {
+      "exit": 0,
+      "status": "pass"
+    },
+    "tematy-kuchnia-v2-20261029-b": {
+      "exit": 0,
+      "status": "pass"
+    }
+  },
+  "checker_wynik_a": {
+    "formy": 16064,
+    "review_checked": false,
+    "sha256sums_sha256": "790b1e8850543c6758df50351f74f17dd8b30f926f52234384687a2f92d16b41",
+    "slowa_oczywiste": {
+      "brakujace": [
+        "gotować",
+        "nóż",
+        "piec",
+        "smażyć",
+        "widelec",
+        "łyżka"
+      ],
+      "lista": 37,
+      "pokryte": 31
+    },
+    "status": "pass",
+    "temat": "kuchnia",
+    "warstwy": {
+      "D": 0,
+      "T1": 157,
+      "T2": 1658,
+      "T3": 0
+    },
+    "wpisy": 1815
+  },
+  "summary": {
+    "liczby": {
+      "formy": 16064,
+      "kandydaci": 1871,
+      "warstwy": {
+        "D": 0,
+        "T1": 157,
+        "T2": 1658,
+        "T3": 0
+      },
+      "wpisy": 1815
+    },
+    "przeciecia": {
+      "leksemy": {
+        "D": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "T1": {
+          "temat": 157,
+          "pop": {
+            "liczba": 93,
+            "procent": "59.2"
+          },
+          "pop00": {
+            "liczba": 5,
+            "procent": "3.2"
+          }
+        },
+        "T2": {
+          "temat": 1658,
+          "pop": {
+            "liczba": 1066,
+            "procent": "64.3"
+          },
+          "pop00": {
+            "liczba": 257,
+            "procent": "15.5"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 1815,
+          "pop": {
+            "liczba": 1159,
+            "procent": "63.9"
+          },
+          "pop00": {
+            "liczba": 262,
+            "procent": "14.4"
+          }
+        }
+      },
+      "formy": {
+        "D": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "T1": {
+          "temat": 1246,
+          "pop": {
+            "liczba": 751,
+            "procent": "60.3"
+          },
+          "pop00": {
+            "liczba": 71,
+            "procent": "5.7"
+          }
+        },
+        "T2": {
+          "temat": 14952,
+          "pop": {
+            "liczba": 9713,
+            "procent": "65.0"
+          },
+          "pop00": {
+            "liczba": 2475,
+            "procent": "16.6"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 16064,
+          "pop": {
+            "liczba": 10370,
+            "procent": "64.6"
+          },
+          "pop00": {
+            "liczba": 2531,
+            "procent": "15.8"
+          }
+        }
+      }
+    },
+    "diagnostyka": {
+      "D": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "T1": {
+        "formy": {
+          "broad": 1257,
+          "kandydaci": 1306,
+          "procent_broad": "96.2",
+          "procent_standard": "95.4",
+          "standard": 1246
+        },
+        "leksemy": {
+          "broad": 158,
+          "kandydaci": 166,
+          "procent_broad": "95.2",
+          "procent_standard": "94.6",
+          "standard": 157
+        }
+      },
+      "T2": {
+        "formy": {
+          "broad": 15343,
+          "kandydaci": 15523,
+          "procent_broad": "98.8",
+          "procent_standard": "96.3",
+          "standard": 14952
+        },
+        "leksemy": {
+          "broad": 1689,
+          "kandydaci": 1705,
+          "procent_broad": "99.1",
+          "procent_standard": "97.2",
+          "standard": 1658
+        }
+      },
+      "T3": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "razem": {
+        "formy": {
+          "broad": 16466,
+          "kandydaci": 16695,
+          "procent_broad": "98.6",
+          "procent_standard": "96.2",
+          "standard": 16064
+        },
+        "leksemy": {
+          "broad": 1847,
+          "kandydaci": 1871,
+          "procent_broad": "98.7",
+          "procent_standard": "97.0",
+          "standard": 1815
+        }
+      }
+    },
+    "slowa_oczywiste": {
+      "razem": {
+        "brakujace": [
+          "gotować",
+          "nóż",
+          "piec",
+          "smażyć",
+          "widelec",
+          "łyżka"
+        ],
+        "pokryte": 31,
+        "procent": "83.8"
+      },
+      "T1": {
+        "brakujace": [
+          "chleb",
+          "ciasto",
+          "cukier",
+          "czajnik",
+          "garnek",
+          "gotować",
+          "herbata",
+          "jajko",
+          "kawa",
+          "kiełbasa",
+          "kolacja",
+          "kotlet",
+          "masło",
+          "mleko",
+          "mąka",
+          "nóż",
+          "obiad",
+          "patelnia",
+          "piec",
+          "piwo",
+          "przyprawa",
+          "ser",
+          "smażyć",
+          "sok",
+          "sól",
+          "talerz",
+          "widelec",
+          "wino",
+          "woda",
+          "wódka",
+          "ziemniak",
+          "zupa",
+          "łyżka",
+          "śniadanie"
+        ],
+        "pokryte": 3,
+        "procent": "8.1"
+      },
+      "T1_T2": {
+        "brakujace": [
+          "gotować",
+          "nóż",
+          "piec",
+          "smażyć",
+          "widelec",
+          "łyżka"
+        ],
+        "pokryte": 31,
+        "procent": "83.8"
+      },
+      "spelniony": true,
+      "prog": "0.70"
+    },
+    "srodladowe": null,
+    "odrzucone": {
+      "D": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "T1": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 8
+        },
+        "POZA_STANDARD": {
+          "liczba": 1
+        }
+      },
+      "T2": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 683
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 985
+        },
+        "POZA_BROAD": {
+          "liczba": 16
+        },
+        "POZA_STANDARD": {
+          "liczba": 31
+        }
+      },
+      "T3": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "razem": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 683
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 985
+        },
+        "POZA_BROAD": {
+          "liczba": 24
+        },
+        "POZA_STANDARD": {
+          "liczba": 32
+        }
+      }
+    },
+    "t3": null,
+    "wieloznaczny": {
+      "brak_danych": {
+        "liczba": 22,
+        "procent": "1.2",
+        "przyklady": [
+          "buraczki@sgjp-20260823",
+          "cherry@sgjp-20260823",
+          "chile@sgjp-20260823",
+          "garnir@sgjp-20260823",
+          "grana@sgjp-20260823",
+          "jeliciarka@sgjp-20260823",
+          "jeliciarnia@sgjp-20260823",
+          "jeliciarz@sgjp-20260823",
+          "kafetiera@sgjp-20260823",
+          "kimchi@sgjp-20260823"
+        ]
+      },
+      "nie": {
+        "liczba": 895,
+        "procent": "49.3",
+        "przyklady": [
+          "Ala@sgjp-20260823",
+          "absynt@sgjp-20260823",
+          "adenina@sgjp-20260823",
+          "adenozyna@sgjp-20260823",
+          "aglutynina@sgjp-20260823",
+          "agranulocyt@sgjp-20260823",
+          "aioli@sgjp-20260823",
+          "ajerkoniak@sgjp-20260823",
+          "ajerówka@sgjp-20260823",
+          "aktyna@sgjp-20260823"
+        ]
+      },
+      "tak": {
+        "liczba": 898,
+        "procent": "49.5",
+        "przyklady": [
+          "acerola@sgjp-20260823",
+          "adwokat:Sf@sgjp-20260823",
+          "adwokat:Sm1@sgjp-20260823",
+          "adwokat:Sm2.m3@sgjp-20260823",
+          "agar@sgjp-20260823",
+          "agrest@sgjp-20260823",
+          "ajwar@sgjp-20260823",
+          "alkohol@sgjp-20260823",
+          "alpaga@sgjp-20260823",
+          "ambrozja@sgjp-20260823"
+        ]
+      }
+    },
+    "wykluczenia": [
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "cytoplazma@sgjp-20260823"
+        ],
+        "lemat": "cytoplazma",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "sadzeniak@sgjp-20260823"
+        ],
+        "lemat": "sadzeniak",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "tyrozynaza@sgjp-20260823"
+        ],
+        "lemat": "tyrozynaza",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      }
+    ],
+    "werdykt": {
+      "automatyczny": "dalej",
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [],
+      "uwaga": "„stop” wybiera tylko operator na bramce"
+    }
+  },
+  "fala": {
+    "temat": "kuchnia",
+    "t3_wpisy": 0,
+    "summary_t3_null": true,
+    "srodladowe_null": true,
+    "iate_w_inputs": false,
+    "iate_blok_manifestu": false,
+    "iate_w_plikach": {},
+    "bledy": [],
+    "zgodna": true
+  }
+}

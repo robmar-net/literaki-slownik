@@ -1,4 +1,4 @@
-# Instrukcja oceny agenta — #12, R2
+# Instrukcja oceny agenta — #13, R2 (kopia z #12)
 
 Jedna instrukcja dla 9 tematów. Oceniasz jeden temat w jednej sesji.
 
@@ -7,19 +7,18 @@ Jedna instrukcja dla 9 tematów. Oceniasz jeden temat w jednej sesji.
 Tylko dwa pliki:
 
 1. tę instrukcję;
-2. `data/work/tematy-<id>-v1-20261029-a/reports/review-template.json` swojego tematu.
+2. `.maister/tasks/development/2026-10-29-13-tematy-v2/analysis/do-oceny-<id>.json` swojego tematu.
 
 Nie czytasz innych plików, ocen innych tematów ani kodu. Nie szukasz w sieci.
 
 ## Co oceniasz
 
-Każdą pozycję z `items` w szablonie (100 pozycji, w medycynie 150). Słowo opisuje
+Każdą pozycję z `items` w pliku `do-oceny-<id>.json` (#13: tylko pozycje nowe w próbie v2; reszta ocen przechodzi z #12). Słowo opisuje
 `selected_unit`:
 
 - `lemat`, `formy`, `czesci_mowy`;
 - `znaczenie`: skąd słowo trafiło do tematu. `T1` to kwalifikator słownikowy (np. `mikol.`,
-  `med.`), `T2` to synset plWordNetu (`<id> <lemat> <nr znaczenia>`), `T3` to termin IATE
-  (tylko medycyna);
+  `med.`), `T2` to synset plWordNetu (`<id> <lemat> <nr znaczenia>`); w v2 nie ma T3;
 - `wieloznaczny`: czy lemat ma też znaczenia spoza tematu.
 
 Pytanie brzmi: **czy gracz uznałby to słowo za słowo z tego tematu?**
@@ -64,17 +63,17 @@ Decyzje operatora (`clarifications.md`, `scope-clarifications.md`):
 
 ## Wynik
 
-Plik `.maister/tasks/development/2026-10-29-12-tematy-fala-1/analysis/agent-ratings-<id>.json`,
-gdzie `<id>` to: grzyby, pogoda, matematyka, muzyka, sport, kuchnia, rosliny, zwierzeta,
-medycyna. Kodowanie UTF-8, poprawny JSON:
+Plik `.maister/tasks/development/2026-10-29-13-tematy-v2/analysis/nowe-oceny-<id>.json`,
+gdzie `<id>` to: grzyby, pogoda, matematyka, muzyka, sport, kuchnia, medycyna.
+Kodowanie UTF-8, poprawny JSON:
 
 ```json
 {
   "reviewer": "agent (Claude)",
   "reviewed_at": "2026-10-29T12:00:00Z",
   "oceny": {
-    "<key 1 z szablonu>": {"ocena": "tak", "powod": "jedno krótkie zdanie"},
-    "<key 2 z szablonu>": {"ocena": "nie", "powod": "jedno krótkie zdanie"}
+    "<key 1 z do-oceny>": {"ocena": "tak", "powod": "jedno krótkie zdanie"},
+    "<key 2 z do-oceny>": {"ocena": "nie", "powod": "jedno krótkie zdanie"}
   }
 }
 ```
@@ -83,9 +82,9 @@ Wymagania (skrypt zapisu odrzuca plik, który ich nie spełnia):
 
 - dokładnie trzy klucze najwyższego poziomu: `reviewer`, `reviewed_at`, `oceny`;
 - `reviewed_at` w UTC, format `RRRR-MM-DDTGG:MM:SSZ`;
-- w `oceny` są **wszystkie** wartości `key` z `items` szablonu i **żadnych innych**; klucz
+- w `oceny` są **wszystkie** wartości `key` z `items` pliku `do-oceny-<id>.json` i **żadnych innych**; klucz
   przepisujesz dokładnie, z dopiskiem `:Sm1` i `@sgjp-…`;
 - każda wartość ma dokładnie dwa pola: `ocena` z `"tak"`, `"nie"`, `"niepewne"` oraz
   niepusty `powod`.
 
-Warstwy (`T1`, `T2`, `T3`) dopisuje skrypt z próby. Ty ich nie podajesz.
+Warstwy (`T1`, `T2`) dopisuje skrypt z próby. Ty ich nie podajesz.

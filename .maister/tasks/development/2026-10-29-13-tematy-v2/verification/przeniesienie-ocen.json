@@ -1,0 +1,30 @@
+{
+  "grzyby": {
+    "przeniesione": 95,
+    "do_oceny": 5
+  },
+  "pogoda": {
+    "przeniesione": 100,
+    "do_oceny": 0
+  },
+  "matematyka": {
+    "przeniesione": 94,
+    "do_oceny": 6
+  },
+  "muzyka": {
+    "przeniesione": 97,
+    "do_oceny": 3
+  },
+  "sport": {
+    "przeniesione": 100,
+    "do_oceny": 0
+  },
+  "kuchnia": {
+    "przeniesione": 97,
+    "do_oceny": 3
+  },
+  "medycyna": {
+    "przeniesione": 84,
+    "do_oceny": 16
+  }
+}

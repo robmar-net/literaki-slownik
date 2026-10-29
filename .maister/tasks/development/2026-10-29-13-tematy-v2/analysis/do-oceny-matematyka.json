@@ -1,0 +1,191 @@
+{
+  "temat": "matematyka",
+  "items": [
+    {
+      "key": "ekliptyka@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "ekliptyce",
+          "ekliptyk",
+          "ekliptyka",
+          "ekliptykach",
+          "ekliptykami"
+        ],
+        "key": "ekliptyka@sgjp-20260823",
+        "lemat": "ekliptyka",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "33759 ekliptyka 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "inwersja@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "inwersja",
+          "inwersjach",
+          "inwersjami",
+          "inwersje",
+          "inwersji"
+        ],
+        "key": "inwersja@sgjp-20260823",
+        "lemat": "inwersja",
+        "liczba_form": 9,
+        "warstwa": "T2",
+        "wieloznaczny": "tak",
+        "znaczenie": {
+          "T2": [
+            "395703 inwersja 4"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "kwaternion@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "kwaternion",
+          "kwaternionach",
+          "kwaternionami",
+          "kwaternionem",
+          "kwaternionie"
+        ],
+        "key": "kwaternion@sgjp-20260823",
+        "lemat": "kwaternion",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "33603 kwaternion 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "lemniskata@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "lemniskacie",
+          "lemniskat",
+          "lemniskata",
+          "lemniskatach",
+          "lemniskatami"
+        ],
+        "key": "lemniskata@sgjp-20260823",
+        "lemat": "lemniskata",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "32260 lemniskata 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "pryzma@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "pryzm",
+          "pryzma",
+          "pryzmach",
+          "pryzmami",
+          "pryzmie"
+        ],
+        "key": "pryzma@sgjp-20260823",
+        "lemat": "pryzma",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "tak",
+        "znaczenie": {
+          "T2": [
+            "22673 pryzma 2"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "reeksport@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "reeksporcie",
+          "reeksport",
+          "reeksportach",
+          "reeksportami",
+          "reeksportem"
+        ],
+        "key": "reeksport@sgjp-20260823",
+        "lemat": "reeksport",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "nie",
+        "znaczenie": {
+          "T2": [
+            "31473 reeksport 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    }
+  ]
+}

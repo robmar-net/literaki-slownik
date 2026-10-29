@@ -1,11 +1,11 @@
-"""Zapis ocen agenta R2 (#12 grupa 13.4, D12 z #11) do verification/tematy-<id>-review.json.
+"""Zapis ocen agenta R2 (#13; kopia z #12 grupa 13.4) do verification/tematy-<id>-review.json.
 
 Kopia skryptu z #11 z pętlą po tematach. Oceny leżą w analysis/agent-ratings-<id>.json
 (format: analysis/instrukcja-oceny-agenta.md). Zapis idzie przez scripts/tematy_review.py
 (agent_review + write_review), więc plik przeglądu ma hash ocen i powiązanie z pakietem a.
 Potem checker z --review sprawdza wynik. Zły plik ocen: odmowa, nic nie jest zapisane.
 
-Użycie: python3 record_agent_review.py [id ...]   (bez argumentów: wszystkie 9 tematów)
+Użycie: python3 record_agent_review.py [id ...]   (bez argumentów: wszystkie 7 tematów v2)
 `--ratings` i `--out-dir` są tylko do kontroli 13.1 (plik syntetyczny, wynik poza zadaniem).
 """
 import argparse
@@ -17,8 +17,8 @@ import sys
 
 TASK = Path(__file__).resolve().parents[1]
 REPO = TASK.parents[3]
-TEMATY = ('grzyby', 'pogoda', 'matematyka', 'muzyka', 'sport', 'kuchnia', 'rosliny', 'zwierzeta', 'medycyna')
-WERSJA = 'v1-20261029-a'
+TEMATY = ('grzyby', 'pogoda', 'matematyka', 'muzyka', 'sport', 'kuchnia', 'medycyna')
+WERSJA = 'v2-20261029-a'
 
 spec = importlib.util.spec_from_file_location('tematy_review', REPO/'scripts/tematy_review.py')
 tr = importlib.util.module_from_spec(spec)
@@ -58,6 +58,9 @@ def zapisz(temat, ratings_path, out_dir):
     print(temat, 'checker --review: exit', r.returncode, flush=True)
     if r.returncode != 0:
         print(r.stderr or r.stdout)
+    else:
+        # #13: wynik checkera z `--review` zapisujemy obok (wejście zestawienia v2).
+        (Path(out_dir)/f'review-check-{temat}.json').write_text(r.stdout, encoding='utf-8')
     return r.returncode, review['agent_sha256']
 
 

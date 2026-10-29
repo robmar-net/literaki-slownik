@@ -1,0 +1,591 @@
+{
+  "topic": "config/generator/tematy/matematyka.json",
+  "topic_sha256": "a4ca7a9694ce02b559dac5ba1db9a1ed85d9c3b6d21676a8705d767d9995ba96",
+  "code_identity": {
+    "git_commit": "a56b815791ee105410c60f94d28ef25d5a6ac530",
+    "git_dirty": false,
+    "tree_sha256": "79431b64cbc9cc2832e081013d836428d184f06bdd42720cfd8c5619401f0e1f"
+  },
+  "git_status_config_scripts": "pusty",
+  "budowy": {
+    "a": {
+      "start": 1793282227,
+      "end": 1793282269,
+      "exit": 0,
+      "sekundy": 42
+    },
+    "b": {
+      "start": 1793282269,
+      "end": 1793282310,
+      "exit": 0,
+      "sekundy": 41
+    }
+  },
+  "pakiety": [
+    "data/work/tematy-matematyka-v2-20261029-a",
+    "data/work/tematy-matematyka-v2-20261029-b"
+  ],
+  "sha256sums_sha256": "af994099bc32179e070a66c52f0a9518dd22a2a810fbd58540f2d7d7e07bd53d",
+  "files_sha256": {
+    "ATTRIBUTIONS.md": "87bb3d8fa3e6de9c2be052a8fbf1f6ec4bfa44d4e35dd836d6546f4331b51569",
+    "LIMITATIONS.md": "06efc6f2de81c872476971c577836f584553258447195c5271fbb3d910372ddf",
+    "MATEMATYKA.tsv.gz": "5c063c2ed67d433efc21f17cc5b5b99a8736a325ae4fb717030bca65eaede7c7",
+    "MATEMATYKA.txt.gz": "ae34d4b3f99d70e126a858e6dd8b2b1133c38ddde2ffba2e6614a9bb63ae056c",
+    "SHA256SUMS": "af994099bc32179e070a66c52f0a9518dd22a2a810fbd58540f2d7d7e07bd53d",
+    "TERMS.md": "7d4f57c1689214535616d0ccba94b84d539e18c4e7c5451c079a848198b61a9e",
+    "method.json": "cf2cb5ace886e52ea931a8d16d4aedaa8ff32293a3d7b08adb3b3c9147b0160c",
+    "release-manifest.json": "ccbdadb333c3515749a5e50ce5ffa99d2d6fff61b7f7065b1d2b3fa812170628",
+    "reports/raport.md": "f6f50fe933e81f525090cc2398b6e5aee8531cc98626b7060c2284e38374e802",
+    "reports/review-template.json": "dd554dbbac34a285b53c7fe873110019ad8f4337945b7e0e8a573b208a732b03",
+    "reports/sample.json": "7d8419ff7e6b1caadae1b965469bb3da9d0b1f29bf2b7ffbb32bb865e2646a38",
+    "reports/summary.json": "2d535541bbd9cb58151072e44884b20da3d41bd15951e50f61e146c3223b4303",
+    "tematy/matematyka.json": "a4ca7a9694ce02b559dac5ba1db9a1ed85d9c3b6d21676a8705d767d9995ba96"
+  },
+  "all_files_identical": true,
+  "checker": {
+    "tematy-matematyka-v2-20261029-a": {
+      "exit": 0,
+      "status": "pass"
+    },
+    "tematy-matematyka-v2-20261029-b": {
+      "exit": 0,
+      "status": "pass"
+    }
+  },
+  "checker_wynik_a": {
+    "formy": 4268,
+    "review_checked": false,
+    "sha256sums_sha256": "af994099bc32179e070a66c52f0a9518dd22a2a810fbd58540f2d7d7e07bd53d",
+    "slowa_oczywiste": {
+      "brakujace": [
+        "cyfra",
+        "kalkulator",
+        "równanie",
+        "wykres",
+        "wzór",
+        "zadanie",
+        "średnica"
+      ],
+      "lista": 35,
+      "pokryte": 28
+    },
+    "status": "pass",
+    "temat": "matematyka",
+    "warstwy": {
+      "D": 0,
+      "T1": 60,
+      "T2": 409,
+      "T3": 0
+    },
+    "wpisy": 469
+  },
+  "summary": {
+    "liczby": {
+      "formy": 4268,
+      "kandydaci": 480,
+      "warstwy": {
+        "D": 0,
+        "T1": 60,
+        "T2": 409,
+        "T3": 0
+      },
+      "wpisy": 469
+    },
+    "przeciecia": {
+      "leksemy": {
+        "D": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "T1": {
+          "temat": 60,
+          "pop": {
+            "liczba": 23,
+            "procent": "38.3"
+          },
+          "pop00": {
+            "liczba": 6,
+            "procent": "10.0"
+          }
+        },
+        "T2": {
+          "temat": 409,
+          "pop": {
+            "liczba": 264,
+            "procent": "64.5"
+          },
+          "pop00": {
+            "liczba": 125,
+            "procent": "30.6"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 469,
+          "pop": {
+            "liczba": 287,
+            "procent": "61.2"
+          },
+          "pop00": {
+            "liczba": 131,
+            "procent": "27.9"
+          }
+        }
+      },
+      "formy": {
+        "D": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "T1": {
+          "temat": 612,
+          "pop": {
+            "liczba": 271,
+            "procent": "44.3"
+          },
+          "pop00": {
+            "liczba": 92,
+            "procent": "15.0"
+          }
+        },
+        "T2": {
+          "temat": 3668,
+          "pop": {
+            "liczba": 2476,
+            "procent": "67.5"
+          },
+          "pop00": {
+            "liczba": 1243,
+            "procent": "33.9"
+          }
+        },
+        "T3": {
+          "temat": 0,
+          "pop": {
+            "liczba": 0,
+            "procent": null
+          },
+          "pop00": {
+            "liczba": 0,
+            "procent": null
+          }
+        },
+        "razem": {
+          "temat": 4268,
+          "pop": {
+            "liczba": 2736,
+            "procent": "64.1"
+          },
+          "pop00": {
+            "liczba": 1324,
+            "procent": "31.0"
+          }
+        }
+      }
+    },
+    "diagnostyka": {
+      "D": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "T1": {
+        "formy": {
+          "broad": 620,
+          "kandydaci": 763,
+          "procent_broad": "81.3",
+          "procent_standard": "80.2",
+          "standard": 612
+        },
+        "leksemy": {
+          "broad": 61,
+          "kandydaci": 62,
+          "procent_broad": "98.4",
+          "procent_standard": "96.8",
+          "standard": 60
+        }
+      },
+      "T2": {
+        "formy": {
+          "broad": 3770,
+          "kandydaci": 3887,
+          "procent_broad": "97.0",
+          "procent_standard": "94.4",
+          "standard": 3668
+        },
+        "leksemy": {
+          "broad": 413,
+          "kandydaci": 418,
+          "procent_broad": "98.8",
+          "procent_standard": "97.8",
+          "standard": 409
+        }
+      },
+      "T3": {
+        "formy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        },
+        "leksemy": {
+          "broad": 0,
+          "kandydaci": 0,
+          "procent_broad": null,
+          "procent_standard": null,
+          "standard": 0
+        }
+      },
+      "razem": {
+        "formy": {
+          "broad": 4378,
+          "kandydaci": 4638,
+          "procent_broad": "94.4",
+          "procent_standard": "92.0",
+          "standard": 4268
+        },
+        "leksemy": {
+          "broad": 474,
+          "kandydaci": 480,
+          "procent_broad": "98.8",
+          "procent_standard": "97.7",
+          "standard": 469
+        }
+      }
+    },
+    "slowa_oczywiste": {
+      "razem": {
+        "brakujace": [
+          "cyfra",
+          "kalkulator",
+          "równanie",
+          "wykres",
+          "wzór",
+          "zadanie",
+          "średnica"
+        ],
+        "pokryte": 28,
+        "procent": "80.0"
+      },
+      "T1": {
+        "brakujace": [
+          "algebra",
+          "bok",
+          "cyfra",
+          "dodawanie",
+          "dzielenie",
+          "figura",
+          "geometria",
+          "kalkulator",
+          "koło",
+          "kwadrat",
+          "kąt",
+          "liczba",
+          "linia",
+          "odcinek",
+          "odejmowanie",
+          "okrąg",
+          "pierwiastek",
+          "potęga",
+          "procent",
+          "promień",
+          "prostokąt",
+          "punkt",
+          "równanie",
+          "różnica",
+          "suma",
+          "trójkąt",
+          "ułamek",
+          "wykres",
+          "wynik",
+          "wzór",
+          "zadanie",
+          "zero",
+          "średnica"
+        ],
+        "pokryte": 2,
+        "procent": "5.7"
+      },
+      "T1_T2": {
+        "brakujace": [
+          "cyfra",
+          "kalkulator",
+          "równanie",
+          "wykres",
+          "wzór",
+          "zadanie",
+          "średnica"
+        ],
+        "pokryte": 28,
+        "procent": "80.0"
+      },
+      "spelniony": true,
+      "prog": "0.70"
+    },
+    "srodladowe": null,
+    "odrzucone": {
+      "D": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "T1": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 1
+        },
+        "POZA_STANDARD": {
+          "liczba": 1
+        }
+      },
+      "T2": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 3
+          },
+          "liczba": 85
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 768
+        },
+        "POZA_BROAD": {
+          "liczba": 5
+        },
+        "POZA_STANDARD": {
+          "liczba": 4
+        }
+      },
+      "T3": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 0
+          },
+          "liczba": 0
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 0
+        },
+        "POZA_BROAD": {
+          "liczba": 0
+        },
+        "POZA_STANDARD": {
+          "liczba": 0
+        }
+      },
+      "razem": {
+        "BRAK_LEKSEMU": {
+          "ger": {
+            "liczba": 3
+          },
+          "liczba": 85
+        },
+        "NIE_JEDNO_SLOWO": {
+          "liczba": 768
+        },
+        "POZA_BROAD": {
+          "liczba": 6
+        },
+        "POZA_STANDARD": {
+          "liczba": 5
+        }
+      }
+    },
+    "t3": null,
+    "wieloznaczny": {
+      "brak_danych": {
+        "liczba": 8,
+        "procent": "1.7",
+        "przyklady": [
+          "logarytmicznie@sgjp-20260823",
+          "logarytmiczność@sgjp-20260823",
+          "logarytmować@sgjp-20260823",
+          "mnogościowość@sgjp-20260823",
+          "pierwiastkować@sgjp-20260823",
+          "szukana@sgjp-20260823",
+          "tworząca@sgjp-20260823",
+          "wielokrotna@sgjp-20260823"
+        ]
+      },
+      "nie": {
+        "liczba": 195,
+        "procent": "41.6",
+        "przyklady": [
+          "adiabata@sgjp-20260823",
+          "aksjomatyzacja@sgjp-20260823",
+          "aktuariat@sgjp-20260823",
+          "algebra@sgjp-20260823",
+          "algebraik@sgjp-20260823",
+          "analityka@sgjp-20260823",
+          "antylogarytm@sgjp-20260823",
+          "apotema@sgjp-20260823",
+          "aproksymacja@sgjp-20260823",
+          "argumentowość@sgjp-20260823"
+        ]
+      },
+      "tak": {
+        "liczba": 266,
+        "procent": "56.7",
+        "przyklady": [
+          "agregacja@sgjp-20260823",
+          "agregat:Sm1@sgjp-20260823",
+          "agregat:Sm3@sgjp-20260823",
+          "algorytm@sgjp-20260823",
+          "amplituda@sgjp-20260823",
+          "antyteza@sgjp-20260823",
+          "argument@sgjp-20260823",
+          "arytmetyka@sgjp-20260823",
+          "ascendent:Sm1@sgjp-20260823",
+          "ascendent:Sm3@sgjp-20260823"
+        ]
+      }
+    },
+    "wykluczenia": [
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "deniwelacja@sgjp-20260823"
+        ],
+        "lemat": "deniwelacja",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "eksport@sgjp-20260823"
+        ],
+        "lemat": "eksport",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "hasło@sgjp-20260823"
+        ],
+        "lemat": "hasło",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "kolur@sgjp-20260823"
+        ],
+        "lemat": "kolur",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "oszczędności@sgjp-20260823"
+        ],
+        "lemat": "oszczędności",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      },
+      {
+        "czesc_mowy": "subst",
+        "klucze": [
+          "wwóz@sgjp-20260823"
+        ],
+        "lemat": "wwóz",
+        "powód": "bramka #12: ocena agenta R2 „nie”",
+        "warstwy": [
+          "T2"
+        ]
+      }
+    ],
+    "werdykt": {
+      "automatyczny": "dalej",
+      "czeka_na_ocene": [
+        "t2_tak",
+        "t2_nie",
+        "zgodnosc"
+      ],
+      "nie_dotyczy": [
+        "t3_tak"
+      ],
+      "niespelnione": [],
+      "uwaga": "„stop” wybiera tylko operator na bramce"
+    }
+  },
+  "fala": {
+    "temat": "matematyka",
+    "t3_wpisy": 0,
+    "summary_t3_null": true,
+    "srodladowe_null": true,
+    "iate_w_inputs": false,
+    "iate_blok_manifestu": false,
+    "iate_w_plikach": {},
+    "bledy": [],
+    "zgodna": true
+  }
+}

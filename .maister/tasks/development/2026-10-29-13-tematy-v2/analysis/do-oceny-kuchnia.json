@@ -1,0 +1,98 @@
+{
+  "temat": "kuchnia",
+  "items": [
+    {
+      "key": "kok:Sm3@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "kok",
+          "koka",
+          "kokach",
+          "kokami",
+          "koki"
+        ],
+        "key": "kok:Sm3@sgjp-20260823",
+        "lemat": "kok",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "tak",
+        "znaczenie": {
+          "T2": [
+            "77826 kok 2"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "nektarynka@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "nektarynce",
+          "nektarynek",
+          "nektarynka",
+          "nektarynkach",
+          "nektarynkami"
+        ],
+        "key": "nektarynka@sgjp-20260823",
+        "lemat": "nektarynka",
+        "liczba_form": 10,
+        "warstwa": "T2",
+        "wieloznaczny": "tak",
+        "znaczenie": {
+          "T2": [
+            "71629 nektarynka 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    },
+    {
+      "key": "por:Sm3@sgjp-20260823",
+      "selected_unit": {
+        "czesci_mowy": [
+          "subst"
+        ],
+        "formy": [
+          "por",
+          "pora",
+          "porach",
+          "porami",
+          "porem"
+        ],
+        "key": "por:Sm3@sgjp-20260823",
+        "lemat": "por",
+        "liczba_form": 11,
+        "warstwa": "T2",
+        "wieloznaczny": "tak",
+        "znaczenie": {
+          "T2": [
+            "4613 por 1"
+          ]
+        },
+        "zrodla": [
+          "T2"
+        ]
+      },
+      "strata": [
+        "T2"
+      ]
+    }
+  ]
+}

@@ -129,7 +129,7 @@ Przegląd musi obejmować całą próbkę, odpowiadać sumom pakietu i nie mieć
 ## TEMATY (`tematy`)
 
 Metoda `tematy-v2`: [ADR-012](../adr/ADR-012-tematy-fala-1.md) (warstwy z [ADR-010](../adr/ADR-010-tematy-v1.md)),
-źródła: [ADR-011](../adr/ADR-011-zrodla-slowosiec-iate.md). Pilotaż #11 (`morze`), fala 1 #12 (9 tematów).
+źródła: [ADR-011](../adr/ADR-011-zrodla-slowosiec-iate.md). Pilotaż #11 (`morze`), fala 1 #12 (9 tematów), v2 siedmiu z nich #13.
 Lista to leksemy SGJP ∩ STANDARD w rozłącznych warstwach: T1 etykiety SGJP, T2 Słowosieć 4.5,
 T3 IATE 2019 (opcjonalne), D ręczne dodatki z pliku tematu. Nie zmienia słownika stołu.
 Temat to plik `config/generator/tematy/<id>.json`; `<id>` to jego `id` (np. `morze`), `<ID>` to `id` wielkimi
@@ -162,15 +162,17 @@ python3 scripts/tematy_review.py zapisz --package-dir data/work/tematy-<wersja t
   Dwa uruchomienia dają ten sam plik. Kod 1: cel istnieje, błąd zrzutu albo nazw relacji.
 - `tematy`: `--manifest` przypina wejścia (`tematy-sources.json`), `--config` metodę
   (`tematy.json`), `--topic` temat (`tematy/<id>.json`), `--output-dir` nowy katalog poza wejściami.
-  Nazwa pakietu: `data/work/tematy-<wersja tematu>-YYYYMMDD-{a,b}`, np. `tematy-grzyby-v1-20261029-a`.
+  Nazwa pakietu: `data/work/tematy-<wersja tematu>-YYYYMMDD-{a,b}`, np. `tematy-grzyby-v2-20261029-a`.
   Temat bez `t3` nie czyta IATE; IATE nie trafia wtedy do tekstów ani do `inputs` manifestu.
   Każdy czytany plik trafia do rejestru z hashem; przed przeniesieniem budowa hashuje go ponownie.
   Kody: 0 pakiet BUILT; 2 konfiguracja, nieznane pole albo cel w wejściach; 3 brak lub niezgodny pin
-  (także manifest wydania, POP, POP00, `meta` pochodnej); 4 dane albo istniejący cel;
+  (także manifest wydania, POP, POP00, `meta` pochodnej); 4 dane albo istniejący cel (także dodatek D
+  z lematem i klasą wykluczenia: wykluczenie jest bezwzględne, [ADR-013](../adr/ADR-013-tematy-v2-fali-1.md));
   5 przebieg nie FROZEN albo zmiana wejścia w trakcie budowy.
 - `check_tematy_package.py`: nie importuje `literaki_slownik`. Sprawdza sumy, manifest,
   `<ID>.txt` ⊆ STANDARD, TSV wobec TXT, rozłączne warstwy, warstwę D wobec dodatków tematu,
-  brak wykluczonych par w TSV, przecięcia z POP i POP00. Zna tylko `tematy-v2`; starsze pakiety
+  brak wykluczonych par w TSV, przecięcia z POP i POP00, teksty pakietu (bez resztek odcinków, IATE tylko
+  przy `t3`) i pola `summary.json` `t3`, `srodladowe`, `nie_dotyczy`. Zna tylko `tematy-v2`; starsze pakiety
   sprawdza checker z commitu `a633136`.
   Z `--review` liczy trafność, zgodność, kappę, test słów oczywistych i werdykt ([jakosc.md](jakosc.md#próbki-tematy-tematy-quality-v1)).
 - `tematy_review.py`: `strona` robi stronę HTML z pozycjami operatora (bez ocen agenta; odmawia bez
