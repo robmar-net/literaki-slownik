@@ -5,7 +5,7 @@ Siedem tematów dostało wersję v2 według bramki #12: grzyby, pogoda, sport (d
 kuchnia (wykluczenia) i medycyna (bez IATE, wykluczenia). Metoda zostaje `tematy-v2`
 ([ADR-012](ADR-012-tematy-fala-1.md)). Wykluczenie jest teraz bezwzględne i obejmuje też dodatki D.
 Bramka v2 (operator, 2026-10-29): **dalej** wszystkie 10 tematów. Grzyby, matematyka i medycyna przechodzą
-mimo jednego progu poniżej granicy. Bez wydania.
+mimo jednego progu poniżej granicy. Wydane jako `tematy-v2` (#14).
 
 ## Kluczowe decyzje
 - **Wykluczenie jest bezwzględne.** Lemat i klasa z `wykluczenia` nie mogą być w temacie w żadnej warstwie.
@@ -45,6 +45,7 @@ mimo jednego progu poniżej granicy. Bez wydania.
   Pakiety a i b są bajtowo identyczne, checker przechodzi. 8 tematów bez zmiany składu jest bajtowo jak
   wcześniej, poza manifestem i sumami. Przeglądy R2 przepięto na nowe pakiety.
 - Szczegóły: [gate-report.md](../../.maister/tasks/development/2026-10-29-14-tematy-przed-wydaniem/verification/gate-report.md).
+- **Wydanie `tematy-v2`** (operator, 2026-10-29): pakiety `-a` tej serii, 10 list `<ID>.txt.gz`, archiwum pakietów z przeglądami i sumy ([Release](https://github.com/robmar-net/literaki-slownik/releases/tag/tematy-v2)). Przed wydaniem checker `--review` przeszedł dla wszystkich 10.
 
 ## Wyniki
 Pakiety `data/work/tematy-<id>-v2-20261029-{a,b}`: 14 budów, a = b bajtowo, checker pass.
