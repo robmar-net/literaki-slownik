@@ -15,7 +15,7 @@ orchestrator:
     reality_check_enabled: true
     production_check_enabled: true
   created: 2026-10-29T00:59:06Z
-  updated: 2026-10-29T01:46:30Z
+  updated: 2026-10-29T01:53:42Z
   task_path: .maister/tasks/development/2026-10-29-12-tematy-fala-1
 task:
   title: "TEMATY: pierwsza fala — 9 tematów (#12)"
@@ -68,4 +68,9 @@ task_context:
       decisions: [{decision: "Metoda tematy-v2 (operator_warstwy T2/T3, t1_tak z agenta)", rationale: "zasady przeglądu przypięte w method.json"}, {decision: "Zwierzęta relacje 11 i 27 (bez 25)", rationale: "269 celów rel. 25 to części ciała, produkty, żargon"}, {decision: "Medycyna: 5 poddrzew roślinnych wyciętych", rationale: "−414 lematów owoców, nasion"}, {decision: "Pakiety tematy-<wersja tematu>-YYYYMMDD-{a,b}", rationale: "rozdziela wersję tematu i metody"}]
       risks: ["Małe tematy mogą nie dojść do 0,70 słów oczywistych", "Sport bez korzeni T2 dla gier", "~1–1,5 h maszyny na 20 budów"]
       artifacts: [{path: implementation/spec.md, label: Specyfikacja, html: implementation/spec.html}, {path: analysis/requirements.md, label: Wymagania, html: null}]
+    spec_audit:
+      summary: "Audyt: pass-with-concerns (0 K, 5 W, 9 D). Liczby W11 i hashe W8 potwierdzone na danych. Do poprawy: przepięcie ocen morza (evidence_sha256), sprawdzanie słów oczywistych jako lematów, reguła tekstów W8, budżet czasu."
+      decisions: [{decision: "W3 (atomy ogr./psych./wet./farm., sport bez T2 gier) zatwierdzone przez operatora na bramce specyfikacji", rationale: "odpowiedź „Tak, audyt” na pytanie ze zmianami treści"}]
+      risks: ["t1_tak tylko z agenta (morze: 0,92 przy progu 0,90)", "IATE 2841 niezmierzone w budowie"]
+      artifacts: [{path: verification/spec-audit.md, label: Audyt specyfikacji, html: null}]
     clarifications: ["Słowa wspólne zostają w każdym temacie", "Taniec → muzyka; gry, szachy, karty → sport; napoje → kuchnia", "Dinozaury tak, łow. nie", "Grzybica → medycyna"]
