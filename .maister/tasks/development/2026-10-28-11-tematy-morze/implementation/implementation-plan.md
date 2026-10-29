@@ -336,6 +336,19 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Kryteria odbioru:**
 - Decyzja operatora zapisana. Tarballa ani Release nie ma.
 
+### Grupa 16: Poprawka po bramce — ręczne dodatki (decyzja operatora 2026-10-29)
+**Zależności:** 15.2
+**Pliki:** `literaki_slownik/tematy.py`, `scripts/check_tematy_package.py`, `scripts/tematy_review.py`, `config/generator/tematy/morze.json`, `config/generator/tematy-teksty/LIMITATIONS.md`, `docs/adr/ADR-010-tematy-v1.md`, `docs/generator/*.md`, `tests/test_tematy_*.py`, `tests/tematy_helpers.py`
+**Kroki:** 6
+
+- [ ] 16.0 Dodatki ręczne w budowie
+  - [ ] 16.1 Testy: dodatek trafia do pakietu z warstwą `D`; dodatek spoza STANDARD albo bez leksemu → kod 4; dodatek, który już jest w T1–T3 → kod 2/4; próba R2 nie losuje warstwy `D`; checker liczy `D`.
+  - [ ] 16.2 `load_topic`: niepuste `t3.dodatki` dozwolone, `wykluczenia` nadal puste; wersja tematu `morze-v2`.
+  - [ ] 16.3 Budowa: dodatek → leksem SGJP (lemat + część mowy), formy ∩ STANDARD, warstwa `D`, źródło `dodatek`, znaczenie = powód. Raport i summary pokazują `D` osobno.
+  - [ ] 16.4 `morze.json`: 6 dodatków (sztorm, rybak, falochron, nabrzeże, trał — subst; cumować — inf). ADR-010, docs, LIMITATIONS.
+  - [ ] 16.5 Budowy a/b z czystego drzewa, identyczne SHA256SUMS, checker PASS, test 37 słów 37/37.
+  - [ ] 16.6 Przegląd: ta sama próba T1–T3 → przepiąć oceny agenta i operatora na nowy pakiet; checker `--review`; raport bramki v2; wiki.
+
 ## Kolejność wykonania
 1. Grupy 1, 2, 3 — równolegle (różne pliki). Grupa 3 ma długi krok z siecią.
 2. Grupa 4 (po 3).
