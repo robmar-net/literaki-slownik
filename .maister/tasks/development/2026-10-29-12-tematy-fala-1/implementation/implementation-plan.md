@@ -250,15 +250,15 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `config/generator/tematy/zwierzeta.json`, `config/generator/tematy/rosliny.json`, `config/generator/tematy/medycyna.json`, `config/generator/tematy/muzyka.json`, `config/generator/tematy/kuchnia.json`, `config/generator/tematy/sport.json`, `config/generator/tematy/matematyka.json`, `config/generator/tematy/pogoda.json`, `config/generator/tematy/grzyby.json`, `tests/test_tematy_fala.py`
 **Kroki:** 5
 
-- [ ] 11.0 Zapisać 9 tematów z zamrożonymi listami
-  - [ ] 11.1 Napisać 3 testy w `tests/test_tematy_fala.py` (czytają tylko pliki konfiguracji i `T/analysis/slowa-oczywiste.json`, bez danych surowych):
+- [x] 11.0 Zapisać 9 tematów z zamrożonymi listami
+  - [x] 11.1 Napisać 3 testy w `tests/test_tematy_fala.py` (czytają tylko pliki konfiguracji i `T/analysis/slowa-oczywiste.json`, bez danych surowych):
     - każdy z 9 plików przechodzi `load_topic`; `id` = nazwa pliku, wersja `<id>-v1`;
     - `diagnostyka.slowa_oczywiste` każdego tematu = `wynik[<id>]` z `slowa-oczywiste.json`;
     - `t3` ma tylko `medycyna` (IATE `2841`); `znaczniki_srodladowe` nie ma żaden z 9; `dodatki` i `wykluczenia` puste.
-  - [ ] 11.2 Napisać 9 plików według tabeli W11 (atomy, korzenie z nazwami, relacje, wykluczenia poddrzew, `t2.tryb: "pelne"`). Medycyna `t3.iate` ma te same pola co morze. W `uwagi` zapisujemy decyzje granic z `clarifications.md` i `scope-clarifications.md`.
-  - [ ] 11.3 Kontrola na prawdziwej pochodnej (tylko odczyt): `_check_names` przechodzi dla każdego tematu. Liczby lematów T2 porównujemy z W11 (przypis D9: budowa nie zmienia wielkości liter). Wynik zapisujemy w work-logu.
-  - [ ] 11.4 Uruchomić 3 nowe testy.
-  - [ ] 11.5 Commit i push: `feat(tematy): 9 tematów pierwszej fali (#12)`.
+  - [x] 11.2 Napisać 9 plików według tabeli W11 (atomy, korzenie z nazwami, relacje, wykluczenia poddrzew, `t2.tryb: "pelne"`). Medycyna `t3.iate` ma te same pola co morze. W `uwagi` zapisujemy decyzje granic z `clarifications.md` i `scope-clarifications.md`.
+  - [x] 11.3 Kontrola na prawdziwej pochodnej (tylko odczyt): `_check_names` przechodzi dla każdego tematu. Liczby lematów T2 porównujemy z W11 (przypis D9: budowa nie zmienia wielkości liter). Wynik zapisujemy w work-logu.
+  - [x] 11.4 Uruchomić 3 nowe testy.
+  - [x] 11.5 Commit i push: `feat(tematy): 9 tematów pierwszej fali (#12)`.
 
 **Kryteria odbioru:**
 - 3 testy przechodzą; listy słów w 9 plikach są równe zamrożonemu plikowi.

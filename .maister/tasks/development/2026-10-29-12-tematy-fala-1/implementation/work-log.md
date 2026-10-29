@@ -67,3 +67,22 @@ Zrobione: grupy 1, 3–10; 2.1–2.3 (strona https://claude.ai/artifact/4XiPDXkE
 ## 2026-10-29 — Grupa 2 zakończona (2.4–2.6)
 
 Operator: „wszystkie listy wygladaja ok”. Szkic przyjęty bez zmian jako `wynik` (329 słów, 9 tematów). Brak słów dopisanych, więc 2.5 bez sprawdzania (szkic sprawdzony w 2.3). Listy zamrożone.
+
+## 2026-10-29 — Grupa 11 zakończona
+
+9 plików tematów, `tests/test_tematy_fala.py` (3 testy). Commit `047a75b`. Testy TEMATY: 71/71.
+`_check_names` i osiągalność 7 wykluczonych poddrzew: OK. Pochodna zgodna z pinem.
+
+| temat | synsety | lematy | małe litery | W11 |
+|---|---|---|---|---|
+| zwierzeta | 11616 | 4452 | 4452 | OK |
+| rosliny | 7084 | 3111 | 3111 | OK |
+| medycyna | 5660 | 4063 | 4063 | OK |
+| muzyka | 1378 | 1148 | 1148 | OK |
+| kuchnia | 2797 | 2434 | 2432 | OK (D9: budowa nie zmienia wielkości liter → 2434) |
+| sport | 831 | 757 | 757 | OK |
+| matematyka | 1133 | 543 | 543 | OK |
+| pogoda | 224 | 209 | 209 | OK |
+| grzyby | 963 | 351 | 351 | OK |
+
+`powód` wykluczeń poddrzew dopisany przez agenta (W11 go nie podawał): zwierzęta — człowiek/hominid to nie zwierzęta w tym temacie; medycyna — organy i tkanki roślin.
