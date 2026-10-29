@@ -142,8 +142,13 @@ python3 -I scripts/build_plwordnet_db.py --zip cache/plwordnet/wordnet_work_4_5.
 python3 -m literaki_slownik tematy --manifest config/generator/tematy-sources.json \
   --config config/generator/tematy.json --topic config/generator/tematy/morze.json \
   --output-dir data/work/tematy-nowy [--json]
-python3 scripts/check_tematy_package.py ...          # niezależny checker, opcja --review
-python3 scripts/tematy_review.py strona|zapisz ...   # przegląd R2
+python3 scripts/check_tematy_package.py --package-dir data/work/tematy-nowy \
+  --manifest config/generator/tematy-sources.json --config config/generator/tematy.json \
+  [--review review.json]                            # niezależny checker
+python3 scripts/tematy_review.py strona --package-dir data/work/tematy-nowy \
+  --review review.json --output r2.html             # strona przeglądu R2
+python3 scripts/tematy_review.py zapisz --package-dir data/work/tematy-nowy \
+  --review review.json --oceny operator.json|- [--reviewer operator]   # oceny operatora
 ```
 
 - `fetch_tematy_sources.py`: `curl -fL` do pliku tymczasowego, potem przeniesienie bez nadpisania.

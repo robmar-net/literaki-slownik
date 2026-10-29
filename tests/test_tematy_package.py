@@ -150,6 +150,35 @@ class TematyPackageTest(unittest.TestCase):
             self.assertFalse((root/'late').exists())
             self.assertFalse(list(root.glob('.late.staging-*')))
 
+    def test_sqlite_data_error_is_code_4_and_leaves_no_package(self):
+        import sqlite3
+        from contextlib import closing
+        with tempfile.TemporaryDirectory() as tmp:
+            f = inputs_fixture(tmp)
+            root, plwn = f['root'], f['paths']['plwordnet_db']
+            original = plwn.read_bytes()
+
+            def repin():
+                rewrite(f['manifest'], lambda v: v['inputs']['plwordnet_db'].update(sha256=sha256(plwn)))
+            # Przypięty plik, który nie jest bazą SQLite: odczyt `meta` w sprawdzaniu wejść.
+            plwn.write_bytes(b'to nie jest SQLite\n' * 64)
+            repin()
+            # Poprawne `meta`, ale brak tabeli relacji: błąd SQLite w trakcie budowy (mapowanie na kod 4).
+            broken = root/'broken.sqlite'
+            broken.write_bytes(original)
+            with closing(sqlite3.connect(broken)) as db:
+                db.execute('DROP TABLE synsetrelation')
+                db.commit()
+            for content in (None, broken.read_bytes()):
+                if content is not None:
+                    plwn.write_bytes(content)
+                    repin()
+                with self.assertRaises(tematy.GeneratorError) as caught:
+                    build(f, root/'out')
+                self.assertEqual(caught.exception.code, 4, content is None)
+                self.assertFalse((root/'out').exists())
+                self.assertFalse(list(root.glob('.out.staging-*')))
+
     def test_cli_json_envelope_and_exit_codes(self):
         out = self.root/'cli'
         cmd = [sys.executable, '-m', 'literaki_slownik', 'tematy', '--manifest', str(self.f['manifest']),

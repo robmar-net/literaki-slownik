@@ -3,7 +3,7 @@ import tempfile
 import unittest
 
 from literaki_slownik import tematy
-from tests.tematy_helpers import SOURCE, inputs_fixture
+from tests.tematy_helpers import SOURCE, TBX, inputs_fixture, repin_iate, write_iate
 
 
 def label(lemma_id):
@@ -104,6 +104,29 @@ class TematyLayersTest(unittest.TestCase):
                                              'T2': tuple(label(x) for x in ('kuter:S2', 'okręt', 'statek', 'łódź')),
                                              'T3': (label('barka'),)})
         self.assertTrue(all(e['formy'] and set(e['formy']) <= standard for e in result['wpisy'].values()))
+
+
+class TematyThreeLayersTest(unittest.TestCase):
+    def test_lexeme_in_three_layers_takes_t1_and_keeps_all_sources(self):
+        # `kuter` (T1 `ryb.`, T2 `900 kuter 1`) dostaje też termin IATE-5: jeden wpis, warstwa T1.
+        term = '<term>barka</term>'
+        tig = ('<term>kuter</term>\n            <termNote type="termType">fullForm</termNote>\n'
+               '            <descrip type="reliabilityCode">3</descrip>\n          </tig>\n          <tig>\n'
+               '            ' + term)
+        self.assertEqual(TBX.count(term), 1)
+        with tempfile.TemporaryDirectory() as tmp:
+            f = inputs_fixture(tmp)
+            write_iate(f['paths']['iate'], TBX.replace(term, tig))
+            repin_iate(f)
+            data = tematy.check_inputs(f['manifest'], f['config'], f['topic'])
+            result = tematy.build_entries(data, tematy.candidates(data))
+        kuter = result['wpisy'][label('kuter')]
+        self.assertEqual((kuter['warstwa'], kuter['zrodla']), ('T1', ('T1', 'T2', 'T3')))
+        self.assertEqual(kuter['znaczenie'], {'T1': ('ryb.',), 'T2': ('900 kuter 1',), 'T3': ('IATE-5 4821',)})
+        self.assertEqual(kuter['iate'], ('IATE-5',))
+        layers = [set(result['warstwy'][w]) for w in ('T1', 'T2', 'T3')]
+        self.assertEqual(sum(map(len, layers)), len(set().union(*layers)))
+        self.assertIn(label('kuter'), layers[0])
 
 
 if __name__ == '__main__':
