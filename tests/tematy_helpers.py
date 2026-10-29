@@ -28,6 +28,8 @@ def config_fixture(root):
     write_json(config, method)
     topic = root/'tematy/morze.json'
     topic.write_bytes((CONFIG/'tematy/morze.json').read_bytes())
+    # Dodatki prawdziwego tematu nie istnieją w fikstury SGJP; testy warstwy D dopisują własne.
+    rewrite(topic, lambda v: v['t3'].update(dodatki=[]))
     refs = {}
     for key in PATH_INPUTS:
         path = inputs/(key + '.bin')

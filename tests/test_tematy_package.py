@@ -77,7 +77,9 @@ class TematyPackageTest(unittest.TestCase):
         self.assertEqual(lex['razem']['pop'], {'liczba': 1, 'procent': '11.1'})
         self.assertEqual(lex['T2']['pop'], {'liczba': 1, 'procent': '25.0'})
         self.assertEqual(lex['T1']['pop'], {'liczba': 0, 'procent': '0.0'})
-        self.assertTrue(all(lex[w]['pop00'] == {'liczba': 0, 'procent': '0.0'} for w in lex))
+        self.assertTrue(all(lex[w]['pop00'] == {'liczba': 0, 'procent': '0.0'} for w in ('T1', 'T2', 'T3', 'razem')))
+        self.assertEqual(lex['D'], {'temat': 0, 'pop': {'liczba': 0, 'procent': None},
+                                    'pop00': {'liczba': 0, 'procent': None}})
         # Formy: T1 5, T2 7 (kutrem, okręt, okrętże, statek, statkiem, łódź, łodzią), T3 1, razem 13.
         forms = overlap['formy']
         self.assertEqual({w: forms[w]['temat'] for w in ('T1', 'T2', 'T3', 'razem')},

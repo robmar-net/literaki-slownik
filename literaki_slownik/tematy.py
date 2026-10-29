@@ -99,13 +99,14 @@ def _named(items, keys):
 
 
 def load_topic(path):
-    """Plik tematu (W5): zbiór kluczy, typy i zamknięte wartości v1."""
+    """Plik tematu (W5): zbiór kluczy, typy i zamknięte wartości; wersja `<id>-v<n>`."""
     path = Path(path).resolve()
     v = load_json(path)
     if (not isinstance(v, dict) or set(v) != {'id', 'nazwa', 'wersja', 't1', 't2', 't3',
                                               'wykluczenia', 'diagnostyka', 'uwagi'}
             or v['id'] != path.stem or not re.fullmatch('[a-z]+', v['id'])
-            or v['wersja'] != v['id'] + '-v1' or not isinstance(v['nazwa'], str) or not v['nazwa']
+            or not isinstance(v['wersja'], str) or not re.fullmatch(re.escape(v['id']) + '-v[1-9][0-9]*', v['wersja'])
+            or not isinstance(v['nazwa'], str) or not v['nazwa']
             or not isinstance(v['uwagi'], str)):
         raise _bad('pola tematu')
     t1, t2, t3, diag = v['t1'], v['t2'], v['t3'], v['diagnostyka']
@@ -130,13 +131,15 @@ def load_topic(path):
             or iate['typ'] != 'fullForm' or iate['jedno_slowo'] is not True
             or not _int(iate['niezawodnosc_min']) or not 1 <= iate['niezawodnosc_min'] <= 4
             or not _texts(iate['odrzuc_status'])
-            or not _named(t3['dodatki'], ('lemat', 'czesc_mowy', 'powód'))):
+            or not _named(t3['dodatki'], ('lemat', 'czesc_mowy', 'powód'))
+            or len({(d['lemat'], d['czesc_mowy']) for d in t3['dodatki']}) != len(t3['dodatki'])
+            or any('\t' in d['powód'] or '\n' in d['powód'] for d in t3['dodatki'])):
         raise _bad('t3')
     if not _named(v['wykluczenia'], ('lemat', 'czesc_mowy', 'powód')):
         raise _bad('wykluczenia')
-    # ADR-010: v1 bez dodatków i wykluczeń; budowa ich nie czyta, więc wpis byłby cicho pominięty.
-    if t3['dodatki'] or v['wykluczenia']:
-        raise _bad('t3.dodatki i wykluczenia (v1: puste)')
+    # ADR-010: dodatki tworzą warstwę D (poprawka 2026-10-29); wykluczeń budowa nie czyta, więc muszą być puste.
+    if v['wykluczenia']:
+        raise _bad('wykluczenia (puste)')
     marks = diag.get('znaczniki_srodladowe') if isinstance(diag, dict) else None
     if (not isinstance(diag, dict) or set(diag) != {'slowa_oczywiste', 'znaczniki_srodladowe'}
             or not _texts(diag['slowa_oczywiste'], lower=True) or not diag['slowa_oczywiste']
@@ -523,7 +526,9 @@ def candidates(data):
 
 
 # --- Leksemy, warstwy i formy (W7, W8, D15) ---
-WARSTWY = ('T1', 'T2', 'T3')
+# D: ręczne dodatki z pliku tematu (ADR-010, poprawka 2026-10-29); po T3 i poza próbą R2.
+WARSTWY = ('T1', 'T2', 'T3', 'D')
+PROBA = ('T1', 'T2', 'T3')
 POWODY = ('BRAK_LEKSEMU', 'NIE_JEDNO_SLOWO', 'POZA_BROAD', 'POZA_STANDARD')
 CHUNK = 400  # jak `pop00.read_analyses`
 
@@ -584,6 +589,18 @@ def _plwn_units(data, lemmas):
     return units
 
 
+def _dodatek(db, item, klasy, sources):
+    """Dodatek → jedyny leksem SGJP o lemacie i klasie tagu; kod 4: brak, kilka albo już w T1–T3."""
+    what = f'Dodatek TEMATY {item["lemat"]} ({item["czesc_mowy"]})'
+    found = map_lemmas(db, {item['lemat']: (item['czesc_mowy'],)}, klasy)
+    ids = found['leksemy'].get(item['lemat'], [])
+    if len(ids) != 1:
+        raise GeneratorError(what + (': brak leksemu SGJP' if not ids else f': {len(ids)} leksemy SGJP'), 4)
+    if ids[0] in sources:
+        raise GeneratorError(f'{what}: leksem już jest w {", ".join(sorted(sources[ids[0]]))}', 4)
+    return ids[0], found['wiersze'][ids[0]]
+
+
 def _wieloznaczny(ident, row, homonyms, klasy, units, closure):
     """ADR-007 badania: `tak` (jednostka poza domknięciem albo kilka leksemów lematu i klasy),
     `nie` (wszystkie znaczenia w temacie), `brak_danych` (lematu nie ma w Słowosieci)."""
@@ -615,6 +632,9 @@ def _read_forms(db, data, ids):
 
 def build_entries(data, cands):
     """Kandydaci (`candidates`) → leksemy z warstwą, źródłami, flagą i formami; diagnostyka BROAD/STANDARD.
+
+    Dodatki tematu (`t3.dodatki`) dają warstwę D: dokładnie jeden leksem spoza T1–T3, z formą w STANDARD,
+    `znaczenie` D = powód; inaczej kod 4.
 
     Zwraca:
     - `kandydaci`: klucz `lemma_id@source_id` → {`klucz`, `lemat`, `czesci_mowy`, `warstwa`, `zrodla`,
@@ -648,6 +668,9 @@ def build_entries(data, cands):
                 iate.setdefault(ident, set()).update(entry_ids)
                 sources.setdefault(ident, {}).setdefault('T3', set()).update(
                     f'{e} {",".join(t3["hasla"][e]["kody"])}' for e in entry_ids)
+        for item in data['topic']['t3']['dodatki']:
+            ident, rows[ident] = _dodatek(db, item, klasy, sources)
+            sources[ident] = {'D': (item['powód'],)}
         candidates_rows = {i: rows[i] for i in sources}
         homonyms = {}
         for ident, row in _lexeme_rows(db, 'lemma_base', {r[2] for r in candidates_rows.values()}).items():
@@ -662,9 +685,11 @@ def build_entries(data, cands):
         all_forms = forms[ident]
         reason = (None if all_forms & standard else 'POZA_STANDARD' if all_forms & broad else 'POZA_BROAD')
         key = _label(row[:2])
+        if 'D' in found and reason:
+            raise GeneratorError(f'Dodatek TEMATY {row[2]} ({key}): {reason}', 4)
         kandydaci[key] = {
             'klucz': key, 'lemat': row[2], 'czesci_mowy': tuple(klasy.get(ident, ())),
-            'warstwa': min(found), 'zrodla': tuple(sorted(found)),
+            'warstwa': min(found, key=WARSTWY.index), 'zrodla': tuple(sorted(found, key=WARSTWY.index)),
             'znaczenie': {w: tuple(sorted(v)) for w, v in sorted(found.items())},
             'iate': tuple(sorted(iate.get(ident, ()))),
             'wieloznaczny': _wieloznaczny(ident, row, homonyms, klasy, units, closure),
@@ -867,6 +892,7 @@ def raport(report):
         f'Progi z ocen ({", ".join(verdict["czeka_na_ocene"])}): czeka na ocenę.', '',
         '## Kluczowe decyzje',
         '- Wpis to leksem SGJP z formą w STANDARD. Warstwa to najniższa z T1 < T2 < T3; źródła to wszystkie.',
+        f'- D to ręczne dodatki z pliku tematu ({n["warstwy"]["D"]}); powód w `znaczenie`. Próba R2 losuje tylko T1–T3.',
         f'- {POP00_LEKSEMY}. Formy liczymy z POP.txt.gz i POP00.txt.gz.',
         '- Werdykt automatyczny to tylko „dalej” albo „popraw”. „stop” wybiera operator na bramce.', '',
         '## Otwarte pytania',
@@ -982,7 +1008,7 @@ def _write_package(staging, data, sources, cands, built):
     write_json(staging / 'reports/summary.json', report)
     (staging / 'reports/raport.md').write_text(raport(report), encoding='utf-8')
     payloads = {k: _payload(e) for k, e in built['wpisy'].items()}
-    drawn = sample({w: built['warstwy'][w] for w in WARSTWY}, payloads, data['method']['config'])
+    drawn = sample({w: built['warstwy'][w] for w in PROBA}, payloads, data['method']['config'])
     # Szablon wiąże hash dokładnych kanonicznych bajtów próbki.
     (staging / 'reports/sample.json').write_text(dumps(drawn), encoding='utf-8')
     evidence = {p: sha256(staging / p) for p in (f'{name}.txt.gz', 'reports/summary.json')}

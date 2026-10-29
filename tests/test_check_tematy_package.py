@@ -60,7 +60,7 @@ class CheckTematyPackageTest(unittest.TestCase):
     def test_pass_on_fixture_and_changed_byte_is_refused(self):
         report = self.check()
         self.assertEqual((report['status'], report['wpisy'], report['formy']), ('pass', 9, 13))
-        self.assertEqual(report['warstwy'], {'T1': 4, 'T2': 4, 'T3': 1})
+        self.assertEqual(report['warstwy'], {'T1': 4, 'T2': 4, 'T3': 1, 'D': 0})
         for node in ast.walk(ast.parse(SCRIPT.read_text(encoding='utf-8'))):
             if isinstance(node, ast.ImportFrom):
                 self.assertFalse((node.module or '').startswith('literaki_slownik'))

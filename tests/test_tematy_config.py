@@ -51,15 +51,13 @@ class TematyConfigTest(unittest.TestCase):
                                              v['sampling'].update(extra='x')))
         self.assertEqual(self.code(tematy.load_method, self.f['config']), 2)
 
-    def test_addenda_and_lemma_exclusions_must_be_empty_in_v1(self):
-        # ADR-010: v1 bez dodatków i wykluczeń; budowa ich nie czyta, więc niepusta lista = błąd (kod 2),
-        # także dla dodatku spoza STANDARD (`kambuz`) i dodatku ze STANDARD (`kot`).
-        for lemat in ('kambuz', 'kot'):
-            rewrite(self.f['topic'], lambda v: v['t3'].update(
-                dodatki=[{'lemat': lemat, 'czesc_mowy': 'subst', 'powód': 'test'}]))
-            self.assertEqual(self.code(tematy.load_topic, self.f['topic']), 2, lemat)
-        rewrite(self.f['topic'], lambda v: (v['t3'].update(dodatki=[]), v.update(
-            wykluczenia=[{'lemat': 'kot', 'czesc_mowy': 'subst', 'powód': 'test'}])))
+    def test_lemma_exclusions_must_be_empty_and_addenda_are_allowed(self):
+        # ADR-010 (poprawka 2026-10-29): dodatki tworzą warstwę D; wykluczeń budowa nie czyta (kod 2).
+        rewrite(self.f['topic'], lambda v: v['t3'].update(
+            dodatki=[{'lemat': 'kot', 'czesc_mowy': 'subst', 'powód': 'test'}]))
+        tematy.load_topic(self.f['topic'])
+        rewrite(self.f['topic'], lambda v: v.update(
+            wykluczenia=[{'lemat': 'kot', 'czesc_mowy': 'subst', 'powód': 'test'}]))
         self.assertEqual(self.code(tematy.load_topic, self.f['topic']), 2)
         rewrite(self.f['topic'], lambda v: v.update(wykluczenia=[]))
         tematy.load_topic(self.f['topic'])

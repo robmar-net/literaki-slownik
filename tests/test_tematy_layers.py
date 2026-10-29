@@ -102,7 +102,7 @@ class TematyLayersTest(unittest.TestCase):
         self.assertEqual(set().union(*layers), set(result['wpisy']))
         self.assertEqual(result['warstwy'], {'T1': tuple(label(x) for x in ('bosman', 'kuter', 'reja', 'żeglować')),
                                              'T2': tuple(label(x) for x in ('kuter:S2', 'okręt', 'statek', 'łódź')),
-                                             'T3': (label('barka'),)})
+                                             'T3': (label('barka'),), 'D': ()})
         self.assertTrue(all(e['formy'] and set(e['formy']) <= standard for e in result['wpisy'].values()))
 
 

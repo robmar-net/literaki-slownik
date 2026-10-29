@@ -163,7 +163,8 @@ def _finish(argv, command, result, code):
             words, verdict = found['slowa_oczywiste'], found['werdykt']
             inland = found['srodladowe']['kandydaci_t3']
             print(f"Pakiet TEMATY (BUILT, {found['method']}, {found['wersja_tematu']}): {found['output_dir']}\n"
-                  f"Wpisy: {n['wpisy']} (T1 {n['warstwy']['T1']}, T2 {n['warstwy']['T2']}, T3 {n['warstwy']['T3']}); "
+                  f"Wpisy: {n['wpisy']} (T1 {n['warstwy']['T1']}, T2 {n['warstwy']['T2']}, T3 {n['warstwy']['T3']}, "
+                  f"D {n['warstwy']['D']}); "
                   f"formy: {n['formy']}\n"
                   f"Leksemy w POP: {lex['pop']['liczba']} ({lex['pop']['procent']}%); "
                   f"w POP00 (POP0): {lex['pop00']['liczba']} ({lex['pop00']['procent']}%)\n"

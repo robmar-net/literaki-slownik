@@ -22,7 +22,9 @@ import unicodedata
 METHOD = 'tematy-v1'
 KIND = 'literaki-tematy-manifest'
 REVIEW_KIND = 'literaki-tematy-review'
-WARSTWY = ('T1', 'T2', 'T3')
+# D: ręczne dodatki z pliku tematu; po T3, poza próbą R2 (ADR-010, poprawka 2026-10-29).
+WARSTWY = ('T1', 'T2', 'T3', 'D')
+PROBA = ('T1', 'T2', 'T3')
 GRUPY = (*WARSTWY, 'razem')
 OCENY = ('tak', 'nie', 'niepewne')
 WIELOZNACZNY = ('tak', 'nie', 'brak_danych')
@@ -143,8 +145,9 @@ def tsv(root, topic_id):
         require(key not in rows, 'Leksem w dwóch warstwach albo powtórzony: ' + key)
         zrodla = row['zrodla'].split(',')
         require(key.count('@') == 1 and all(key.split('@')), 'Zły klucz leksemu: ' + key)
-        require(row['warstwa'] in WARSTWY and zrodla == sorted(set(zrodla)) and set(zrodla) <= set(WARSTWY)
-                and row['warstwa'] == min(zrodla), 'Zła warstwa albo źródła: ' + key)
+        require(set(zrodla) <= set(WARSTWY) and zrodla == sorted(set(zrodla), key=WARSTWY.index)
+                and row['warstwa'] == zrodla[0] and ('D' not in zrodla or zrodla == ['D']),
+                'Zła warstwa albo źródła: ' + key)
         require(row['wieloznaczny'] in WIELOZNACZNY and row['formy'].isdigit() and int(row['formy']) > 0,
                 'Złe pole wiersza TSV: ' + key)
         rows[key] = row
@@ -213,6 +216,14 @@ def overlap(rows, forms, base):
     return {'leksemy': lex, 'formy': out_forms}
 
 
+def addenda(topic, rows):
+    """Warstwa D = dodatki tematu: jeden wiersz na dodatek, lemat i `znaczenie` `D: <powód>`."""
+    expected = sorted((d['lemat'], 'D: ' + d['powód']) for d in topic['t3']['dodatki'])
+    found = sorted((r['lemat'], r['znaczenie']) for r in rows.values() if r['warstwa'] == 'D')
+    require(found == expected, 'Warstwa D różna od dodatków tematu')
+    require(not topic['wykluczenia'], 'Temat z wykluczeniami lematów')
+
+
 def obvious_words(topic, rows):
     """Test 37 słów, wynik całości: słowo pokryte, gdy ma je lemat wpisu."""
     lista = topic['diagnostyka']['slowa_oczywiste']
@@ -231,9 +242,9 @@ def check_sample(root, rows, config, list_name):
     sample = read(root/'reports/sample.json')
     require(sample['status'] == 'UNREVIEWED' and sample['schema_version'] == 1
             and all(sample[k] == v for k, v in sampling.items()), 'Zły stan lub metoda próby')
-    require(set(sample['strata']) == set(WARSTWY), 'Próba ma inne warstwy niż T1, T2, T3')
+    require(set(sample['strata']) == set(PROBA), 'Próba ma inne warstwy niż T1, T2, T3')
     membership = {}
-    for name in WARSTWY:
+    for name in PROBA:
         population = sorted(k for k, r in rows.items() if r['warstwa'] == name)
         ranked = sorted((sampling_digest(sampling['seed'], name, k), k) for k in population)[:sampling['size_per_stratum']]
         expected = [{'key': k, 'sha256': d} for d, k in ranked]
@@ -245,7 +256,7 @@ def check_sample(root, rows, config, list_name):
             membership[item['key']] = name
     require(sample['unique_selected_units'] == len(membership) and sample['overlaps'] == [],
             'Zły licznik albo przecięcia próby')
-    operator = {name: [i['key'] for i in sample['strata'][name]['selected'][:per]] for name in WARSTWY}
+    operator = {name: [i['key'] for i in sample['strata'][name]['selected'][:per]] for name in PROBA}
     require(sample['operator'] == {'per_stratum': per, 'strata': operator}, 'Zła próba operatora')
     items = sample['items']
     require([i.get('key') for i in items] == sorted(membership), 'Złe dane pozycji próby')
@@ -309,6 +320,7 @@ def check(root, source_path, config_path, review_path=None):
     listed = words(root/f'{topic_id.upper()}.txt.gz')
     require(listed <= standard, f'Naruszone {topic_id.upper()} ⊆ STANDARD')
     rows = tsv(root, topic_id)
+    addenda(topic, rows)
     forms = recount_forms(paths['database'], rows, standard)
     for key, row in rows.items():
         require(forms[key] and len(forms[key]) == int(row['formy']), 'Liczba form TSV różna od bazy: ' + key)
@@ -404,7 +416,7 @@ def fraction_text(value):
 def accuracy(ratings, layer_of):
     """Trafność na warstwę: „tak”/N i „nie”/N, N = rzeczywista liczba ocen; „niepewne” to ani „tak”, ani „nie”."""
     out = {}
-    for name in WARSTWY:
+    for name in PROBA:
         values = [r for k, r in ratings.items() if layer_of[k] == name]
         n, count = len(values), Counter(values)
         out[name] = {'N': n, **{o: count[o] for o in OCENY},

@@ -88,7 +88,7 @@ def page_items(sample):
     """Pozycje operatora w kolejności rangi, warstwa po warstwie; bez ocen agenta i flag budowy."""
     by_key = {i['key']: i for i in sample['items']}
     out = []
-    for name in checker.WARSTWY:
+    for name in checker.PROBA:
         for key in sample['operator']['strata'][name]:
             item = by_key[key]
             out.append({'key': key, 'lemat': item['lemat'], 'warstwa': name, 'zrodla': item['zrodla'],
