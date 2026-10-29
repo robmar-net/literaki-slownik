@@ -1,7 +1,7 @@
 {
   "id": "medycyna",
   "nazwa": "Medycyna i ciało",
-  "wersja": "medycyna-v2",
+  "wersja": "medycyna-v3",
   "t1": {
     "atomy_sgjp": [
       "med.",
@@ -148,6 +148,31 @@
       "lemat": "skrzele",
       "czesc_mowy": "subst",
       "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "walidować",
+      "czesc_mowy": "inf",
+      "powód": "#14: słowo z psych. bez związku z medycyną (operator)"
+    },
+    {
+      "lemat": "logizować",
+      "czesc_mowy": "inf",
+      "powód": "#14: słowo z psych. bez związku z medycyną (operator)"
+    },
+    {
+      "lemat": "apercypować",
+      "czesc_mowy": "inf",
+      "powód": "#14: słowo z psych. bez związku z medycyną (operator)"
+    },
+    {
+      "lemat": "rozhamować",
+      "czesc_mowy": "inf",
+      "powód": "#14: słowo z psych. bez związku z medycyną (operator)"
+    },
+    {
+      "lemat": "dezindywiduacja",
+      "czesc_mowy": "subst",
+      "powód": "#14: słowo z psych. bez związku z medycyną (operator)"
     }
   ],
   "diagnostyka": {
@@ -193,5 +218,5 @@
       "żołądek"
     ]
   },
-  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Grzybica należy do medycyny, nie do grzybów. Wycięte poddrzewa organów i tkanek roślin (4 477 → 4 063, odpadają m.in. batat, bazylia, cytryna, groch, kawa). T3 = IATE 2841 tylko w tym temacie, bez znaczników śródlądowych. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12). v2 (#13, ADR-013): zmiany z bramki #12; bez T3 (IATE): 11 z 18 słów „nie” było tylko w T3."
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Grzybica należy do medycyny, nie do grzybów. Wycięte poddrzewa organów i tkanek roślin (4 477 → 4 063, odpadają m.in. batat, bazylia, cytryna, groch, kawa). T3 = IATE 2841 tylko w tym temacie, bez znaczników śródlądowych. Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12). v2 (#13, ADR-013): zmiany z bramki #12; bez T3 (IATE): 11 z 18 słów „nie” było tylko w T3. v3 (#14): wykluczenia przed wydaniem."
 }

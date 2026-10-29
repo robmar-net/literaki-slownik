@@ -1,7 +1,7 @@
 {
   "id": "matematyka",
   "nazwa": "Matematyka",
-  "wersja": "matematyka-v2",
+  "wersja": "matematyka-v3",
   "t1": {
     "atomy_sgjp": [
       "mat."
@@ -85,6 +85,16 @@
       "lemat": "wwóz",
       "czesc_mowy": "subst",
       "powód": "bramka #12: ocena agenta R2 „nie”"
+    },
+    {
+      "lemat": "pryzma",
+      "czesc_mowy": "subst",
+      "powód": "#14: ocena agenta R2 „nie” w v2"
+    },
+    {
+      "lemat": "reeksport",
+      "czesc_mowy": "subst",
+      "powód": "#14: ocena agenta R2 „nie” w v2"
     }
   ],
   "diagnostyka": {
@@ -126,5 +136,5 @@
       "średnica"
     ]
   },
-  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12). v2 (#13, ADR-013): zmiany z bramki #12."
+  "uwagi": "v1: granice szerokie (clarifications.md, scope-clarifications.md #12). Lemat wspólny z innym tematem zostaje (operator 2026-10-29). Atomy T1 i sport zatwierdzone przez operatora 2026-10-29. Pełne domknięcie T2; dodatki D dopiero po wspólnej ocenie. Lista słów oczywistych zamrożona przed budową (analysis/slowa-oczywiste.json #12). v2 (#13, ADR-013): zmiany z bramki #12. v3 (#14): wykluczenia przed wydaniem."
 }

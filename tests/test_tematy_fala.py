@@ -13,7 +13,7 @@ def topics():
     return {i: tematy.load_topic(CONFIG/'tematy'/f'{i}.json') for i in FALA}
 
 
-# v2 z bramki #12 (#13, ADR-013): dodatki D (lemat → klasa) i wykluczenia (lematy, klasa subst).
+# v2 z bramki #12 (#13, ADR-013): dodatki D (lemat → klasa) i wykluczenia (lematy; klasa subst, czasowniki inf).
 V2 = {
     'grzyby': ({'blaszka': 'subst', 'drożdże': 'subst', 'grzybiarz': 'subst', 'grzybobranie': 'subst',
                 'jadalny': 'adj', 'nóżka': 'subst', 'trujący': 'adj', 'trzon': 'subst', 'zielonka': 'subst'},
@@ -23,18 +23,22 @@ V2 = {
     'sport': ({'biegać': 'inf', 'boisko': 'subst', 'bramka': 'subst', 'drużyna': 'subst', 'gol': 'subst',
                'kibic': 'subst', 'medal': 'subst', 'mistrz': 'subst', 'narta': 'subst', 'rakieta': 'subst',
                'rower': 'subst', 'stadion': 'subst', 'trener': 'subst', 'zwycięstwo': 'subst'}, ()),
-    'matematyka': ({}, ('deniwelacja', 'eksport', 'hasło', 'kolur', 'oszczędności', 'wwóz')),
+    'matematyka': ({}, ('deniwelacja', 'eksport', 'hasło', 'kolur', 'oszczędności', 'wwóz', 'pryzma', 'reeksport')),
     'muzyka': ({}, ('pokrywa', 'różaniec', 'zakrętka')),
     'kuchnia': ({}, ('cytoplazma', 'sadzeniak', 'tyrozynaza')),
-    'medycyna': ({}, ('gladius', 'indywiduacja', 'macka', 'mizogin', 'numulit', 'pantofelek', 'skrzele')),
+    'medycyna': ({}, ('gladius', 'indywiduacja', 'macka', 'mizogin', 'numulit', 'pantofelek', 'skrzele',
+                      'walidować', 'logizować', 'apercypować', 'rozhamować', 'dezindywiduacja')),
 }
+# v3 przed wydaniem (#14): matematyka +2 wykluczenia (ocena agenta „nie”), medycyna +5 słów `psych.` (operator).
+V3 = {'matematyka', 'medycyna'}
+CZASOWNIKI = {'walidować', 'logizować', 'apercypować', 'rozhamować'}
 
 
 class TematyFalaTest(unittest.TestCase):
     def test_each_topic_loads_with_id_and_version(self):
         for ident, topic in topics().items():
             with self.subTest(ident):
-                self.assertEqual((topic['id'], topic['wersja']), (ident, f'{ident}-v{2 if ident in V2 else 1}'))
+                self.assertEqual((topic['id'], topic['wersja']), (ident, f'{ident}-v{3 if ident in V3 else 2 if ident in V2 else 1}'))
                 self.assertEqual(topic['t2']['tryb'], 'pelne')
 
     def test_obvious_words_equal_the_frozen_file(self):
@@ -57,7 +61,7 @@ class TematyFalaTest(unittest.TestCase):
             with self.subTest(ident):
                 self.assertEqual({d['lemat']: d['czesc_mowy'] for d in topic['dodatki']}, dodatki)
                 self.assertEqual([(w['lemat'], w['czesc_mowy']) for w in topic['wykluczenia']],
-                                 [(w, 'subst') for w in wykluczenia])
+                                 [(w, 'inf' if w in CZASOWNIKI else 'subst') for w in wykluczenia])
                 # Dodatek D to brakujące słowo oczywiste tematu.
                 self.assertLessEqual(set(dodatki), set(topic['diagnostyka']['slowa_oczywiste']))
 
