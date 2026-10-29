@@ -105,3 +105,7 @@ Opublikowane: strona zbiorcza https://claude.ai/artifact/YbQQhcwinGG7ZistFiMAeG;
 Uwaga: `strona` odmawia bez hasha w pliku przeglądu, ale nie sprawdza commita — kolejność pilnowana procedurą.
 
 ## Pauza: czekamy na operatora (15.2) — oceny R2, 300 pozycji.
+
+## 2026-10-29 — Grupa 15 zastąpiona
+
+Operator nie ocenia R2 (terminy wymagają wyszukiwarki). Decyzja: trafność T2/T3 z ocen agenta, zgodność nie dotyczy (scope-clarifications.md). Uwaga operatora: cytoplazma ≠ kuchnia (zgodnie z agentem).

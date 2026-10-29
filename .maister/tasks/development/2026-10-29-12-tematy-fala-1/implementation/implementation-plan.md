@@ -311,17 +311,19 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Kryteria odbioru:**
 - 9 stron i strona zbiorcza opublikowane; ok. 300 pozycji razem.
 
-### Grupa 15: Oceny operatora R2 (W13.5) — ZATRZYMANIE: operator
+### Grupa 15: Oceny operatora R2 (W13.5) — ZASTĄPIONA decyzją operatora 2026-10-29
+
+> [~] Pominięta: operator przejrzał strony, ale ocen nie zaznaczał („nie jestem tu nijak lepszy od Ciebie, ja muszę użyć wyszukiwarki do większości z tych terminów”). Decyzja: trafność T2/T3 z ocen agenta; zgodność operator–agent nie dotyczy. Jedyna uwaga operatora: „cytoplazma” nie pasuje do kuchni (agent też „nie”).
 **Zależności:** 14
 **Pliki:** `T/verification/tematy-<id>-review.json` (9 plików), `T/verification/review-check-<id>.json` (9 plików), `T/verification/r2-zbiorcza.html`
 **Kroki:** 5
 
-- [ ] 15.0 Zebrać oceny operatora i policzyć werdykty
-  - [ ] 15.1 Kontrola zamiast testów: checker `--review` na każdym pliku przeglądu.
-  - [ ] 15.2 **ZATRZYMANIE (orchestrator):** operator ocenia na iPhonie 30 pozycji T2 w każdym temacie i 30 T3 w medycynie. JSON wkleja po każdej stronie.
-  - [ ] 15.3 Po każdym JSON: `tematy_review.py zapisz`, potem checker `--review` → `T/verification/review-check-<id>.json`. Na stronie zbiorczej zmieniamy stan tematu i publikujemy ją ponownie pod tym samym adresem.
-  - [ ] 15.4 Gdy temat nie ma JSON, orchestrator przypomina o nim ze strony zbiorczej. Nie pomijamy go po cichu.
-  - [ ] 15.5 Po 9 tematach: commit i push `maister: #12 oceny operatora R2`.
+- [~] 15.0 Zebrać oceny operatora i policzyć werdykty
+  - [~] 15.1 Kontrola zamiast testów: checker `--review` na każdym pliku przeglądu.
+  - [~] 15.2 **ZATRZYMANIE (orchestrator):** operator ocenia na iPhonie 30 pozycji T2 w każdym temacie i 30 T3 w medycynie. JSON wkleja po każdej stronie.
+  - [~] 15.3 Po każdym JSON: `tematy_review.py zapisz`, potem checker `--review` → `T/verification/review-check-<id>.json`. Na stronie zbiorczej zmieniamy stan tematu i publikujemy ją ponownie pod tym samym adresem.
+  - [~] 15.4 Gdy temat nie ma JSON, orchestrator przypomina o nim ze strony zbiorczej. Nie pomijamy go po cichu.
+  - [~] 15.5 Po 9 tematach: commit i push `maister: #12 oceny operatora R2`.
 
 **Kryteria odbioru:**
 - 9 plików `review-check-<id>.json` i `review-check-morze.json`; ok. 300 ocen operatora.

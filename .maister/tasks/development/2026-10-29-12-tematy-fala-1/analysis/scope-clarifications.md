@@ -20,3 +20,9 @@ Decyzje techniczne (nasze, do ADR-012): jeden pakiet na temat; T3 opcjonalne; `t
 
 ## Otwarte pytania
 - Przy R2 tylko T2 trzeba zmienić próbę operatora (`operator_per_stratum` per warstwa) i kryterium t1_tak (tylko agent).
+
+## Zmiana metody R2 (operator, 2026-10-29, po stronach R2)
+
+- Operator przejrzał 9 stron, ale nie zaznaczał ocen: „nie jestem tu nijak lepszy od Ciebie, ja muszę użyć wyszukiwarki do większości z tych terminów, to nie ma wielkiego sensu”. W muzyce nie był pewien około połowy terminów.
+- Jedyna uwaga: „cytoplazma” nie pasuje do kuchni (agent też ocenił „nie”). Reszta: „albo ok, albo nie umiem ocenić”.
+- **Decyzja (AskUserQuestion): trafność T2 i T3 w bramce liczymy z ocen agenta.** Kryterium zgodności operator–agent: nie dotyczy. Zmianę zapisujemy w ADR-012.
