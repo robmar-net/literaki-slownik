@@ -1,6 +1,6 @@
 orchestrator:
   started_phase: phase-1
-  completed_phases: [phase-1, phase-2, phase-5, phase-6]
+  completed_phases: [phase-1, phase-2, phase-5, phase-6, phase-7]
   failed_phases: []
   auto_fix_attempts: {}
   options:
@@ -15,7 +15,7 @@ orchestrator:
     reality_check_enabled: true
     production_check_enabled: true
   created: 2026-10-29T00:59:06Z
-  updated: 2026-10-29T01:57:16Z
+  updated: 2026-10-29T02:03:46Z
   task_path: .maister/tasks/development/2026-10-29-12-tematy-fala-1
 task:
   title: "TEMATY: pierwsza fala — 9 tematów (#12)"
@@ -73,4 +73,9 @@ task_context:
       decisions: [{decision: "W3 (atomy ogr./psych./wet./farm., sport bez T2 gier) zatwierdzone przez operatora na bramce specyfikacji", rationale: "odpowiedź „Tak, audyt” na pytanie ze zmianami treści"}]
       risks: ["t1_tak tylko z agenta (morze: 0,92 przy progu 0,90)", "IATE 2841 niezmierzone w budowie"]
       artifacts: [{path: verification/spec-audit.md, label: Audyt specyfikacji, html: null}]
+    planning:
+      summary: "20 grup, 107 kroków, 41 nowych testów. Fale: {1,3,8} → {2,4} → 5 → 6 → 7 → 9 → {10,11} → 12 → {13,17} → 14 → 15 → 16 → {18,19} → 20. Stopy operatora: 2.4 (słowa oczywiste), 15.2 (R2), 20.2 (bramka)."
+      decisions: [{decision: "Bramka planu zatwierdzona z góry przez operatora („wyrażam zgodę … zacznij na podstawie tej zgody”, 2026-10-29)", rationale: "operator idzie spać, prosi o kontynuację"}, {decision: "Bez commitów w trakcie serii budów", rationale: "code_identity zapisuje HEAD"}]
+      risks: ["Pełny zestaw testów dopiero w grupie 19", "Operator wąskim gardłem w 2.4 i 15.2", "2–3 h maszyny"]
+      artifacts: [{path: implementation/implementation-plan.md, label: Plan, html: implementation/implementation-plan.html}]
     clarifications: ["Słowa wspólne zostają w każdym temacie", "Taniec → muzyka; gry, szachy, karty → sport; napoje → kuchnia", "Dinozaury tak, łow. nie", "Grzybica → medycyna"]
