@@ -1,7 +1,7 @@
 {
   "id": "morze",
   "nazwa": "Morze i żegluga",
-  "wersja": "morze-v1",
+  "wersja": "morze-v2",
   "t1": {
     "atomy_sgjp": [
       "mors.",
@@ -57,7 +57,38 @@
         "supersededTerm-admn-sts"
       ]
     },
-    "dodatki": []
+    "dodatki": [
+      {
+        "lemat": "sztorm",
+        "czesc_mowy": "subst",
+        "powód": "test 37 słów; decyzja operatora 2026-10-29"
+      },
+      {
+        "lemat": "rybak",
+        "czesc_mowy": "subst",
+        "powód": "test 37 słów; decyzja operatora 2026-10-29"
+      },
+      {
+        "lemat": "falochron",
+        "czesc_mowy": "subst",
+        "powód": "test 37 słów; decyzja operatora 2026-10-29"
+      },
+      {
+        "lemat": "nabrzeże",
+        "czesc_mowy": "subst",
+        "powód": "test 37 słów; decyzja operatora 2026-10-29"
+      },
+      {
+        "lemat": "trał",
+        "czesc_mowy": "subst",
+        "powód": "test 37 słów; decyzja operatora 2026-10-29"
+      },
+      {
+        "lemat": "cumować",
+        "czesc_mowy": "inf",
+        "powód": "test 37 słów; decyzja operatora 2026-10-29"
+      }
+    ]
   },
   "wykluczenia": [],
   "diagnostyka": {
@@ -120,5 +151,5 @@
       ]
     }
   },
-  "uwagi": "Pilotaż v1: pełne domknięcie T2, bez dodatków i wykluczeń. Lista 37 słów i znaczniki śródlądowe ustalone przed pierwszą budową (decyzje operatora 2026-10-28 i 2026-10-29)."
+  "uwagi": "v2: 6 dodatków ręcznych (warstwa D) po bramce v1, decyzja operatora 2026-10-29. Pełne domknięcie T2, bez wykluczeń. Lista 37 słów i znaczniki śródlądowe ustalone przed pierwszą budową (decyzje operatora 2026-10-28 i 2026-10-29)."
 }

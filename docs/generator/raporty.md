@@ -88,6 +88,7 @@ Metoda `tematy-v1`, [ADR-010](../adr/ADR-010-tematy-v1.md). Pliki pakietu:
 - `MORZE.txt.gz`: formy tematu ∩ STANDARD, posortowane, gzip bez nazwy i czasu.
 - `MORZE.tsv.gz`: wiersz na leksem; kolumny `klucz`, `lemat`, `czesci_mowy`, `warstwa`, `zrodla`,
   `znaczenie`, `wieloznaczny`, `formy` (liczba form). Warstwa to najniższa z T1 < T2 < T3, źródła to wszystkie.
+  D: ręczny dodatek z pliku tematu, tylko źródło D, `znaczenie` = `D: <powód>`.
 - `tematy/morze.json`, `method.json`: kopia tematu i metody.
 - `reports/summary.json` i `reports/raport.md` (te same liczby, tekst dla człowieka).
 - `reports/sample.json`, `reports/review-template.json`: próba R2 ([jakosc.md](jakosc.md#próbki-tematy-tematy-quality-v1)).
@@ -95,8 +96,8 @@ Metoda `tematy-v1`, [ADR-010](../adr/ADR-010-tematy-v1.md). Pliki pakietu:
 - `release-manifest.json` (`literaki-tematy-manifest`, `status: BUILT`, `counts.morze`, `overlap`, `files`) i `SHA256SUMS`.
 
 Pola `summary.json`:
-- `liczby`: kandydaci, wpisy, formy, `warstwy` T1/T2/T3.
-- `przeciecia`: `leksemy` i `formy`, dla T1, T2, T3 i `razem`: `temat`, `pop` i `pop00` (`liczba`, `procent`
+- `liczby`: kandydaci, wpisy, formy, `warstwy` T1/T2/T3/D.
+- `przeciecia`: `leksemy` i `formy`, dla T1, T2, T3, D i `razem`: `temat`, `pop` i `pop00` (`liczba`, `procent`
   względem tematu). Leksem w POP00 = członek POP0; forma = napis z `POP.txt.gz` albo `POP00.txt.gz`.
 - `diagnostyka`: przed ∩ STANDARD; kandydaci, ∩ BROAD, ∩ STANDARD i udziały, na warstwę, w leksemach i formach.
 - `odrzucone`: `BRAK_LEKSEMU` (z podliczbą `ger`), `NIE_JEDNO_SLOWO`, `POZA_BROAD`, `POZA_STANDARD`;

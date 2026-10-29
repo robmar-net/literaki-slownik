@@ -3,6 +3,7 @@
 ## TL;DR
 TEMATY to listy słów jednego tematu, podzbiory STANDARD. Pilotaż ma jeden temat: `morze`.
 Lista ma trzy rozłączne warstwy: T1 etykiety SGJP, T2 Słowosieć 4.5, T3 IATE 2019.
+Od poprawki 2026-10-29 także D: ręczne dodatki z pliku tematu.
 Wpis to leksem SGJP z formami ∩ STANDARD. Pakiet ma tylko stan BUILT; przegląd leży poza nim.
 Bramka: automat podaje „dalej” albo „popraw”; „stop” wybiera tylko operator.
 To słownik tematyczny. Jego reguły nie zmieniają dopuszczalności przy stole.
@@ -16,7 +17,7 @@ To słownik tematyczny. Jego reguły nie zmieniają dopuszczalności przy stole.
   przed budową. W pliku tematu: `t2.tryb: "pelne"`.
 - **Progi jako udziały**, z mianownikiem równym rzeczywistemu N ocen operatora w warstwie.
 - **Przegląd R2: 30 słów na warstwę, razem 90.** Decyzja operatora z 2026-10-28.
-- **v1 bez dodatków ręcznych, wykluczeń i wykluczeń poddrzew.**
+- **Bez wykluczeń lematów i wykluczeń poddrzew.** Dodatki ręczne: od poprawki 2026-10-29 (niżej).
 - **IATE 4821 zostaje.** Mierzymy udział żeglugi śródlądowej, nic nie wykluczamy.
 - **Lista 37 słów oczywistych leży w pliku tematu**, nie w konfiguracji metody.
 
@@ -72,7 +73,9 @@ Zadanie E wymienia trzy metody. Statusy: **E1 (n-gramy KWJP): słaba**, pilotaż
 - Korzenie T2: 7354 `statek 1`, 2149 `okręt 1`, 4511 `łódź 2`, 6214 `marynarz 1`, 14136 `żegluga 1`,
   14515 `żeglarstwo 1`. Nazwę sprawdza budowa ([ADR-011](ADR-011-zrodla-slowosiec-iate.md)).
 - Relacja spoza {11, 25, 27} albo `t2.tryb` inny niż `pelne` to błąd w v1.
-- Dodatek spoza STANDARD to błąd. W v1 dodatki i wykluczenia lematów są puste; niepuste dają kod 2 (budowa ich jeszcze nie stosuje).
+- Wersja tematu: `<id>-v<n>` (`morze-v2`). Metoda zostaje `tematy-v1`.
+- Dodatek (`t3.dodatki`: `lemat`, `czesc_mowy` jako klasa tagu SGJP, `powód`) to warstwa D (poprawka niżej).
+  Wykluczenia lematów muszą być puste; niepuste dają kod 2.
 - Znaczniki śródlądowe ustalone przed pierwszą budową. PL: `śródląd`, `rzek`, `rzeczn`, `kanał`, `jezior`,
   `śluz`, `barka`. EN: `inland`, `river`, `canal`, `lake`, `lock`, `barge`. Nie zmieniamy ich po wynikach.
   Główna miara: hasła kandydatów T3; dodatkowo wpisy T3 po ∩ STANDARD.
@@ -122,6 +125,16 @@ ma stan „W przygotowaniu” do bramki.
 w pakiecie. v1 ma tylko stan BUILT. Przegląd żyje poza pakietem, w folderze zadania, i wiąże się
 z `SHA256SUMS` pakietu oraz `sample_sha256`. Tak działa POP00. Ocena nie zmienia wtedy bajtów pakietu,
 a budowy a/b dają się porównać.
+
+## Poprawka 2026-10-29: dodatki ręczne (warstwa D)
+Decyzja operatora po bramce v1 („popraw”): test 37 słów dał 31/37. Brakujące 6 słów dodajemy ręcznie:
+`sztorm`, `rybak`, `falochron`, `nabrzeże`, `trał` (subst), `cumować` (inf). Temat `morze-v2`.
+- Dodatek wskazuje dokładnie jeden leksem SGJP: równy `lemma_base` i klasa tagu `czesc_mowy`.
+  Brak leksemu, kilka leksemów, brak formy w STANDARD albo leksem już w T1–T3: kod 4.
+- Wpis D: `zrodla` = D, `znaczenie` = `D: <powód>`, formy ∩ STANDARD, `wieloznaczny` według zwykłych reguł.
+- Raporty i przecięcia mają wiersz D; sumy go obejmują. Test 37 słów liczy wszystkie warstwy.
+- Próba R2 losuje tylko T1–T3. Próba v2 jest bajtowo równa próbie v1, więc oceny v1 przepinamy na v2.
+  Dodatki nie podlegają ocenie R2: wybrał je operator.
 
 ## Implementacja
 - Każdy plik czytany w budowie, także wewnątrz POP i POP00, trafia do rejestru z hashem. Przed przeniesieniem

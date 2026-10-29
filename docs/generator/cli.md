@@ -129,8 +129,8 @@ Przegląd musi obejmować całą próbkę, odpowiadać sumom pakietu i nie mieć
 ## TEMATY (`tematy`)
 
 Metoda `tematy-v1`: [ADR-010](../adr/ADR-010-tematy-v1.md), źródła: [ADR-011](../adr/ADR-011-zrodla-slowosiec-iate.md).
-Pilotaż #11, temat `morze`. Lista to leksemy SGJP ∩ STANDARD w trzech rozłącznych warstwach:
-T1 etykiety SGJP, T2 Słowosieć 4.5, T3 IATE 2019. Nie zmienia słownika stołu.
+Pilotaż #11, temat `morze`. Lista to leksemy SGJP ∩ STANDARD w rozłącznych warstwach:
+T1 etykiety SGJP, T2 Słowosieć 4.5, T3 IATE 2019, D ręczne dodatki z pliku tematu. Nie zmienia słownika stołu.
 
 Źródła pobieramy osobno, z siecią. Budowa sieci nie używa.
 
@@ -164,7 +164,8 @@ python3 scripts/tematy_review.py zapisz --package-dir data/work/tematy-nowy \
   (także manifest wydania, POP, POP00, `meta` pochodnej); 4 dane albo istniejący cel;
   5 przebieg nie FROZEN albo zmiana wejścia w trakcie budowy.
 - `check_tematy_package.py`: nie importuje `literaki_slownik`. Sprawdza sumy, manifest,
-  `MORZE.txt` ⊆ STANDARD, TSV wobec TXT, rozłączne warstwy, przecięcia z POP i POP00.
+  `MORZE.txt` ⊆ STANDARD, TSV wobec TXT, rozłączne warstwy, warstwę D wobec dodatków tematu,
+  przecięcia z POP i POP00.
   Z `--review` liczy trafność, zgodność, kappę, test 37 słów i werdykt ([jakosc.md](jakosc.md#próbki-tematy-tematy-quality-v1)).
 - `tematy_review.py`: `strona` robi stronę HTML z pozycjami operatora (bez ocen agenta; odmawia bez
   hasha ocen agenta); `zapisz` łączy JSON operatora z plikiem przeglądu i sprawdza klucze i hashe.
