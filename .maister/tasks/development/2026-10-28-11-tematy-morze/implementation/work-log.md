@@ -148,3 +148,11 @@
 - Kontrola: `python3 scripts/check_tematy_package.py --package-dir <PKG> --manifest config/generator/tematy-sources.json --config config/generator/tematy.json [--review <review.json>]`.
 - Strona: `python3 scripts/tematy_review.py strona --package-dir <PKG> --review <review.json> --output $T/verification/tematy-morze-r2.html`.
 - Zapis ocen operatora: `python3 scripts/tematy_review.py zapisz --package-dir <PKG> --review <review.json> --oceny <operator.json|->`.
+
+## 2026-10-29T00:15:09Z - Group 12 Complete
+
+**Steps**: 12.1–12.5
+**Tests**: pełny zestaw: `Ran 514 tests … OK` (tests) oraz `Ran 5 tests … OK` (scripts/test_audit_sgjp). Brak pominiętych. Dodano 3 testy: dodatki i wykluczenia, leksem w trzech warstwach, błąd SQLite → kod 4 bez pakietu.
+**Bug fixed**: `load_topic` przyjmował niepuste `t3.dodatki` i `wykluczenia`, a budowa ich nie czytała, więc wpis był po cichu pomijany. Teraz v1 daje kod 2. ADR-010 dostał o tym zdanie.
+**Files Modified**: literaki_slownik/tematy.py, tests/test_tematy_{config,layers,package}.py, docs/generator/cli.md (dokładne flagi skryptów), docs/adr/ADR-010-tematy-v1.md
+**Uwaga**: wykluczenia rzecznych terminów po przeglądzie (decyzja operatora) wymagają w v2 obsługi `wykluczenia` w budowie.

@@ -277,12 +277,12 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `tests/test_tematy_*.py`, `tests/test_check_tematy_package.py`, `tests/test_tematy_review.py`, `tests/test_fetch_tematy_sources.py`, `tests/test_build_plwordnet_db.py`, `tests/tematy_helpers.py`
 **Kroki:** 5
 
-- [ ] 12.0 Przejrzeć testy i domknąć luki
-  - [ ] 12.1 Przejrzeć testy grup 2–10 (50) wobec listy „Do pokrycia” w spec.
-  - [ ] 12.2 Wypisać luki tylko dla TEMATY (np. leksem w trzech warstwach, dodatek spoza STANDARD = błąd, błąd danych SQLite → kod 4).
-  - [ ] 12.3 Dopisać do 10 testów.
-  - [ ] 12.4 Uruchomić raz pełny zestaw: `python3 -m unittest discover -s tests -p 'test_*.py'` oraz `python3 -m unittest discover -s scripts -p 'test_audit_sgjp.py'`. Przeczytać wynik, nie tylko kod wyjścia.
-  - [ ] 12.5 Commit `test(tematy): domknij luki (#11)`, push.
+- [x] 12.0 Przejrzeć testy i domknąć luki
+  - [x] 12.1 Przejrzeć testy grup 2–10 (50) wobec listy „Do pokrycia” w spec.
+  - [x] 12.2 Wypisać luki tylko dla TEMATY (np. leksem w trzech warstwach, dodatek spoza STANDARD = błąd, błąd danych SQLite → kod 4).
+  - [x] 12.3 Dopisać do 10 testów.
+  - [x] 12.4 Uruchomić raz pełny zestaw: `python3 -m unittest discover -s tests -p 'test_*.py'` oraz `python3 -m unittest discover -s scripts -p 'test_audit_sgjp.py'`. Przeczytać wynik, nie tylko kod wyjścia.
+  - [x] 12.5 Commit `test(tematy): domknij luki (#11)`, push.
 
 **Kryteria odbioru:**
 - Pełny zestaw przechodzi; dodano najwyżej 10 testów.
