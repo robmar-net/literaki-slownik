@@ -115,3 +115,7 @@ Operator nie ocenia R2 (terminy wymagają wyszukiwarki). Decyzja: trafność T2/
 Commit `7d2b714`. Bramka metodą z ocen agenta: dalej — kuchnia, rośliny, zwierzęta; popraw — grzyby (słowa 61,8%, T2 0,46), pogoda (słowa), matematyka (T2 0,58, nie 0,12), muzyka (T2 0,64), sport (słowa), medycyna (T1 0,84, T3 0,44), morze.
 Ważne: na morzu agent jest dużo surowszy od operatora (T2 21/50 vs operator 30/30; T3 9/27 vs 27/27; 37 lematów „tak” operatora agent ocenił „nie”). Ocena agenta zaniża trafność → pytanie do bramki 20.2.
 Decyzje operatora w gate-report.md puste do 20.2.
+
+## 2026-10-29 — Grupa 17 zakończona
+
+Commit `1f86e2a`: ADR-012 (regresja morza, T3 medycyny 342, zmiana metody R2 i stronniczość agenta), cli/raporty/jakosc, runbook-wiki, INDEX. Przykład nuty/zawody poprawiony w spec W10.2 (psy, koty); w ADR-012 go nie było. test_documented_names 4/4.

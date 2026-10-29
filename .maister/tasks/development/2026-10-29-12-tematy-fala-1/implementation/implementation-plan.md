@@ -351,13 +351,13 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `docs/adr/ADR-012-tematy-fala-1.md`, `docs/generator/cli.md`, `docs/generator/raporty.md`, `docs/generator/jakosc.md`, `docs/runbook-wiki.md`, `.maister/docs/INDEX.md`
 **Kroki:** 6
 
-- [ ] 17.0 Opisać tematy-v2 w dokumentach projektu
-  - [ ] 17.1 Kontrola zamiast testów: `python3 -m unittest tests.test_documented_names` przechodzi; linki prowadzą do istniejących ścieżek; jedyna nazwa gry to Literaki.
-  - [ ] 17.2 `ADR-012`: wynik regresji (z `T/verification/regresja-morze.json`) i liczba T3 medycyny (z `builds.json`).
-  - [ ] 17.3 `cli.md` (TEMATY): uogólnienie z morza, `<ID>.txt.gz`, opcjonalne T3, nazwy pakietów `tematy-<wersja tematu>-YYYYMMDD-{a,b}`. `raporty.md`: `counts.<id>`, `wykluczenia`, `srodladowe` tylko przy znacznikach, `werdykt.nie_dotyczy`. `jakosc.md`: `operator_warstwy`, progi z ocen agenta.
-  - [ ] 17.4 `docs/runbook-wiki.md`, sekcja TEMATY: `counts.<id>`, przykłady sprawdzane w `<ID>.tsv.gz`, tabela tematów na jednej stronie.
-  - [ ] 17.5 `.maister/docs/INDEX.md`: ADR-012 i zadanie #12.
-  - [ ] 17.6 Commit i push: `docs(tematy): tematy-v2 w dokumentach generatora (#12)`.
+- [x] 17.0 Opisać tematy-v2 w dokumentach projektu
+  - [x] 17.1 Kontrola zamiast testów: `python3 -m unittest tests.test_documented_names` przechodzi; linki prowadzą do istniejących ścieżek; jedyna nazwa gry to Literaki.
+  - [x] 17.2 `ADR-012`: wynik regresji (z `T/verification/regresja-morze.json`) i liczba T3 medycyny (z `builds.json`).
+  - [x] 17.3 `cli.md` (TEMATY): uogólnienie z morza, `<ID>.txt.gz`, opcjonalne T3, nazwy pakietów `tematy-<wersja tematu>-YYYYMMDD-{a,b}`. `raporty.md`: `counts.<id>`, `wykluczenia`, `srodladowe` tylko przy znacznikach, `werdykt.nie_dotyczy`. `jakosc.md`: `operator_warstwy`, progi z ocen agenta.
+  - [x] 17.4 `docs/runbook-wiki.md`, sekcja TEMATY: `counts.<id>`, przykłady sprawdzane w `<ID>.tsv.gz`, tabela tematów na jednej stronie.
+  - [x] 17.5 `.maister/docs/INDEX.md`: ADR-012 i zadanie #12.
+  - [x] 17.6 Commit i push: `docs(tematy): tematy-v2 w dokumentach generatora (#12)`.
 
 **Kryteria odbioru:**
 - Każda nowa nazwa z kodu (`operator_warstwy`, `wykluczenia`, `nie_dotyczy`) ma opis w `docs/`.
