@@ -23,6 +23,7 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Zadanie POP/POP0](../tasks/development/2026-10-11-slowniki-pop-pop0/implementation/spec.md) — słowniki popularnych słów (#3); pop-v1 wycofane, pop-v2.
 - [Zadanie TEMATY „morze”](../tasks/development/2026-10-28-11-tematy-morze/implementation/spec.md) — pilotaż słownika tematycznego (#11); CLI `tematy` w [cli.md](../../docs/generator/cli.md#tematy-tematy), raporty, próba R2, sekcja TEMATY w [runbooku wiki](../../docs/runbook-wiki.md).
 - [Zadanie TEMATY, fala 1](../tasks/development/2026-10-29-12-tematy-fala-1/implementation/spec.md) — 9 tematów, metoda `tematy-v2` (#12); [ADR-012](../../docs/adr/ADR-012-tematy-fala-1.md), bramka w [gate-report.md](../tasks/development/2026-10-29-12-tematy-fala-1/verification/gate-report.md).
+- [ADR-013: TEMATY v2 fali 1](../../docs/adr/ADR-013-tematy-v2-fali-1.md) — 7 tematów v2 (#13), wykluczenie obejmuje dodatki D; bramka v2: dalej wszystkie 10, bez wydania; [gate-report.md](../tasks/development/2026-10-29-13-tematy-v2/verification/gate-report.md).
 
 - [Raport końcowy i przekazanie](../tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/research-handoff.md).
 - [Implementacja generatora — zakres i luki](../tasks/development/2026-10-04-generator-broad-standard/analysis/gap-analysis.md) — aktywne zadanie development.

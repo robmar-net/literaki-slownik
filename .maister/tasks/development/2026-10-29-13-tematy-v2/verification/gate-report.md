@@ -1,14 +1,14 @@
 # Bramka v2 (#13)
 
 ## TL;DR
-Sześć tematów przechodzi wszystkie progi (pogoda, muzyka, sport, kuchnia oraz bez zmian rośliny i zwierzęta). Trzy nie przechodzą jednego progu: grzyby i matematyka `t2_tak`, medycyna `t1_tak`. Wszystkie braki to oceny „niepewne”, nie „nie”: `t2_nie` jest spełnione wszędzie. Decyzję podejmuje operator.
+Sześć tematów przechodzi wszystkie progi (pogoda, muzyka, sport, kuchnia oraz bez zmian rośliny i zwierzęta). Trzy nie przechodzą jednego progu: grzyby i matematyka `t2_tak`, medycyna `t1_tak`. Wszystkie braki to oceny „niepewne”, nie „nie”: `t2_nie` jest spełnione wszędzie. **Decyzja operatora (2026-10-29): dalej wszystkie 10.** Bez wydania.
 
 ## Kluczowe decyzje
 - R2 z ocen agenta, tak jak w #12. Oceny z #12 przenosimy, gdy klucz i `selected_unit` są identyczne. Nowych pozycji jest 33 (`przeniesienie-ocen.json`).
 - Progi bez zmian (`config/generator/tematy.json`).
 
 ## Otwarte pytania
-- Czy grzyby, matematyka i medycyna idą „dalej” mimo progu? Agent jest surowszy od operatora: w morzu dał T2 21/50, operator 30/30.
+- Rozstrzygnięte: grzyby, matematyka i medycyna idą „dalej” mimo progu, bo agent jest surowszy od operatora (morze: agent T2 21/50, operator 30/30). Pryzma i reeksport wykluczymy w matematyce przy następnej wersji.
 
 ## Wyniki (pakiety `-v2-20261029-a`, `zestawienie-v2.json`)
 

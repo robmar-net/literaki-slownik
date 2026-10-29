@@ -165,7 +165,7 @@ odrzucić temat, który operator by przyjął.
   - medycyna: bez T3 (IATE) i bez 18 słów „nie” agenta.
 - Bez wydania. Budowy v2 poza #12.
 
-**Otwarte na v2** (przegląd kodu):
+**Otwarte na v2** (przegląd kodu; rozstrzygnięte w [ADR-013](ADR-013-tematy-v2-fali-1.md): wykluczenie bezwzględne, checker sprawdza teksty i `summary`, odcinki przy wczytaniu):
 - **Wykluczenia a dodatki D.** `_exclude` (`literaki_slownik/tematy.py`) usuwa tylko leksemy T1–T3.
   Checker (`exclusions` w `scripts/check_tematy_package.py`) odrzuca każdy wiersz TSV, także D, z wykluczoną
   klasą. Przed v2 grzybów (dodatki i wykluczenia) trzeba ustalić, co obowiązuje.

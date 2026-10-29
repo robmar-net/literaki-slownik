@@ -81,3 +81,6 @@ Przegląd technicznej zgodności z polityką nie dowodzi rozpoznawalności przez
   „nie dotyczy”. To sposób użycia, nie zmiana kodu: checker dalej czeka na oceny operatora. Wynik bramki
   liczy skrypt zadania `analysis/zestawienie_fali.py` funkcją `verdict` checkera. Agent ocenia surowiej
   niż operator (morze: T2 21/50 wobec 30/30).
+- **v2 (#13): oceny przenoszone.** Ocena agenta z #12 przechodzi, gdy klucz i `selected_unit` są identyczne;
+  agent ocenia tylko nowe pozycje próby. Bramka v2: operator przepuścił trzy tematy z jednym progiem poniżej
+  granicy, bo braki to „niepewne” ([ADR-013](../adr/ADR-013-tematy-v2-fali-1.md)).
