@@ -213,8 +213,8 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
 **Pliki:** `literaki_slownik/tematy.py`, `literaki_slownik/cli.py`, `tests/tematy_helpers.py`, `tests/test_tematy_package.py`
 **Kroki:** 7
 
-- [ ] 9.0 Zapisać pakiet i podłączyć podkomendę
-  - [ ] 9.1 Napisać 7 testów:
+- [x] 9.0 Zapisać pakiet i podłączyć podkomendę
+  - [x] 9.1 Napisać 7 testów:
     - dwie budowy na fiksturze dają identyczne `SHA256SUMS`;
     - pakiet ma pliki z listy spec; pliki `0444`; `MORZE.txt.gz` posortowane i ⊆ STANDARD;
     - `summary.json`: przecięcia z POP/POP00 (razem i T1/T2/T3, leksemy i formy) zgodne z ręcznie policzonymi;
@@ -222,12 +222,12 @@ Testy: 50 nowych w grupach 2–10, do 10 w grupie 12. Wydania publicznego w tym 
     - próba: `min(50, N)` na warstwę; warstwa N < 30 bierze całość; operator = pierwsze `min(30, N)` w kolejności rangi;
     - istniejący cel albo cel w wejściach = kod 4/2; zmiana konfiguracji w trakcie = kod 5 i brak pakietu;
     - CLI `tematy --json`: koperta jak `pop00`, kody wyjścia.
-  - [ ] 9.2 Raporty (W8–W10): `summary.json`, `raport.md` z tych samych liczb; odrzuceni z 10 przykładami na powód i warstwę (deterministycznie); liczby haseł T3 według `termType` i odrzuconych `deprecatedTerm`; udział `wieloznaczny` z 10 przykładami; do 20 przykładów śródlądowych.
-  - [ ] 9.3 Próba: `quality.sample_strata` z warstwami jako strata; `review_template` z danymi wpisu; `reports/sample.json`, `reports/review-template.json`.
-  - [ ] 9.4 Pakiet (wzór `pop00._write_package`): `MORZE.txt.gz` przez `pop.write_gzip`, `MORZE.tsv.gz`, kopia `tematy/morze.json`, `method.json`, `ATTRIBUTIONS.md` (atrybucje z pakietu POP + `ATTRIBUTIONS-tematy.md`), `LIMITATIONS.md` z udziałem śródlądowych, `TERMS.md`, `release-manifest.json` (stan BUILT, `counts.morze`, `overlap`, `code_identity`), `SHA256SUMS`.
-  - [ ] 9.5 `build_package` (wzór `pop00.build_package`): staging obok celu, `confirm_unchanged` na rejestrze, `chmod 0444`, `rename_noreplace`, mapowanie wyjątków na kody.
-  - [ ] 9.6 `cli.py`: parser `tematy --manifest --config --topic --output-dir [--json]`, leniwy import, `_finish`.
-  - [ ] 9.7 Uruchomić 7 nowych testów. Commit `feat(tematy): pakiet, raporty i podkomenda (#11)`, push.
+  - [x] 9.2 Raporty (W8–W10): `summary.json`, `raport.md` z tych samych liczb; odrzuceni z 10 przykładami na powód i warstwę (deterministycznie); liczby haseł T3 według `termType` i odrzuconych `deprecatedTerm`; udział `wieloznaczny` z 10 przykładami; do 20 przykładów śródlądowych.
+  - [x] 9.3 Próba: `quality.sample_strata` z warstwami jako strata; `review_template` z danymi wpisu; `reports/sample.json`, `reports/review-template.json`.
+  - [x] 9.4 Pakiet (wzór `pop00._write_package`): `MORZE.txt.gz` przez `pop.write_gzip`, `MORZE.tsv.gz`, kopia `tematy/morze.json`, `method.json`, `ATTRIBUTIONS.md` (atrybucje z pakietu POP + `ATTRIBUTIONS-tematy.md`), `LIMITATIONS.md` z udziałem śródlądowych, `TERMS.md`, `release-manifest.json` (stan BUILT, `counts.morze`, `overlap`, `code_identity`), `SHA256SUMS`.
+  - [x] 9.5 `build_package` (wzór `pop00.build_package`): staging obok celu, `confirm_unchanged` na rejestrze, `chmod 0444`, `rename_noreplace`, mapowanie wyjątków na kody.
+  - [x] 9.6 `cli.py`: parser `tematy --manifest --config --topic --output-dir [--json]`, leniwy import, `_finish`.
+  - [x] 9.7 Uruchomić 7 nowych testów. Commit `feat(tematy): pakiet, raporty i podkomenda (#11)`, push.
 
 **Kryteria odbioru:**
 - 7 testów przechodzi.

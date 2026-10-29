@@ -101,3 +101,28 @@
 **Files Modified**: literaki_slownik/tematy.py, tests/tematy_helpers.py, tests/test_tematy_layers.py
 **Prawdziwe dane (tylko odczyt, bez check_inputs)**: wpisy 964 (T1 246, T2 691, T3 27), MORZE 10 883 formy; wieloznaczny: nie 459, tak 430, brak_danych 75. T3 BRAK_LEKSEMU 20 (ger 9).
 **Kontrakt dla grupy 9**: `build_entries(data, cands)` zwraca {kandydaci, wpisy, warstwy, formy, diagnostyka, odrzucone, ger}. Przykłady to pierwsze 10 z pełnych list. T3 jest małe (27), więc w próbie bierzemy całą warstwę.
+
+## 2026-10-29T00:03:12Z - Group 9 Complete
+
+**Steps**: 9.1–9.7
+**Standards Applied**: spec W6, W8–W11, W15; ADR-010; wzór pop00._write_package/build_package
+**Tests**: 36 OK (nowe 7 i regresja z test_cli). Mutacje (brak confirm_unchanged, operator per+1, brak znaczników EN) dają czerwone testy.
+**Files Modified**: literaki_slownik/tematy.py, literaki_slownik/cli.py, tests/tematy_helpers.py, tests/test_tematy_package.py
+**Kontrakt dla grup 10, 11 i 14**:
+- Pakiet ma 13 plików, wszystkie 0444:
+  - MORZE.txt.gz;
+  - MORZE.tsv.gz, kolumny w `tematy.TSV_KOLUMNY`: klucz, lemat, czesci_mowy, warstwa, zrodla, znaczenie, wieloznaczny, formy;
+  - tematy/morze.json, method.json;
+  - reports/{summary.json, raport.md, sample.json, review-template.json};
+  - ATTRIBUTIONS.md, LIMITATIONS.md, TERMS.md;
+  - release-manifest.json (kind literaki-tematy-manifest, status BUILT);
+  - SHA256SUMS.
+- summary.json ma klucze:
+  - liczby;
+  - przeciecia{leksemy,formy}{T1,T2,T3,razem}{temat,pop{liczba,procent},pop00{…}};
+  - diagnostyka, odrzucone, t1, t2, t3, wieloznaczny;
+  - slowa_oczywiste{razem,T1,T1_T2,spelniony,prog};
+  - srodladowe{kandydaci_t3,wpisy_t3};
+  - werdykt{automatyczny,niespelnione,czeka_na_ocene}.
+- sample.json zawiera wynik sample_strata oraz operator{per_stratum,strata} i items.
+- Wywołanie CLI: `python3 -m literaki_slownik tematy --manifest config/generator/tematy-sources.json --config config/generator/tematy.json --topic config/generator/tematy/morze.json --output-dir <nowy> [--json]`. Kody wyjścia: 0, 2, 3, 4, 5.
