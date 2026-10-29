@@ -2,7 +2,7 @@
 
 ## 2026-10-29T02:03:46Z - Implementation Started
 
-**Total Steps**: 107
+**Total Steps**: 127 — 121 zrobione [x], 6 pominięte [~] (stan końcowy `implementation-plan.md`)
 **Task Groups**: 1–20 (stopy operatora: 2.4, 15.2, 20.2)
 **Bramka planu:** zgoda operatora z góry (2026-10-29, „wyrażam zgodę … zacznij na podstawie tej zgody”).
 

@@ -18,7 +18,7 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [ADR-009: POP00](../../docs/adr/ADR-009-pop00-v1.md) — zatwierdzona ochrona zwykłej odmiany i próg wybranych form; osobny pakiet ze źródłowymi decyzjami.
 - [ADR-010: TEMATY](../../docs/adr/ADR-010-tematy-v1.md) — metoda `tematy-v1`: warstwy SGJP, Słowosieć, IATE i dodatki (D), pełne domknięcie T2, tylko BUILT, progi jako udziały.
 - [ADR-011: Słowosieć i IATE](../../docs/adr/ADR-011-zrodla-slowosiec-iate.md) — pochodna Słowosieci 4.5, IATE 2019 `fullForm`, licencje i pobranie.
-- [ADR-012: TEMATY, pierwsza fala](../../docs/adr/ADR-012-tematy-fala-1.md) — metoda `tematy-v2`: T3 opcjonalne, wykluczenia lematów, dodatki (warstwa D), przegląd operatora T2/T3, 9 tematów.
+- [ADR-012: TEMATY, pierwsza fala](../../docs/adr/ADR-012-tematy-fala-1.md) — metoda `tematy-v2`: T3 opcjonalne, wykluczenia lematów, dodatki (warstwa D), przegląd operatora T2/T3, 9 tematów; w fali 1 trafność T2/T3 z ocen agenta (operator nie ocenił R2).
 - [Konstrukcja nie- v2](../tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/nie-prefix-v2-decision.md) — bez zaimków i nieodmiennych (#5); wejdzie przy następnym buildzie.
 - [Zadanie POP/POP0](../tasks/development/2026-10-11-slowniki-pop-pop0/implementation/spec.md) — słowniki popularnych słów (#3); pop-v1 wycofane, pop-v2.
 - [Zadanie TEMATY „morze”](../tasks/development/2026-10-28-11-tematy-morze/implementation/spec.md) — pilotaż słownika tematycznego (#11); CLI `tematy` w [cli.md](../../docs/generator/cli.md#tematy-tematy), raporty, próba R2, sekcja TEMATY w [runbooku wiki](../../docs/runbook-wiki.md).

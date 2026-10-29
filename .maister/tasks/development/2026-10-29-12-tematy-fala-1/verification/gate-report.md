@@ -3,7 +3,8 @@
 ## TL;DR
 
 - Zmiana metody (operator, 2026-10-29): trafność T2 i T3 liczymy z ocen agenta. Zgodność operator–agent i kappa: nie dotyczy.
-- Werdykt bramki: **dalej** dla 3 tematów (kuchnia, rośliny, zwierzęta), **popraw** dla 7.
+- Werdykt bramki (oceny agenta): **dalej** dla 3 tematów (kuchnia, rośliny, zwierzęta), **popraw** dla 7.
+- **Decyzje operatora (2026-10-29, ostateczne):** dalej — kuchnia, rośliny, zwierzęta, morze; popraw — grzyby, pogoda, sport, matematyka, muzyka, medycyna. Bez wydania; v2 poza #12 (tabela na końcu).
 - Powody „popraw”: za mało słów oczywistych (grzyby, pogoda, sport), za niskie T2 (grzyby, matematyka, muzyka, morze), T1 i T3 w medycynie.
 - Morze ma oceny operatora (T2 30/30, T3 27/27). Agent ocenił je dużo surowiej (T2 21/50, T3 9/27).
 - Medycyna ma 342 wpisy T3.
@@ -15,14 +16,19 @@
   - **checker**: wynik `check_tematy_package.py --review` bez zmian. Bez ocen operatora T2, T3 i zgodność mają stan „czeka”.
   - **bramka**: ta sama funkcja `verdict` z checkera, ale T2 i T3 liczone z ocen agenta, a zgodność „nie dotyczy”. Liczy to `analysis/zestawienie_fali.py`.
 - Lematy wspólne dla kilku tematów zostają w każdym z nich (decyzja operatora). Macierz nakładania służy tylko do oceny.
+- Morze: rozstrzyga ocena operatora (T2 30/30, T3 27/27), więc **dalej** mimo „popraw” z ocen agenta.
+- Decyzje dla tematów: tabela „Decyzje operatora” na końcu.
 
 ## Otwarte pytania
 
-1. Decyzja dla każdego tematu: dalej / popraw / stop (tabela na końcu).
-2. Grzyby, pogoda i sport nie przechodzą testu słów oczywistych, bo brakuje im słów ogólnych (lista niżej). Czy dodać je jako `dodatki` (D) w v2?
-3. Muzyka: T2 tak = 32/50 = 0.64, tuż pod progiem 2/3. Operator nie był pewien około połowy terminów. Poprawiamy czy przyjmujemy?
-4. Morze: agent ocenia T2 i T3 dużo surowiej niż operator (zgodność 20/57, κ 0). Która ocena rozstrzyga? Pod oceną operatora morze miało tylko jedną przeszkodę: zgodność.
-5. Lista lematów do wykluczenia w v2. Kandydaci to oceny agenta „nie” (niżej). Operator potwierdza albo skreśla.
+Pytania 1–5 rozstrzygnął operator 2026-10-29 (tabela „Decyzje operatora” na końcu):
+1. Decyzje: dalej — kuchnia, rośliny, zwierzęta, morze; popraw — grzyby, pogoda, sport, matematyka, muzyka, medycyna.
+2. Grzyby, pogoda, sport: tak, dodatki D z brakujących słów oczywistych w v2 (pełne listy przy v2).
+3. Muzyka: popraw — wykluczenia pokrywa, różaniec, zakrętka.
+4. Morze: rozstrzyga ocena operatora, morze **dalej**.
+5. Wykluczenia: kandydaci agenta przyjęci dla grzybów, matematyki, muzyki, kuchni i medycyny (18 słów). Morze bez wykluczeń.
+
+Zostaje: kiedy budować v2 i wydać tematy „dalej” (osobne zadanie).
 
 ## Tabela 10 tematów
 

@@ -48,6 +48,7 @@ Audyt: `verification/spec-audit.md` (0 krytycznych, 5 ważnych, 9 drobnych). Ope
 - **D7:** punkt T3 w `LIMITATIONS.md` bez „T3 jest mała”; znaczniki tylko przy kodzie `4821` (W1, W4).
 - **D8:** stare pakiety sprawdza checker z `a633136` (ADR-012, W15).
 - **D9:** przypis o wielkości liter w W11.
+- **R2 (2026-10-29, W13/W14):** operator nie ocenił R2. Trafność T2 i T3 z ocen agenta, zgodność n/d. Zob. `analysis/scope-clarifications.md` i [ADR-012](../../../../../docs/adr/ADR-012-tematy-fala-1.md#zmiana-metody-r2-2026-10-29).
 
 ## Cel
 Zbudować i zmierzyć 9 tematów metodą morza, tak by operator mógł na wspólnej bramce wybrać dla każdego z 10 tematów: dalej, popraw albo stop.

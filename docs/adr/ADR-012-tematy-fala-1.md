@@ -7,6 +7,8 @@ Zmienia się przegląd i schemat pliku tematu, więc metoda to `tematy-v2`.
 T3 jest opcjonalne, `dodatki` leżą na górnym poziomie, wykluczenia lematów działają.
 Operator miał oceniać tylko warstwy z `operator_warstwy` (T2, T3), a T1 agent. W fali 1 operator nie ocenił
 R2; trafność T2 i T3 na bramce liczymy z ocen agenta ([Zmiana metody R2](#zmiana-metody-r2-2026-10-29)).
+Bramka (operator, 2026-10-29): dalej — kuchnia, rośliny, zwierzęta, morze; popraw — grzyby, pogoda, sport,
+matematyka, muzyka, medycyna. Bez wydania; v2 poza #12.
 Morze zostaje `morze-v2`; przebudowa dała bajtowo tę samą listę.
 
 ## Kluczowe decyzje
@@ -151,14 +153,25 @@ w wyszukiwarce. Decyzja operatora
 agent T2 21/50 („nie” 23), T3 9/27 („nie” 14); zgodność 20/57, κ 0. Bramka z ocen agenta może więc
 odrzucić temat, który operator by przyjął.
 
-**Wynik bramki** ([gate-report.md](../../.maister/tasks/development/2026-10-29-12-tematy-fala-1/verification/gate-report.md)):
-„dalej” dla kuchni, roślin i zwierząt; „popraw” dla 7 tematów:
-- słowa oczywiste < 0,70: grzyby, pogoda, sport;
-- T2 tak < 2/3: grzyby (23/50), matematyka (29/50, też T2 nie 6/50), muzyka (32/50);
-- medycyna: T1 tak 42/50, T3 tak 22/50;
-- morze (oceny agenta): T2 tak 21/50, T2 nie 23/50, T3 tak 9/27.
+**Wynik bramki z ocen agenta** ([gate-report.md](../../.maister/tasks/development/2026-10-29-12-tematy-fala-1/verification/gate-report.md)):
+„dalej” dla kuchni, roślin i zwierząt; „popraw” dla pozostałych 7.
 
-Decyzje operatora (dalej / popraw / stop) jeszcze nie zapadły.
+**Decyzje operatora** (2026-10-29, ostateczne): 4 dalej, 6 popraw.
+- **dalej:** kuchnia (v2 bez: cytoplazma, sadzeniak, tyrozynaza), rośliny, zwierzęta, morze. Morze mimo
+  „popraw” z ocen agenta: trafność z ocen operatora (T2 30/30, T3 27/27).
+- **popraw:**
+  - grzyby, pogoda, sport: dodatki D z brakujących słów oczywistych; grzyby też wykluczenia;
+  - matematyka, muzyka: wykluczenia (oceny agenta „nie”);
+  - medycyna: bez T3 (IATE) i bez 18 słów „nie” agenta.
+- Bez wydania. Budowy v2 poza #12.
+
+**Otwarte na v2** (przegląd kodu):
+- **Wykluczenia a dodatki D.** `_exclude` (`literaki_slownik/tematy.py`) usuwa tylko leksemy T1–T3.
+  Checker (`exclusions` w `scripts/check_tematy_package.py`) odrzuca każdy wiersz TSV, także D, z wykluczoną
+  klasą. Przed v2 grzybów (dodatki i wykluczenia) trzeba ustalić, co obowiązuje.
+- **Checker nie sprawdza tekstów pakietu niezależnie:** resztki `<!--` i `@@SRODLADOWE@@`, atrybucja IATE
+  bez `t3`. Nie sprawdza też pól `summary.json`: `t3`, `srodladowe`, `nie_dotyczy`.
+- **Odcinki tekstów** walidujemy dopiero przy zapisie pakietu. Mogłoby to być zaraz po `load_topic`.
 
 ## Stare pakiety
 Pakiety `tematy-v1-*` i `tematy-v2-20261029-*` (metoda `tematy-v1`) sprawdza checker z commitu `a633136`.

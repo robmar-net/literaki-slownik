@@ -16,7 +16,7 @@ Operator (2026-10-29T01:20:39Z): R2 tylko T2 (+T3 medycyna), ok. 300 słów. Age
 | Dodatki D | nie w v1; po wspólnej ocenie |
 | Faza 5 | tak |
 
-Decyzje techniczne (nasze, do ADR-012): jeden pakiet na temat; T3 opcjonalne; `t3_tak` „nie dotyczy” bez T3; znaczniki śródlądowe tylko morze; `dodatki` poziom wyżej; metoda `tematy-v1`; regresja morze-v2 bajtowa (poza hashem pliku tematu); strona zbiorcza R2 z linkami do 9 stron.
+Decyzje techniczne (nasze, do ADR-012): jeden pakiet na temat; T3 opcjonalne; `t3_tak` „nie dotyczy” bez T3; znaczniki śródlądowe tylko morze; `dodatki` poziom wyżej; metoda `tematy-v1` (potem `tematy-v2`, ADR-012); regresja morze-v2 bajtowa (poza hashem pliku tematu); strona zbiorcza R2 z linkami do 9 stron.
 
 ## Otwarte pytania
 - Przy R2 tylko T2 trzeba zmienić próbę operatora (`operator_per_stratum` per warstwa) i kryterium t1_tak (tylko agent).
