@@ -1,6 +1,6 @@
 orchestrator:
   started_phase: phase-1
-  completed_phases: []
+  completed_phases: [phase-1]
   failed_phases: []
   auto_fix_attempts: {}
   options:
@@ -15,7 +15,7 @@ orchestrator:
     reality_check_enabled: true
     production_check_enabled: true
   created: 2026-10-29T00:59:06Z
-  updated: 2026-10-29T00:59:06Z
+  updated: 2026-10-29T01:12:36Z
   task_path: .maister/tasks/development/2026-10-29-12-tematy-fala-1
 task:
   title: "TEMATY: pierwsza fala — 9 tematów (#12)"
@@ -36,8 +36,8 @@ task:
   status: in_progress
   tags: [tematy, fala-1]
 task_context:
-  risk_level: null
-  clarifications_resolved: null
+  risk_level: medium
+  clarifications_resolved: true
   scope_expanded: null
   architecture_decision: null
   task_characteristics: {has_reproducible_defect: false, modifies_existing_code: false, creates_new_entities: false, involves_data_operations: false, ui_heavy: false}
@@ -48,4 +48,12 @@ task_context:
   related_task: .maister/tasks/development/2026-10-28-11-tematy-morze
   project_context:
     project_doc_paths: [.maister/docs/INDEX.md, AGENTS.md, docs/runbook-wiki.md, docs/generator/cli.md, docs/adr/ADR-010-tematy-v1.md, docs/adr/ADR-011-zrodla-slowosiec-iate.md]
-  phase_summaries: {}
+  phase_summaries:
+    codebase_analysis:
+      summary: "Generator: jeden temat na przebieg, T3/IATE i znaczniki śródlądowe obowiązkowe; temat bez T3 dostaje zawsze popraw (t3_tak None). Dane SGJP i Słowosieci wystarczą na 9 tematów; IATE tylko medycyna (2841)."
+      key_files: [literaki_slownik/tematy.py, scripts/check_tematy_package.py, config/generator/tematy.json, config/generator/tematy/morze.json, tests/tematy_helpers.py, literaki_slownik/cli.py]
+      primary_language: python
+      decisions: [{decision: "Jeden pakiet na temat", rationale: "bez zmiany kontraktu pakietu"}, {decision: "T3 opcjonalne; t3_tak nie dotyczy przy pustym T3", rationale: "IATE pasuje tylko do medycyny"}]
+      risks: ["Zwierzęta: bez wykluczenia 6047 człowiek 1 lista ludzi", "Medycyna: biochemia i organy roślin", "18 × haszowanie 22 GB"]
+      artifacts: [{path: analysis/codebase-analysis.md, label: Analiza kodu i danych, html: null}, {path: analysis/clarifications.md, label: Doprecyzowania, html: null}]
+    clarifications: ["Słowa wspólne zostają w każdym temacie", "Taniec → muzyka; gry, szachy, karty → sport; napoje → kuchnia", "Dinozaury tak, łow. nie", "Grzybica → medycyna"]
