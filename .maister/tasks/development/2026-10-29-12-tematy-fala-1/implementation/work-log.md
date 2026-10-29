@@ -57,3 +57,9 @@
 **HEAD przed seriami**: 048d57e (bez commitów do końca porównania). **Budowy**: tematy-morze-v2-20261029-a 86 s, -b 80 s; SHA256SUMS a=b 108077a4…; checker pass na obu (970 wpisów, 11 035 form, 37/37).
 **W8**: ZGODNE — MORZE.txt/tsv, ATTRIBUTIONS, TERMS bajtowo jak tematy-v2-20261029-a; LIMITATIONS tylko linie T2/T3; summary równy po korekcie (czeka_na_ocene); sample strata/items równe, operator.strata T2/T3. Kontrola negatywna na starej parze łapie 3 różnice.
 **Commit**: 4a7022c (+ verification/verify-morze.json).
+
+## 2026-10-29T02:35:06Z - Group 10 Complete
+**Commit**: 08a6adc. **Tests**: 2/2. Przegląd morza przepięty na tematy-morze-v2-20261029-a; checker --review: t1_tak 23/25 (agent), t2_tak 1, t2_nie 0, t3_tak 1, słowa 37/37, zgodność 20/57 (kappa 0) → „popraw” — zgodnie z W9.
+
+## 2026-10-29T02:35:06Z - Pauza: czekamy na operatora (2.4)
+Zrobione: grupy 1, 3–10; 2.1–2.3 (strona https://claude.ai/artifact/4XiPDXkEs7dxRE78ohghJ9). Dalej: 2.4–2.6 → 11 → 12 (18 budów) → 13–20.

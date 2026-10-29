@@ -233,14 +233,14 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `T/analysis/przepnij_morze.py`, `T/analysis/test_przepnij_morze.py`, `T/verification/tematy-morze-review.json`, `T/verification/review-check-morze.json`
 **Kroki:** 5
 
-- [ ] 10.0 Przenieść oceny z #11 na nowy pakiet morza
-  - [ ] 10.1 Napisać 2 testy w `T/analysis/test_przepnij_morze.py` (pliki syntetyczne):
+- [x] 10.0 Przenieść oceny z #11 na nowy pakiet morza
+  - [x] 10.1 Napisać 2 testy w `T/analysis/test_przepnij_morze.py` (pliki syntetyczne):
     - wiązanie kopiuje z szablonu `sample_sha256`, `canonical_index_sha256`, `evidence_sha256` i `version`, a `sha256sums_sha256` = hash `SHA256SUMS`;
     - oceny agenta i `agent_sha256` bez zmian; od operatora zostają tylko klucze T2 i T3; `operator.agent_sha256` = `agent_sha256`.
-  - [ ] 10.2 `T/analysis/przepnij_morze.py`: wejście `.maister/tasks/development/2026-10-28-11-tematy-morze/verification/tematy-morze-v2-review.json` i nowy pakiet a z grupy 9. Wyjście `T/verification/tematy-morze-review.json`. Na końcu skrypt woła checker `--review` i zapisuje wynik do `T/verification/review-check-morze.json`.
-  - [ ] 10.3 Skrypt porównuje wynik z oczekiwanym (W9): `t1_tak` (agent) 23/25 spełniony, `t2_tak` i `t3_tak` (operator) 1, `t2_nie` 0, zgodność 20/57, kappa 0 niespełniona, werdykt „popraw”. Inny wynik daje kod 1 i zatrzymanie.
-  - [ ] 10.4 Uruchomić 2 nowe testy.
-  - [ ] 10.5 Commit i push: `maister: #12 przepięcie ocen morza`.
+  - [x] 10.2 `T/analysis/przepnij_morze.py`: wejście `.maister/tasks/development/2026-10-28-11-tematy-morze/verification/tematy-morze-v2-review.json` i nowy pakiet a z grupy 9. Wyjście `T/verification/tematy-morze-review.json`. Na końcu skrypt woła checker `--review` i zapisuje wynik do `T/verification/review-check-morze.json`.
+  - [x] 10.3 Skrypt porównuje wynik z oczekiwanym (W9): `t1_tak` (agent) 23/25 spełniony, `t2_tak` i `t3_tak` (operator) 1, `t2_nie` 0, zgodność 20/57, kappa 0 niespełniona, werdykt „popraw”. Inny wynik daje kod 1 i zatrzymanie.
+  - [x] 10.4 Uruchomić 2 nowe testy.
+  - [x] 10.5 Commit i push: `maister: #12 przepięcie ocen morza`.
 
 **Kryteria odbioru:**
 - 2 testy przechodzą; checker `--review` daje werdykt z W9.
