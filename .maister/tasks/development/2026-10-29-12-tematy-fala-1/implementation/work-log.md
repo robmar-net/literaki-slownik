@@ -92,3 +92,8 @@ Operator: „wszystkie listy wygladaja ok”. Szkic przyjęty bez zmian jako `wy
 18 budów z HEAD `265f1e8`, 09:15–09:40Z (~25 min). 9/9: a = b, checker pass/pass, kontrola fali OK. Commit `420b698`. Zestawienie: `verification/builds.json`.
 T3 tylko w medycynie: 342 wpisy. D = 0 wszędzie. `srodladowe` = null wszędzie.
 Test słów oczywistych (próg 0,70) nie przeszedł: grzyby 61,8%, pogoda 63,9%, sport 55,6% → werdykt auto „popraw”; reszta „dalej”. Braki to głównie słowa ogólne (las, zima, boisko, drużyna) — do bramki (W14).
+
+## 2026-10-29 — Grupa 13: 13.1–13.2
+
+Instrukcja oceny agenta i `record_agent_review.py` (pętla po tematach), commit `45d36f8`. Kontrola na sztucznych ocenach: brak/obcy klucz, zła ocena, pusty powód — odmowa; poprawny plik przechodzi checker `--review`. 13.3: 9 niezależnych sesji oceniających (każda czyta tylko instrukcję i swój `review-template.json`), razem 950 ocen.
+Uwaga: test słów oczywistych nie zależy od ocen, więc grzyby, pogoda i sport dostaną „popraw” niezależnie od R2.

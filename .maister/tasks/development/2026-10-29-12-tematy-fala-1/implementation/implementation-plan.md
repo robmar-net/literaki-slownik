@@ -287,8 +287,8 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Kroki:** 5
 
 - [ ] 13.0 Ocenić próbę każdego tematu przed stroną operatora
-  - [ ] 13.1 Kontrola zamiast testów: `record_agent_review.py` używa `tematy_review.agent_review`, który odrzuca brak klucza, obcy klucz i złą ocenę. Plik przeglądu przechodzi checker `--review` (bez ocen operatora: „czeka” tylko dla T2, T3 i zgodności).
-  - [ ] 13.2 `T/analysis/instrukcja-oceny-agenta.md` według W13.1 (szeroki „tak”, „nie”, „niepewne”, granice z `clarifications.md`, lemat wspólny zostaje). Commit i push przed pierwszą oceną: `maister: #12 instrukcja oceny agenta`.
+  - [x] 13.1 Kontrola zamiast testów: `record_agent_review.py` używa `tematy_review.agent_review`, który odrzuca brak klucza, obcy klucz i złą ocenę. Plik przeglądu przechodzi checker `--review` (bez ocen operatora: „czeka” tylko dla T2, T3 i zgodności).
+  - [x] 13.2 `T/analysis/instrukcja-oceny-agenta.md` według W13.1 (szeroki „tak”, „nie”, „niepewne”, granice z `clarifications.md`, lemat wspólny zostaje). Commit i push przed pierwszą oceną: `maister: #12 instrukcja oceny agenta`.
   - [ ] 13.3 Agent ocenia całą próbę każdego tematu (T1, T2, T3 po `min(50, N)`, z powodem). Jedna sesja na temat, sesje mogą iść równolegle. Agent czyta tylko instrukcję i `review-template.json` swojego tematu. Wynik: `T/analysis/agent-ratings-<id>.json`.
   - [ ] 13.4 `T/analysis/record_agent_review.py` (kopia z #11 z pętlą po tematach) zapisuje `T/verification/tematy-<id>-review.json` z `agent_sha256`.
   - [ ] 13.5 Commit i push: `maister: #12 oceny agenta R2` (9 hashy w treści commita). Ten commit musi być przed grupą 14.
