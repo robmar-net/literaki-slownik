@@ -43,16 +43,16 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `T/analysis/sprawdz_slowa.py`, `T/analysis/test_sprawdz_slowa.py`, `T/analysis/slowa-oczywiste.json`, `T/verification/slowa-oczywiste-check.json`
 **Kroki:** 6
 
-- [ ] 1.0 Napisać listy na ślepo i sprawdzić je tak, jak liczy test
-  - [ ] 1.1 Napisać 3 testy w `T/analysis/test_sprawdz_slowa.py` (mała baza SQLite i mały STANDARD w katalogu tymczasowym):
+- [x] 1.0 Napisać listy na ślepo i sprawdzić je tak, jak liczy test
+  - [x] 1.1 Napisać 3 testy w `T/analysis/test_sprawdz_slowa.py` (mała baza SQLite i mały STANDARD w katalogu tymczasowym):
     - lemat z klasą z `czesci_mowy` i formą w STANDARD przechodzi;
     - forma, która nie jest `lemma_base` (wzór `nuty`, `zawody`), odpada z powodem;
     - lemat tylko z klasą spoza `czesci_mowy` albo bez formy w STANDARD odpada.
-  - [ ] 1.2 Agent w osobnej sesji dostaje tylko nazwy 9 tematów i granice z `T/analysis/clarifications.md`. Nie widzi kandydatów, Słowosieci, pakietów ani `codebase-analysis.md`. Pisze ok. 35 słów na temat: lematy małymi literami, jedno słowo.
-  - [ ] 1.3 `T/analysis/sprawdz_slowa.py`: słowo musi być `lemma_base` leksemu SGJP z klasą z `czesci_mowy` (`inf`, `subst`, `depr`, `adv`, `adj`), a leksem musi mieć formę w STANDARD v31. Wzorem są `map_lemmas` (`tematy.py:552`) i `_read_forms`. `build.sqlite` otwieramy tylko do odczytu (`mode=ro`). Wynik: JSON z powodem dla każdego słowa, które odpadło.
-  - [ ] 1.4 Uruchomić skrypt na prawdziwych danych. Słowo, które odpadło, agent z 1.2 wymienia na inne (dalej bez wglądu w dane) i skrypt sprawdza je ponownie. Wynik zapisujemy do `T/verification/slowa-oczywiste-check.json`.
-  - [ ] 1.5 Zapisać `T/analysis/slowa-oczywiste.json`: `{szkic: {<id>: [...]}, wynik: null}`, posortowane, bez powtórzeń w temacie.
-  - [ ] 1.6 Uruchomić tylko 3 nowe testy. Commit i push: `maister: #12 szkic słów oczywistych`.
+  - [x] 1.2 Agent w osobnej sesji dostaje tylko nazwy 9 tematów i granice z `T/analysis/clarifications.md`. Nie widzi kandydatów, Słowosieci, pakietów ani `codebase-analysis.md`. Pisze ok. 35 słów na temat: lematy małymi literami, jedno słowo.
+  - [x] 1.3 `T/analysis/sprawdz_slowa.py`: słowo musi być `lemma_base` leksemu SGJP z klasą z `czesci_mowy` (`inf`, `subst`, `depr`, `adv`, `adj`), a leksem musi mieć formę w STANDARD v31. Wzorem są `map_lemmas` (`tematy.py:552`) i `_read_forms`. `build.sqlite` otwieramy tylko do odczytu (`mode=ro`). Wynik: JSON z powodem dla każdego słowa, które odpadło.
+  - [x] 1.4 Uruchomić skrypt na prawdziwych danych. Słowo, które odpadło, agent z 1.2 wymienia na inne (dalej bez wglądu w dane) i skrypt sprawdza je ponownie. Wynik zapisujemy do `T/verification/slowa-oczywiste-check.json`.
+  - [x] 1.5 Zapisać `T/analysis/slowa-oczywiste.json`: `{szkic: {<id>: [...]}, wynik: null}`, posortowane, bez powtórzeń w temacie.
+  - [x] 1.6 Uruchomić tylko 3 nowe testy. Commit i push: `maister: #12 szkic słów oczywistych`.
 
 **Kryteria odbioru:**
 - 3 testy przechodzą.
