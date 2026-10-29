@@ -240,6 +240,23 @@ def exclusions(topic, rows, report):
             'Wykluczenia raportu różne od tematu')
 
 
+def texts_and_summary(root, topic, report):
+    """Teksty pakietu i pola `summary.json` zależne od tematu (#13; ADR-012 „Otwarte na v2” b).
+
+    Teksty bez resztek odcinków (`<!--`) i znacznika; IATE w tekstach tylko przy `t3`. `summary`: `t3` niepuste
+    dokładnie przy `t3`, `srodladowe` dokładnie przy znacznikach śródlądowych, `nie_dotyczy` = `t3_tak` bez `t3`."""
+    t3 = 't3' in topic
+    for name in ('ATTRIBUTIONS.md', 'LIMITATIONS.md', 'TERMS.md'):
+        text = (root/name).read_text(encoding='utf-8')
+        require('<!--' not in text and '@@SRODLADOWE@@' not in text, f'{name}: resztki odcinków albo znacznik')
+        require(('IATE' in text) == t3, f'{name}: IATE w tekście niezgodne z t3 tematu')
+    inland = 'znaczniki_srodladowe' in topic['diagnostyka']
+    require((report['t3'] is not None) == t3, 'summary.json: pole t3 niezgodne z tematem')
+    require((report['srodladowe'] is not None) == inland, 'summary.json: pole srodladowe niezgodne z tematem')
+    require(report['werdykt']['nie_dotyczy'] == ([] if t3 else ['t3_tak']),
+            'summary.json: nie_dotyczy niezgodne z t3 tematu')
+
+
 def obvious_words(topic, rows):
     """Test 37 słów, wynik całości: słowo pokryte, gdy ma je lemat wpisu."""
     lista = topic['diagnostyka']['slowa_oczywiste']
@@ -367,6 +384,7 @@ def check(root, source_path, config_path, review_path=None):
 
     report = read(root/'reports/summary.json')
     exclusions(topic, rows, report)
+    texts_and_summary(root, topic, report)
     counted = {'warstwy': {w: sum(r['warstwa'] == w for r in rows.values()) for w in WARSTWY},
                'wpisy': len(rows), 'formy': len(listed)}
     require(all(report['liczby'][k] == v for k, v in counted.items())

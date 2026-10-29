@@ -92,6 +92,10 @@ class TematyTekstyTest(unittest.TestCase):
         # Ta sama kontrola w budowie: niezamknięty odcinek daje kod 2 i nie zostawia pakietu.
         f = inputs_fixture(self.root)
         set_text(f, 'TERMS.md', real('TERMS.md').replace('<!--/T3-->', ''))
+        # Już przy wczytaniu wejść (#13, ADR-012 „Otwarte na v2” c), przed kandydatami.
+        with self.assertRaises(tematy.GeneratorError) as caught:
+            tematy.check_inputs(f['manifest'], f['config'], f['topic'])
+        self.assertEqual(caught.exception.code, 2)
         with self.assertRaises(tematy.GeneratorError) as caught:
             build(f, self.root/'pkg')
         self.assertEqual(caught.exception.code, 2)

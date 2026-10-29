@@ -50,6 +50,19 @@ def write_review(f, path, agent, operator=None):
     return path
 
 
+def tamper(package, name, change):
+    """Zmiana pliku pakietu `name` (tekst: str → str, JSON: dict w miejscu) i nowe hashe (`reseal`)."""
+    target = Path(package)/name
+    target.chmod(0o644)
+    if name.endswith('.json'):
+        rewrite(target, change)
+    else:
+        target.write_text(change(target.read_text(encoding='utf-8')), encoding='utf-8')
+    target.chmod(0o444)
+    reseal(package)
+    return package
+
+
 class CheckTematyPackageTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -206,6 +219,25 @@ class CheckTematyPackageTest(unittest.TestCase):
             self.check(package)
         self.assertIn('Wykluczenia raportu', str(caught.exception))
 
+    def test_package_texts_with_segment_leftovers_are_refused(self):
+        # #13 (ADR-012 „Otwarte na v2” b): teksty pakietu sprawdzamy niezależnie od generatora.
+        for n, (name, change) in enumerate((('TERMS.md', lambda t: t + '<!--T3-->'),
+                                            ('LIMITATIONS.md', lambda t: t + '@@SRODLADOWE@@\n'),
+                                            ('ATTRIBUTIONS.md', lambda t: t + '<!--/T3-->'))):
+            package = tamper(self.copy(f'texts-{n}'), name, change)
+            with self.assertRaises(checker.Refused, msg=name) as caught:
+                self.check(package)
+            self.assertIn(name, str(caught.exception))
+
+    def test_summary_t3_inland_and_not_applicable_must_match_topic(self):
+        # Morze fikstury ma `t3` i znaczniki śródlądowe: `t3` i `srodladowe` niepuste, `nie_dotyczy` puste.
+        for n, change in enumerate((lambda v: v.update(t3=None), lambda v: v.update(srodladowe=None),
+                                    lambda v: v['werdykt'].update(nie_dotyczy=['t3_tak']))):
+            package = tamper(self.copy(f'summary-{n}'), 'reports/summary.json', change)
+            with self.assertRaises(checker.Refused, msg=n) as caught:
+                self.check(package)
+            self.assertIn('summary', str(caught.exception))
+
     def test_topic_with_t3_and_empty_t3_layer_fails_t3_tak(self):
         with tempfile.TemporaryDirectory() as tmp:
             # Wykluczenie `barka` opróżnia T3 przy temacie z `t3`.
@@ -262,6 +294,19 @@ class CheckTematyBezT3Test(unittest.TestCase):
         with self.assertRaises(checker.Refused) as caught:
             checker.check(package, source, self.f['config'])
         self.assertIn('Zły manifest wejść', str(caught.exception))
+
+    def test_iate_attribution_without_t3_and_summary_fields_are_refused(self):
+        cases = (('ATTRIBUTIONS.md', lambda t: t + '\n## IATE\n'), ('TERMS.md', lambda t: t + ' IATE'),
+                 ('reports/summary.json', lambda v: v.update(t3={'hasla': 1})),
+                 ('reports/summary.json', lambda v: v.update(srodladowe={'kandydaci_t3': {}})),
+                 ('reports/summary.json', lambda v: v['werdykt'].update(nie_dotyczy=[])))
+        for n, (name, change) in enumerate(cases):
+            package = self.root/f'bez-t3-{n}'
+            shutil.copytree(self.f['package'], package)
+            tamper(package, name, change)
+            with self.assertRaises(checker.Refused, msg=(name, n)) as caught:
+                checker.check(package, self.f['manifest'], self.f['config'])
+            self.assertIn(name.rsplit('/', 1)[-1].split('.')[0], str(caught.exception))
 
     def test_t3_layer_must_be_empty_without_t3(self):
         # Pakiet z T3 (barka) i podmieniony temat bez `t3`: checker odmawia.

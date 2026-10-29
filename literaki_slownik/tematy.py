@@ -257,6 +257,8 @@ def check_inputs(manifest, config, topic):
              for name, path in method['teksty'].items()}
     topic_path = _unpinned(data, topic)
     topic = load_topic(topic_path)
+    # Odcinki tekstów sprawdzamy od razu, nie dopiero przy zapisie pakietu (#13; kod 2).
+    teksty_pakietu({name: path.read_text(encoding='utf-8') for name, path in texts.items()}, topic)
     refs = source['inputs']
     # IATE rejestrujemy i haszujemy tylko dla tematu z `t3` (#12 W2); manifest wejść nadal je przypina.
     used = tuple(k for k in INPUTS if k != 'iate' or 't3' in topic)
