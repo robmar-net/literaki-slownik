@@ -105,15 +105,17 @@ Największe nakładania:
 
 ## Decyzje operatora
 
+Bramka 20.2, operator, 2026-10-29. Bez wydania. Budowy v2 poza #12; pełne listy D dobierane przy v2 i sprawdzane w STANDARD.
+
 | Temat | Bramka (agent) | Decyzja (dalej / popraw / stop) | Uwagi |
 |---|---|---|---|
-| grzyby | popraw | | |
-| pogoda | popraw | | |
-| matematyka | popraw | | |
-| muzyka | popraw | | |
-| sport | popraw | | |
-| kuchnia | dalej | | |
-| rośliny | dalej | | |
-| zwierzęta | dalej | | |
-| medycyna | popraw | | |
-| morze | popraw | | |
+| grzyby | popraw | **popraw** | v2: dodatki D z brakujących słów oczywistych (grzybiarz, grzybobranie, las, koszyk, jadalny, trujący…); wykluczyć flagowiec, megaspora, monada, promiennik, zrywka |
+| pogoda | popraw | **popraw** | v2: dodatki D z brakujących słów oczywistych (zima, lato, wiosna, jesień, temperatura, niebo, susza…) |
+| matematyka | popraw | **popraw** | v2: wykluczyć deniwelacja, eksport, hasło, kolur, oszczędności, wwóz |
+| muzyka | popraw | **popraw** | v2: wykluczyć pokrywa, różaniec, zakrętka |
+| sport | popraw | **popraw** | v2: dodatki D z brakujących słów oczywistych (boisko, bramka, drużyna, gol, kibic, medal, stadion, trener, sędzia…) |
+| kuchnia | dalej | **dalej** | v2: wykluczyć cytoplazma, sadzeniak, tyrozynaza |
+| rośliny | dalej | **dalej** | bez zmian |
+| zwierzęta | dalej | **dalej** | bez zmian |
+| medycyna | popraw | **popraw** | v2 bez T3 (IATE) i bez 18 słów „nie” agenta (lista wyżej) |
+| morze | popraw | **dalej** | bez zmian; trafność z ocen operatora (30/30, 27/27) |

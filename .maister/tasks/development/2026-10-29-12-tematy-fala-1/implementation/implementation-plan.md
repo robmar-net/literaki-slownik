@@ -397,11 +397,11 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `T/verification/gate-report.md`, `T/decision-log.md`, `T/work-log.md`
 **Kroki:** 4
 
-- [ ] 20.0 Wspólna decyzja dla 10 tematów
-  - [ ] 20.1 Kontrola: werdykt każdego tematu w `gate-report.md` = werdykt z `review-check-<id>.json`.
-  - [ ] 20.2 **ZATRZYMANIE (orchestrator):** orchestrator pokazuje operatorowi raport bramki z treścią (tabela, macierz, werdykty). Operator wybiera dla każdego z 10 tematów: dalej, popraw albo stop.
-  - [ ] 20.3 Decyzje z datą zapisujemy w `gate-report.md` i `T/decision-log.md`. Do tego lista lematów do wykluczenia w v2 tematów, bez budowy v2.
-  - [ ] 20.4 Commit i push: `maister: #12 decyzja bramki`. Bez wydania, tarballa i linku pobrania.
+- [x] 20.0 Wspólna decyzja dla 10 tematów
+  - [x] 20.1 Kontrola: werdykt każdego tematu w `gate-report.md` = werdykt z `review-check-<id>.json`.
+  - [x] 20.2 **ZATRZYMANIE (orchestrator):** orchestrator pokazuje operatorowi raport bramki z treścią (tabela, macierz, werdykty). Operator wybiera dla każdego z 10 tematów: dalej, popraw albo stop.
+  - [x] 20.3 Decyzje z datą zapisujemy w `gate-report.md` i `T/decision-log.md`. Do tego lista lematów do wykluczenia w v2 tematów, bez budowy v2.
+  - [x] 20.4 Commit i push: `maister: #12 decyzja bramki`. Bez wydania, tarballa i linku pobrania.
 
 **Kryteria odbioru:**
 - Decyzja dla każdego z 10 tematów zapisana; wydania nie ma.
