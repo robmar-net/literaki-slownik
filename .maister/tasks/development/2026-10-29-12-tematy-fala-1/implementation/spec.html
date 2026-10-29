@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specyfikacja — TEMATY, pierwsza fala (#12)</title>
+<style>
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+img.shot { max-width:100%; border:1px solid var(--border); border-radius:var(--radius); }
+details > summary { cursor:pointer; font-weight:600; }
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+.toc { font-size:13px; color:var(--dim); margin:10px 0; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media (max-width:720px) { .grid2 { grid-template-columns:1fr; } }
+.scroll { overflow-x:auto; }
+ol.flow li { margin:4px 0; }
+.stories { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:10px; }
+.stories .card { margin:0; }
+</style>
+</head>
+<body>
+<nav class="crumbs">
+  <a href="../dashboard.html">← Dashboard</a>
+  <span class="here">Spec</span>
+  <a href="implementation-plan.html">Plan</a>
+  <a href="spec.md" target="_blank" rel="noopener" class="md">md twin ↗</a>
+</nav>
+
+<header>
+  <span class="badge">specyfikacja</span>
+  <h1>TEMATY, pierwsza fala — 9 tematów (#12)</h1>
+  <div style="color:var(--dim);font-size:13px">2026-10-29 · ryzyko: średnie · <a href="spec.md" target="_blank" rel="noopener">spec.md</a></div>
+</header>
+
+<div class="tiles">
+  <div class="tile"><b>15</b><span>wymagań (W1–W15)</span></div>
+  <div class="tile"><b>9</b><span>nowych tematów</span></div>
+  <div class="tile"><b>11 / 5</b><span>reużyte / nowe</span></div>
+  <div class="tile"><b>~300</b><span>ocen operatora</span></div>
+  <div class="tile"><b>średnie</b><span>ryzyko</span></div>
+</div>
+
+<section class="tldr card">
+  <h2 style="margin-top:0">TL;DR</h2>
+  <p>Dziewięć nowych tematów, każdy w osobnym pakiecie a/b: zwierzęta, rośliny, medycyna i ciało, muzyka, kuchnia, sport, matematyka, pogoda, grzyby. Warstwy liczymy jak dla morza.
+  Najpierw uogólniamy kod: T3 opcjonalne, <code>dodatki</code> na górnym poziomie, działające wykluczenia lematów, teksty zależne od tematu. Operator ocenia tylko T2 (i T3 w medycynie).
+  Zmiana zasad przeglądu podbija metodę do <code>tematy-v2</code>. Po zmianie kodu morze-v2 przebudowane daje bajtowo te same <code>MORZE.txt.gz</code> i <code>MORZE.tsv.gz</code>.
+  Listy słów oczywistych powstają i zostają zamrożone przed pierwszą budową nowego tematu. Potem 18 budów, strony R2 (9 stron i strona zbiorcza), a na końcu wspólna ocena 10 tematów. Bez wydania.</p>
+
+  <h2>Kluczowe decyzje</h2>
+  <table>
+    <tr><th>Decyzja</th><th>Uzasadnienie</th></tr>
+    <tr><td>Jeden pakiet na temat</td><td>Kontrakt pakietu, checker i przegląd zostają jednotematowe.</td></tr>
+    <tr><td>Metoda <code>tematy-v2</code></td><td>Reguły warstw się nie zmieniają. Zmienia się przegląd: <code>operator_warstwy</code>, <code>t1_tak</code> z ocen agenta, <code>t3_tak</code> „nie dotyczy”. Losowanie bez zmian.</td></tr>
+    <tr><td><code>morze.json</code> zostaje <code>morze-v2</code></td><td><code>dodatki</code> przechodzą na górny poziom. Lista się nie zmienia, co potwierdza regresja bajtowa.</td></tr>
+    <tr><td>T3 tylko w medycynie (IATE 2841)</td><td>Bez <code>t3</code> nie ma hasha IATE, parsowania TBX ani IATE w tekstach i manifeście.</td></tr>
+    <tr><td>Znaczniki śródlądowe tylko w morzu</td><td>Pole opcjonalne, dozwolone tylko przy <code>t3</code>.</td></tr>
+    <tr><td>Teksty przez odcinki <code>&lt;!--T3--&gt;</code> i <code>&lt;!--SRODLADOWE--&gt;</code></td><td>Wspólne pliki zamiast wariantów każdego tekstu.</td></tr>
+    <tr><td>Wykluczenia lematów działają</td><td>Wykluczenie bez trafienia daje kod 4. To samo dotyczy wykluczenia poddrzewa nieosiągalnego z korzeni.</td></tr>
+    <tr><td>Zwierzęta: relacje <code>[11, 27]</code></td><td>269 celów relacji 25 to części ciała, wytwory zwierząt i gwara łowiecka. Odpada 275 lematów.</td></tr>
+    <tr><td>Medycyna: 5 poddrzew roślinnych poza tematem</td><td>Odpada 414 lematów, m.in. owoce, warzywa i nasiona.</td></tr>
+    <tr><td>Atomy: +<code>ogr.</code>, <code>psych.</code>, <code>wet.</code>, <code>farm.</code></td><td>Szerokie granice. Bez <code>biol.</code>, <code>biochem.</code>, <code>hydrol.</code>, <code>łow.</code></td></tr>
+    <tr><td>Grzybica bez wykluczenia w grzybach</td><td>Poddrzewo 24994 jest osiągalne tylko z medycyny.</td></tr>
+    <tr><td>Pakiety <code>tematy-&lt;wersja tematu&gt;-YYYYMMDD-{a,b}</code></td><td>Stary schemat mylił wersję tematu z wersją metody.</td></tr>
+  </table>
+
+  <h2>Otwarte pytania i ryzyka</h2>
+  <ul>
+    <li><span class="sev warning">warning</span>Do akceptacji operatora: atomy <code>ogr.</code>, <code>psych.</code>, <code>wet.</code>, <code>farm.</code>; relacje zwierząt <code>[11, 27]</code>; 5 poddrzew medycyny (decyzje o składzie list).</li>
+    <li><span class="sev warning">warning</span>Bump do <code>tematy-v2</code> zmienia jedną decyzję techniczną z <code>scope-clarifications.md</code>.</li>
+    <li><span class="sev warning">warning</span>Małe tematy (pogoda 209, grzyby 351, matematyka 543 lematów T2) mogą nie przejść progu 0,70.</li>
+    <li><span class="sev warning">warning</span>Zgodność agent–operator dla morza wyniosła 47/87. Wpływu szerokiej instrukcji nie zmierzono.</li>
+    <li><span class="sev info">info</span>Sport w T2 nie ma korzeni gier, szachów ani kart. Niesie je tylko T1.</li>
+    <li><span class="sev info">info</span>Czas: 20 budów i 20 checkerów, każdy przebieg dwa razy haszuje 22 GB. Razem ok. 1–1,5 h, tylko po kolei.</li>
+    <li><span class="sev info">info</span>Nakład operatora: ok. 315 słów oczywistych i 300 ocen R2.</li>
+  </ul>
+</section>
+
+<nav class="toc">Spis: <a href="#zakres">Zakres</a> · <a href="#historie">Historie</a> · <a href="#wymagania">Wymagania</a> · <a href="#tematy">Tematy</a> · <a href="#regresja">Regresja</a> · <a href="#kolejnosc">Kolejność</a> · <a href="#reuzycie">Reużycie</a> · <a href="#testy">Testy</a> · <a href="#sukces">Sukces</a></nav>
+
+<main>
+<h2 id="zakres">Zakres</h2>
+<div class="grid2">
+  <div class="card"><b class="pass">W zakresie</b>
+    <ul>
+      <li>Uogólnienie kodu: T3 opcjonalne, <code>dodatki</code> wyżej, wykluczenia lematów, teksty warunkowe</li>
+      <li>Metoda <code>tematy-v2</code> (<code>operator_warstwy</code>, „nie dotyczy”)</li>
+      <li>Regresja morza i przepięcie jego ocen</li>
+      <li>Słowa oczywiste przed budową (jedna strona)</li>
+      <li>9 plików tematów, 18 budów, checker</li>
+      <li>R2: 9 stron i strona zbiorcza</li>
+      <li>Zestawienie 10 tematów i bramka</li>
+      <li>ADR-012, dokumenty, runbook, wiki „W przygotowaniu”</li>
+    </ul></div>
+  <div class="card"><b class="fail">Poza zakresem</b>
+    <ul>
+      <li>Wydanie i usunięcie „W przygotowaniu”</li>
+      <li>Warstwa D i wersje v2 tematów (po bramce)</li>
+      <li>Rolnictwo, Wikisłownik, LLM, kontakt z autorami</li>
+      <li>IATE poza medycyną; korzenie gier w T2 sportu</li>
+      <li>Pakiet wielotematowy, <code>explain --variant tematy</code></li>
+      <li>Zmiany POP, POP0, POP00, BROAD, STANDARD, <code>quality.py</code></li>
+    </ul></div>
+</div>
+
+<h2 id="historie">Historie użytkownika</h2>
+<div class="stories">
+  <div class="card">Jako operator chcę przejrzeć 9 list słów oczywistych na jednej stronie, zanim powstaną listy tematów, żeby test nie był dopasowany do wyniku.</div>
+  <div class="card">Jako operator chcę ocenić tylko T2 (i T3 medycyny), ok. 300 słów, bo T1 jest trafne w trzech pomiarach.</div>
+  <div class="card">Jako operator chcę jedną stronę z linkami do 9 stron R2, żeby nie zgubić tematu.</div>
+  <div class="card">Jako operator chcę tabelę 10 tematów z przecięciami, testem słów i werdyktem, żeby zdecydować wspólnie.</div>
+  <div class="card">Jako operator chcę po ocenie usunąć pojedyncze złe słowa w v2 tematu bez nowego kodu.</div>
+</div>
+
+<h2 id="wymagania">Wymagania</h2>
+<div class="card scroll"><table>
+  <tr><th>Id</th><th>Wymaganie</th><th>Priorytet</th></tr>
+  <tr><td>W1</td><td>Schemat tematu: <code>t3</code> opcjonalne (<code>{iate}</code>), <code>dodatki</code> na górnym poziomie, niepuste <code>wykluczenia</code>, znaczniki tylko przy <code>t3</code>. Wykluczone poddrzewo nieosiągalne daje kod 4.</td><td>musi</td></tr>
+  <tr><td>W2</td><td>IATE haszowane i parsowane tylko przy <code>t3</code>. <code>inputs</code> manifestu zawiera tylko użyte wejścia.</td><td>musi</td></tr>
+  <tr><td>W3</td><td>Wykluczenia lematów usuwają leksemy (lemat i klasa) w T1–T3. Bez trafienia: kod 4. Raport <code>wykluczenia</code>, kontrola w checkerze.</td><td>musi</td></tr>
+  <tr><td>W4</td><td>Teksty z odcinkami T3 i SRODLADOWE. Raport i komunikaty bez „MORZE”. <code>summary</code> bez T3: <code>t3</code> i <code>srodladowe</code> = null.</td><td>musi</td></tr>
+  <tr><td>W5</td><td><code>tematy.json</code>: <code>tematy-v2</code>, ADR-012, <code>operator_warstwy: [T2, T3]</code>. Losowanie i progi bez zmian.</td><td>musi</td></tr>
+  <tr><td>W6</td><td>Werdykt: próg warstwy z ocen operatora albo agenta (według <code>operator_warstwy</code>). <code>t3_tak</code> „nie dotyczy” bez <code>t3</code>. Zgodność ≥ 0,80 na wspólnych pozycjach.</td><td>musi</td></tr>
+  <tr><td>W7</td><td>Checker i <code>tematy_review.py</code> według W1–W6, bez stałej <code>PROBA</code> w stronie R2.</td><td>musi</td></tr>
+  <tr><td>W8</td><td>Regresja morza wobec <code>tematy-v2-20261029-a</code> (szczegóły niżej).</td><td>musi</td></tr>
+  <tr><td>W9</td><td>Przepięcie ocen morza: agent bez zmian, operator T2 (30) i T3 (27).</td><td>musi</td></tr>
+  <tr><td>W10</td><td>Słowa oczywiste: agent bez wglądu w wyniki, ∈ STANDARD, jedna strona, JSON, commit przed budową.</td><td>musi</td></tr>
+  <tr><td>W11</td><td>9 plików tematów (tabela niżej).</td><td>musi</td></tr>
+  <tr><td>W12</td><td>Budowy: od małych tematów, a/b po kolei, czyste drzewo, a = b, checker PASS, <code>builds.json</code>.</td><td>musi</td></tr>
+  <tr><td>W13</td><td>R2: instrukcja agenta, agent 50 na warstwę, hash przed stroną, 9 stron, strona zbiorcza, <code>review-check-&lt;id&gt;.json</code>.</td><td>musi</td></tr>
+  <tr><td>W14</td><td>Zestawienie 10 tematów, macierz nakładania lematów, decyzje bramki dla każdego tematu.</td><td>musi</td></tr>
+  <tr><td>W15</td><td>ADR-012, odsyłacz w ADR-010, cli/raporty/jakosc, INDEX, runbook, wiki (TEMATY, Home, Historia-zmian).</td><td>musi</td></tr>
+</table></div>
+
+<h2 id="tematy">Tematy (W11)</h2>
+<p style="color:var(--dim)">Nazwy korzeni i wykluczeń sprawdzono 2026-10-29 na <code>plwn45-tematy.sqlite</code> (<code>aa65ad79…</code>); budowa sprawdza je ponownie. Wszystkie: <code>tryb: pelne</code>, <code>dodatki: []</code>, <code>wykluczenia: []</code>.</p>
+<div class="card scroll"><table>
+  <tr><th>id</th><th>nazwa</th><th>T1 atomy</th><th>korzenie</th><th>relacje</th><th>wykluczenia poddrzew</th><th>T3</th><th>T2 lematy</th></tr>
+  <tr><td><code>zwierzeta</code></td><td>Zwierzęta</td><td>zool., zootechn., hip., paleont.</td><td>2</td><td>11, 27</td><td>6047 człowiek 1; 78303 hominid 1</td><td>—</td><td>4 452</td></tr>
+  <tr><td><code>rosliny</code></td><td>Rośliny</td><td>bot., ogr.</td><td>2</td><td>11, 25, 27</td><td>—</td><td>—</td><td>3 111</td></tr>
+  <tr><td><code>medycyna</code></td><td>Medycyna i ciało</td><td>med., anat., psych., wet., farm.</td><td>16</td><td>11, 25, 27</td><td>244560, 38995, 32240, 4722, 27813 (roślinne)</td><td>IATE 2841</td><td>4 063</td></tr>
+  <tr><td><code>muzyka</code></td><td>Muzyka</td><td>muz., chor.</td><td>12</td><td>11, 25, 27</td><td>—</td><td>—</td><td>1 148</td></tr>
+  <tr><td><code>kuchnia</code></td><td>Kuchnia</td><td>kulin., spoż.</td><td>15</td><td>11, 25, 27</td><td>—</td><td>—</td><td>2 432</td></tr>
+  <tr><td><code>sport</code></td><td>Sport</td><td>sport., gry, szach., karc.</td><td>7</td><td>11, 25, 27</td><td>—</td><td>—</td><td>757</td></tr>
+  <tr><td><code>matematyka</code></td><td>Matematyka</td><td>mat.</td><td>9</td><td>11, 25, 27</td><td>—</td><td>—</td><td>543</td></tr>
+  <tr><td><code>pogoda</code></td><td>Pogoda</td><td>meteor.</td><td>10</td><td>11, 25, 27</td><td>—</td><td>—</td><td>209</td></tr>
+  <tr><td><code>grzyby</code></td><td>Grzyby</td><td>mikol.</td><td>4</td><td>11, 25, 27</td><td>—</td><td>—</td><td>351</td></tr>
+</table></div>
+<details class="card"><summary>Pełne listy korzeni i pomiary wycięć</summary>
+  <p>Pełna lista korzeni z id i nazwami jest w <a href="spec.md" target="_blank" rel="noopener">spec.md</a>, W11.</p>
+  <ul>
+    <li>Zwierzęta: 4 727 → 4 452 lematów po pominięciu relacji 25. Relacja 27 nic nie dodaje. Odpadają <code>dziób</code>, <code>kieł</code>, <code>jelito</code>, <code>guzik</code>, <code>poroże</code>, <code>wymię</code>.</li>
+    <li>Medycyna: 4 477 → 4 063. Odpadają <code>batat</code>, <code>bazylia</code>, <code>cytryna</code>, <code>groch</code>, <code>kawa</code>, <code>sporangium</code>.</li>
+    <li>Wszystkie atomy T1 występują w SGJP jako całe atomy.</li>
+  </ul>
+</details>
+
+<h2 id="regresja">Regresja morza (W8)</h2>
+<div class="card scroll"><table>
+  <tr><th>Plik</th><th>Wymóg</th></tr>
+  <tr><td><code>MORZE.txt.gz</code>, <code>MORZE.tsv.gz</code>, <code>ATTRIBUTIONS.md</code>, <code>TERMS.md</code></td><td class="pass">bajtowo równe</td></tr>
+  <tr><td><code>LIMITATIONS.md</code></td><td>różni się tylko punktem T2</td></tr>
+  <tr><td><code>reports/summary.json</code></td><td>równy po usunięciu <code>method</code>, <code>wykluczenia</code> i <code>werdykt.nie_dotyczy</code></td></tr>
+  <tr><td><code>reports/sample.json</code></td><td>równe <code>strata</code>, <code>items</code>, liczniki; <code>operator.strata</code> = T2 i T3</td></tr>
+  <tr><td><code>tematy/morze.json</code>, <code>method.json</code>, <code>raport.md</code>, <code>review-template.json</code>, <code>release-manifest.json</code>, <code>SHA256SUMS</code></td><td>mogą się różnić</td></tr>
+</table>
+<p>a = b, checker PASS, 970 wpisów, 11 035 form, test 37/37.</p></div>
+
+<h2 id="kolejnosc">Kolejność prac</h2>
+<div class="card"><ol class="flow">
+  <li>Słowa oczywiste (W10). Operator przegląda je równolegle z pracą nad kodem.</li>
+  <li>Kod i testy (W1–W7), ADR-012, migracja <code>morze.json</code>, <code>tematy.json</code> v2. Commit.</li>
+  <li>Regresja i przepięcie morza (W8, W9).</li>
+  <li>9 plików tematów i test zgodności list. Commit.</li>
+  <li>Budowy: grzyby → pogoda → matematyka → muzyka → sport → kuchnia → rośliny → zwierzęta → medycyna.</li>
+  <li>R2 (W13).</li>
+  <li>Zestawienie i bramka (W14).</li>
+  <li>Dokumenty i wiki (W15). Pełny zestaw testów raz.</li>
+</ol></div>
+
+<h2 id="reuzycie">Reużycie i nowe składniki</h2>
+<div class="grid2">
+  <div class="card"><b>Istniejący kod (zmiany w miejscu)</b>
+    <ul>
+      <li><code>literaki_slownik/tematy.py</code>: <code>load_topic</code>, <code>load_method</code>, <code>check_inputs</code>, <code>candidates</code>, <code>build_entries</code>, <code>summary</code>, <code>raport</code>, <code>_write_package</code></li>
+      <li><code>t2_candidates</code>, <code>_check_names</code>, <code>map_lemmas</code>, <code>_dodatek</code></li>
+      <li><code>sample</code>, <code>quality.sample_strata</code>, <code>review_template</code></li>
+      <li><code>scripts/check_tematy_package.py</code></li>
+      <li><code>scripts/tematy_review.py</code> (<code>agent_review</code>, <code>page</code>, <code>record</code>)</li>
+      <li><code>record_agent_review.py</code> z #11 (wzór)</li>
+      <li><code>tests/tematy_helpers.py</code>, <code>morze.json</code></li>
+    </ul></div>
+  <div class="card"><b>Nowe</b>
+    <ul>
+      <li>9 plików <code>config/generator/tematy/&lt;id&gt;.json</code></li>
+      <li><code>docs/adr/ADR-012-tematy-fala-1.md</code></li>
+      <li><code>analysis/slowa-oczywiste.json</code>, <code>analysis/instrukcja-oceny-agenta.md</code></li>
+      <li>skrypty lokalne w zadaniu (słowa ∈ STANDARD, oceny agenta, przepięcie morza, zestawienie)</li>
+      <li>2 artefakty: strona słów oczywistych, strona zbiorcza R2</li>
+    </ul>
+    <p style="color:var(--dim)">Nie robimy: pakietu wielotematowego, nowego modułu, nowej wersji <code>quality</code>, D w v1.</p></div>
+</div>
+
+<h2 id="testy">Testy</h2>
+<details class="card" open><summary>2–8 testów na grupę; pełny zestaw raz na końcu</summary>
+  <ul>
+    <li>Temat bez <code>t3</code>: T3 puste, IATE poza rejestrem i <code>inputs</code>, teksty bez „IATE” i „śródląd”.</li>
+    <li><code>t3.dodatki</code> albo znaczniki bez <code>t3</code> dają kod 2.</li>
+    <li>Teksty z odcinkami dla tematu z T3 i znacznikami są bajtowo równe dzisiejszym; niezamknięty odcinek daje kod 2.</li>
+    <li>Wykluczenie lematu: usunięty z TSV i wpisany do <code>summary.wykluczenia</code>. Bez trafienia: kod 4. Konflikt z dodatkiem: kod 2.</li>
+    <li>Wykluczenie poddrzewa nieosiągalne: kod 4.</li>
+    <li><code>operator_warstwy</code>: <code>operator.strata</code> bez T1, strona R2 tylko z T2 i T3.</li>
+    <li>Werdykt: <code>t1_tak</code> z ocen agenta, <code>nie_dotyczy</code> bez <code>t3</code>, <code>niespelniony</code> przy pustym T3 z <code>t3</code>.</li>
+    <li>Checker: wykluczenia, <code>INPUTS</code> bez IATE, puste T3.</li>
+    <li>Raport bez „MORZE” dla innego <code>id</code>. Listy słów w 9 plikach równe <code>slowa-oczywiste.json</code>.</li>
+  </ul>
+</details>
+
+<h2 id="sukces">Kryteria sukcesu</h2>
+<div class="card"><ol>
+  <li>Testy grup przechodzą, a na końcu cały zestaw.</li>
+  <li>Regresja morza zgodna z W8, checker PASS na a i b.</li>
+  <li><code>slowa-oczywiste.json</code> zacommitowany przed pierwszą budową nowego tematu.</li>
+  <li>9 tematów: a = b, checker PASS, T3 i IATE tylko w medycynie.</li>
+  <li>Hash ocen agenta przed stroną R2 każdego tematu. Operator ocenił ok. 300 pozycji. <code>review-check</code> dla 10 tematów.</li>
+  <li><code>gate-report.md</code>: tabela 10 tematów, macierz nakładania, decyzja dla każdego tematu.</li>
+  <li>ADR-012, dokumenty, runbook i wiki zaktualizowane, stan „W przygotowaniu”.</li>
+</ol></div>
+</main>
+</body>
+</html>

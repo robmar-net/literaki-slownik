@@ -15,7 +15,7 @@ orchestrator:
     reality_check_enabled: true
     production_check_enabled: true
   created: 2026-10-29T00:59:06Z
-  updated: 2026-10-29T01:20:39Z
+  updated: 2026-10-29T01:45:56Z
   task_path: .maister/tasks/development/2026-10-29-12-tematy-fala-1
 task:
   title: "TEMATY: pierwsza fala — 9 tematów (#12)"
@@ -39,7 +39,7 @@ task_context:
   risk_level: medium
   clarifications_resolved: true
   scope_expanded: true
-  architecture_decision: null
+  architecture_decision: "Pakiet na temat; metoda tematy-v2 (zasady przeglądu); T3 opcjonalne; wykluczenia lematów (ADR-012)"
   task_characteristics: {has_reproducible_defect: false, modifies_existing_code: true, creates_new_entities: true, involves_data_operations: true, ui_heavy: false}
   research_reference:
     path: .maister/tasks/research/2026-10-27-slowniki-tematyczne
@@ -63,4 +63,9 @@ task_context:
       risks: ["Brak usuwania pojedynczych lematów", "Obciążenie przeglądu operatora", "Szum zwierzęta/medycyna"]
       decisions_made: ["R2: operator tylko T2 (+T3 medycyna), ~300", "Agent z szerokimi granicami, próg 0,80", "Wykluczenia lematów teraz", "Progi jak morze", "Wycięcie zmierzonego szumu", "Operator przegląda listy słów oczywistych przed budową", "IATE 2841 tylko medycyna", "D dopiero po ocenie"]
       artifacts: [{path: analysis/gap-analysis.md, label: Analiza luk, html: null}, {path: analysis/scope-clarifications.md, label: Decyzje zakresu, html: null}]
+    specification:
+      summary: "15 wymagań W1–W15: schemat tematu, wejścia warunkowe, wykluczenia lematów, teksty warunkowe, metoda tematy-v2, werdykt, checker i R2, regresja morze, 9 plików tematów, budowy, R2, bramka, ADR-012 i wiki."
+      decisions: [{decision: "Metoda tematy-v2 (operator_warstwy T2/T3, t1_tak z agenta)", rationale: "zasady przeglądu przypięte w method.json"}, {decision: "Zwierzęta relacje 11 i 27 (bez 25)", rationale: "269 celów rel. 25 to części ciała, produkty, żargon"}, {decision: "Medycyna: 5 poddrzew roślinnych wyciętych", rationale: "−414 lematów owoców, nasion"}, {decision: "Pakiety tematy-<wersja tematu>-YYYYMMDD-{a,b}", rationale: "rozdziela wersję tematu i metody"}]
+      risks: ["Małe tematy mogą nie dojść do 0,70 słów oczywistych", "Sport bez korzeni T2 dla gier", "~1–1,5 h maszyny na 20 budów"]
+      artifacts: [{path: implementation/spec.md, label: Specyfikacja, html: implementation/spec.html}, {path: analysis/requirements.md, label: Wymagania, html: null}]
     clarifications: ["Słowa wspólne zostają w każdym temacie", "Taniec → muzyka; gry, szachy, karty → sport; napoje → kuchnia", "Dinozaury tak, łow. nie", "Grzybica → medycyna"]
