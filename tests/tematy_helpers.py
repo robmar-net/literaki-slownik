@@ -18,7 +18,9 @@ def config_fixture(root):
     for p in (texts, inputs, root/'tematy'):
         p.mkdir(parents=True)
     for name in TEXTS:
-        (texts/name).write_text('# Fikstura ' + name + '\n', encoding='utf-8')
+        # LIMITATIONS ma znacznik, który budowa podmienia na udział śródlądowych (grupa 9).
+        marker = 'Udział śródlądowych: @@SRODLADOWE@@.\n' if name == 'LIMITATIONS.md' else ''
+        (texts/name).write_text('# Fikstura ' + name + '\n' + marker, encoding='utf-8')
     method = json.loads((CONFIG/'tematy.json').read_text(encoding='utf-8'))
     method['teksty'] = {name: {'path': 'tematy-teksty/' + name, 'sha256': sha256(texts/name)}
                         for name in TEXTS}

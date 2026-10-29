@@ -53,6 +53,12 @@ def main(argv=None):
         pop00.add_argument('--config', required=True, help='Zatwierdzona konfiguracja POP00')
         pop00.add_argument('--output-dir', required=True, help='Nowy katalog pakietu POP00')
         pop00.add_argument('--json', action='store_true', help='Odpowiedź JSON')
+        topics = sub.add_parser('tematy', help='Zbuduj pakiet TEMATY dla jednego tematu (ADR-010)')
+        topics.add_argument('--manifest', required=True, help='Manifest przypiętych wejść TEMATY (tematy-sources.json)')
+        topics.add_argument('--config', required=True, help='Konfiguracja metody (tematy.json)')
+        topics.add_argument('--topic', required=True, help='Plik tematu, np. config/generator/tematy/morze.json')
+        topics.add_argument('--output-dir', required=True, help='Nowy, nieistniejący katalog pakietu TEMATY')
+        topics.add_argument('--json', action='store_true', help='Odpowiedź JSON')
         morph = sub.add_parser('morph-index', help='Indeks morfologii SGJP dla form BROAD (format v1)')
         morph.add_argument('--broad', required=True, help='Lista BROAD (.txt.gz)')
         morph.add_argument('--sgjp', required=True, help='Eksport SGJP (.tab.gz)')
@@ -97,6 +103,9 @@ def main(argv=None):
         elif args.command == 'pop00':
             from .pop00 import build_package
             result['result'] = build_package(args.manifest, args.config, args.output_dir)
+        elif args.command == 'tematy':
+            from .tematy import build_package
+            result['result'] = build_package(args.manifest, args.config, args.topic, args.output_dir)
         elif args.command == 'morph-index':
             from .morph_index import write_index
             result['result'] = write_index(args.broad, args.sgjp, args.broad_lexicon_id,
@@ -148,6 +157,22 @@ def _finish(argv, command, result, code):
             found = result['result']
             print(f"Pakiet POP00 (BUILT, {found['method']}): {found['output_dir']}\n"
                   f"{found['forms']} form; {found['selected_lexemes']} leksemów; próg wybranych form 0,1 IPM")
+        elif command == 'tematy':
+            found = result['result']
+            n, lex = found['liczby'], found['przeciecia']['leksemy']['razem']
+            words, verdict = found['slowa_oczywiste'], found['werdykt']
+            inland = found['srodladowe']['kandydaci_t3']
+            print(f"Pakiet TEMATY (BUILT, {found['method']}, {found['wersja_tematu']}): {found['output_dir']}\n"
+                  f"Wpisy: {n['wpisy']} (T1 {n['warstwy']['T1']}, T2 {n['warstwy']['T2']}, T3 {n['warstwy']['T3']}); "
+                  f"formy: {n['formy']}\n"
+                  f"Leksemy w POP: {lex['pop']['liczba']} ({lex['pop']['procent']}%); "
+                  f"w POP00 (POP0): {lex['pop00']['liczba']} ({lex['pop00']['procent']}%)\n"
+                  f"Test {words['lista']} słów: {words['razem']['pokryte']} ({words['razem']['procent']}%), "
+                  f"próg {words['prog']}\n"
+                  f"Śródlądowe w T3: {inland['srodladowe']} z {inland['hasla']} haseł\n"
+                  f"Werdykt automatyczny: {verdict['automatyczny']}"
+                  + (f" ({', '.join(verdict['niespelnione'])})" if verdict['niespelnione'] else '')
+                  + '; progi z ocen czekają na przegląd')
         elif command == 'morph-index':
             found = result['result']
             print(f"Indeks: {found['out']}\n"

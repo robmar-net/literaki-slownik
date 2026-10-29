@@ -5,16 +5,21 @@ from fractions import Fraction
 from pathlib import Path
 from urllib.parse import quote
 from xml.etree import ElementTree
+import os
 import re
+import shutil
 import sqlite3
+import tempfile
 import unicodedata
 import zipfile
 
-from .canonical import load_json, sha256
+from .canonical import dumps, load_json, sha256, write_json
+from .export import rename_noreplace
 from .inputs import GeneratorError, checked_file
-from .pop import _label, load_constructions
+from .pop import _label, load_constructions, write_gzip
 from .pop00 import package_file, read_words
-from .quality import _config
+from .quality import _config, review_template, sample_strata
+from .run import code_identity
 
 METHOD = 'tematy-v1'
 ADR = 'docs/adr/ADR-010-tematy-v1.md'
@@ -692,3 +697,363 @@ def build_entries(data, cands):
             'warstwy': {w: tuple(k for k, e in wpisy.items() if e['warstwa'] == w) for w in WARSTWY},
             'formy': tuple(sorted({f for e in wpisy.values() for f in e['formy']})),
             'diagnostyka': diag, 'odrzucone': odrzucone, 'ger': ger}
+
+
+# --- Raporty, próba i pakiet (W8–W11, W15) ---
+KIND = 'literaki-tematy-manifest'
+PACKAGE_ID = 'TEMATY'
+PRZYKLADY = 10
+PRZYKLADY_SRODLADOWE = 20
+ZNACZNIK = '@@SRODLADOWE@@'
+TSV_KOLUMNY = ('klucz', 'lemat', 'czesci_mowy', 'warstwa', 'zrodla', 'znaczenie', 'wieloznaczny', 'formy')
+# Progi z ocen R2; automat ich nie rozstrzyga („czeka na ocenę”).
+CZEKA = ('t1_tak', 't2_tak', 't2_nie', 't3_tak', 'zgodnosc')
+GRUPY = (*WARSTWY, 'razem')
+WIELOZNACZNY = ('tak', 'nie', 'brak_danych')
+POP00_LEKSEMY = 'POP00 na poziomie leksemów = członkowie POP0 z reports/units.json POP (pop-v3)'
+
+
+def _pct(part, whole):
+    """Procent z jednym miejscem (kropka), z dokładnego ułamka; None przy pustym mianowniku."""
+    return None if not whole else f'{float(Fraction(100 * part, whole)):.1f}'
+
+
+def _part(part, whole):
+    return {'liczba': part, 'procent': _pct(part, whole)}
+
+
+def _examples(values, limit=PRZYKLADY):
+    values = list(values)
+    return {'liczba': len(values), 'przyklady': values[:limit]}
+
+
+def _groups(built):
+    groups = {w: [built['wpisy'][k] for k in built['warstwy'][w]] for w in WARSTWY}
+    groups['razem'] = list(built['wpisy'].values())
+    return groups
+
+
+def _overlap(data, built):
+    """Przecięcia z POP i POP00 (W8): leksemy (liczba główna) i formy, razem i na warstwę."""
+    lex, forms = {}, {}
+    for name, items in _groups(built).items():
+        keys = {e['klucz'] for e in items}
+        words = {f for e in items for f in e['formy']}
+        lex[name] = {'temat': len(keys), 'pop': _part(len(keys & data['members']['POP']), len(keys)),
+                     'pop00': _part(len(keys & data['members']['POP0']), len(keys))}
+        forms[name] = {'temat': len(words), 'pop': _part(len(words & data['pop']), len(words)),
+                       'pop00': _part(len(words & data['pop00']), len(words))}
+    return {'leksemy': lex, 'formy': forms, 'uwaga': POP00_LEKSEMY + '; formy z POP.txt.gz i POP00.txt.gz'}
+
+
+def _diagnostics(built):
+    return {name: {kind: {**row, 'procent_broad': _pct(row['broad'], row['kandydaci']),
+                          'procent_standard': _pct(row['standard'], row['kandydaci'])}
+                   for kind, row in item.items()}
+            for name, item in built['diagnostyka'].items()}
+
+
+def _rejected(built):
+    """Odrzuceni na warstwę i powód: liczba i pierwsze 10 z posortowanej listy (W8)."""
+    result = {}
+    for name in GRUPY:
+        rows = {reason: _examples(built['odrzucone'][name][reason]) for reason in POWODY}
+        rows['BRAK_LEKSEMU']['ger'] = _examples(built['ger'][name])
+        result[name] = rows
+    return result
+
+
+def slowa_oczywiste(words, wpisy, prog):
+    """Test 37 słów (W9): słowo pokryte, gdy ma je lemat wpisu. Do progu idzie wynik całości."""
+    lemmas = {w: set() for w in WARSTWY}
+    for entry in wpisy.values():
+        lemmas[entry['warstwa']].add(entry['lemat'])
+
+    def score(layers):
+        covered = set().union(*(lemmas[w] for w in layers))
+        missing = [w for w in words if w not in covered]
+        return {'pokryte': len(words) - len(missing), 'procent': _pct(len(words) - len(missing), len(words)),
+                'brakujace': missing}
+    total = score(WARSTWY)
+    return {'lista': len(words), 'razem': total, 'T1': score(('T1',)), 'T1_T2': score(('T1', 'T2')),
+            'spelniony': Fraction(total['pokryte'], len(words)) >= prog}
+
+
+def _patterns(markers):
+    return [re.compile(r'(?<!\w)' + re.escape(m)) for m in markers]
+
+
+def srodladowe_hasla(hasla, znaczniki):
+    """W10: id haseł, w których termin PL lub EN ma znacznik jako początek słowa."""
+    pl, en = _patterns(znaczniki['pl']), _patterns(znaczniki['en'])
+
+    def hit(terms, patterns):
+        return any(p.search(t.lower()) for t in terms for p in patterns)
+    return sorted(i for i, e in hasla.items() if hit(e['pl'], pl) or hit(e['en'], en))
+
+
+def _inland(topic, t3, built):
+    marks = topic['diagnostyka']['znaczniki_srodladowe']
+    hasla = t3['hasla']
+    found = srodladowe_hasla(hasla, marks)
+    entries = [built['wpisy'][k] for k in built['warstwy']['T3']]
+    inland = [e['klucz'] for e in entries if set(found) & set(e['iate'])]
+    return {'znaczniki': marks,
+            'kandydaci_t3': {'hasla': len(hasla), 'srodladowe': len(found), 'procent': _pct(len(found), len(hasla)),
+                             'przyklady': [f'{i} ({", ".join(hasla[i]["przyjete"])})'
+                                           for i in found[:PRZYKLADY_SRODLADOWE]]},
+            'wpisy_t3': {'wpisy': len(entries), 'srodladowe': len(inland), 'procent': _pct(len(inland), len(entries)),
+                         'przyklady': inland[:PRZYKLADY_SRODLADOWE]}}
+
+
+def summary(data, cands, built):
+    """`reports/summary.json` (W8–W10); `raport.md` powstaje z tych samych liczb."""
+    topic, config, t2, t3 = data['topic'], data['method']['config'], cands['t2'], cands['t3']
+    wpisy = built['wpisy']
+    words = slowa_oczywiste(topic['diagnostyka']['slowa_oczywiste'], wpisy, data['method']['progi']['slowa_oczywiste'])
+    words['prog'] = config['progi']['slowa_oczywiste']
+    failed = [] if words['spelniony'] else ['slowa_oczywiste']
+    flags = {v: [k for k, e in wpisy.items() if e['wieloznaczny'] == v] for v in WIELOZNACZNY}
+    return {
+        'method': METHOD, 'temat': topic['id'], 'wersja_tematu': topic['wersja'],
+        'liczby': {'kandydaci': len(built['kandydaci']), 'wpisy': len(wpisy), 'formy': len(built['formy']),
+                   'warstwy': {w: len(built['warstwy'][w]) for w in WARSTWY}},
+        'przeciecia': _overlap(data, built),
+        'diagnostyka': _diagnostics(built),
+        'odrzucone': _rejected(built),
+        't1': {'atomy': topic['t1']['atomy_sgjp'], 'leksemy': len(cands['sgjp']['t1'])},
+        't2': {'synsety': len(t2['synsety']), 'sztuczne': len(t2['sztuczne']), 'jednostki': len(t2['jednostki']),
+               'lematy': len(t2['lematy']), 'odrzucone': {k: _examples(v) for k, v in t2['odrzucone'].items()}},
+        't3': {**t3['liczniki'], 'hasla_kandydaci': len(t3['hasla']),
+               'odrzucone': {r: _examples(t3['odrzucone'].get(r, ())) for r in T3_POWODY}},
+        'wieloznaczny': {v: {**_part(len(keys), len(wpisy)), 'przyklady': keys[:PRZYKLADY]} for v, keys in flags.items()},
+        'slowa_oczywiste': words,
+        'srodladowe': _inland(topic, t3, built),
+        'werdykt': {'automatyczny': 'popraw' if failed else 'dalej', 'niespelnione': failed,
+                    'czeka_na_ocene': list(CZEKA), 'uwaga': '„stop” wybiera tylko operator na bramce'},
+    }
+
+
+def _pl(pct):
+    return 'brak' if pct is None else pct.replace('.', ',') + '%'
+
+
+def _share_text(part, whole, pct):
+    return f'{part} z {whole} ({_pl(pct)})'
+
+
+def raport(report):
+    """`reports/raport.md`: po polsku, z liczb `summary.json`."""
+    n, over, words, inland, verdict = (report[k] for k in ('liczby', 'przeciecia', 'slowa_oczywiste',
+                                                           'srodladowe', 'werdykt'))
+    lex, forms = over['leksemy'], over['formy']
+    warstwy = ', '.join(f'{w} {n["warstwy"][w]}' for w in WARSTWY)
+    total = words['razem']
+    cand = inland['kandydaci_t3']
+    failed = ', '.join(verdict['niespelnione']) or 'brak'
+    lines = [
+        f'# Raport TEMATY: {report["temat"]} ({report["wersja_tematu"]}, {report["method"]})', '',
+        '## TL;DR',
+        f'- Wpisy: {n["wpisy"]} ({warstwy}); formy w MORZE: {n["formy"]}.',
+        f'- W POP: {_share_text(lex["razem"]["pop"]["liczba"], lex["razem"]["temat"], lex["razem"]["pop"]["procent"])} '
+        f'leksemów; w POP00: {_share_text(lex["razem"]["pop00"]["liczba"], lex["razem"]["temat"], lex["razem"]["pop00"]["procent"])}.',
+        f'- Test {words["lista"]} słów: {_share_text(total["pokryte"], words["lista"], total["procent"])}, '
+        f'próg {words["prog"]}: {"spełniony" if words["spelniony"] else "niespełniony"}.',
+        f'- Śródlądowe wśród haseł T3 kandydatów: {_share_text(cand["srodladowe"], cand["hasla"], cand["procent"])}.',
+        f'- Werdykt automatyczny: {verdict["automatyczny"]} (niespełnione: {failed}). '
+        f'Progi z ocen ({", ".join(verdict["czeka_na_ocene"])}): czeka na ocenę.', '',
+        '## Kluczowe decyzje',
+        '- Wpis to leksem SGJP z formą w STANDARD. Warstwa to najniższa z T1 < T2 < T3; źródła to wszystkie.',
+        f'- {POP00_LEKSEMY}. Formy liczymy z POP.txt.gz i POP00.txt.gz.',
+        '- Werdykt automatyczny to tylko „dalej” albo „popraw”. „stop” wybiera operator na bramce.', '',
+        '## Otwarte pytania',
+        '- Trafność warstw i zgodność ocen: czeka na przegląd R2 (agent i operator).',
+        f'- Wpisy T3: {n["warstwy"]["T3"]}. Szum pełnego domknięcia T2 oceni przegląd.', '',
+        '## Przecięcia z POP i POP00',
+        '| Warstwa | Leksemy | w POP | w POP00 (POP0) | Formy | w POP | w POP00 |',
+        '|---|---|---|---|---|---|---|']
+    for name in GRUPY:
+        a, b = lex[name], forms[name]
+        lines.append(f'| {name} | {a["temat"]} | {a["pop"]["liczba"]} ({_pl(a["pop"]["procent"])}) '
+                     f'| {a["pop00"]["liczba"]} ({_pl(a["pop00"]["procent"])}) | {b["temat"]} '
+                     f'| {b["pop"]["liczba"]} ({_pl(b["pop"]["procent"])}) | {b["pop00"]["liczba"]} ({_pl(b["pop00"]["procent"])}) |')
+    lines += ['', '## Diagnostyka przed ∩ STANDARD',
+              '| Warstwa | Jednostka | Kandydaci | ∩ BROAD | ∩ STANDARD |', '|---|---|---|---|---|']
+    for name in GRUPY:
+        for kind in ('leksemy', 'formy'):
+            row = report['diagnostyka'][name][kind]
+            lines.append(f'| {name} | {kind} | {row["kandydaci"]} | {row["broad"]} ({_pl(row["procent_broad"])}) '
+                         f'| {row["standard"]} ({_pl(row["procent_standard"])}) |')
+    lines += ['', '## Odrzuceni', 'BRAK_LEKSEMU i NIE_JEDNO_SLOWO to lematy; POZA_BROAD i POZA_STANDARD to leksemy.']
+    for name in GRUPY:
+        for reason, row in report['odrzucone'][name].items():
+            extra = f'; w tym ger: {row["ger"]["liczba"]}' if 'ger' in row else ''
+            lines.append(f'- {name} {reason}: {row["liczba"]}{extra}. ' + _list(row['przyklady']))
+    t2, t3 = report['t2'], report['t3']
+    lines += ['', '## Źródła',
+              f'- T1: atomy {", ".join(report["t1"]["atomy"])}; leksemy z etykietą: {report["t1"]["leksemy"]}.',
+              f'- T2: synsety {t2["synsety"]} (sztuczne {t2["sztuczne"]}), jednostki {t2["jednostki"]}, '
+              f'lematy {t2["lematy"]}. Odrzucone: ' +
+              '; '.join(f'{k} {v["liczba"]}' for k, v in t2['odrzucone'].items()) + '.',
+              f'- T3: hasła z kodem dziedziny {t3["hasla"]}, z terminem PL {t3["hasla_pl"]}, kandydaci '
+              f'{t3["hasla_kandydaci"]}; terminy przyjęte {t3["przyjete"]} ({t3["przyjete_rozne"]} różnych).',
+              '- T3 termType: ' + _counts(t3['termType']) + '.',
+              '- T3 status: ' + _counts(t3['status']) + '.',
+              '- T3 odrzucone: ' + '; '.join(f'{r} {v["liczba"]}' for r, v in t3['odrzucone'].items()) + '.',
+              '', '## Flaga wieloznaczny']
+    for value, row in report['wieloznaczny'].items():
+        lines.append(f'- {value}: {row["liczba"]} ({_pl(row["procent"])}). ' + _list(row['przyklady']))
+    lines += ['', f'## Test {words["lista"]} słów',
+              f'Do progu idzie wynik całości T1 ∪ T2 ∪ T3. T1 oraz T1 ∪ T2 to diagnostyka.']
+    for name, title in (('razem', 'całość'), ('T1', 'T1'), ('T1_T2', 'T1 ∪ T2')):
+        row = words[name]
+        lines.append(f'- {title}: {_share_text(row["pokryte"], words["lista"], row["procent"])}. '
+                     f'Brakuje: {", ".join(row["brakujace"]) or "nic"}.')
+    entries = inland['wpisy_t3']
+    lines += ['', '## Żegluga śródlądowa (T3)',
+              f'- Znaczniki PL: {", ".join(inland["znaczniki"]["pl"])}; EN: {", ".join(inland["znaczniki"]["en"])}.',
+              f'- Hasła T3 kandydatów (miara główna): {_share_text(cand["srodladowe"], cand["hasla"], cand["procent"])}. '
+              + _list(cand['przyklady']),
+              f'- Wpisy T3: {_share_text(entries["srodladowe"], entries["wpisy"], entries["procent"])}. '
+              + _list(entries['przyklady']),
+              '', '## Werdykt',
+              f'- Automatyczny: {verdict["automatyczny"]}. Niespełnione progi: {failed}.',
+              f'- Czeka na ocenę: {", ".join(verdict["czeka_na_ocene"])}.', '']
+    return '\n'.join(lines)
+
+
+def _list(values):
+    return ('Przykłady: ' + ', '.join(values) + '.') if values else 'Brak przykładów.'
+
+
+def _counts(values):
+    return ', '.join(f'{k} {v}' for k, v in values.items()) or 'brak'
+
+
+def _payload(entry):
+    """Dane wpisu do oceny R2 (W11)."""
+    return {'key': entry['klucz'], 'lemat': entry['lemat'], 'warstwa': entry['warstwa'],
+            'zrodla': list(entry['zrodla']), 'znaczenie': {w: list(v) for w, v in entry['znaczenie'].items()},
+            'czesci_mowy': list(entry['czesci_mowy']), 'wieloznaczny': entry['wieloznaczny'],
+            'formy': list(entry['formy'][:5]), 'liczba_form': len(entry['formy'])}
+
+
+def sample(layers, payloads, method):
+    """Próba R2 (W11): `min(size, N)` na warstwę przez `quality.sample_strata`.
+
+    Operator: pierwsze `min(operator_per_stratum, N)` wybranych w kolejności rangi (`selected`).
+    `items` niesie dane wpisu do `quality.review_template`.
+    """
+    result = sample_strata({w: list(keys) for w, keys in layers.items()}, method['sampling'])
+    per = method['operator_per_stratum']
+    result['operator'] = {'per_stratum': per, 'strata': {
+        name: [item['key'] for item in stratum['selected'][:per]] for name, stratum in sorted(result['strata'].items())}}
+    keys = sorted({item['key'] for stratum in result['strata'].values() for item in stratum['selected']})
+    result['items'] = [payloads[k] for k in keys]
+    return result
+
+
+def _tsv_rows(wpisy):
+    rows = ['\t'.join(TSV_KOLUMNY)]
+    for key, e in wpisy.items():
+        cells = (key, e['lemat'], ','.join(e['czesci_mowy']), e['warstwa'], ','.join(e['zrodla']),
+                 ' | '.join(f'{w}: {"; ".join(v)}' for w, v in e['znaczenie'].items()),
+                 e['wieloznaczny'], str(len(e['formy'])))
+        if any('\t' in c or '\n' in c for c in cells):
+            raise ValueError('Tabulacja albo nowa linia w wierszu MORZE.tsv: ' + key)
+        rows.append('\t'.join(cells))
+    return rows
+
+
+def _write_package(staging, data, sources, cands, built):
+    """Pliki pakietu (wzór `pop00._write_package`); zwraca `summary`."""
+    topic = data['topic']
+    name = topic['id'].upper()
+    (staging / 'reports').mkdir()
+    (staging / 'tematy').mkdir()
+    write_gzip(staging / f'{name}.txt.gz', built['formy'])
+    write_gzip(staging / f'{name}.tsv.gz', _tsv_rows(built['wpisy']))
+    (staging / 'tematy' / f'{topic["id"]}.json').write_bytes(sources['topic_path'].read_bytes())
+    write_json(staging / 'method.json', data['method']['config'])
+    report = summary(data, cands, built)
+    write_json(staging / 'reports/summary.json', report)
+    (staging / 'reports/raport.md').write_text(raport(report), encoding='utf-8')
+    payloads = {k: _payload(e) for k, e in built['wpisy'].items()}
+    drawn = sample({w: built['warstwy'][w] for w in WARSTWY}, payloads, data['method']['config'])
+    # Szablon wiąże hash dokładnych kanonicznych bajtów próbki.
+    (staging / 'reports/sample.json').write_text(dumps(drawn), encoding='utf-8')
+    evidence = {p: sha256(staging / p) for p in (f'{name}.txt.gz', 'reports/summary.json')}
+    review = review_template(drawn, canonical_index_sha256=sha256(staging / f'{name}.tsv.gz'),
+                             evidence_sha256=evidence)
+    write_json(staging / 'reports/review-template.json', review)
+    texts = {k: p.read_text(encoding='utf-8') for k, p in data['texts'].items()}
+    (staging / 'ATTRIBUTIONS.md').write_text(data['attribution'].rstrip('\n') + '\n\n' + texts['ATTRIBUTIONS-tematy.md'],
+                                             encoding='utf-8')
+    if texts['LIMITATIONS.md'].count(ZNACZNIK) != 1:
+        raise _bad('LIMITATIONS.md wymaga jednego znacznika ' + ZNACZNIK)
+    cand = report['srodladowe']['kandydaci_t3']
+    (staging / 'LIMITATIONS.md').write_text(texts['LIMITATIONS.md'].replace(
+        ZNACZNIK, _share_text(cand['srodladowe'], cand['hasla'], cand['procent'])), encoding='utf-8')
+    (staging / 'TERMS.md').write_text(texts['TERMS.md'], encoding='utf-8')
+    files = {p.relative_to(staging).as_posix(): {'sha256': sha256(p), 'bytes': p.stat().st_size}
+             for p in sorted(staging.rglob('*')) if p.is_file()}
+    refs = data['source']['inputs']
+    manifest = {'schema_version': 1, 'kind': KIND, 'package_id': PACKAGE_ID, 'status': 'BUILT',
+                'method': METHOD, 'adr': ADR,
+                'topic': {'id': topic['id'], 'wersja': topic['wersja'], 'sha256': sources['topic']},
+                'config_sha256': sources['config'], 'source_manifest_sha256': sources['manifest'],
+                'inputs': data['pins'], 'plwordnet_zip_sha256': refs['plwordnet_zip']['sha256'],
+                'iate': {k: refs['iate'][k] for k in ('member', 'last_modified', 'bytes')},
+                'code_identity': code_identity(), 'counts': {topic['id']: report['liczby']},
+                'overlap': report['przeciecia'], 'files': files}
+    write_json(staging / 'release-manifest.json', manifest)
+    (staging / 'SHA256SUMS').write_text(''.join(f'{sha256(p)}  {p.relative_to(staging).as_posix()}\n'
+                                                for p in sorted(staging.rglob('*')) if p.is_file()), encoding='utf-8')
+    return report
+
+
+def build_package(manifest, config, topic, output_dir):
+    """Podkomenda `tematy` (W6), wzór `pop00.build_package`: staging obok celu, rejestr, 0444, bez nadpisania.
+
+    Kody: 2 konfiguracja albo cel w wejściach, 3 piny, 4 dane albo istniejący cel, 5 zmiana wejść.
+    """
+    target = Path(output_dir).absolute()
+    resolved = target.parent.resolve() / target.name
+    if os.path.lexists(target):
+        raise GeneratorError('Pakiet TEMATY już istnieje; nie nadpisujemy', 4, str(target))
+    staging = None
+    try:
+        source = load_sources(manifest)
+        base = Path(manifest).resolve().parent
+        protected = [(base / ref['path']).resolve().parent for ref in source['inputs'].values() if 'path' in ref]
+        if not target.parent.is_dir() or any(resolved == p or p in resolved.parents for p in protected):
+            raise GeneratorError('Cel TEMATY w wejściach albo bez katalogu nadrzędnego', 2, str(target))
+        data = check_inputs(manifest, config, topic)
+        paths = {k: Path(v).resolve() for k, v in (('manifest', manifest), ('config', config), ('topic', topic))}
+        sources = {k: data['registry'][p] for k, p in paths.items()}
+        sources['topic_path'] = paths['topic']
+        cands = candidates(data)
+        built = build_entries(data, cands)
+        if not set(built['formy']) <= data['standard']:
+            raise GeneratorError('Naruszone MORZE ⊆ STANDARD', 4)
+        staging = Path(tempfile.mkdtemp(prefix='.' + target.name + '.staging-', dir=target.parent))
+        report = _write_package(staging, data, sources, cands, built)
+        confirm_unchanged(data)
+        for p in staging.rglob('*'):
+            if p.is_file():
+                p.chmod(0o444)
+        rename_noreplace(staging, target)
+        staging = None
+        return {**{k: report[k] for k in ('method', 'temat', 'wersja_tematu', 'liczby', 'przeciecia',
+                                          'slowa_oczywiste', 'srodladowe', 'werdykt')},
+                'output_dir': str(target.resolve()),
+                'release_manifest_sha256': sha256(target / 'release-manifest.json')}
+    except GeneratorError:
+        raise
+    except FileExistsError as error:
+        raise GeneratorError('Cel TEMATY powstał podczas zapisu; nie nadpisujemy', 4, str(target)) from error
+    except (OSError, ValueError, sqlite3.Error, KeyError, TypeError, EOFError) as error:
+        raise GeneratorError('Błąd danych TEMATY: ' + str(error), 4) from error
+    finally:
+        if staging is not None:
+            shutil.rmtree(staging)
