@@ -25,3 +25,9 @@
 **Steps**: 1.1–1.6. **Commit**: 920a89b. **Tests**: 3/3 OK.
 **Wynik**: 329 słów (zwierzeta 37, rosliny 38, medycyna 39, muzyka 37, kuchnia 37, sport 36, matematyka 35, pogoda 36, grzyby 34); wszystkie przeszły W10.2 w 1. rundzie. Agent bez dostępu do danych (dowód w slowa-oczywiste-check.json).
 **Uwaga**: przykład „nuty/zawody” w W10.2 i ADR-012 błędny (to osobne leksemy SGJP); poprawne przykłady: psy, koty → do poprawy w grupie 17.
+
+## 2026-10-29T02:11:38Z - Group 4 Complete
+**Steps**: 4.1–4.6. **Commit**: 1f2ec7b. **Tests**: 12/12 w modułach grupy (6 nowych); szerzej 56/62 — 6 znanych czerwonych dla grupy 7 („Zła metoda”).
+**Zmiany**: IATE tylko przy t3 (rejestr, manifest), _no_t3, _exclude (kod 4 bez trafienia), osiągalność wykluczeń poddrzew, summary.wykluczenia, sekcja raportu „Wykluczenia”. Fikstura second_topic (zwierzeta bez t3).
+**Morze na fiksturze**: TXT, TSV, raport, LIMITATIONS bajtowo bez zmian; summary +"wykluczenia": [].
+**Dla grupy 5**: LIMITATIONS bez T3 ma jeszcze @@SRODLADOWE@@; „MORZE” w TL;DR raportu; linie T3 w „Źródła”. Grupa 6: srodladowe może być None.

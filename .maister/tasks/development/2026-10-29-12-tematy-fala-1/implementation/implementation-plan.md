@@ -106,19 +106,19 @@ Operator zatrzymuje pracę trzy razy: słowa oczywiste (2.4), oceny R2 (15.2) i 
 **Pliki:** `literaki_slownik/tematy.py`, `tests/tematy_helpers.py`, `tests/test_tematy_inputs.py`, `tests/test_tematy_wykluczenia.py`
 **Kroki:** 6
 
-- [ ] 4.0 Czytać IATE tylko przy `t3` i stosować wykluczenia lematów
-  - [ ] 4.1 Napisać 6 testów (`tests/test_tematy_inputs.py`, nowy `tests/test_tematy_wykluczenia.py`):
+- [x] 4.0 Czytać IATE tylko przy `t3` i stosować wykluczenia lematów
+  - [x] 4.1 Napisać 6 testów (`tests/test_tematy_inputs.py`, nowy `tests/test_tematy_wykluczenia.py`):
     - temat bez `t3`: budowa przechodzi, T3 puste, IATE nie ma w rejestrze czytanych plików ani w `inputs` manifestu, `candidates` nie woła `t3_candidates`;
     - temat z `t3`: blok `iate` (`member`, `last_modified`, `bytes`) w manifeście bez zmian;
     - wykluczenie lematu usuwa leksem z TSV (w T1, T2 i T3) i daje wpis `{lemat, czesc_mowy, powód, klucze, warstwy}` w `summary.wykluczenia`;
     - wykluczenie bez trafienia wśród kandydatów daje kod 4;
     - wykluczenie poddrzewa nieosiągalne z korzeni (liczone bez wykluczeń) daje kod 4;
     - `raport.md` ma sekcję „Wykluczenia” tylko przy niepustej liście.
-  - [ ] 4.2 `check_inputs`: rejestracja i hash `iate` tylko przy `t3`. `candidates`: `t3_candidates` tylko przy `t3`, inaczej T3 = {}. Manifest pakietu: `inputs` tylko z użytych wejść. `tematy-sources.json` bez zmian.
-  - [ ] 4.3 `build_entries`: wykluczenia po zebraniu T1–T3, przed dodatkami, formami i diagnostyką. Dopasowanie `lemma_base` = `lemat` i `czesc_mowy` w klasach leksemu (wzór `map_lemmas`). Kod 4 przy braku trafienia.
-  - [ ] 4.4 `t2_candidates`: osiągalność każdego `wykluczenia_poddrzew` w domknięciu bez wykluczeń; brak = kod 4. `summary.json` dostaje `wykluczenia`; `raport.md` sekcję „Wykluczenia”.
-  - [ ] 4.5 `tests/tematy_helpers.py`: wariant `inputs_fixture` bez T3 i z drugim tematem (inny `id`, korzenie z małej Słowosieci fikstury).
-  - [ ] 4.6 Uruchomić 6 nowych testów oraz `tests.test_tematy_inputs`, `tests.test_tematy_sources`, `tests.test_tematy_layers`. Commit i push: `feat(tematy): wejścia zależne od tematu i wykluczenia lematów (#12)`.
+  - [x] 4.2 `check_inputs`: rejestracja i hash `iate` tylko przy `t3`. `candidates`: `t3_candidates` tylko przy `t3`, inaczej T3 = {}. Manifest pakietu: `inputs` tylko z użytych wejść. `tematy-sources.json` bez zmian.
+  - [x] 4.3 `build_entries`: wykluczenia po zebraniu T1–T3, przed dodatkami, formami i diagnostyką. Dopasowanie `lemma_base` = `lemat` i `czesc_mowy` w klasach leksemu (wzór `map_lemmas`). Kod 4 przy braku trafienia.
+  - [x] 4.4 `t2_candidates`: osiągalność każdego `wykluczenia_poddrzew` w domknięciu bez wykluczeń; brak = kod 4. `summary.json` dostaje `wykluczenia`; `raport.md` sekcję „Wykluczenia”.
+  - [x] 4.5 `tests/tematy_helpers.py`: wariant `inputs_fixture` bez T3 i z drugim tematem (inny `id`, korzenie z małej Słowosieci fikstury).
+  - [x] 4.6 Uruchomić 6 nowych testów oraz `tests.test_tematy_inputs`, `tests.test_tematy_sources`, `tests.test_tematy_layers`. Commit i push: `feat(tematy): wejścia zależne od tematu i wykluczenia lematów (#12)`.
 
 **Kryteria odbioru:**
 - 6 testów przechodzi.
