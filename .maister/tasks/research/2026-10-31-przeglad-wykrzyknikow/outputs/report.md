@@ -17,7 +17,7 @@
 
 ## Open Questions & Risks
 - Decyzja należy do operatora (warianty niżej).
-- Kandydatów B sprawdziłem w sjp.pl i Wikisłowniku tylko na próbce 16 form.
+- Kandydatów B sprawdziłem w sjp.pl i Wikisłowniku tylko na próbce 12 form.
 
 ## Metoda
 - Skrypt: `tmp/interj-review.py`, uruchomiony na przebiegu `data/work/lists-v31-20261012-162111-a`. SGJP: `sgjp-20260823`.
@@ -32,7 +32,7 @@
 ## Kandydaci B (62), od najczęstszych w KWJP (małe litery)
 up, bz, ou, din, ham, wej, bac, ura, hum, ałła, dendele, dziu, brrum, bęk, csyt, cupu, dalbóg, dażbóg, dbrum, dobrydzień, drdr, dziń, fiku, glu, gluk, hap, hałła, hrym, hup, huź, huźha, kiw, kukuk, malu, miku, mojaśty, pluś, prastu, prastum, prrru, prru, pru, pry, pstręk, pyf, pyrg, rrrum, rrum, skik, szastum, szmyrk, terefere, tfy, tprr, tpru, tssyt, tst, wciurności, wiu, wiśt, wont, zerk
 
-## Próbka 16 kandydatów
+## Próbka 12 kandydatów
 | forma | KWJP interj / obce / wszystkie | sjp.pl | Wikisłownik |
 |---|---|---|---|
 | up | 7 / 115 / 434 | tylko skrót UP | tylko angielskie |
