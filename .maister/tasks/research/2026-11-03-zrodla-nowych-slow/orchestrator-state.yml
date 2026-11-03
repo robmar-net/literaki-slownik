@@ -22,4 +22,6 @@ research_context:
     excluded: [SJP.pl jako źródło, Wikisłownik (odroczony), kontakt z autorami lub innymi grupami, zmiany w listach]
     constraints: [po polsku, zwięźle, bez nazw innych gier słownych poza Literaki i Kurnik, tylko otwarte licencje]
   previous_research: .maister/tasks/research/2026-11-03-wulwa-brak-w-zrodlach
-  phase_summaries: {}
+  confidence_level: srednia-wysoka
+  phase_summaries:
+    phase-1: "Synteza gotowa: outputs/research-report.md; decyzje D1–D4 i wulwa otwarte."

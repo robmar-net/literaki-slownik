@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raport badania — źródła nowych słów</title>
+<style>
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+img.shot { max-width:100%; border:1px solid var(--border); border-radius:var(--radius); }
+details > summary { cursor:pointer; font-weight:600; }
+/* rozszerzenia */
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+.tldr h3 { font-size:13px; margin:14px 0 4px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+.tldr ul, .tldr ol { margin:4px 0; padding-left:20px; }
+.conf { font-size:10.5px; font-weight:700; text-transform:uppercase; padding:1.5px 7px; border-radius:99px; }
+.conf.h { background:var(--ok-soft); color:var(--ok); }
+.conf.m { background:var(--warn-soft); color:var(--warn); }
+.conf.l { background:var(--crit-soft); color:var(--crit); }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
+.grid .card { margin:0; }
+.roles .card h3 { margin:0 0 6px; font-size:14px; }
+.swot { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.swot .card { margin:0; } .swot h3 { margin:0 0 6px; font-size:13px; }
+.s1 { border-left:4px solid var(--ok); } .s2 { border-left:4px solid var(--warn); }
+.s3 { border-left:4px solid var(--info); } .s4 { border-left:4px solid var(--crit); }
+.wulwa { border-left:4px solid var(--accent); }
+.toc { font-size:13px; color:var(--dim); margin:10px 0; }
+.scroll { overflow-x:auto; }
+td.y { color:var(--ok); font-weight:600; } td.n { color:var(--dim); }
+@media (max-width:640px){ .swot { grid-template-columns:1fr; } body { padding:16px 16px 48px; } }
+</style>
+</head>
+<body>
+<nav class="crumbs">
+  <a href="../dashboard.html">← Dashboard</a>
+  <span class="here">Raport</span>
+  <a href="research-report.md" target="_blank" rel="noopener" class="md">md twin ↗</a>
+</nav>
+
+<header>
+  <span class="badge">research-report</span>
+  <h1>Źródła nowych, popularnych słów</h1>
+  <div style="color:var(--dim);font-size:13px">Typ: mieszany (literatura + technika) · 2026-11-03 · synteza: <a href="../analysis/synthesis.md" target="_blank" rel="noopener">synthesis.md</a></div>
+</header>
+
+<div class="tiles">
+  <div class="tile"><b>11</b><span>ustaleń</span></div>
+  <div class="tile"><b>26</b><span>źródeł</span></div>
+  <div class="tile"><b>9</b><span>słów kontrolnych</span></div>
+  <div class="tile"><b>374</b><span>kandydatów (2011–2020)</span></div>
+  <div class="tile"><b>śr.–wys.</b><span>pewność ogólna</span></div>
+</div>
+
+<section class="tldr card">
+  <h3>TL;DR</h3>
+  <ul>
+    <li>Naukowe źródła nowych słów istnieją. Najlepsze to <b>OJ UW</b> i <b>WSJP PAN</b>. Nie mają licencji danych, więc służą tylko jako <b>dowód ręczny</b>.</li>
+    <li>Źródłem leksemów zostaje SGJP. Eksport 20261018 dodaje tylko 2 lematy.</li>
+    <li>Wychwytywanie działa metodą progową: korpus z datami, kandydaci, decyzja użytkownika, suplement v2. Dziś tylko na latach 2011–2020 (374 kandydatów, ~65% trafnych). Po 2020 kandydatami na korpus są <b>ParlaMint-PL 5.0</b> i <b>Leipzig news</b> (CC BY 4.0).</li>
+    <li><b>Wulwy nie ma w żadnym dopuszczonym źródle.</b> Droga to tylko suplement v2 i decyzja użytkownika.</li>
+  </ul>
+  <h3>Kluczowe decyzje (użytkownik)</h3>
+  <ol>
+    <li>Czy dopuścić leksemy spoza SGJP przez suplement v2 (uchylenie wariantu A). Przykład: antyszczepionkowiec.</li>
+    <li>Czy podbić SGJP do 20261018 (<code>muralista</code>, <code>muralistka</code>).</li>
+    <li>Czy rozszerzyć ADR-006 o NKJP w metodzie (dziś tylko POP, POP0).</li>
+    <li>Jaki korpus „po 2020”: ParlaMint + Leipzig, FineWeb-2/HPLT po decyzji o licencji, czy żaden.</li>
+    <li>Wulwa: dodać wyjątkiem, odłożyć z pomiarem, czy odrzucić jako „luka źródła”.</li>
+  </ol>
+  <h3>Otwarte pytania i ryzyka</h3>
+  <ul>
+    <li><span class="sev warning">warning</span>FineWeb-2 i HPLT licencjonują tylko opakowanie, nie tekst.</li>
+    <li><span class="sev warning">warning</span>Leipzig: strona i API CC BY-NC, pliki do pobrania CC BY 4.0. Używać tylko plików.</li>
+    <li><span class="sev info">info</span>Trafność 65% oceniał jeden agent; miara g jest zgrubna.</li>
+    <li><span class="sev info">info</span>Szum: błędne lematy, nazwy własne, frazy angielskie, wulwa w zoologii. Skażenie SJP.pl małe, wykluczalne po URL.</li>
+  </ul>
+</section>
+
+<nav class="toc">Spis: <a href="#role">Role źródeł</a> · <a href="#ustalenia">Ustalenia</a> · <a href="#kontrole">Kontrole</a> · <a href="#wnioski">Spostrzeżenia</a> · <a href="#swot">SWOT</a> · <a href="#decyzje">Decyzje</a> · <a href="#wulwa">Wulwa</a> · <a href="#zalaczniki">Załączniki</a></nav>
+
+<main>
+<h2 id="role">Trzy role źródeł</h2>
+<div class="grid roles">
+  <div class="card"><h3>(a) Źródło leksemów</h3>Tworzy leksemy z fleksją.<br>Dziś: SGJP 20260823 + <code>sgjp-supplement.tab</code> (4 formy).</div>
+  <div class="card"><h3>(b) Dowód użycia</h3><code>corpus_evidence</code>, liczby, bez nowych leksemów.<br>Dziś: <b>13</b> artefaktów KWJP100 (nie 15; 15 to z SGJP i suplementem).</div>
+  <div class="card"><h3>(c) Dowód ręczny</h3>Link i data odczytu w karcie kandydata.<br>Tu: OJ UW, WSJP, PWN, plebiscyty.</div>
+</div>
+
+<h2 id="ustalenia">Ustalenia</h2>
+<div class="card scroll">
+<table>
+<tr><th>#</th><th>Ustalenie</th><th>Kategoria</th><th>Ocena</th><th>Pewność</th><th>Pliki</th></tr>
+<tr><td>F1</td><td>SGJP 20261018: +2 lematy, rośnie alfabetycznie</td><td>neolog</td><td>ALLOWED (a)</td><td><span class="conf h">wysoka</span></td><td>1</td></tr>
+<tr><td>F2</td><td>OJ UW: 2756 haseł, żywy, kryterium „po 2003”, bez licencji</td><td>neolog</td><td>dowód ręczny (c)</td><td><span class="conf h">wysoka</span></td><td>2</td></tr>
+<tr><td>F3</td><td>WSJP PAN: ma antyszczepionkowca i boomera, bez licencji</td><td>neolog</td><td>dowód ręczny (c)</td><td><span class="conf h">wysoka</span></td><td>2</td></tr>
+<tr><td>F4</td><td>PWN (użytek osobisty), Słowosieć 5.0 (formularz)</td><td>neolog</td><td>BLOCKED</td><td><span class="conf h">wysoka</span></td><td>2</td></tr>
+<tr><td>F5</td><td>NeoN (IPI PAN): metoda z progami, bez danych</td><td>neolog</td><td>punkt odniesienia</td><td><span class="conf h">wysoka</span></td><td>2</td></tr>
+<tr><td>F6</td><td>Plebiscyty: sygnał popularności, bez danych</td><td>neolog</td><td>dowód ręczny (c)</td><td><span class="conf m">średnia</span></td><td>1</td></tr>
+<tr><td>F7</td><td>ParlaMint-PL 5.0, Leipzig news: CC BY 4.0, daty</td><td>korpusy</td><td>ALLOWED-kandydat (b)</td><td><span class="conf h">wysoka</span></td><td>3</td></tr>
+<tr><td>F8</td><td>FineWeb-2, HPLT: ogromne, licencja tekstu nieustalona; OSCAR, CulturaX, MADLAD BLOCKED</td><td>korpusy</td><td>do decyzji</td><td><span class="conf h">wysoka</span></td><td>2</td></tr>
+<tr><td>F9</td><td>KWJP 2011–2020, NKJP do 2010</td><td>korpusy/projekt</td><td>—</td><td><span class="conf h">wysoka</span></td><td>3</td></tr>
+<tr><td>F10</td><td>Metoda NKJP→KWJP: 374 kandydatów, ~65%; NKJP poza ADR-006</td><td>projekt</td><td>lista do decyzji</td><td><span class="conf m">średnia</span></td><td>1</td></tr>
+<tr><td>F11</td><td>Wariant A, §2.4/§4.4 i <code>inputs.py</code> blokują leksemy spoza SGJP</td><td>projekt</td><td>—</td><td><span class="conf h">wysoka</span></td><td>1</td></tr>
+</table>
+</div>
+
+<details class="card"><summary>Kandydaci na dowód użycia po 2020 (F7)</summary>
+<table>
+<tr><th></th><th>ParlaMint-PL 5.0</th><th>Leipzig <code>pol_news_*</code></th></tr>
+<tr><td>Licencja</td><td>CC BY 4.0</td><td>CC BY 4.0 (pliki); strona i API CC BY-NC</td></tr>
+<tr><td>Okres</td><td>2015-11-12 – 2022-06-30</td><td>2018, 2021–2024</td></tr>
+<tr><td>Rozmiar</td><td>37,0 mln słów</td><td>~15,7 mln tok./rocznik</td></tr>
+<tr><td>Ograniczenia</td><td>jeden rejestr (polityka)</td><td>tylko formy, brak 2019–2020 i 2025</td></tr>
+</table>
+<p>ParlaMint: lockdown i covidowy 0 do 2019, potem 111–176 rocznie; antyszczepionkowiec 78 w 2021.</p>
+</details>
+
+<details class="card"><summary>Metoda progowa (F10)</summary>
+<p>Progi: <b>F ≥ 20, 1-DP ≥ 0,005, ≥ 2 z 3 gatunków, g ≥ 10</b>. Lejek: 530 → 374 (filtry szumu) → 125 (Słowosieć). Próbka 60: 39 trafnych (Słowosieć 23/24, bez niej 16/36).</p>
+<p>Łapie: <span class="pass">hejt, lockdown, covidowy, influencerka, antyszczepionkowiec</span>. Nie łapie: <span class="fail">wulwa, ghosting, cringe, boomer</span> (KWJP F ≤ 5). Odrzuca <code>srom</code> (g = 1,8).</p>
+</details>
+
+<h2 id="kontrole">Kontrole (9 słów)</h2>
+<div class="card scroll">
+<table>
+<tr><th>Słowo</th><th>SGJP</th><th>OJ UW</th><th>WSJP</th><th>KWJP</th><th>NKJP</th><th>ParlaMint</th><th>LCC 2024</th><th>FW-2 dok.</th><th>HPLT dok.</th></tr>
+<tr><td>hejt</td><td class="y">+</td><td>NW</td><td class="y">+</td><td>366</td><td>2</td><td>366</td><td>294</td><td>123</td><td>42</td></tr>
+<tr><td>lockdown</td><td class="y">+</td><td class="y">+</td><td class="y">+</td><td>241</td><td>0</td><td>316</td><td>31</td><td>63</td><td>35</td></tr>
+<tr><td>covidowy</td><td class="y">+</td><td class="n">− (stara +)</td><td class="y">+</td><td>116</td><td>0</td><td>349</td><td>28</td><td>39</td><td>19</td></tr>
+<tr><td>influencerka</td><td class="y">+</td><td class="n">− (stara +)</td><td class="n">−</td><td>24</td><td>0</td><td>1</td><td>96</td><td>15</td><td>11</td></tr>
+<tr><td>antyszczepionkowiec</td><td class="n">−</td><td class="y">+</td><td class="y">+</td><td>34</td><td>0</td><td>93</td><td>8</td><td>11</td><td>4</td></tr>
+<tr><td>boomer</td><td class="n">− (bumer)</td><td class="n">−</td><td class="y">+</td><td>5</td><td>10</td><td>0</td><td>10</td><td>11</td><td>70 ⚠</td></tr>
+<tr><td>ghosting</td><td class="n">−</td><td class="n">−</td><td class="n">−</td><td>&lt;5</td><td>1</td><td>0</td><td>3</td><td>3</td><td>1</td></tr>
+<tr><td>cringe</td><td class="n">−</td><td>cringe-owy</td><td class="n">−</td><td>&lt;5</td><td>0</td><td>0</td><td>2</td><td>0</td><td>2</td></tr>
+<tr><td><b>wulwa</b></td><td class="n">−</td><td class="n">−</td><td class="n">−</td><td>&lt;5</td><td>2</td><td>0</td><td>0</td><td>2</td><td>3</td></tr>
+</table>
+<p style="font-size:12px;color:var(--dim)">NW = negatywna weryfikacja OJ UW (za stary). Próbki FW-2 i HPLT to &lt;0,03% korpusu. ⚠ = szum (nazwy własne).</p>
+</div>
+
+<h2 id="wnioski">Kluczowe spostrzeżenia</h2>
+<div class="grid">
+  <div class="card"><span class="conf h">wysoka</span><p><b>Wykrywanie i wejście do list to dwa problemy.</b> Pierwsze da się zrobić na korpusach. Drugie wymaga źródła z fleksją i licencją, a takiego poza SGJP nie ma.</p></div>
+  <div class="card"><span class="conf h">wysoka</span><p><b>Pierwszym ograniczeniem jest polityka.</b> Wariant A blokuje słowo nawet przy najlepszym dowodzie. Kod przyjmuje najwyżej 1 suplement.</p></div>
+  <div class="card"><span class="conf h">wysoka</span><p><b>Antyszczepionkowiec to pierwszy naturalny przypadek.</b> Ma dowód ręczny (OJ UW, WSJP), dowód użycia (KWJP 34, ParlaMint 93) i Słowosieć.</p></div>
+  <div class="card"><span class="conf m">średnia</span><p><b>Po 2020 roku metoda jest ślepa</b> bez nowego korpusu z datami.</p></div>
+  <div class="card"><span class="conf m">średnia</span><p><b>Wulwa nie jest jeszcze mierzalnie popularna:</b> kilka dokumentów sieciowych, 0 w korpusach z czystą licencją.</p></div>
+  <div class="card"><span class="conf h">wysoka</span><p><b>„Nowe” ma trzy definicje:</b> OJ UW (po 2003), NeoN (poza NKJP/KWJP), projekt (poza SGJP). Hejt jest dla OJ UW „za stary”.</p></div>
+</div>
+
+<h2 id="swot">SWOT metody</h2>
+<div class="swot">
+  <div class="card s1"><h3>Mocne</h3>skalibrowana na kontrolach; zgodna z NeoN; dane w repo; wynik to lista, a nie wpis</div>
+  <div class="card s2"><h3>Słabe</h3>tylko 2011–2020; g zgrubne; ~35% szumu; jeden oceniający</div>
+  <div class="card s3"><h3>Szanse</h3>ParlaMint i Leipzig po 2020; Słowosieć porządkuje; OJ UW i WSJP jako dowód ręczny</div>
+  <div class="card s4"><h3>Zagrożenia</h3>NKJP poza ADR-006; licencja FineWeb-2/HPLT; ręczna fleksja; kopie SJP.pl</div>
+</div>
+
+<h2 id="decyzje">Decyzje do podjęcia</h2>
+<div class="card scroll">
+<table>
+<tr><th>#</th><th>Decyzja</th><th>Przykład</th><th>Alternatywy</th><th>Wpływ</th></tr>
+<tr><td>D1</td><td>Leksemy spoza SGJP przez suplement v2</td><td>antyszczepionkowiec, boomer</td><td>tak / czekać na SGJP / tylko „luka źródła”</td><td>uchyla wariant A; ręczna fleksja; STANDARD i BROAD; wiki</td></tr>
+<tr><td>D2</td><td>SGJP 20261018</td><td>muralista, muralistka</td><td>zostać przy 20260823</td><td>+2 lematy, bez zmiany polityki</td></tr>
+<tr><td>D3</td><td>ADR-006 + NKJP w metodzie</td><td>374 kandydatów 2011–2020</td><td>nie używać NKJP</td><td>podstawa formalna metody</td></tr>
+<tr><td>D4</td><td>Korpus „po 2020”</td><td>ParlaMint + Leipzig</td><td>FineWeb-2/HPLT po decyzji; żaden</td><td>poza buildem: bez kodu; w buildzie: nowy <code>kind</code>, ADR</td></tr>
+<tr><td>D5</td><td>Rytm przeglądu</td><td>przy eksporcie SGJP lub co kwartał</td><td>tylko przy nowym KWJP</td><td>regularna karta kandydatów</td></tr>
+</table>
+<p style="font-size:12.5px">Proponowana kolejność: D2 → D3 + D1 na jednym słowie (próba) → D4.</p>
+</div>
+
+<h2 id="wulwa">Przypadek „wulwa”</h2>
+<div class="card wulwa">
+  <p><b>(a) leksemy:</b> brak (SGJP ma tylko nazwisko <code>Wulw</code>). <b>(b) użycie:</b> 0 w korpusach z czystą licencją; 2 dok. FineWeb-2, 3 dok. HPLT (licencja do decyzji); w Wikipedii głównie zoologia. <b>(c) ręczny:</b> brak w OJ UW, WSJP, PWN, Miejskim; Słowosieć ma tylko <code>wulwodynię</code>.</p>
+  <p><b>Co dziś:</b> tylko <b>suplement v2</b> jako świadomy wyjątek użytkownika, z fleksją według wzoru <code>wagina</code> (decyzja redakcyjna). Metoda progowa jej nie zaproponuje.</p>
+  <p><b>Opcje:</b> 1) dodać wyjątkiem; 2) odłożyć i mierzyć przy każdym przeglądzie; 3) odrzucić jako „luka źródła”.</p>
+  <p><span class="conf h">wysoka</span> brak w dopuszczonych źródłach · <span class="conf m">średnia</span> popularność w sieci</p>
+</div>
+
+<h2 id="zalaczniki">Załączniki</h2>
+<details class="card"><summary>Źródła (26 + lokalne)</summary>
+<p><b>neolog (11):</b> OJ UW (nowa, stara), SGJP 20261018, WSJP PAN, PWN, Słowosieć 5.0, Młodzieżowe Słowo Roku, Słowo Roku UW/FJP, RJP PAN, Miejski (kontrola), NeoN.</p>
+<p><b>korpusy (15):</b> ParlaMint-PL 5.0, Leipzig news, FineWeb-2, HPLT, MADLAD-400, OSCAR, CulturaX, CC-100, MoncoPL, KWJP100, Wikipedia i Wikinews, PPC, Spokes, Google Books Ngram, n-gramy CC.</p>
+<p><b>Wyłączone:</b> SJP.pl, PoliMorf, Wikisłownik (odroczony 2026-10-04).</p>
+</details>
+<details class="card"><summary>Luki</summary>
+<ul>
+<li>brak historii dat haseł SGJP;</li>
+<li>ParlaMint liczony na formach;</li>
+<li>próbki sieciowe &lt;0,03%;</li>
+<li>PPC po 2018, Spokes, MoncoPL niepewne;</li>
+<li>licencja OJ UW i WSJP do ustalenia tylko kontaktem (zabronionym).</li>
+</ul>
+</details>
+<details class="card"><summary>Pliki ustaleń</summary>
+<p><a href="../analysis/findings/neolog-00-przeglad.md" target="_blank" rel="noopener">neolog-00-przeglad</a> · <a href="../analysis/findings/neolog-ojuw.md" target="_blank" rel="noopener">neolog-ojuw</a> · <a href="../analysis/findings/neolog-slowniki.md" target="_blank" rel="noopener">neolog-slowniki</a> · <a href="../analysis/findings/neolog-inne.md" target="_blank" rel="noopener">neolog-inne</a> · <a href="../analysis/findings/korpusy-01-przeglad.md" target="_blank" rel="noopener">korpusy-01</a> · <a href="../analysis/findings/korpusy-02-kontrole.md" target="_blank" rel="noopener">korpusy-02</a> · <a href="../analysis/findings/korpusy-03-licencje.md" target="_blank" rel="noopener">korpusy-03</a> · <a href="../analysis/findings/projekt-zasady-zrodel.md" target="_blank" rel="noopener">projekt-zasady</a> · <a href="../analysis/findings/projekt-kontrole-lokalne.md" target="_blank" rel="noopener">projekt-kontrole</a> · <a href="../analysis/findings/projekt-metoda.md" target="_blank" rel="noopener">projekt-metoda</a></p>
+</details>
+</main>
+</body>
+</html>
