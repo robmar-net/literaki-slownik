@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decyzje: wychwytywanie nowych słów — źródła nowych słów</title><style>.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+img.shot { max-width:100%; border:1px solid var(--border); border-radius:var(--radius); }
+details > summary { cursor:pointer; font-weight:600; }
+.step.todo::before  { content:"☐ "; color:var(--dim); }
+.step.done::before  { content:"☑ "; color:var(--ok); }
+.step.done          { color:var(--dim); }
+.group.todo .g-badge::after { content:"pending"; }
+.group.done .g-badge::after { content:"✓ completed"; color:var(--ok); }
+header .dim, .dim { color:var(--dim); font-size:12.5px; }
+pre { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:12px; overflow-x:auto; font-size:12px; }
+section.tldr { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:var(--radius); padding:6px 18px; }
+.adr { scroll-margin-top:12px; }
+.adr h2 { margin-top:4px; }
+@media (max-width:640px){ body{padding:16px} table{display:block; overflow-x:auto} }
+</style></head><body>
+<nav class="crumbs"><a href="../dashboard.html">← Dashboard</a> <a href="research-report.html">Raport</a> <a href="solution-exploration.html">Alternatywy</a> <a href="high-level-design.html">Projekt</a> <span class="here">Decyzje</span> <a href="decision-log.md" target="_blank" rel="noopener" class="md">md twin ↗</a></nav>
+<header><span class="badge">decision log</span><h1>Decyzje: wychwytywanie nowych słów</h1><div class="dim">Data: 2026-11-03 · Zgłoszenie: #16 · Podstawa: <code>solution-exploration.md</code>, wybory D1–D5 i P1 w <code>orchestrator-state.yml</code>, pomiar <code>analysis/findings/korpusy-04-zysk.md</code>.</div></header>
+<div class="tiles"><div class="tile"><b>5</b><span>ADR</span></div><div class="tile"><b>5</b><span>proponowane</span></div><div class="tile"><b>0</b><span>zaakceptowane</span></div><div class="tile"><b>014–018</b><span>numery do potwierdzenia</span></div></div>
+<section class="tldr"><h2>TL;DR</h2>
+<ul><li>Pięć szkiców ADR: <b>ADR-014 … ADR-018</b>. Numery są wolne w <code>docs/adr/</code> (ostatni: ADR-013). Do potwierdzenia przy wdrożeniu.</li><li>Najważniejsze: <b>ADR-016</b>. Suplement v2 zastępuje v1 w tym samym slocie, więc limit „najwyżej 1 suplement” w kodzie zostaje bez zmian.</li><li><b>ADR-017</b> rozstrzyga pytanie o kandydatów tylko z PPC. Drugi korpus nie jest wymagany, bo wtedy tracimy ok. 60–70 słów wartych gry (np. patostreaming). Pełne karty dostają tylko grupy z ≥ 5 użyciami w posiedzeniach plenarnych: 73 grupy, trafność 34%. Reszta trafia na listę skróconą (10%) albo zostaje odłożona (leki i angielskie, 0%).</li><li>Korpusy i NKJP służą tylko do wykrywania i liczb w karcie. Do list słowo wchodzi wyłącznie decyzją użytkownika, przez suplement.</li></ul>
+<h2>Kluczowe decyzje</h2>
+<ul><li>ADR-014: NKJP 1grams także do miary wzrostu, poza buildem.</li><li>ADR-015: PPC, ParlaMint-PL 5.0 i Leipzig news tylko do wykrywania. Osobny manifest, nie <code>sources.json</code>.</li><li>ADR-016: suplement v2 w miejscu v1, słowo po słowie, fleksja według wzoru leksemu SGJP.</li><li>ADR-017: PPC-only w trzech warstwach (plenarna, skrócona, odłożona), bez wymogu drugiego korpusu.</li><li>ADR-018: przegląd kwartalny z odświeżeniem PPC; pierwsza paczka w częściach.</li></ul>
+<h2>Otwarte pytania i ryzyka</h2>
+<ul><li>Numery ADR mogą się zmienić, jeśli inna praca zajmie 014–018 wcześniej.</li><li>Trafność w ADR-017 opiera się na ocenach agenta (100 + 100 grup, bez konkordancji). Pierwsza część przeglądu użytkownika ją zweryfikuje.</li><li>Suplement łączy dwie role (uzupełnienie eksportu i nowe leksemy). Nagłówek pliku musi to mówić.</li></ul></section>
+<main><div class="card adr"><span class="badge">proponowana</span></div><div class="card adr"><span class="badge">proponowana</span><h2 id="adr-014">ADR-014: NKJP 1grams także do miary wzrostu, poza buildem</h2>
+<h3>Status</h3>
+<p>Proponowana (wybór użytkownika D3-A, 2026-11-03). Rozszerza zakres <a href="../../../../../docs/adr/ADR-006-nkjp-cc-by-bez-wersji.md" target="_blank" rel="noopener">ADR-006</a>.</p>
+<h3>Kontekst</h3>
+<p>ADR-006 dopuszcza NKJP 1grams tylko do miar POP i POP0. Metoda progowa NKJP → KWJP potrzebuje NKJP jako bazy „przed 2011”. Daje 374 kandydatów z lat 2011–2020, ok. 65% trafnych. Bez decyzji metoda nie ma podstawy formalnej.</p>
+<h3>Czynniki decyzji</h3>
+<ul><li>Podstawa formalna dla metody, która już działa (5 z 5 kontroli celu).</li><li>Bez nowej licencji: CC BY jest przyjęte w ADR-006.</li><li>Nic nie trafia do list automatycznie (§4.4 specyfikacji v3).</li></ul>
+<h3>Rozważane opcje</h3>
+<ol><li>Nowy ADR: NKJP także do miary wzrostu g, tylko poza buildem.</li><li>Bez NKJP: kandydat = częsty w KWJP i brak w SGJP (lista luk, nie nowych słów).</li><li>Baza czasu tylko z jednego korpusu po 2015 (ParlaMint, PPC).</li></ol>
+<h3>Wynik decyzji</h3>
+<p>Wybrana opcja 1. Daje jedyną miarę wzrostu dla lat 2011–2020. Opcja 3 nie widzi tych lat. Wchodzi więc obok, w ADR-015, a nie zamiast.</p>
+<h3>Konsekwencje</h3>
+<h4>Dobre</h4>
+<ul><li>Lista 374 staje się formalnym strumieniem kandydatów.</li><li>Atrybucja jak w ADR-006, bez nowych warunków.</li><li>Build i <code>sources.json</code> bez zmian. Wpis <code>unavailable: NKJP</code> w manifeście buildu zostaje, bo build NKJP nie używa.</li></ul>
+<h4>Złe</h4>
+<ul><li>Miara g jest zgrubna: porównuje lemat KWJP z formą podstawową NKJP. Te same progi przechodzi 2 313 lematów już obecnych w SGJP.</li><li>NKJP i KWJP się nie zmieniają, więc ten strumień daje kandydatów raz. W kolejnych kwartałach tylko odejmujemy rozstrzygnięte.</li></ul></div><div class="card adr"><span class="badge">proponowana</span><h2 id="adr-015">ADR-015: PPC, ParlaMint-PL 5.0 i Leipzig news tylko do wykrywania</h2>
+<h3>Status</h3>
+<p>Proponowana (wybór użytkownika D4-A, 2026-11-03).</p>
+<h3>Kontekst</h3>
+<p>Po 2020 roku NKJP → KWJP nic nie widzi. Pomiar <code>korpusy-04-zysk.md</code>: PPC (316 mln słów, do 2026-10-16) daje 702 nowe grupy form spoza SGJP i spoza listy 374. Leipzig daje 154, a ParlaMint 15. Łącznie jest to 875 grup, w tym ok. 300 słów wartych gry. Kod buildu przyjmuje tylko 6 rodzajów artefaktów i dokładnie 14 + suplement.</p>
+<h3>Czynniki decyzji</h3>
+<ul><li>Czysta licencja liczb pochodnych.</li><li>Bez zmiany kodu buildu.</li><li>Odtwarzalność: każdy plik przypięty przez sha256.</li><li>Dane surowe (16 GB) nie mogą trafić do Git.</li></ul>
+<h3>Rozważane opcje</h3>
+<ol><li>Trzy korpusy tylko poza buildem: wykrywanie i liczby w karcie.</li><li>Korpusy w buildzie jako <code>corpus_evidence</code> (nowy rodzaj artefaktu).</li><li>FineWeb-2 lub HPLT (duże, ale licencja tekstu nieustalona).</li><li>Żaden korpus; po 2020 tylko dowód ręczny (OJ UW, WSJP).</li></ol>
+<h3>Wynik decyzji</h3>
+<p>Wybrana opcja 1, bo daje lata 2020–2026 bez zmiany kodu i bez ryzyka licencji. Szczegóły:</p>
+<ul><li><b>Osobny manifest wykrywania</b>, nie <code>sources.json</code>. Każdy wpis ma url, wersję, <code>retrieved_at</code>, sha256, licencję, zakres i atrybucję. Ten manifest obejmuje też NKJP (ADR-014), KWJP i SGJP jako punkt odniesienia.</li><li><b>PPC dopisany do źródeł projektu</b>: <code>ATTRIBUTIONS.md</code> (dane: domena publiczna, anotacja CC BY) i wiersz w tabeli źródeł na wiki <code>Home</code> z opisem „tylko do wykrywania nowych słów”.</li><li><b>Leipzig tylko z plików do pobrania</b> (CC BY 4.0). Strona i API mają CC BY-NC, więc ich nie używamy.</li><li><b>Co wolno w repo:</b> manifest, skrypty, zliczenia pochodne dla kandydatów (lemat, liczby rocznie, g, liczba dokumentów), do 2 krótkich przykładów zdań na kandydata z atrybucją. <b>Czego nie wolno:</b> surowych plików, pełnych list frekwencyjnych, długich fragmentów tekstu.</li></ul>
+<h3>Konsekwencje</h3>
+<h4>Dobre</h4>
+<ul><li>Widać słowa z lat 2023–2026, czego nie ma żaden inny korpus (PPC: 518 nowych grup w tym okresie).</li><li>Build, testy buildu i <code>inputs.py</code> bez zmian.</li></ul>
+<h4>Złe</h4>
+<ul><li>PPC jest zaszumiony: 15,6% słów znanych z SGJP też przechodzi kryterium „nowe”. Stąd ADR-017.</li><li>Słowa potoczne i internetowe (boomer, ghosting, cringe, wulwa) nie wyjdą w żadnym z trzech korpusów. To osobne badanie (D5).</li><li>ParlaMint kończy się w VI 2022. Leipzig nie ma lat 2019–2020 ani 2025.</li><li>16 GB danych na dysku (dziś 34 GB wolnego).</li></ul></div><div class="card adr"><span class="badge">proponowana</span><h2 id="adr-016">ADR-016: Suplement v2 słowo po słowie, w miejscu v1</h2>
+<h3>Status</h3>
+<p>Proponowana (wybór użytkownika D1-A, 2026-11-03). Uchyla wariant A z <code>source-extension-decision.md</code> tylko dla słów, które użytkownik zatwierdzi.</p>
+<h3>Kontekst</h3>
+<p>Leksem wchodzi do list tylko z SGJP albo z suplementu. <code>inputs.py</code> w trybie produkcyjnym wymaga: 1 SGJP, 13 list KWJP i <b>najwyżej 1</b> <code>lexical_supplement</code>. Dziś suplement v1 ma 4 wiersze (się, siebie, sobie, sobą). Jego nagłówek uzasadnia wpis brakiem w eksporcie TSV, co nie pasuje do nowych słów. Czytnik SGJP nie dopuszcza komentarzy poza nagłówkiem.</p>
+<h3>Czynniki decyzji</h3>
+<ul><li>Bez zmiany kodu i limitu, który chroni manifest.</li><li>Każde słowo osobno, z dowodem i decyzją użytkownika.</li><li>Pełna i poprawna fleksja (§2.2).</li><li>Łatwe wycofanie.</li></ul>
+<h3>Rozważane opcje</h3>
+<ol><li><b>v2 zastępuje v1 w tym samym slocie</b>: jeden plik, nowy <code>DICT-ID</code>, nowy <code>source_id</code>, rosnąca lista <code>evidence</code>.</li><li>Drugi plik suplementu i zmiana limitu w <code>inputs.py</code> na ≤ 2 (kod i testy).</li><li>Nowe źródło leksykalne (nowy <code>kind</code>, importer, ADR licencji).</li></ol>
+<h3>Wynik decyzji</h3>
+<p>Wybrana opcja 1. Limit jest strażnikiem, a nie przeszkodą: jeden plik to jeden audyt. Dowody dla każdego słowa mieszczą się w istniejącym polu <code>evidence</code>, gdzie kod sprawdza sha256 każdego pliku. Szczegóły:</p>
+<ul><li><b>Wersja przy każdej zmianie pliku:</b> v2, v3… Nowy sha256, wszystkie 6 liczników <code>expected_counts</code> liczone od nowa, <code>duplicates</code> = 0.</li><li><b>Nagłówek</b> opisuje dwie części (uzupełnienie eksportu i leksemy spoza SGJP decyzją użytkownika) i wskazuje rejestr decyzji. Wiersze danych są bez komentarzy.</li><li><b>Fleksja według wzoru:</b> dla każdego słowa wskazujemy leksem SGJP z tą samą klasą i odmianą (np. <code>związkowiec</code> dla <code>antyszczepionkowiec</code>, m1). Formy powstają przez podmianę tematu w paradygmacie wzoru. Użytkownik widzi pełną listę form w karcie przed decyzją.</li><li><b>Kwalifikatory puste:</b> słowo przechodzi te same filtry co leksem SGJP i trafia do STANDARD i BROAD.</li><li><b>Nakładanie z SGJP:</b> przy każdym nowym eksporcie SGJP usuwamy z suplementu leksemy, które SGJP już ma.</li><li><b>Zmiana testu, nie kodu:</b> test rundy 4 sprawdza dziś dokładnie 4 wiersze. Ma sprawdzać, że te 4 wiersze są w pliku.</li><li><b>Wycofanie:</b> usunąć wiersze, nowa wersja, build.</li></ul>
+<h3>Konsekwencje</h3>
+<h4>Dobre</h4>
+<ul><li><code>inputs.py</code> i <code>build.py</code> bez zmian.</li><li>Każde słowo ma ślad: karta, decyzja, plik dowodów z sha256.</li></ul>
+<h4>Złe</h4>
+<ul><li>Nazwa <code>sgjp-supplement</code> obejmuje teraz także słowa spoza SGJP. Wyjaśnia to nagłówek i wiki.</li><li>Fleksja z wzoru to decyzja redakcyjna. Zły wzór daje złe formy na liście.</li><li>Każda paczka oznacza nową wersję pliku, nowy build i aktualizację wiki.</li></ul></div><div class="card adr"><span class="badge">proponowana</span><h2 id="adr-017">ADR-017: Kandydaci tylko z PPC</h2>
+<h3>Status</h3>
+<p>Proponowana (do zatwierdzenia przez użytkownika; pytanie z uwag do D4).</p>
+<h3>Kontekst</h3>
+<p>W puli 875 grup jest 545 grup, które przechodzą kryterium tylko w PPC. PPC jest zaszumiony. 15,6% słów znanych z SGJP też przechodzi w nim kryterium „nowe”, bo zmienia się skład korpusu (po 2020 przeważają interpelacje) i zdarzają się tematyczne wybuchy (nazwy leków w interpelacjach). Użytkownik zapytał, czy takie słowa wymagają potwierdzenia w drugim korpusie albo wzrostu liczonego tylko w posiedzeniach plenarnych.</p>
+<p><b>Pomiar (2026-11-03).</b> PPC przeliczony ponownie z podziałem na kategorie: posiedzenia, komisje, interpelacje. Agent ocenił 100 losowych grup PPC-only i wszystkie 78 grup z sygnałem plenarnym. Klasa A to słowo warte gry. Oceny są bez konkordancji. Kalibracja: w posiedzeniach plenarnych kryterium „nowe” przechodzi <b>5,4%</b> słów znanych z SGJP (21 968 słów), a w całym PPC <b>15,6%</b>. Sygnał plenarny jest więc uczciwszy.</p>
+<table><tr><th>Reguła dla 545 grup PPC-only</th><th>zostaje</th><th>trafność (A)</th><th>słów A (szac.)</th><th>traci słowa A, np.</th></tr><tr><td>bez reguły</td><td>545</td><td>13% (13/100)</td><td>≈ 70</td><td>—</td></tr><tr><td>wymagaj 2. korpusu</td><td>0</td><td>—</td><td>0</td><td>wszystkie: patostreaming, neuroróżnorodność, praworządnościowy, starolas, targetować, wyszczepiać</td></tr><tr><td>wzrost tylko w plenarnych: g ≥ 5, ≥ 10 po, ≥ 3 lata</td><td>33</td><td>42% (14/33)</td><td>14</td><td>11 z 25: starolas, darknet, stablecoin, małpkowy</td></tr><tr><td>wzrost tylko w plenarnych: g ≥ 5, ≥ 5 po, ≥ 2 lata</td><td>60</td><td>37% (22/60)</td><td>22</td><td>wyszczepiać, biorezonans, półautomatycznie</td></tr><tr><td><b>≥ 5 użyć po 2019 w plenarnych, bez flagi lek/angielski</b></td><td><b>73</b></td><td><b>34% (25/73)</b></td><td><b>25</b></td><td>— (w tej warstwie)</td></tr><tr><td>(dla porównania, część reszty) ≥ 2 kategorie PPC bez sygnału plenarnego</td><td>116</td><td>13% (2/15)</td><td>≈ 15</td><td>—</td></tr><tr><td>reszta bez flagi</td><td>365</td><td>10% (6/60)</td><td>≈ 37</td><td>streamować, wymazówka, tutoriał, mikroelektrownia</td></tr><tr><td>z flagą lek/angielski (także 5 z sygnałem plenarnym)</td><td>107</td><td>0% (0/33)</td><td>≈ 0</td><td>—</td></tr></table>
+<p>Dla porównania: grupy z ≥ 2 korpusów mają 70% (21/30), a Leipzig-only 50% (10/20).</p>
+<h3>Czynniki decyzji</h3>
+<ul><li>Nie tracić prawdziwych słów, których nie ma w innych korpusach (patostreaming: PPC 558, Leipzig 0).</li><li>Nie marnować czasu użytkownika na pulę o trafności 5–10%.</li><li>Prosta reguła, którą da się powtórzyć co kwartał.</li></ul>
+<h3>Rozważane opcje</h3>
+<ol><li>Wymagać drugiego korpusu (odrzucić PPC-only).</li><li>Liczyć wzrost tylko w posiedzeniach plenarnych (P2 albo P3 z tabeli).</li><li><b>Warstwy bez odcinania:</b> sygnał plenarny ustala kolejność i rodzaj przeglądu.</li><li>Bez reguły: wszystkie 545 jako pełne karty.</li></ol>
+<h3>Wynik decyzji</h3>
+<p>Wybrana opcja 3. Drugi korpus nie jest wymagany, bo opcja 1 traci ok. 60–70 słów wartych gry. Reguła:</p>
+<ul><li><b>Warstwa plenarna</b> (73 grupy, ok. 34%): co najmniej 5 użyć po 2019 w posiedzeniach plenarnych i brak flagi „lek” lub „angielski”. Dostaje pełne karty po grupach z ≥ 2 korpusów i po Leipzig-only.</li><li><b>Warstwa skrócona</b> (365 grup, ok. 10%): reszta bez flagi. Użytkownik dostaje listę lematów z liczbami i zaznacza słowa warte karty. Kartę dostają tylko zaznaczone.</li><li><b>Warstwa odłożona</b> (107 grup, 0 z 33 ocenionych): flaga „lek” lub „angielski”. Bez karty, tylko w raporcie kwartału. Wraca, gdy słowo pojawi się w drugim korpusie, bo to znak, że weszło do języka potocznego (uwaga użytkownika o lekach i terminach).</li><li>Wzrost w plenarnych (g ≥ 5) pokazujemy w karcie jako liczbę, ale nie odcinamy nim kandydatów.</li></ul>
+<h3>Konsekwencje</h3>
+<h4>Dobre</h4>
+<ul><li>Zostają słowa tylko z PPC: patostreaming, neuroróżnorodność, praworządnościowy, wyszczepiać, receptomat.</li><li>Pełne karty dostaje ok. 400 grup z trafnością ≥ 34%, a nie 875 z trafnością 35%.</li></ul>
+<h4>Złe</h4>
+<ul><li>Oceny pochodzą od agenta. Warstwę plenarną oceniono w całości (78), ale resztę tylko na próbce (60 + 33). Przedziały są szerokie.</li><li>Ok. 37 słów wartych gry zostaje w warstwie skróconej. Wyjdą tylko wtedy, gdy użytkownik przejrzy listę.</li><li>Liczenie PPC musi zapisywać kategorię dokumentu (posiedzenia, komisje, interpelacje).</li><li>Pliki pomiaru są w scratchpadzie sesji, poza repo: <code>/private/tmp/claude-501/-Users-robmar-Projects-Literaki/3ae5c44e-c8df-4ef9-924a-bcb0e5eaf7f8/scratchpad/nowe-slowa/projekt/</code> (<code>ppc_cat.py</code>, <code>plenarne.py</code>, <code>reguly.py</code>, <code>plenarne.json</code>, <code>oceny.json</code>, <code>oceny-p1.json</code>). Przy wdrożeniu trzeba je odtworzyć skryptem w repo.</li></ul></div><div class="card adr"><span class="badge">proponowana</span><h2 id="adr-018">ADR-018: Przegląd kwartalny i pierwsza paczka w częściach</h2>
+<h3>Status</h3>
+<p>Proponowana (wybór użytkownika P1-B, 2026-11-03).</p>
+<h3>Kontekst</h3>
+<p>PPC dostaje nowe teksty i anotację co kilka tygodni (ostatnia anotacja 2026-10-19). SGJP wydaje eksporty nieregularnie. Pierwsza pula to 875 grup z korpusów i 374 z NKJP → KWJP. Główny koszt to ręczny przegląd, nie obliczenia.</p>
+<h3>Czynniki decyzji</h3>
+<ul><li>Przewidywalny rytm.</li><li>Mały koszt jednej sesji przeglądu.</li><li>Decyzje nie wracają bez nowego dowodu.</li></ul>
+<h3>Rozważane opcje</h3>
+<ol><li>Przy każdym nowym eksporcie SGJP.</li><li>Kwartalnie, razem z odświeżeniem PPC.</li><li>Przy nowym korpusie (nowy rocznik Leipzig, nowa wersja ParlaMint).</li><li>Tylko na żądanie.</li></ol>
+<h3>Wynik decyzji</h3>
+<p>Wybrana opcja 2, bo PPC to jedyne źródło, które rośnie co kwartał. Szczegóły:</p>
+<ul><li><b>Kwartał:</b> pobierz bieżącą kadencję PPC, sprawdź nowy eksport SGJP, nowy rocznik Leipzig i nową wersję ParlaMint. Przelicz tylko to, co się zmieniło.</li><li><b>Rejestr decyzji</b> w repo: lemat (grupa form), werdykt (dodać / odrzucić / odłożyć), data, powód, plik decyzji. Odrzucony wraca tylko wtedy, gdy jego liczba wystąpień wzrośnie co najmniej trzykrotnie albo pojawi się w nowym źródle. Odłożony wraca w następnym kwartale.</li><li><b>Pierwsza paczka (~300 słów wartych gry) w częściach po ok. 50 kart.</b> Kolejność według ADR-017: próba na jednym słowie (antyszczepionkowiec), potem grupy z ≥ 2 korpusów (243, ok. 5 części), Leipzig-only (87, 2 części), warstwa plenarna PPC (73, 2 części), a na końcu lista skrócona PPC (365 lematów, bez kart). Lista 374 (NKJP → KWJP) to osobny strumień, ok. 8 części, od drugiego kwartału.</li><li><b>Kryteria oceny w karcie</b> (uwagi użytkownika): przymiotniki od nazw miejsc są dopuszczalne (RJP 2026, s. 51: pisze się je małą literą; potwierdzenie użytkownika przy pierwszym takim słowie); nazwy leków i terminy fachowe tylko wtedy, gdy weszły do języka potocznego.</li><li><b>SGJP podbijamy osobno</b> (D2-A), przed pierwszą częścią, a potem zawsze przed przeglądem, gdy jest nowy eksport.</li></ul>
+<h3>Konsekwencje</h3>
+<h4>Dobre</h4>
+<ul><li>Jedna sesja to ok. 50 kart, czyli godzina pracy użytkownika.</li><li>Rejestr zapobiega powtarzaniu tych samych decyzji.</li></ul>
+<h4>Złe</h4>
+<ul><li>Kwartał bez nowego słowa wartego gry jest możliwy. Wtedy wynik to raport bez zmiany list.</li><li>Każda część z werdyktem „dodać” to nowy build i aktualizacja wiki.</li></ul></div></main></body></html>

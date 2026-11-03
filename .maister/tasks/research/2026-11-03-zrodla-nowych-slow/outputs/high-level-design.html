@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projekt: wychwytywanie nowych słów — źródła nowych słów</title><style>.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+img.shot { max-width:100%; border:1px solid var(--border); border-radius:var(--radius); }
+details > summary { cursor:pointer; font-weight:600; }
+.step.todo::before  { content:"☐ "; color:var(--dim); }
+.step.done::before  { content:"☑ "; color:var(--ok); }
+.step.done          { color:var(--dim); }
+.group.todo .g-badge::after { content:"pending"; }
+.group.done .g-badge::after { content:"✓ completed"; color:var(--ok); }
+header .dim, .dim { color:var(--dim); font-size:12.5px; }
+pre { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:12px; overflow-x:auto; font-size:12px; }
+section.tldr { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:var(--radius); padding:6px 18px; }
+.adr { scroll-margin-top:12px; }
+.adr h2 { margin-top:4px; }
+@media (max-width:640px){ body{padding:16px} table{display:block; overflow-x:auto} }
+</style></head><body>
+<nav class="crumbs"><a href="../dashboard.html">← Dashboard</a> <a href="research-report.html">Raport</a> <a href="solution-exploration.html">Alternatywy</a> <span class="here">Projekt</span> <a href="decision-log.html">Decyzje</a> <a href="high-level-design.md" target="_blank" rel="noopener" class="md">md twin ↗</a></nav>
+<header><span class="badge">high-level design</span><h1>Projekt: wychwytywanie nowych słów</h1><div class="dim">Data: 2026-11-03 · Zgłoszenie: #16 · Wybory: D1-A, D2-A, D3-A, D4-A, P1-B, D5 odłożone · Decyzje: <a href="decision-log.md" target="_blank" rel="noopener">decision-log.md</a></div></header>
+<div class="tiles"><div class="tile"><b>10</b><span>komponentów</span></div><div class="tile"><b>5</b><span>ADR (014–018)</span></div><div class="tile"><b>potok</b><span>wsadowy, kwartalny</span></div><div class="tile"><b>0</b><span>zmian kodu buildu</span></div><div class="tile"><b>~300</b><span>słów wartych gry</span></div></div>
+<section class="tldr"><h2>TL;DR</h2>
+<ul><li><b>Dwie osobne drogi.</b> Wykrywanie działa poza buildem: korpusy, liczby, karta kandydata. Wejście do list jest ręczne: decyzja użytkownika, potem wiersze w suplemencie v2.</li><li><b>Źródła wykrywania:</b> NKJP → KWJP (lata 2011–2020) oraz PPC, ParlaMint-PL 5.0 i Leipzig news (lata 2015–2026). Wszystkie przypięte przez sha256 w osobnym manifeście, nie w <code>sources.json</code>.</li><li><b>Suplement v2 zastępuje v1 w tym samym slocie.</b> Kod buildu się nie zmienia. Zmienia się jeden test.</li><li><b>Rytm kwartalny</b> z odświeżeniem PPC. Pierwsza paczka (~300 słów wartych gry) w częściach po ok. 50 kart.</li><li><b>Kandydaci tylko z PPC</b> nie potrzebują drugiego korpusu. Pełne karty dostają tylko te z sygnałem w posiedzeniach plenarnych: 73 grupy, trafność 34%. Pozostałe idą na listę skróconą (10%) albo są odłożone (leki i angielskie, 0%). Szczegóły w ADR-017.</li></ul>
+<h2>Kluczowe decyzje</h2>
+<ul><li>NKJP 1grams także do miary wzrostu, poza buildem — <a href="decision-log.html#adr-014">ADR-014</a>.</li><li>PPC, ParlaMint, Leipzig tylko do wykrywania; PPC w atrybucjach i na wiki — <a href="decision-log.html#adr-015">ADR-015</a>.</li><li>Suplement v2 w miejscu v1, fleksja według wzoru SGJP — <a href="decision-log.html#adr-016">ADR-016</a>.</li><li>PPC-only w trzech warstwach, bez wymogu drugiego korpusu — <a href="decision-log.html#adr-017">ADR-017</a>.</li><li>Kwartał, rejestr decyzji, paczki po ok. 50 — <a href="decision-log.html#adr-018">ADR-018</a>.</li></ul>
+<h2>Otwarte pytania i ryzyka</h2>
+<ul><li><b>Trafność to oceny agenta</b>, bez konkordancji. Pierwsza część przeglądu użytkownika ją sprawdzi. Jeśli wyjdzie poniżej 50% w grupach z ≥ 2 korpusów, trzeba ostrzejszych progów.</li><li><b>Fleksja z wzoru</b> to decyzja redakcyjna. Zły wzór daje złe formy.</li><li><b>Grupa form ≠ leksem.</b> Ucinanie końcówek rozbija ok. 10% leksemów (<code>ługańsk</code> / <code>ługański</code>). Karta musi pokazać lemat do decyzji, a nie samą grupę.</li><li><b>Przymiotniki od nazw miejsc:</b> dopuszczalne według użytkownika. Wstępny odczyt RJP 2026 (<code>cache/constructions/rjp-2026.pdf</code>, s. 51, „Mała litera”, p. 4): przymiotniki od nazw własnych pisze się małą literą (np. warszawska, wiślańskie), więc norma ich nie wyklucza. Użytkownik potwierdza to przy pierwszym takim słowie (np. mariupolski).</li><li><b>Słowa potoczne</b> (boomer, ghosting, cringe, wulwa) są poza zasięgiem tych korpusów. To osobne badanie.</li><li><b>Dysk:</b> 16 GB danych przy 34 GB wolnego.</li></ul></section>
+<main><h2>Opis</h2>
+<p><b>Problem.</b> SGJP rośnie wolno (eksport 20261018 dodaje 2 lematy). Gracze używają słów, których w nim nie ma: antyinflacyjny, ekoschemat, pełnoskalowy, deepfake. Projekt potrzebuje powtarzalnego sposobu, by takie słowa zauważyć i świadomie dodać.</p>
+<p><b>Rozwiązanie.</b> <b>Potok wsadowy</b> uruchamiany raz na kwartał, poza buildem. Pobiera i przypina korpusy, liczy formy rocznie, odsiewa szum, mierzy <b>wzrost g</b> i układa <b>kolejkę kandydatów</b>. Dla każdego kandydata powstaje <b>karta</b>. Użytkownik wydaje werdykt słowo po słowie. Zatwierdzone słowo dostaje pełną fleksję <b>według wzoru leksemu SGJP</b> i trafia do <b>suplementu v2</b>. Dalej działa zwykły build, benchmark i wiki.</p>
+<p><b>Kluczowe decyzje:</b></p>
+<ul><li>Korpusy nie wchodzą do buildu. Liczby trafiają tylko do karty.</li><li>Jeden suplement, nowa wersja przy każdej zmianie.</li><li>Drugi korpus nie jest wymagany. Kolejność ustalają: liczba korpusów, potem sygnał z posiedzeń plenarnych PPC.</li><li>Kwartał wyznacza PPC, jedyne źródło, które rośnie.</li></ul>
+<h2>Architektura</h2>
+<h3>Kontekst (C4, poziom 1)</h3>
+<div class="dim">Diagram mermaid (źródło; renderuje się w podglądzie md na GitHubie).</div><pre class="mermaid-src">flowchart LR
+  U[&quot;Użytkownik&lt;br/&gt;(decyzja słowo po słowie)&quot;]
+  G[&quot;Gracz / odwiedzający wiki&quot;]
+  S[&quot;literaki-slownik&lt;br/&gt;wykrywanie + build list&quot;]
+  SGJP[&quot;SGJP&lt;br/&gt;eksport TSV (BSD-2)&quot;]
+  KWJP[&quot;KWJP100 + NKJP 1grams&lt;br/&gt;(CC BY, już w cache)&quot;]
+  PPC[&quot;PPC, IPI PAN&lt;br/&gt;(dane: domena publiczna,&lt;br/&gt;anotacja CC BY)&quot;]
+  PM[&quot;ParlaMint-PL 5.0&lt;br/&gt;(CC BY 4.0)&quot;]
+  LCC[&quot;Leipzig news PL&lt;br/&gt;pliki do pobrania (CC BY 4.0)&quot;]
+  RJ[&quot;OJ UW, WSJP&lt;br/&gt;(tylko dowód ręczny, link + data)&quot;]
+  W[&quot;Wiki projektu&lt;br/&gt;(osobne repo)&quot;]
+  REL[&quot;Listy STANDARD / BROAD&lt;br/&gt;(GitHub Release)&quot;]
+  SGJP --&gt;|HTTPS, sha256| S
+  KWJP --&gt;|pliki w cache| S
+  PPC --&gt;|HTTPS zip, co kwartał| S
+  PM --&gt;|HTTPS tgz, rzadko| S
+  LCC --&gt;|HTTPS tar, co rok| S
+  RJ -.-&gt;|ręcznie, do karty| U
+  S --&gt;|karty kandydatów| U
+  U --&gt;|werdykt: dodać / odrzucić / odłożyć| S
+  S --&gt;|listy| REL
+  S --&gt;|liczby, źródła, zmiany| W
+  W --&gt; G
+  REL --&gt; G</pre>
+<ul><li>Strzałki ciągłe to dane. Linia przerywana to dowód, który użytkownik sprawdza sam.</li><li>SJP.pl nie jest źródłem. Służy tylko do porównania po buildzie, jak dziś. Wikisłownik jest odroczony.</li></ul>
+<h3>Kontenery (C4, poziom 2)</h3>
+<div class="dim">Diagram mermaid (źródło; renderuje się w podglądzie md na GitHubie).</div><pre class="mermaid-src">flowchart TB
+  subgraph DET[&quot;Wykrywanie (poza buildem, raz na kwartał)&quot;]
+    F[&quot;Pobieranie i piny&lt;br/&gt;manifest wykrywania: url, sha256, data, licencja&quot;]
+    C[&quot;Liczenie&lt;br/&gt;forma/lemat × rok × kategoria PPC&lt;br/&gt;(taskpolicy -b, python -I)&quot;]
+    N[&quot;Filtry szumu&quot;]
+    M[&quot;Miara wzrostu g + kalibracja&quot;]
+    Q[&quot;Kolejka kandydatów&lt;br/&gt;priorytet, reguła PPC-only, rejestr&quot;]
+    K[&quot;Karty kandydatów&quot;]
+  end
+  subgraph DEC[&quot;Decyzja (ręcznie)&quot;]
+    R[&quot;Rejestr decyzji&lt;br/&gt;werdykt, powód, plik decyzji&quot;]
+    P[&quot;Wzór fleksji&lt;br/&gt;paradygmat leksemu SGJP&quot;]
+  end
+  subgraph BLD[&quot;Build (bez zmian kodu)&quot;]
+    SUP[&quot;Suplement v2&lt;br/&gt;jeden plik, DICT-ID vN&quot;]
+    SRC[&quot;sources.json&lt;br/&gt;SGJP + 13 KWJP + 1 suplement&quot;]
+    B[&quot;Build, benchmark, explain&quot;]
+  end
+  RAW[(&quot;cache/: dane surowe&lt;br/&gt;poza Git, ~16 GB&quot;)]
+  WRK[(&quot;data/work/: zliczenia&lt;br/&gt;poza Git, ~0,35 GB&quot;)]
+  REPO[(&quot;Git: manifest, skrypty,&lt;br/&gt;raport kwartalu, karty, rejestr&quot;)]
+  WIKI[&quot;Wiki&quot;]
+  F --&gt; RAW --&gt; C --&gt; WRK --&gt; N --&gt; M --&gt; Q --&gt; K
+  R --&gt; Q
+  K --&gt; REPO
+  K --&gt; R
+  R --&gt;|dodać| P --&gt; SUP --&gt; SRC --&gt; B
+  B --&gt; WIKI
+  Q --&gt;|raport kwartalu| WIKI</pre>
+<ul><li><b>Wykrywanie</b> to skrypty z siecią tylko w kroku pobierania. Reszta czyta przypięte pliki, jak dziś przy TEMATY.</li><li><b>Decyzja</b> jest jedynym przejściem między wykrywaniem a buildem.</li><li><b>Build</b> nie wie o korpusach. Widzi tylko nową wersję suplementu.</li></ul>
+<h2>Komponenty</h2>
+<table><tr><th>Komponent</th><th>Cel</th><th>Zadania</th><th>Wejście / wyjście</th><th>Zależy od</th></tr><tr><td><b>Pobieranie i piny</b></td><td>Odtwarzalne dane wejściowe</td><td>pobranie (każdy plik do nowego, pustego katalogu); sha256; <code>retrieved_at</code>; zapis w manifeście wykrywania; odmowa przy niezgodnym pinie</td><td>url → plik w <code>cache/</code> + wiersz manifestu</td><td>sieć; wzór skryptu pobierania TEMATY</td></tr><tr><td><b>Liczenie</b></td><td>Liczby wystąpień w czasie</td><td>formy i lematy rocznie; dokumenty; wielkie litery; PROPN; dla PPC także kategoria (posiedzenia, komisje, interpelacje); tylko dokumenty z anotacją</td><td>pliki surowe → zliczenia w <code>data/work/</code></td><td><code>taskpolicy -b</code>, <code>python -I</code>, ≤ 6 procesów</td></tr><tr><td><b>Filtry szumu</b></td><td>Odsiać to, co nie jest słowem</td><td>litery polskie, długość ≥ 3; większość małą literą i nie PROPN; angielskie bez polskiej odmiany; literówka (1 edycja od częstszej formy SGJP); forma ucięta; etykieta domeny; fragment; jest w SGJP 20261018 lub w suplemencie; <b>flagi</b> (nie cięcie): lek lub łacina (końcówki typu -mab, -nib, -um), angielskie formy z -s</td><td>zliczenia → grupy form</td><td>SGJP, suplement</td></tr><tr><td><b>Miara wzrostu</b></td><td>Odróżnić nowe od starego</td><td>g = ipm po / ipm przed, +0,5, normalizacja przez medianę słów z SGJP; progi z ADR-014 (NKJP → KWJP) i z pomiaru korpusów (g ≥ 5, ≥ 10 po, ≥ 3 lata); kalibracja: odsetek słów SGJP, które przechodzą, i kontrole</td><td>grupy → grupy z g, flagą „nowe”</td><td>liczenie, filtry</td></tr><tr><td><b>Kolejka kandydatów</b></td><td>Kolejność przeglądu</td><td>łączy strumienie (374 i korpusy); odejmuje rozstrzygnięte w rejestrze i obecne w nowym SGJP; kolejność: ≥ 2 korpusy, Leipzig-only, PPC plenarne, lista skrócona PPC; flaga lek/angielski odkłada; części po ok. 50</td><td>grupy → kolejka z priorytetem</td><td>rejestr, ADR-017</td></tr><tr><td><b>Karta kandydata</b></td><td>Wszystko do decyzji na jednym ekranie</td><td>lemat do decyzji i klasa; liczby rocznie w każdym korpusie, g, KWJP F, NKJP; Słowosieć tak/nie; ≤ 2 krótkie przykłady z atrybucją; linki OJ UW / WSJP z datą odczytu; flagi szumu; proponowany wzór fleksji i pełna lista form; przewidywany wpływ (+ formy w STANDARD i BROAD)</td><td>kandydat → karta w repo</td><td>kolejka, wzór fleksji</td></tr><tr><td><b>Rejestr decyzji</b></td><td>Pamięć między kwartałami</td><td>werdykt dodać / odrzucić / odłożyć, data, powód, plik decyzji z sha256; zasady powrotu (ADR-018)</td><td>werdykt użytkownika → rejestr w repo</td><td>użytkownik</td></tr><tr><td><b>Wzór fleksji</b></td><td>Pełna fleksja zgodna z SGJP</td><td>wskazanie leksemu wzorcowego (ta sama klasa i odmiana); podmiana tematu w paradygmacie; kontrola tagów; lista form do karty</td><td>lemat + wzór → wiersze w formacie SGJP</td><td>eksport SGJP</td></tr><tr><td><b>Suplement v2</b></td><td>Jedyne wejście słów spoza SGJP</td><td>nowa wersja przy każdej zmianie; nagłówek z dwiema częściami i odsyłaczem do rejestru; usuwanie słów, które weszły do SGJP; <code>expected_counts</code> od nowa</td><td>wiersze → plik + wpis w <code>sources.json</code></td><td>ADR-016</td></tr><tr><td><b>Build, benchmark, wiki</b></td><td>Istniejący łańcuch wydania</td><td>build i <code>explain</code> jak dziś; benchmark z SJP.pl tylko jako porównanie; aktualizacja wiki według runbooka</td><td>suplement → listy → wiki</td><td>istniejący kod</td></tr></table>
+<h2>Przepływ kwartalny</h2>
+<div class="dim">Diagram mermaid (źródło; renderuje się w podglądzie md na GitHubie).</div><pre class="mermaid-src">flowchart LR
+  A[&quot;1. Pobierz&lt;br/&gt;PPC kadencja bieżąca;&lt;br/&gt;nowe SGJP? Leipzig? ParlaMint?&quot;] --&gt; B[&quot;2. Nowy SGJP?&lt;br/&gt;osobny bump (D2)&lt;br/&gt;+ usuń nakładanie z suplementu&quot;]
+  B --&gt; C[&quot;3. Przelicz&lt;br/&gt;tylko zmienione źródła&quot;]
+  C --&gt; D[&quot;4. Filtry, g, kalibracja,&lt;br/&gt;kontrole&quot;]
+  D --&gt; E[&quot;5. Kolejka&lt;br/&gt;minus rejestr, minus SGJP&quot;]
+  E --&gt; F[&quot;6. Karty&lt;br/&gt;część ~50&quot;]
+  F --&gt; G[&quot;7. Decyzje&lt;br/&gt;użytkownika&quot;]
+  G --&gt;|dodać| H[&quot;8. Suplement vN&lt;br/&gt;build, benchmark&quot;]
+  G --&gt;|odrzucić / odłożyć| I[&quot;Rejestr&quot;]
+  H --&gt; J[&quot;9. Wiki + commit&quot;]
+  I --&gt; J</pre>
+<ol><li><b>Pobranie.</b> Co kwartał tylko bieżąca kadencja PPC (2,7 GB, rośnie). Pozostałe źródła tylko przy nowej wersji: SGJP przy nowym eksporcie, Leipzig raz w roku, ParlaMint rzadko. Każdy plik dostaje pin.</li><li><b>SGJP.</b> Nowy eksport podbijamy osobno, przed przeglądem. Z suplementu usuwamy leksemy, które SGJP już ma.</li><li><b>Liczenie</b> pod <code>taskpolicy -b</code>, ok. 20 min dla kadencji PPC. Baza 2015–2019 jest liczona raz.</li><li><b>Filtry, g, kontrole.</b> Kontrole co kwartał: hejt i hejter (stare, mają odpaść), lockdown, covidowy, pandemia (mają przejść). Jeśli kontrola zmienia wynik, przebieg się zatrzymuje.</li><li><b>Kolejka:</b> odejmujemy rozstrzygnięte i obecne w SGJP. Kolejność według ADR-017.</li><li><b>Karty</b> dla jednej części, ok. 50.</li><li><b>Decyzja</b> użytkownika słowo po słowie, z przykładami i wpływem (zasada z <code>AGENTS.md</code>).</li><li><b>Dla „dodać”:</b> wzór fleksji, wiersze, plik decyzji, nowa wersja suplementu, testy, build, benchmark.</li><li><b>Wiki i commit</b> w tej samej pracy.</li></ol>
+<h2>Gdzie co leży</h2>
+<table><tr><th>Co</th><th>Gdzie</th><th>Git?</th><th>Uwagi</th></tr><tr><td>Surowe korpusy (PPC 11 GB, ParlaMint 2,2 GB, Leipzig 3 GB)</td><td><code>cache/</code></td><td>nie</td><td>jak dziś KWJP i NKJP; ponowne pobranie musi dać pin</td></tr><tr><td>Zliczenia, grupy, pośrednie pliki</td><td><code>data/work/</code></td><td>nie</td><td>odtwarzalne skryptem</td></tr><tr><td>Manifest wykrywania (url, sha256, data, licencja, atrybucja)</td><td><code>config/</code> obok <code>sources.json</code></td><td>tak</td><td>osobny plik; build go nie czyta</td></tr><tr><td>Skrypty pobierania i liczenia</td><td><code>scripts/</code></td><td>tak</td><td>sieć tylko w pobieraniu</td></tr><tr><td>Raport kwartału: liczby, kalibracja, kontrole</td><td><code>.maister/tasks/…</code></td><td>tak</td><td>liczby pochodne z atrybucją CC BY</td></tr><tr><td>Karty kandydatów</td><td><code>.maister/tasks/…</code></td><td>tak</td><td>≤ 2 krótkie przykłady na kartę, z atrybucją</td></tr><tr><td>Rejestr decyzji</td><td><code>config/</code></td><td>tak</td><td>jeden plik, czytany przez kolejkę</td></tr><tr><td>Pliki decyzji (dowody słowa)</td><td><code>.maister/tasks/…/analysis/evidence/</code></td><td>tak</td><td>sha256 w <code>evidence</code> suplementu</td></tr><tr><td>Suplement v2</td><td><code>config/generator/</code> (ta sama ścieżka co v1)</td><td>tak</td><td>BSD-2, własne dane projektu</td></tr><tr><td>Atrybucje PPC, ParlaMint, Leipzig</td><td><code>ATTRIBUTIONS.md</code></td><td>tak</td><td>NKJP już jest (ADR-006)</td></tr></table>
+<p><b>Nie wolno w repo:</b> surowych plików korpusów, pełnych list frekwencyjnych, długich fragmentów tekstu, niczego ze strony lub API Leipzig (CC BY-NC).</p>
+<h2>Limit suplementów w <code>inputs.py</code></h2>
+<p><b>Rozstrzygnięcie: v2 zastępuje v1, kod się nie zmienia</b> (<a href="decision-log.html#adr-016">ADR-016</a>).</p>
+<ul><li>Tryb produkcyjny nadal wymaga 14 + 1 artefaktów. Zmienia się <code>source_id</code> (<code>sgjp-supplement-v2</code>), <code>version</code>, sha256, <code>license_scope</code>, <code>dependencies</code> i <code>expected_counts</code>.</li><li>Lista <code>evidence</code> rośnie o plik decyzji każdej paczki. Kod sprawdza sha256 każdego z nich.</li><li>Zmienia się jeden test: sprawdzenie „dokładnie 4 wiersze” zastępuje sprawdzenie „4 wiersze zaimka są w pliku”.</li><li>Zmiana kodu byłaby potrzebna dopiero dla drugiego, niezależnego suplementu. Dziś nie ma takiej potrzeby.</li></ul>
+<h2>Kandydaci tylko z PPC (pomiar)</h2>
+<p>Pomiar z 2026-11-03: PPC przeliczony z podziałem na kategorie dokumentów. Oceny agenta: 100 losowych grup i wszystkie 78 z sygnałem plenarnym. Pełna tabela jest w <a href="decision-log.html#adr-017">ADR-017</a>.</p>
+<table><tr><th>Warstwa kolejki</th><th>grupy</th><th>trafność</th><th>słów A (szac.)</th></tr><tr><td>≥ 2 korpusy</td><td>243</td><td>70%</td><td>≈ 170</td></tr><tr><td>Leipzig-only</td><td>87</td><td>50%</td><td>≈ 45</td></tr><tr><td>PPC: ≥ 5 użyć w posiedzeniach plenarnych, bez flagi</td><td>73</td><td>34%</td><td>25</td></tr><tr><td>PPC: reszta bez flagi (lista skrócona)</td><td>365</td><td>10%</td><td>≈ 37</td></tr><tr><td>PPC: flaga lek/angielski (odłożone)</td><td>107</td><td>0% (0/33)</td><td>≈ 0</td></tr><tr><td>*dla porównania: wymóg 2. korpusu*</td><td>*0 z 545*</td><td>—</td><td>*traci ≈ 60–70*</td></tr><tr><td>*dla porównania: wzrost tylko w plenarnych (g ≥ 5, ≥ 10 po, ≥ 3 lata)*</td><td>*33*</td><td>*42%*</td><td>*14; traci 11 z 25*</td></tr></table>
+<p>W posiedzeniach plenarnych fałszywe alarmy na słowach z SGJP to 5,4%. W całym PPC jest to 15,6%.</p>
+<h2>Punkty integracji</h2>
+<ul><li><b>Wejście:</b> HTTPS do PPC (<code>kdp.ipipan.waw.pl</code>, bez konta), ParlaMint (CLARIN.SI), Leipzig (pliki do pobrania), SGJP (<code>download.sgjp.pl</code>). Nic z formularzem, kontem ani mailem.</li><li><b>Istniejące dane w <code>cache/</code>:</b> KWJP100, NKJP 1grams, SGJP, Słowosieć 4.5 (tylko do porządkowania kandydatów, ADR-011).</li><li><b>Build:</b> jedyny styk to plik suplementu i jego wpis w <code>sources.json</code>.</li><li><b>Wiki:</b> osobne repozytorium, aktualizowane według <code>docs/runbook-wiki.md</code>.</li><li><b>Dowód ręczny:</b> OJ UW i WSJP tylko jako link z datą odczytu w karcie. Bez pobierania danych.</li></ul>
+<h2>Zmiany w wiki</h2>
+<p>Zasada repo: zmiana źródeł lub kryteriów aktualizuje wiki w tej samej pracy.</p>
+<table><tr><th>Strona</th><th>Kiedy</th><th>Co zmienić</th></tr><tr><td><code>Home</code></td><td>przy ADR-014/015 i przy D2</td><td>tabela źródeł: wiersze PPC, ParlaMint-PL 5.0, Leipzig news i NKJP z opisem „tylko do wykrywania nowych słów, nie do list”; data eksportu SGJP; wiersz suplementu: „się, siebie… oraz nowe słowa spoza SGJP, każde decyzją”</td></tr><tr><td><code>Slownik-STANDARD</code>, <code>Slownik-BROAD</code></td><td>przy pierwszym „dodać”</td><td>„co wchodzi”: słowa spoza SGJP z suplementu, z przykładem (antyszczepionkowiec); liczby słów po buildzie</td></tr><tr><td><b>nowa</b> <code>Nowe-slowa</code></td><td>przy pierwszej części</td><td>jak wychwytujemy: źródła i atrybucje, kryteria (wzrost, szum, reguła PPC-only), rytm kwartalny, czego te korpusy nie widzą (słowa potoczne), liczby ostatniego kwartału, link do rejestru decyzji</td></tr><tr><td><code>_Sidebar</code></td><td>razem z <code>Nowe-slowa</code></td><td>link do nowej strony</td></tr><tr><td><code>Historia-zmian</code></td><td>przy każdym buildzie z nową wersją suplementu i przy D2</td><td>wiersz: wersja, data, ile słów dodano, przykład</td></tr><tr><td><code>Porownanie-z-SJP.pl</code> i strony generowane</td><td>po buildzie</td><td>nowy benchmark (tylko porównanie, nie źródło kandydatów)</td></tr><tr><td><code>Slownik-POP</code>, <code>POP0</code>, <code>POP00</code>, <code>TEMATY</code></td><td>bez zmian</td><td>nowe słowa nie wchodzą tam, dopóki tych pakietów nie przebudujemy</td></tr></table>
+<p>Poza wiki trzeba też dopisać sekcję „Nowe słowa” do <code>docs/runbook-wiki.md</code>, ADR do <code>docs/adr/</code> i wpisy do <code>.maister/docs/INDEX.md</code>. To już praca wdrożenia.</p>
+<h2>Decyzje projektowe</h2>
+<table><tr><th>ADR</th><th>Decyzja</th><th>Odrzucone</th></tr><tr><td><a href="decision-log.html#adr-014">ADR-014</a></td><td>NKJP do miary wzrostu, poza buildem</td><td>bez NKJP; baza z jednego korpusu</td></tr><tr><td><a href="decision-log.html#adr-015">ADR-015</a></td><td>3 korpusy tylko do wykrywania, osobny manifest</td><td>w buildzie; FineWeb-2/HPLT; żaden</td></tr><tr><td><a href="decision-log.html#adr-016">ADR-016</a></td><td>suplement v2 w miejscu v1</td><td>drugi suplement i zmiana limitu; nowe źródło</td></tr><tr><td><a href="decision-log.html#adr-017">ADR-017</a></td><td>PPC-only w 3 warstwach (sygnał plenarny)</td><td>wymóg 2. korpusu; wzrost tylko w plenarnych; bez reguły</td></tr><tr><td><a href="decision-log.html#adr-018">ADR-018</a></td><td>kwartał, rejestr, części po ~50</td><td>przy SGJP; przy korpusie; na żądanie</td></tr></table>
+<h2>Przykłady</h2>
+<p><b>1. Słowo z kilku korpusów (antyinflacyjny).</b> Mamy: PPC 0 → 1 589, Leipzig 0 → 328, ParlaMint 0 → 191, brak w SGJP, KWJP F = 8. Gdy kwartał zbuduje kolejkę, wtedy słowo jest w pierwszej części (≥ 2 korpusy). Karta pokazuje wzór fleksji (przymiotnik, np. <code>inflacyjny</code>) i formy. Po „dodać” suplement dostaje nową wersję, a build daje słowo w STANDARD i BROAD.</p>
+<p><b>2. Próba (antyszczepionkowiec).</b> Mamy: KWJP 34, ParlaMint 93, PPC 146, OJ UW i WSJP (ręcznie, z datą). Gdy użytkownik zatwierdzi słowo, wtedy powstaje suplement v2: 4 wiersze zaimka i ok. 12 form według wzoru <code>związkowiec</code> (m1). <code>inputs.py</code> przyjmuje manifest bez zmian kodu. Wiki <code>Home</code>, <code>Slownik-STANDARD</code>, <code>Slownik-BROAD</code> i <code>Historia-zmian</code> dostają wpis.</p>
+<p><b>3. Szum tylko z PPC (pertuzumab, <code>zzd</code>).</b> Mamy: pertuzumab 318 w 2021 (interpelacje), brak w innych korpusach; <code>zzd</code> to skrót. Gdy kolejka stosuje ADR-017, wtedy pertuzumab dostaje flagę „lek” i trafia do warstwy odłożonej, bez karty. Wróci, gdy pojawi się w drugim korpusie. <code>zzd</code> nie ma sygnału plenarnego, więc ląduje na liście skróconej. Użytkownik go nie zaznacza, a rejestr zapisuje „odrzucić: skrót”.</p>
+<p><b>4. Słowo tylko z PPC, z sygnałem plenarnym (patostreaming).</b> Mamy: PPC 558 (273 w posiedzeniach plenarnych, 0 przed 2020), Leipzig 0, ParlaMint 0. Gdy kolejka stosuje ADR-017, wtedy słowo dostaje pełną kartę w warstwie plenarnej mimo braku drugiego korpusu.</p>
+<p><b>5. Nowy eksport SGJP ma słowo z suplementu.</b> Gdy kwartał wykryje leksem w nowym SGJP, wtedy usuwamy go z suplementu (nowa wersja). Licznik <code>duplicates</code> zostaje 0, a lista się nie zmienia.</p>
+<h2>Poza zakresem</h2>
+<ul><li>Słowa potoczne i internetowe (boomer, ghosting, cringe) oraz wulwa: osobne badanie (D5).</li><li>FineWeb-2, HPLT: licencja tekstu nieustalona.</li><li>Wikisłownik (odroczony), SJP.pl (nie jest źródłem), kontakt z autorami.</li><li>Automatyczny wpis po progu: sprzeczny z §4.4.</li><li>Formacje z reguły (<code>anty-</code>, <code>post-</code>): każda tylko jako osobna decyzja.</li><li>Warianty pisowni (boomer / bumer) i reforma pisowni RJP 2026: osobne tematy.</li><li>Zmiany w POP, POP0, POP00, TEMATY.</li><li>Konkretne pliki, nazwy poleceń i testy: to specyfikacja wdrożenia.</li></ul>
+<h2>Kryteria sukcesu</h2>
+<ul><li>Ten sam manifest daje te same zliczenia i tę samą kolejkę (odtwarzalność bajtowa raportu).</li><li>Kontrole co kwartał: lockdown, covidowy, pandemia przechodzą; hejt i hejter odpadają.</li><li>Pierwsza część z grup z ≥ 2 korpusów ma trafność użytkownika ≥ 50% (agent: 70%).</li><li>Build z suplementem v2 przechodzi <code>inputs.py</code> bez zmiany kodu; każde dodane słowo ma pełny paradygmat i plik decyzji.</li><li>Słowo odrzucone nie wraca w kolejnym kwartale bez nowego dowodu.</li><li>Wiki jest zaktualizowana w tej samej pracy co build.</li></ul></main></body></html>
