@@ -37,7 +37,7 @@
 | Z3 | progi warstwy potocznej (B1–B7) | jeden mechanizm | wycina rzadkie słowa celowe | prawdopodobnie odpada |
 
 ## 3. Co już jest w SGJP 20261018 (pomiar)
-Skrypt: `scratchpad/potoczne/metoda/` (awk na `sgjp-20261018.tab.gz`, lematy pospolite).
+Skrypt: `/private/tmp/claude-501/-Users-robmar-Projects-Literaki/3ae5c44e-c8df-4ef9-924a-bcb0e5eaf7f8/scratchpad/potoczne/metoda/scripts/sgjp_swiadoma.sh` (awk na `sgjp-20261018.tab.gz`, dokładne lematy).
 
 | W SGJP | Brak w SGJP |
 |---|---|

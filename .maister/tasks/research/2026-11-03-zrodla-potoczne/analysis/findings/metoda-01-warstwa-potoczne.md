@@ -4,7 +4,7 @@
 - Nowa warstwa to **osobny strumień wykrywania** obok PPC/ParlaMint/Leipzig. Działa tak samo poza buildem: liczby trafiają tylko do karty, do list wchodzi się decyzją użytkownika przez suplement v2 (D1-A, ADR-016).
 - W sieci szum to nie składnik korpusu (jak w PPC), tylko **język i nazwy**: angielskie ciągi, marki, nazwy własne, zapis z myślnikiem lub apostrofem. Dlatego bramki są inne niż w #16: **polska odmiana albo polski kontekst, mała litera w środku zdania, rozrzut po hostach**. Wzrost g jest tylko liczbą w karcie, nie progiem.
 - Jednostka to **leksem z paradygmatem według wzoru SGJP**, nie grupa form z ucinania końcówek. Liczymy wszystkie formy wzoru. Dzięki temu „polska odmiana” jest mierzalna.
-- Progi liczbowe są szkicem. Kalibracja czeka na liczby z kategorii ccrawl i potoczne: [do uzupełnienia z ccrawl/potoczne].
+- Progi v2 skalibrowane na Leipzig news (5 mln zdań): przechodzi **37 z 43** zapożyczeń z SGJP i **0 z 20** angielskich słów kontrolnych (`metoda-05`). Kalibracja na zbiorach nieformalnych: [do uzupełnienia z ccrawl/potoczne].
 
 ## Kluczowe decyzje
 - **Bez progu nowości.** Słowa potoczne to często stare luki (bumer, ziom), nie słowa po 2020. Kryterium „nowe” (g ≥ 5) z ADR-015 tu nie odcina. Pokazujemy g i pierwszy rok, jeśli źródło ma daty.
@@ -39,11 +39,11 @@ NOWE: zmiana świadoma (dowód ręczny)   ─┘
 |---|---|---|---|---|
 | B1 | alfabet gry | wszystkie litery lematu w `ALPHABET` z `policy.py` | twardo | `vlog`, `quiz`, `e-mail`, `cringe'owy` |
 | B2 | brak w SGJP i suplemencie | lemat i każda forma wzoru | twardo; formy już w SGJP liczymy osobno | `hejt`, `lockdown`, `spoiler` |
-| B3 | mała litera | udział małej litery **poza początkiem zdania** | ≥ 90% | marki i nazwy: `Zoom`, `TikTok`, `Netflix` |
+| B3 | mała litera | udział małej litery **poza początkiem zdania** | ≥ 70% (v2; v1 90% gubił mem, design, youtuber) | marki i nazwy: `Zoom`, `TikTok`, `Netflix` |
 | B4 | dokument polski | trafienie w dokumencie z przewagą polskich słów funkcyjnych nad angielskimi | trafienia w dokumentach angielskich wyrzucamy; zostać musi ≥ 50% surowych | `cringe`, `ghosting` w tekście angielskim |
 | B5a | polska odmiana (wyrazy odmienne) | udział tokenów w formach innych niż podstawowa | ≥ 10% i ≥ 2 różne formy nie-podstawowe | angielskie ciągi: `adults`, `followers` |
-| B5b | polski kontekst (nieodmienne) | w oknie ±3 słowa jest polskie słowo funkcyjne | ≥ 80% trafień | wtrącenia angielskie, tytuły piosenek |
-| B6 | rozrzut | liczba hostów i udział największego | ≥ 10 hostów, największy ≤ 25% | jedna strona, spam, kopie |
+| B5b | polski kontekst (nieodmienne) | w oknie ±3 słowa jest polskie słowo funkcyjne | ≥ 70% trafień (v2) | wtrącenia angielskie, tytuły piosenek |
+| B6 | rozrzut | liczba hostów i udział największego | ≥ 10 hostów, największy ≤ 35% (v2) | jedna strona, spam, kopie |
 | B7 | częstość | ipm po bramkach B3–B6 | [do uzupełnienia z ccrawl/potoczne]; szkic ≥ 0,05 ipm i ≥ 20 trafień | rzadkie jednorazówki |
 | B8 | host wykluczony | udział `sjp.pl`, kopii, stron „znaczenie słowa”, słownika świadomej zmiany | tylko raport; nie liczy się do B6–B7 | definicje zamiast użyć |
 
