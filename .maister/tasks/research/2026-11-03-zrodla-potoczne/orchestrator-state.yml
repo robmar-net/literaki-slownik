@@ -1,0 +1,28 @@
+orchestrator:
+  started_phase: phase-1
+  completed_phases: []
+  failed_phases: []
+  options:
+    html_output: true
+    brainstorming_enabled: null
+    design_enabled: null
+  created: 2026-11-03T14:56:26Z
+  updated: 2026-11-03T14:56:26Z
+  task_path: .maister/tasks/research/2026-11-03-zrodla-potoczne
+task:
+  title: "Źródła słów potocznych, internetowych i świadomych zmian językowych"
+  description: "Wiarygodne dowody na słowa niewidoczne w PPC/ParlaMint/Leipzig (wulwa, ghosting, cringe, boomer) i jak ich użyć w literaki-slownik."
+  status: in_progress
+  tags: [potoczne, internet, zmiany-swiadome, licencje]
+  issue: "literaki-slownik #16"
+research_context:
+  research_type: mixed
+  research_question: "Skąd literaki-slownik może brać wiarygodne dowody na słowa potoczne, internetowe i na świadome zmiany językowe, których nie widać w korpusach parlamentarnych i prasowych?"
+  scope:
+    included: [korpusy mowy i internetu (fora, media społecznościowe, napisy, transkrypcje), zbiory Common Crawl (FineWeb-2, HPLT) i ocena licencji tekstu wobec TDM UE 2019/790, słowniki i poradniki świadomej zmiany językowej (Dobry Słownik i podobne), plebiscyty i obserwatoria jako sygnał, metody wykrywania słów potocznych, kalibracja na kontrolach]
+    excluded: [SJP.pl jako źródło, Wikisłownik (odroczony), kontakt z autorami lub innymi grupami (formularze, konta, maile), zmiany w listach bez decyzji użytkownika]
+    constraints: [po polsku, zwięźle, bez nazw innych gier słownych poza Literaki i Kurnik, licencje pozwalające na użycie, CPU-ciężkie pod taskpolicy -b, python -I dla pobranych danych, dane surowe poza Git]
+  controls: [wulwa, ghosting, cringe, boomer, hejt, lockdown, antyszczepionkowiec]
+  previous_research: .maister/tasks/research/2026-11-03-zrodla-nowych-slow
+  project_doc_paths: [AGENTS.md, .maister/docs/INDEX.md, docs/adr/]
+  phase_summaries: {}
