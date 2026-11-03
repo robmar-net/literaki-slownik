@@ -1,11 +1,11 @@
 orchestrator:
   started_phase: phase-1
-  completed_phases: []
+  completed_phases: [phase-1, phase-2]
   failed_phases: []
   options:
     html_output: true
-    brainstorming_enabled: null
-    design_enabled: null
+    brainstorming_enabled: true
+    design_enabled: true
   created: 2026-11-03T09:37:17Z
   updated: 2026-11-03T09:37:17Z
   task_path: .maister/tasks/research/2026-11-03-zrodla-nowych-slow
