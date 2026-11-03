@@ -1,18 +1,18 @@
 orchestrator:
   started_phase: phase-1
-  completed_phases: []
+  completed_phases: [phase-1, phase-6]
   failed_phases: []
   options:
     html_output: true
-    brainstorming_enabled: null
-    design_enabled: null
+    brainstorming_enabled: false
+    design_enabled: false
   created: 2026-11-03T09:06:56Z
-  updated: 2026-11-03T09:06:56Z
+  updated: 2026-11-03T09:30:48Z
   task_path: .maister/tasks/research/2026-11-03-wulwa-brak-w-zrodlach
 task:
   title: "Dlaczego „wulwa” nie ma w SGJP, KWJP i Słowosieci"
   description: "Ustalić, czemu rzeczownik „wulwa” (srom) jest w SJP.pl, a brak go w SGJP, KWJP i jako lemat w Słowosieci 4.5; rekomendacja dla sgjp-supplement.tab i list STANDARD/BROAD."
-  status: in_progress
+  status: completed
   tags: [sgjp, kwjp, plwordnet, braki]
 research_context:
   research_type: mixed
@@ -22,4 +22,9 @@ research_context:
     excluded: [kontakt z autorami zasobów, Wikisłownik (odroczony), zmiany w listach]
     constraints: [po polsku, zwięźle, bez nazw innych gier słownych poza Literaki i Kurnik, dane surowe tylko do odczytu, python3 -I]
   project_doc_paths: []
-  phase_summaries: {}
+  confidence_level: high
+  phase_summaries:
+    phase-1:
+      summary: "Wulwy brak przez frekwencję: świeża kalka z ang. vulva, 0 użyć rzeczownika w NKJP, brak w słownikach ogólnych poza SJP.pl."
+    phase-6:
+      summary: "Operator zamknął badanie: nie dodajemy wulwy ani wulwodynii; wracamy przy nowym SGJP/KWJP."
