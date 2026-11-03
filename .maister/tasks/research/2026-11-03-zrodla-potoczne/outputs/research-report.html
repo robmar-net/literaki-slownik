@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raport badania — źródła potoczne i zmiana świadoma</title>
+<style>
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+details > summary { cursor:pointer; font-weight:600; }
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+/* rozszerzenia */
+.tldr h3 { font-size:13px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); margin:12px 0 4px; }
+.tldr ul { margin:4px 0; padding-left:20px; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.grid3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
+@media (max-width:640px){ .grid2 { grid-template-columns:1fr; } }
+.swot .card h3 { margin:0 0 6px; font-size:13px; }
+.conf.h { background:var(--ok-soft); color:var(--ok); }
+.conf.m { background:var(--warn-soft); color:var(--warn); }
+.conf.l { background:var(--crit-soft); color:var(--crit); }
+.rec { font-weight:600; }
+.tbl-wrap { overflow-x:auto; }
+.toc { font-size:13px; color:var(--dim); }
+</style>
+</head>
+<body>
+<nav class="crumbs">
+  <a href="../dashboard.html">← Panel</a>
+  <span class="here">Raport</span>
+  <a href="research-report.md" target="_blank" rel="noopener" class="md">wersja md ↗</a>
+</nav>
+
+<header>
+  <span class="badge">raport badania</span>
+  <h1>Skąd brać słowa potoczne i świadome zmiany językowe</h1>
+  <div style="color:var(--dim);font-size:13px">Typ: mieszany (literatura + pomiar) · 2026-11-03 · kontynuacja #16 · synteza: <a href="../analysis/synthesis.md" target="_blank" rel="noopener">synthesis.md ↗</a></div>
+</header>
+
+<div class="tiles">
+  <div class="tile"><b>17</b><span>pliki ustaleń</span></div>
+  <div class="tile"><b>18</b><span>źródła potoczne</span></div>
+  <div class="tile"><b>662,7 mln</b><span>słów CC</span></div>
+  <div class="tile"><b>12</b><span>decyzji</span></div>
+  <div class="tile"><b>średnia</b><span>pewność</span></div>
+</div>
+
+<section class="tldr card">
+  <h3>TL;DR</h3>
+  <ul>
+    <li>Nie ma jednego źródła. Dowód to <b>trzy części</b>: Dobry słownik (DS, dowód ręczny), FineWeb-2/HPLT (tylko liczby, art. 26³ pr. aut.) oraz małe źródła z czystą licencją (BAN-PL, dyskusje plwiki). Napisy mają najmocniejszy sygnał (7/7 kontroli), ale nie mają licencji tekstu, więc tylko pomiar lokalny.</li>
+    <li><b>Wulwa ma drogę dowodu:</b> DS (od I–II 2024), tezaurus DS, 6 hostów w sieci (2018–2024), dyskusje plwiki (2023). Rekomendacja: typ „zmiana świadoma” z progiem <b>Z2</b>.</li>
+    <li><b>Common Crawl potwierdza podejrzane słowo, ale go nie odkrywa:</b> ok. 4% nowych grup to słowa potoczne, ok. 40% to spam i zlepki.</li>
+    <li>Do decyzji jest 10 punktów (D1–D10) i 2 dodatkowe (D11–D12). Liczby z sieci są wstępne: liczone przed filtrem opt-out, a ghosting jest zaniżony.</li>
+  </ul>
+  <h3>Kluczowe decyzje (rekomendacje)</h3>
+  <ul>
+    <li><b>D1</b> OpenSubtitles: tylko lokalny detektor; w karcie liczba filmów i link, bez cytatów.</li>
+    <li><b>D2</b> BAN-PL (hasło): przyjąć użycie lokalne; liczby z atrybucją CC BY 4.0.</li>
+    <li><b>D3</b> CC / FineWeb-2 / HPLT: tylko liczby, URL i data z własnym opisem; konteksty lokalnie; najpierw opt-out hostów.</li>
+    <li><b>D4</b> Zmiana świadoma: Z2.</li>
+    <li><b>D5</b> Tezaurus DS: sygnał lokalny, bez importu. <b>D6</b> zaimki.pl: nie używać w repo.</li>
+    <li><b>D7</b> cringe: oba tagi (adj nieodm. i n). <b>D8</b> bumer/boomer: osobne werdykty.</li>
+    <li><b>D9</b> Bramki: v2 jako start, B7 tymczasowy. <b>D10</b> Cytaty z napisów i forum w publicznym repo: zastąpić opisem.</li>
+  </ul>
+  <h3>Otwarte pytania / ryzyka</h3>
+  <ul>
+    <li>Ocena prawna to odczyt zbieracza, <b>nie porada prawna</b>.</li>
+    <li>Moment opt-out (crawl czy nasze pobranie) jest niejasny. Przyjęto wariant bezpieczniejszy.</li>
+    <li>Próbka CC 8× zamiast 10×; <code>ccrawl-03</code> na danych pośrednich; ghosting liczony z 4 form zamiast 9.</li>
+    <li>Teksty, które DS cytuje dla wulwy, nie zostały przeczytane bezpośrednio.</li>
+    <li>Czy podklasa (b) mieści się w zasadach dopuszczalności Kurnika: decyzja użytkownika.</li>
+  </ul>
+</section>
+
+<nav class="toc">Spis: <a href="#ustalenia">Ustalenia</a> · <a href="#wulwa">Wulwa</a> · <a href="#siec">Sieć</a> · <a href="#sprzecznosci">Sprzeczności</a> · <a href="#spostrzezenia">Spostrzeżenia</a> · <a href="#swot">SWOT</a> · <a href="#proces">Proces</a> · <a href="#decyzje">Decyzje</a> · <a href="#rekomendacje">Rekomendacje</a> · <a href="#zalaczniki">Załączniki</a></nav>
+
+<main>
+<h2 id="ustalenia">Ustalenia</h2>
+<div class="card tbl-wrap">
+<table>
+<tr><th>#</th><th>Ustalenie</th><th>Kategoria</th><th>Pewność</th><th>Źródła</th></tr>
+<tr><td>F1</td><td>Napisy: najmocniejszy sygnał, brak licencji tekstu</td><td>potoczne</td><td><span class="sev conf h">wysoka</span> / prawo <span class="sev conf l">niska</span></td><td>potoczne-01..03</td></tr>
+<tr><td>F2</td><td>BAN-PL i plwiki: czyste, ale małe lub mało potoczne</td><td>potoczne</td><td><span class="sev conf h">wysoka</span></td><td>potoczne-01..03</td></tr>
+<tr><td>F3</td><td>Liczenie lokalne CC zgodne z art. 26³; publikacja liczb: niskie ryzyko</td><td>prawo</td><td><span class="sev conf m">średnia</span></td><td>ccrawl-01</td></tr>
+<tr><td>F4</td><td>Opt-out dziś częsty na dużych hostach (CCBot 34/100)</td><td>prawo</td><td><span class="sev conf m">średnia</span></td><td>ccrawl-04</td></tr>
+<tr><td>F5</td><td>Kontrole celu w sieci rzadkie i zaszumione</td><td>pomiar</td><td><span class="sev conf m">średnia</span></td><td>ccrawl-02</td></tr>
+<tr><td>F6</td><td>CC jako wykrywacz: ok. 4% potocznych</td><td>pomiar</td><td><span class="sev conf m">średnia</span></td><td>ccrawl-03</td></tr>
+<tr><td>F7</td><td>Wulwa w DS i w tezaurusie DS; wniosek #16 był błędny</td><td>świadoma</td><td><span class="sev conf h">wysoka</span></td><td>swiadoma-01</td></tr>
+<tr><td>F8</td><td>zaimki.pl na OQL, dane normatywne</td><td>świadoma</td><td><span class="sev conf h">wysoka</span></td><td>swiadoma-02</td></tr>
+<tr><td>F9</td><td>Progi v2: 37/43 zapożyczeń, 0/20 słów angielskich</td><td>metoda</td><td><span class="sev conf m">średnia</span></td><td>metoda-05</td></tr>
+<tr><td>F10</td><td>„Nowe formy w grze” zmienia wagę decyzji</td><td>metoda</td><td><span class="sev conf h">wysoka</span></td><td>metoda-03, -04</td></tr>
+</table>
+</div>
+
+<h3>Źródła potoczne (kontrole celu małą literą: wulwa / ghosting / cringe / boomer)</h3>
+<div class="card tbl-wrap">
+<table>
+<tr><th>Źródło</th><th>Licencja tekstu</th><th>Kontrole</th><th>Daty</th><th>Ocena</th></tr>
+<tr><td>OpenSubtitles 2022–2023</td><td>brak („add a link”)</td><td>7 / 10 / 7 / 65</td><td>rok filmu</td><td><span class="sev warning">do decyzji</span> D1</td></tr>
+<tr><td>BAN-PL (Wykop)</td><td>CC BY 4.0, „strictly for research”, hasło</td><td>0 / 0 / 4 / 3 (hejt 31)</td><td>2019–06.2023</td><td><span class="sev info">ALLOWED*</span> D2</td></tr>
+<tr><td>plwiki, dyskusje (54%)</td><td>CC BY-SA 4.0</td><td>5 / 0 / 2 / 22 (okręty)</td><td>rok podpisu</td><td><span class="sev info">ALLOWED</span>, niska przydatność</td></tr>
+<tr><td>SpeakLeash kafeteria (13%)</td><td>„conditional license”</td><td>3 / 3 (technika) / 0 / 8 (guma)</td><td>brak</td><td><span class="sev warning">do decyzji</span>, odłożyć</td></tr>
+<tr><td>PolEval, hate_speech_pl, PolEmo, Common Voice</td><td>unknown / NC / CC BY / CC0</td><td>prawie same 0, kontrole dodatnie też 0 lub prawie 0</td><td>brak</td><td>mało przydatne</td></tr>
+<tr><td>Reddit, X; BIGOS, PELCRA</td><td>regulamin; bramka HF</td><td>—</td><td>—</td><td><span class="sev critical">odpada</span></td></tr>
+<tr><td>Spokes (nowy fakt)</td><td>CC BY-NC 3.0</td><td>niezmierzone</td><td>2000–2013</td><td><span class="sev warning">do decyzji</span> (NC)</td></tr>
+</table>
+</div>
+
+<h2 id="wulwa">Wulwa we wszystkich źródłach</h2>
+<div class="card tbl-wrap">
+<table>
+<tr><th>Źródło</th><th>Wynik</th><th>Plik</th></tr>
+<tr><td>KWJP, PPC, ParlaMint</td><td>0</td><td>metoda-02 (za #16)</td></tr>
+<tr><td>Leipzig news</td><td>0 (kontrole +: hejt 778, lockdown 1 211)</td><td>metoda-05</td></tr>
+<tr><td>NKJP</td><td>4× <code>wulw</code>, 2× <code>wulwa</code>, w #16 ocenione jako nazwisko</td><td>metoda-02</td></tr>
+<tr><td>FineWeb-2 / HPLT</td><td>3 + 3 (2 + 2 dok.); razem z #16 6 hostów 2018–2024</td><td>ccrawl-02</td></tr>
+<tr><td>OpenSubtitles 2022–2023</td><td>7 zdań, część to duplikaty</td><td>potoczne-03</td></tr>
+<tr><td>plwiki dyskusje / artykuły</td><td>7 (2023) / 158 (głównie zoologia)</td><td>potoczne-03</td></tr>
+<tr><td>kafeteria</td><td>3</td><td>potoczne-03</td></tr>
+<tr><td>BAN-PL</td><td>0 (hejt 43,5 ipm)</td><td>potoczne-03</td></tr>
+<tr><td>DS / tezaurus DS</td><td class="pass">tak / tak</td><td>swiadoma-01</td></tr>
+<tr><td>zaimki.pl / RJP / publikacje</td><td>tylko w 2 radach / brak / 0</td><td>swiadoma-02, -03</td></tr>
+<tr><td>ankieta 2022</td><td>1% deklaruje użycie; metoda nieznana</td><td>swiadoma-03</td></tr>
+</table>
+<p><b>Wulwa pod Z2:</b> (a) <span class="fail">nie</span> · (b) hosty <span class="pass">6 ≥ 5</span>, trafienia <span class="fail">6 &lt; 10</span> · (c) prawdopodobnie tak, do sprawdzenia (publikacje cytowane w DS).</p>
+</div>
+
+<h2 id="siec">Kontrole w sieci (FineWeb-2 187,7 mln · HPLT 475,0 mln słów)</h2>
+<div class="card tbl-wrap">
+<table>
+<tr><th>Słowo</th><th>FW2 małą (dok.)</th><th>ipm</th><th>HPLT małą (dok.)</th><th>ipm</th><th>Uwagi</th></tr>
+<tr><td>hejt (+)</td><td>1009 (685)</td><td>5,40</td><td>1718 (1216)</td><td>3,68</td><td></td></tr>
+<tr><td>lockdown (+)</td><td>1019 (697)</td><td>5,52</td><td>1740 (1155)</td><td>3,74</td><td>0 przed 2020</td></tr>
+<tr><td>antyszczepionkowiec (+)</td><td>124 (96)</td><td>0,67</td><td>181 (113)</td><td>0,39</td><td></td></tr>
+<tr><td>boomer</td><td>30 (17)</td><td>0,19</td><td>125 (98)</td><td>0,27</td><td>szum: manicure, nicki</td></tr>
+<tr><td>ghosting</td><td>32 (25)</td><td>0,18</td><td>77 (39)</td><td>0,17</td><td>relacyjne 2/27 i 5/45; 4 formy</td></tr>
+<tr><td>cringe</td><td>9 (8)</td><td>0,05</td><td>16 (15)</td><td>0,03</td><td>prawie same potoczne</td></tr>
+<tr><td>wulwa</td><td>3 (2)</td><td>0,016</td><td>3 (2)</td><td>0,006</td><td>anatomia człowieka</td></tr>
+</table>
+<p style="font-size:13px;color:var(--dim)">Liczby przed filtrem opt-out. SJP.pl ≤0,008% dokumentów. Ekstrapolacja: wulwa ok. 1 200 (FW2) i ok. 900 (HPLT) w całych zbiorach. Wykrywanie (ccrawl-03, dane pośrednie): terminy 45%, potoczne 4%, spam 25%, zlepki 15%, marki 11%.</p>
+</div>
+
+<h2 id="sprzecznosci">Sprzeczności między plikami</h2>
+<div class="card tbl-wrap">
+<table>
+<tr><th>Sprzeczność</th><th>Wyjaśnienie</th></tr>
+<tr><td><span class="sev info">S1</span>Wulwa: Leipzig 0 vs sieć 6 hostów</td><td>Wiadomości nie piszą o anatomii. Progi z Leipzig nie nadają się dla zmiany świadomej.</td></tr>
+<tr><td><span class="sev warning">S2</span>Ghosting: 4 formy vs 9 (wzór <code>ranking</code>)</td><td>ccrawl-02 i potoczne-03 mogą zaniżać ghosting; metoda-05 liczyła 9.</td></tr>
+<tr><td><span class="sev warning">S3</span>ccrawl-03 na danych pośrednich (~535 mln) vs 662,7 mln</td><td>6 239 i 314 nie są końcowe; hosty zaniżone.</td></tr>
+<tr><td><span class="sev warning">S4</span>Liczby sprzed filtra opt-out</td><td>Spadną po wykluczeniu hostów z zastrzeżeniem.</td></tr>
+<tr><td><span class="sev info">S5</span>Wulwa #16 HPLT 19 vs teraz 3</td><td>19 to wzorzec prefiksowy z zoologią; formy dokładne: 2.</td></tr>
+<tr><td><span class="sev info">S6</span>Trzy filtry „tekst angielski”</td><td>Różne definicje w potoczne-03, ccrawl-02 i metoda-01.</td></tr>
+<tr><td><span class="sev info">S7</span>Progi hostów: B6 ≥10, Z2(b) ≥5, ccrawl-03 ≥5</td><td>Potrzebna jedna tabela progów.</td></tr>
+<tr><td><span class="sev info">S8</span>„ministra”: RJP nietypowa, DS ją ma</td><td>Karta pokazuje oba dowody.</td></tr>
+<tr><td><span class="sev critical">S9</span>Konteksty „tylko lokalnie” vs cytaty w potoczne-01/03</td><td>Pliki są w <code>origin/main</code>; decyzja D10.</td></tr>
+</table>
+</div>
+
+<h2 id="spostrzezenia">Kluczowe spostrzeżenia</h2>
+<div class="grid3">
+  <div class="card"><b>1. Dwa typy, dwa progi</b><p>Wulwa ma 0,006–0,016 ipm wobec szkicu B7 ≥0,05. Pod Z3 odpada, Z2 jest blisko progu.</p></div>
+  <div class="card"><b>2. Napisy to detektor, nie dowód</b><p>Mają duplikaty, kalkę tłumacza i nie mają licencji. Nadają się do kolejki, nie do karty.</p></div>
+  <div class="card"><b>3. CC to potwierdzenie</b><p>Do kart wystarczy próbka 1–2 mld słów z filtrem znaczenia. Do wykrywania potrzebny jest filtr spamu.</p></div>
+  <div class="card"><b>4. Gra zawęża decyzję</b><p>B1 odcina apostrof, myślnik i q/v/x. <code>bumer</code> m1 dodaje 1 formę, <code>ministra</code> 4, <code>boomer</code> 11.</p></div>
+  <div class="card"><b>5. Feminatywy: pula z pułapką wzoru</b><p>DS ∩ zaimki.pl to 122 formy; w tezaurusie DS jest 270 form <code>-lożka</code>, część bez użycia.</p></div>
+  <div class="card"><b>6. SJP.pl: ryzyko małe</b><p>W sieci ≤0,008%. W DS niskie, ale nie zerowe. <code>pl_PL.dic</code> odpada.</p></div>
+</div>
+
+<h2 id="swot">SWOT</h2>
+<div class="grid2 swot">
+  <div class="card" style="border-left:4px solid var(--ok)"><h3>Mocne</h3>DS daje datowany dowód ręczny; czyste BAN-PL i plwiki; kontrole dodatnie datują się poprawnie; ryzyko SJP.pl małe.</div>
+  <div class="card" style="border-left:4px solid var(--crit)"><h3>Słabe</h3>Najlepszy sygnał bez licencji; pomiary częściowe; szum znaczeniowy; brak filtra spamu.</div>
+  <div class="card" style="border-left:4px solid var(--info)"><h3>Szanse</h3>Próbka 1–2 mld słów da karty; tezaurus DS jest kwartalny jak ADR-018; KP od 24.12.2025 przyspieszy feminatywy w korpusach.</div>
+  <div class="card" style="border-left:4px solid var(--warn)"><h3>Zagrożenia</h3>Opt-out rośnie; ryzyko prawne cytatów; zarzut stronniczości; copyleft/OQL przy imporcie.</div>
+</div>
+
+<h2 id="proces">Proces: jak włączyć źródła do #16</h2>
+<div class="card">
+<p>Dwa nowe strumienie wpadają do tej samej kolejki: <b>potoczne/internet</b> (warstwa liczbowa) i <b>zmiana świadoma</b> (typ dowodu). Oba działają poza buildem. Słowo wchodzi tylko decyzją użytkownika przez suplement v2 (D1-A, ADR-016). Rytm kwartalny zostaje (ADR-018).</p>
+<div class="tbl-wrap"><table>
+<tr><th>#</th><th>Bramka</th><th>Próg v2</th></tr>
+<tr><td>B1</td><td>alfabet gry</td><td>twardo</td></tr>
+<tr><td>B2</td><td>brak w SGJP i suplemencie</td><td>twardo</td></tr>
+<tr><td>B3</td><td>mała litera poza początkiem zdania</td><td>≥70%</td></tr>
+<tr><td>B4</td><td>dokument polski</td><td>≥50% surowych zostaje</td></tr>
+<tr><td>B5a / B5b</td><td>odmiana / kontekst</td><td>≥10% i ≥2 formy / ≥70%</td></tr>
+<tr><td>B6</td><td>rozrzut</td><td>≥10 hostów, największy ≤35%</td></tr>
+<tr><td>B7</td><td>częstość</td><td>tymczasowo ≥20 i ≥0,05 ipm</td></tr>
+<tr><td>B8</td><td>hosty wykluczone</td><td>tylko raport</td></tr>
+</table></div>
+<p><b>Z2:</b> dowód ręczny + jeden z warunków: (a) ≥3 użycia w korpusie z licencją, (b) ≥5 niezależnych hostów i ≥10 trafień, (c) publikacja redagowana. Podklasy: (a) feminatyw systemowy, (b) świadoma zmiana z użyciem, (c) forma normatywna, której nie dodajemy.</p>
+<p><b>Kolejka startowa:</b> wulwa, transpłciowy, transpłciowość, tranzycja, transfobia, ciałopozytywność, chirurżka, kardiolożka oraz kontrole boomer/bumer, cringe/krindż, ghosting.</p>
+</div>
+
+<h2 id="decyzje">Decyzje dla użytkownika</h2>
+<div class="card tbl-wrap">
+<table>
+<tr><th>#</th><th>Decyzja</th><th>Rekomendacja</th><th>Ryzyko</th></tr>
+<tr><td>D1</td><td>OpenSubtitles bez licencji tekstu</td><td class="rec">detektor lokalny; w karcie najwyżej liczba filmów + link</td><td>prawne; duplikaty; kalka</td></tr>
+<tr><td>D2</td><td>Hasło do archiwów BAN-PL</td><td class="rec">przyjąć lokalnie; liczby z CC BY; bez danych w repo</td><td>intencja autorów (anty-scraping/LLM)</td></tr>
+<tr><td>D3</td><td>CC / FineWeb-2 / HPLT (art. 26³, opt-out)</td><td class="rec">liczby + URL + data + własny opis; filtr opt-out</td><td>brak orzecznictwa; moment zastrzeżenia</td></tr>
+<tr><td>D4</td><td>Z1 / Z2 / Z3</td><td class="rec">Z2</td><td>Z1: słowa bez użycia; Z3: wycina cel</td></tr>
+<tr><td>D5</td><td>Tezaurus DS (GPL/LGPL)</td><td class="rec">sygnał lokalny</td><td>copyleft; formy ze wzoru</td></tr>
+<tr><td>D6</td><td>zaimki.pl (OQL)</td><td class="rec">nie używać w repo</td><td>warunki OQL na odbiorcach</td></tr>
+<tr><td>D7</td><td>Rodzaj cringe</td><td class="rec">oba tagi (adj nieodm. i n)</td><td>brak; 1 forma w grze</td></tr>
+<tr><td>D8</td><td>bumer jako homograf</td><td class="rec">osobne werdykty, karta wspólna</td><td>mylące „+1 forma”</td></tr>
+<tr><td>D9</td><td>Bramki B1–B8</td><td class="rec">v2 jako start; B7 tymczasowy</td><td>małe listy kalibracyjne</td></tr>
+<tr><td>D10</td><td>Cytaty z napisów i forum w publicznym repo</td><td class="rec">zastąpić opisem</td><td>już w <code>origin/main</code></td></tr>
+<tr><td>D11</td><td>Feminatywy hurtem czy pojedynczo</td><td class="rec">słowo po słowie</td><td>wzór daje słowa bez użycia</td></tr>
+<tr><td>D12</td><td>Źródła NC (Spokes, hate_speech_pl, blogi)</td><td class="rec">odłożyć</td><td>ocena komercyjności</td></tr>
+</table>
+</div>
+
+<h2 id="rekomendacje">Rekomendacje</h2>
+<div class="card">
+<ol>
+  <li>Decyzje D1–D4 z użytkownikiem (blokują resztę).</li>
+  <li>D10: usunąć cytaty z napisów i forum z <code>potoczne-01/03</code> po decyzji.</li>
+  <li>Przeliczyć ghosting z 9 formami; ujednolicić filtr angielski (B4).</li>
+  <li>Lista hostów z opt-out albo sprawdzenie hostów dowodów kandydata.</li>
+  <li>Próbka CC 1–2 mld słów z filtrem znaczenia i spamu; pomiar 8 kandydatów świadomej zmiany.</li>
+  <li>Przeczytać teksty, które DS cytuje dla wulwy (Z2(c)).</li>
+  <li>Napisy: liczyć filmy (IMDb ID), nie zdania.</li>
+  <li>Szkice ADR: warstwa potoczna, typ „zmiana świadoma”, polityka TDM.</li>
+</ol>
+</div>
+
+<h2 id="zalaczniki">Załączniki</h2>
+<details class="card"><summary>Prawo TDM (ccrawl-01, ccrawl-04): do decyzji, nie porada prawna</summary>
+<div class="tbl-wrap"><table>
+<tr><th>Czynność</th><th>Podstawa</th><th>Ocena</th></tr>
+<tr><td>Lokalne liczenie form</td><td>art. 26³ ust. 1, jeśli brak zastrzeżenia</td><td>dozwolone; kasować po pomiarze</td></tr>
+<tr><td>Publikacja liczb, lat, liczby domen</td><td>wynik TDM; ODC-By 4.3; HPLT CC0</td><td>niskie ryzyko</td></tr>
+<tr><td>URL + data dokumentu</td><td>fakt</td><td>niskie ryzyko, po sprawdzeniu opt-out</td></tr>
+<tr><td>Krótki kontekst</td><td>art. 29 + 34 + 35</td><td>ryzyko średnie; nie publikować</td></tr>
+<tr><td>Redystrybucja próbek</td><td>brak podstawy</td><td>nie</td></tr>
+</table></div>
+<p>Projekt nie jest organizacją badawczą z art. 26², więc stosuje się art. 26³ i art. 4 dyrektywy. Opt-out (200 hostów): TDMRep 0/200; CCBot 34/100 największych i 11/100 losowych; jawny tekst TDM 8/200. Ocena syntezy (pewność niska): napisy to amatorskie tłumaczenia filmów, więc ich dostępność „zgodnie z prawem” (art. 4 ust. 1 dyrektywy) jest niepewna.</p>
+</details>
+<details class="card"><summary>Świadoma zmiana: DS, zaimki.pl, RJP, publikacje</summary>
+<ul>
+<li>DS: wulwa id 226245, dodana I–II 2024; ma cringe, boomer, hejt, lockdown, antyszczepionkowca, nie ma ghostingu. Prawa zastrzeżone.</li>
+<li>Tezaurus DS 2026-10-01: GPL-2.0+ (txt) / LGPL 2.1 (README); ma wulwę; 1761 haseł bez lematu w SGJP.</li>
+<li>zaimki.pl: OQL v1.4; 2439 feminatywów spoza SGJP, 8 ze źródłami.</li>
+<li>RJP 2019 (model <code>-ka</code>, <code>-ini/-yni</code>; „ministra” nietypowa) i opinia 2026 (ogłoszenia): reguła dla klasy.</li>
+<li>5 publikacji, w żadnej nie ma wulwy. Słowo Roku 2024 „koalicja”, 2025 „dron”: tylko sygnał.</li>
+</ul>
+</details>
+<details class="card"><summary>Pliki ustaleń i URL</summary>
+<p><code>analysis/findings/</code>: potoczne-01..03, ccrawl-01..04, swiadoma-01..05, metoda-01..05.</p>
+<ul>
+<li><a href="https://dobryslownik.pl/slowo/wulwa/226245/">DS: wulwa</a> · <a href="https://dobryslownik.pl/pobierz/">tezaurus DS</a></li>
+<li><a href="https://zaimki.pl/license">zaimki.pl OQL</a></li>
+<li><a href="https://api.sejm.gov.pl/eli/acts/DU/2025/24/text.pdf">Pr. aut. Dz.U. 2025 poz. 24</a></li>
+<li><a href="https://huggingface.co/datasets/HuggingFaceFW/fineweb-2">FineWeb-2</a> · <a href="https://hplt-project.org/datasets/v3.0">HPLT v3</a></li>
+<li><a href="https://opus.nlpl.eu/legacy/OpenSubtitles-v2018.php">OPUS OpenSubtitles</a> · <a href="https://github.com/NASK-NLP/BAN-PL">BAN-PL</a></li>
+</ul>
+</details>
+<details class="card"><summary>Luki</summary>
+<ul>
+<li>Pomiary częściowe: kafeteria 13%, plwiki 54%, HPLT <code>7_1</code> przerwany, próbka CC 8×.</li>
+<li>Brak pomiaru kandydatów świadomej zmiany w sieci.</li>
+<li>Nie sprawdzono regulaminów forów ani hostów dowodów.</li>
+<li>Wayback niedostępny, więc daty w DS wzięto z bloga i z id haseł.</li>
+<li>Brak <code>podsumowanie.md</code> i szkiców ADR przewidzianych w planie.</li>
+<li>Ok. 32 MB małych pobrań w scratchpadzie czeka na ręczne skasowanie.</li>
+</ul>
+</details>
+</main>
+</body>
+</html>
