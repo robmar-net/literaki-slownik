@@ -1,6 +1,6 @@
 orchestrator:
   started_phase: phase-1
-  completed_phases: [phase-1, phase-2]
+  completed_phases: [phase-1, phase-2, phase-3]
   failed_phases: []
   options:
     html_output: true
@@ -25,3 +25,15 @@ research_context:
   confidence_level: srednia-wysoka
   phase_summaries:
     phase-1: "Synteza gotowa: outputs/research-report.md; decyzje D1–D4 i wulwa otwarte."
+  phase_4_decisions:
+    D1: "A — suplement v2, słowo po słowie, decyzją użytkownika (próba: antyszczepionkowiec)"
+    D2: "A — podbić SGJP do 20261018 teraz, osobno"
+    D3: "A — nowy ADR: NKJP 1grams także do miary wzrostu, tylko poza buildem"
+    D4: "A — PPC + ParlaMint + Leipzig poza buildem; PPC do źródeł projektu (po pomiarze korpusy-04-zysk.md)"
+    P1: "B — przegląd kwartalny razem z odświeżeniem PPC"
+    D5: "odłożone do osobnego badania o języku potocznym; użytkownik: wulwa nie mieści się w prostych regułach (ani potoczna, ani poselska), ale to istotna zmiana językowa, dlatego trafiła do Dobrego Słownika"
+    uwagi_uzytkownika:
+      - "przymiotniki od nazw miejsc: dopuszczalne (norma 2026 ich nie wyklucza; sprawdzić w dokumencie RJP)"
+      - "nazwy leków i terminy fachowe: tylko gdy weszły do języka potocznego"
+      - "kandydaci tylko z PPC: czy wymagać potwierdzenia w drugim korpusie — do zbadania w projekcie"
+    nastepne_badanie: "źródła języka potocznego (i świadomych zmian językowych, np. Dobry Słownik)"
