@@ -1,0 +1,25 @@
+orchestrator:
+  started_phase: phase-1
+  completed_phases: []
+  failed_phases: []
+  options:
+    html_output: true
+    brainstorming_enabled: null
+    design_enabled: null
+  created: 2026-11-03T09:06:56Z
+  updated: 2026-11-03T09:06:56Z
+  task_path: .maister/tasks/research/2026-11-03-wulwa-brak-w-zrodlach
+task:
+  title: "Dlaczego „wulwa” nie ma w SGJP, KWJP i Słowosieci"
+  description: "Ustalić, czemu rzeczownik „wulwa” (srom) jest w SJP.pl, a brak go w SGJP, KWJP i jako lemat w Słowosieci 4.5; rekomendacja dla sgjp-supplement.tab i list STANDARD/BROAD."
+  status: in_progress
+  tags: [sgjp, kwjp, plwordnet, braki]
+research_context:
+  research_type: mixed
+  research_question: "Dlaczego „wulwa” nie występuje w SGJP, KWJP i jako lemat Słowosieci 4.5, choć SJP.pl ją notuje? Luka, celowe pominięcie, pisownia czy frekwencja? Dodać do uzupełnienia czy nie?"
+  scope:
+    included: [cache/sgjp, cache/sgjp-docs, cache/kwjp, cache/nkjp, cache/plwordnet, config/generator, docs, lexicony serwera, publiczne opisy źródeł]
+    excluded: [kontakt z autorami zasobów, Wikisłownik (odroczony), zmiany w listach]
+    constraints: [po polsku, zwięźle, bez nazw innych gier słownych poza Literaki i Kurnik, dane surowe tylko do odczytu, python3 -I]
+  project_doc_paths: []
+  phase_summaries: {}

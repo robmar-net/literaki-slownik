@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raport badania — wulwa poza źródłami</title>
+<style>
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+details > summary { cursor:pointer; font-weight:600; }
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+.conf { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; padding:1.5px 7px; border-radius:99px; }
+.conf.high { background:var(--ok-soft); color:var(--ok); }
+.conf.mid { background:var(--warn-soft); color:var(--warn); }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media (max-width:640px){ .grid2 { grid-template-columns:1fr; } }
+.rec { border:2px solid var(--accent); }
+.tbl { overflow-x:auto; }
+</style>
+</head>
+<body>
+<nav class="crumbs">
+  <a href="../dashboard.html">← Dashboard</a>
+  <span class="here">Raport</span>
+  <a href="research-report.md" target="_blank" rel="noopener" class="md">md ↗</a>
+</nav>
+<header>
+  <h1>Dlaczego „wulwy” nie ma w SGJP, KWJP i Słowosieci</h1>
+  <span class="badge">research-report</span> <span style="color:var(--dim);font-size:13px">2026-11-03 · badanie mieszane</span>
+</header>
+<div class="tiles">
+  <div class="tile"><b>6</b><span>ustaleń</span></div>
+  <div class="tile"><b>6</b><span>plików źródłowych</span></div>
+  <div class="tile"><b>1/4</b><span>hipoteza przyjęta</span></div>
+  <div class="tile"><b>0</b><span>NKJP: rzeczownik</span></div>
+  <div class="tile"><b>wysoka</b><span>pewność</span></div>
+</div>
+
+<section class="tldr card">
+  <h2 style="margin-top:0">TL;DR</h2>
+  <ul>
+    <li>„Wulwy” nie ma, bo jest za rzadka. To nowa kalka z ang. <i>vulva</i>. NKJP: 0 (nie licząc nazwiska Wulw), KWJP: poniżej 5.</li>
+    <li>To nie jest luka eksportu. SGJP online, WSJP, SJP PWN i Doroszewski też jej nie mają. Pisownia ani temat tego nie tłumaczą.</li>
+    <li>Polskie słowo to „srom”. Słowosieć tłumaczy <i>vulva</i> jako „srom”.</li>
+    <li>Rekomendacja: <b>nie dodawać</b> do <code>sgjp-supplement.tab</code> (wariant A). Wpis dałby 10 słów w STANDARD i BROAD. Jedynym uzasadnieniem byłoby SJP.pl.</li>
+  </ul>
+  <h2>Kluczowe decyzje</h2>
+  <ul>
+    <li>Do decyzji użytkownika: A (nie dodawać, rekomendowany), B (wyjątek, +10 form), C (reguła lub nowe źródło, dziś bez wpływu na wulwę).</li>
+    <li>Precedens się/siebie nie pasuje. Tamte słowa są w opisie SGJP i mają w KWJP ponad 200 tys. wystąpień, a wulwy nie ma w żadnym z tych źródeł.</li>
+  </ul>
+  <h2>Otwarte pytania / ryzyka</h2>
+  <ul>
+    <li>Wulwodynia (11 form, lemat Słowosieci): traktować tak samo? Rekomendacja: tak.</li>
+    <li>Słowo może się upowszechnić (poradniki z lat 2020+). Wrócić do niego przy nowym SGJP albo KWJP.</li>
+    <li>Status w bazie SGJP (<code>cand</code>) jest niewidoczny. Nie zmienia to wniosku.</li>
+  </ul>
+</section>
+
+<h2 id="hip">Hipotezy</h2>
+<div class="card tbl"><table>
+<tr><th>Hipoteza</th><th>Za</th><th>Przeciw</th><th>Werdykt</th></tr>
+<tr><td><b>H1</b> Luka eksportu (jak się/siebie)</td><td>eksport pomija <code>cand</code>, <code>litt</code>, <code>antyMorfeusz</code></td><td>SGJP online pusty; brak w słownikach źródłowych i w KWJP</td><td><span class="fail">odrzucona</span> <span class="conf high">wysoka</span></td></tr>
+<tr><td><b>H2</b> Celowe pominięcie (termin, rejestr)</td><td>terminy „w pewnym zakresie”; wulwodynia ma <code>specj.</code></td><td>brak takiej reguły; srom, wagina, łechtaczka są</td><td><span class="fail">odrzucona</span> <span class="conf mid">średnia</span></td></tr>
+<tr><td><b>H3</b> Pisownia (vulva/wulwa)</td><td>—</td><td>„vulva” też nie jest hasłem; vulva → srom</td><td><span class="fail">odrzucona</span> <span class="conf high">wysoka</span></td></tr>
+<tr><td><b>H4</b> Frekwencja</td><td>NKJP 0, KWJP &lt;5, brak w słownikach ogólnych, zasada SGJP o powtarzalności</td><td>—</td><td><span class="pass">przyjęta</span> <span class="conf high">wysoka</span></td></tr>
+</table></div>
+
+<h2 id="ust">Ustalenia</h2>
+<div class="card tbl"><table>
+<tr><th>#</th><th>Ustalenie</th><th>Kategoria</th><th>Pewność</th><th>Źródła</th></tr>
+<tr><td>U1</td><td>Frekwencja zerowa (NKJP: 6 tokenów = nazwisko Wulw)</td><td>pomiar</td><td><span class="conf high">wysoka</span></td><td>4</td></tr>
+<tr><td>U2</td><td>SGJP ma temat (69 <code>anat.</code>), nie ma słowa</td><td>pokrycie</td><td><span class="conf high">wysoka</span></td><td>3</td></tr>
+<tr><td>U3</td><td>Zasada „dostatecznie częstej powtarzalności”</td><td>zasady</td><td><span class="conf high">wysoka</span></td><td>2</td></tr>
+<tr><td>U4</td><td>Słowosieć: vulva → {srom}</td><td>pokrycie</td><td><span class="conf high">wysoka</span></td><td>3</td></tr>
+<tr><td>U5</td><td>Tylko SJP.pl, z listy turniejowej innej gry</td><td>zewnętrzne</td><td><span class="conf high">wysoka</span></td><td>2</td></tr>
+<tr><td>U6</td><td>Precedens suplementu nie pasuje</td><td>reguły projektu</td><td><span class="conf high">wysoka</span></td><td>3</td></tr>
+</table></div>
+
+<div class="card tbl">
+<b>Frekwencja (kontrola: srom)</b>
+<table>
+<tr><th>Źródło</th><th>wulwa</th><th>vulva</th><th>wulwodynia</th><th>srom</th></tr>
+<tr><td>KWJP (lematy, all)</td><td>0 (&lt;5)</td><td>0 (&lt;5)</td><td>0 (&lt;5)</td><td>92</td></tr>
+<tr><td>NKJP 1grams (lokalnie)</td><td>6 = nazwisko</td><td>4</td><td>0</td><td>110</td></tr>
+<tr><td>PELCRA zrównoważony</td><td>2 (+ wulw 4), nazwisko</td><td>2</td><td>–</td><td>44 (lemat 103)</td></tr>
+<tr><td>PELCRA cały (1,52 mld)</td><td>5, nazwisko; inne formy 0</td><td>10</td><td>1</td><td>204 (lemat 478)</td></tr>
+</table>
+<p style="color:var(--dim);font-size:13px">Uzgodnienie: lokalne 1grams to zrównoważony podkorpus bez kontekstu. Liczby (2 i 4) są identyczne z PELCRA, a konkordancje PELCRA to „Jana Wulwa”, „Jan Wulw”. Rzeczownik ma 0 wystąpień.</p>
+</div>
+
+<h2 id="war">Warianty</h2>
+<div class="grid2">
+  <div class="card rec"><span class="badge">rekomendowany</span><h3>A. Nie dodawać</h3>STANDARD 0 · BROAD 0. W pełni zgodny z regułami. Zapis „luka źródła, frekwencja” i powrót przy nowym SGJP lub KWJP.</div>
+  <div class="card"><h3>B. Wyjątek w suplemencie</h3>STANDARD +10 · BROAD +10. Łamie §3.2 promptu v3 i wariant A; byłby pierwszym leksemem spoza SGJP.</div>
+  <div class="card"><h3>C. Reguła lub nowe źródło</h3>Wspólnie z <code>antydumpingowy</code>. Dziś 0 form, bo żadne dopuszczone źródło nie ma wulwy. Duży wysiłek.</div>
+</div>
+<details class="card"><summary>Co wymagałby wiersz w suplemencie (B)</summary>
+<ol>
+<li>Decyzja użytkownika o rozszerzeniu zasobu leksemów i nowy plik decyzji z dowodami. Dowodów z dopuszczonych źródeł dziś nie ma.</li>
+<li>11 wierszy w <code>sgjp-supplement.tab</code> wzorem <code>wagina</code> (<code>subst:…:f</code>, <code>nazwa_pospolita</code>, opcjonalnie <code>anat.</code>) i zmiana nagłówka.</li>
+<li><code>sources.json</code> (<code>sgjp-supplement-v1</code>): nowy <code>sha256</code>; <code>expected_counts</code> records 4 → 15, lexemes 2 → 3, reszta do przeliczenia; <code>evidence</code> z sha256 decyzji; poprawka <code>dependencies</code>.</li>
+<li>Nowy build i benchmark. Wycofanie: usunąć wiersze i zbudować ponownie.</li>
+</ol>
+<p>Formy (10): wulwa, wulwy, wulwie, wulwę, wulwą, wulwo, wulw, wulwom, wulwami, wulwach. To 11 wierszy, bo „wulwy” ma dwa tagi. Dziś żadnej nie ma w <code>standard.txt</code> ani <code>broad.txt</code> (v31).</p>
+</details>
+
+<h2 id="swot">SWOT dla „dodać”</h2>
+<div class="grid2">
+  <div class="card"><b class="pass">Mocne</b><br>Słowo jest w poradnikach; regularna odmiana (wzór <code>wagina</code>).</div>
+  <div class="card"><b class="fail">Słabe</b><br>Zero poświadczeń w dopuszczonych źródłach; jedynym dowodem jest SJP.pl.</div>
+  <div class="card"><b style="color:var(--info)">Szanse</b><br>Możliwe upowszechnienie w kolejnych wydaniach SGJP i KWJP.</div>
+  <div class="card"><b style="color:var(--warn)">Zagrożenia</b><br>Łamie §3.2 i wariant A; precedens dla każdego słowa z różnic SJP.</div>
+</div>
+
+<h2 id="odp">Odpowiedź</h2>
+<div class="card">„Wulwy” nie ma, bo nie jest poświadczona w tekstach, na których stoją SGJP, KWJP i Słowosieć. Słowniki ogólne też jej nie notują. SGJP przyjmuje zapożyczenie dopiero przy „dostatecznie częstej powtarzalności”, a polskim terminem jest „srom”. SJP.pl ma to hasło z listy turniejowej innej gry. Wulwa nie spełnia kryterium precedensu suplementu.</div>
+
+<details class="card"><summary>Źródła i luki</summary>
+<ul>
+<li><a href="../analysis/findings/local-frekwencje-sgjp-suplement.md" target="_blank" rel="noopener">local-frekwencje-sgjp-suplement.md</a></li>
+<li><a href="../analysis/findings/local-slowosiec-iate.md" target="_blank" rel="noopener">local-slowosiec-iate.md</a></li>
+<li><a href="../analysis/findings/docs-sgjp-zasady-doboru.md" target="_blank" rel="noopener">docs-sgjp-zasady-doboru.md</a></li>
+<li><a href="../analysis/findings/docs-korpusy-slowosiec-precedensy.md" target="_blank" rel="noopener">docs-korpusy-slowosiec-precedensy.md</a></li>
+<li><a href="../analysis/findings/external-slowniki.md" target="_blank" rel="noopener">external-slowniki.md</a></li>
+<li><a href="../analysis/findings/external-korpusy-uzycie.md" target="_blank" rel="noopener">external-korpusy-uzycie.md</a></li>
+<li><a href="../analysis/synthesis.md" target="_blank" rel="noopener">synthesis.md</a></li>
+</ul>
+<p>Luki:</p>
+<ul>
+<li>brak liczbowego progu SGJP;</li>
+<li>status w Kuźni jest niewidoczny;</li>
+<li>historia hasła w SJP.pl jest nieznana;</li>
+<li>frekwencji w internecie nie zmierzono;</li>
+<li>nie sprawdzono, czy listy v31 to ten sam build co dawg 20261014.</li>
+</ul>
+</details>
+</body>
+</html>
