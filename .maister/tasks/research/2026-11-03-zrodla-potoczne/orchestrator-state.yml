@@ -1,18 +1,18 @@
 orchestrator:
   started_phase: phase-1
-  completed_phases: [phase-1, phase-2, phase-3, phase-4]
+  completed_phases: [phase-1, phase-2, phase-3, phase-4, phase-5, phase-6]
   failed_phases: []
   options:
     html_output: true
     brainstorming_enabled: true
     design_enabled: true
   created: 2026-11-03T14:56:26Z
-  updated: 2026-11-04T08:39:27Z
+  updated: 2026-11-04T08:52:46Z
   task_path: .maister/tasks/research/2026-11-03-zrodla-potoczne
 task:
   title: "Źródła słów potocznych, internetowych i świadomych zmian językowych"
   description: "Wiarygodne dowody na słowa niewidoczne w PPC/ParlaMint/Leipzig (wulwa, ghosting, cringe, boomer) i jak ich użyć w literaki-slownik."
-  status: in_progress
+  status: completed
   tags: [potoczne, internet, zmiany-swiadome, licencje]
   issue: "literaki-slownik #16"
 research_context:
@@ -51,3 +51,11 @@ research_context:
         - area: "5. Pisownie i homografy"
           chosen_approach: "5A: karta wspólna, osobny dowód i werdykt dla każdej pisowni; formy niegrywalne tylko jako dowód życia leksemu; bez własnych spolszczeń; cringe z dwoma tagami (adj nieodm. + subst n)"
       deferred_ideas: ["Fora SpeakLeash", "źródła NC (Spokes, hate_speech_pl)", "CC jako detektor (4B)", "lista blokad dla całej próbki (1B)", "sondy essa/zoomer/dziaders", "import danych zaimki.pl (OQL)"]
+    phase-5:
+      summary: "Projekt: potok poza buildem, 9 komponentów, 13 kroków, szkice ADR-019–023."
+      artifacts: [outputs/high-level-design.md, outputs/decision-log.md]
+      user_decisions:
+        content_signal: "Content-Signal ai-train=no: flaga hosta, bez wykluczania (2026-11-04)"
+    phase-6:
+      summary: "Podsumowanie w outputs/podsumowanie.md; komentarz w literaki-slownik #16."
+      artifacts: [outputs/podsumowanie.md]

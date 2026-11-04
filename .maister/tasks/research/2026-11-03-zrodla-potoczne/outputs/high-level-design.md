@@ -19,7 +19,7 @@ Data: 2026-11-04 · Zgłoszenie: #16 · Wybory: 1A, 2A (Z1) + zaimki.pl, 3C, 4A,
 
 ## Otwarte pytania / ryzyka
 - **Ocena prawna to odczyt zbieracza, nie porada prawna** (ccrawl-01). Nie wiadomo, czy art. 26³ liczy opt-out z dnia crawla, czy z dnia pobrania. Przyjmujemy dzień pobrania (ccrawl-04).
-- **`Content-Signal: ai-train=no`** (12/100 dużych hostów, ccrawl-04) dotyczy treningu AI, nie każdego TDM. Nie ma go na liście z 1A. Propozycja: zapisać jako flagę hosta, nie wykluczać. Potwierdza użytkownik.
+- **`Content-Signal: ai-train=no`** (12/100 dużych hostów, ccrawl-04) dotyczy treningu AI, nie każdego TDM. Nie ma go na liście z 1A. Rozstrzygnięte 2026-11-04: flaga hosta, bez wykluczania.
 - **Z1 wpuszcza słowa bez zmierzonego użycia**, jeśli mają hasło DS (metoda-02). Użytkownik przyjął to ryzyko. Karta pokazuje liczby, jeśli są, ale nie stawia progu.
 - **Lista lematów z zaimki.pl w repo.** Partia 122 to przecięcie z tezaurusem DS (GPL/LGPL), więc każdy lemat ma wolne źródło. Słowo tylko z zaimki.pl trafia do repo pojedynczo, z własnym dowodem.
 - **Neutratywy:** suplement wymaga wzoru fleksji SGJP (ADR-016). Gdy nie ma pasującego wzoru, słowo czeka.

@@ -19,7 +19,7 @@ Data: 2026-11-04 · Zgłoszenie: #16 · Podstawa: `solution-exploration.md`, `or
 - Numery przesuną się, jeśli ADR z #16 dostaną inne numery albo inna praca zajmie 019–023.
 - Ocena prawna w ADR-019 to odczyt zbieracza, nie porada prawna (ccrawl-01).
 - ADR-021 przyjmuje ryzyko słów bez zmierzonego użycia (metoda-02 § 2).
-- `Content-Signal: ai-train=no`: flaga hosta czy wykluczenie? Propozycja w ADR-019: flaga. Potwierdza użytkownik.
+- `Content-Signal: ai-train=no`: flaga hosta czy wykluczenie? Rozstrzygnięte 2026-11-04: flaga hosta, bez wykluczania (ADR-019).
 
 ---
 
