@@ -40,4 +40,4 @@
 - Wszystkie formy sprawdzone: żadnej nie ma w LL-PL v30 (BROAD i STANDARD).
 
 ## Werdykt
-- [ ] dodać / odrzucić / odłożyć — decyzja użytkownika
+- [x] **dodać** — decyzja użytkownika 2026-11-04 (wybór próby v2 zamiast `antyszczepionkowiec`, który ma 19 liter i odpada w limicie 15)
