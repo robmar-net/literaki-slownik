@@ -46,4 +46,4 @@
 - (b) z DS, bez SGJP: transpłciowy, transpłciowość, tranzycja, transfobia, ciałopozytywność.
 - (a) z DS, bez SGJP: chirurżka, kardiolożka, ministra (tylko nowe formy), wiceministerka, ziomalka.
 - (a) bez DS: premierka, sędzini. Potrzebny korpus.
-- (c) odpadają: onu, jenu, zrobiłum, byłum, osobatywy typu „osoba studencka” (RJP: „jeszcze nie … standard”).
+- (c) odpadają: onu, jenu, zrobiłum, byłum, osobatywy typu „osoba studencka” (RJP: jeszcze nie standard języka publicznego).

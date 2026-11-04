@@ -75,29 +75,31 @@ details > summary { cursor:pointer; font-weight:600; }
 
 <div class="tiles">
   <div class="tile"><b>17</b><span>pliki ustaleń</span></div>
-  <div class="tile"><b>18</b><span>źródła potoczne</span></div>
+  <div class="tile"><b>17</b><span>źródła potoczne</span></div>
   <div class="tile"><b>662,7 mln</b><span>słów CC</span></div>
-  <div class="tile"><b>12</b><span>decyzji</span></div>
+  <div class="tile"><b>10</b><span>decyzji otwartych</span></div>
+  <div class="tile"><b>2</b><span>rozstrzygnięte</span></div>
   <div class="tile"><b>średnia</b><span>pewność</span></div>
 </div>
 
 <section class="tldr card">
   <h3>TL;DR</h3>
   <ul>
-    <li>Nie ma jednego źródła. Dowód to <b>trzy części</b>: Dobry słownik (DS, dowód ręczny), FineWeb-2/HPLT (tylko liczby, art. 26³ pr. aut.) oraz małe źródła z czystą licencją (BAN-PL, dyskusje plwiki). Napisy mają najmocniejszy sygnał (7/7 kontroli), ale nie mają licencji tekstu, więc tylko pomiar lokalny.</li>
+    <li>Nie ma jednego źródła. Dowód to <b>trzy części</b>: Dobry słownik (DS, dowód ręczny), FineWeb-2/HPLT (tylko liczby, art. 26³ pr. aut.) oraz dyskusje plwiki, jedyne źródło potoczne z czystą licencją tekstu (słabe: mało potoczności). Napisy mają najmocniejszy sygnał (7/7 kontroli), ale nie mają licencji tekstu, więc tylko pomiar lokalny.</li>
     <li><b>Wulwa ma drogę dowodu:</b> DS (od I–II 2024), tezaurus DS, 6 hostów w sieci (2018–2024), dyskusje plwiki (2023). Rekomendacja: typ „zmiana świadoma” z progiem <b>Z2</b>.</li>
     <li><b>Common Crawl potwierdza podejrzane słowo, ale go nie odkrywa:</b> ok. 4% nowych grup to słowa potoczne, ok. 40% to spam i zlepki.</li>
-    <li>Do decyzji jest 10 punktów (D1–D10) i 2 dodatkowe (D11–D12). Liczby z sieci są wstępne: liczone przed filtrem opt-out, a ghosting jest zaniżony.</li>
+    <li>BAN-PL wycofany decyzją użytkownika 2026-11-04 (autorzy chronią archiwa hasłem przed automatycznym zbieraniem); liczby usunięte.</li>
+    <li><b>Rozstrzygnięte 2026-11-04:</b> D2 i D10. Do decyzji zostaje 10 punktów. Liczby z sieci są wstępne: liczone przed filtrem opt-out, a ghosting jest zaniżony.</li>
   </ul>
   <h3>Kluczowe decyzje (rekomendacje)</h3>
   <ul>
     <li><b>D1</b> OpenSubtitles: tylko lokalny detektor; w karcie liczba filmów i link, bez cytatów.</li>
-    <li><b>D2</b> BAN-PL (hasło): przyjąć użycie lokalne; liczby z atrybucją CC BY 4.0.</li>
+    <li><b>D2</b> <span class="sev info">rozstrzygnięte</span> archiwa chronione hasłem: wycofane.</li>
     <li><b>D3</b> CC / FineWeb-2 / HPLT: tylko liczby, URL i data z własnym opisem; konteksty lokalnie; najpierw opt-out hostów.</li>
     <li><b>D4</b> Zmiana świadoma: Z2.</li>
     <li><b>D5</b> Tezaurus DS: sygnał lokalny, bez importu. <b>D6</b> zaimki.pl: nie używać w repo.</li>
     <li><b>D7</b> cringe: oba tagi (adj nieodm. i n). <b>D8</b> bumer/boomer: osobne werdykty.</li>
-    <li><b>D9</b> Bramki: v2 jako start, B7 tymczasowy. <b>D10</b> Cytaty z napisów i forum w publicznym repo: zastąpić opisem.</li>
+    <li><b>D9</b> Bramki: v2 jako start, B7 tymczasowy. <b>D10</b> <span class="sev info">rozstrzygnięte</span> cytaty z tekstów bez licencji zastąpione opisem.</li>
   </ul>
   <h3>Otwarte pytania / ryzyka</h3>
   <ul>
@@ -106,6 +108,7 @@ details > summary { cursor:pointer; font-weight:600; }
     <li>Próbka CC 8× zamiast 10×; <code>ccrawl-03</code> na danych pośrednich; ghosting liczony z 4 form zamiast 9.</li>
     <li>Teksty, które DS cytuje dla wulwy, nie zostały przeczytane bezpośrednio.</li>
     <li>Czy podklasa (b) mieści się w zasadach dopuszczalności Kurnika: decyzja użytkownika.</li>
+    <li>Stare commity w <code>origin/main</code> (<code>2d14fa6</code>…<code>719ce1a</code>) nadal zawierają usunięte cytaty i liczby. Użytkownik wybrał 2026-11-04 opis bez przepisywania historii Git.</li>
   </ul>
 </section>
 
@@ -117,7 +120,7 @@ details > summary { cursor:pointer; font-weight:600; }
 <table>
 <tr><th>#</th><th>Ustalenie</th><th>Kategoria</th><th>Pewność</th><th>Źródła</th></tr>
 <tr><td>F1</td><td>Napisy: najmocniejszy sygnał, brak licencji tekstu</td><td>potoczne</td><td><span class="sev conf h">wysoka</span> / prawo <span class="sev conf l">niska</span></td><td>potoczne-01..03</td></tr>
-<tr><td>F2</td><td>BAN-PL i plwiki: czyste, ale małe lub mało potoczne</td><td>potoczne</td><td><span class="sev conf h">wysoka</span></td><td>potoczne-01..03</td></tr>
+<tr><td>F2</td><td>Dyskusje plwiki: jedyne czyste źródło potoczne, ale mało potoczne</td><td>potoczne</td><td><span class="sev conf h">wysoka</span></td><td>potoczne-01..03</td></tr>
 <tr><td>F3</td><td>Liczenie lokalne CC zgodne z art. 26³; publikacja liczb: niskie ryzyko</td><td>prawo</td><td><span class="sev conf m">średnia</span></td><td>ccrawl-01</td></tr>
 <tr><td>F4</td><td>Opt-out dziś częsty na dużych hostach (CCBot 34/100)</td><td>prawo</td><td><span class="sev conf m">średnia</span></td><td>ccrawl-04</td></tr>
 <tr><td>F5</td><td>Kontrole celu w sieci rzadkie i zaszumione</td><td>pomiar</td><td><span class="sev conf m">średnia</span></td><td>ccrawl-02</td></tr>
@@ -134,7 +137,6 @@ details > summary { cursor:pointer; font-weight:600; }
 <table>
 <tr><th>Źródło</th><th>Licencja tekstu</th><th>Kontrole</th><th>Daty</th><th>Ocena</th></tr>
 <tr><td>OpenSubtitles 2022–2023</td><td>brak („add a link”)</td><td>7 / 10 / 7 / 65</td><td>rok filmu</td><td><span class="sev warning">do decyzji</span> D1</td></tr>
-<tr><td>BAN-PL (Wykop)</td><td>CC BY 4.0, „strictly for research”, hasło</td><td>0 / 0 / 4 / 3 (hejt 31)</td><td>2019–06.2023</td><td><span class="sev info">ALLOWED*</span> D2</td></tr>
 <tr><td>plwiki, dyskusje (54%)</td><td>CC BY-SA 4.0</td><td>5 / 0 / 2 / 22 (okręty)</td><td>rok podpisu</td><td><span class="sev info">ALLOWED</span>, niska przydatność</td></tr>
 <tr><td>SpeakLeash kafeteria (13%)</td><td>„conditional license”</td><td>3 / 3 (technika) / 0 / 8 (guma)</td><td>brak</td><td><span class="sev warning">do decyzji</span>, odłożyć</td></tr>
 <tr><td>PolEval, hate_speech_pl, PolEmo, Common Voice</td><td>unknown / NC / CC BY / CC0</td><td>prawie same 0, kontrole dodatnie też 0 lub prawie 0</td><td>brak</td><td>mało przydatne</td></tr>
@@ -154,7 +156,6 @@ details > summary { cursor:pointer; font-weight:600; }
 <tr><td>OpenSubtitles 2022–2023</td><td>7 zdań, część to duplikaty</td><td>potoczne-03</td></tr>
 <tr><td>plwiki dyskusje / artykuły</td><td>7 (2023) / 158 (głównie zoologia)</td><td>potoczne-03</td></tr>
 <tr><td>kafeteria</td><td>3</td><td>potoczne-03</td></tr>
-<tr><td>BAN-PL</td><td>0 (hejt 43,5 ipm)</td><td>potoczne-03</td></tr>
 <tr><td>DS / tezaurus DS</td><td class="pass">tak / tak</td><td>swiadoma-01</td></tr>
 <tr><td>zaimki.pl / RJP / publikacje</td><td>tylko w 2 radach / brak / 0</td><td>swiadoma-02, -03</td></tr>
 <tr><td>ankieta 2022</td><td>1% deklaruje użycie; metoda nieznana</td><td>swiadoma-03</td></tr>
@@ -189,7 +190,7 @@ details > summary { cursor:pointer; font-weight:600; }
 <tr><td><span class="sev info">S6</span>Trzy filtry „tekst angielski”</td><td>Różne definicje w potoczne-03, ccrawl-02 i metoda-01.</td></tr>
 <tr><td><span class="sev info">S7</span>Progi hostów: B6 ≥10, Z2(b) ≥5, ccrawl-03 ≥5</td><td>Potrzebna jedna tabela progów.</td></tr>
 <tr><td><span class="sev info">S8</span>„ministra”: RJP nietypowa, DS ją ma</td><td>Karta pokazuje oba dowody.</td></tr>
-<tr><td><span class="sev critical">S9</span>Konteksty „tylko lokalnie” vs cytaty w potoczne-01/03</td><td>Pliki są w <code>origin/main</code>; decyzja D10.</td></tr>
+<tr><td><span class="sev info">S9</span>Konteksty „tylko lokalnie” vs cytaty w potoczne-01/03</td><td>Rozstrzygnięte (D10): zastąpione opisem; zostały w historii Git.</td></tr>
 </table>
 </div>
 
@@ -205,8 +206,8 @@ details > summary { cursor:pointer; font-weight:600; }
 
 <h2 id="swot">SWOT</h2>
 <div class="grid2 swot">
-  <div class="card" style="border-left:4px solid var(--ok)"><h3>Mocne</h3>DS daje datowany dowód ręczny; czyste BAN-PL i plwiki; kontrole dodatnie datują się poprawnie; ryzyko SJP.pl małe.</div>
-  <div class="card" style="border-left:4px solid var(--crit)"><h3>Słabe</h3>Najlepszy sygnał bez licencji; pomiary częściowe; szum znaczeniowy; brak filtra spamu.</div>
+  <div class="card" style="border-left:4px solid var(--ok)"><h3>Mocne</h3>DS daje datowany dowód ręczny; czyste dyskusje plwiki; kontrole dodatnie datują się poprawnie; ryzyko SJP.pl małe.</div>
+  <div class="card" style="border-left:4px solid var(--crit)"><h3>Słabe</h3>Najlepszy sygnał bez licencji; jedyne czyste źródło potoczne jest słabe; pomiary częściowe; szum znaczeniowy; brak filtra spamu.</div>
   <div class="card" style="border-left:4px solid var(--info)"><h3>Szanse</h3>Próbka 1–2 mld słów da karty; tezaurus DS jest kwartalny jak ADR-018; KP od 24.12.2025 przyspieszy feminatywy w korpusach.</div>
   <div class="card" style="border-left:4px solid var(--warn)"><h3>Zagrożenia</h3>Opt-out rośnie; ryzyko prawne cytatów; zarzut stronniczości; copyleft/OQL przy imporcie.</div>
 </div>
@@ -234,7 +235,7 @@ details > summary { cursor:pointer; font-weight:600; }
 <table>
 <tr><th>#</th><th>Decyzja</th><th>Rekomendacja</th><th>Ryzyko</th></tr>
 <tr><td>D1</td><td>OpenSubtitles bez licencji tekstu</td><td class="rec">detektor lokalny; w karcie najwyżej liczba filmów + link</td><td>prawne; duplikaty; kalka</td></tr>
-<tr><td>D2</td><td>Hasło do archiwów BAN-PL</td><td class="rec">przyjąć lokalnie; liczby z CC BY; bez danych w repo</td><td>intencja autorów (anty-scraping/LLM)</td></tr>
+<tr><td>D2</td><td>Archiwa chronione hasłem</td><td class="rec"><span class="sev info">rozstrzygnięte</span> wycofane (2026-11-04)</td><td>—</td></tr>
 <tr><td>D3</td><td>CC / FineWeb-2 / HPLT (art. 26³, opt-out)</td><td class="rec">liczby + URL + data + własny opis; filtr opt-out</td><td>brak orzecznictwa; moment zastrzeżenia</td></tr>
 <tr><td>D4</td><td>Z1 / Z2 / Z3</td><td class="rec">Z2</td><td>Z1: słowa bez użycia; Z3: wycina cel</td></tr>
 <tr><td>D5</td><td>Tezaurus DS (GPL/LGPL)</td><td class="rec">sygnał lokalny</td><td>copyleft; formy ze wzoru</td></tr>
@@ -242,7 +243,7 @@ details > summary { cursor:pointer; font-weight:600; }
 <tr><td>D7</td><td>Rodzaj cringe</td><td class="rec">oba tagi (adj nieodm. i n)</td><td>brak; 1 forma w grze</td></tr>
 <tr><td>D8</td><td>bumer jako homograf</td><td class="rec">osobne werdykty, karta wspólna</td><td>mylące „+1 forma”</td></tr>
 <tr><td>D9</td><td>Bramki B1–B8</td><td class="rec">v2 jako start; B7 tymczasowy</td><td>małe listy kalibracyjne</td></tr>
-<tr><td>D10</td><td>Cytaty z napisów i forum w publicznym repo</td><td class="rec">zastąpić opisem</td><td>już w <code>origin/main</code></td></tr>
+<tr><td>D10</td><td>Cytaty z tekstów bez licencji</td><td class="rec"><span class="sev info">rozstrzygnięte</span> zastąpione opisem (2026-11-04)</td><td>zostały w historii Git</td></tr>
 <tr><td>D11</td><td>Feminatywy hurtem czy pojedynczo</td><td class="rec">słowo po słowie</td><td>wzór daje słowa bez użycia</td></tr>
 <tr><td>D12</td><td>Źródła NC (Spokes, hate_speech_pl, blogi)</td><td class="rec">odłożyć</td><td>ocena komercyjności</td></tr>
 </table>
@@ -251,8 +252,8 @@ details > summary { cursor:pointer; font-weight:600; }
 <h2 id="rekomendacje">Rekomendacje</h2>
 <div class="card">
 <ol>
-  <li>Decyzje D1–D4 z użytkownikiem (blokują resztę).</li>
-  <li>D10: usunąć cytaty z napisów i forum z <code>potoczne-01/03</code> po decyzji.</li>
+  <li>Decyzje D1, D3, D4 z użytkownikiem (blokują resztę).</li>
+  <li>Historia Git zostaje bez zmian (decyzja 2026-11-04); nowe cytaty z tekstów bez licencji nie trafiają do repo.</li>
   <li>Przeliczyć ghosting z 9 formami; ujednolicić filtr angielski (B4).</li>
   <li>Lista hostów z opt-out albo sprawdzenie hostów dowodów kandydata.</li>
   <li>Próbka CC 1–2 mld słów z filtrem znaczenia i spamu; pomiar 8 kandydatów świadomej zmiany.</li>
@@ -290,7 +291,7 @@ details > summary { cursor:pointer; font-weight:600; }
 <li><a href="https://zaimki.pl/license">zaimki.pl OQL</a></li>
 <li><a href="https://api.sejm.gov.pl/eli/acts/DU/2025/24/text.pdf">Pr. aut. Dz.U. 2025 poz. 24</a></li>
 <li><a href="https://huggingface.co/datasets/HuggingFaceFW/fineweb-2">FineWeb-2</a> · <a href="https://hplt-project.org/datasets/v3.0">HPLT v3</a></li>
-<li><a href="https://opus.nlpl.eu/legacy/OpenSubtitles-v2018.php">OPUS OpenSubtitles</a> · <a href="https://github.com/NASK-NLP/BAN-PL">BAN-PL</a></li>
+<li><a href="https://opus.nlpl.eu/legacy/OpenSubtitles-v2018.php">OPUS OpenSubtitles</a></li>
 </ul>
 </details>
 <details class="card"><summary>Luki</summary>
@@ -300,7 +301,7 @@ details > summary { cursor:pointer; font-weight:600; }
 <li>Nie sprawdzono regulaminów forów ani hostów dowodów.</li>
 <li>Wayback niedostępny, więc daty w DS wzięto z bloga i z id haseł.</li>
 <li>Brak <code>podsumowanie.md</code> i szkiców ADR przewidzianych w planie.</li>
-<li>Ok. 32 MB małych pobrań w scratchpadzie czeka na ręczne skasowanie.</li>
+<li>Małe pobrania w scratchpadzie czekają na ręczne skasowanie.</li>
 </ul>
 </details>
 </main>

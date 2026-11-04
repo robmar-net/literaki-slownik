@@ -1,17 +1,19 @@
 # Synteza: źródła słów potocznych i świadomych zmian językowych
 
 ## TL;DR
-- **Nie ma jednego dobrego źródła.** Dowód składa się z trzech części: redagowany słownik (Dobry słownik, ręcznie), sieć ogólna (FineWeb-2/HPLT, tylko liczby) i małe korpusy z czystą licencją (BAN-PL, dyskusje plwiki). Napisy dają najmocniejszy sygnał, ale nie mają licencji tekstu.
+- **Nie ma jednego dobrego źródła.** Dowód składa się z trzech części: redagowany słownik (Dobry słownik, ręcznie), sieć ogólna (FineWeb-2/HPLT, tylko liczby) i dyskusje plwiki, jedyne źródło potoczne z czystą licencją tekstu (słabe: mało potoczności). Napisy dają najmocniejszy sygnał, ale nie mają licencji tekstu.
+- BAN-PL wycofany decyzją użytkownika 2026-11-04 (autorzy chronią archiwa hasłem przed automatycznym zbieraniem); liczby usunięte.
 - **Wulwa ma dowód.** Jest w Dobrym słowniku (od I–II 2024), w wolnym tezaurusie DS, w sieci (6 hostów z lat 2018–2024), w dyskusjach plwiki (2023) i w napisach 2022–2023. Wniosek #16 „nie ma w żadnym źródle” był błędny (swiadoma-01). Przy progu Z2 wulwa jest blisko progu (b) i prawdopodobnie przechodzi przez (c).
 - **Common Crawl potwierdza, ale nie odkrywa.** Jako źródło nowych słów potocznych daje głównie terminy, spam i handel; słów potocznych jest ok. 4% (ccrawl-03). Do karty kandydata się nadaje, do automatycznej listy nie.
 - Liczby z sieci są **przed filtrem opt-out**, a część z danych pośrednich. Dziś 34 ze 100 największych hostów blokuje CCBot (ccrawl-04).
 
 ## Kluczowe decyzje
 - Proponuję: sieć tylko jako **liczby w karcie** (art. 26³ pr. aut.), bez kontekstów w repo; napisy tylko lokalnie; „zmiana świadoma” jako **typ dowodu Z2**, nie warstwa; tezaurus DS jako sygnał lokalny, bez importu; zaimki.pl bez użycia.
-- Wszystkie te punkty to decyzje użytkownika. Lista D1–D10 jest w raporcie (`outputs/research-report.md`, § Decyzje).
+- **Rozstrzygnięte 2026-11-04:** D2 (źródło z archiwami na hasło wycofane) i D10 (cytaty z napisów, forum i sieci zastąpione opisem we wszystkich plikach zadania).
+- Pozostałe punkty to decyzje użytkownika. Lista jest w raporcie (`outputs/research-report.md`, § 8).
 
 ## Otwarte pytania i ryzyka
-- **Cytaty już w publicznym repo.** `potoczne-01` i `potoczne-03` zawierają krótkie zdania z napisów i z kafeteria.pl. Są już w `origin/main` (commity `2d14fa6`…`719ce1a`). To kłóci się z zaleceniem `ccrawl-01` i `metoda-01`: konteksty tylko lokalnie. Do decyzji: usunąć je i zastąpić opisem.
+- Stare commity w `origin/main` (`2d14fa6`…`719ce1a`) nadal zawierają usunięte cytaty i liczby. Użytkownik wybrał 2026-11-04 opis bez przepisywania historii Git.
 - Liczba form ghostingu: 4 w `kontrole.json` i 9 we wzorze `ranking` (metoda-04). Liczby ghostingu w `ccrawl-02` i `potoczne-03` mogą być zaniżone.
 - Prawo TDM to odczyt zbieracza, nie porada prawna (ccrawl-01).
 
@@ -21,11 +23,11 @@
 Skąd literaki-slownik może brać wiarygodne dowody na słowa potoczne, internetowe i świadome zmiany językowe, których nie widać w PPC, ParlaMint i Leipzig? (planning/research-brief.md)
 
 ## 2. Podsumowanie
-Zbieracze ocenili 18 nowych źródeł potocznych (potoczne-01), dwa zbiory Common Crawl z analizą prawa (ccrawl-01..04), Dobry słownik, zaimki.pl, RJP, poradnie, 5 publikacji i plebiscyty (swiadoma-01..03). Kategoria metody opisała bramki B1–B8, nowe pola karty i typ „zmiana świadoma” (metoda-01..05).
+Zbieracze ocenili 17 nowych źródeł potocznych (potoczne-01), dwa zbiory Common Crawl z analizą prawa (ccrawl-01..04), Dobry słownik, zaimki.pl, RJP, poradnie, 5 publikacji i plebiscyty (swiadoma-01..03). Kategoria metody opisała bramki B1–B8, nowe pola karty i typ „zmiana świadoma” (metoda-01..05).
 
 Wynik dzieli się na dwie ścieżki. **Słowa potoczne** (cringe, boomer, ghosting) widać w sieci i w napisach, ale z dużym szumem znaczeniowym: ghosting w sieci to w większości „anti-ghosting” monitorów (ccrawl-02), a boomer to też guma do żucia, manicure i nicki (potoczne-03, ccrawl-02). Bez filtra znaczeń liczby wprowadzają w błąd. **Świadome zmiany** (wulwa, feminatywy, słowa transpłciowości) mają dowód w redagowanym słowniku DS. Mają też rzadkie, ale niezależne użycie w sieci. Częstość jest za mała dla progów potocznych (Z3), więc potrzebny jest osobny, niższy próg (Z2).
 
-Licencja jest głównym ograniczeniem. Czystą licencję tekstu i daty ma niewiele źródeł (BAN-PL, dyskusje plwiki). Źródło z najmocniejszym sygnałem (OpenSubtitles) nie ma licencji tekstu. Common Crawl daje się liczyć lokalnie na podstawie art. 26³, ale wiąże opt-out, a dziś duża część dużych portali TDM zastrzega.
+Licencja jest głównym ograniczeniem. Czystą licencję tekstu i daty mają tylko dyskusje plwiki. Źródło z najmocniejszym sygnałem (OpenSubtitles) nie ma licencji tekstu. Common Crawl daje się liczyć lokalnie na podstawie art. 26³, ale wiąże opt-out, a dziś duża część dużych portali TDM zastrzega.
 
 ## 3. Analiza krzyżowa
 
@@ -51,7 +53,7 @@ Licencja jest głównym ograniczeniem. Czystą licencję tekstu i daty ma niewie
 | S6 | **Trzy różne filtry „tekst angielski”** | potoczne-03 (≥2 słowa stop i przewaga), ccrawl-02 (>2% tokenów), metoda-01 B4 (przewaga funkcyjnych) | Liczby z różnych źródeł nie są w pełni porównywalne. Ujednolicić B4 przed wdrożeniem. |
 | S7 | **Progi rozrzutu: B6 ≥10 hostów vs Z2(b) ≥5 hostów vs ccrawl-03 ≥5 hostów** | metoda-01, metoda-02, ccrawl-03 | Celowe różnice, ale nienazwane. Wymaga jednej tabeli progów. |
 | S8 | **„ministra”: RJP „nietypowa” vs DS ją ma (2024)** | swiadoma-02 vs swiadoma-04 | Kandydat ma sprzeczny dowód normatywny. Karta musi pokazać oba. |
-| S9 | **Konteksty w repo** | ccrawl-01, metoda-01 (tylko lokalnie) vs potoczne-01/03 (cytaty z napisów i forum w pliku) | Pliki są już w `origin/main`. Decyzja D10. |
+| S9 | **Konteksty w repo** | ccrawl-01, metoda-01 (tylko lokalnie) vs potoczne-01/03 (cytaty z napisów i forum) | Rozstrzygnięte (D10, 2026-11-04): cytaty zastąpione opisem; zostały w historii Git. |
 | S10 | **Wulwa w plwiki: 7 vs 158** | potoczne-03 | 7 to dyskusje (świadoma zmiana), 158 to artykuły (głównie zoologia, narząd dwuparców). Słowo ma drugie, starsze znaczenie. |
 
 ### 3.3 Pewność
@@ -63,7 +65,7 @@ Licencja jest głównym ograniczeniem. Czystą licencję tekstu i daty ma niewie
 
 | Wzorzec | Opis | Dowody | Zasięg |
 |---|---|---|---|
-| W1. Licencja odwrotnie proporcjonalna do sygnału | Im lepszy sygnał potoczny, tym gorsza licencja | Napisy: 7/7 kontroli, brak licencji; BAN-PL: CC BY, ale 0,71 mln słów; Common Voice: CC0, 0 trafień (potoczne-01, -03) | wszystkie kategorie |
+| W1. Licencja odwrotnie proporcjonalna do sygnału | Im lepszy sygnał potoczny, tym gorsza licencja | Napisy: 7/7 kontroli, brak licencji; dyskusje plwiki: CC BY-SA, ale mało potoczności; Common Voice: CC0, 0 trafień (potoczne-01, -03) | wszystkie kategorie |
 | W2. Opakowanie ≠ tekst | Licencja zbioru (ODC-By, CC0, MIT) nie obejmuje tekstu autorów | FineWeb-2, HPLT (ccrawl-01), SpeakLeash MIT (potoczne-02) | potwierdza zasadę z #16 |
 | W3. Szum znaczeniowy w słowach angielskich | Ten sam ciąg ma inne znaczenia | ghosting = monitor (ccrawl-02), boomer = guma, manicure, okręt, nick (potoczne-03, ccrawl-02), cringe = tytuły | wszystkie kontrole celu |
 | W4. Redagowany słownik wyprzedza korpusy | DS ma hasła na lata przed korpusami prasowymi | lockdown 2020, boomer 2022, wulwa 2024, cringe 2024 (swiadoma-01) | świadoma zmiana i potoczne |
@@ -92,7 +94,7 @@ kandydat (kolejka: ręczna, DS, tezaurus, napisy, CC, plebiscyt)
    └─► karta (metoda-03)
          ├─ typ dowodu: korpus | potoczne | zmiana_swiadoma | reczny
          ├─ bramki B1–B8 (metoda-01) ← progi v2 (metoda-05)
-         ├─ liczby: CC (po opt-out, ccrawl-04), BAN-PL, plwiki, napisy (lokalnie)
+         ├─ liczby: CC (po opt-out, ccrawl-04), plwiki, napisy (lokalnie)
          ├─ dowód ręczny: DS (URL + data), RJP (reguła klasy), publikacja (DOI)
          └─ wpływ: nowe formy w grze (SGJP 20261018, wzór fleksji)
                └─► decyzja użytkownika ─► suplement v2 (D1-A, ADR-016)
@@ -119,7 +121,6 @@ kandydat (kolejka: ręczna, DS, tezaurus, napisy, CC, plebiscyt)
 | Źródło | Sygnał | Licencja tekstu | Daty | Rola |
 |---|---|---|---|---|
 | OpenSubtitles 2022–2023 | najmocniejszy (7/7) | brak | rok filmu | detektor lokalny |
-| BAN-PL | wysoki ipm cringe/boomer | CC BY 4.0, „strictly for research”, hasło | okres zbioru | liczby w karcie |
 | plwiki dyskusje | niski | CC BY-SA 4.0 | rok podpisu | liczby i cytat |
 | FineWeb-2 / HPLT | średni, duży szum | brak (opakowanie ODC-By / CC0) | rok crawla | liczby w karcie po opt-out |
 | fora SpeakLeash | słaby, stara treść | brak („conditional”) | brak | odłożyć |
@@ -134,7 +135,7 @@ kandydat (kolejka: ręczna, DS, tezaurus, napisy, CC, plebiscyt)
 
 ## 9. Wnioski
 **Główne**
-1. Dla słów potocznych: CC (liczby, po opt-out) + BAN-PL i plwiki (czyste) + napisy jako detektor lokalny. Pewność: średnia.
+1. Dla słów potocznych: CC (liczby, po opt-out) + dyskusje plwiki (czyste, słabe) + napisy jako detektor lokalny. Pewność: średnia.
 2. Dla świadomych zmian: typ dowodu Z2 z DS jako dowodem ręcznym. Wulwa ma drogę dowodu. Pewność: średnia–wysoka.
 3. Common Crawl nie zastąpi przeglądu ręcznego: ok. 4% grup to słowa potoczne. Pewność: średnia.
 

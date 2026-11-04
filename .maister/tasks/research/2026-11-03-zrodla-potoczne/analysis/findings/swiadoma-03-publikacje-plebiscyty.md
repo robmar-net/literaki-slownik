@@ -25,10 +25,10 @@
 
 - Wnioski z tych prac:
   - SGJP ma już neutralne formy przeszłe 1. os.: „byłom” i „zrobiłom” są w SGJP 20261018 (zob. 04). Pawłowski przypisuje RJP uznanie takich form za systemowe (porada „Byłoś, byłom”).
-  - Według Kłosińskiej (PAP) formy niebinarne „są nowe i na razie szokują”, choć system je przewiduje.
+  - Według Kłosińskiej (PAP) formy niebinarne są nowe i na razie budzą zaskoczenie, choć system je przewiduje (parafraza).
 
 ## Wulwa poza słownikami (kontekst, nie dowód)
-- HelloZdrowie, 09.08.2022 (akt. 10.04.2025), https://www.hellozdrowie.pl/tam-na-dole-muszelka-siusia-badanie-pokazalo-jak-polki-nazywaja-swoje-narzady-plciowe/: „pochwa” 45%, „cipka” 35%, „wagina” 15%, „wulwa” 1%. Badanie Spacecamp dla AA Oceanic, próba nieznana. Komentarz: M. Adamczyk („narodziła się potrzeba, żeby wypracować język strefy seksu i seksualności”).
+- HelloZdrowie, 09.08.2022 (akt. 10.04.2025), https://www.hellozdrowie.pl/tam-na-dole-muszelka-siusia-badanie-pokazalo-jak-polki-nazywaja-swoje-narzady-plciowe/: „pochwa” 45%, „cipka” 35%, „wagina” 15%, „wulwa” 1%. Badanie Spacecamp dla AA Oceanic, próba nieznana. Komentarz: M. Adamczyk mówi o nowej potrzebie wypracowania języka do mówienia o seksualności (parafraza).
 - Kampanie i edukacja:
   - cykl „Niech żyje wulwa!” (wysokieobcasy.pl, 2022, cytowany w DS);
   - książka „To jest wulwa” (A. Salvia, C. Torrón);

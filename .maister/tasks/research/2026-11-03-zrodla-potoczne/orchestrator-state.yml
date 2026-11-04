@@ -1,13 +1,13 @@
 orchestrator:
   started_phase: phase-1
-  completed_phases: []
+  completed_phases: [phase-1]
   failed_phases: []
   options:
     html_output: true
     brainstorming_enabled: null
     design_enabled: null
   created: 2026-11-03T14:56:26Z
-  updated: 2026-11-03T14:56:26Z
+  updated: 2026-11-04T02:15:45Z
   task_path: .maister/tasks/research/2026-11-03-zrodla-potoczne
 task:
   title: "Źródła słów potocznych, internetowych i świadomych zmian językowych"
@@ -25,4 +25,14 @@ research_context:
   controls: [wulwa, ghosting, cringe, boomer, hejt, lockdown, antyszczepionkowiec]
   previous_research: .maister/tasks/research/2026-11-03-zrodla-nowych-slow
   project_doc_paths: [AGENTS.md, .maister/docs/INDEX.md, docs/adr/]
-  phase_summaries: {}
+  confidence_level: medium
+  gathering_strategy: [swiadoma, potoczne, metoda, ccrawl]
+  phase_summaries:
+    phase-1:
+      summary: "Dowód złożony: Dobry Słownik ręcznie, FineWeb-2/HPLT tylko liczby (art. 26³, opt-out), dyskusje plwiki (CC BY-SA). Napisy OpenSubtitles tylko lokalny detektor. Pewność średnia."
+      artifacts: [analysis/findings/, analysis/synthesis.md, outputs/research-report.md, outputs/research-report.html]
+      gate: "2026-11-04 Dalej"
+      user_decisions:
+        D10: "Zastąpić cytaty z tekstów bez licencji opisem (nowy commit; historia bez zmian)."
+        D2: "BAN-PL wycofany; lokalne dane skasowane 2026-11-04."
+      decisions_open: [D1, D3, D4, D5, D6, D7, D8, D9, D11, D12]

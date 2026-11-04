@@ -24,8 +24,8 @@
 - `robots.txt` blokuje tylko `/@*`, `/u/*`, `/card/@*` i GPTBot. Nie ma `tdmrep.json` (404).
 - API bez logowania: `https://zaimki.pl/api/nouns` (1,77 MB, 5296 haseł), `/api/terms` (412), `/api/inclusive` (164). Pliki są w `scratchpad/potoczne/swiadoma/dl-zaimki/`.
 - Wulwa występuje tylko w dwóch radach `inclusive`:
-  - „Srom (wulwa) to nie tylko pochwa (wagina)”;
-  - „wulwa i wagina to nie symbol słabości”.
+  - rada odróżniająca srom (wulwę) od pochwy;
+  - rada sprzeciwiająca się traktowaniu wulwy i pochwy jako symbolu słabości.
 - Kontrola dodatnia: psycholożka, ministra, chirurżka i kardiolożka są w `nouns` (klucze psycholog, minister, chirurg, kardiolog).
 - Pomiar względem SGJP 20261018 (forma jednowyrazowa, liczba pojedyncza):
 
@@ -39,13 +39,13 @@
 
 ## RJP (odczyt 2026-11-03; stopka „© Copyright by Rada Języka Polskiego PAN”)
 - Stanowisko z 25.11.2019: https://rjp.pan.pl/stanowisko-rady-jezyka-polskiego-przy-prezydium-pan-w-sprawie-zenskich-form-nazw-zawodow-i-tytulow-przyjete-na-posiedzeniu-plenarnym-rady-25-listopada-2019-r/
-  - „Rada … uznaje, że w polszczyźnie potrzebna jest większa, możliwie pełna symetria nazw osobowych męskich i żeńskich w zasobie słownictwa.”
-  - „tworzenie nazw żeńskich przez zmianę końcówek fleksyjnych, np. (ta) ministra, (ta) doktora, (ta) dziekana nie jest dla polskiego systemu słowotwórczego typowe”
-  - Przyrostek `-ini/-yni` jest popularny („naukowczyni czy gościni”); „chirurżka” nie powinna przeszkadzać.
+  - Rada uznaje, że polszczyzna potrzebuje możliwie pełnej symetrii męskich i żeńskich nazw osób (parafraza).
+  - Nazwy żeńskie tworzone samą zmianą końcówki (ministra, doktora, dziekana) Rada uznaje za nietypowe dla polskiego słowotwórstwa (parafraza).
+  - Przyrostek `-ini/-yni` jest popularny (przykłady Rady: naukowczyni, gościni); chirurżka według Rady nie powinna razić.
 - Stanowisko z 19.03.2012 (wcześniejsze): https://rjp.pan.pl/stanowisko-rady-jezyka-polskiego-w-sprawie-zenskich-form-nazw-zawodow-i-tytulow-przyjete-na-posiedzeniu-plenarnym-rady-19-marca-2012-roku/
 - Opinia o neutralności płciowej ogłoszeń (`lastmod` 2026-04-15): https://rjp.pan.pl/opinia-rjp-w-sprawie-neutralnosci-plciowej-w-ogloszeniach-o-naborze-na-stanowisko/
   - Bodźcem jest art. 183ca § 3 KP, obowiązujący od 24.12.2025: „ogłoszenia o naborze na stanowisko oraz nazwy stanowisk były neutralne pod względem płci”.
-  - O osobatywach: „osoba studencka, osoba recenzencka … – o charakterze na razie tylko środowiskowym – jeszcze nie może być dziś uznany za standard języka publicznego”.
+  - O osobatywach (np. osoba studencka): według Rady to na razie zwyczaj środowiskowy, jeszcze nie standard języka publicznego (parafraza).
   - **Wniosek dla nas:** przepis z 2025 r. przyspiesza użycie feminatywów w ogłoszeniach, więc w korpusach z lat 2026+ (PPC, sieć) należy się spodziewać wzrostu form na `-ka`.
 - Wulwy, sromu ani nazw części ciała w wyszukiwarce RJP nie znalazłem (`?s=wulwa`, `?s=srom` bez trafień w treści). REST API RJP zwraca „UNAUTHORIZED”, więc użyłem zwykłej wyszukiwarki strony.
 
