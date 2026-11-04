@@ -26,7 +26,7 @@ Nie dopisujemy formy do gotowej listy. Lista wynika z ocen zapisanych w bazie pr
 | `decision_version` | wersja decyzji; nowa przy każdej zmianie zakresu |
 | `overrides_rule` | zawsze `linguistic-historical-form-v1` |
 | `source_snapshot` | przebieg, z którego wzięto klucze (v30), hash jego bazy, `recomputed_constructions` |
-| `sources` | hash każdego użytego importu (dziś `sgjp-20260823`) |
+| `sources` | hash każdego użytego importu (dziś `sgjp-20261018`) |
 | `expected_counts` | `words`, `analyses`, `source_analyses`, `construction_analyses`, `families` |
 | `families` | rodzina = lemat: zakres, znaczenie, pewność, artykuły czytnika, ≥ 2 dokumenty KWJP, dowód |
 | `cases` | forma gry → lista analiz `source` (rekord + `tag`) albo `construction` (`candidate_key` + składniki) |

@@ -179,12 +179,12 @@ class PositiveUseProofTests(unittest.TestCase):
                     if r['use_id']=='sgjp-authors-phrase-wznak-v1')
         # Jawna fikstura reprodukuje tożsamość; nie jest danymi wydania.
         from tests.test_documented_names import source,SHA
-        r=source('wznak','wznak',6770165);sid=r['source_id']
+        r=source('wznak','wznak',6770188);sid=r['source_id']
         db.execute('insert into source_artifact values (?,?,?)',(sid,'sgjp_tab',json.dumps({'sha256':SHA,'origin':'synthetic_test_only'})))
-        db.execute('insert into sgjp_record values (?,?,?,?,?,?,?)',(sid,6770165,'wznak','wznak','frag','',''))
+        db.execute('insert into sgjp_record values (?,?,?,?,?,?,?)',(sid,6770188,'wznak','wznak','frag','',''))
         db.execute('insert into surface_form values (1,?,?,?,5)',('wznak','wznak','wznak'))
         db.execute('insert into lexeme values (1,?,?,?)',(sid,'wznak','wznak'))
-        db.execute('insert into interpretation values (1,?,?,1,1,?,?,?)',(sid,6770165,'frag','',''))
+        db.execute('insert into interpretation values (1,?,?,1,1,?,?,?)',(sid,6770188,'frag','',''))
         db.commit();return db,review
 
     def test_positive_shared_condition_does_not_close_other_layers_or_remainder(self):

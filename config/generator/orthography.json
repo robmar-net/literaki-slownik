@@ -73,8 +73,8 @@
     },
     {
       "rule_id": "documented-spelling-variant-v1",
-      "source_id": "sgjp-20260823",
-      "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+      "source_id": "sgjp-20261018",
+      "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be",
       "document_sha256": "87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e",
       "scope": "two_literal_base_forms_documented_use_only",
       "cases": [

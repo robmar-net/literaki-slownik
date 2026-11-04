@@ -107,17 +107,17 @@ ADJP_GAME_STATUS = 'accept'
 FRAG_GAME_STATUS = 'accept'
 
 
-RESIDENT_RELATION_SOURCES = {6309663: ('warszawiance', 'subst:sg:dat.loc:f'),
- 6309664: ('warszawianek', 'subst:pl:gen:f'),
- 6309665: ('warszawianka', 'subst:sg:nom:f'),
- 6309666: ('warszawiankach', 'subst:pl:loc:f'),
- 6309667: ('warszawiankami', 'subst:pl:inst:f'),
- 6309668: ('warszawianki', 'subst:pl:nom.acc.voc:f'),
- 6309669: ('warszawianki', 'subst:sg:gen:f'),
- 6309670: ('warszawianko', 'subst:sg:voc:f'),
- 6309671: ('warszawiankom', 'subst:pl:dat:f'),
- 6309672: ('warszawianką', 'subst:sg:inst:f'),
- 6309673: ('warszawiankę', 'subst:sg:acc:f')}
+RESIDENT_RELATION_SOURCES = {6309686: ('warszawiance', 'subst:sg:dat.loc:f'),
+ 6309687: ('warszawianek', 'subst:pl:gen:f'),
+ 6309688: ('warszawianka', 'subst:sg:nom:f'),
+ 6309689: ('warszawiankach', 'subst:pl:loc:f'),
+ 6309690: ('warszawiankami', 'subst:pl:inst:f'),
+ 6309691: ('warszawianki', 'subst:pl:nom.acc.voc:f'),
+ 6309692: ('warszawianki', 'subst:sg:gen:f'),
+ 6309693: ('warszawianko', 'subst:sg:voc:f'),
+ 6309694: ('warszawiankom', 'subst:pl:dat:f'),
+ 6309695: ('warszawianką', 'subst:sg:inst:f'),
+ 6309696: ('warszawiankę', 'subst:sg:acc:f')}
 RESIDENT_RELATION_EVIDENCE = [{'artifact_id': 'resident-relations-own-review',
   'sha256': 'ad37b2f97b253b8fc6de11ae8e043868b12fe1e653ea1cd196ee06db4a221789',
   'locator': 'resident-relations-observation.json; Warszawa#7791 → warszawianka#61637, odwrotna '
@@ -137,8 +137,8 @@ def resident_use_checks(review, variant=None):
     """Dowód tylko zamkniętego użycia, nigdy całego źródłowego ID/pozostałości."""
     if not review:return []
     s=review.get('source',{})
-    if (s.get('source_id')!='sgjp-20260823'
-            or s.get('source_sha256')!='3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810'
+    if (s.get('source_id')!='sgjp-20261018'
+            or s.get('source_sha256')!='346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be'
             or s.get('lemma_id')!='warszawianka' or s.get('names')!='nazwa_pospolita'
             or s.get('qualifiers')!=''
             or RESIDENT_RELATION_SOURCES.get(s.get('first_source_row'))!=(s.get('original'),s.get('raw_tag'))
@@ -161,8 +161,8 @@ def resident_use_checks(review, variant=None):
 
 def documented_name_checks(source):
     """Zamknięte mapowanie dokumentacji do dokładnego przypiętego rekordu."""
-    if (source.get('source_id') != 'sgjp-20260823'
-            or source.get('source_sha256') != '3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810'
+    if (source.get('source_id') != 'sgjp-20261018'
+            or source.get('source_sha256') != '346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be'
             or source.get('raw_tag') != 'frag' or source.get('names') != ''
             or source.get('qualifiers') != ''
             or (source.get('original'), source.get('lemma_id'), source.get('first_source_row'))

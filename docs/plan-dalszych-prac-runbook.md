@@ -123,7 +123,7 @@ Przeczytać materiały z rozdziału 1, aktualny `orchestrator-state.yml` i zako�
 
 `config/generator/sources.json` przypina pliki źródeł, dowodów i konfiguracji. Cache nie jest w Git, więc świeży klon nie ma wszystkich wejść. Pozyskiwać dokładne wersje według rejestrów audytu i dokumentacji odtwarzania, nie „najnowsze” zamienniki. Nie uruchamiać skryptów zapisujących historyczne raporty bez sprawdzenia ich docelowych ścieżek.
 
-SGJP: wydanie `20260823`, SHA256 `3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810`. KWJP: commit `26d82bd8b906dfed1cfcf8f903b1650b56daeabf`; hashe poszczególnych list w rejestrach. Dokumenty dowodowe mają własne przypięcia. Jeśli któregoś pliku brakuje, zarejestrować konkretny brak; nie usuwać go z manifestu dla uzyskania sukcesu.
+SGJP: wydanie `20261018` (od LL-PL v31; wcześniej `20260823`), SHA256 `346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be`. KWJP: commit `26d82bd8b906dfed1cfcf8f903b1650b56daeabf`; hashe poszczególnych list w rejestrach. Dokumenty dowodowe mają własne przypięcia. Jeśli któregoś pliku brakuje, zarejestrować konkretny brak; nie usuwać go z manifestu dla uzyskania sukcesu.
 
 ```sh
 python3 -m literaki_slownik inspect-sources --manifest config/generator/sources.json --json

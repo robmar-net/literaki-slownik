@@ -3,11 +3,11 @@ import unittest
 from literaki_slownik.policy import source_game_checks
 from literaki_slownik.decisions import assess_diagnostic, aggregate
 
-SHA = '3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810'
+SHA = '346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be'
 RULE = 'game-documented-surname-component-v1'
 
 def source(form, lemma, row):
-    return dict(source_id='sgjp-20260823', source_sha256=SHA,
+    return dict(source_id='sgjp-20261018', source_sha256=SHA,
                 first_source_row=row, original=form, lemma_id=lemma,
                 raw_tag='frag', names='', qualifiers='')
 
@@ -54,7 +54,7 @@ class DocumentedNamesTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             r=Path(folder)
             with connect(r/'build.sqlite',create=True) as db:
-                sid='sgjp-20260823'
+                sid='sgjp-20261018'
                 db.execute('insert into source_artifact values (?,?,?)',(sid,'sgjp_tab',json.dumps({'sha256':SHA,'origin':'synthetic_test_only'})))
                 for i,s in enumerate((source('de','de:F',1463128),source('ibn','ibn',1960055)),1):
                     row=s['first_source_row'];word=s['original'];lemma=s['lemma_id']

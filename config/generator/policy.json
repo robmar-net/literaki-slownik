@@ -812,8 +812,8 @@
   },
   "documented_name_class_proof": {
     "threshold": "unambiguous_authors_description_and_manually_verified_exact_source_analysis",
-    "source_id": "sgjp-20260823",
-    "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+    "source_id": "sgjp-20261018",
+    "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be",
     "cases": [
       {
         "original": "de",

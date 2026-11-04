@@ -10,9 +10,9 @@ Polska metryczka: licencja kodu, BSD 2-Clause License; źródło tekstu:
 
 ## SGJP — tekstowy eksport dla Morfeusza
 
-Wersja pl.sgjp.sgjp-2026.08.24, plik sg jp-20260823.tab.gz (nazwa techniczna: `sgjp-20260823.tab.gz`).
-Źródło: https://download.sgjp.pl/morfeusz/20260823/sgjp-20260823.tab.gz
-SHA256: `3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810`.
+Wersja pl.sgjp.sgjp-2026.10.19, plik sg jp-20261018.tab.gz (nazwa techniczna: `sgjp-20261018.tab.gz`).
+Źródło: https://download.sgjp.pl/morfeusz/20261018/sgjp-20261018.tab.gz
+SHA256: `346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be`.
 Zakres zawiadomienia: przypięty pięciopolowy eksport, nie pełna internetowa baza SGJP.
 Oryginalne angielskie zawiadomienie z polską metryczką: warunki redystrybucji i wyłączenie odpowiedzialności eksportu.
 

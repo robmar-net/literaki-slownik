@@ -439,7 +439,7 @@ def preposition_n_candidates(preposition, pronoun):
 
 
 SPELLING_VARIANT_RULE = 'documented-spelling-variant-v1'
-SPELLING_SOURCE_SHA = '3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810'
+SPELLING_SOURCE_SHA = '346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be'
 SPELLING_DOCUMENT_SHA = '87daaddd86911370d4df3c1e5769028e8fa9087e052c8954b70ec173ada2d72e'
 
 
@@ -449,7 +449,7 @@ def spelling_variant_candidates(source):
     identities = {('Angol','Angol',9040,'pot.,etn.'):'angol',
                   ('Jugol','Jugol',358226,''):'jugol'}
     target=identities.get((source['original'],source['lemma_id'],source['first_source_row'],source['qualifiers']))
-    if (target is None or source['source_id']!='sgjp-20260823'
+    if (target is None or source['source_id']!='sgjp-20261018'
             or source.get('source_sha256')!=SPELLING_SOURCE_SHA
             or source['raw_tag']!='subst:sg:nom:m1' or source['names']!='nazwa_pospolita'):
         return []
@@ -592,7 +592,7 @@ def materialize_confirmed_candidates(db, batch_size=10000):
             save(candidate)
     import json
     hashes={sid:json.loads(metadata).get('sha256') for sid,metadata in db.execute('select source_id,metadata from source_artifact')}
-    for row in db.execute(select + " where l.source_id='sgjp-20260823' and l.lemma_id in ('Angol','Jugol') order by i.source_id,i.first_row"):
+    for row in db.execute(select + " where l.source_id='sgjp-20261018' and l.lemma_id in ('Angol','Jugol') order by i.source_id,i.first_row"):
         source=dict(zip(SOURCE_FIELDS,row));source['source_sha256']=hashes[source['source_id']]
         for candidate in spelling_variant_candidates(source):save(candidate)
     db.commit()

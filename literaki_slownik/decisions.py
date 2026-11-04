@@ -71,12 +71,12 @@ def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyse
 
 
 DOCUMENTED_LEXICAL_USE_SOURCES = {
-    'sgjp-authors-phrase-wznak-v1': (6770165,'wznak','wznak',''),
+    'sgjp-authors-phrase-wznak-v1': (6770188,'wznak','wznak',''),
     'sgjp-authors-phrase-dwojnasob-v1': (1647764,'dwójnasób','dwójnasób',''),
     'sgjp-authors-phrase-krocset-v1': (2244647,'kroćset','kroćset','daw.'),
-    'sgjp-authors-phrase-rosciez-v1': (5520636,'roścież','roścież:F',''),
-    'sgjp-authors-phrase-trojnasob-v1': (6044918,'trójnasób','trójnasób',''),
-    'sgjp-authors-phrase-ziem-v1': (7186612,'ziem','ziem','gwar.'),
+    'sgjp-authors-phrase-rosciez-v1': (5520659,'roścież','roścież:F',''),
+    'sgjp-authors-phrase-trojnasob-v1': (6044941,'trójnasób','trójnasób',''),
+    'sgjp-authors-phrase-ziem-v1': (7186635,'ziem','ziem','gwar.'),
 }
 DOCUMENTED_LEXICAL_RULE = 'linguistic-documented-use-lexical-proof-v1'
 
@@ -179,8 +179,8 @@ def checked_use_reviews(db, reviews):
                 raise GeneratorError('Warunek nie ma dokładnego mapowania i zgodnego dowodu użycia',4)
             if 'lexical_proof' in review:
                 identity=DOCUMENTED_LEXICAL_USE_SOURCES.get(review['use_id'])
-                expected_source=(dict(source_id='sgjp-20260823',
-                    source_sha256='3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810',
+                expected_source=(dict(source_id='sgjp-20261018',
+                    source_sha256='346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be',
                     first_source_row=identity[0],original=identity[1],lemma_id=identity[2],raw_tag='frag',names='',qualifiers=identity[3])
                     if identity else None)
                 if (review['lexical_proof']!=DOCUMENTED_LEXICAL_RULE or source!=expected_source

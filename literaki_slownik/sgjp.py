@@ -11,7 +11,7 @@ WINIEN_ERRATA_FORMS = {'gotów':'gotoweśmy', 'kontent:V':'kontenteśmy',
 
 def tag_errata(source_sha256, lemma_id, original, raw_tag):
     """Jawna adnotacja siedmiu sprawdzonych rekordów; nie modyfikuje importu."""
-    if (source_sha256 != '3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810'
+    if (source_sha256 != '346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be'
             or WINIEN_ERRATA_FORMS.get(lemma_id) != original
             or raw_tag != 'winien:pl:m2.m3.f.n:sec:imperf'):
         return []

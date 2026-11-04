@@ -12,11 +12,11 @@ from literaki_slownik.inputs import GeneratorError
 from literaki_slownik.decisions import materialize_assessments,persisted_assessments
 from literaki_slownik.reports import logical_content_report
 
-SHA='3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810'
+SHA='346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be'
 RULE='documented-spelling-variant-v1'
 
 def source(word='Angol'):
-    return dict(source_id='sgjp-20260823',source_sha256=SHA,first_source_row=9040 if word=='Angol' else 358226,
+    return dict(source_id='sgjp-20261018',source_sha256=SHA,first_source_row=9040 if word=='Angol' else 358226,
         original=word,lemma_id=word,raw_tag='subst:sg:nom:m1',names='nazwa_pospolita',
         qualifiers='pot.,etn.' if word=='Angol' else '')
 
@@ -24,7 +24,7 @@ class SpellingVariantsTests(unittest.TestCase):
     def fixture(self,root):
         manager=connect(root/'build.sqlite',create=True);db=manager.__enter__()
         self.addCleanup(manager.__exit__,None,None,None)
-        db.execute('insert into source_artifact values (?,?,?)',('sgjp-20260823','sgjp_tab',dumps({'sha256':SHA,'origin':'synthetic_test_only'})))
+        db.execute('insert into source_artifact values (?,?,?)',('sgjp-20261018','sgjp_tab',dumps({'sha256':SHA,'origin':'synthetic_test_only'})))
         records=[source(),source('Jugol'),dict(source(),first_source_row=9053,lemma_id='Angola',raw_tag='subst:pl:gen:f',names='nazwa_geograficzna',qualifiers='char.')]
         for i,s in enumerate(records,1):
             db.execute('insert into sgjp_record values (?,?,?,?,?,?,?)',tuple(s[k] for k in ('source_id','first_source_row','original','lemma_id','raw_tag','names','qualifiers')))

@@ -36,6 +36,8 @@ python3 -m unittest discover -s scripts -p 'test_audit_sgjp.py'
 
 Oczekiwany SHA256 eksportu SGJP: `3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810`.
 
+To odtwarza audyt z 2026-10-04. Od LL-PL v31 generator przypina eksport `20261018` (SHA256 `346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be`, ten sam nagłówek licencji). Przepięcie: `scripts/rebase_sgjp_pin.py` ([#16](https://github.com/robmar-net/literaki-slownik/issues/16)).
+
 KWJP pobierany jest z commitu `26d82bd8b906dfed1cfcf8f903b1650b56daeabf`. Skrypt sprawdza hashe już istniejących plików z rejestrem i przelicza wszystkie 13 list. Bez `--fetch` działa na lokalnym cache. Dokumentacja, reguły programu i licencje mają własne adresy oraz hashe w rejestrach — nie są pobierane przez skrypt pilotażu.
 
 ## NKJP: tylko techniczna reprodukcja audytu

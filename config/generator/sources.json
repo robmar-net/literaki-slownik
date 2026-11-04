@@ -4,16 +4,16 @@
   "mode": "production",
   "artifacts": [
     {
-      "source_id": "sgjp-20260823",
+      "source_id": "sgjp-20261018",
       "kind": "sgjp_tab",
       "role": "lexical",
       "origin": "SGJP",
       "status": "ALLOWED",
-      "path": "../../cache/sgjp/sgjp-20260823.tab.gz",
-      "sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
-      "version": "pl.sgjp.sgjp-2026.08.24",
-      "url": "https://download.sgjp.pl/morfeusz/20260823/sgjp-20260823.tab.gz",
-      "retrieved_at": "2026-10-04T02:04:27Z",
+      "path": "../../cache/sgjp/sgjp-20261018.tab.gz",
+      "sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be",
+      "version": "pl.sgjp.sgjp-2026.10.19",
+      "url": "https://download.sgjp.pl/morfeusz/20261018/sgjp-20261018.tab.gz",
+      "retrieved_at": "2026-11-04T10:49:00Z",
       "authors": "Copyright © 2007–2026 Marcin Woliński, Zbigniew Bronk, Włodzimierz Gruszczyński, Witold Kieraś, Zygmunt Saloni, Danuta Skowrońska, Robert Wołosz",
       "license": "BSD-2-Clause 2-Clause",
       "license_scope": "Ten tekstowy eksport SGJP, nie pełna baza internetowa.",
@@ -28,10 +28,14 @@
         {
           "path": "../../.maister/tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/analysis/findings/sgjp-source.json",
           "sha256": "7c689df74ed250419bd4ec337eee6b821467c900aac08970d0290f4f40000020"
+        },
+        {
+          "path": "../../.maister/tasks/development/2026-11-04-16-sgjp-20261018/analysis/sgjp-stats.json",
+          "sha256": "89f56390c93c9354e0e27576e040eefdd62169347d98b7418ec7250e03a460b6"
         }
       ],
       "expected_counts": {
-        "records": 7458520
+        "records": 7458543
       }
     },
     {
@@ -50,7 +54,7 @@
       "license_scope": "Własne uzupełnienie: 4 formy zaimka zwrotnego w tagsecie SGJP.",
       "used_for": "generator: uzupełnienie leksemu brakującego w eksporcie SGJP",
       "attribution": "Uzupełnienie eksportu SGJP (zaimek zwrotny siebie, partykuła się), projekt literaki-slownik, BSD-2-Clause.",
-      "dependencies": "sgjp-20260823 (tagset i opis SGJP); KWJP jako dowód istnienia lematów",
+      "dependencies": "sgjp-20261018 (tagset i opis SGJP); KWJP jako dowód istnienia lematów",
       "evidence": [
         {
           "path": "../../.maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md",
@@ -805,7 +809,7 @@
     },
     "policy": {
       "path": "../../config/generator/policy.json",
-      "sha256": "ec3421b532411c07c693c8e85716c926e43842bc38e473317c69d5a43f66203c"
+      "sha256": "3579c57939b6d877d791895832ea3516b74ef2a7fe63391d404eb3111c8cc65b"
     },
     "constructions": {
       "path": "../../config/generator/constructions.json",
@@ -833,11 +837,11 @@
     },
     "orthography": {
       "path": "../../config/generator/orthography.json",
-      "sha256": "d080505987cdc6fc471bd3d8fa6d78c5c5b5d6412e1da18cc18aa8db5b845718"
+      "sha256": "9ac905d53b2f8244d228ca2d44a780b90eab323d0ade853f86d6cd7c4999154a"
     },
     "semantic-uses": {
       "path": "../../config/generator/semantic-uses.json",
-      "sha256": "cd32746820558f0b14a168e281528801da8ad1930cb512bb94bda38652f42f25"
+      "sha256": "9f3bbbbc6a9bc1a857ed6eff77275e1c3771f43474aa0d4cb0ad27cd03f4b158"
     },
     "quality-words": {
       "path": "quality-words.json",
@@ -845,11 +849,11 @@
     },
     "release": {
       "path": "release.json",
-      "sha256": "2a555ac3e912fc5b9627e8803b7a081addb6a3aa114736a9714d7028d7a67d45"
+      "sha256": "f46b2859f1e3483bd667e28512526f2d0cf1e21f860287ff62079b2988b8842e"
     },
     "standard-age-exceptions": {
       "path": "standard-age-exceptions.json",
-      "sha256": "d41256afd1abc3b25651a25bfb8f67d5fd2e6a356e8a2eddebc723581ad9b580"
+      "sha256": "49ac99955d7717f2273458ddd8d6bfced9c3d1eec547d1137e43617225cd9094"
     }
   },
   "unavailable": [

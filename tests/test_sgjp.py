@@ -9,7 +9,7 @@ from literaki_slownik.inputs import GeneratorError
 class SgjpTests(unittest.TestCase):
     def test_pinned_winien_errata_preserve_raw_tag_and_all_gender_alternatives(self):
         from literaki_slownik.sgjp import tag_errata
-        digest = '3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810'
+        digest = '346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be'
         tag = 'winien:pl:m2.m3.f.n:sec:imperf'
         for lemma,form in [('gotów','gotoweśmy'),('kontent:V','kontenteśmy'),
                            ('niekontent:V','niekontenteśmy'),('nierad:V','nieradeśmy'),
@@ -21,7 +21,7 @@ class SgjpTests(unittest.TestCase):
 
     def test_erratum_never_guesses_suffix_or_applies_to_other_snapshot(self):
         from literaki_slownik.sgjp import tag_errata
-        digest = '3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810'
+        digest = '346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be'
         tag = 'winien:pl:m2.m3.f.n:sec:imperf'
         for sha,lemma,form,raw in [('other','winien','winnyśmy',tag),
                                   (digest,'winien:other','winnyśmy',tag),

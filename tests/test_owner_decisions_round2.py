@@ -28,8 +28,8 @@ class OwnerDecisionsRound2Tests(unittest.TestCase):
 
     def test_documented_surname_component_still_rejected(self):
         checks = source_game_checks({'original': 'ibn', 'lemma_id': 'ibn', 'raw_tag': 'frag', 'names': '',
-                                     'qualifiers': '', 'source_id': 'sgjp-20260823', 'first_source_row': 1960055,
-                                     'source_sha256': '3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810'})
+                                     'qualifiers': '', 'source_id': 'sgjp-20261018', 'first_source_row': 1960055,
+                                     'source_sha256': '346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be'})
         self.assertEqual(assessment(checks)['status'], 'reject')
 
     def test_use_closed_and_remainder_exhausted(self):

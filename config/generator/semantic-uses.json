@@ -4,8 +4,8 @@
     {
       "use_id": "sgjp-authors-surname-de-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+        "source_id": "sgjp-20261018",
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be",
         "first_source_row": 1463128,
         "original": "de",
         "lemma_id": "de:F",
@@ -31,8 +31,8 @@
     {
       "use_id": "sgjp-authors-surname-ibn-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+        "source_id": "sgjp-20261018",
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be",
         "first_source_row": 1960055,
         "original": "ibn",
         "lemma_id": "ibn",
@@ -58,9 +58,9 @@
     {
       "use_id": "sgjp-authors-phrase-wznak-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
-        "first_source_row": 6770165,
+        "source_id": "sgjp-20261018",
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be",
+        "first_source_row": 6770188,
         "original": "wznak",
         "lemma_id": "wznak",
         "raw_tag": "frag",
@@ -82,16 +82,16 @@
       "lexical_proof": "linguistic-documented-use-lexical-proof-v1"
     },
     {
-      "use_id": "sgjp-relation-warszawianka-6309663-v1",
+      "use_id": "sgjp-relation-warszawianka-6309686-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "first_source_row": 6309663,
+        "source_id": "sgjp-20261018",
+        "first_source_row": 6309686,
         "original": "warszawiance",
         "lemma_id": "warszawianka",
         "raw_tag": "subst:sg:dat.loc:f",
         "names": "nazwa_pospolita",
         "qualifiers": "",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be"
       },
       "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
       "coverage": "documented_use_only",
@@ -117,16 +117,16 @@
       ]
     },
     {
-      "use_id": "sgjp-relation-warszawianka-6309664-v1",
+      "use_id": "sgjp-relation-warszawianka-6309687-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "first_source_row": 6309664,
+        "source_id": "sgjp-20261018",
+        "first_source_row": 6309687,
         "original": "warszawianek",
         "lemma_id": "warszawianka",
         "raw_tag": "subst:pl:gen:f",
         "names": "nazwa_pospolita",
         "qualifiers": "",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be"
       },
       "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
       "coverage": "documented_use_only",
@@ -152,16 +152,16 @@
       ]
     },
     {
-      "use_id": "sgjp-relation-warszawianka-6309665-v1",
+      "use_id": "sgjp-relation-warszawianka-6309688-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "first_source_row": 6309665,
+        "source_id": "sgjp-20261018",
+        "first_source_row": 6309688,
         "original": "warszawianka",
         "lemma_id": "warszawianka",
         "raw_tag": "subst:sg:nom:f",
         "names": "nazwa_pospolita",
         "qualifiers": "",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be"
       },
       "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
       "coverage": "documented_use_only",
@@ -187,16 +187,16 @@
       ]
     },
     {
-      "use_id": "sgjp-relation-warszawianka-6309666-v1",
+      "use_id": "sgjp-relation-warszawianka-6309689-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "first_source_row": 6309666,
+        "source_id": "sgjp-20261018",
+        "first_source_row": 6309689,
         "original": "warszawiankach",
         "lemma_id": "warszawianka",
         "raw_tag": "subst:pl:loc:f",
         "names": "nazwa_pospolita",
         "qualifiers": "",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be"
       },
       "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
       "coverage": "documented_use_only",
@@ -222,16 +222,16 @@
       ]
     },
     {
-      "use_id": "sgjp-relation-warszawianka-6309667-v1",
+      "use_id": "sgjp-relation-warszawianka-6309690-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "first_source_row": 6309667,
+        "source_id": "sgjp-20261018",
+        "first_source_row": 6309690,
         "original": "warszawiankami",
         "lemma_id": "warszawianka",
         "raw_tag": "subst:pl:inst:f",
         "names": "nazwa_pospolita",
         "qualifiers": "",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be"
       },
       "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
       "coverage": "documented_use_only",
@@ -257,16 +257,16 @@
       ]
     },
     {
-      "use_id": "sgjp-relation-warszawianka-6309668-v1",
+      "use_id": "sgjp-relation-warszawianka-6309691-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "first_source_row": 6309668,
+        "source_id": "sgjp-20261018",
+        "first_source_row": 6309691,
         "original": "warszawianki",
         "lemma_id": "warszawianka",
         "raw_tag": "subst:pl:nom.acc.voc:f",
         "names": "nazwa_pospolita",
         "qualifiers": "",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be"
       },
       "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
       "coverage": "documented_use_only",
@@ -292,16 +292,16 @@
       ]
     },
     {
-      "use_id": "sgjp-relation-warszawianka-6309669-v1",
+      "use_id": "sgjp-relation-warszawianka-6309692-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "first_source_row": 6309669,
+        "source_id": "sgjp-20261018",
+        "first_source_row": 6309692,
         "original": "warszawianki",
         "lemma_id": "warszawianka",
         "raw_tag": "subst:sg:gen:f",
         "names": "nazwa_pospolita",
         "qualifiers": "",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be"
       },
       "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
       "coverage": "documented_use_only",
@@ -327,16 +327,16 @@
       ]
     },
     {
-      "use_id": "sgjp-relation-warszawianka-6309670-v1",
+      "use_id": "sgjp-relation-warszawianka-6309693-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "first_source_row": 6309670,
+        "source_id": "sgjp-20261018",
+        "first_source_row": 6309693,
         "original": "warszawianko",
         "lemma_id": "warszawianka",
         "raw_tag": "subst:sg:voc:f",
         "names": "nazwa_pospolita",
         "qualifiers": "",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be"
       },
       "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
       "coverage": "documented_use_only",
@@ -362,16 +362,16 @@
       ]
     },
     {
-      "use_id": "sgjp-relation-warszawianka-6309671-v1",
+      "use_id": "sgjp-relation-warszawianka-6309694-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "first_source_row": 6309671,
+        "source_id": "sgjp-20261018",
+        "first_source_row": 6309694,
         "original": "warszawiankom",
         "lemma_id": "warszawianka",
         "raw_tag": "subst:pl:dat:f",
         "names": "nazwa_pospolita",
         "qualifiers": "",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be"
       },
       "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
       "coverage": "documented_use_only",
@@ -397,16 +397,16 @@
       ]
     },
     {
-      "use_id": "sgjp-relation-warszawianka-6309672-v1",
+      "use_id": "sgjp-relation-warszawianka-6309695-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "first_source_row": 6309672,
+        "source_id": "sgjp-20261018",
+        "first_source_row": 6309695,
         "original": "warszawianką",
         "lemma_id": "warszawianka",
         "raw_tag": "subst:sg:inst:f",
         "names": "nazwa_pospolita",
         "qualifiers": "",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be"
       },
       "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
       "coverage": "documented_use_only",
@@ -432,16 +432,16 @@
       ]
     },
     {
-      "use_id": "sgjp-relation-warszawianka-6309673-v1",
+      "use_id": "sgjp-relation-warszawianka-6309696-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "first_source_row": 6309673,
+        "source_id": "sgjp-20261018",
+        "first_source_row": 6309696,
         "original": "warszawiankę",
         "lemma_id": "warszawianka",
         "raw_tag": "subst:sg:acc:f",
         "names": "nazwa_pospolita",
         "qualifiers": "",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810"
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be"
       },
       "description": "Dokładnie udokumentowane użycie nazwy mieszkanki Warszawy; źródłowy paradygmat i nierozpoznane możliwości zachowane.",
       "coverage": "documented_use_only",
@@ -469,8 +469,8 @@
     {
       "use_id": "sgjp-authors-phrase-dwojnasob-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+        "source_id": "sgjp-20261018",
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be",
         "first_source_row": 1647764,
         "original": "dwójnasób",
         "lemma_id": "dwójnasób",
@@ -495,8 +495,8 @@
     {
       "use_id": "sgjp-authors-phrase-krocset-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
+        "source_id": "sgjp-20261018",
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be",
         "first_source_row": 2244647,
         "original": "kroćset",
         "lemma_id": "kroćset",
@@ -521,9 +521,9 @@
     {
       "use_id": "sgjp-authors-phrase-rosciez-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
-        "first_source_row": 5520636,
+        "source_id": "sgjp-20261018",
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be",
+        "first_source_row": 5520659,
         "original": "roścież",
         "lemma_id": "roścież:F",
         "raw_tag": "frag",
@@ -547,9 +547,9 @@
     {
       "use_id": "sgjp-authors-phrase-trojnasob-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
-        "first_source_row": 6044918,
+        "source_id": "sgjp-20261018",
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be",
+        "first_source_row": 6044941,
         "original": "trójnasób",
         "lemma_id": "trójnasób",
         "raw_tag": "frag",
@@ -573,9 +573,9 @@
     {
       "use_id": "sgjp-authors-phrase-ziem-v1",
       "source": {
-        "source_id": "sgjp-20260823",
-        "source_sha256": "3b2ee079143bc95186370fd528735779c4ba62f4ce14e30cf6622ceb566e9810",
-        "first_source_row": 7186612,
+        "source_id": "sgjp-20261018",
+        "source_sha256": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be",
+        "first_source_row": 7186635,
         "original": "ziem",
         "lemma_id": "ziem",
         "raw_tag": "frag",

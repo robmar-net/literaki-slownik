@@ -188,7 +188,7 @@ Opis plików: [raporty.md](raporty.md#raporty-tematy). `explain` nie ma wariantu
 Dla serwera Literaki (#1862): forma BROAD → analizy z eksportu SGJP (lemat, tag, kwalifikatory). Uruchamiany ręcznie; wynik trafia do `lexicons/sgjpindex/` w repo serwera.
 
 ```sh
-python3 -m literaki_slownik morph-index --broad <LL-PL-BROAD.txt.gz> --sgjp cache/sgjp/sgjp-20260823.tab.gz \
+python3 -m literaki_slownik morph-index --broad <LL-PL-BROAD.txt.gz> --sgjp cache/sgjp/sgjp-20261018.tab.gz \
   --broad-lexicon-id pl-broad-20261011 --broad-dawg-sha256 <hex z lexicons/pl-broad-20261011.sha256> --out <plik>.bin [--json]
 ```
 

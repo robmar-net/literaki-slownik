@@ -1,4 +1,4 @@
-"""Przesiew nazw mieszkańców -anin/-anka (R1) z przypiętego SGJP sgjp-20260823.
+"""Przesiew nazw mieszkańców -anin/-anka (R1) z przypiętego SGJP sgjp-20261018.
 
 Zamknięta lista wygenerowana z lematów małą literą: 2103 lematów -anin
 i 2051 istniejących lematów żeńskich -anka. Decyzja właściciela 2026-10-08:
