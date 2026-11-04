@@ -7,7 +7,7 @@ orchestrator:
     brainstorming_enabled: true
     design_enabled: true
   created: 2026-11-03T14:56:26Z
-  updated: 2026-11-04T02:31:19Z
+  updated: 2026-11-04T08:38:27Z
   task_path: .maister/tasks/research/2026-11-03-zrodla-potoczne
 task:
   title: "Źródła słów potocznych, internetowych i świadomych zmian językowych"
@@ -44,3 +44,10 @@ research_context:
           chosen_approach: "2A (Z1): wystarczy dowód ręczny z Dobrego Słownika (URL, data, id, własny opis); tezaurus DS tylko sygnał lokalny; zaimki.pl nie do repo; RJP reguła klasy"
         - area: "2a. Rola zaimki.pl i neutratywy (pytanie użytkownika)"
           chosen_approach: "Feminatywy i neutratywy z zaimki.pl wchodzą do kolejki; słowo z hasłem DS przechodzi jak 2A; słowo tylko z zaimki.pl wymaga jednego niezależnego dowodu użycia; bez importu danych (OQL), w karcie URL, data, własny opis. Neutratywów nie odrzucamy z góry."
+        - area: "3. Feminatywy i formy systemowe"
+          chosen_approach: "3C: partie ze wspólną kartą, werdykt dla każdego słowa; pierwsza partia 122 (zaimki.pl ∩ tezaurus DS); formy tylko z tezaurusa = flaga tylko-wzór, odpadają; obejmuje feminatywy i neutratywy"
+        - area: "4. Potok potoczny"
+          chosen_approach: "4A: CC tylko potwierdza (próbka 1–2 mld słów po opt-out); kolejka ze zgłoszeń, napisów lokalnie, nowych haseł DS, plebiscytów; progi v2, B7 tymczasowo ≥20 trafień i ≥0,05 ipm; ręczna ocena znaczeń; przeliczyć ghosting z 9 formami, ujednolicić B4, jedna tabela progów hostów"
+        - area: "5. Pisownie i homografy"
+          chosen_approach: "5A: karta wspólna, osobny dowód i werdykt dla każdej pisowni; formy niegrywalne tylko jako dowód życia leksemu; bez własnych spolszczeń; cringe z dwoma tagami (adj nieodm. + subst n)"
+      deferred_ideas: ["Fora SpeakLeash", "źródła NC (Spokes, hate_speech_pl)", "CC jako detektor (4B)", "lista blokad dla całej próbki (1B)", "sondy essa/zoomer/dziaders", "import danych zaimki.pl (OQL)"]
