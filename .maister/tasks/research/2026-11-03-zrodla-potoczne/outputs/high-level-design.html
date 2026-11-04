@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projekt: źródła potoczne i świadome zmiany językowe — 2026-11-03-zrodla-potoczne</title>
+<style>.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+img.shot { max-width:100%; border:1px solid var(--border); border-radius:var(--radius); }
+details > summary { cursor:pointer; font-weight:600; }
+.step.todo::before  { content:"☐ "; color:var(--dim); }
+.step.done::before  { content:"☑ "; color:var(--ok); }
+.step.done          { color:var(--dim); }
+.group.todo .g-badge::after { content:"pending"; }
+.group.done .g-badge::after { content:"✓ completed"; color:var(--ok); }
+.meta { color:var(--dim); font-size:13px; }
+.toc { font-size:13px; margin:10px 0 4px; }
+pre { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:12px 14px; overflow-x:auto; font-size:12px; line-height:1.35; }
+.tw { overflow-x:auto; }
+.tldr h2:first-child { margin-top:0; }
+.adr .st { background:var(--warn-soft); color:var(--warn); }
+.adr h2 { margin-top:8px; }
+hr { border:0; border-top:1px solid var(--border); margin:24px 0; }
+</style>
+</head>
+<body>
+<nav class="crumbs"><a href="../dashboard.html">← Panel</a> <a href="research-report.html">Raport</a> <a href="solution-exploration.html">Warianty</a> <span class="here">Projekt</span> <a href="decision-log.html">Decyzje</a> <a href="high-level-design.md" target="_blank" rel="noopener" class="md">md ↗</a></nav>
+<header><span class="badge">Projekt</span><h1>Projekt: źródła potoczne i świadome zmiany językowe</h1><div class="meta"><p>Data: 2026-11-04 · Zgłoszenie: #16 · Wybory: 1A, 2A (Z1) + zaimki.pl, 3C, 4A, 5A · Rozszerza: <a href="../../2026-11-03-zrodla-nowych-slow/outputs/high-level-design.html">projekt nowych słów</a> · Decyzje: <a href="decision-log.html">decision-log.md</a></p></div></header>
+<div class="tiles"><div class="tile"><b>9</b><span>komponenty</span></div><div class="tile"><b>5</b><span>szkice ADR</span></div><div class="tile"><b>potwierdzanie</b><span>styl: potok wsadowy</span></div><div class="tile"><b>5</b><span>przykłady</span></div><div class="tile"><b>13</b><span>kroki wdrożenia</span></div></div>
+<section class="tldr card"><h2>TL;DR</h2>
+<ul><li><b>Sieć i napisy potwierdzają słowo z kolejki, nie wykrywają go.</b> Kolejkę tworzą detektory: zgłoszenia, napisy (lokalnie), nowe hasła Dobrego Słownika (DS), tezaurus DS, zaimki.pl, plebiscyty.</li><li><b>Do repo idą tylko fakty:</b> liczby, lata, liczba hostów, data, URL i własny opis. Tekst nie idzie nigdy. Opt-out sprawdzamy na hostach wszystkich trafień kandydata, w dniu pomiaru i ponownie przed wpisem.</li><li><b>Zmiana świadoma:</b> hasło DS wystarcza (Z1). Słowo znane tylko z zaimki.pl potrzebuje jednego niezależnego dowodu użycia. Feminatywy i neutratywy idą w partiach, werdykt dla każdego słowa. Pierwsza partia: 122.</li><li><b>Każda pisownia ma osobny werdykt</b> we wspólnej karcie rodziny.</li><li>Projekt dokłada kontenery do potoku z #16. Build, suplement v2 i decyzja słowo po słowie zostają bez zmian.</li></ul><h2>Kluczowe decyzje</h2>
+<ul><li>Polityka TDM, opt-out i publikacji (1A) — <a href="decision-log.html#adr-019">ADR-019</a>.</li><li>Warstwa potoczna: CC tylko potwierdza, progi v2, B7 tymczasowy (4A) — <a href="decision-log.html#adr-020">ADR-020</a>.</li><li>Typ „zmiana świadoma”: Z1 z hasłem DS; zaimki.pl jako detektor plus jeden dowód użycia (2A) — <a href="decision-log.html#adr-021">ADR-021</a>.</li><li>Feminatywy i neutratywy w partiach, flaga <code>tylko-wzór</code> (3C) — <a href="decision-log.html#adr-022">ADR-022</a>.</li><li>Rodzina pisowni: karta wspólna, werdykty osobne (5A) — <a href="decision-log.html#adr-023">ADR-023</a>.</li><li>Numery ADR-019+ do potwierdzenia przy wdrożeniu. Zależą od numerów ADR-014–018 z #16.</li></ul><h2>Otwarte pytania / ryzyka</h2>
+<ul><li><b>Ocena prawna to odczyt zbieracza, nie porada prawna</b> (ccrawl-01). Nie wiadomo, czy art. 26³ liczy opt-out z dnia crawla, czy z dnia pobrania. Przyjmujemy dzień pobrania (ccrawl-04).</li><li>**<code>Content-Signal: ai-train=no</code>** (12/100 dużych hostów, ccrawl-04) dotyczy treningu AI, nie każdego TDM. Nie ma go na liście z 1A. Propozycja: zapisać jako flagę hosta, nie wykluczać. Potwierdza użytkownik.</li><li><b>Z1 wpuszcza słowa bez zmierzonego użycia</b>, jeśli mają hasło DS (metoda-02). Użytkownik przyjął to ryzyko. Karta pokazuje liczby, jeśli są, ale nie stawia progu.</li><li><b>Lista lematów z zaimki.pl w repo.</b> Partia 122 to przecięcie z tezaurusem DS (GPL/LGPL), więc każdy lemat ma wolne źródło. Słowo tylko z zaimki.pl trafia do repo pojedynczo, z własnym dowodem.</li><li><b>Neutratywy:</b> suplement wymaga wzoru fleksji SGJP (ADR-016). Gdy nie ma pasującego wzoru, słowo czeka.</li><li><b>Czy podklasa (b) mieści się w zasadach dopuszczalności Kurnika:</b> decyzja użytkownika (swiadoma-05).</li><li><b>Liczby z sieci są wstępne:</b> policzone przed filtrem opt-out, ghosting z 4 form zamiast 9 (synthesis S2, S4).</li><li><b>Dysk:</b> próbka 1–2 mld słów to kilkanaście–kilkadziesiąt GB (ccrawl-02: 662,7 mln słów ≈ 8,9 GB pobrań). Liczymy plik po pliku i kasujemy go zaraz po liczeniu.</li></ul>
+<hr></section>
+<nav class="toc">Spis: <a href="#opis">Opis</a> · <a href="#architektura">Architektura</a> · <a href="#komponenty">Komponenty</a> · <a href="#przep-yw-kwartalny">Przepływ kwartalny</a> · <a href="#przep-yw-danych">Przepływ danych</a> · <a href="#granice-prawne">Granice prawne</a> · <a href="#punkty-integracji">Punkty integracji</a> · <a href="#wdro-enie-kroki-i-zale-no-ci">Wdrożenie: kroki i zależności</a> · <a href="#wp-yw-na-wiki">Wpływ na wiki</a> · <a href="#decyzje-projektowe">Decyzje projektowe</a> · <a href="#przyk-ady">Przykłady</a> · <a href="#poza-zakresem">Poza zakresem</a> · <a href="#kryteria-sukcesu">Kryteria sukcesu</a></nav>
+<main><section id="opis"><h2>Opis</h2>
+<p><b>Problem.</b> Korpusy z #16 (PPC, ParlaMint, Leipzig) nie widzą słów potocznych ani świadomych zmian. Wulwa, ghosting, cringe i boomer mają w nich 0–6 trafień (metoda-05). Źródła z najmocniejszym sygnałem (napisy, sieć) nie mają licencji tekstu (synthesis W1).</p>
+<p><b>Rozwiązanie.</b> Do kolejki z #16 dochodzą <b>detektory lokalne</b>. Kandydat z kolejki dostaje <b>pomiar potwierdzający</b> w Common Crawl (FineWeb-2/HPLT) na próbce 1–2 mld słów, po <b>filtrze opt-out</b>. Słowa świadomej zmiany dostają <b>dowód ręczny</b> z DS. Wynik trafia do <b>rozszerzonej karty kandydata</b>. Dalej działa droga z #16: decyzja użytkownika, wzór fleksji SGJP, suplement v2, build, wiki.</p>
+<p><b>Kluczowe decyzje:</b></p>
+<ul><li><b>Potwierdzanie, nie wykrywanie.</b> W CC tylko ok. 4% nowych grup to słowa potoczne (ccrawl-03).</li><li><b>Fakty zamiast tekstu.</b> Liczby i URL to wynik TDM. Kontekst byłby cytatem (ccrawl-01).</li><li><b>Dwa typy dowodu, dwie reguły.</b> <code>potoczne</code>: bramki B1–B8. <code>zmiana_swiadoma</code>: hasło DS albo jeden dowód użycia.</li><li><b>Werdykt zawsze dla jednego słowa i jednej pisowni.</b> Partia i rodzina dzielą tylko kartę.</li></ul></section>
+<section id="architektura"><h2>Architektura</h2>
+<h3>Kontekst (C4, poziom 1)</h3>
+<pre>                       zgłoszenie, werdykt (słowo po słowie)
+   [Użytkownik] &lt;------------------------------------------+
+        |  ^                                               |
+  karty |  | dowód ręczny (URL, data, własny opis)         |
+        v  |                                               |
+ +-------------------------------+   listy (Release)   [Gracz /
+ |  literaki-slownik             |-------------------&gt; odwiedzający
+ |  wykrywanie + build (z #16)   |   liczby, źródła     wiki]
+ |  + detektory, pomiar CC,      |-----&gt; [Wiki projektu] ---^
+ |    filtr opt-out              |
+ +-------------------------------+
+    ^ HTTPS, lokalnie   ^ HTTPS, lokalnie    ^ HTTPS (robots.txt,
+    | (TDM, art. 26³)   | (detektory)        |  tdmrep, regulamin)
+ [FineWeb-2 / HPLT]  [OpenSubtitles, DS:    [hosty trafień
+  (opakowanie ODC-By  mapa witryny,          kandydata]
+   / CC0; tekst bez   tezaurus DS, zaimki.pl,
+   licencji)          plebiscyty]</pre>
+<ul><li>Strzałki w górę to dane do liczenia lokalnego. Nic z tych źródeł nie idzie do repo poza faktami.</li><li>SJP.pl nie jest źródłem. Wikisłownik jest odroczony. Nie kontaktujemy autorów zasobów.</li></ul>
+<h3>Kontenery (C4, poziom 2)</h3>
+<pre> DETEKTORY (lokalnie, poza Git)            POMIAR (lokalnie, poza Git, taskpolicy -b, python -I)
+ +----------------------------+            +--------------------------------------------+
+ | zgłoszenia ręczne          |            | Pomiar CC: próbka 1-2 mld słów,            |
+ | napisy: liczba filmów      |            | formy z wzoru, bramki B1-B8, lata, hosty   |
+ | DS: nowe hasła (mapa)      |            +---------------------+----------------------+
+ | tezaurus DS (sha256)       |                      | hosty trafień
+ | zaimki.pl (lokalnie)       |                      v
+ | plebiscyty (ręcznie)       |            +--------------------------------------------+
+ +-------------+--------------+            | Filtr opt-out: robots CCBot/*, tekst TDM,  |
+               | lemat + źródło            | TDMRep; regulamin ręcznie; data stanu      |
+               v                           +---------------------+----------------------+
+ +----------------------------+                      | trafienia z czystych hostów
+ | Kolejka (z #16) + strumień |------ kandydat -----&gt;v
+ | potoczne / zmiana_swiadoma |            +--------------------------------------------+
+ +----------------------------+            | Ocena znaczeń (ręcznie, konteksty lokalne) |
+               ^                           | wynik: n z m w znaczeniu; potem kasowanie  |
+               | odejmuje rozstrzygnięte   +---------------------+----------------------+
+ +----------------------------+                      | liczby
+ | Rejestr decyzji (z #16)    |                      v
+ | + typ dowodu, tylko-wzór,  |&lt;--- werdykt --- +--------------------------------+
+ |   data opt-out             |                 | Karta kandydata (rozszerzona)  |&lt;-- Dowód ręczny:
+ +-------------+--------------+                 | karta rodziny / karta partii   |    DS, plwiki,
+               | dodać                          +--------------------------------+    RJP (klasa)
+               v
+ +--------------------------------------------------------------+
+ | Z #16, bez zmian: wzór fleksji SGJP -&gt; suplement v2 -&gt; build  |
+ | -&gt; benchmark -&gt; wiki                                          |
+ +--------------------------------------------------------------+</pre>
+<ul><li><b>Detektory</b> dają tylko lemat i nazwę źródła. Nie dają dowodu.</li><li><b>Pomiar CC</b> działa tylko dla kandydatów z kolejki. Nie skanuje próbki w poszukiwaniu nowych słów.</li><li><b>Filtr opt-out</b> stoi przed każdą liczbą, która trafia do karty.</li><li><b>Decyzja</b> to jedyne przejście do buildu, jak w #16.</li></ul></section>
+<section id="komponenty"><h2>Komponenty</h2>
+<div class="tw"><table><tr><th>Komponent</th><th>Cel</th><th>Zadania</th><th>Interfejs</th><th>Zależy od</th></tr><tr><td><b>Detektory lokalne</b></td><td>Zasilić kolejkę słowami spoza korpusów #16</td><td>napisy OpenSubtitles: liczba filmów (IMDb ID), nie zdań; DS: nowe hasła z mapy witryny (id, <code>lastmod</code>); tezaurus DS: obecność + sha256 pliku; zaimki.pl: feminatywy i neutratywy spoza SGJP; plebiscyty i zgłoszenia ręcznie</td><td>lemat + detektor → kolejka</td><td>manifest wykrywania (#16)</td></tr><tr><td><b>Kolejka</b> (rozszerzona)</td><td>Kolejność przeglądu</td><td>strumień <code>potoczne</code> lub <code>zmiana_swiadoma</code>; partie (3C); rodziny pisowni (5A); odjęcie rejestru i SGJP jak w #16</td><td>kandydat → pomiar albo karta</td><td>rejestr, ADR-017/018</td></tr><tr><td><b>Pomiar CC</b></td><td>Potwierdzić użycie kandydata</td><td>próbka FineWeb-2/HPLT 1–2 mld słów; wszystkie formy z wzoru (ghosting: 9); B1–B8 v2; lata i hosty; plik po pliku, kasowanie po liczeniu</td><td>lista form → trafienia (host, rok, URL) lokalnie</td><td>wzór fleksji (#16), tabela progów</td></tr><tr><td><b>Filtr opt-out</b></td><td>Liczyć tylko to, co wolno (art. 26³)</td><td>hosty <b>wszystkich</b> trafień; robots.txt (<code>CCBot</code> albo <code>*</code>), jawny tekst TDM, TDMRep; regulamin ręcznie przy dokumentach dowodowych; data stanu; drugie sprawdzenie przed wpisem</td><td>hosty → hosty dozwolone + data</td><td>sieć (tylko ten krok i pobieranie)</td></tr><tr><td><b>Ocena znaczeń</b></td><td>Odsiać inne znaczenia</td><td>ręczna ocena kontekstów lokalnych (ghosting relacyjny tylko w 2/27 i 5/45, ccrawl-02); wynik liczbowy; kasowanie kontekstów po ocenie</td><td>trafienia → n z m w znaczeniu</td><td>pomiar CC</td></tr><tr><td><b>Dowód ręczny</b></td><td>Udokumentować źródło redagowane</td><td>DS: URL, data, id, własny opis; plwiki dyskusje: liczby i link; RJP: reguła klasy, URL przy klasie; publikacja: DOI lub URL</td><td>wpis w karcie</td><td>użytkownik / agent</td></tr><tr><td><b>Karta kandydata</b> (rozszerzona)</td><td>Wszystko do decyzji</td><td>nowe pola (tabela niżej); karta rodziny pisowni; karta partii</td><td>kandydat → karta w repo</td><td>karta z #16</td></tr><tr><td><b>Rejestr decyzji</b> (rozszerzony)</td><td>Pamięć między kwartałami</td><td>pola: typ dowodu, flaga <code>tylko-wzór</code>, data stanu opt-out; reguła powrotu z ADR-018</td><td>werdykt → rejestr</td><td>rejestr z #16</td></tr><tr><td><b>Tabela progów</b></td><td>Jedno miejsce dla wszystkich progów</td><td>B1–B8 v2, B7 tymczasowy, B6 hosty, reguła jednego dowodu dla zaimki.pl, jedna definicja B4</td><td>czytana przez pomiar i kartę</td><td>ADR-020</td></tr></table></div>
+<h3>Nowe pola karty</h3>
+<div class="tw"><table><tr><th>Pole</th><th>Wartości / treść</th><th>Przykład</th></tr><tr><td>typ dowodu</td><td><code>korpus</code>, <code>potoczne</code>, <code>zmiana_swiadoma</code>, <code>reczny</code> (może być kilka)</td><td>wulwa: <code>zmiana_swiadoma</code></td></tr><tr><td>detektor</td><td>skąd słowo w kolejce</td><td>ghosting: napisy</td></tr><tr><td>rodzina pisowni</td><td>pisownie z osobnym dowodem i werdyktem; zapisy niegrywalne jako dowód życia</td><td>boomer / bumer</td></tr><tr><td>homograf</td><td>forma już w SGJP jako inny leksem</td><td>bumer m3 (10 form)</td></tr><tr><td>nowe formy w grze</td><td>formy po odjęciu SGJP, osobno STANDARD i BROAD; tylko informacja</td><td>boomer +11, bumer m1 +1</td></tr><tr><td>lejek</td><td>trafienia: surowe → B3 → B4 → B5 → B6 → po opt-out → po ocenie znaczeń</td><td>—</td></tr><tr><td>stan opt-out</td><td>data sprawdzenia, liczba hostów sprawdzonych i odrzuconych, data drugiego sprawdzenia</td><td>—</td></tr><tr><td>napisy</td><td>liczba filmów + link do opensubtitles.org</td><td>—</td></tr><tr><td>dowód ręczny</td><td>źródło, URL, data odczytu, id, własny opis</td><td>DS wulwa, id 226245</td></tr><tr><td>flaga <code>tylko-wzór</code></td><td>forma znana tylko z list</td><td>—</td></tr><tr><td>tagi</td><td>klasy i rodzaj; dla <code>cringe</code> dwa</td><td>adj nieodm. + subst n</td></tr></table></div></section>
+<section id="przep-yw-kwartalny"><h2>Przepływ kwartalny</h2>
+<p>Rytm i kroki z #16 (ADR-018) zostają. Dochodzą kroki oznaczone ★.</p>
+<pre>1. Pobierz (z #16) + ★ detektory lokalne
+2. Nowy SGJP? osobny bump (z #16)
+3. ★ Kolejka: strumień, partia, rodzina pisowni
+4. ★ Pomiar CC dla kandydatów -&gt; ★ filtr opt-out (stan z dnia pomiaru)
+   -&gt; ★ ocena znaczeń -&gt; kasowanie danych
+5. ★ Dowód ręczny (DS, plwiki, RJP)
+6. Karty (część ok. 50; partia ma jedną kartę z wierszem na słowo)
+7. Decyzja użytkownika, osobno dla każdego słowa i pisowni
+8. ★ Drugie sprawdzenie opt-out dla słów &quot;dodać&quot; -&gt; suplement vN, build
+9. Wiki + commit</pre>
+<ul><li>Krok 4 przeliczamy tylko przy nowej wersji próbki CC albo dla nowych kandydatów.</li><li>Krok 8: jeśli host dowodu dodał zastrzeżenie, liczbę przeliczamy bez niego. Gdy próg spadnie poniżej wymaganego, słowo wraca do kolejki.</li></ul></section>
+<section id="przep-yw-danych"><h2>Przepływ danych</h2>
+<div class="tw"><table><tr><th>Dane</th><th>Gdzie powstają</th><th>Gdzie leżą</th><th>Do repo?</th></tr><tr><td>shardy FineWeb-2/HPLT</td><td>pobranie</td><td><code>cache/</code>, kasowane po liczeniu pliku</td><td>nie</td></tr><tr><td>trafienia (host, rok, URL) i konteksty</td><td>pomiar CC</td><td><code>data/work/</code>, kasowane po ocenie znaczeń</td><td>nie</td></tr><tr><td>liczby, lata, liczba hostów, ipm, lejek</td><td>pomiar + filtr</td><td>karta</td><td><b>tak</b></td></tr><tr><td>URL + data + własny opis dokumentu dowodowego</td><td>ręcznie</td><td>karta</td><td><b>tak</b> (po opt-out)</td></tr><tr><td>zdania z napisów</td><td>detektor</td><td>lokalnie, kasowane</td><td>nie; w karcie liczba filmów + link</td></tr><tr><td>hasła DS, mapa witryny</td><td>detektor</td><td>lokalnie</td><td>nie; URL, data, id, opis</td></tr><tr><td>tezaurus DS</td><td>detektor</td><td><code>cache/</code></td><td>nie; „jest w tezaurusie DS vX” + sha256</td></tr><tr><td>dane zaimki.pl</td><td>detektor</td><td>lokalnie</td><td>nie; URL, data, opis przy słowie</td></tr><tr><td>werdykt, typ dowodu, flagi</td><td>użytkownik</td><td>rejestr</td><td><b>tak</b></td></tr></table></div></section>
+<section id="granice-prawne"><h2>Granice prawne</h2>
+<div class="tw"><table><tr><th>Czynność</th><th>Podstawa</th><th>Zasada</th></tr><tr><td>liczenie form w CC</td><td>art. 26³ ust. 1</td><td>tylko lokalnie, tylko hosty bez zastrzeżenia</td></tr><tr><td>przechowywanie danych</td><td>art. 26³ ust. 3</td><td>tak długo, jak trwa pomiar; potem kasujemy</td></tr><tr><td>publikacja liczb, lat, liczby hostów</td><td>wynik TDM, nie utwór (ccrawl-01)</td><td>tak, z datą stanu opt-out</td></tr><tr><td>URL + data + własny opis</td><td>fakt</td><td>tak, po opt-out hosta i lekturze regulaminu</td></tr><tr><td>kontekst, cytat, próbka</td><td>art. 29, 34, 35</td><td><b>nie</b> z tekstów bez licencji</td></tr><tr><td>napisy</td><td>brak licencji tekstu</td><td>tylko detektor; w karcie liczba filmów + link</td></tr><tr><td>DS (prawa zastrzeżone)</td><td>—</td><td>dowód ręczny, bez kopiowania haseł</td></tr><tr><td>tezaurus DS (GPL-2.0+ / LGPL 2.1)</td><td>—</td><td>sygnał lokalny, bez importu</td></tr><tr><td>zaimki.pl (OQL v1.4)</td><td>niezgodna z CC BY 4.0 list</td><td>detektor lokalny, bez importu</td></tr><tr><td>plwiki dyskusje (CC BY-SA 4.0)</td><td>licencja</td><td>liczby i link; cytat z atrybucją tylko wyjątkowo</td></tr><tr><td>fora SpeakLeash, źródła NC</td><td>—</td><td>odłożone</td></tr></table></div>
+<p>Projekt nie jest organizacją badawczą (art. 26²), więc działa na art. 26³. Zastrzeżenie umowne wiąże (ccrawl-01).</p></section>
+<section id="punkty-integracji"><h2>Punkty integracji</h2>
+<ul><li><b>Manifest wykrywania (ADR-015 z #16):</b> nowe wpisy FineWeb-2, HPLT, OpenSubtitles, tezaurus DS, mapa witryny DS, zaimki.pl. Każdy ma osobno licencję tekstu i opakowania oraz zakres: „tylko liczenie lokalne” albo „liczby do publikacji”.</li><li><b>Wzór fleksji (ADR-016):</b> daje listę form do pomiaru. Bez wzoru nie ma pomiaru B5a.</li><li><b>Rejestr i kolejka (ADR-017/018):</b> wspólne dla wszystkich strumieni. Słowo odrzucone w jednym strumieniu nie wraca z drugiego bez nowego dowodu.</li><li><b>Suplement v2 i build:</b> bez zmian. Kwalifikator pusty. Typ dowodu jest w rejestrze, nie w suplemencie.</li><li><b>Sieć:</b> HTTPS tylko przy pobieraniu i przy sprawdzaniu opt-out. Bez formularzy, kont i maili.</li><li>**<code>ATTRIBUTIONS.md</code>:** FineWeb-2 (ODC-By, ccrawl-01) i HPLT (CC0), gdy pierwsze liczby trafią do repo. plwiki (CC BY-SA), gdy pojawi się cytat.</li></ul></section>
+<section id="wdro-enie-kroki-i-zale-no-ci"><h2>Wdrożenie: kroki i zależności</h2>
+<div class="tw"><table><tr><th>#</th><th>Krok</th><th>Zależy od</th></tr><tr><td>0</td><td>Skasować małe pobrania z badania (<code>dane/male</code>, plik trafień w napisach; potoczne-03)</td><td>—</td></tr><tr><td>1</td><td>Wdrożyć #16: manifest (ADR-015), suplement v2 i wzór fleksji (ADR-016), kolejka i rejestr (ADR-017/018), karta</td><td>—</td></tr><tr><td>2</td><td>ADR-019–023 do <code>docs/adr/</code> z ostatecznymi numerami; wpisy w <code>.maister/docs/INDEX.md</code></td><td>1 (numery ADR #16)</td></tr><tr><td>3</td><td>Tabela progów: B1–B8 v2, B7 tymczasowy, jedna definicja B4, reguła jednego dowodu</td><td>2</td></tr><tr><td>4</td><td>Wpisy manifestu dla nowych źródeł</td><td>1</td></tr><tr><td>5</td><td>Filtr opt-out: sprawdzanie hostów trafień, zapis stanu i daty</td><td>4</td></tr><tr><td>6</td><td>Pomiar CC na próbce 1–2 mld słów, plik po pliku, z kasowaniem</td><td>3, 4, 5, wzór fleksji z 1</td></tr><tr><td>7</td><td>Kontrole: ghosting z 9 formami; hejt, lockdown, antyszczepionkowiec jako kontrola dodatnia liczenia (lockdown 0 przed 2020)</td><td>6</td></tr><tr><td>8</td><td>Detektory lokalne: napisy (liczba filmów), mapa DS, tezaurus DS, zaimki.pl</td><td>4</td></tr><tr><td>9</td><td>Rozszerzyć kartę (nowe pola, karta rodziny, karta partii) i rejestr</td><td>1</td></tr><tr><td>10</td><td>Pierwsze karty: wulwa (próba Z1), rodziny boomer/bumer i cringe/krindż, ghosting</td><td>6–9</td></tr><tr><td>11</td><td>Partia 122 (zaimki.pl ∩ tezaurus DS)</td><td>8, 9</td></tr><tr><td>12</td><td>Kalibracja B3–B7 na pierwszych kartach (nie blokuje kolejki)</td><td>10</td></tr><tr><td>13</td><td>Wiki, <code>ATTRIBUTIONS.md</code>, <code>docs/runbook-wiki.md</code></td><td>10 (pierwsze liczby w repo)</td></tr></table></div></section>
+<section id="wp-yw-na-wiki"><h2>Wpływ na wiki</h2>
+<p>Zasada repo: zmiana źródeł lub kryteriów aktualizuje wiki w tej samej pracy. Strony z #16 dostają dopiski.</p>
+<div class="tw"><table><tr><th>Strona</th><th>Kiedy</th><th>Co zmienić</th></tr><tr><td><code>Home</code></td><td>przy pierwszej karcie potocznej</td><td>tabela źródeł: FineWeb-2/HPLT „tylko liczby w kartach, po filtrze opt-out”; DS „tylko dowód ręczny (link)”; OpenSubtitles „tylko lokalne wykrywanie”</td></tr><tr><td><code>Slownik-STANDARD</code>, <code>Slownik-BROAD</code></td><td>przy pierwszym „dodać” z nowego strumienia</td><td>słowa potoczne i świadome zmiany wchodzą tak samo: decyzją, przez suplement; przykład</td></tr><tr><td><code>Nowe-slowa</code> (nowa z #16)</td><td>przy pierwszej karcie</td><td><b>nowa sekcja „Źródła potoczne i świadome zmiany”:</b> detektory; zasada „potwierdzanie, nie wykrywanie”; co publikujemy (fakty, bez tekstu); opt-out; dwa typy dowodu; partie feminatywów i neutratywów; rodziny pisowni; czego nie używamy (SJP.pl, Wikisłownik odroczony)</td></tr><tr><td><code>_Sidebar</code></td><td>razem z <code>Nowe-slowa</code></td><td>link do sekcji</td></tr><tr><td><code>Historia-zmian</code></td><td>przy każdym buildzie z nową wersją suplementu</td><td>wiersz z liczbą słów z każdego typu dowodu</td></tr><tr><td><code>Porownanie-z-SJP.pl</code></td><td>po buildzie</td><td>nowy benchmark (tylko porównanie)</td></tr><tr><td><code>Slownik-POP</code>, <code>POP0</code>, <code>POP00</code>, <code>TEMATY</code></td><td>bez zmian</td><td>—</td></tr></table></div></section>
+<section id="decyzje-projektowe"><h2>Decyzje projektowe</h2>
+<div class="tw"><table><tr><th>ADR</th><th>Decyzja</th><th>Odrzucone</th></tr><tr><td><a href="decision-log.html#adr-019">ADR-019</a></td><td>fakty publiczne; opt-out na hostach wszystkich trafień kandydata (1A)</td><td>lista blokad całej próbki (1B); lista dużych hostów (1C); tylko znacznik (1D)</td></tr><tr><td><a href="decision-log.html#adr-020">ADR-020</a></td><td>CC tylko potwierdza; progi v2; B7 tymczasowy (4A)</td><td>CC wykrywa (4B); najpierw kalibracja (4C); progi v1 (4D)</td></tr><tr><td><a href="decision-log.html#adr-021">ADR-021</a></td><td>Z1 z hasłem DS; zaimki.pl + jeden dowód użycia (2A)</td><td>Z2 (2B); Z2 z niższym progiem (2C); Z3 (2D)</td></tr><tr><td><a href="decision-log.html#adr-022">ADR-022</a></td><td>partie, werdykt na słowo, <code>tylko-wzór</code> odpada (3C)</td><td>słowo po słowie bez partii (3A); hurt (3B); tylko zgłoszenia (3D)</td></tr><tr><td><a href="decision-log.html#adr-023">ADR-023</a></td><td>rodzina pisowni: karta wspólna, werdykty osobne (5A)</td><td>jeden werdykt (5B); werdykt ważony grą (5C)</td></tr></table></div></section>
+<section id="przyk-ady"><h2>Przykłady</h2>
+<p><b>1. Wulwa (zmiana świadoma, Z1).</b><br>Mamy: hasło DS id 226245, dodane I–II 2024 (swiadoma-01); brak w SGJP 20261018; w CC 3 + 3 trafienia, 0,006–0,016 ipm (ccrawl-02).<br>Gdy kandydat przejdzie z kolejki do karty,<br>wtedy karta ma typ <code>zmiana_swiadoma</code> i dowód DS (URL, data, id, własny opis). Pomiar CC nie jest wymagany. Jeśli jest, karta pokazuje liczby po opt-out, bez progu. Użytkownik wybiera wzór fleksji (rzeczownik żeński na <code>-wa</code>) i wydaje werdykt.</p>
+<p><b>2. Ghosting (potoczne, napisy → CC).</b><br>Mamy: 10 trafień w napisach 2022–2023 (potoczne-03); w CC znaczenie relacyjne tylko w 2/27 i 5/45 kontekstów (ccrawl-02).<br>Gdy pomiar policzy 9 form wzoru <code>ranking</code>, przefiltruje hosty z zastrzeżeniem i oceni znaczenia,<br>wtedy karta pokazuje lejek do „po ocenie znaczeń” i liczbę filmów z linkiem. Jeśli po ocenie zostaje &lt; 20 trafień albo &lt; 0,05 ipm, B7 nie jest spełnione, a słowo trafia na listę skróconą.</p>
+<p><b>3. Rodzina boomer / bumer.</b><br>Mamy: <code>boomer</code> +11 form, <code>bumer</code> m1 +1 (<code>bumerzy</code>), <code>bumer</code> m3 już w SGJP (metoda-04); <code>bumer</code> bez pomiaru w sieci.<br>Gdy rodzina dostaje kartę,<br>wtedy każda pisownia ma własny lejek i werdykt. <code>bumer</code> bez dowodu użycia czeka. Próg dowodu jest ten sam, mimo że gra zyskuje tylko 1 formę.</p>
+<p><b>4. Partia 122 (feminatywy).</b><br>Mamy: 122 formy w zaimki.pl i w tezaurusie DS, bez SGJP (swiadoma-04), np. chirurżka, kardiolożka.<br>Gdy partia dostaje wspólną kartę (reguła RJP dla klasy, opis źródeł),<br>wtedy każde słowo ma wiersz: hasło DS → przechodzi jak Z1; brak hasła DS → potrzebny jeden niezależny dowód użycia; brak obu → flaga <code>tylko-wzór</code>, werdykt „odrzucić”. Rejestr pozwala wrócić z nowym dowodem.</p>
+<p><b>5. Host dodał zastrzeżenie przed wpisem.</b><br>Gdy drugie sprawdzenie opt-out (krok 8) znajdzie nową blokadę <code>CCBot</code> na hoście trafienia,<br>wtedy liczby przeliczamy bez tego hosta i zapisujemy nową datę. Jeśli warunek przestaje być spełniony, słowo wraca do kolejki.</p></section>
+<section id="poza-zakresem"><h2>Poza zakresem</h2>
+<ul><li>Wykrywanie nowych słów w CC i filtr spamu (4B), lista blokad całej próbki (1B).</li><li>Fora SpeakLeash i źródła NC (Spokes, hate_speech_pl).</li><li>Import danych zaimki.pl i tezaurusa DS.</li><li>Sondy <code>essa</code>, <code>zoomer</code>, <code>dziaders</code> (odroczone w fazie 4).</li><li>Formy czasownika w rodzaju niebinarnym (zmiana fleksji SGJP, nie nowy leksem; metoda-02).</li><li>Własne spolszczenia pisowni.</li><li>Wikisłownik (odroczony), SJP.pl (nie jest źródłem), kontakt z autorami.</li><li>Przepisywanie historii Git.</li><li>Konkretne pliki, polecenia i testy: to specyfikacja wdrożenia.</li></ul></section>
+<section id="kryteria-sukcesu"><h2>Kryteria sukcesu</h2>
+<ul><li>Każda liczba z CC w karcie ma datę stanu opt-out. Żadne trafienie z hosta z zastrzeżeniem nie jest w niej policzone.</li><li>W repo nie ma tekstu z napisów, CC, DS ani zaimki.pl: tylko liczby, URL, daty, id i własny opis.</li><li>Dane z pomiaru są skasowane po ocenie znaczeń. Na dysku nie zostaje żaden shard.</li><li>Kontrole dodatnie (hejt, lockdown, antyszczepionkowiec) mają trafienia po opt-out, a lockdown ma 0 przed 2020.</li><li>Każde słowo partii 122 i każda pisownia rodziny ma osobny werdykt w rejestrze. Żadne słowo z flagą <code>tylko-wzór</code> nie trafia do suplementu.</li><li>Build z nowymi słowami przechodzi bez zmiany kodu (suplement v2, ADR-016).</li></ul></section></main>
+</body>
+</html>

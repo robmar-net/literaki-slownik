@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decyzje: źródła potoczne i świadome zmiany językowe — 2026-11-03-zrodla-potoczne</title>
+<style>.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+img.shot { max-width:100%; border:1px solid var(--border); border-radius:var(--radius); }
+details > summary { cursor:pointer; font-weight:600; }
+.step.todo::before  { content:"☐ "; color:var(--dim); }
+.step.done::before  { content:"☑ "; color:var(--ok); }
+.step.done          { color:var(--dim); }
+.group.todo .g-badge::after { content:"pending"; }
+.group.done .g-badge::after { content:"✓ completed"; color:var(--ok); }
+.meta { color:var(--dim); font-size:13px; }
+.toc { font-size:13px; margin:10px 0 4px; }
+pre { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:12px 14px; overflow-x:auto; font-size:12px; line-height:1.35; }
+.tw { overflow-x:auto; }
+.tldr h2:first-child { margin-top:0; }
+.adr .st { background:var(--warn-soft); color:var(--warn); }
+.adr h2 { margin-top:8px; }
+hr { border:0; border-top:1px solid var(--border); margin:24px 0; }
+</style>
+</head>
+<body>
+<nav class="crumbs"><a href="../dashboard.html">← Panel</a> <a href="research-report.html">Raport</a> <a href="solution-exploration.html">Warianty</a> <a href="high-level-design.html">Projekt</a> <span class="here">Decyzje</span> <a href="decision-log.md" target="_blank" rel="noopener" class="md">md ↗</a></nav>
+<header><span class="badge">Dziennik decyzji</span><h1>Decyzje: źródła potoczne i świadome zmiany językowe</h1><div class="meta"><p>Data: 2026-11-04 · Zgłoszenie: #16 · Podstawa: <code>solution-exploration.md</code>, <code>orchestrator-state.yml</code> (phase-4, decision_areas) · Rozszerza szkice ADR-014–018 z <a href="../../2026-11-03-zrodla-nowych-slow/outputs/decision-log.html">2026-11-03-zrodla-nowych-slow</a></p></div></header>
+<div class="tiles"><div class="tile"><b>5</b><span>ADR</span></div><div class="tile"><b>5</b><span>proponowane</span></div><div class="tile"><b>0</b><span>przyjęte</span></div><div class="tile"><b>019–023</b><span>numery (do potwierdzenia)</span></div></div>
+<section class="tldr card"><h2>TL;DR</h2>
+<ul><li>Pięć szkiców: <b>ADR-019 … ADR-023</b>, numery do potwierdzenia przy wdrożeniu. Ostatni ADR w <code>docs/adr/</code> to ADR-013. Szkice z #16 (014–018) jeszcze nie są w repo.</li><li>Najważniejszy: <b>ADR-019</b>. Do repo idą tylko fakty, a opt-out sprawdzamy na hostach wszystkich trafień kandydata. Na nim stoją ADR-020 i ADR-021.</li><li><b>ADR-021</b> idzie za wyborem użytkownika (Z1), a nie za rekomendacją badania (Z2). Hasło DS wystarcza. Słowo tylko z zaimki.pl potrzebuje jednego dowodu użycia.</li><li>Każde słowo wchodzi do list tylko decyzją użytkownika przez suplement v2 (ADR-016).</li></ul><h2>Kluczowe decyzje</h2>
+<ul><li>ADR-019: polityka TDM, opt-out i publikacji (1A).</li><li>ADR-020: warstwa potoczna, CC tylko potwierdza (4A).</li><li>ADR-021: typ „zmiana świadoma” (Z1) i rola zaimki.pl (2A).</li><li>ADR-022: feminatywy i neutratywy w partiach (3C).</li><li>ADR-023: rodziny pisowni i homografy (5A).</li></ul><h2>Otwarte pytania / ryzyka</h2>
+<ul><li>Numery przesuną się, jeśli ADR z #16 dostaną inne numery albo inna praca zajmie 019–023.</li><li>Ocena prawna w ADR-019 to odczyt zbieracza, nie porada prawna (ccrawl-01).</li><li>ADR-021 przyjmuje ryzyko słów bez zmierzonego użycia (metoda-02 § 2).</li><li><code>Content-Signal: ai-train=no</code>: flaga hosta czy wykluczenie? Propozycja w ADR-019: flaga. Potwierdza użytkownik.</li></ul>
+<hr></section>
+<main><section class="card adr" id="adr-019"><span class="badge st">Proponowana</span><h2>ADR-019: Polityka TDM, opt-out i publikacji</h2>
+<h3>Status</h3>
+<p>Proponowana (wybór użytkownika 1A, 2026-11-04). Numer do potwierdzenia przy wdrożeniu.</p>
+<h3>Kontekst</h3>
+<p>Najmocniejszy sygnał potoczny dają źródła bez licencji tekstu: napisy i sieć (synthesis W1). FineWeb-2 i HPLT mają licencję opakowania (ODC-By, CC0), ale nie tekstu (ccrawl-01). Art. 26³ pozwala liczyć lokalnie, jeśli właściciel nie zastrzegł TDM. Dziś 34 ze 100 największych hostów próbki blokuje CCBot (37,6% ich dokumentów), a 8 z 200 ma jawny tekst o TDM (ccrawl-04). Kontekst albo cytat byłby już utworem (art. 29, 34, 35).</p>
+<h3>Czynniki decyzji</h3>
+<ul><li>Zgodność z art. 26³ i z decyzją z 2026-11-04 (BAN-PL wycofany, bez cytatów z tekstów bez licencji).</li><li>Liczby w karcie muszą być już po filtrze.</li><li>Mały koszt: rzadkie słowa mają kilka dokumentów (wulwa 2 + 2, ccrawl-02).</li></ul>
+<h3>Rozważane opcje</h3>
+<ol><li><b>1A:</b> fakty publiczne, opt-out na hostach wszystkich trafień kandydata.</li><li>1B: lista blokad dla całej próbki (ok. 10⁵ zapytań, 332 317 hostów; ccrawl-04).</li><li>1C: lista dużych hostów plus sprawdzanie hostów trafień.</li><li>1D: bez liczb, tylko znacznik „potwierdzone w sieci”.</li></ol>
+<h3>Wynik decyzji</h3>
+<p>Wybrana opcja 1, bo daje liczby po filtrze bez skanu całej próbki i pasuje do ADR-020. Szczegóły:</p>
+<ul><li><b>Do repo:</b> liczby, lata, liczba hostów, ipm, lejek, data stanu opt-out, URL i data dokumentu dowodowego z własnym opisem.</li><li><b>Nigdy do repo:</b> kontekst, cytat, próbka z tekstu bez licencji.</li><li><b>Zastrzeżenie</b> to: robots.txt blokujący <code>CCBot</code> albo <code>*</code>, jawny tekst o TDM, TDMRep. Regulamin czytamy ręcznie przy dokumentach dowodowych. <code>Content-Signal: ai-train=no</code> zapisujemy jako flagę hosta (propozycja, do potwierdzenia).</li><li><b>Zakres:</b> hosty wszystkich trafień kandydata, nie tylko dokumentów dowodowych.</li><li><b>Czas:</b> stan w dniu pomiaru, zapisany w karcie. Drugie sprawdzenie przed wpisem do suplementu.</li><li><b>Dane:</b> liczymy lokalnie, plik po pliku. Kasujemy po pomiarze i ocenie znaczeń (art. 26³ ust. 3).</li><li><b>Napisy OpenSubtitles:</b> tylko detektor lokalny. W karcie liczba filmów (IMDb ID) i link.</li><li><b>Odłożone:</b> fora SpeakLeash („conditional license”) i źródła NC.</li></ul>
+<h3>Konsekwencje</h3>
+<h4>Dobre</h4>
+<ul><li>Każda opublikowana liczba ma datę stanu opt-out.</li><li>Repo nie zawiera tekstu z żadnego źródła bez licencji.</li></ul>
+<h4>Złe</h4>
+<ul><li>Kontekstu nie da się sprawdzić z samego repo. Zostaje URL i własny opis.</li><li>Lista nie nadaje się do wykrywania w CC (to wymagałoby 1B).</li><li>Przy każdym nowym pomiarze dane trzeba pobrać ponownie.</li><li>Moment zastrzeżenia (crawl czy nasze pobranie) jest niepewny. Przyjęto dzień pobrania (ccrawl-04).</li></ul>
+<hr></section>
+<section class="card adr" id="adr-020"><span class="badge st">Proponowana</span><h2>ADR-020: Warstwa potoczna — CC tylko potwierdza</h2>
+<h3>Status</h3>
+<p>Proponowana (wybór użytkownika 4A, 2026-11-04). Numer do potwierdzenia przy wdrożeniu.</p>
+<h3>Kontekst</h3>
+<p>Wśród nowych grup form w CC tylko ok. 4% to słowa potoczne, 45% to terminy, a 25% spam (ccrawl-03). Filtra spamu nie ma. Dla kandydata z kolejki CC daje jednak dość trafień: ekstrapolacja na całe zbiory to setki–tysiące trafień kontroli (ccrawl-02). Słowa angielskie mają szum znaczeniowy (ghosting relacyjny tylko w 2/27 i 5/45 kontekstów, ccrawl-02). Progi v2 na Leipzig: 37/43 zapożyczeń i 0/20 słów angielskich (metoda-05).</p>
+<h3>Czynniki decyzji</h3>
+<ul><li>Użyć CC tam, gdzie działa (potwierdzenie, synthesis I3).</li><li>Szum ma zostać w ocenie lokalnej, nie na liście.</li><li>Prosta, powtarzalna reguła co kwartał.</li></ul>
+<h3>Rozważane opcje</h3>
+<ol><li><b>4A:</b> CC potwierdza kandydatów z kolejki, progi v2, B7 tymczasowy.</li><li>4B: CC także wykrywa, z filtrem spamu (wymaga 1B).</li><li>4C: najpierw kalibracja na sieci, potem karty.</li><li>4D: progi v1 (26/43 zapożyczeń, metoda-05).</li></ol>
+<h3>Wynik decyzji</h3>
+<p>Wybrana opcja 1. Szczegóły:</p>
+<ul><li><b>Kolejka:</b> zgłoszenia ręczne, napisy (lokalnie), nowe hasła DS spoza SGJP (931 z id ≥ 226000, swiadoma-01), plebiscyty.</li><li><b>Pomiar:</b> próbka FineWeb-2/HPLT 1–2 mld słów po opt-out (ADR-019). Wszystkie formy z wzoru fleksji (ghosting: 9, metoda-04).</li><li><b>Progi:</b> v2 B1–B6. B7 tymczasowo ≥ 20 trafień i ≥ 0,05 ipm.</li><li><b>Znaczenia:</b> ręczna ocena kontekstów lokalnych. Do karty idzie tylko wynik „n z m”.</li><li><b>Porządki przed pierwszą kartą:</b> przeliczyć ghosting z 9 formami; jedna definicja B4 (dziś trzy różne, synthesis S6); jedna tabela progów hostów (synthesis S7).</li><li><b>Kalibracja</b> B3–B7 na pierwszych kartach, bez blokowania kolejki.</li><li>Typ dowodu <code>potoczne</code>, kwalifikator w suplemencie pusty (ADR-016).</li></ul>
+<h3>Konsekwencje</h3>
+<h4>Dobre</h4>
+<ul><li>Na listę nie wchodzi spam ani terminy z sieci.</li><li>Progi są znane przed pomiarem i takie same dla każdego słowa.</li></ul>
+<h4>Złe</h4>
+<ul><li>Potok jest tak dobry jak kolejka. Słowo, którego nikt nie zgłosi i żaden detektor nie złapie, nie wyjdzie.</li><li>Ręczna ocena znaczeń kosztuje czas.</li><li>Listy kalibracyjne są małe (37/43 to Wilson ok. 73–93%, metoda-05).</li></ul>
+<hr></section>
+<section class="card adr" id="adr-021"><span class="badge st">Proponowana</span><h2>ADR-021: Typ „zmiana świadoma” (Z1) i rola zaimki.pl</h2>
+<h3>Status</h3>
+<p>Proponowana (wybór użytkownika 2A i decyzja o zaimki.pl, 2026-11-04). Badanie rekomendowało Z2 (2B); użytkownik wybrał Z1. Numer do potwierdzenia przy wdrożeniu.</p>
+<h3>Kontekst</h3>
+<p>Słowa świadomej zmiany są rzadkie z definicji. Wulwa ma w CC 0,006–0,016 ipm (ccrawl-02), więc progi potoczne by ją wycięły. DS ma redagowane hasło wulwy (id 226245, dodane I–II 2024; swiadoma-01), ale wszystkie prawa zastrzeżone. zaimki.pl ma 2439 feminatywów spoza SGJP, z czego tylko 8 ma podane źródła (raport § 4.4). Licencja OQL v1.4 nie zgadza się z CC BY 4.0 list.</p>
+<h3>Czynniki decyzji</h3>
+<ul><li>Wulwa to istotna zmiana językowa (D5 z #16).</li><li>Prosta reguła, ta sama dla każdego słowa tego typu.</li><li>Żadnych danych z OQL ani z DS w repo.</li></ul>
+<h3>Rozważane opcje</h3>
+<ol><li><b>Z1 (2A):</b> dowód ręczny z DS wystarcza.</li><li>Z2 (2B): dowód ręczny plus jeden warunek użycia: ≥ 3 w korpusie z licencją, ≥ 5 hostów i ≥ 10 trafień albo publikacja redagowana.</li><li>Z2 z niższym progiem hostów (2C).</li><li>Z3: progi potoczne B1–B7 (2D).</li></ol>
+<h3>Wynik decyzji</h3>
+<p>Wybrana opcja 1 (decyzja użytkownika). Szczegóły:</p>
+<ul><li><b>Hasło DS</b> wystarcza dla typu <code>zmiana_swiadoma</code>. W karcie: URL, data odczytu, id, własny opis.</li><li><b>Tezaurus DS:</b> tylko sygnał lokalny. W repo „jest w tezaurusie DS vX” i sha256 pliku. Bez importu.</li><li><b>zaimki.pl:</b> detektor. Feminatywy i neutratywy wchodzą do kolejki. W karcie URL, data, własny opis. Bez importu danych.</li><li><b>Słowo tylko z zaimki.pl</b> (bez hasła DS) potrzebuje <b>jednego niezależnego dowodu użycia</b>: korpus z licencją, trafienie w CC na hoście bez zastrzeżenia i spoza B8, publikacja redagowana albo dyskusja plwiki. Zapis: URL, data, własny opis.</li><li><b>Neutratywów nie odrzucamy z góry.</b> Przechodzą tę samą regułę i muszą mieć wzór fleksji SGJP (ADR-016).</li><li><b>RJP</b> to reguła klasy (URL przy klasie), nie dowód słowa.</li><li>Karta opisuje użycie i normę, bez ocen. Pomiar CC jest opcjonalny i nie stawia progu.</li></ul>
+<h3>Konsekwencje</h3>
+<h4>Dobre</h4>
+<ul><li>Wulwa ma pełną drogę dowodu bez czekania na pomiar ani lekturę publikacji.</li><li>Jedna prosta reguła dla każdego słowa z hasłem DS.</li></ul>
+<h4>Złe</h4>
+<ul><li>Jedno źródło decyduje o dowodzie. Lista może dostać słowa bez zmierzonego użycia (metoda-02 § 2).</li><li>Łatwiej o zarzut stronniczości. Ochroną jest ta sama reguła dla każdego słowa i opis bez ocen.</li><li>Gdy DS zmieni lub usunie hasło, dowód trzeba odnowić w kolejnym kwartale.</li></ul>
+<hr></section>
+<section class="card adr" id="adr-022"><span class="badge st">Proponowana</span><h2>ADR-022: Feminatywy i neutratywy w partiach</h2>
+<h3>Status</h3>
+<p>Proponowana (wybór użytkownika 3C, 2026-11-04). Numer do potwierdzenia przy wdrożeniu.</p>
+<h3>Kontekst</h3>
+<p>Pula jest duża: 644 hasła feminatywopodobne w DS spoza SGJP (swiadoma-01), 270 form na <code>-lożka</code> w tezaurusie DS (swiadoma-04). Część to formy ze wzoru bez użycia (synthesis W6). SGJP dodaje feminatywy pojedynczo (muralistka w 20261018, swiadoma-04). Część wspólna zaimki.pl i tezaurusa DS spoza SGJP to 122 formy (swiadoma-04).</p>
+<h3>Czynniki decyzji</h3>
+<ul><li>Zasada słowo po słowie (D1-A z #16).</li><li>Tempo większe niż karta na słowo.</li><li>Żadna forma tylko ze wzoru nie wchodzi na listę.</li></ul>
+<h3>Rozważane opcje</h3>
+<ol><li>3A: słowo po słowie, każde z osobną kartą.</li><li>3B: hurtem według wzoru RJP.</li><li><b>3C:</b> partie ze wspólną kartą, werdykt dla każdego słowa.</li><li>3D: tylko zgłoszenia ręczne.</li></ol>
+<h3>Wynik decyzji</h3>
+<p>Wybrana opcja 3. Szczegóły:</p>
+<ul><li><b>Pierwsza partia:</b> 122 formy (zaimki.pl ∩ tezaurus DS, bez SGJP). Obejmuje feminatywy i neutratywy.</li><li><b>Karta partii:</b> wspólna część (reguła RJP dla klasy, opis źródeł, wzór fleksji klasy) i jeden wiersz na słowo z dowodem i werdyktem.</li><li><b>Reguła wiersza (ADR-021):</b> hasło DS → przechodzi; bez hasła DS → jeden niezależny dowód użycia; bez obu → flaga <code>tylko-wzór</code>, odpada.</li><li><b>Formy częściowo w SGJP:</b> karta pokazuje tylko nowe formy (ministra: 4 nowe z 10; swiadoma-04).</li><li><b>Kontrola dodatnia:</b> psycholożka (jest w SGJP; swiadoma-05).</li><li>Odrzucona forma wraca tylko z nowym dowodem (reguła z ADR-018).</li></ul>
+<h3>Konsekwencje</h3>
+<h4>Dobre</h4>
+<ul><li>Szybciej niż karta na słowo, a werdykt dalej dotyczy jednego słowa.</li><li>Forma ze wzoru bez dowodu nie wchodzi.</li></ul>
+<h4>Złe</h4>
+<ul><li>Część form zgodnych z regułą RJP odpadnie z braku dowodu.</li><li>Długa partia to długa sesja. Można ją podzielić na części, jak w ADR-018.</li></ul>
+<hr></section>
+<section class="card adr" id="adr-023"><span class="badge st">Proponowana</span><h2>ADR-023: Rodziny pisowni i homografy</h2>
+<h3>Status</h3>
+<p>Proponowana (wybór użytkownika 5A, 2026-11-04). Numer do potwierdzenia przy wdrożeniu.</p>
+<h3>Kontekst</h3>
+<p>SGJP przyjmuje obie pisownie, gdy obie są w użyciu (spoiler/spojler, mail/mejl; metoda-04). Pisownie różnie zmieniają grę: <code>boomer</code> dodaje 11 form, a <code>bumer</code> m1 tylko 1, bo <code>bumer</code> m3 już jest w SGJP (metoda-04). Zapisy z apostrofem, myślnikiem albo q/v/x odpadają na alfabecie gry (<code>cringe’owy</code>). <code>krindż</code> ma tylko 4 trafienia w Leipzig (metoda-05).</p>
+<h3>Czynniki decyzji</h3>
+<ul><li>Każda pisownia na liście ma własny dowód.</li><li>Próg nie zależy od liczby form w grze.</li><li>Zgodność z praktyką SGJP.</li></ul>
+<h3>Rozważane opcje</h3>
+<ol><li><b>5A:</b> karta wspólna, osobny dowód i werdykt każdej pisowni.</li><li>5B: jeden werdykt dla rodziny.</li><li>5C: werdykt ważony wpływem na grę.</li></ol>
+<h3>Wynik decyzji</h3>
+<p>Wybrana opcja 1. Szczegóły:</p>
+<ul><li><b>Karta rodziny:</b> pisownie obok siebie, każda z własnym lejkiem i werdyktem.</li><li><b>Formy niegrywalne</b> (<code>cringe’owy</code>) liczą się tylko jako dowód, że leksem żyje. Nie wchodzą na listę.</li><li><b>Bez własnych spolszczeń.</b> Pisownia wchodzi tylko z własnym dowodem użycia.</li><li><b>Homograf:</b> pole pokazuje leksem SGJP o tej samej formie. „Nowe formy w grze” liczy formy po odjęciu SGJP. Pole tylko informuje, progu nie zmienia.</li><li>**<code>cringe</code>:** dwa tagi, przymiotnik nieodmienny (jak <code>cool</code>) i rzeczownik n (jak <code>selfie</code>). W grze to 1 forma.</li></ul>
+<h3>Konsekwencje</h3>
+<h4>Dobre</h4>
+<ul><li>Na liście nie ma pisowni bez użycia.</li><li>Użytkownik widzi realny wpływ decyzji na grę.</li></ul>
+<h4>Złe</h4>
+<ul><li>Więcej pomiarów: <code>krindż</code> i <code>bumer</code> nie mają jeszcze pomiaru w sieci.</li><li>Pisownia z małym wpływem (1 forma) wymaga tego samego dowodu co pisownia z 11 formami.</li></ul></section></main>
+</body>
+</html>
