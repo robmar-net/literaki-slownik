@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warianty rozwiązań — źródła potoczne i zmiana świadoma</title>
+<style>
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+details > summary { cursor:pointer; font-weight:600; }
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+/* rozszerzenia */
+.tldr h3 { font-size:13px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); margin:12px 0 4px; }
+.tldr ul { margin:4px 0; padding-left:20px; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.grid3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
+@media (max-width:640px){ .grid2 { grid-template-columns:1fr; } }
+.swot .card h3 { margin:0 0 6px; font-size:13px; }
+.conf.h { background:var(--ok-soft); color:var(--ok); }
+.conf.m { background:var(--warn-soft); color:var(--warn); }
+.conf.l { background:var(--crit-soft); color:var(--crit); }
+.rec { font-weight:600; }
+.tbl-wrap { overflow-x:auto; }
+.toc { font-size:13px; color:var(--dim); }
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.alt{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px}
+.alt.rec{border:2px solid var(--accent)}
+.alt h3{font-size:14px;margin:0 0 6px}
+.alt p{margin:4px 0;font-size:13px}
+.alt .k{color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+.recline{margin-top:10px;padding:8px 12px;background:var(--accent-soft);border-radius:8px}
+.tldr ul{margin:6px 0;padding-left:20px}
+</style>
+
+</head>
+<body>
+<nav class="crumbs">
+  <a href="../dashboard.html">← Panel</a>
+  <a href="research-report.html">Raport</a>
+  <span class="here">Warianty</span>
+  <a href="solution-exploration.md" target="_blank" rel="noopener" class="md">wersja md ↗</a>
+</nav>
+<header>
+  <span class="badge">warianty rozwiązań</span>
+  <h1>Warianty rozwiązań: słowa potoczne i świadome zmiany językowe</h1>
+  <div style="color:var(--dim);font-size:13px">Zadanie 2026-11-03-zrodla-potoczne (#16) · 2026-11-04 · pewność rekomendacji: średnia</div>
+</header>
+<div class="tiles">
+  <div class="tile"><b>5</b><span>obszarów</span></div>
+  <div class="tile"><b>19</b><span>wariantów</span></div>
+  <div class="tile"><b>1A·2B·3C·4A·5A</b><span>rekomendacja</span></div>
+  <div class="tile"><b>średnia</b><span>pewność</span></div>
+</div>
+<section class="tldr card">
+<h2 style="margin-top:0">TL;DR</h2>
+<ul>
+<li><b>Sieć i napisy tylko potwierdzają słowo z kolejki, nie wykrywają go.</b> Do repo idą liczby, URL, data i własny opis. Tekst nie idzie nigdy.</li>
+<li>5 obszarów, 19 wariantów. Rekomendacja: <b>1A + 2B + 3C + 4A + 5A</b>.</li>
+<li>1A: liczymy lokalnie, publikujemy fakty. Opt-out sprawdzamy na hostach trafień kandydata, w dniu pomiaru.</li>
+<li>2B: Z2 z obecnymi progami, ustalonymi <b>przed</b> pomiarem kandydatów, jednymi dla każdego słowa tego typu. DS daje dowód ręczny, tezaurus DS jest tylko sygnałem.</li>
+<li>3C: feminatywy przeglądamy w partiach, ale werdykt zapada dla każdego słowa osobno. Słowo bez użycia odpada.</li>
+<li>4A: progi v2 na start, B7 tymczasowo. CC tylko potwierdza, na próbce 1–2 mld słów, z ręcznym filtrem znaczeń.</li>
+<li>5A: każda pisownia ma osobny werdykt, a karta jest wspólna. <code>cringe</code> dostaje oba tagi.</li>
+</ul>
+<h2>Kluczowe decyzje</h2>
+<ul>
+<li><b>1A.</b> Z CC liczby, lata i liczba hostów; przy dokumentach dowodowych tylko URL, data i własny opis. Napisy tylko jako lokalny detektor (liczba filmów i link). Fora SpeakLeash i źródła NC odkładamy (ccrawl-01, ccrawl-04, potoczne-02).</li>
+<li><b>2B.</b> Z2 = DS + (a) ≥3 użycia w korpusie z licencją, (b) ≥5 hostów i ≥10 trafień albo (c) publikacja redagowana. Progów nie stroimy pod wulwę (metoda-02).</li>
+<li><b>3C.</b> Partie z puli DS ∩ zaimki.pl (122 formy, swiadoma-04). Podklasa (a) ma ten sam warunek użycia co Z2. Forma znana tylko z list odpada.</li>
+<li><b>4A.</b> Kolejka z detektorów: zgłoszeń ręcznych, napisów, nowych haseł DS i plebiscytów. CC liczy tylko kandydatów. Wykrywanie w CC odpada (ok. 4% potocznych, ccrawl-03).</li>
+<li><b>5A.</b> Osobny werdykt dla każdej pisowni (R1, metoda-04). „Nowe formy w grze” informują, ale progu nie zmieniają.</li>
+</ul>
+<h2>Otwarte pytania / ryzyka</h2>
+<ul>
+<li><span class="sev warning">warning</span>Ocena prawna to odczyt zbieracza, a nie porada prawna. Moment opt-out niepewny; przyjmujemy dzień pobrania (ccrawl-04).</li>
+<li><span class="sev warning">warning</span>Wulwa nie spełnia Z2(b): 6 trafień przy progu 10 (ccrawl-02). Zostaje (c), ale tekstów cytowanych w DS nikt nie przeczytał. Gdy (c) odpadnie, wulwa czeka, a progu nie obniżamy.</li>
+<li><span class="sev info">info</span>Czy podklasa (b) mieści się w zasadach Kurnika? Decyzja użytkownika (swiadoma-05).</li>
+<li><span class="sev info">info</span>Liczby z sieci wstępne: przed opt-out, ghosting na 4 formach zamiast 9 (synteza S2, S4).</li>
+<li><span class="sev info">info</span><code>krindż</code> i <code>bumer</code> bez pomiaru w sieci; krindż w Leipzig 4 trafienia (metoda-05).</li>
+</ul>
+</section>
+<div style="font-size:13px">Spis: <a href="#o1">Obszar 1</a> · <a href="#o2">Obszar 2</a> · <a href="#o3">Obszar 3</a> · <a href="#o4">Obszar 4</a> · <a href="#o5">Obszar 5</a> · <a href="#macierz">Macierz</a> · <a href="#rek">Rekomendacja</a> · <a href="#odr">Odroczone</a></div>
+<main>
+<section class="card"><h2 style="margin-top:0">Pytania „jak moglibyśmy”</h2><ol>
+<li>Jak liczyć źródła bez licencji tekstu, nie publikując tekstu i szanując opt-out?</li>
+<li>Jak dopuścić rzadkie słowa celowe, nie wpuszczając słów bez użycia i nie biorąc strony w sporach?</li>
+<li>Jak obsłużyć dużą pulę feminatywów, nie wpuszczając form tylko ze wzoru?</li>
+<li>Jak zbudować potok potoczny, który odróżnia potoczność od spamu i innych znaczeń?</li>
+<li>Jak decydować o pisowniach i homografach, gdy w grze zmieniają bardzo różną liczbę form?</li></ol>
+<p style="font-size:13px;color:var(--dim)">Punkty stałe: suplement v2 w miejscu v1, SGJP 20261018 osobno, miara g poza buildem (nowy ADR), PPC + ParlaMint + Leipzig poza buildem, rytm kwartalny, karta kandydata i decyzja użytkownika. BAN-PL wycofany; cytatów z tekstów bez licencji brak w repo; historii Git nie przepisujemy.</p></section>
+<h2 id="o1">Obszar 1. Polityka prawna źródeł bez licencji tekstu (D1, D3, D12)</h2><div class="grid">
+<div class="alt rec"><h3>1A. Fakty publiczne, opt-out na hostach trafień kandydata <span class=badge>rekomendacja</span></h3><p>Liczymy lokalnie tylko dla kandydatów i kasujemy po pomiarze. Przed zapisem liczb sprawdzamy opt-out (robots CCBot/*, tekst TDM, TDMRep; regulamin ręcznie przy dowodach) na hostach wszystkich trafień. W karcie: liczby, lata, hosty, data sprawdzenia, URL + data + własny opis.</p><p><span class="k">plusy</span><br>mało zapytań (wulwa 2+2 dok., ccrawl-02); liczby po filtrze; zgodne z decyzją 2026-11-04</p><p><span class="k">minusy</span><br>kontekstu nie sprawdzi się z repo; nie nadaje się do pełnego skanu</p></div>
+<div class="alt"><h3>1B. Lista blokad dla całej próbki</h3><p>Jednorazowa lista hostów z zastrzeżeniem (ok. 10⁵ zapytań, ccrawl-04), wykluczenie ich dokumentów z każdego liczenia.</p><p><span class="k">plusy</span><br>wszystkie liczby czyste, także przy wykrywaniu</p><p><span class="k">minusy</span><br>duża praca; lista się starzeje (W8); 332 317 hostów</p></div>
+<div class="alt"><h3>1C. Blokada dużych hostów + sprawdzanie trafień</h3><p>Z góry odcinamy czołówkę (100 największych = 11,0% dok., 34 blokuje CCBot), resztę jak w 1A.</p><p><span class="k">plusy</span><br>tanio odcina dużą część zastrzeżonego tekstu</p><p><span class="k">minusy</span><br>dwa mechanizmy; przy kandydatach mały zysk ponad 1A</p></div>
+<div class="alt"><h3>1D. Bez liczb: tylko „potwierdzone w sieci”</h3><p>Z CC i napisów publikujemy tylko tak/nie i datę.</p><p><span class="k">plusy</span><br>najmniejsze ryzyko prawne</p><p><span class="k">minusy</span><br>traci B6/B7, Z2(b) i kalibrację; karty nieporównywalne</p></div>
+</div><p style="font-size:13px">Wspólne: napisy tylko detektor lokalny (liczba filmów + link); fora SpeakLeash i źródła NC odłożone; stan opt-out z dnia pomiaru, zapisany w karcie, sprawdzony ponownie przed wpisem.</p><div class="recline"><b>Rekomendacja:</b> 1A — pasuje do 4A, liczby po filtrze bez skanu całej próbki.</div>
+<h2 id="o2">Obszar 2. Próg dowodu dla typu „zmiana świadoma” (D4, D5, D6)</h2><div class="grid">
+<div class="alt"><h3>2A. Z1: wystarczy dowód ręczny z DS</h3><p>Sam wpis w DS dopuszcza słowo.</p><p><span class="k">plusy</span><br>proste; wulwa przechodzi</p><p><span class="k">minusy</span><br>słowa bez użycia; jedno źródło decyduje; zarzut stronniczości</p></div>
+<div class="alt rec"><h3>2B. Z2 z obecnymi warunkami, ustalonymi z góry <span class=badge>rekomendacja</span></h3><p>DS (URL, data, id, opis) + (a) ≥3 użycia w korpusie z licencją lub (b) ≥5 hostów i ≥10 trafień po B1–B5 i opt-out lub (c) publikacja redagowana. Wartości zatwierdzone przed pomiarem 8 kandydatów; B8 wyklucza hosty słowników.</p><p><span class="k">plusy</span><br>słowo opisuje użycie; próg z góry chroni neutralność</p><p><span class="k">minusy</span><br>pomiar każdego kandydata; wulwa zależy od (c), nieprzeczytanego</p></div>
+<div class="alt"><h3>2C. Z2 z niższym (b): ≥5 hostów bez progu trafień</h3><p>Wulwa przechodzi bez (c).</p><p><span class="k">plusy</span><br>szybciej dla wulwy</p><p><span class="k">minusy</span><br>próg pod jedno słowo psuje neutralność; 5 hostów to mało przy spamie</p></div>
+<div class="alt"><h3>2D. Z3: progi potoczne B1–B7</h3><p>Jeden mechanizm dla wszystkich.</p><p><span class="k">plusy</span><br>prosto</p><p><span class="k">minusy</span><br>wycina cel (wulwa 0,006–0,016 ipm wobec ≥0,05)</p></div>
+</div><p style="font-size:13px">Role: DS — dowód ręczny; tezaurus DS — sygnał lokalny, bez importu (D5); zaimki.pl — nie w repo (D6); RJP — reguła klasy. Neutralność: jeden próg dla każdego słowa typu, karta bez ocen, podklasa (c) nie wchodzi.</p><div class="recline"><b>Rekomendacja:</b> 2B — jeśli (c) nie potwierdzi wulwy, czeka kwartał; progu nie zmieniamy.</div>
+<h2 id="o3">Obszar 3. Feminatywy i formy systemowe (D11)</h2><div class="grid">
+<div class="alt"><h3>3A. Słowo po słowie, z kolejki</h3><p>Każdy feminatyw jak inne słowo.</p><p><span class="k">plusy</span><br>dokładnie D1-A; tak robi SGJP (muralistka)</p><p><span class="k">minusy</span><br>wolno przy 644 hasłach DS spoza SGJP</p></div>
+<div class="alt"><h3>3B. Hurtem wg wzoru RJP</h3><p>Wzór dla zawodów z SGJP przyjęty naraz.</p><p><span class="k">plusy</span><br>szybko; reguła RJP 2019</p><p><span class="k">minusy</span><br>formy bez użycia (angelolożka; 270 -lożka); łamie D1-A</p></div>
+<div class="alt rec"><h3>3C. Partie, osobny werdykt, próg użycia <span class=badge>rekomendacja</span></h3><p>Pulę DS ∩ zaimki.pl (122) przeglądamy w partiach. Każde słowo musi spełnić warunek użycia jak w Z2. Forma tylko z list dostaje flagę tylko-wzór i odpada.</p><p><span class="k">plusy</span><br>szybciej niż 3A, nadal słowo po słowie; jeden próg dla (a) i (b)</p><p><span class="k">minusy</span><br>pomiar dla każdego; część poprawnych wg RJP odpadnie</p></div>
+<div class="alt"><h3>3D. Tylko zgłoszone ręcznie</h3><p>Bez przeglądu puli.</p><p><span class="k">plusy</span><br>najmniej pracy</p><p><span class="k">minusy</span><br>pomija najmocniejszą pulę; zależy od zgłaszającego</p></div>
+</div><p style="font-size:13px">Odsiew wzoru: lista to detektor; użycie spoza hostów B8; kontrola dodatnia psycholożka; karta pokazuje tylko nowe formy (ministra: 4 z 10).</p><div class="recline"><b>Rekomendacja:</b> 3C — zgodne z „słowo po słowie” (D11) i z 2B.</div>
+<h2 id="o4">Obszar 4. Potok potoczny (D9)</h2><div class="grid">
+<div class="alt rec"><h3>4A. CC potwierdza, progi v2, B7 tymczasowy <span class=badge>rekomendacja</span></h3><p>Kolejka: zgłoszenia ręczne, napisy (lokalnie), nowe hasła DS spoza SGJP (931 z id ≥226000), plebiscyty. CC na próbce 1–2 mld słów po opt-out, formy z pełnego wzoru, ręczna ocena znaczeń kontekstów lokalnie. B7: ≥20 trafień i ≥0,05 ipm.</p><p><span class="k">plusy</span><br>CC robi to, w czym jest dobre; szum zostaje w ocenie lokalnej</p><p><span class="k">minusy</span><br>zależy od kolejki; ręczna ocena kosztuje czas</p></div>
+<div class="alt"><h3>4B. CC także wykrywa, z filtrem spamu</h3><p>Skan nowych form w CC z automatycznym filtrem.</p><p><span class="k">plusy</span><br>łapie słowa niezgłoszone</p><p><span class="k">minusy</span><br>ok. 4% potocznych, ok. 40% spam i zlepki; filtra nie ma; wymaga 1B</p></div>
+<div class="alt"><h3>4C. Najpierw kalibracja na sieci</h3><p>Żadnej karty potocznej przed próbką 1–2 mld i nowymi progami.</p><p><span class="k">plusy</span><br>pewniejsze progi (37/43, Wilson ok. 73–93%)</p><p><span class="k">minusy</span><br>opóźnienie; kalibracja i tak potrzebuje kandydatów</p></div>
+<div class="alt"><h3>4D. Progi v1</h3><p>Ostrzejsze bramki.</p><p><span class="k">plusy</span><br>mniej fałszywych alarmów</p><p><span class="k">minusy</span><br>v1: 26/43 zapożyczeń; odpada boomer</p></div>
+</div><p style="font-size:13px">Zawsze: ghosting z 9 formami, jeden filtr angielski B4, jedna tabela progów hostów (B6 ≥10, Z2(b) ≥5).</p><div class="recline"><b>Rekomendacja:</b> 4A — kalibrację z 4C robimy na pierwszych kartach, bez blokowania kolejki.</div>
+<h2 id="o5">Obszar 5. Pisownie i homografy (D7, D8)</h2><div class="grid">
+<div class="alt rec"><h3>5A. Karta wspólna, osobny werdykt na pisownię <span class=badge>rekomendacja</span></h3><p>boomer/bumer i cringe/krindż: jedna karta rodziny, osobne bramki i werdykty. Zapis niegrywalny (cringe’owy) tylko jako dowód leksemu. Nie tworzymy spolszczeń z reguły.</p><p><span class="k">plusy</span><br>zgodne z SGJP (spoiler/spojler); własny dowód każdej pisowni</p><p><span class="k">minusy</span><br>więcej pomiarów (krindż, bumer bez pomiaru w sieci)</p></div>
+<div class="alt"><h3>5B. Jeden werdykt dla rodziny</h3><p>Wszystkie pisownie razem.</p><p><span class="k">plusy</span><br>jedna decyzja</p><p><span class="k">minusy</span><br>wpuszcza pisownię bez użycia</p></div>
+<div class="alt"><h3>5C. Werdykt ważony wpływem na grę</h3><p>Uproszczony przegląd, gdy mało nowych form (bumer 1, boomer 11).</p><p><span class="k">plusy</span><br>szybciej przy homografach</p><p><span class="k">minusy</span><br>obniża dowód zależnie od liczby form</p></div>
+</div><p style="font-size:13px">cringe (D7): oba tagi — adj nieodm. (jak cool) i n (jak selfie); alternatywy: tylko adj lub tylko n; w grze zawsze 1 forma. „Nowe formy w grze” tylko informuje.</p><div class="recline"><b>Rekomendacja:</b> 5A + oba tagi dla cringe.</div>
+<h2 id="macierz">Macierz kompromisów</h2><div class="card"><p style="font-size:12px;color:var(--dim);margin-top:0">W = wysoka (dobrze), Ś = średnia, N = niska. Przy ryzyku W = małe ryzyko.</p><table><tr><th>Wariant</th><th>Wykonalność</th><th>Wpływ na grę i użytkownika</th><th>Prostota</th><th>Ryzyko (W = małe)</th><th>Skala</th></tr>
+<tr style="font-weight:700;background:var(--accent-soft)"><td>1A</td><td>W</td><td>Ś</td><td>W</td><td>W</td><td>Ś</td></tr>
+<tr><td>1B</td><td>Ś</td><td>Ś</td><td>N</td><td>W</td><td>W</td></tr>
+<tr><td>1C</td><td>Ś</td><td>Ś</td><td>Ś</td><td>W</td><td>Ś</td></tr>
+<tr><td>1D</td><td>W</td><td>N</td><td>W</td><td>W</td><td>N</td></tr>
+<tr><td>2A</td><td>W</td><td>Ś</td><td>W</td><td>N</td><td>W</td></tr>
+<tr style="font-weight:700;background:var(--accent-soft)"><td>2B</td><td>Ś</td><td>W</td><td>Ś</td><td>W</td><td>Ś</td></tr>
+<tr><td>2C</td><td>Ś</td><td>Ś</td><td>Ś</td><td>N</td><td>Ś</td></tr>
+<tr><td>2D</td><td>W</td><td>N</td><td>W</td><td>Ś</td><td>W</td></tr>
+<tr><td>3A</td><td>W</td><td>Ś</td><td>W</td><td>W</td><td>N</td></tr>
+<tr><td>3B</td><td>W</td><td>Ś</td><td>W</td><td>N</td><td>W</td></tr>
+<tr style="font-weight:700;background:var(--accent-soft)"><td>3C</td><td>Ś</td><td>W</td><td>Ś</td><td>W</td><td>Ś</td></tr>
+<tr><td>3D</td><td>W</td><td>N</td><td>W</td><td>Ś</td><td>N</td></tr>
+<tr style="font-weight:700;background:var(--accent-soft)"><td>4A</td><td>Ś</td><td>W</td><td>Ś</td><td>W</td><td>Ś</td></tr>
+<tr><td>4B</td><td>N</td><td>Ś</td><td>N</td><td>N</td><td>W</td></tr>
+<tr><td>4C</td><td>Ś</td><td>N</td><td>Ś</td><td>W</td><td>Ś</td></tr>
+<tr><td>4D</td><td>W</td><td>N</td><td>W</td><td>Ś</td><td>Ś</td></tr>
+<tr style="font-weight:700;background:var(--accent-soft)"><td>5A</td><td>Ś</td><td>W</td><td>Ś</td><td>W</td><td>Ś</td></tr>
+<tr><td>5B</td><td>W</td><td>Ś</td><td>W</td><td>N</td><td>Ś</td></tr>
+<tr><td>5C</td><td>W</td><td>Ś</td><td>Ś</td><td>N</td><td>Ś</td></tr>
+</table><p style="font-size:13px">Główny kompromis: rekomendowane warianty płacą prostotą i skalą (więcej ręcznej pracy na słowo) za mniejsze ryzyko prawne i neutralność.</p></div>
+<h2>Preferencje użytkownika</h2><div class="card"><ul>
+<li>2026-11-04: BAN-PL wycofany; cytatów z tekstów bez licencji nie ma w repo (tylko URL, data, własny opis); historii Git nie przepisujemy.</li>
+<li>Z #16: słowo po słowie (D1-A); wulwa to istotna zmiana językowa poza prostymi regułami (D5); terminy fachowe tylko po wejściu do języka potocznego.</li>
+<li>Stałe: SJP.pl nie jest źródłem; Wikisłownik odroczony; nie kontaktujemy autorów zasobów.</li></ul></div>
+<h2 id="rek">Rekomendowane podejście</h2><div class="card" style="border:2px solid var(--accent)">
+<p><b>„Potwierdzanie, nie wykrywanie”: 1A + 2B + 3C + 4A + 5A.</b></p>
+<p><b>Uzasadnienie:</b> każde słowo trafia do kolejki z detektora, a dowód dostaje z pomiaru lokalnego i z faktów, które wolno publikować. Jedna tabela progów obejmuje oba typy dowodu. Werdykt zawsze zapada dla jednego słowa.</p>
+<p><b>Akceptowane koszty:</b> dużo ręcznej pracy na słowo; brak automatycznego wykrywania; kontekstu nie sprawdzi się z samego repo.</p>
+<p><b>Założenia:</b></p><ol>
+<li>Publikacja liczb i URL z TDM ma niskie ryzyko. Jeśli nie, przechodzimy na 1D.</li>
+<li>Próbka 1–2 mld słów da karty dla kontroli (ccrawl-02, ekstrapolacja).</li>
+<li>Kolejka z detektorów wystarcza. Jeśli ważne słowa umykają, wracamy do 4B z 1B.</li>
+<li>Typ „zmiana świadoma” obejmuje kilka–kilkanaście leksemów na kwartał (metoda-02).</li></ol>
+<p><b>Pewność:</b> średnia.</p></div>
+<details class="card"><summary>Dlaczego nie inne</summary><ul>
+<li><b>1B:</b> koszt pełnej listy ma sens tylko przy wykrywaniu.</li><li><b>1C:</b> przy kandydatach mało ponad 1A.</li><li><b>1D:</b> traci progi i kalibrację.</li>
+<li><b>2A:</b> dopuszcza słowa bez użycia.</li><li><b>2C:</b> próg pod jedno słowo psuje neutralność.</li><li><b>2D:</b> wycina cel typu.</li>
+<li><b>3A:</b> zgodne z zasadami, ale wolniejsze niż 3C bez zysku dowodowego.</li><li><b>3B:</b> wpuszcza formy ze wzoru.</li><li><b>3D:</b> pomija najmocniejszą pulę.</li>
+<li><b>4B:</b> ok. 4% trafień potocznych, brak filtra spamu.</li><li><b>4C:</b> blokuje kolejkę, a kalibracja i tak potrzebuje kandydatów.</li><li><b>4D:</b> wycina prawdziwe zapożyczenia.</li>
+<li><b>5B:</b> wpuszcza pisownię bez użycia.</li><li><b>5C:</b> obniża dowód zależnie od liczby form.</li></ul></details>
+<details class="card" id="odr"><summary>Odroczone pomysły</summary><table><tr><th>Pomysł</th><th>Klasa</th><th>Dlaczego później</th></tr>
+<tr><td>Automatyczny filtr spamu na poziomie dokumentu w CC</td><td>stretch</td><td>potrzebny tylko dla 4B (ccrawl-03)</td></tr>
+<tr><td>Pełna lista blokad dla próbki (1B)</td><td>stretch</td><td>gdy CC zacznie wykrywać</td></tr>
+<tr><td>Źródła NC (Spokes, hate_speech_pl) i fora SpeakLeash</td><td>stretch</td><td>stare, mało trafień, licencja do oceny (D12, potoczne-02)</td></tr>
+<tr><td>Wikisłownik</td><td>poza zakresem</td><td>odroczony decyzją</td></tr>
+<tr><td>Formy czasownika w rodzaju niebinarnym</td><td>poza zakresem</td><td>zmiana fleksji SGJP, nie nowy leksem (metoda-02)</td></tr>
+<tr><td>Szkice ADR: warstwa potoczna, typ „zmiana świadoma”, polityka TDM</td><td>stretch</td><td>dla solution-designer (raport § 9)</td></tr></table></details>
+</main>
+</body>
+</html>
