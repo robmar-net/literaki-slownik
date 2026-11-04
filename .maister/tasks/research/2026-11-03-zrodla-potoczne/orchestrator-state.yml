@@ -36,3 +36,11 @@ research_context:
         D10: "Zastąpić cytaty z tekstów bez licencji opisem (nowy commit; historia bez zmian)."
         D2: "BAN-PL wycofany; lokalne dane skasowane 2026-11-04."
       decisions_open: [D1, D3, D4, D5, D6, D7, D8, D9, D11, D12]
+    phase-4:
+      decision_areas:
+        - area: "1. Polityka prawna źródeł bez licencji tekstu"
+          chosen_approach: "1A: fakty publiczne (liczby, lata, hosty, URL + własny opis); opt-out sprawdzany na hostach wszystkich trafień kandydata; stan w dniu pomiaru, ponownie przed wpisem"
+        - area: "2. Próg dowodu dla typu „zmiana świadoma”"
+          chosen_approach: "2A (Z1): wystarczy dowód ręczny z Dobrego Słownika (URL, data, id, własny opis); tezaurus DS tylko sygnał lokalny; zaimki.pl nie do repo; RJP reguła klasy"
+        - area: "2a. Rola zaimki.pl i neutratywy (pytanie użytkownika)"
+          chosen_approach: "Feminatywy i neutratywy z zaimki.pl wchodzą do kolejki; słowo z hasłem DS przechodzi jak 2A; słowo tylko z zaimki.pl wymaga jednego niezależnego dowodu użycia; bez importu danych (OQL), w karcie URL, data, własny opis. Neutratywów nie odrzucamy z góry."
