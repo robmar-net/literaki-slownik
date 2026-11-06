@@ -1,10 +1,10 @@
-"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v30)."""
+"""Potwierdzone warunki i profil; polityka aktywna od rundy 3 (approved-conditions-v31)."""
 from functools import lru_cache
 import unicodedata
 from .inputs import GeneratorError
 
 ALPHABET = 'aąbcćdeęfghijklłmnńoóprsśtuwyzźż'
-VERSION = 'approved-conditions-v30'
+VERSION = 'approved-conditions-v31'
 UNEXPLAINED_ACCENT_LABELS = frozenset({'daw.,rzad.,akcent'})
 UNEXPLAINED_FIRST_RELEASE_LABELS = frozenset({
     'astrol.', 'astrol.,ekon.', 'astron.', 'astron.,handl.', 'biblt.',
@@ -1121,6 +1121,22 @@ def standard_age_exception_override(checks, decision):
              'message':'Zatwierdzone współczesne użycie tej analizy (#4); etykieta dawności nie wyklucza jej ze STANDARD. Inne warunki osobno.',
              'evidence':[STANDARD_AGE_EXCEPTIONS_CONFIG,'https://github.com/robmar-net/literaki-slownik/issues/4']}
             if c['rule_id']=='linguistic-historical-form-v1' and c['status']=='reject' else c for c in checks]
+
+
+STANDARD_EXCLUSION_RULE = 'linguistic-standard-no-polish-meaning-v1'
+STANDARD_EXCLUSIONS_CONFIG = 'config/generator/standard-exclusions.json'
+
+
+def standard_exclusion_checks(decision):
+    """STANDARD (#15): zatwierdzone wykluczenie odrzuca tę jedną analizę; BROAD bez zmian.
+
+    `decision` pochodzi z przypiętego JSON-a (`standard_exclusions.decision_for`).
+    Ogólnej reguły nie ma: plik wskazuje dokładne analizy bez polskiego znaczenia.
+    """
+    return [{'rule_id':STANDARD_EXCLUSION_RULE,'status':'reject','decision_version':decision['decision_version'],
+             'reason':decision['reason'],
+             'message':'Zatwierdzone wykluczenie tej analizy ze STANDARD (#15): brak polskiego znaczenia. BROAD bez zmian.',
+             'evidence':[STANDARD_EXCLUSIONS_CONFIG,decision['issue'],*decision['inputs']]}]
 
 
 def standard_age_baseline_checks(qualifiers, variant):

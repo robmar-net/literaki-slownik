@@ -809,7 +809,7 @@
     },
     "policy": {
       "path": "../../config/generator/policy.json",
-      "sha256": "3579c57939b6d877d791895832ea3516b74ef2a7fe63391d404eb3111c8cc65b"
+      "sha256": "6fc91158c366e9654041149eacabb7467b09ac9f947de5535fd77de9f906f133"
     },
     "constructions": {
       "path": "../../config/generator/constructions.json",
@@ -854,6 +854,10 @@
     "standard-age-exceptions": {
       "path": "standard-age-exceptions.json",
       "sha256": "49ac99955d7717f2273458ddd8d6bfced9c3d1eec547d1137e43617225cd9094"
+    },
+    "standard-exclusions": {
+      "path": "standard-exclusions.json",
+      "sha256": "f0d216c57aef09b5b4a89d02de9a84dbca2fb20b75a48d43a6729eff6d9b9314"
     }
   },
   "unavailable": [

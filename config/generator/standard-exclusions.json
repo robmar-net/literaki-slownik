@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "decision_version": "standard-exclusions-v1",
+  "description": "Zatwierdzone (#15) analizy wykluczone ze STANDARD: wykrzykniki SGJP bez polskiego znaczenia. Wpis odrzuca w STANDARD tylko tę dokładną analizę; BROAD bez zmian. Ogólnej reguły nie ma. Zmiana pliku wymaga nowego hasha w sources.json i nowego przebiegu.",
+  "rule_id": "linguistic-standard-no-polish-meaning-v1",
+  "source_snapshot": {
+    "run": "lists-v32-20261104-161601-a",
+    "policy_version": "approved-conditions-v30"
+  },
+  "sources": {
+    "sgjp-20261018": "346bd7bc2695cb69c323de16c4c6d93afc514055fab96b458b8ead2523dae5be"
+  },
+  "provenance": {
+    "issue": "https://github.com/robmar-net/literaki-slownik/issues/15",
+    "research_task": ".maister/tasks/research/2026-10-31-przeglad-wykrzyknikow",
+    "approval": ".maister/tasks/research/2026-10-31-przeglad-wykrzyknikow/outputs/decision.md — wariant 1 wybrany przez właściciela 2026-11-06 (#15)",
+    "inputs": {
+      ".maister/tasks/research/2026-10-31-przeglad-wykrzyknikow/outputs/decision.md": "ea0cdf43acddc308ef3e2b59a0f6fbc9f0692901d49ff6d62b9576b841ecbc2a",
+      ".maister/tasks/research/2026-10-31-przeglad-wykrzyknikow/outputs/report.md": "07a7939ea8bc58b1b5f804b4836ecb61dc9c2696f9088c7ff44269305366b366"
+    }
+  },
+  "expected_counts": {
+    "words": 2,
+    "analyses": 2
+  },
+  "cases": [
+    {"word": "ou", "analyses": [
+      {"kind": "source", "reason": "Wykrzyknik SGJP bez polskiego znaczenia w sprawdzonych słownikach; w KWJP przeważa użycie obce.", "source_id": "sgjp-20261018", "first_source_row": 4306610, "original": "ou", "lemma_id": "ou", "raw_tag": "interj", "names": "", "qualifiers": "rzad.", "tag": "interj"}
+    ]},
+    {"word": "up", "analyses": [
+      {"kind": "source", "reason": "Wykrzyknik SGJP bez polskiego znaczenia w sprawdzonych słownikach; w KWJP przeważa użycie obce.", "source_id": "sgjp-20261018", "first_source_row": 6179319, "original": "up", "lemma_id": "up", "raw_tag": "interj", "names": "", "qualifiers": "", "tag": "interj"}
+    ]}
+  ]
+}

@@ -800,6 +800,25 @@
       "game_rules_changed": false,
       "semantic_remainder_preserved": true,
       "decision": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/resident-relations-proof-decision.md"
+    },
+    {
+      "rule_id": "linguistic-standard-no-polish-meaning-v1",
+      "status": "confirmed",
+      "operation": "exact_analysis_exclusion",
+      "scope": "exact_listed_analyses_only_no_general_rule",
+      "variants": {
+        "broad": "unchanged",
+        "standard": "reject"
+      },
+      "config": "config/generator/standard-exclusions.json",
+      "issue": "https://github.com/robmar-net/literaki-slownik/issues/15",
+      "decision": ".maister/tasks/research/2026-10-31-przeglad-wykrzyknikow/outputs/decision.md",
+      "report": ".maister/tasks/research/2026-10-31-przeglad-wykrzyknikow/outputs/report.md",
+      "examples": [
+        "ou",
+        "up"
+      ],
+      "interpretation": "Wpis w pliku odrzuca w STANDARD jedną dokładną analizę SGJP bez polskiego znaczenia; inne analizy i BROAD bez zmian."
     }
   ],
   "age_evidence_scope": {

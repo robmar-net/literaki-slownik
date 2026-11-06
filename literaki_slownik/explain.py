@@ -9,7 +9,7 @@ from .database import connect
 from .decisions import assess_diagnostic as _assess, aggregate, persisted_assessments, nonfiction_frequencies, VARIANTS
 from .inputs import GeneratorError
 from .links import availability
-from .policy import assess_profile, STANDARD_AGE_EXCEPTION_RULE, VERSION
+from .policy import assess_profile, STANDARD_AGE_EXCEPTION_RULE, STANDARD_EXCLUSION_RULE, VERSION
 from .sgjp import expand_tag, tag_errata
 from .constructions import pred_particle_candidates, nie_degree_candidates, nie_indeclinable_lemmas, impt_particle_candidates, impt_double_particle_candidates, by_aglt_candidates, preposition_n_candidates, mobile_by_aglt_candidates, mobile_aglt_candidates, mobile_by_sequence_candidates, personal_aglt_candidates, spelling_variant_candidates, BY_AGLT_ENDINGS
 
@@ -30,22 +30,37 @@ def _age_exceptions(manifest):
     z wyjątkami, jawny status; zapisane oceny przebiegu pozostają podstawą.
     """
     from . import standard_age_exceptions as sae
+    return _pinned_config(manifest, sae)
+
+
+def _standard_exclusions(manifest):
+    """Wykluczenia STANDARD przypięte w tym przebiegu (#15); zasady jak przy wyjątkach dawności."""
+    from . import standard_exclusions as sex
+    return _pinned_config(manifest, sex)
+
+
+def _pinned_config(manifest, module):
     from .inputs import checked_file
     inputs = manifest['inputs']
-    reference = inputs['manifest'].get('configurations', {}).get(sae.CONFIG_KEY)
+    reference = inputs['manifest'].get('configurations', {}).get(module.CONFIG_KEY)
     if reference is None:
         return {'status': 'not_pinned_in_run'}, None
     try:
         path = checked_file(Path(inputs['manifest_path']).parent, reference)
     except GeneratorError as error:
         return {'status': 'pinned_file_unavailable', 'sha256': reference['sha256'], 'reason': str(error)}, None
-    loaded = sae.load(path, source_hashes={a['source_id']: a['sha256'] for a in inputs['artifacts']})
+    loaded = module.load(path, source_hashes={a['source_id']: a['sha256'] for a in inputs['artifacts']})
     return {'status': 'pinned', 'sha256': reference['sha256'], 'decision_version': loaded['decision_version'],
             'counts': loaded['counts']}, loaded
 
 
 def _age_exception(loaded, key):
     from .standard_age_exceptions import decision_for
+    return decision_for(loaded, loaded['analyses'][key]) if loaded and key in loaded['analyses'] else None
+
+
+def _standard_exclusion(loaded, key):
+    from .standard_exclusions import decision_for
     return decision_for(loaded, loaded['analyses'][key]) if loaded and key in loaded['analyses'] else None
 
 
@@ -174,6 +189,7 @@ def explain(run_dir, word, variant='standard'):
         query = assess_profile(word)
         analyses, sources = [], {}
         exceptions_basis, exceptions = _age_exceptions(manifest)
+        exclusions_basis, exclusions = _standard_exclusions(manifest)
         with connect(run / 'build.sqlite', readonly=True) as db:
             rows = db.execute('''select i.id,i.source_id,i.first_row,f.original,l.lemma_id,
                 i.tag,i.names,i.qualifiers from interpretation i
@@ -192,14 +208,18 @@ def explain(run_dir, word, variant='standard'):
                                  'expanded_tags': list(expand_tag(tag)), 'names': names,
                                  'qualifiers': qualifiers, 'assessment': assessed,
                                  'tag_errata': tag_errata(sources[sid].get('sha256'),lemma,original,tag)})
-                # Wyjątek dotyczy rozwiniętej analizy, więc pokazujemy oceny wszystkich rozwinięć.
+                # Wyjątek i wykluczenie dotyczą rozwiniętej analizy, więc pokazujemy oceny wszystkich rozwinięć.
                 record = dict(source_id=sid,first_source_row=row,original=original,lemma_id=lemma,raw_tag=tag,names=names,qualifiers=qualifiers)
                 keys = {t: hashlib.sha256(dumps(['source', record, t]).encode()).hexdigest() for t in expand_tag(tag)}
-                if exceptions and any(k in exceptions['analyses'] for k in keys.values()):
+                pinned = [loaded['analyses'] for loaded in (exceptions, exclusions) if loaded]
+                if any(k in group for group in pinned for k in keys.values()):
                     analyses[-1]['expanded_assessments'] = [
-                        {'expanded_tag': t, 'analysis_key': k, 'standard_age_exception': k in exceptions['analyses'],
+                        {'expanded_tag': t, 'analysis_key': k,
+                         'standard_age_exception': bool(exceptions) and k in exceptions['analyses'],
+                         'standard_exclusion': bool(exclusions) and k in exclusions['analyses'],
                          'assessment': _assess(original, qualifiers, source_analyses=[dict(record, raw_tag=t, source_sha256=sources[sid].get('sha256'))],
-                                               contemporary_frequency=current, age_exception=_age_exception(exceptions, k))}
+                                               contemporary_frequency=current, age_exception=_age_exception(exceptions, k),
+                                               standard_exclusion=_standard_exclusion(exclusions, k))}
                         for t, k in keys.items()]
             derivations = _derivations(db, query['game_key'], exceptions)
             persisted = persisted_assessments(db,query['game_key'],variant)
@@ -239,7 +259,7 @@ def explain(run_dir, word, variant='standard'):
                  'persisted_policy_versions': persisted_versions,
                  'diagnostic': 'przeliczenie bieżącym kodem', 'diagnostic_policy_version': VERSION,
                  'diagnostic_matches_persisted_policy': persisted_versions in ([], [VERSION]),
-                 'standard_age_exceptions': exceptions_basis}
+                 'standard_age_exceptions': exceptions_basis, 'standard_exclusions': exclusions_basis}
         return {'query': {'word': word, 'nfc': query['nfc'], 'game_key': query['game_key']},
                 'variant': variant, 'readiness': manifest['readiness'], 'policy_version': VERSION,
                 'assessment_basis': basis,
@@ -274,6 +294,10 @@ def format_explanation(value):
         lines.append({'pinned': f"Wyjątki dawności STANDARD: przypięte w przebiegu, {age.get('decision_version')}, SHA256 {age.get('sha256')}.",
                       'not_pinned_in_run': 'Przebieg bez przypiętych wyjątków dawności STANDARD.',
                       'pinned_file_unavailable': f"Wyjątki dawności STANDARD przypięte ({age.get('sha256')}), ale plik niedostępny lub zmieniony; przeliczenie bez nich."}[age['status']])
+        excluded = basis.get('standard_exclusions', {'status': 'not_pinned_in_run'})
+        lines.append({'pinned': f"Wykluczenia STANDARD (#15): przypięte w przebiegu, {excluded.get('decision_version')}, SHA256 {excluded.get('sha256')}.",
+                      'not_pinned_in_run': 'Przebieg bez przypiętych wykluczeń STANDARD.',
+                      'pinned_file_unavailable': f"Wykluczenia STANDARD przypięte ({excluded.get('sha256')}), ale plik niedostępny lub zmieniony; przeliczenie bez nich."}[excluded['status']])
     lines.append(f"Analizy: {len(value['analyses'])}")
     for analysis in value['analyses']:
         assessed = analysis['assessment']
@@ -290,7 +314,11 @@ def format_explanation(value):
         for expanded in analysis.get('expanded_assessments', []):
             status = expanded['assessment']['membership'][value['variant']]['status']
             mark = ' · wyjątek dawności #4' if expanded['standard_age_exception'] else ''
+            mark += ' · wykluczenie STANDARD #15' if expanded.get('standard_exclusion') else ''
             lines.append(f"  rozwinięcie {expanded['expanded_tag']}: {labels[status]}{mark}")
+            for check in expanded['assessment']['language'][value['variant']]['checks']:
+                if check['rule_id'] == STANDARD_EXCLUSION_RULE:
+                    lines.append(f"    {check['rule_id']}: {labels[check['status']]} — {check['message']}")
     lines.append(f"\nZapisane rozwinięte analizy: {len(value.get('persisted_analyses',[]))}; diagnostyczne oceny z czasu build.")
     for item in value.get('persisted_analyses',[]):
         lines.append(f"  {item['analysis_key']} · {item['expanded_tag']} · {item['variant']} · "
@@ -299,6 +327,9 @@ def format_explanation(value):
             if check['rule_id'] == STANDARD_AGE_EXCEPTION_RULE:
                 lines.append(f"    Wyjątek dawności: {check['decision_version']} · rodzina {check['family']} · "
                              f"dowód {check['proof']}; uchyla {check['replaces']} ({check['source_label']})")
+            if check['rule_id'] == STANDARD_EXCLUSION_RULE:
+                lines.append(f"    Wykluczenie STANDARD (#15): {check['decision_version']} · {check['reason']}; "
+                             f"{check['rule_id']}")
         trace=item.get('semantic_trace')
         if trace:
             if trace['kind']=='documented_use':

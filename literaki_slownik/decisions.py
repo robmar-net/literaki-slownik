@@ -3,7 +3,7 @@ import json
 from .inputs import GeneratorError
 from .policy import (assess_profile, spelling_checks, release_scope_checks,
                      approved_qualifier_checks, orthography_checks, construction_orthography_checks,
-                     source_game_checks, standard_age_baseline_checks, contemporary_use_override, standard_age_exception_override, resident_use_checks, RESIDENT_RELATION_CONDITIONS, STANDARD_AGE_EXCEPTION_RULE, VERSION as POLICY_VERSION)
+                     source_game_checks, standard_age_baseline_checks, contemporary_use_override, standard_age_exception_override, standard_exclusion_checks, resident_use_checks, RESIDENT_RELATION_CONDITIONS, STANDARD_AGE_EXCEPTION_RULE, STANDARD_EXCLUSION_RULE, VERSION as POLICY_VERSION)
 
 STATUSES = frozenset({'accept', 'reject', 'unresolved'})
 VARIANTS = ('broad', 'standard')
@@ -37,10 +37,11 @@ def nonfiction_frequencies(db, form=None):
 
 def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyses=(), candidate=None,
                       *, documented_condition_ids=None, lexical_use_review=None, contemporary_frequency=None,
-                      age_exception=None):
+                      age_exception=None, standard_exclusion=None):
     """Wspólna ocena explain i zapisu; nie aktywuje nierozstrzygniętej polityki.
 
     `age_exception` to ślad zatwierdzonego wyjątku dawności (#4) dla tej dokładnej analizy.
+    `standard_exclusion` to ślad zatwierdzonego wykluczenia STANDARD (#15); BROAD bez zmian.
     """
     # Runda 3: polityka aktywna; zamknięta macierz klas i warunki gry z opublikowanych zasad.
     pending=[{'rule_id':'linguistic-policy-active-v1','status':'accept',
@@ -60,7 +61,8 @@ def assess_diagnostic(original, qualifiers, additional_checks=(), source_analyse
     game+=resident_use_checks(lexical_use_review)
     def standard_only(checks):
         checks=contemporary_use_override(checks,contemporary_frequency)
-        return standard_age_exception_override(checks,age_exception) if age_exception else checks
+        checks=standard_age_exception_override(checks,age_exception) if age_exception else checks
+        return checks+standard_exclusion_checks(standard_exclusion) if standard_exclusion else checks
     return assess_analysis(original,
         language={v:(lambda checks: standard_only(checks) if v=='standard' else checks)(
                   pending+approved_qualifier_checks(qualifiers,v,candidate.get('fulfilled_component_requirements',()) if candidate else ())+standard_age_baseline_checks(qualifiers,v)+list(additional_checks)
@@ -87,7 +89,7 @@ def lexical_use_checks(review, variant, *, policy_version=POLICY_VERSION):
         raise GeneratorError('Nieznany wariant słownika',2)
     if not review or 'lexical_proof' not in review:return []
     legacy = policy_version in {f'diagnostic-approved-conditions-v{v}' for v in range(16,21)}
-    if policy_version not in {POLICY_VERSION, 'approved-conditions-v24', 'approved-conditions-v25', 'approved-conditions-v26', 'approved-conditions-v27', 'approved-conditions-v28', 'approved-conditions-v29', *(f'diagnostic-approved-conditions-v{v}' for v in (21, 22, 23))} and not legacy:
+    if policy_version not in {POLICY_VERSION, 'approved-conditions-v24', 'approved-conditions-v25', 'approved-conditions-v26', 'approved-conditions-v27', 'approved-conditions-v28', 'approved-conditions-v29', 'approved-conditions-v30', *(f'diagnostic-approved-conditions-v{v}' for v in (21, 22, 23))} and not legacy:
         raise GeneratorError('Nieznana wersja dowodu leksykalnego użycia',4)
     message = ('Dodatni dowód leksykalny BROAD dokładnie udokumentowanego użycia; inne warunki osobno.'
                if variant=='broad' else 'Dowód BROAD nie rozstrzyga aktualnej kwalifikacji STANDARD.') if legacy else (
@@ -259,13 +261,16 @@ def checked_persisted_use_coverage(db):
         raise GeneratorError('Nieprawidłowy utrwalony przegląd użyć',4) from error
 
 
-def materialize_assessments(db, batch_size=10000, *, use_reviews=(), age_exceptions=None):
+def materialize_assessments(db, batch_size=10000, *, use_reviews=(), age_exceptions=None, standard_exclusions=None):
     """Utrwal wszystkie rozwinięcia i warianty, zachowując unknown i wcześniejsze dane.
 
     To zapis diagnostyczny. Dopiero domknięcie macierzy pozwoli na pełną
     kwalifikację. Wersja lub wynik różniące się od istniejących wymagają nowego build.
     `age_exceptions` (wynik `standard_age_exceptions.load`): każda pozycja musi trafić
     dokładnie w jedną analizę i dać jej członkostwo STANDARD; inaczej odmowa całej fazy.
+    `standard_exclusions` (wynik `standard_exclusions.load`, #15): każda pozycja musi trafić
+    dokładnie w jedną analizę, która bez wykluczenia byłaby w STANDARD, a forma nie może
+    zostać w STANDARD przez inną analizę; inaczej odmowa całej fazy.
     """
     import hashlib
     import json
@@ -296,6 +301,11 @@ def materialize_assessments(db, batch_size=10000, *, use_reviews=(), age_excepti
     used_exceptions=set()
     def exception(key):
         return decision_for(age_exceptions,exceptions[key]) if key in exceptions else None
+    from .standard_exclusions import decision_for as exclusion_for
+    exclusions=standard_exclusions['analyses'] if standard_exclusions else {}
+    used_exclusions=set()
+    def exclusion(key):
+        return exclusion_for(standard_exclusions,exclusions[key]) if key in exclusions else None
     def flush():
         nonlocal new_analyses,new_decisions
         if not analysis_batch:return
@@ -310,6 +320,15 @@ def materialize_assessments(db, batch_size=10000, *, use_reviews=(), age_excepti
                 raise GeneratorError('Wyjątek dawności STANDARD nie daje członkostwa: inna odmowa lub powtórzenie',4,
                                      exceptions[key]['word'])
             used_exceptions.add(key)
+        if key in exclusions:
+            # Wykluczenie ma być jedyną odmową: bez niego analiza byłaby w STANDARD.
+            others=[c for c in assessed['membership']['standard']['checks'] if c['rule_id']!=STANDARD_EXCLUSION_RULE]
+            mine=[c for c in assessed['membership']['standard']['checks'] if c['rule_id']==STANDARD_EXCLUSION_RULE]
+            if (key in used_exclusions or len(mine)!=1 or any(c['status']!='accept' for c in others)
+                    or assessed['membership']['broad']['status']!='accept'):
+                raise GeneratorError('Wykluczenie STANDARD wskazuje analizę, której nie ma w STANDARD z innego powodu, albo powtórzenie',4,
+                                     exclusions[key]['word'])
+            used_exclusions.add(key)
         profile=assessed['profile']
         row=(key,iid,ckey,tag,assessed['original'],profile['nfc'],assessed['game_key'],profile['length'],POLICY_VERSION)
         old=db.execute('select * from analysis where analysis_key=?',(key,)).fetchone() if existing else None
@@ -348,12 +367,14 @@ def materialize_assessments(db, batch_size=10000, *, use_reviews=(), age_excepti
             key=hashlib.sha256(dumps(['source',source,tag]).encode()).hexdigest()
             current=nonfiction.get(source['original'].lower())
             assessed=assess_diagnostic(source['original'],source['qualifiers'],source_analyses=[dict(source,raw_tag=tag,source_sha256=source_hashes[source['source_id']])],
-                                       contemporary_frequency=current,age_exception=exception(key))
+                                       contemporary_frequency=current,age_exception=exception(key),
+                                       standard_exclusion=exclusion(key))
             if row[0] in reviewed:
                 assessed=assess_diagnostic(source['original'],source['qualifiers'],
                     additional_checks=[remainder_exhausted_check(reviewed[row[0]])],
                     source_analyses=[dict(source,raw_tag=tag,source_sha256=source_hashes[source['source_id']])],
-                    documented_condition_ids=[],contemporary_frequency=current,age_exception=exception(key))
+                    documented_condition_ids=[],contemporary_frequency=current,age_exception=exception(key),
+                    standard_exclusion=exclusion(key))
                 assessed['semantic_trace']={'kind':'unresolved_remainder','coverage':'incomplete',
                     'source':reviewed[row[0]][0]['source'],'documented_use_ids':[r['use_id'] for r in reviewed[row[0]]],
                     'message':'Nierozpoznane możliwości; dowody użyć nie zamykają pełnej kwalifikacji.'}
@@ -383,6 +404,12 @@ def materialize_assessments(db, batch_size=10000, *, use_reviews=(), age_excepti
         raise GeneratorError('Niezgodne pokrycie zapisanych analiz i wariantów; wymagany nowy build',4)
     if used_exceptions!=set(exceptions):
         raise GeneratorError(f'Wyjątki dawności STANDARD bez analizy: {len(set(exceptions)-used_exceptions)}',4)
+    if used_exclusions!=set(exclusions):
+        raise GeneratorError(f'Wykluczenia STANDARD bez analizy: {len(set(exclusions)-used_exclusions)}',4)
+    for word in sorted({e['word'] for e in exclusions.values()}):
+        if db.execute('''select 1 from analysis a join variant_decision d using(analysis_key)
+                where a.game_key=? and d.variant='standard' and d.membership_status='accept' limit 1''',(word,)).fetchone():
+            raise GeneratorError('Wykluczona forma zostaje w STANDARD przez inną analizę; wymagany przegląd',4,word)
     extra={}
     if age_exceptions:
         extra['standard_age_exceptions']={'rule_id':STANDARD_AGE_EXCEPTION_RULE,
@@ -391,6 +418,11 @@ def materialize_assessments(db, batch_size=10000, *, use_reviews=(), age_excepti
             'words':len({e['word'] for e in exceptions.values()}),
             'source_analyses':sum(e['kind']=='source' for e in exceptions.values()),
             'construction_analyses':sum(e['kind']=='construction' for e in exceptions.values())}
+    if standard_exclusions:
+        extra['standard_exclusions']={'rule_id':STANDARD_EXCLUSION_RULE,
+            'decision_version':standard_exclusions['decision_version'],'entries':len(exclusions),
+            'matched':len(used_exclusions),'unused':len(exclusions)-len(used_exclusions),
+            'words':len({e['word'] for e in exclusions.values()})}
     return {**extra,'schema_version':1,'scope':'persisted_diagnostic_analyses_not_full_qualification',
             'policy_version':POLICY_VERSION,'source_analyses':source_count,'construction_analyses':candidate_count,
             'source_tag_expansions':tag_count,'documented_use_analyses':use_count,'remainder_analyses':remainder_count,

@@ -15,6 +15,7 @@ from .links import (create_links, link_report, load_pos_map, verify_link_complet
                     link_stage_gate, SHARED_POS, DEFAULT_POS_MAP_VERSION)
 from .decisions import materialize_assessments
 from . import standard_age_exceptions
+from . import standard_exclusions
 
 
 def flush(db, sql, batch):
@@ -154,9 +155,21 @@ def build(manifest_path, run_dir, batch_size=10000):
                     checked_file(Path(manifest_path).resolve().parent,age_reference),
                     source_hashes={a['source_id']:a['sha256'] for a in inputs['artifacts']})
                 standard_age_exceptions.check_database(db,age_exceptions,analyses=False)
-            decision_counts=materialize_assessments(db,batch_size,use_reviews=use_reviews,age_exceptions=age_exceptions)
+            # #15: przypięte wykluczenia STANDARD; rekordy sprawdzone przed oceną.
+            exclusions=None
+            exclusion_reference=inputs['manifest']['configurations'].get(standard_exclusions.CONFIG_KEY)
+            if exclusion_reference:
+                from .inputs import checked_file
+                exclusions=standard_exclusions.load(
+                    checked_file(Path(manifest_path).resolve().parent,exclusion_reference),
+                    source_hashes={a['source_id']:a['sha256'] for a in inputs['artifacts']})
+                standard_exclusions.check_database(db,exclusions,analyses=False)
+            decision_counts=materialize_assessments(db,batch_size,use_reviews=use_reviews,age_exceptions=age_exceptions,
+                                                    standard_exclusions=exclusions)
             if age_exceptions:
                 decision_counts['standard_age_exceptions']['sha256']=age_reference['sha256']
+            if exclusions:
+                decision_counts['standard_exclusions']['sha256']=exclusion_reference['sha256']
             performance['diagnostic_decisions']={'seconds':time.monotonic()-start}
             write_json(run/'reports/decisions.json',decision_counts)
             if decision_counts['full_qualification_pending']:

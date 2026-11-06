@@ -33,6 +33,13 @@ Verify i export opisuje [publikacja.md](publikacja.md#verify-i-export--wdrożeni
 
 Wyjątki dawności STANDARD (#4): edycja JSON-a, pin, build i kontrola — [wyjatki-dawnosci-standard.md](wyjatki-dawnosci-standard.md).
 
+Wykluczenia STANDARD (#15) działają tak samo, ale odrzucają: `config/generator/standard-exclusions.json`
+(reguła `linguistic-standard-no-polish-meaning-v1`, dziś `up` i `ou`, tylko `interj`). BROAD bez zmian.
+Build przerywa, gdy wpis nie trafia w dokładnie jeden rekord, gdy analiza i tak nie byłaby w STANDARD
+albo gdy forma zostaje w STANDARD przez inną analizę. Kontrola: `python3 scripts/check_standard_exclusions.py
+[--database <przebieg>/build.sqlite --records-only]`. Ślad: `reports/decisions.json` → `standard_exclusions`
+(z `sha256`) i `explain`.
+
 ## POP i POP0 (`pop`)
 
 Metoda bieżąca: `pop-v3` ([ADR-008](../adr/ADR-008-pop-v3-staly-prog.md)), `config/generator/pop.json`.
