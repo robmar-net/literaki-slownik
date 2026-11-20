@@ -7,7 +7,7 @@
 
 ## Key Decisions
 - **Gdzie:** wiki to osobne repozytorium `robmar-net/literaki-slownik.wiki`. Lokalnie klonujemy je obok projektu: `~/Projects/Literaki/wiki-literaki-slownik` (katalog pasuje do wzorca `/wiki-*/` w `.gitignore` workspace).
-- **Strony:** `Home`, `Slownik-BROAD`, `Slownik-STANDARD`, `Slownik-POP`, `Slownik-POP0`, `Slownik-POP00`, `Slownik-TEMATY`, `Boty-na-mniejszych-slownikach`, `Porownanie-z-SJP.pl`, `Brakujace-slowa-SJP.pl`, `Slowa-spoza-SJP.pl`, `Historia-zmian`, `_Sidebar`. Nowy rodzaj słownika dostaje nową stronę `Slownik-<NAZWA>` z tym samym układem.
+- **Strony:** `Home`, `Slownik-BROAD`, `Slownik-STANDARD`, `Slownik-POP`, `Slownik-POP0`, `Slownik-POP00`, `Slownik-TEMATY`, `Boty-na-mniejszych-slownikach`, `Porownanie-z-SJP.pl`, `Brakujace-slowa-SJP.pl`, `Slowa-spoza-SJP.pl`, `Zgloszone-braki`, `Historia-zmian`, `_Sidebar`. Nowy rodzaj słownika dostaje nową stronę `Slownik-<NAZWA>` z tym samym układem.
 - **Układ strony słownika:**
   - cel w 1–2 zdaniach;
   - stan: liczba słów, wersja polityki i link do pobrania albo „jeszcze niewydany”;
@@ -24,6 +24,7 @@
 | build z nową wersją polityki, który dał listy | liczby słów i wersja na `Home` i stronach słowników, wiersz w `Historia-zmian` |
 | nowe lub zmienione źródło (manifest `sources.json`) | tabela źródeł na `Home` |
 | nowy benchmark SJP.pl | strona `Porownanie-z-SJP.pl` i wygenerowane `Brakujace-slowa-SJP.pl`, `Slowa-spoza-SJP.pl` (zob. „Porównanie z SJP.pl” w [runbooku](plan-dalszych-prac-runbook.md)) |
+| sesja zgłoszeń od graczy | strona `Zgloszone-braki` według [runbooka zgłoszeń](runbook-zgloszenia.md) |
 | `export` lub wydanie | link do pobrania, sha256 i wersja; „wersja robocza” zamienia się w numer wydania |
 | start prac nad nowym słownikiem | od razu wstępna strona „W przygotowaniu”: cel, do czego, jak powstanie; link do ticketu; wiersz na `Home`, wpis w `_Sidebar`, link ze strony słownika bazowego |
 | wydanie nowego słownika | ta sama strona: liczby, kryteria, pobieranie; usuń „W przygotowaniu” na wszystkich stronach |
