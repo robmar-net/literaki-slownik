@@ -30,6 +30,7 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Implementacja generatora — zakres i luki](../tasks/development/2026-10-04-generator-broad-standard/analysis/gap-analysis.md) — aktywne zadanie development.
 - [Specyfikacja generatora](../tasks/development/2026-10-04-generator-broad-standard/implementation/spec.md) — zatwierdzona przez użytkownika.
 - [Plan implementacji generatora](../tasks/development/2026-10-04-generator-broad-standard/implementation/implementation-plan.md) — zatwierdzony, G1/G2 wykonane, G3/G4/G5/G6 częściowe.
+- [Reguły słowników](../../docs/generator/reguly.md) — wszystkie reguły BROAD/STANDARD w jednej tabeli; generowane `scripts/render_rules.py`, test pilnuje zgodności z kodem (#21).
 - [Etykiety generatora](../../docs/generator/etykiety.md) — pełna inwentaryzacja i otwarte kwestie semantyki.
 - [Konstrukcje i fleksja](../../docs/generator/konstrukcje.md) — dowody, kontrola nadgeneracji, macierz klas.
 - [Ortografia](../../docs/generator/ortografia.md) — rozdzielenie języka, gry i profilu.

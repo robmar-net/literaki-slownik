@@ -1,0 +1,595 @@
+{
+ "policy_version": "approved-conditions-v31",
+ "rules": [
+  {
+   "rule_id": "assessment-not-evaluated-v1",
+   "warstwa": "ocena",
+   "broad": "nierozstrzyga",
+   "standard": "nierozstrzyga",
+   "opis": "Analiza bez oceny wymaganych warunków nie wchodzi na listę.",
+   "przyklad": "",
+   "decyzja": "",
+   "od": "diagnostic-mechanics-v1, 2026-10-04"
+  },
+  {
+   "rule_id": "documented-spelling-variant-v1",
+   "warstwa": "konstrukcja",
+   "broad": "tworzy kandydatów",
+   "standard": "tworzy kandydatów",
+   "opis": "Składa udokumentowany wariant pisowni formy (ZDS §5).",
+   "przyklad": "",
+   "decyzja": "",
+   "od": "diagnostic-approved-conditions-v17, 2026-10-05"
+  },
+  {
+   "rule_id": "first-release-contraction-scope-v1",
+   "warstwa": "zakres",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Kandydat poza zakresem pierwszego wydania; zachowany diagnostycznie, bez uznania formy za błędną.",
+   "przyklad": "`kołoń` (odrzucone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/remaining-contractions-scope-decision.md",
+   "od": "diagnostic-approved-conditions-v9, 2026-10-05"
+  },
+  {
+   "rule_id": "game-abbreviation-noun-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Skrót lub skrótowiec zapisany w SGJP jako rzeczownik; zasady gry wykluczają skróty.",
+   "przyklad": "`nr` (odrzucone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md",
+   "od": "approved-conditions-v26, 2026-10-08"
+  },
+  {
+   "rule_id": "game-abbreviation-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Źródłowa analiza jest skrótem; nie utożsamiamy skrótu ze skrótowcem rzeczownikowym.",
+   "przyklad": "`zł` (odrzucone, BROAD)",
+   "decyzja": "docs/generator/ortografia.md",
+   "od": "diagnostic-approved-conditions-v12, 2026-10-05"
+  },
+  {
+   "rule_id": "game-adjp-graphic-word-v1",
+   "warstwa": "gra",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Forma przyimkowa (po polsku) jest osobnym wyrazem graficznym według RJP §4.4; dopuszczona warunkowo decyzją właściciela, oznaczona do ewentualnego wycofania.",
+   "przyklad": "`prostu` (dopuszczone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/owner-decisions-round1-decision.md",
+   "od": "diagnostic-approved-conditions-v22, 2026-10-08"
+  },
+  {
+   "rule_id": "game-agl-stem-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Temat czasu przeszłego dla końcówki (mogł-em) nie jest samodzielnym słowem; formy z końcówką osobno.",
+   "przyklad": "`mogł` (odrzucone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md",
+   "od": "approved-conditions-v26, 2026-10-08"
+  },
+  {
+   "rule_id": "game-brand-name-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Nazwa marki lub produktu: ZDS §1 jej nie dopuszcza, od 2026 pisze się ją wielką literą.",
+   "przyklad": "`audi` (odrzucone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/zds-game-rules-decision.md",
+   "od": "approved-conditions-v28, 2026-10-09"
+  },
+  {
+   "rule_id": "game-construction-whole-unit-v1",
+   "warstwa": "gra",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Potwierdzony konstruktor: oceniamy całość, nie samodzielność końcówki; pozostałe warunki osobno.",
+   "przyklad": "`coś` (dopuszczone, BROAD)",
+   "decyzja": "",
+   "od": "diagnostic-approved-conditions-v12, 2026-10-05"
+  },
+  {
+   "rule_id": "game-dependent-segment-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Źródłowa analiza jest niesamodzielnym składnikiem; może uczestniczyć w potwierdzonej pełnej konstrukcji.",
+   "przyklad": "`video` (odrzucone, BROAD)",
+   "decyzja": "docs/generator/konstrukcje.md",
+   "od": "diagnostic-approved-conditions-v12, 2026-10-05"
+  },
+  {
+   "rule_id": "game-documented-conditions-v1",
+   "warstwa": "gra",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Opublikowane zasady Literaków: słowa słownikowe i ich formy, poza wielką literą, skrótami i łącznikiem; wyłączenia osobno.",
+   "przyklad": "`się` (dopuszczone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/agent-decisions-round3-decision.md",
+   "od": "approved-conditions-v24, 2026-10-08"
+  },
+  {
+   "rule_id": "game-documented-resident-capital-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "To udokumentowane użycie nazwy mieszkanki wymaga wielkiej litery według normy2026; obowiązujące wyłączenie growe, inne użycia osobno.",
+   "przyklad": "`warszawianki` (odrzucone, BROAD)",
+   "decyzja": "",
+   "od": "diagnostic-approved-conditions-v18, 2026-10-05"
+  },
+  {
+   "rule_id": "game-documented-surname-component-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Dokumentacja autorów SGJP wskazuje tę dokładnie przypisaną analizę jako człon nazwiska; istniejące wyłączenie growe, wpis i inne homonimy zachowane.",
+   "przyklad": "`ibn` (odrzucone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/documented-name-class-proof-decision.md",
+   "od": "diagnostic-approved-conditions-v14, 2026-10-05"
+  },
+  {
+   "rule_id": "game-double-particle-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Ta analiza zawiera dwa dołączenia partykuły że/ż; zachowane reguły gry wykluczają ją, niezależne homonimy osobno.",
+   "przyklad": "`abdykujżeż` (odrzucone, BROAD)",
+   "decyzja": "docs/generator/konstrukcje.md",
+   "od": "diagnostic-approved-conditions-v13, 2026-10-05"
+  },
+  {
+   "rule_id": "game-frag-graphic-word-v1",
+   "warstwa": "gra",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Fragment frazy (na wznak, za bezcen) jest osobnym wyrazem graficznym; dopuszczony warunkowo decyzją właściciela, oznaczony do ewentualnego wycofania.",
+   "przyklad": "`jako` (dopuszczone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/owner-decisions-round2-decision.md",
+   "od": "diagnostic-approved-conditions-v23, 2026-10-08"
+  },
+  {
+   "rule_id": "game-mandatory-capital-2026-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Ta interpretacja nazwy mieszkańca wymaga wielkiej litery według normy2026, również przy dawnym zapisie w BROAD; inne homonimy osobno.",
+   "przyklad": "`warszawiaków` (odrzucone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/capitalization-source-cases.json",
+   "od": "diagnostic-approved-conditions-v13, 2026-10-05"
+  },
+  {
+   "rule_id": "game-mobile-host-composition-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Ta źródłowa konstrukcja mobilnej końcówki lub trybu przypuszczającego z nieczasownikowym hostem jest wyłączona przez zachowane reguły gry; homonimy osobno.",
+   "przyklad": "`com` (odrzucone, BROAD)",
+   "decyzja": "docs/generator/konstrukcje.md",
+   "od": "diagnostic-approved-conditions-v12, 2026-10-05"
+  },
+  {
+   "rule_id": "game-personal-host-aglt-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Końcówka czasownikowa dołączona do zaimka lub przymiotnika: ta konstrukcyjna analiza jest wyłączona przez zachowane reguły gry; homonimy osobno.",
+   "przyklad": "",
+   "decyzja": "docs/generator/konstrukcje.md",
+   "od": "diagnostic-approved-conditions-v12, 2026-10-05"
+  },
+  {
+   "rule_id": "game-proper-name-class-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Ta analiza jest źródłowo sklasyfikowana jako nazwa własna lub jej człon.",
+   "przyklad": "`br` (odrzucone, BROAD)",
+   "decyzja": "https://sgjp.pl/instrukcja/",
+   "od": "diagnostic-approved-conditions-v12, 2026-10-05"
+  },
+  {
+   "rule_id": "game-required-uppercase-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Źródłowy zapis wymaga wielkich liter.",
+   "przyklad": "`br` (odrzucone, BROAD)",
+   "decyzja": "docs/generator/ortografia.md",
+   "od": "diagnostic-mechanics-v1, 2026-10-04"
+  },
+  {
+   "rule_id": "game-resident-screen-capital-2026-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Przesiew -anin/-anka: nazwa mieszkańca wymaga wielkiej litery według normy 2026 (decyzja klasowa właściciela); wyjątki nie-mieszkańców osobno, inne homonimy osobno.",
+   "przyklad": "`szczecinian` (odrzucone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/owner-decisions-round2-decision.md",
+   "od": "diagnostic-approved-conditions-v23, 2026-10-08"
+  },
+  {
+   "rule_id": "game-source-name-labels-v1",
+   "warstwa": "gra",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Źródłowe oznaczenia nazw rozpoznane; inne warunki osobno.",
+   "przyklad": "`się` (dopuszczone, BROAD)",
+   "decyzja": "https://sgjp.pl/instrukcja/",
+   "od": "diagnostic-approved-conditions-v12, 2026-10-05"
+  },
+  {
+   "rule_id": "game-zds-named-exclusion-v1",
+   "warstwa": "gra",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Przykład wyłączenia wymieniony wprost w ZDS (sklep, domena, format pliku albo niedozwolone -ń).",
+   "przyklad": "`doc` (odrzucone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/zds-game-rules-decision.md",
+   "od": "approved-conditions-v27, 2026-10-08"
+  },
+  {
+   "rule_id": "impt-double-particle-source-proof-v1",
+   "warstwa": "język",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Zamknięta źródłowa reguła impt_sg ze z? potwierdza całość; growe wyłączenie oceniane osobno.",
+   "przyklad": "",
+   "decyzja": "",
+   "od": "diagnostic-approved-conditions-v13, 2026-10-05"
+  },
+  {
+   "rule_id": "impt-double-particle-v1",
+   "warstwa": "konstrukcja",
+   "broad": "tworzy kandydatów",
+   "standard": "tworzy kandydatów",
+   "opis": "Składa rozkaźnik z dwiema partykułami -że/-ż (np. idźżeż); gra je odrzuca.",
+   "przyklad": "",
+   "decyzja": "",
+   "od": "diagnostic-approved-conditions-v13, 2026-10-05"
+  },
+  {
+   "rule_id": "impt-single-particle-v1",
+   "warstwa": "konstrukcja",
+   "broad": "tworzy kandydatów",
+   "standard": "tworzy kandydatów",
+   "opis": "Składa rozkaźnik z jedną partykułą -że/-ż (np. chodźże).",
+   "przyklad": "",
+   "decyzja": "",
+   "od": "diagnostic-approved-conditions-v2, 2026-10-05"
+  },
+  {
+   "rule_id": "linguistic-accent-gloss-first-release-v1",
+   "warstwa": "język",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Adnotacja akcent zachowana: objaśnienie nieustalone. Sam brak objaśnienia nie wyklucza w pierwszym wydaniu; dawność i inne kryteria osobno.",
+   "przyklad": "`dwomakroć` (dopuszczone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/accent-gloss-first-release-decision.md",
+   "od": "diagnostic-approved-conditions-v12, 2026-10-05"
+  },
+  {
+   "rule_id": "linguistic-contemporary-use-kwjp-v2",
+   "warstwa": "język",
+   "broad": "—",
+   "standard": "dopuszcza",
+   "opis": "Forma pisana małymi literami ma współczesne użycie w tekstach nieliterackich KWJP; etykieta dawności nie wyklucza jej ze STANDARD.",
+   "przyklad": "`co` (dopuszczone, STANDARD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/round4-sjp-benchmark-fixes-decision.md",
+   "od": "approved-conditions-v29, 2026-10-10"
+  },
+  {
+   "rule_id": "linguistic-context-non-excluding-v1",
+   "warstwa": "język",
+   "broad": "nie wyklucza",
+   "standard": "nie wyklucza",
+   "opis": "Określenie przymiotnikowe w dopełniaczu. Samo wymaganie kontekstu nie wyklucza; inne ograniczenia oceniane osobno.",
+   "przyklad": "`co` (dopuszczone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/context-restrictions-decision.md",
+   "od": "diagnostic-approved-conditions-v7, 2026-10-05"
+  },
+  {
+   "rule_id": "linguistic-current-usage-non-excluding-v1",
+   "warstwa": "język",
+   "broad": "nie wyklucza",
+   "standard": "nie wyklucza",
+   "opis": "Wskazane współczesne użycie nie wyklucza; dodatkowe ograniczenia oceniane osobno.",
+   "przyklad": "`wobec` (dopuszczone, BROAD)",
+   "decyzja": "docs/generator/etykiety.md",
+   "od": "diagnostic-approved-conditions-v3, 2026-10-05"
+  },
+  {
+   "rule_id": "linguistic-descriptive-non-excluding-v1",
+   "warstwa": "język",
+   "broad": "nie wyklucza",
+   "standard": "nie wyklucza",
+   "opis": "Sama dziedzina, stylistyka lub opis wariantu formy nie wyklucza; pozostałe warunki oceniane osobno.",
+   "przyklad": "`do` (dopuszczone, BROAD)",
+   "decyzja": "docs/generator/etykiety.md",
+   "od": "diagnostic-approved-conditions-v6, 2026-10-05"
+  },
+  {
+   "rule_id": "linguistic-disrecommended-non-excluding-v1",
+   "warstwa": "język",
+   "broad": "nie wyklucza",
+   "standard": "nie wyklucza",
+   "opis": "Samo niezalecanie nie wyklucza w BROAD ani STANDARD; pozostałe warunki oceniane osobno.",
+   "przyklad": "`rzecz` (dopuszczone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/disrecommended-decision.md",
+   "od": "diagnostic-approved-conditions-v2, 2026-10-05"
+  },
+  {
+   "rule_id": "linguistic-documented-use-lexical-proof-v1",
+   "warstwa": "język",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Dodatni dowód leksykalny dokładnie udokumentowanego użycia dla BROAD i STANDARD; wiek, pisownia, gra i inne warunki osobno.",
+   "przyklad": "`ziem` (dopuszczone, BROAD)",
+   "decyzja": "",
+   "od": "diagnostic-approved-conditions-v16, 2026-10-05"
+  },
+  {
+   "rule_id": "linguistic-fulfilled-component-requirement-v1",
+   "warstwa": "język",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Wymaganie składnika spełnione przez potwierdzoną konstrukcję; inne warunki osobno.",
+   "przyklad": "`bezeń` (dopuszczone, BROAD)",
+   "decyzja": "docs/generator/konstrukcje.md",
+   "od": "approved-conditions-v25, 2026-10-08"
+  },
+  {
+   "rule_id": "linguistic-historical-form-v1",
+   "warstwa": "język",
+   "broad": "dopuszcza",
+   "standard": "odrzuca",
+   "opis": "Oznaczenie dawności wyklucza tę analizę ze STANDARD, także przy dziś.",
+   "przyklad": "`jednako` (odrzucone, STANDARD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/mixed-history-decision.md",
+   "od": "diagnostic-approved-conditions-v3, 2026-10-05"
+  },
+  {
+   "rule_id": "linguistic-incorrect-form-v1",
+   "warstwa": "język",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "SGJP oznacza tę interpretację jako niepoprawną; odrzucenie w BROAD i STANDARD.",
+   "przyklad": "`aleatoryźmie` (odrzucone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/incorrect-forms-decision.md",
+   "od": "diagnostic-approved-conditions-v5, 2026-10-05"
+  },
+  {
+   "rule_id": "linguistic-informal-rare-non-excluding-v1",
+   "warstwa": "język",
+   "broad": "nie wyklucza",
+   "standard": "nie wyklucza",
+   "opis": "Sama potoczność, wulgarność, regionalność, gwarowość lub rzadkość nie wyklucza; inne warunki oceniane osobno.",
+   "przyklad": "`jak` (dopuszczone, BROAD)",
+   "decyzja": "https://sgjp.pl/oznaczenia/",
+   "od": "diagnostic-approved-conditions-v4, 2026-10-05"
+  },
+  {
+   "rule_id": "linguistic-policy-active-v1",
+   "warstwa": "język",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Polityka językowa aktywna: zamknięta macierz klas i etykiet; pozostałe warunki osobno.",
+   "przyklad": "`się` (dopuszczone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/agent-decisions-round3-decision.md",
+   "od": "approved-conditions-v24, 2026-10-08"
+  },
+  {
+   "rule_id": "linguistic-standard-age-baseline-v1",
+   "warstwa": "język",
+   "broad": "—",
+   "standard": "nie wyklucza",
+   "opis": "Brak wykluczającego oznaczenia wieku nie blokuje tego warunku STANDARD. Współczesność nie została niezależnie ustalona; inne warunki i konkretne dowody osobno.",
+   "przyklad": "`się` (dopuszczone, STANDARD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/standard-age-baseline-decision.md",
+   "od": "diagnostic-approved-conditions-v20, 2026-10-05"
+  },
+  {
+   "rule_id": "linguistic-standard-age-exception-v1",
+   "warstwa": "język",
+   "broad": "—",
+   "standard": "dopuszcza",
+   "opis": "Zatwierdzone współczesne użycie tej analizy (#4); etykieta dawności nie wyklucza jej ze STANDARD. Inne warunki osobno.",
+   "przyklad": "`hospicja` (dopuszczone, STANDARD)",
+   "decyzja": "https://github.com/robmar-net/literaki-slownik/issues/4",
+   "od": "approved-conditions-v30, 2026-10-12"
+  },
+  {
+   "rule_id": "linguistic-standard-no-polish-meaning-v1",
+   "warstwa": "język",
+   "broad": "—",
+   "standard": "odrzuca",
+   "opis": "Wskazana analiza SGJP bez polskiego znaczenia nie wchodzi do STANDARD (config/generator/standard-exclusions.json). Działa od następnego buildu.",
+   "przyklad": "",
+   "decyzja": "",
+   "od": "approved-conditions-v31, 2026-11-06"
+  },
+  {
+   "rule_id": "linguistic-unexplained-label-first-release-v1",
+   "warstwa": "język",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Oznaczenie zachowane: objaśnienie nieustalone. Sam brak objaśnienia nie wyklucza w pierwszym wydaniu; inne kryteria osobno.",
+   "przyklad": "`go` (dopuszczone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/unexplained-labels-first-release-decision.md",
+   "od": "diagnostic-approved-conditions-v10, 2026-10-05"
+  },
+  {
+   "rule_id": "linguistic-unknown-qualifier-v1",
+   "warstwa": "język",
+   "broad": "nierozstrzyga",
+   "standard": "nierozstrzyga",
+   "opis": "Etykieta kwalifikatora bez zatwierdzonego warunku wymaga oceny.",
+   "przyklad": "",
+   "decyzja": "",
+   "od": "approved-conditions-v24, 2026-10-08"
+  },
+  {
+   "rule_id": "mobile-host-by-sequence-v1",
+   "warstwa": "konstrukcja",
+   "broad": "tworzy kandydatów",
+   "standard": "tworzy kandydatów",
+   "opis": "Składa ruchomą końcówkę z „by” na zamkniętej liście hostów (np. albobyś).",
+   "przyklad": "",
+   "decyzja": "",
+   "od": "diagnostic-approved-conditions-v9, 2026-10-05"
+  },
+  {
+   "rule_id": "mobile-inflected-host-vocality-v1",
+   "warstwa": "konstrukcja",
+   "broad": "tworzy kandydatów",
+   "standard": "tworzy kandydatów",
+   "opis": "Dobiera wariant końcówki ruchomej do zakończenia formy hosta odmiennego (SGJP §6.4.1).",
+   "przyklad": "",
+   "decyzja": "",
+   "od": "diagnostic-approved-conditions-v8, 2026-10-05"
+  },
+  {
+   "rule_id": "nie-prefix-degree-v2",
+   "warstwa": "konstrukcja",
+   "broad": "tworzy kandydatów",
+   "standard": "tworzy kandydatów",
+   "opis": "Składa nie- z przymiotnikiem lub przysłówkiem w każdym stopniu; bez zaimków i nieodmiennych (#5).",
+   "przyklad": "",
+   "decyzja": "",
+   "od": "approved-conditions-v29, 2026-10-12"
+  },
+  {
+   "rule_id": "orthography-2026-conjunction-by-v1",
+   "warstwa": "pisownia",
+   "broad": "dopuszcza",
+   "standard": "odrzuca",
+   "opis": "Norma 2026 wymaga pisowni rozdzielnej; ta analiza odpada ze STANDARD.",
+   "przyklad": "`jeśliby` (odrzucone, STANDARD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/orthography-2026-decision.md",
+   "od": "diagnostic-approved-conditions-v8, 2026-10-05"
+  },
+  {
+   "rule_id": "orthography-2026-host-by-sequence-v1",
+   "warstwa": "pisownia",
+   "broad": "dopuszcza",
+   "standard": "odrzuca",
+   "opis": "Ta konstrukcja wymaga rozdzielnej pisowni by według normy2026; odrębne źródłowe wyrazy oceniane osobno.",
+   "przyklad": "`alboby` (odrzucone, STANDARD)",
+   "decyzja": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf",
+   "od": "diagnostic-approved-conditions-v9, 2026-10-05"
+  },
+  {
+   "rule_id": "orthography-2026-resident-capital-v1",
+   "warstwa": "pisownia",
+   "broad": "dopuszcza",
+   "standard": "odrzuca",
+   "opis": "Źródłowy dawny zapis małoliterowy nie odpowiada normie2026 wymaganej w STANDARD.",
+   "przyklad": "`warszawiaków` (odrzucone, STANDARD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/capitalization-source-cases.json",
+   "od": "diagnostic-approved-conditions-v13, 2026-10-05"
+  },
+  {
+   "rule_id": "orthography-attested-lowercase-2026-v1",
+   "warstwa": "pisownia",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Jawny przykład normy2026 potwierdza mały zapis tego użycia; inne warunki językowe i growe osobno.",
+   "przyklad": "`angol` (dopuszczone, BROAD)",
+   "decyzja": "https://rjp.pan.pl/app/uploads/2025/11/2-zalacznik-do-komunikatu-11-25-wersja-jednolita.pdf#page=43; §8.1.2 pkt4 uwaga",
+   "od": "diagnostic-approved-conditions-v17, 2026-10-05"
+  },
+  {
+   "rule_id": "orthography-sgjp-single-word-by-v1",
+   "warstwa": "pisownia",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Zapis łączny według SGJP; otwarta lista RJP §4.5 pkt 1c go nie wyklucza (decyzja właściciela). Wiek i gra osobno.",
+   "przyklad": "`niechby` (dopuszczone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/owner-decisions-round1-decision.md",
+   "od": "diagnostic-approved-conditions-v22, 2026-10-08"
+  },
+  {
+   "rule_id": "pred-particle-ze-v1",
+   "warstwa": "konstrukcja",
+   "broad": "tworzy kandydatów",
+   "standard": "tworzy kandydatów",
+   "opis": "Składa -że/-ż z „trzeba” i „można” (np. trzebaż), ZDS §5.",
+   "przyklad": "",
+   "decyzja": "",
+   "od": "approved-conditions-v27, 2026-10-08"
+  },
+  {
+   "rule_id": "preposition-n-source-v1",
+   "warstwa": "konstrukcja",
+   "broad": "tworzy kandydatów",
+   "standard": "tworzy kandydatów",
+   "opis": "Składa przyimek z zaimkiem -ń (np. nań, doń).",
+   "przyklad": "",
+   "decyzja": "",
+   "od": "diagnostic-approved-conditions-v7, 2026-10-05"
+  },
+  {
+   "rule_id": "preposition-n-whole-form-proof-v1",
+   "warstwa": "język",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Cała forma dosłownie wskazana w §9.1 SGJP; inne warunki oceniane osobno.",
+   "przyklad": "`bezeń` (dopuszczone, BROAD)",
+   "decyzja": "https://sgjp.pl/static/pdf/Podstawy_teoretyczne_SGJP.pdf",
+   "od": "diagnostic-approved-conditions-v7, 2026-10-05"
+  },
+  {
+   "rule_id": "profile-pl-alphabet-v1",
+   "warstwa": "profil",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Znaki poza alfabetem płytek.",
+   "przyklad": "`von` (odrzucone, BROAD)",
+   "decyzja": "",
+   "od": "diagnostic-mechanics-v1, 2026-10-04"
+  },
+  {
+   "rule_id": "profile-pl-length-v1",
+   "warstwa": "profil",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Wymagana długość 2–15 znaków po NFC/lower.",
+   "przyklad": "`w` (odrzucone, BROAD)",
+   "decyzja": "",
+   "od": "diagnostic-mechanics-v1, 2026-10-04"
+  },
+  {
+   "rule_id": "semantic-remainder-exhausted-v1",
+   "warstwa": "język",
+   "broad": "odrzuca",
+   "standard": "odrzuca",
+   "opis": "Sprawdzone użycia wyczerpują to ID (decyzja właściciela); pozostałość nie daje osobnej analizy.",
+   "przyklad": "`ibn` (odrzucone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/owner-decisions-round2-decision.md",
+   "od": "diagnostic-approved-conditions-v23, 2026-10-08"
+  },
+  {
+   "rule_id": "semantic-use-qualification-closed-v1",
+   "warstwa": "język",
+   "broad": "dopuszcza",
+   "standard": "dopuszcza",
+   "opis": "Udokumentowane użycie ma domknięte warunki (decyzja właściciela); pozostałe oceny osobno.",
+   "przyklad": "`de` (dopuszczone, BROAD)",
+   "decyzja": ".maister/tasks/development/2026-10-04-generator-broad-standard/analysis/evidence/owner-decisions-round2-decision.md",
+   "od": "diagnostic-approved-conditions-v23, 2026-10-08"
+  },
+  {
+   "rule_id": "sgjp-20260823-winien-person-erratum-v1",
+   "warstwa": "konstrukcja",
+   "broad": "poprawia źródło",
+   "standard": "poprawia źródło",
+   "opis": "Poprawia osobę w 7 formach „winien” z -śmy (błędny tag w SGJP).",
+   "przyklad": "",
+   "decyzja": "",
+   "od": "diagnostic-approved-conditions-v7, 2026-10-05"
+  }
+ ]
+}
