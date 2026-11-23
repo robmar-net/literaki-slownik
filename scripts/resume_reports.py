@@ -11,7 +11,8 @@ raporty od pierwszego bez znacznika `reports/.done`. Nieczytelny manifest przebi
 od razu do `build --resume` (75, gdy dysk zniknął, inaczej 4).
 
 stdout: JSON z `build --resume`; stderr: błąd. Kody: 2 przebieg nie czeka na wznowienie samych
-raportów; 4 inny kod generatora; pozostałe przekazane z `build --resume` (0, 3, 4, 5, 75, 76,
+raportów; 4 inny kod generatora, manifest bez `stages`/`code` albo trzymana blokada buildu
+(`.<nazwa>.build.lock`, żywy build); pozostałe przekazane z `build --resume` (0, 3, 4, 5, 75, 76,
 77, 78, 130; opis w docs/generator/cli.md).
 """
 import argparse
@@ -22,6 +23,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+from literaki_slownik import workfs  # noqa: E402
 from literaki_slownik.canonical import load_json  # noqa: E402
 from literaki_slownik.cli import main as cli_main  # noqa: E402
 from literaki_slownik.run import code_identity  # noqa: E402
@@ -39,18 +41,25 @@ def main(argv=None):
     parser.add_argument('--manifest', required=True)
     parser.add_argument('--run-dir', required=True)
     args = parser.parse_args(argv)
+    if workfs.lock_held(workfs.build_lock(args.run_dir)):
+        # `reports: running` bywa stanem żywego buildu; nakładka nie rusza przebiegu, którego blokadę ktoś trzyma.
+        return refuse('build albo --resume tego przebiegu trwa (blokada .<nazwa>.build.lock)', 4)
     try:
         manifest = load_json(Path(args.run_dir) / 'manifest.json')
     except (OSError, ValueError):
         manifest = None
     if manifest is not None:
-        stages = manifest['stages']
-        if any(stages.get(name, {}).get('status') != 'complete' for name in DONE):
-            return refuse('etapy do links nie są ukończone', 2)
-        if stages.get('reports', {}).get('status') not in {'running', 'failed'}:
-            return refuse('etap reports nie czeka na wznowienie', 2)
+        try:
+            stages = manifest['stages']
+            if any(stages.get(name, {}).get('status') != 'complete' for name in DONE):
+                return refuse('etapy do links nie są ukończone', 2)
+            if stages.get('reports', {}).get('status') not in {'running', 'failed'}:
+                return refuse('etap reports nie czeka na wznowienie', 2)
+            tree = manifest['code']['tree_sha256']
+        except (KeyError, TypeError, AttributeError):
+            return refuse('manifest przebiegu bez pól stages albo code', 4)
         current = code_identity()
-        if manifest['code']['tree_sha256'] != current['tree_sha256'] or current['git_dirty'] is not False:
+        if tree != current['tree_sha256'] or current['git_dirty'] is not False:
             return refuse('kod generatora różni się od kodu build', 4)
     return cli_main(['build', '--resume', '--manifest', args.manifest, '--run-dir', args.run_dir, '--json'])
 

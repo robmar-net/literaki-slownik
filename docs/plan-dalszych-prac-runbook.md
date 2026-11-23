@@ -178,19 +178,26 @@ Opis poleceń i kodów: [cli.md](generator/cli.md#build-na-dysku-roboczym-i-wzna
 
 1. **Raz na wolumen:** `python3 scripts/init_work_volume.py <wolumen>/literaki-slownik/work`. Na T7 znacznik już jest
    (2026-11-23); powtórka kończy się kodem 4 i niczego nie zmienia.
-2. **Utrwalić kod** (`git status` czysty w `literaki_slownik/`), potem para:
+2. **Utrwalić kod** (`git status` czysty w `literaki_slownik/`), potem para, odpięta od terminala:
    ```sh
-   LITERAKI_WORK_ROOT=<wolumen>/literaki-slownik/work scripts/build_pair.sh <nazwa>
+   mkdir -p logs && LITERAKI_WORK_ROOT=<wolumen>/literaki-slownik/work \
+     nohup scripts/build_pair.sh <nazwa> > logs/pair-<nazwa>.log 2>&1 & disown
    # → data/work/<nazwa>-<stempel>-a i -b (symlinki na T7), logi w logs/
    ```
+   `build_pair.sh` sam uruchamia obu nadzorców pod `caffeinate -dimsu`. Bez `& disown` zamknięcie okna terminala
+   wysyła SIGHUP: nadzorca przekazuje go buildowi i kończy pracę jego kodem (129), bez wznowienia.
    Para trwa ok. 13 h, zajmuje ok. 12 GB RAM i 2 × 22 GB na T7 (start wymaga ≥ 100 GB wolnego).
 3. **Zniknięcie dysku:** build kończy się kodem 75, nadzorca czeka do 30 min i robi `build --resume` (najwyżej 3 razy).
-   Strata: bieżący etap albo raport. Przebieg śledzić w `logs/<przebieg>.supervisor.log`.
+   Strata: bieżący etap albo raport. Przebieg śledzić w `logs/<przebieg>.supervisor.log`. Build, który przez
+   2 h nie zmienia plików przebiegu ani nie zużywa CPU (zawieszone I/O), nadzorca zatrzymuje (`stalled`):
+   gdy dysku nie ma, czeka i wznawia jak po 75, a przy zdrowym dysku kończy kodem 4.
    Inny kod niż 75 zatrzymuje pracę: przeczytać `logs/<przebieg>.err`. 76 zły wolumen, 77 uszkodzona baza i 78 brak
    miejsca wymagają decyzji człowieka.
-4. **Po restarcie maszyny** nadzorcę uruchamia się ręcznie, dla każdej strony osobno:
+4. **Po restarcie maszyny** nadzorcę uruchamia się ręcznie, dla każdej strony osobno, odpiętego od terminala
+   i pod `caffeinate` (inaczej wznowiona strona zaśnie razem z maszyną):
    ```sh
-   python3 scripts/build_supervised.py --manifest config/generator/sources.json --run-dir data/work/<przebieg>
+   nohup caffeinate -dimsu python3 scripts/build_supervised.py --manifest config/generator/sources.json \
+     --run-dir data/work/<przebieg> > logs/<przebieg>.supervisor.out 2>> logs/<przebieg>.err & disown
    ```
 5. **Odbiór:** przegląd próbek (K7), potem `verify` i od razu promocja A. Promocja kopiuje A na dysk wewnętrzny
    i kasuje B oraz kopię A na T7:
@@ -202,7 +209,9 @@ Opis poleceń i kodów: [cli.md](generator/cli.md#build-na-dysku-roboczym-i-wzna
 6. **Wydanie:** `export --run-dir data/work/<A> --output-dir NOWY` tylko na dysku wewnętrznym (przebieg na T7 → kod 5)
    → kontrola hashy pakietu → GitHub Release. Wzór: `llpl-v29`, opis w `docs/generator/publikacja.md`.
 7. **Sprzątanie:** `python3 scripts/clean_work.py --work-root <wolumen>/literaki-slownik/work` wypisuje listę
-   i niczego nie kasuje. `--apply` kasuje tylko nieudane i porzucone przebiegi na T7. Stare wydania kasuje się
+   i niczego nie kasuje. `--apply` kasuje tylko przerwane, nieukończone i porzucone przebiegi na T7 oraz resztki
+   startu starsze niż 24 h. Kompletna para czekająca na verify zostaje („kompletny, czeka na verify”).
+   Przerwane kasowanie (`.<nazwa>.deleting`) dokańcza następne `--apply`. Stare wydania kasuje się
    wyłącznie po „tak” właściciela dla konkretnej listy: `--apply --delete-releases PLIK`.
 
 Build bez `--work-root` (np. `--run-dir data/work/<nazwa>` na dysku wewnętrznym) działa jak wcześniej; przerwany

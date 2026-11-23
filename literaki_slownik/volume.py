@@ -6,7 +6,7 @@ na wolumenie; poza niego wychodzi wyłącznie losowy `marker_id`.
 import os
 from pathlib import Path
 
-from . import canonical
+from . import canonical, workfs
 from .inputs import GeneratorError
 
 MARKER = '.literaki-work-volume'
@@ -63,18 +63,32 @@ def _marked(mount):
     return marker
 
 
+def check_work_root(path, minimum=None, *, marker=True):
+    """Jedna kontrola korzenia przebiegów (check_fresh, nadzorca, build_pair.sh, clean_work, init_work_volume).
+
+    Brak katalogu → 75 (wolumen niezamontowany); katalog na dysku repo → 76; bez znacznika (gdy marker=True)
+    → 76; mniej niż `minimum` bajtów wolnego → 78.
+    Zwraca (punkt montowania, znacznik albo None przy marker=False)."""
+    if not os.path.isdir(path):
+        raise GeneratorError('Korzeń przebiegów (--work-root, LITERAKI_WORK_ROOT) nie istnieje; '
+                             'dysk roboczy niezamontowany?', 75, str(path))
+    mount = mount_point(path)
+    if mount == repo_mount():
+        raise GeneratorError('Korzeń przebiegów leży na dysku repo, a wymaga wolumenu ze znacznikiem', 76, str(path))
+    found = _marked(mount) if marker else None
+    if minimum is not None:
+        check_space(mount, minimum)
+    return mount, found
+
+
 def check_fresh(run_dir, work_root=None):
     """Kontrola przed świeżym buildem. Zwraca work_volume ({marker_id}) albo None (dysk wewnętrzny)."""
     if work_root is not None:
-        if not os.path.isdir(work_root):
-            raise GeneratorError('Katalog --work-root nie istnieje; dysk roboczy niezamontowany?', 75)
-        mount = mount_point(work_root)
-        if mount == repo_mount():
-            raise GeneratorError('--work-root leży na dysku repo, a wymaga wolumenu ze znacznikiem', 76)
-    else:
-        mount = mount_point(run_dir)
-        if mount == repo_mount():
-            return None
+        _, marker = check_work_root(work_root, MIN_FREE_PROCESS)
+        return {'marker_id': marker['marker_id']}
+    mount = mount_point(run_dir)
+    if mount == repo_mount():
+        return None
     marker = _marked(mount)
     check_space(mount)
     return {'marker_id': marker['marker_id']}
@@ -159,7 +173,5 @@ def check_target(path):
     """Hak zapisu trwałego: G3 tylko dla celów w aktywnym przebiegu."""
     if _active is None:
         return
-    real = _active[0]
-    target = os.path.realpath(Path(path).parent)
-    if target == real or target.startswith(real + os.sep):
+    if workfs.is_within(Path(path).parent, _active[0]):
         check_active()

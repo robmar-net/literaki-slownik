@@ -35,6 +35,14 @@ w backupie dysku wewnętrznego.
 Odrzucone: symlink całego `data/work` na T7 (lokalne 1A). Wszystkie przebiegi, wydania i piny leżałyby
 na T7, a wydanie nie miałoby kopii w backupie. Korzeń tylko z env bez symlinku (1B): zmienia ścieżki pinów.
 
+### Poprawki po weryfikacji #22
+- Decyzja właściciela: `clean_work.py` nie kasuje przebiegu na T7, którego
+  wszystkie etapy są `complete` (`INCOMPLETE` tylko dlatego, że czeka na verify); klasa 3, powód
+  „kompletny, czeka na verify”. Kasowane są tylko przebiegi przerwane albo nieukończone i resztki startu ≥ 24 h.
+- Kasowanie drzew (B i kopia A w promocji, wpisy `clean_work.py`) jest wznawialne: najpierw zmiana nazwy na
+  `.<nazwa>.deleting` w tym samym katalogu, potem `rmtree`. Ponowienie promocji i `clean_work.py --apply`
+  dokańczają takie resztki, więc przerwane kasowanie nie zostawia ~22 GB bez manifestu.
+
 ## Otwarte pytania / ryzyka
 - Po skasowaniu B ponowny `verify` A (np. nowy przegląd K7) wymaga nowej pary.
 - Promocja kopiuje ok. 22 GB na dysk wewnętrzny; brak miejsca daje 78.

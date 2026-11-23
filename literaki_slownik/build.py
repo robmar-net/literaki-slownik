@@ -14,7 +14,7 @@ from .inputs import GeneratorError, inspect_sources, checked_file
 from . import sgjp, kwjp
 from .run import (create_run, set_stage, close_attempt, code_identity, check_identity, begin_resume,
                   STAGES)
-from . import volume
+from . import volume, workfs
 from .reports import qualifier_coverage, logical_content_report, unresolved_report, persisted_filter_impact, canonical_index, coverage_report
 from .constructions import materialize_confirmed_candidates
 from .links import (create_links, link_report, load_pos_map, verify_link_completeness,
@@ -132,10 +132,18 @@ def write_lists(db, run):
 SQLITE_SPACE = {sqlite3.SQLITE_FULL}
 SQLITE_DAMAGE = {sqlite3.SQLITE_CORRUPT, sqlite3.SQLITE_NOTADB}
 ERRNO_SPACE = {errno.ENOSPC, errno.EDQUOT}
+# Błędy, którymi macOS kończy operacje na odłączonym albo ponownie podłączonym wolumenie USB.
+SQLITE_DEVICE = {sqlite3.SQLITE_IOERR, sqlite3.SQLITE_CANTOPEN}
+ERRNO_DEVICE = {errno.EIO, errno.ENXIO, errno.ENODEV, errno.ENOENT, errno.EROFS}
 
 
 def exit_code(error, run, work_volume):
-    """Kod wyjścia błędu buildu (tabela „Kody wyjścia”): strażnik 75/76, miejsce 78, uszkodzenie 77, reszta 4."""
+    """Kod wyjścia błędu buildu (tabela „Kody wyjścia”): strażnik 75/76, miejsce 78, uszkodzenie 77, reszta 4.
+
+    Przebieg na wolumenie roboczym: błąd urządzenia (SQLITE_IOERR/CANTOPEN, EIO/ENXIO/ENODEV/ENOENT/EROFS) daje 75
+    także przy zdrowym strażniku. T7 mógł zniknąć i wrócić, zanim klasyfikator go sprawdził; G3 tego nie widzi,
+    gdy macOS nada wolumenowi to samo st_dev, a st_ino nie pomaga, bo APFS zapisuje numery i-węzłów na dysku.
+    Wznowienie jest idempotentne i ograniczone limitem nadzorcy, więc fałszywe 75 kosztuje jeden etap."""
     if isinstance(error, KeyboardInterrupt):
         return 130
     if isinstance(error, GeneratorError):
@@ -154,6 +162,10 @@ def exit_code(error, run, work_volume):
             return 78
         if primary is not None and primary & 0xff in SQLITE_DAMAGE:
             return 77
+        device = (primary is not None and primary & 0xff in SQLITE_DEVICE) \
+            or getattr(error, 'errno', None) in ERRNO_DEVICE
+        if work_volume is not None and device:
+            return 75
         return 4
     if isinstance(error, ValueError):
         return 4
@@ -439,8 +451,17 @@ def build(manifest_path, run_dir, batch_size=10000, work_root=None):
     run = Path(run_dir)
     # Strażnik przed create_run: bez wolumenu roboczego nic nie powstaje na dysku systemowym (R1).
     work_volume = volume.check_fresh(run, work_root)
-    create_run(run, inputs, work_root=work_root, work_volume=work_volume)
-    return guarded_build(stage_context(manifest_path, run, inputs, batch_size), 'preflight', work_volume)
+    with run_lock(run):
+        create_run(run, inputs, work_root=work_root, work_volume=work_volume)
+        return guarded_build(stage_context(manifest_path, run, inputs, batch_size), 'preflight', work_volume)
+
+
+def run_lock(run):
+    """Blokada przebiegu na cały build albo --resume (`.<nazwa>.build.lock` obok symlinku); zajęta → 4."""
+    lock = workfs.build_lock(run)
+    if not lock.parent.is_dir():
+        raise GeneratorError('Brak katalogu nadrzędnego przebiegu', 4, str(lock.parent))
+    return workfs.hold_lock(lock, 'Inny build albo --resume tego przebiegu trwa (blokada)')
 
 
 def guarded_build(ctx, first, work_volume):
@@ -512,18 +533,18 @@ def resume(manifest_path, run_dir, batch_size=10000):
     run = Path(run_dir)
     if not os.path.lexists(run):
         raise GeneratorError('Brak przebiegu do wznowienia', 4, str(run))
-    volume.check_mounted(run)  # 2–3: wiszący symlink, G1 → 75 (dysk przed manifestem, który leży na T7).
-    manifest = read_run_manifest(run)
-    if manifest['readiness'] in {'VERIFIED', 'FROZEN'}:
-        raise GeneratorError(f'Przebieg ma status {manifest["readiness"]}; wznowienie po verify jest niedozwolone',
-                             5, str(run))
-    work_volume = manifest.get('work_volume')
-    if volume.check_marker(run, work_volume['marker_id'] if work_volume else None) is not None:  # G2 → 76
-        volume.check_space(volume.mount_point(run))  # 78
-    inputs = check_identity(manifest, manifest_path)  # kod 4, wejścia 3
-    restart = not database_resumable(run, manifest, work_volume)
-    if restart:
-        restart_in_place(run)
-    first = begin_resume(run, 'preflight' if restart else None)
-    result = guarded_build(stage_context(manifest_path, run, inputs, batch_size), first, work_volume)
-    return {**result, 'resumed_from': first}
+    with run_lock(run):  # Przed pierwszą zmianą: żywy build albo drugie --resume → 4.
+        volume.check_mounted(run)  # 2–3: wiszący symlink, G1 → 75 (dysk przed manifestem, który leży na T7).
+        manifest = read_run_manifest(run)
+        if manifest['readiness'] in {'VERIFIED', 'FROZEN'}:
+            raise GeneratorError(f'Przebieg ma status {manifest["readiness"]}; wznowienie po verify jest '
+                                 'niedozwolone', 5, str(run))
+        work_volume = manifest.get('work_volume')
+        volume.check_resume(run, work_volume['marker_id'] if work_volume else None)  # G1, G2 → 76, miejsce → 78
+        inputs = check_identity(manifest, manifest_path)  # kod 4, wejścia 3
+        restart = not database_resumable(run, manifest, work_volume)
+        if restart:
+            restart_in_place(run)
+        first = begin_resume(run, 'preflight' if restart else None)
+        result = guarded_build(stage_context(manifest_path, run, inputs, batch_size), first, work_volume)
+        return {**result, 'resumed_from': first}

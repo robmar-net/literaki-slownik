@@ -96,7 +96,7 @@ class PromoteRunTests(LayoutCase):
         self.assertTrue(self.t7_a.is_dir() and self.t7_b.is_dir())
 
     def test_copy_with_other_sha_or_mode_is_4_and_nothing_deleted(self):
-        real_copy = promote_run._copy_file
+        real_copy = promote_run.copy_durable
 
         def corrupt_bytes(source, target):
             real_copy(source, target)
@@ -113,7 +113,7 @@ class PromoteRunTests(LayoutCase):
             with self.subTest(name):
                 self.setUp()
                 self.pair()
-                with mock.patch.object(promote_run, '_copy_file', fake):
+                with mock.patch.object(promote_run, 'copy_durable', fake):
                     self.refused(4)
                 self.assertTrue(self.link.is_symlink())
                 self.assertEqual(tree_hashes(self.t7_a), self.tree)
@@ -122,7 +122,7 @@ class PromoteRunTests(LayoutCase):
 
     def test_t7_vanishing_mid_copy_is_75_and_staging_stays(self):
         self.pair()
-        real_copy, calls = promote_run._copy_file, []
+        real_copy, calls = promote_run.copy_durable, []
 
         def vanish(source, target):
             calls.append(target)
@@ -131,7 +131,7 @@ class PromoteRunTests(LayoutCase):
                 raise OSError(5, 'Input/output error')
             real_copy(source, target)
 
-        with mock.patch.object(promote_run, '_copy_file', vanish):
+        with mock.patch.object(promote_run, 'copy_durable', vanish):
             self.refused(75)
         self.assertTrue(self.staging().is_dir())
         self.assertTrue(self.link.is_symlink())
@@ -152,6 +152,32 @@ class PromoteRunTests(LayoutCase):
                 self.assert_promoted()
                 again = self.promote()
                 self.assertEqual(again['status'], 'already-promoted')
+
+    def test_interrupt_inside_deleting_b_or_t7_copy_then_rerun_completes(self):
+        import shutil
+        real_rmtree = shutil.rmtree
+        for victim in ('run-b', 'run-a'):
+            with self.subTest(victim=victim):
+                self.setUp()
+                self.pair()
+                calls = []
+
+                def partial(path, *args, **kwargs):
+                    # Pierwsze kasowanie drzewa na T7: manifest znika pierwszy, potem przerwanie procesu.
+                    inside = os.path.realpath(path).startswith(str(self.data / 'pair') + os.sep)
+                    if inside and not calls and victim in Path(path).name:
+                        calls.append(path)
+                        manifest = Path(path) / 'manifest.json'
+                        os.chmod(Path(path), 0o700)
+                        manifest.unlink()
+                        raise Crash('rmtree')
+                    return real_rmtree(path, *args, **kwargs)
+                with mock.patch('shutil.rmtree', partial), self.assertRaises(Crash):
+                    self.promote()
+                self.assertEqual(len(calls), 1)
+                self.assertEqual(self.promote()['status'], 'promoted')
+                self.assert_promoted()
+                self.assertEqual([name for name in os.listdir(self.data / 'pair') if name.endswith('.deleting')], [])
 
     def test_rerun_after_export_deletes_t7_copy(self):
         self.pair()

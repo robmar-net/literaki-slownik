@@ -10,6 +10,7 @@ import stat
 import subprocess
 import time
 from pathlib import Path
+from unittest import mock
 
 from literaki_slownik.canonical import write_json
 from literaki_slownik.run import STAGES
@@ -52,12 +53,14 @@ def age(path, when=OLD):
     os.utime(path, (when, when), follow_symlinks=False)
 
 
-def run(path, readiness='INCOMPLETE', *, pending=False, sqlite=True, old=True):
+def run(path, readiness='INCOMPLETE', *, pending=False, sqlite=True, old=True, failed=False):
+    """Przebieg-fikstura; failed=True: przerwany w etapie links (dalsze etapy pending)."""
     path = Path(path)
     path.mkdir(parents=True)
-    write_json(path / 'manifest.json', {
-        'schema_version': 1, 'readiness': readiness,
-        'stages': {name: {'status': 'pending' if pending else 'complete'} for name in STAGES}})
+    stages = {name: {'status': 'pending' if pending else 'complete'} for name in STAGES}
+    if failed:
+        stages.update(links={'status': 'failed'}, reports={'status': 'pending'})
+    write_json(path / 'manifest.json', {'schema_version': 1, 'readiness': readiness, 'stages': stages})
     if sqlite:
         (path / 'build.sqlite').write_bytes(b'db')
     if old:
@@ -146,10 +149,16 @@ class CleanWorkCase(LayoutCase):
         unknown.mkdir()
         (unknown / 'x.bin').write_bytes(b'x')
         age(unknown)
-        run(self.data / 'orphan')
+        run(self.data / 'orphan', failed=True)
         run(self.data / 'leftover', pending=True, sqlite=False)
-        unfinished = run(self.data / 'unfinished')
+        unfinished = run(self.data / 'unfinished', failed=True)
         os.symlink(unfinished, self.work / 'unfinished')
+        # Wszystkie etapy complete, ≥ 24 h przed verify: para czeka na przegląd i nie znika (decyzja właściciela).
+        complete = run(self.data / 'complete')
+        os.symlink(complete, self.work / 'complete')
+        run(self.data / 'complete-bez-linku')
+        run(self.data / 'building')
+        self.hold(self.work / '.building.build.lock')
         release(self.work, 'release-LL-PL-v30')
         (self.work / 'stary.log').write_text('log\n', encoding='utf-8')
 
@@ -175,7 +184,12 @@ class CleanWorkTests(CleanWorkCase):
         self.assertEqual(result['deleted'], [])
         self.assertEqual(self.classes(result, 't7'), {
             'verified': 1, 'frozen': 1, 'promoting': 2, 'staged': 2, 'locked': 3, 'fresh': 3,
-            'unknown': 4, 'orphan': 5, 'leftover': 5, 'unfinished': 6})
+            'unknown': 4, 'orphan': 5, 'leftover': 5, 'unfinished': 6, 'complete': 3, 'complete-bez-linku': 3,
+            'building': 3})
+        reasons = {item['entry']: item['reason'] for item in result['entries']}
+        self.assertEqual(reasons['complete'], 'kompletny, czeka na verify')
+        self.assertEqual(reasons['building'], 'trzymana blokada buildu')
+        self.assertNotIn('.building.build.lock', self.classes(result))
         internal = self.classes(result, 'internal')
         self.assertEqual(internal['release-LL-PL-v30'], 7)  # ostatnie w rodzinie
         self.assertEqual(internal['stary.log'], 7)
@@ -194,7 +208,8 @@ class CleanWorkTests(CleanWorkCase):
         for name in ('orphan', 'leftover', 'unfinished'):
             self.assertFalse(os.path.lexists(self.data / name), name)
         self.assertFalse(os.path.lexists(self.work / 'unfinished'))
-        for name in ('verified', 'frozen', 'promoting', 'staged', 'locked', 'fresh', 'unknown'):
+        for name in ('verified', 'frozen', 'promoting', 'staged', 'locked', 'fresh', 'unknown', 'complete',
+                     'complete-bez-linku', 'building'):
             self.assertTrue((self.data / name).is_dir(), name)
         for name in ('frozen', 'prom', '.staged.promote', 'release-LL-PL-v30', 'stary.log'):
             self.assertTrue(os.path.lexists(self.work / name), name)
@@ -292,7 +307,7 @@ class CleanWorkTests(CleanWorkCase):
         self.server_repo(NOTICE.format(list_hash='a' * 64, gz_hash='b' * 64, manifest_hash='c' * 64))
         release(self.work, 'release-LL-PL-v28', text='a\n')
         release(self.work, 'release-LL-PL-v30', text='b\n')
-        run(self.data / 'orphan')
+        run(self.data / 'orphan', failed=True)
         approved = self.internal / 'zgoda.txt'
         approved.write_text('release-LL-PL-v28\nrelease-LL-PL-v30\n', encoding='utf-8')
         before = self.snapshot()
@@ -329,6 +344,50 @@ class CleanWorkTests(CleanWorkCase):
         deleted = {item['entry'] for item in result['deleted']}
         self.assertEqual(deleted, {'release-LL-PL-v27', 'run-27', 'release-LL-PL-v26'})
 
+    def test_przerwane_kasowanie_konczy_nastepne_apply(self):
+        import shutil
+        self.server_repo(NOTICE.format(list_hash='a' * 64, gz_hash='b' * 64, manifest_hash='c' * 64))
+        orphan = run(self.data / 'orphan', failed=True)
+        (orphan / 'reports').mkdir()
+        (orphan / 'reports' / 'r.json').write_text('{}', encoding='utf-8')
+        age(orphan)
+        release(self.work, 'release-LL-PL-v27', text='a\n')
+        release(self.work, 'release-LL-PL-v30', text='b\n')
+        approved = self.internal / 'zgoda.txt'
+        approved.write_text('release-LL-PL-v27\n', encoding='utf-8')
+        real_rmtree, seen = shutil.rmtree, set()
+
+        def partial(path, *args, **kwargs):
+            # Pierwsze kasowanie każdego drzewa przerwane w środku: manifest już zniknął, reszta została.
+            if str(path) in seen:
+                return real_rmtree(path, *args, **kwargs)
+            seen.add(str(path))
+            for name in ('manifest.json', 'release-manifest.json'):
+                if (Path(path) / name).exists():
+                    (Path(path) / name).unlink()
+            raise KeyboardInterrupt
+        for _ in range(2):
+            with mock.patch('shutil.rmtree', partial), self.assertRaises(KeyboardInterrupt):
+                clean_work.clean(str(self.data), apply=True, server_repo=str(self.server),
+                                 delete_file=str(approved) if _ else None)
+        self.assertEqual(len(seen), 2)  # T7 w pierwszym, wydanie w drugim przebiegu
+        code, result = self.clean('--apply')
+        self.assertEqual(code, 0, self.stderr)
+        self.assertFalse(any(name.endswith('.deleting') for name in os.listdir(self.data)), os.listdir(self.data))
+        self.assertFalse(any(name.endswith('.deleting') for name in os.listdir(self.work)), os.listdir(self.work))
+        self.assertFalse(os.path.lexists(self.data / 'orphan'))
+        self.assertFalse(os.path.lexists(self.work / 'release-LL-PL-v27'))
+        self.assertTrue((self.work / 'release-LL-PL-v30').is_dir())
+
+    def test_blad_dysku_przy_kasowaniu_to_kod_a_nie_traceback(self):
+        import errno
+        self.server_repo(NOTICE.format(list_hash='a' * 64, gz_hash='b' * 64, manifest_hash='c' * 64))
+        run(self.data / 'orphan', failed=True)
+        with mock.patch('shutil.rmtree', side_effect=OSError(errno.EIO, 'Input/output error')):
+            code, result = self.clean('--apply')
+        self.assertEqual((code, result), (4, None))
+        self.assertIn('Input/output error', self.stderr)
+
 
 class PromotionThenCleanTests(CleanWorkCase):
     """Styk: rekord prawdziwego promote_run.py czyta clean_work.py na tym samym drzewie."""
@@ -344,7 +403,7 @@ class PromotionThenCleanTests(CleanWorkCase):
         self.assertEqual(verify(link_a, link_b, review, allow_test_fixture=True)['verdict'], 'VERIFIED')
         with self.assertRaises(Crash):
             promote_run.promote(link_a, link_b, hook=crash_at('unlinked'))
-        # Bez rekordu B (INCOMPLETE, z symlinkiem, ≥ 24 h) byłby klasą 6 i znikałby z --apply.
+        # B ma rekord promocji (klasa 2), więc przegrywa nawet z „kompletny, czeka na verify” (3).
         age(run_a)
         age(run_b)
         self.server_repo()

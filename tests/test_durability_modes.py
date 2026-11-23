@@ -142,5 +142,20 @@ class DurabilityModeTests(unittest.TestCase):
                 self.assertEqual(synced, [False] * expected, mode)  # po commicie resetu
 
 
+    def test_unknown_fullfsync_mode_refuses_the_build_connection_with_4(self):
+        from literaki_slownik.inputs import GeneratorError
+        path = self.directory / 'b.sqlite'
+        with patch.object(database, 'FULLFSYNC_MODE', 'stage_boundary'):
+            with self.assertRaises(GeneratorError) as caught:
+                with connect(path, create=True, build=True):
+                    pass
+            self.assertEqual(caught.exception.code, 4)
+            self.assertIn('stage_boundary', str(caught.exception))
+            with connect(path, create=True):  # poza buildem tryb nie gra roli
+                pass
+        for mode in database.FULLFSYNC_MODES:
+            with patch.object(database, 'FULLFSYNC_MODE', mode), connect(path, build=True) as db:
+                self.assertEqual(pragma(db, 'fullfsync'), 1 if mode == 'build' else 0)
+
 if __name__ == '__main__':
     unittest.main()

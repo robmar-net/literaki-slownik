@@ -8,7 +8,12 @@
 ## Standards Reading Log
 
 ### Loaded Per Group
-(Entries added as groups execute)
+Repo nie ma `.maister/docs/standards/`; standardami są `AGENTS.md` repo, kontrakt `docs/generator/cli.md` i lista „Standards Compliance” planu.
+- **Wszystkie grupy:** `AGENTS.md` (polski, brak sekretów/UUID/ścieżek domowych, skład słownika bez zmian, brak CI), stdlib + `unittest`.
+- **Grupy 5–9, 11 (kody, CLI):** `docs/generator/cli.md` — JSON na stdout, błędy na stderr, kody wyjścia jako kontrakt.
+- **Grupy 2, 6, 10 (zapis, baza):** ADR-020 (fullfsync), `canonical.write_bytes` jako wzorzec zapisu trwałego.
+- **Grupa 13 (docs):** format ADR repo, `.maister/docs/INDEX.md`.
+- **Grupa 14 (testy):** konwencje istniejących testów, test styku przez obie strony.
 
 ## 2026-11-23T11:05:57Z - Group 1 Complete
 **Steps**: 1.1–1.3. **Tests**: tests.test_gitignore 2/2. **Files**: .gitignore (/logs), tests/test_gitignore.py.
@@ -81,3 +86,8 @@
 
 ## 2026-11-23T12:42:07Z - Implementation Complete
 **Total Steps**: 95/95. **Test Suite**: 676 + 5 OK. Commity: b53a6d4 … (grupy 1–14).
+
+## 2026-11-23T16:33:06Z - Poprawki po weryfikacji (ostrzeżenia 1–12)
+Decyzje właściciela: poprawić 1–12; klasa 6 nie kasuje kompletnego przebiegu czekającego na verify.
+Zmiany: I/O na wolumenie → 75; blokada buildu `.<nazwa>.build.lock` obok symlinku; nadzorca pamięta marker_id; kasowanie przez `.<nazwa>.deleting` (wznawialne); watchdog `--stall-minutes` (mtime + czas CPU); jedna `volume.check_work_root`; walidacja FULLFSYNC_MODE; `workfs.py` i publiczne helpery canonical; runbook z `nohup … & disown`.
+**Testy**: 694/694 OK (431 s) + 5/5 scripts. Każda zmiana zachowania: test czerwony → zielony.

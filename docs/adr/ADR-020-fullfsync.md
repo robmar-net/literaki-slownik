@@ -53,6 +53,9 @@ w którym dane etapu nie są jeszcze trwałe.
 - `stage_durable` na końcu każdego etapu i po resecie `--resume`: commit przed plikami etapu i manifestem.
   W trybie `stage_boundaries` dodatkowo `F_FULLFSYNC` pliku bazy (`database.full_sync`). Kod obu trybów
   zostaje, więc inny dysk roboczy może przejść na 4C zmianą stałej.
+- 4C zostaje celowo jako tryb zapasowy (przegląd #22): pomiar objął opóźnienie commitu, a nie pełny build na T7,
+  i ponowny pomiar może przekroczyć próg 5%. `database.connect(build=True)` sprawdza `FULLFSYNC_MODE`
+  względem `FULLFSYNC_MODES`; literówka w stałej daje `GeneratorError` z kodem 4, zanim build otworzy bazę.
 
 ## Otwarte pytania / ryzyka
 - Pomiar dotyczy jednego dysku (T7). Inny dysk roboczy wymaga nowego pomiaru tym samym skryptem.

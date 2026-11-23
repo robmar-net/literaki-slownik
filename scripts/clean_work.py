@@ -7,22 +7,22 @@ Użycie:
 
 Domyślnie tylko lista (JSON na stdout: wpis, klasa, rozmiar, powód); bez `--apply` nic nie znika.
 Klasy według pierwszeństwa (wygrywa pierwsza pasująca):
-  T7:   1 VERIFIED/FROZEN, 2 promocja w toku, 3 przebieg w toku (< 24 h albo blokada),
-        4 nieznana zawartość, 5 osierocony (kasuje), 6 nieukończony z symlinkiem (kasuje).
+  T7:   1 VERIFIED/FROZEN, 2 promocja w toku, 3 przebieg w toku (blokada nadzorcy albo buildu,
+        wszystkie etapy complete i czeka na verify, zmiany < 24 h), 4 nieznana zawartość,
+        5 osierocony albo przerwane kasowanie `.<nazwa>.deleting` (kasuje), 6 nieukończony z symlinkiem (kasuje).
   Dysk wewnętrzny: 7 tylko lista, 8 stare wydanie (tylko z `--delete-releases`).
 Wydanie skasuje wyłącznie `--apply --delete-releases PLIK` z nazwami zaakceptowanymi przez
 właściciela; nazwa spoza kandydatów → odmowa całości. Serwer: `git -C <repo> show origin/main:NOTICE`,
 tylko odczyt, bez fetch. Brak NOTICE → wszystkie wydania potrzebne.
-Kody: 0, 2 argumenty, 4 odmowa.
+Kasowanie jest wznawialne: drzewo najpierw dostaje nazwę `.<nazwa>.deleting`, a `--apply` dokańcza
+takie resztki na T7 i w data/work. Kody: 0, 2 argumenty, 4 odmowa albo błąd kasowania, 75 T7 zniknął
+w trakcie kasowania.
 """
 import argparse
-import fcntl
 import json
 import os
 from pathlib import Path
 import re
-import shutil
-import stat
 import subprocess
 import sys
 import time
@@ -30,7 +30,8 @@ import time
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from literaki_slownik import volume  # noqa: E402
+from literaki_slownik import volume, workfs  # noqa: E402
+from literaki_slownik.run import STAGES  # noqa: E402
 from literaki_slownik.canonical import load_json, sha256  # noqa: E402
 from literaki_slownik.inputs import GeneratorError  # noqa: E402
 
@@ -56,37 +57,8 @@ def parse_version(name):
     return match['family'], tuple(int(part) for part in re.findall(r'\d+', match['version']))
 
 
-def _size(path):
-    total = 0
-    try:
-        total = os.lstat(path).st_size
-        if stat.S_ISDIR(os.lstat(path).st_mode):
-            for current, names, files in os.walk(path, followlinks=False):
-                for name in names + files:
-                    try:
-                        total += os.lstat(Path(current) / name).st_size
-                    except OSError:
-                        pass
-    except OSError:
-        pass
-    return total
-
-
-def _held(path):
-    """Czy ktoś trzyma flock na pliku blokady (bez tworzenia pliku)."""
-    try:
-        stream = open(path, 'r')
-    except OSError:
-        return False
-    try:
-        fcntl.flock(stream, fcntl.LOCK_EX | fcntl.LOCK_NB)
-    except OSError:
-        return True
-    else:
-        fcntl.flock(stream, fcntl.LOCK_UN)
-        return False
-    finally:
-        stream.close()
+def _inside(path, root):
+    return workfs.is_within(path, root, strict=True)
 
 
 def _json(path):
@@ -108,42 +80,18 @@ def _newest(path):
     return newest
 
 
-def _remove(path):
-    """Kasowanie drzewa z plikami tylko do odczytu: `chmod u+w` przed usunięciem."""
-    def writable(function, target, _):
-        os.chmod(os.path.dirname(target), stat.S_IRWXU)
-        if not os.path.islink(target):
-            os.chmod(target, stat.S_IMODE(os.lstat(target).st_mode) | stat.S_IWUSR | stat.S_IRUSR)
-        function(target)
-    os.chmod(path, stat.S_IMODE(os.lstat(path).st_mode) | stat.S_IRWXU)
-    shutil.rmtree(path, onerror=writable)
-
-
-def _inside(path, root):
-    path, root = os.path.realpath(path), os.path.realpath(root)
-    return path != root and path.startswith(root + os.sep)
-
-
 # --- kontekst ---------------------------------------------------------------------------------
 
 def _work_root(given):
     path = given or os.environ.get('LITERAKI_WORK_ROOT')
     if not path:
         return None, {'status': 'not-given', 'reason': 'brak --work-root i LITERAKI_WORK_ROOT; T7 pominięty'}
-    if not os.path.isdir(path):
-        return None, {'status': 'unavailable', 'path': path, 'reason': 'katalog nie istnieje; T7 niezamontowany?'}
-    mount = volume.mount_point(path)
-    if mount == volume.repo_mount():
-        return None, {'status': 'internal-disk', 'path': path,
-                      'reason': '--work-root leży na dysku repo; na dysku wewnętrznym nic nie jest kasowane'}
     try:
-        marker = volume.read_marker(mount)
+        _, marker = volume.check_work_root(path)
     except GeneratorError as error:
-        marker, reason = None, str(error)
-    else:
-        reason = 'wolumen bez znacznika .literaki-work-volume'
-    if marker is None:
-        return None, {'status': 'no-marker', 'path': path, 'reason': reason}
+        # 75 niezamontowany; 76 korzeń na dysku repo albo wolumen bez znacznika: T7 pominięty, nic nie znika.
+        status = 'unavailable' if error.code == 75 else 'wrong-volume'
+        return None, {'status': status, 'path': path, 'code': error.code, 'reason': str(error)}
     return Path(os.path.realpath(path)), {'status': 'available', 'path': path, 'marker_id': marker['marker_id']}
 
 
@@ -179,6 +127,8 @@ def _context(work_root):
 
 def classify_t7(entry, ctx):
     """(klasa, powód) wpisu w korzeniu T7 według pierwszeństwa 1–6."""
+    if workfs.is_deleting(entry.name):
+        return 5, 'przerwane kasowanie (.deleting); dokończy --apply'
     real = os.path.realpath(entry)
     links = ctx['links'].get(real, [])
     names = {entry.name} | {link.name for link in links}
@@ -186,21 +136,27 @@ def classify_t7(entry, ctx):
     readiness = (manifest or {}).get('readiness')
     if readiness in ('VERIFIED', 'FROZEN'):
         return 1, f'manifest {readiness}; czeka na promocję' + ('' if links else ' (brak symlinku)')
-    if any(_held(ctx['logs'] / f'{name}.promote.lock') for name in names):
+    if any(workfs.lock_held(workfs.promote_lock(ctx['logs'], name)) for name in names):
         return 2, 'trzymana blokada promocji'
     if any(os.path.lexists(ctx['work'] / f'.{name}.promote') for name in names):
         return 2, 'staging promocji w data/work'
     if real in ctx['promotions']:
         return 2, 'ścieżka z promotion.json bez completed'
-    if any(_held(ctx['logs'] / f'{name}.lock') for name in names):
+    if any(workfs.lock_held(workfs.supervisor_lock(ctx['logs'], name)) for name in names):
         return 3, 'trzymana blokada nadzorcy'
+    if any(workfs.lock_held(workfs.build_lock(ctx['work'] / name)) for name in names):
+        return 3, 'trzymana blokada buildu'
+    stages = (manifest or {}).get('stages') or {}
+    if readiness == 'INCOMPLETE' and set(stages) == set(STAGES) \
+            and all((item or {}).get('status') == 'complete' for item in stages.values()):
+        # Decyzja właściciela: kompletny build przed verify nie znika, choćby czekał dłużej niż 24 h.
+        return 3, 'kompletny, czeka na verify'
     if ctx['now'] - _newest(entry) < AGE:
         return 3, 'zmieniany w ostatnich 24 h'
     if manifest is None:
         return 4, 'brak albo nieczytelny manifest'
     if readiness != 'INCOMPLETE':
         return 4, f'nieznany status manifestu: {readiness}'
-    stages = manifest.get('stages') or {}
     leftover = not (entry / 'build.sqlite').exists() and bool(stages) \
         and all((item or {}).get('status') == 'pending' for item in stages.values())
     kind = 'resztka startu' if leftover else 'INCOMPLETE'
@@ -215,11 +171,11 @@ def scan_t7(ctx):
         return []
     items = []
     for entry in sorted(root.iterdir()):
-        if entry.name in SYSTEM:
+        if entry.name in SYSTEM or workfs.is_build_lock(entry.name):
             continue
         number, reason = classify_t7(entry, ctx)
         items.append({'entry': entry.name, 'where': 't7', 'class': number, 'class_name': CLASSES[number],
-                      'size': _size(entry), 'reason': reason, 'path': entry})
+                      'size': workfs.tree_size(entry), 'reason': reason, 'path': entry})
     return items
 
 
@@ -364,6 +320,8 @@ def scan_internal(ctx, records, containers):
     items = []
     for child in sorted(work.iterdir()):
         name = child.name
+        if workfs.is_build_lock(name):
+            continue  # pusty plik blokady buildu, opisany przy przebiegu
         if child.is_symlink():
             target = os.path.realpath(child)
             if root is not None and _inside(target, root) and os.path.lexists(target):
@@ -381,15 +339,18 @@ def scan_internal(ctx, records, containers):
             reason = 'promowany przebieg'
         elif name.startswith('.') and name.endswith('.promote'):
             reason = 'staging promocji'
+        elif workfs.is_deleting(name):
+            reason = 'przerwane kasowanie wydania (.deleting); dokończy --apply'
         else:
             reason = 'dysk wewnętrzny: tylko lista'
-        items.append({'entry': name, 'where': 'internal', 'class': 7, 'size': _size(child), 'reason': reason})
+        items.append({'entry': name, 'where': 'internal', 'class': 7, 'size': workfs.tree_size(child),
+                      'reason': reason})
     for record in records:
         number = 7 if record['needed'] else 8
-        size = _size(record['path'])
+        size = workfs.tree_size(record['path'])
         run = record['run'] if number == 8 and record['run'] in runs_with else None
         if run:
-            size += _size(work / run)
+            size += workfs.tree_size(work / run)
         reason = '; '.join(record['needed']) if record['needed'] else 'stare wydanie; tylko z --delete-releases'
         items.append({'entry': record['entry'], 'where': 'internal', 'class': number, 'size': size,
                       'reason': reason, 'run': run})
@@ -422,12 +383,22 @@ def delete_t7(items, ctx):
         for link in ctx['links'].get(real, []):
             if link.is_symlink() and os.path.realpath(link) == real:
                 os.unlink(link)
-        if entry.is_symlink() or not entry.is_dir():
-            os.unlink(entry)
+        if workfs.is_deleting(entry.name):
+            workfs.finish_deleting(entry.parent)
         else:
-            _remove(entry)
+            workfs.delete_tree(entry)
         deleted.append({'entry': item['entry'], 'where': 't7', 'class': number, 'size': item['size']})
     return deleted
+
+
+def finish_internal(ctx, containers):
+    """Dokańcza przerwane kasowania wydań (`.<nazwa>.deleting`) w data/work i w katalogach z wydaniami."""
+    finished = []
+    for directory in [ctx['work'], *(ctx['work'] / name for name in sorted(containers))]:
+        for name in workfs.finish_deleting(directory):
+            finished.append({'entry': name, 'where': 'internal', 'class': 7, 'size': 0,
+                             'reason': 'dokończone przerwane kasowanie'})
+    return finished
 
 
 def delete_releases(names, records, referencing, ctx):
@@ -438,13 +409,13 @@ def delete_releases(names, records, referencing, ctx):
         path = record['path']
         if path.is_symlink() or not _inside(path, work) or not (path / RELEASE).is_file():
             raise GeneratorError('Wydanie poza data/work albo bez release-manifest.json; przerwano', 4, name)
-        size = _size(path)
-        _remove(path)
+        size = workfs.tree_size(path)
+        workfs.delete_tree(path)
         deleted.append({'entry': name, 'where': 'internal', 'class': 8, 'size': size})
         run = record['run']
         if run and _run_deletable(work, run, referencing, names) and _inside(work / run, work):
-            size = _size(work / run)
-            _remove(work / run)
+            size = workfs.tree_size(work / run)
+            workfs.delete_tree(work / run)
             deleted.append({'entry': run, 'where': 'internal', 'class': 8, 'size': size,
                             'reason': f'przebieg wydania {name}'})
     return deleted
@@ -467,8 +438,14 @@ def clean(work_root=None, *, apply=False, server_repo=None, server_current=(), d
         raise GeneratorError('Odmowa: nazwy spoza kandydatów (nic nie skasowano): ' + ', '.join(refused), 4)
     deleted = []
     if apply:
-        deleted += delete_t7(t7_items, ctx)
-        deleted += delete_releases(approved, records, referencing, ctx)
+        try:
+            deleted += finish_internal(ctx, containers)
+            deleted += delete_t7(t7_items, ctx)
+            deleted += delete_releases(approved, records, referencing, ctx)
+        except OSError as error:
+            gone = root is not None and not os.path.isdir(root)
+            raise GeneratorError(f'Kasowanie przerwane błędem dysku: {error}; ponów --apply', 75 if gone else 4,
+                                 getattr(error, 'filename', None)) from error
     entries = [{key: value for key, value in item.items() if key != 'path'} for item in t7_items + internal_items]
     counts = {}
     for item in entries:

@@ -169,6 +169,132 @@ class SupervisorCase(unittest.TestCase):
         self.assertEqual(seen, [True])
         self.assertFalse(build_supervised.lock_held(self.logs / 'lists-x-a.lock'))
 
+    def test_marker_known_before_the_disk_vanished_finds_the_volume_elsewhere_at_once(self):
+        # Po 75 manifest na T7 jest nieczytelny; marker_id zapamiętany przed pierwszym procesem wystarcza.
+        self.run_dir.mkdir()
+        write_json(self.run_dir / 'manifest.json', {'work_volume': {'marker_id': 'm-1'}})
+
+        def vanish(argv, out, err):
+            self.calls.append(list(argv))
+            (self.run_dir / 'manifest.json').unlink()
+            return 75
+
+        def missing(*args):
+            raise GeneratorError('brak dysku', 75)
+        found = self.tmp / 'T7 1'
+        code = self.supervise(vanish, probe=missing, find=lambda marker_id: found if marker_id == 'm-1' else None)
+        self.assertEqual((code, len(self.calls), self.time.sleeps), (76, 1, []))
+        self.assertIn('elsewhere', self.events())
+
+    def test_stalled_child_resumes_when_the_guard_fails_and_stops_4_when_healthy(self):
+        self.run_dir.mkdir()
+        write_json(self.run_dir / 'manifest.json', {'work_volume': {'marker_id': 'm-1'}})
+        codes = [build_supervised.STALLED, 0]
+
+        def stalled(argv, out, err):
+            self.calls.append(list(argv))
+            return codes.pop(0)
+        answers = [75, None, None]
+
+        def guard(*args):
+            code = answers.pop(0)
+            if code:
+                raise GeneratorError('brak dysku', code)
+        self.assertEqual(self.supervise(stalled, probe=guard), 0)
+        self.assertEqual(len(self.calls), 2)
+        self.assertIn('--resume', self.calls[1])
+        self.assertIn('stalled', self.events())
+
+        self.calls.clear()
+        shutil.rmtree(self.logs)
+        codes[:] = [build_supervised.STALLED, 0]
+        self.assertEqual(self.supervise(stalled), 4)
+        self.assertEqual(len(self.calls), 1)
+        self.assertEqual(self.events()[-2:], ['stalled', 'end'])
+
+
+class FakeChild:
+    """Proces potomny na podstawionym zegarze: wait(timeout) przesuwa czas i rzuca TimeoutExpired."""
+
+    def __init__(self, clock, finish_at=None, ignores_term=False):
+        self.clock, self.finish_at, self.ignores_term = clock, finish_at, ignores_term
+        self.code, self.signals, self.pid = None, [], 4242
+
+    def poll(self):
+        if self.code is None and self.finish_at is not None and self.clock.now >= self.finish_at:
+            self.code = 0
+        return self.code
+
+    def wait(self, timeout=None):
+        if self.poll() is not None:
+            return self.code
+        self.clock.sleep(timeout)
+        if self.poll() is not None:
+            return self.code
+        raise subprocess.TimeoutExpired('build', timeout)
+
+    def terminate(self):
+        self.signals.append('TERM')
+        if not self.ignores_term:
+            self.code = -signal.SIGTERM
+
+    def kill(self):
+        self.signals.append('KILL')
+        self.code = -signal.SIGKILL
+
+
+class WatchdogTests(unittest.TestCase):
+    def watch(self, child, progress, clock):
+        return build_supervised.watch(child, progress, clock=clock.clock, stall_seconds=7200, poll_seconds=60,
+                                      grace_seconds=30)
+
+    def test_progress_keeps_the_child_alive_until_it_ends(self):
+        clock = FakeClock()
+        child = FakeChild(clock, finish_at=5 * 3600)
+        self.assertEqual(self.watch(child, lambda: clock.now, clock), 0)
+        self.assertEqual(child.signals, [])
+
+    def test_no_progress_for_the_limit_terminates_then_kills(self):
+        for ignores, expected in ((False, ['TERM']), (True, ['TERM', 'KILL'])):
+            with self.subTest(ignores_term=ignores):
+                clock = FakeClock()
+                child = FakeChild(clock, ignores_term=ignores)
+                self.assertEqual(self.watch(child, lambda: 'stoi', clock), build_supervised.STALLED)
+                self.assertEqual(child.signals, expected)
+                self.assertGreaterEqual(clock.now, 7200)
+                self.assertLess(clock.now, 7200 + 60 + 2 * 30 + 1)
+
+    def test_zero_limit_disables_the_watchdog(self):
+        clock = FakeClock()
+        child = FakeChild(clock, finish_at=30 * 3600)
+        self.assertEqual(build_supervised.watch(child, lambda: 'stoi', clock=clock.clock, stall_seconds=0,
+                                                poll_seconds=60), 0)
+
+    def test_progress_sees_database_journal_and_reports(self):
+        tmp = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, tmp, ignore_errors=True)
+        (tmp / 'reports').mkdir()
+        before = build_supervised.progress(tmp, None)
+        (tmp / 'build.sqlite-journal').write_bytes(b'j')
+        self.assertNotEqual(build_supervised.progress(tmp, None), before)
+        self.assertEqual(build_supervised.progress(tmp / 'brak', None), build_supervised.progress(tmp / 'brak', None))
+
+
+class SignalTests(unittest.TestCase):
+    def test_signal_before_popen_starts_no_build(self):
+        state = {'signal': signal.SIGTERM, 'child': None}
+        run = build_supervised.subprocess_runner(state, '/brak/run', stall_seconds=0)
+        with mock.patch.object(build_supervised.subprocess, 'Popen', side_effect=AssertionError('Popen')):
+            self.assertEqual(run(['build'], None, None), 128 + signal.SIGTERM)
+
+    def test_nohup_keeps_sighup_ignored(self):
+        previous = {signum: signal.getsignal(signum) for signum in (signal.SIGINT, signal.SIGTERM, signal.SIGHUP)}
+        self.addCleanup(lambda: [signal.signal(signum, handler) for signum, handler in previous.items()])
+        signal.signal(signal.SIGHUP, signal.SIG_IGN)
+        build_supervised.install_signals({'signal': None, 'child': None})
+        self.assertIs(signal.getsignal(signal.SIGHUP), signal.SIG_IGN)
+        self.assertIsNot(signal.getsignal(signal.SIGTERM), signal.SIG_IGN)
+
 
 class ProbeCase(unittest.TestCase):
     """Domyślna sonda: G1 i G2 strażnika na podstawionym montowaniu (bez /Volumes)."""
@@ -203,7 +329,9 @@ class ProbeCase(unittest.TestCase):
         self.assertEqual(self.code(str(self.run_dir), None, 'm-2'), 76)
         self.mounts.clear()
         self.assertEqual(self.code(str(self.run_dir), None, 'm-1'), 75)
-        self.assertEqual(self.code(str(self.repo / 'data/work/nowy'), str(self.t7), 'm-1'), 75)
+        # Korzeń istnieje, ale leży na dysku repo: zły wolumen (76) jak w check_fresh i build_pair.sh.
+        self.assertEqual(self.code(str(self.repo / 'data/work/nowy'), str(self.t7), 'm-1'), 76)
+        self.assertEqual(self.code(str(self.repo / 'data/work/nowy'), str(self.t7 / 'brak'), 'm-1'), 75)
         self.mounts.add(str(self.t7))
         self.assertEqual(self.code(str(self.repo / 'data/work/nowy'), str(self.t7), 'm-1'), 0)
         self.assertEqual(self.code(str(self.repo / 'data/work/nowy'), str(self.t7), 'm-2'), 76)
@@ -252,6 +380,9 @@ class BuildPairCase(unittest.TestCase):
         sleepers = [line for line in lines if line.startswith('caffeinate -dimsu ')]
         supervisors = [line for line in lines if 'scripts/build_supervised.py' in line]
         self.assertEqual((len(sleepers), len(supervisors)), (2, 4))
+        logs = sorted(path.name.rsplit('-', 1)[1] for path in (self.repo / 'logs').iterdir())
+        # Końcowy JSON nadzorcy idzie do .supervisor.out, a nie do jego logu zdarzeń.
+        self.assertEqual(logs, ['a.err', 'a.supervisor.out', 'b.err', 'b.supervisor.out'])
         for side in 'ab':
             self.assertTrue(any('--run-dir data/work/lists-x-' in line and line.endswith(
                 f'-{side} --work-root {self.work}') for line in supervisors if line.startswith('python3')),
@@ -291,7 +422,8 @@ class SupervisorWithRealBuildTests(LayoutCase):
             clock.sleep(seconds)
             self.mounts.add(str(self.data))  # Dysk wraca przy pierwszym czekaniu.
 
-        with mock.patch.dict(build_module.STAGE_RUNNERS, {'decisions': decisions}):
+        from tests.test_resume import clean_identity  # drzewo robocze implementera bywa dirty
+        with mock.patch.dict(build_module.STAGE_RUNNERS, {'decisions': decisions}), clean_identity():
             code = build_supervised.supervise(
                 str(self.manifest), str(run_dir), work_root=str(self.data), run_build=run_build,
                 sleep=sleep, clock=clock.clock, find=lambda marker_id: None, logs_dir=self.repo / 'logs')

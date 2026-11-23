@@ -23,5 +23,14 @@ nic nie da. Tekst błędu nie jest kontraktem, kod wyjścia jest.
 
 Odrzucone: jeden kod błędu i parsowanie stderr w nadzorcy.
 
+### Poprawki po weryfikacji #22
+- Na przebiegu z `work_volume` błąd urządzenia (`SQLITE_IOERR`, `SQLITE_CANTOPEN`,
+  `EIO`, `ENXIO`, `ENODEV`, `ENOENT`, `EROFS`) daje 75 także przy zdrowym strażniku. T7 mógł wrócić, zanim
+  klasyfikator go sprawdził, a G3 nie widzi powrotu z tym samym `st_dev`. `st_ino` nie pomaga: APFS trzyma
+  numery i-węzłów na dysku. Na dysku wewnętrznym ten sam błąd daje 4. Fałszywe 75 kosztuje jeden etap,
+  bo wznowienie jest idempotentne, a nadzorca ma limit 3 wznowień.
+- Build i `--resume` biorą blokadę `.<nazwa>.build.lock` obok symlinku przebiegu; zajęta → 4 przed zmianą.
+- Korzeń przebiegów na dysku repo daje 76 we wszystkich miejscach (`volume.check_work_root`).
+
 ## Otwarte pytania / ryzyka
 - Inny błąd I/O w chwili zniknięcia dysku zostanie uznany za 75. Limit wznowień (ADR-019) ogranicza skutek.

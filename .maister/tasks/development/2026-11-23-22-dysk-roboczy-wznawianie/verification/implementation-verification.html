@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weryfikacja wdrożenia — #22 dysk roboczy i wznawianie</title>
+<style>
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+img.shot { max-width:100%; border:1px solid var(--border); border-radius:var(--radius); }
+details > summary { cursor:pointer; font-weight:600; }
+/* rozszerzenia */
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+.tile.w b { color:var(--warn); } .tile.c b { color:var(--ok); } .tile.i b { color:var(--info); }
+.verdict { background:var(--warn-soft); border:1px solid var(--warn); border-radius:var(--radius);
+  padding:14px 18px; margin:14px 0; font-size:16px; }
+.verdict strong { color:var(--warn); }
+.tldr ul { margin:6px 0 0; padding-left:20px; }
+.table-wrap { overflow-x:auto; }
+.st-warn { color:var(--warn); font-weight:600; }
+.fix-yes { color:var(--ok); font-weight:600; } .fix-dec { color:var(--warn); font-weight:600; }
+.fix-no { color:var(--dim); font-weight:600; }
+ul.check { list-style:none; padding-left:0; margin:0; }
+ul.check li { padding:3px 0; }
+.meta { color:var(--dim); font-size:12.5px; }
+</style>
+</head>
+<body>
+<nav class="crumbs">
+  <a href="../dashboard.html">← Dashboard</a>
+  <a href="../implementation/spec.html">Spec</a>
+  <a href="../implementation/implementation-plan.html">Plan</a>
+  <span class="here">Weryfikacja</span>
+  <a href="implementation-verification.md" target="_blank" rel="noopener" class="md">md twin ↗</a>
+</nav>
+
+<header>
+  <h1>Weryfikacja wdrożenia #22</h1>
+  <span class="badge">Implementation verification</span>
+  <span class="meta">· 2026-11-23 · <a href="implementation-verification.md" target="_blank" rel="noopener">implementation-verification.md ↗</a></span>
+</header>
+
+<div class="verdict">⚠️ <strong>Zaliczone z uwagami.</strong> 0 krytycznych, 13 ostrzeżeń, ~25 uwag info. Plan 95/95, testy 676+5 OK.</div>
+
+<div class="tiles">
+  <div class="tile c"><b>0</b><span>krytyczne</span></div>
+  <div class="tile w"><b>13</b><span>ostrzeżenia</span></div>
+  <div class="tile i"><b>~25</b><span>info</span></div>
+  <div class="tile"><b>95/95</b><span>plan</span></div>
+  <div class="tile"><b>676+5</b><span>testy OK</span></div>
+</div>
+
+<section class="tldr card">
+  <h2 style="margin-top:0">TL;DR</h2>
+  <p>Wszystkie przeglądy dają <b>GO</b> na pierwszą parę na T7; żaden nie znalazł utraty danych.</p>
+  <p><b>Najważniejsze:</b></p>
+  <ul>
+    <li>krótkie zniknięcie T7 może dać kod 4 zamiast 75 (nadzorca stanie),</li>
+    <li>brak blokady przy <code>--resume</code>,</li>
+    <li><code>clean_work</code> może po 24 h skasować kompletną parę czekającą na verify.</li>
+  </ul>
+  <h2>Otwarte pytania / ryzyka</h2>
+  <ul>
+    <li>Para na T7 nie była uruchomiona ani odłączenie USB nie było testowane na sprzęcie — tylko podstawione <code>ismount</code>/<code>stat</code>.</li>
+    <li>Czas pary na T7 niezmierzony (13 h to dysk wewnętrzny).</li>
+    <li>Klasa 6 <code>clean_work</code> (kompletna para INCOMPLETE &gt; 24 h) — decyzja właściciela.</li>
+  </ul>
+</section>
+
+<nav class="toc meta">Spis: <a href="#podsumowanie">Podsumowanie</a> · <a href="#kontrole">Wyniki kontroli</a> · <a href="#ostrzezenia">Ostrzeżenia</a> · <a href="#rekomendacje">Rekomendacje</a> · <a href="#lista">Lista kontrolna</a></nav>
+
+<main>
+<h2 id="podsumowanie">Podsumowanie</h2>
+<div class="card">
+  Wdrożenie realizuje R1–R13: build na T7, kody 75–78, <code>build --resume</code> per etap i raport, nadzorca, promocja po verify z kasowaniem B, <code>clean_work</code> z kasowaniem wydań tylko po zgodzie, historia prób. Harness „wznowiony = świeży” przechodzi w 19 punktach przerwania.
+</div>
+
+<h2 id="kontrole">Wyniki kontroli</h2>
+<div class="card table-wrap">
+<table>
+  <thead><tr><th>Kontrola</th><th>Status</th><th>Wynik (kryt./ostrz./info)</th><th>Raport</th></tr></thead>
+  <tbody>
+    <tr><td>Kompletność</td><td class="st-warn">⚠️</td><td>0/1/5 — plan 95/95, docs R13 kompletne</td><td><a href="completeness-check.md" target="_blank" rel="noopener">completeness-check.md ↗</a></td></tr>
+    <tr><td>Testy</td><td class="pass">✅</td><td>676 + 5 OK (grupa 14; ponowiony w readiness: 676 OK)</td><td>work-log</td></tr>
+    <tr><td>Przegląd kodu</td><td class="st-warn">⚠️</td><td>0/4/9</td><td><a href="code-review-report.md" target="_blank" rel="noopener">code-review-report.md ↗</a></td></tr>
+    <tr><td>Przegląd pragmatyczny</td><td class="st-warn">⚠️</td><td>0/5/8</td><td><a href="pragmatic-review.md" target="_blank" rel="noopener">pragmatic-review.md ↗</a></td></tr>
+    <tr><td>Reality check</td><td class="st-warn">⚠️</td><td>0/3/5, GO</td><td><a href="reality-check.md" target="_blank" rel="noopener">reality-check.md ↗</a></td></tr>
+    <tr><td>Gotowość</td><td class="st-warn">⚠️</td><td>0/2/6, GO z mitygacjami (88%)</td><td><a href="production-readiness-report.md" target="_blank" rel="noopener">production-readiness-report.md ↗</a></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="ostrzezenia">Ostrzeżenia (13)</h2>
+<div class="card table-wrap">
+<table>
+  <thead><tr><th>#</th><th>Waga</th><th>Źródło</th><th>Problem</th><th>Miejsce</th><th>Do poprawy</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td><span class="sev warning">warning</span></td><td>reality R1</td><td>T7 wraca zanim pojawi się błąd I/O → strażnik zdrowy → kod 4, nadzorca staje</td><td><code>build.py</code> <code>exit_code</code></td><td class="fix-yes">tak</td></tr>
+    <tr><td>2</td><td><span class="sev warning">warning</span></td><td>code</td><td><code>build --resume</code> bez blokady; <code>resume_reports</code> przyjmuje <code>reports=running</code> — może ruszyć bazę żywego buildu</td><td><code>build.py:508-527</code>, <code>resume_reports.py:50</code></td><td class="fix-yes">tak</td></tr>
+    <tr><td>3</td><td><span class="sev warning">warning</span></td><td>code</td><td>Po 75 nadzorca czyta <code>marker_id</code> z niedostępnego manifestu → <code>None</code> → przeniesiony wolumen daje 75 po 30 min zamiast 76</td><td><code>build_supervised.py:51-61,185</code></td><td class="fix-yes">tak</td></tr>
+    <tr><td>4</td><td><span class="sev warning">warning</span></td><td>code</td><td>Przerwane <code>rmtree</code> B zostawia drzewo bez manifestu (~22 GB), którego nikt nie skasuje</td><td><code>promote_run.py:231-235</code>, <code>clean_work.py:421-428</code></td><td class="fix-yes">tak</td></tr>
+    <tr><td>5</td><td><span class="sev warning">warning</span></td><td>code</td><td>Klasa 6 kasuje kompletną parę INCOMPLETE (czeka na verify) po 24 h</td><td><code>clean_work.py:199-209</code></td><td class="fix-dec">decyzja</td></tr>
+    <tr><td>6</td><td><span class="sev warning">warning</span></td><td>readiness W1</td><td>SIGHUP po zamknięciu terminala kończy parę (129); runbook bez <code>&amp; disown</code>, krok po restarcie bez <code>caffeinate</code></td><td>runbook §5, <code>cli.md</code></td><td class="fix-yes">tak</td></tr>
+    <tr><td>7</td><td><span class="sev warning">warning</span></td><td>reality R2</td><td>Nadzorca bez watchdoga na zawieszone I/O</td><td><code>build_supervised.py</code></td><td class="fix-yes">tak (prosty limit bez postępu)</td></tr>
+    <tr><td>8</td><td><span class="sev warning">warning</span></td><td>pragmatic W2</td><td>Kontrola korzenia w 5 miejscach; korzeń na dysku repo: 75 w <code>probe</code>, 76 w <code>check_fresh</code></td><td><code>volume.py</code>, <code>build_supervised.py:77</code>, …</td><td class="fix-yes">tak</td></tr>
+    <tr><td>9</td><td><span class="sev warning">warning</span></td><td>pragmatic W1</td><td><code>volume.check_resume</code> martwy (tylko testy)</td><td><code>volume.py:106-112</code></td><td class="fix-yes">tak</td></tr>
+    <tr><td>10</td><td><span class="sev warning">warning</span></td><td>pragmatic W3</td><td>Tryb 4C w kodzie mimo odrzucenia; <code>FULLFSYNC_MODE</code> bez walidacji</td><td><code>database.py</code>, <code>build.py</code></td><td class="fix-yes">tak</td></tr>
+    <tr><td>11</td><td><span class="sev warning">warning</span></td><td>pragmatic W4/W5</td><td>Prywatne <code>canonical._full_sync</code>/<code>_sync_directory</code> poza modułem; zdublowane pomocniki (flock, rmtree ro, rozmiar, <code>_inside</code>)</td><td><code>promote_run.py</code>, <code>clean_work.py</code>, <code>database.py</code></td><td class="fix-yes">tak</td></tr>
+    <tr><td>12</td><td><span class="sev warning">warning</span></td><td>completeness</td><td>Pusty „Standards Reading Log” w work-log</td><td><code>work-log.md</code></td><td class="fix-yes">tak</td></tr>
+    <tr><td>13</td><td><span class="sev warning">warning</span></td><td>readiness W2</td><td>Czas pary na T7 niezmierzony</td><td>runbook</td><td class="fix-no">nie (zmierzyć przy 1. parze)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<details class="card">
+  <summary><span class="sev info">info</span> Uwagi info (wybór)</summary>
+  <ul>
+    <li>brak sync katalogów stagingu</li>
+    <li>T7 czytany ~4×22 GB w promocji</li>
+    <li>sygnał między <code>Popen</code> a zapisem dziecka</li>
+    <li>mieszany stdout w <code>supervisor.log</code></li>
+    <li><code>KeyError</code> w <code>resume_reports</code></li>
+    <li><code>OSError</code> z kasowania w <code>clean_work</code> → traceback</li>
+    <li>5 <code>ResourceWarning</code> w starych testach</li>
+  </ul>
+</details>
+
+<h2 id="rekomendacje">Rekomendacje</h2>
+<div class="card">
+<ol>
+  <li>Poprawić 1–4, 6–12 (techniczne, testowalne).</li>
+  <li>5: wyłączyć z kasowania przebiegi, których wszystkie etapy są <code>complete</code> (rekomendacja) — po decyzji.</li>
+  <li>Przy pierwszej parze: raz odłączyć T7 w krótkim etapie i sprawdzić w logu 75 → wait → <code>--resume</code> → 0; zapisać czasy etapów.</li>
+</ol>
+</div>
+
+<h2 id="lista">Lista kontrolna</h2>
+<div class="card">
+<ul class="check">
+  <li><span class="pass">☑</span> Plan 95/95</li>
+  <li><span class="pass">☑</span> Testy 676+5</li>
+  <li><span class="pass">☑</span> R1–R13 udokumentowane</li>
+  <li><span class="pass">☑</span> Brak UUID/ścieżek domowych</li>
+  <li><span class="pass">☑</span> <code>config/</code> bez zmian</li>
+  <li><span class="pass">☑</span> Brak CI</li>
+  <li><span class="st-warn">☐</span> Ostrzeżenia 1–12</li>
+</ul>
+</div>
+</main>
+</body>
+</html>

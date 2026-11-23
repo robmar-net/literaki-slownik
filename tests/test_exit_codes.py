@@ -20,22 +20,40 @@ def sqlite_error(message, code, kind=sqlite3.OperationalError):
 
 
 class ExitCodeTests(LayoutCase):
-    def build_code(self, error, name, **kwargs):
+    def build_code(self, error, name, work_root='T7', **kwargs):
+        work_root = self.data if work_root == 'T7' else work_root
         with mock.patch('literaki_slownik.build.create_links', side_effect=error):
             with self.assertRaises(GeneratorError) as caught:
-                build(self.manifest, self.work / name, work_root=self.data, **kwargs)
+                build(self.manifest, self.work / name, work_root=work_root, **kwargs)
         return caught.exception.code
 
-    def test_disk_io_error_is_75_when_guard_fails_and_4_when_healthy(self):
+    def test_disk_io_error_is_75_when_guard_fails(self):
         def unmount(*args):
             self.mounts.discard(str(self.data))
             raise sqlite3.OperationalError('disk I/O error')
 
         self.assertEqual(self.build_code(unmount, 'upadly'), 75)
-        self.mounts.add(str(self.data))
-        self.assertEqual(self.build_code(sqlite_error('disk I/O error', sqlite3.SQLITE_IOERR), 'zdrowy'), 4)
-        attempt = load_json(self.data / 'zdrowy' / 'manifest.json')['build_attempts'][0]
+
+    def test_io_error_with_healthy_guard_is_75_on_work_volume_and_4_on_internal_disk(self):
+        # T7 wrócił, zanim klasyfikator sprawdził strażnika: G1–G3 przechodzą, a błąd I/O dalej znaczy „dysk”.
+        cases = (('ioerr', sqlite_error('disk I/O error', sqlite3.SQLITE_IOERR)),
+                 ('ioerr-ext', sqlite_error('disk I/O error', sqlite3.SQLITE_IOERR | (13 << 8))),
+                 ('cantopen', sqlite_error('unable to open database file', sqlite3.SQLITE_CANTOPEN)),
+                 ('eio', OSError(errno.EIO, 'Input/output error')),
+                 ('enxio', OSError(errno.ENXIO, 'Device not configured')),
+                 ('enodev', OSError(errno.ENODEV, 'Operation not supported by device')),
+                 ('enoent', OSError(errno.ENOENT, 'No such file or directory')),
+                 ('erofs', OSError(errno.EROFS, 'Read-only file system')))
+        for name, error in cases:
+            with self.subTest(name):
+                self.assertEqual(self.build_code(error, 't7-' + name), 75)
+                self.assertEqual(self.build_code(error, 'wew-' + name, work_root=None), 4)
+        attempt = load_json(self.work / 'wew-ioerr' / 'manifest.json')['build_attempts'][0]
         self.assertEqual((attempt['outcome'], attempt['exit_code'], attempt['last_stage']), ('failed', 4, 'links'))
+        attempt = load_json(self.data / 't7-ioerr' / 'manifest.json')['build_attempts'][0]
+        self.assertEqual((attempt['outcome'], attempt['exit_code']), ('failed', 75))
+        # Inny błąd systemu plików na T7 nie jest zniknięciem dysku.
+        self.assertEqual(self.build_code(OSError(errno.EACCES, 'Permission denied'), 't7-eacces'), 4)
 
     def test_full_disk_is_78_and_corruption_is_77(self):
         cases = (('full', sqlite_error('database or disk is full', sqlite3.SQLITE_FULL), 78),
@@ -44,8 +62,7 @@ class ExitCodeTests(LayoutCase):
                  ('corrupt', sqlite_error('database disk image is malformed', sqlite3.SQLITE_CORRUPT,
                                           sqlite3.DatabaseError), 77),
                  ('notadb', sqlite_error('file is not a database', sqlite3.SQLITE_NOTADB,
-                                         sqlite3.DatabaseError), 77),
-                 ('extended', sqlite_error('disk I/O error', sqlite3.SQLITE_IOERR | (13 << 8)), 4))
+                                         sqlite3.DatabaseError), 77))
         for name, error, code in cases:
             with self.subTest(name):
                 self.assertEqual(self.build_code(error, name), code)

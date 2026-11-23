@@ -79,6 +79,24 @@ class VolumeTests(unittest.TestCase):
         self.free = 99 * GB
         self.assertCode(78, volume.check_space, self.data, volume.MIN_FREE_PAIR)
 
+    def test_check_work_root_is_one_contract_75_76_78(self):
+        self.assertCode(75, volume.check_work_root, self.data / 'brak')
+        self.assertCode(76, volume.check_work_root, self.repo / 'data' / 'work')  # dysk repo
+        self.assertCode(76, volume.check_work_root, self.data)  # bez znacznika
+        self.assertEqual((self.data, None), volume.check_work_root(self.data, marker=False))
+        self.mark(self.data)
+        (self.data / 'literaki-slownik' / 'work').mkdir(parents=True)
+        mount, marker = volume.check_work_root(self.data / 'literaki-slownik' / 'work')
+        self.assertEqual((mount, marker['marker_id']), (self.data, 'm-data'))
+        self.free = 99 * GB
+        self.assertCode(78, volume.check_work_root, self.data, volume.MIN_FREE_PAIR)
+        self.assertEqual(self.data, volume.check_work_root(self.data)[0])  # bez progu nie liczy miejsca
+
+    def test_build_pair_check_uses_the_shared_contract(self):
+        script = (Path(__file__).resolve().parents[1] / 'scripts' / 'build_pair.sh').read_text(encoding='utf-8')
+        self.assertIn('volume.check_work_root(', script)
+        self.assertIn('MIN_FREE_PAIR', script)
+
     def test_resume_unmounted_volume_or_dangling_symlink_75(self):
         link = self.repo / 'data' / 'work' / 'run-a'
         # Wolumen niezamontowany: w „/Volumes” został pusty katalog na dysku systemowym.

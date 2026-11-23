@@ -39,11 +39,8 @@ def volume_uuid(mount):
 
 
 def init(root):
-    if not os.path.isdir(root):
-        raise GeneratorError('Korzeń nie istnieje; wolumen niezamontowany?', 75)
-    mount = volume.mount_point(root)
-    if mount == volume.repo_mount():
-        raise GeneratorError('Korzeń leży na dysku repo; znacznik zakłada się tylko na dysku zewnętrznym', 76)
+    # Wspólna kontrola korzenia bez wymogu znacznika: brak → 75, dysk repo → 76.
+    mount, _ = volume.check_work_root(root, marker=False)
     target = mount / volume.MARKER
     if os.path.lexists(target):
         raise GeneratorError('Znacznik wolumenu już istnieje; nic nie zmieniono', 4)

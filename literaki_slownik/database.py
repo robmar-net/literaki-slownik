@@ -4,10 +4,12 @@ import os
 from pathlib import Path
 import sqlite3
 import unicodedata
-from .canonical import _full_sync
+from . import canonical
+from .inputs import GeneratorError
 
 # Tryb `fullfsync` buildu (ADR-020): `build` (4B) = ON przez cały build, `stage_boundaries` (4C) = OFF w etapie
 # i F_FULLFSYNC na granicy etapu. Wybrany pomiarem `scripts/measure_fullfsync.py` na T7 (narzut 0,09%).
+# 4C zostaje jako zapasowy tryb na wypadek, gdyby ponowny pomiar na pełnym buildzie przekroczył próg 5%.
 FULLFSYNC_MODES = ('build', 'stage_boundaries')
 FULLFSYNC_MODE = 'build'
 
@@ -17,7 +19,7 @@ def full_sync(db):
     path = next(row[2] for row in db.execute('PRAGMA database_list') if row[1] == 'main')
     descriptor = os.open(path, os.O_RDONLY)
     try:
-        _full_sync(descriptor)
+        canonical.full_sync(descriptor)
     finally:
         os.close(descriptor)
 
@@ -25,6 +27,9 @@ def full_sync(db):
 @contextmanager
 def connect(path, create=False, readonly=False, build=False):
     """build=True: tryb FULLFSYNC_MODE (ON przez cały build albo OFF w etapie, R8)."""
+    if build and FULLFSYNC_MODE not in FULLFSYNC_MODES:
+        raise GeneratorError(f'Nieznany tryb fullfsync buildu: {FULLFSYNC_MODE!r}; dozwolone: '
+                             + ', '.join(FULLFSYNC_MODES), 4)
     path = Path(path).resolve()
     mode = 'rwc' if create else ('ro' if readonly else 'rw')
     db = sqlite3.connect(path.as_uri() + '?mode=' + mode, uri=True)

@@ -276,5 +276,54 @@ class ResumeFlowTests(unittest.TestCase):
         self.assertEqual(code, 2)
 
 
+class BuildLockTests(LayoutCase):
+    """Blokada przebiegu `data/work/.<nazwa>.build.lock`: drugi build albo --resume → 4, zanim coś zmieni."""
+
+    def setUp(self):
+        super().setUp()
+        self.enterContext(clean_identity())
+
+    def hold(self, name):
+        import fcntl
+        lock = open(self.work / f'.{name}.build.lock', 'a')
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        self.addCleanup(lock.close)
+        return lock
+
+    def code(self, function, *args, **kwargs):
+        with self.assertRaises(GeneratorError) as caught:
+            function(*args, **kwargs)
+        return caught.exception.code
+
+    def test_held_lock_refuses_fresh_build_and_resume_before_any_change(self):
+        lock = self.hold('nowy')
+        self.assertEqual(self.code(build, self.manifest, self.work / 'nowy', work_root=self.data), 4)
+        self.assertFalse(os.path.lexists(self.work / 'nowy'))
+        self.assertFalse(os.path.lexists(self.data / 'nowy'))
+        lock.close()
+        build(self.manifest, self.work / 'nowy', work_root=self.data)
+        manifest = load_json(self.work / 'nowy' / 'manifest.json')
+        manifest['stages']['reports'] = {'status': 'running'}
+        write_json(self.work / 'nowy' / 'manifest.json', manifest)
+        before = {path.name: path.read_bytes() for path in (self.data / 'nowy').iterdir() if path.is_file()}
+        self.hold('nowy')
+        self.assertEqual(self.code(resume, self.manifest, self.work / 'nowy'), 4)
+        after = {path.name: path.read_bytes() for path in (self.data / 'nowy').iterdir() if path.is_file()}
+        self.assertEqual(after, before)
+
+    def test_lock_is_held_during_the_build_and_released_after(self):
+        from literaki_slownik import workfs
+        seen = []
+        real = build_module.STAGE_RUNNERS['links']
+
+        def links(db, ctx):
+            seen.append(workfs.lock_held(self.work / '.trwa.build.lock'))
+            return real(db, ctx)
+        with mock.patch.dict(build_module.STAGE_RUNNERS, {'links': links}):
+            build(self.manifest, self.work / 'trwa', work_root=self.data)
+        self.assertEqual(seen, [True])
+        self.assertFalse(workfs.lock_held(self.work / '.trwa.build.lock'))
+
+
 if __name__ == '__main__':
     unittest.main()

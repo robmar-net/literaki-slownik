@@ -52,7 +52,11 @@ Decyzje: [ADR-014](../adr/ADR-014-uklad-t7.md) (układ, promocja, sprzątanie), 
 (nadzorca), [ADR-020](../adr/ADR-020-fullfsync.md) (`fullfsync`), [ADR-021](../adr/ADR-021-historia-prob.md) (historia prób).
 
 **`build --work-root W`.** Przebieg powstaje w `W/<nazwa>`, a `--run-dir data/work/<nazwa>` staje się symlinkiem.
-`W` musi leżeć na wolumenie ze znacznikiem `.literaki-work-volume` (inaczej 76) i mieć ≥ 50 GB wolnego (inaczej 78).
+`W` musi istnieć (inaczej 75), leżeć na wolumenie ze znacznikiem `.literaki-work-volume`, a nie na dysku repo
+(inaczej 76), i mieć ≥ 50 GB wolnego (inaczej 78). Tę samą kontrolę korzenia (`volume.check_work_root`) robią
+nadzorca, `build_pair.sh`, `clean_work.py` i `init_work_volume.py` (ten bez wymogu znacznika).
+Build i `--resume` trzymają przez cały czas pracy blokadę `.<nazwa>.build.lock` obok symlinku (`data/work/`);
+zajęta blokada (żywy build albo drugie `--resume`) → 4, zanim cokolwiek się zmieni.
 `W/<nazwa>` bez symlinku, bez `build.sqlite`, z pustym `reports/` i samymi etapami `pending` to resztka nieudanego
 startu: build ją kasuje i zaczyna od nowa. Inny istniejący katalog: 4. Bez `--work-root` build działa jak wcześniej.
 
@@ -72,9 +76,10 @@ poza K8. `verify` (JSON i tekst) i `release-manifest.json` (`source_run.build_hi
 python3 scripts/init_work_volume.py <korzeń>                     # raz na wolumen
 python3 scripts/measure_fullfsync.py --dir <korzeń>/.measure-<stempel> [--reference-run data/work/<przebieg>] \
   [--quick-check <przebieg>/build.sqlite] [--commits 200] [--repeats 5] [--batch-rows 10000]
-python3 scripts/build_supervised.py --manifest config/generator/sources.json --run-dir data/work/<nazwa> \
-  [--work-root <korzeń>] [--max-resumes 3] [--wait-minutes 30] [--poll-seconds 5]
-LITERAKI_WORK_ROOT=<korzeń> scripts/build_pair.sh PREFIKS
+mkdir -p logs && LITERAKI_WORK_ROOT=<korzeń> nohup scripts/build_pair.sh PREFIKS > logs/pair-PREFIKS.log 2>&1 & disown
+nohup caffeinate -dimsu python3 scripts/build_supervised.py --manifest config/generator/sources.json \
+  --run-dir data/work/<nazwa> [--work-root <korzeń>] [--max-resumes 3] [--wait-minutes 30] [--poll-seconds 5] \
+  [--stall-minutes 120] > logs/<nazwa>.supervisor.out 2>> logs/<nazwa>.err & disown
 python3 scripts/resume_reports.py --manifest config/generator/sources.json --run-dir data/work/<przebieg>
 python3 scripts/promote_run.py --run-dir data/work/<A> [--peer data/work/<B>]
 python3 scripts/clean_work.py [--work-root <korzeń>] [--apply] [--server-repo <checkout serwera>] \
@@ -90,27 +95,45 @@ python3 scripts/clean_work.py [--work-root <korzeń>] [--apply] [--server-repo <
 - `build_supervised.py`: przebieg istnieje i manifest czytelny → `build --resume`; brak przebiegu → świeży
   `build --work-root`; symlink bez dysku → czekanie. Ponawia **tylko po 75**: co `--poll-seconds` sprawdza dysk
   i znacznik, czeka najdłużej `--wait-minutes`, wznawia najwyżej `--max-resumes` razy (potem 75). Inny znacznik albo
-  wolumen pod inną ścieżką → 76 od razu. Inne kody kończą pracę z tym kodem; SIGINT → 130. Plików przebiegu nie dotyka.
-  Logi: `logs/<nazwa>.out.json`, `logs/<nazwa>.err`, `logs/<nazwa>.supervisor.log`. Blokada `logs/<nazwa>.lock`
-  przez cały czas pracy; gdy trzyma ją inny nadzorca → 4.
+  wolumen pod inną ścieżką → 76 od razu (`marker_id` nadzorca zapamiętuje przed pierwszym procesem i po każdym,
+  bo po 75 manifest na T7 bywa nieczytelny). Inne kody kończą pracę z tym kodem; SIGINT → 130. Plików przebiegu
+  nie dotyka. Watchdog: `--stall-minutes` (domyślnie 120, 0 wyłącza) bez zmiany mtime manifestu, bazy, journala
+  i raportów oraz bez wzrostu czasu CPU buildu → zdarzenie `stalled`, SIGTERM, po 60 s SIGKILL; strażnik zawodzi
+  → 75 (czekanie i wznowienie), zły wolumen → 76, zdrowy → 4. Logi: `logs/<nazwa>.out.json`, `logs/<nazwa>.err`,
+  `logs/<nazwa>.supervisor.log` (zdarzenia JSON); końcowy JSON nadzorca pisze na stdout (`build_pair.sh` kieruje go
+  do `logs/<nazwa>.supervisor.out`). Blokada `logs/<nazwa>.lock` przez cały czas pracy; gdy trzyma ją inny
+  nadzorca → 4.
+- **SIGHUP i terminal:** nadzorca przekazuje SIGHUP buildowi i kończy jego kodem, bez wznowienia, więc zamknięcie
+  okna terminala kończy parę uruchomioną na pierwszym planie. Parę i nadzorcę po restarcie uruchamia się odpięte:
+  `nohup … & disown`. Pod `nohup` (SIGHUP ignorowany) nadzorca zostawia SIGHUP ignorowany. `build_pair.sh` sam
+  uruchamia nadzorców pod `caffeinate -dimsu`; nadzorca uruchamiany ręcznie po restarcie potrzebuje
+  `caffeinate -dimsu` w poleceniu.
 - `build_pair.sh`: wymaga `LITERAKI_WORK_ROOT` i zacommitowanego kodu (inaczej 2), znacznika (75 brak wolumenu,
-  76 zły wolumen) i ≥ 100 GB wolnego (78). Uruchamia dwóch nadzorców pod `caffeinate -dimsu`:
-  `data/work/PREFIKS-<stempel>-{a,b}`. Kod 0, gdy obie strony 0, inaczej 1.
+  76 zły wolumen, także korzeń na dysku repo) i ≥ 100 GB wolnego (78). Uruchamia dwóch nadzorców pod
+  `caffeinate -dimsu`: `data/work/PREFIKS-<stempel>-{a,b}`; stdout nadzorcy → `logs/<nazwa>.supervisor.out`.
+  Kod 0, gdy obie strony 0, inaczej 1.
 - `resume_reports.py`: nakładka na `build --resume`. Kody: 2 przebieg nie czeka na wznowienie samych raportów;
-  4 inny kod generatora; pozostałe przekazane z `build --resume`.
+  4 inny kod generatora, manifest bez `stages`/`code` albo trzymana blokada `.<nazwa>.build.lock` (żywy build);
+  pozostałe przekazane z `build --resume`.
 - `promote_run.py` (od razu po udanym `verify`): stany S0–S4, każdy wznawialny tym samym poleceniem. Kopia A
   z T7 do `data/work/.<A>.promote` z kontrolą sha256 i trybu, zamiana symlinku na katalog (`RENAME_SWAP`), potem
-  kasowanie B (`--peer`; tylko `INCOMPLETE` i zgodny `canonical-index`) i kopii A na T7. Manifest A bez zmian;
+  kasowanie B (`--peer`; tylko `INCOMPLETE` i zgodny `canonical-index`) i kopii A na T7. Kasowanie jest wznawialne:
+  drzewo najpierw dostaje nazwę `.<nazwa>.deleting` w tym samym katalogu na T7, a ponowienie dokańcza takie
+  resztki. Manifest A bez zmian;
   ślad w `promotion.json` (poza pieczęcią) i `logs/<A>.promote.log`, blokada `logs/<A>.promote.lock`.
   Kody: 0; 2 argumenty; 4 kopia, zamiana albo blokada; 5 pieczęć; 75 T7 zniknął; 76 zły wolumen; 78 brak miejsca wewnątrz.
 - `export` przebiegu na T7 (symlink albo wolumen roboczy): kod 5, „najpierw promote_run.py”.
 - `clean_work.py`: domyślnie tylko lista JSON (wpis, klasa, rozmiar, powód). Klasy: 1 zweryfikowany, 2 promocja
-  w toku, 3 przebieg w toku (< 24 h albo blokada), 4 nieznana zawartość, 5 osierocony, 6 nieukończony z symlinkiem,
-  7 dysk wewnętrzny, tylko lista, 8 stare wydanie. `--apply` kasuje klasy 5–6. Stare wydanie znika tylko
+  w toku, 3 przebieg w toku (blokada nadzorcy albo buildu, zmiany < 24 h albo „kompletny, czeka na verify”:
+  wszystkie etapy `complete` przed verify, bez limitu czasu), 4 nieznana zawartość, 5 osierocony albo przerwane
+  kasowanie `.<nazwa>.deleting`, 6 nieukończony z symlinkiem, 7 dysk wewnętrzny, tylko lista, 8 stare wydanie.
+  `--apply` kasuje klasy 5–6 (tylko przebiegi przerwane albo nieukończone i resztki startu ≥ 24 h) i dokańcza
+  przerwane kasowania wydań w `data/work`. Kasowanie jest wznawialne (`.<nazwa>.deleting`). Stare wydanie znika tylko
   z `--apply --delete-releases PLIK`; plik zawiera nazwy, na które właściciel się zgodził, a nazwa spoza kandydatów
   daje odmowę całości. Bieżące wydania serwera: `NOTICE` z `origin/main` checkoutu `--server-repo` (domyślnie
-  `../server`, tylko odczyt) i `--server-current`. Brak `NOTICE` → wszystkie wydania potrzebne. Kody: 0; 2 argumenty;
-  4 odmowa.
+  `../server`, tylko odczyt) i `--server-current`. Brak `NOTICE` → wszystkie wydania potrzebne. Korzeń T7
+  niedostępny albo zły: `work_root.status` `unavailable` (75) albo `wrong-volume` (76) i T7 pominięty. Kody: 0;
+  2 argumenty; 4 odmowa albo błąd dysku przy kasowaniu; 75 T7 zniknął w trakcie kasowania.
 
 ## POP i POP0 (`pop`)
 
@@ -302,10 +325,10 @@ Kody `build`, `build --resume` i skryptów dysku roboczego ([ADR-018](../adr/ADR
 | 0 | proces bez błędu (etapy mogą zostać `pending`) | koniec |
 | 2 | argumenty | stop |
 | 3 | wejścia: manifest, hash, inny `manifest_sha256` przy `--resume` | stop |
-| 4 | dane, kod, inna tożsamość kodu przy `--resume`, brak przebiegu, inny `sqlite3.Error`/`OSError`, błąd kopii w promocji, zajęta blokada | stop |
+| 4 | dane, kod, inna tożsamość kodu przy `--resume`, brak przebiegu, inny `sqlite3.Error`/`OSError`, błąd kopii w promocji, zajęta blokada (`.<nazwa>.build.lock`, nadzorcy, promocji), nieznany `FULLFSYNC_MODE`, watchdog przy zdrowym strażniku | stop |
 | 5 | przebieg `VERIFIED`/`FROZEN`; promocja albo export odmawia (pieczęć, przebieg na T7) | stop |
-| 75 | dysk roboczy zniknął (G1/G3 po błędzie I/O, brak dysku przy starcie); nadzorca: wyczerpany limit albo czas | czeka i wznawia, maks. 3 razy |
-| 76 | zły wolumen: inny znacznik, wolumen bez znacznika, wolumen pod inną ścieżką | stop |
+| 75 | dysk roboczy zniknął (G1/G3 po błędzie I/O, brak dysku przy starcie); na przebiegu z `work_volume` także `SQLITE_IOERR`/`SQLITE_CANTOPEN`, `EIO`/`ENXIO`/`ENODEV`/`ENOENT`/`EROFS` przy zdrowym strażniku (T7 wrócił przed klasyfikacją); watchdog przy niedostępnym dysku; nadzorca: wyczerpany limit albo czas | czeka i wznawia, maks. 3 razy |
+| 76 | zły wolumen: inny znacznik, wolumen bez znacznika, wolumen pod inną ścieżką, korzeń przebiegów na dysku repo | stop |
 | 77 | `quick_check` ≠ `ok`, `SQLITE_CORRUPT`, `SQLITE_NOTADB` | stop, decyzja człowieka |
 | 78 | brak miejsca: `SQLITE_FULL`, `ENOSPC`, `EDQUOT`, progi startu, promocja | stop |
 | 130 | SIGINT | stop |

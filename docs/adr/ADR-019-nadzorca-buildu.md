@@ -25,6 +25,17 @@ T7 zniknął raz w nocy. Bez nadzorcy strata obejmuje czas do chwili, gdy ktoś 
 
 Odrzucone: tylko ręczne wznawianie; pętla w `build_pair.sh`.
 
+### Poprawki po weryfikacji #22
+- `marker_id` nadzorca zapamiętuje przed pierwszym procesem i odświeża po każdym
+  udanym odczycie; po 75 nie spada do „nieznany”, więc wolumen pod inną ścieżką daje 76 od razu.
+- Watchdog bez postępu: `--stall-minutes` (domyślnie 120, 0 wyłącza). Postęp to zmiana mtime manifestu, bazy,
+  journala i raportów albo wzrost czasu CPU buildu (raport `unresolved` liczy ~4 h bez zapisu plików).
+  Po limicie: zdarzenie `stalled`, SIGTERM, po 60 s SIGKILL; strażnik zawodzi → 75 (wznowienie), zły
+  wolumen → 76, zdrowy → 4. Proces w nieprzerywalnym I/O może przeżyć SIGKILL; wtedy trzyma blokadę buildu
+  i wznowienie kończy się kodem 4 (stop bez szkody).
+- Sygnał przed `Popen` nie uruchamia nowego buildu, a sygnał między `Popen` a przypisaniem dziecka trafia do
+  dziecka. Pod `nohup` SIGHUP zostaje ignorowany; runbook uruchamia parę przez `nohup … & disown`.
+
 ## Otwarte pytania / ryzyka
 - Po restarcie maszyny nadzorcę uruchamia się ręcznie (z tym samym `--run-dir`). LaunchAgent poza zakresem.
 - Przy częstych zniknięciach limit 3 wznowień się wyczerpie: 75 i decyzja człowieka.

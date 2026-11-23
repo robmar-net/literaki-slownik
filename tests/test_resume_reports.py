@@ -63,6 +63,18 @@ class ResumeReportsCase(unittest.TestCase):
         self.assertEqual(code, 75)
         self.assertEqual(len(calls), 1)
 
+    def test_held_build_lock_or_broken_manifest_refuse_with_4(self):
+        import fcntl
+        self.manifest(reports='running')
+        lock = open(self.tmp / '.run.build.lock', 'a')
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        self.addCleanup(lock.close)
+        self.assertEqual(self.main(), (4, []))
+        lock.close()
+        self.assertEqual(self.main()[0], 0)
+        write_json(self.run_dir / 'manifest.json', {'code': {'tree_sha256': 'a' * 64}})
+        self.assertEqual(self.main(), (4, []))
+
 
 if __name__ == '__main__':
     unittest.main()
