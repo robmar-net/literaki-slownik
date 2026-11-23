@@ -31,6 +31,18 @@ def manifest_core_sha256(manifest):
     return hashlib.sha256(dumps(core).encode('utf-8')).hexdigest()
 
 
+def build_history(manifest):
+    """Skrót build_attempts/resume: etapy, wyniki i kody wyjścia. Bez komunikatów i ścieżek."""
+    attempts = [a for a in manifest.get('build_attempts') or [] if isinstance(a, dict)]
+    resume = manifest.get('resume') or {}
+    return {'resumed': bool(resume.get('resumed')), 'resume_count': resume.get('count', 0),
+            'attempts': len(attempts),
+            'stages': [[a.get('first_stage'), a.get('last_stage')] for a in attempts],
+            'outcomes': [a.get('outcome') for a in attempts],
+            'exit_codes': [a.get('exit_code') for a in attempts],
+            'resumed_from': [a.get('first_stage') for a in attempts[1:]]}
+
+
 def game_key(value):
     return unicodedata.normalize('NFC', unicodedata.normalize('NFC', value).lower())
 
@@ -613,7 +625,8 @@ def verify(run_dir, peer_dir, review_path, *, allow_test_fixture=False):
               'attempt': relative, 'fixture': inputs.get('mode') == 'test', 'checks': results,
               'package_plan_sha256': sha256(attempt / 'package-plan.json'),
               'package_files': sorted(plan['files']),
-              'review_sha256': sha256(review_path) if Path(review_path).is_file() else None}
+              'review_sha256': sha256(review_path) if Path(review_path).is_file() else None,
+              'build_history': build_history(manifest)}
     write_json(attempt / 'verification.json', report)
     if verdict == 'VERIFIED':
         with_db = sha256(run / 'build.sqlite')
@@ -635,4 +648,14 @@ def format_verification(report):
     for k, item in report['checks'].items():
         lines.append(f'{k}: {"OK" if item["status"] == "pass" else "BLOKADA"}')
         lines.extend(f'  - {reason["message"]}' for reason in item['reasons'])
+    history = report.get('build_history')
+    if history:
+        resumed = f'wznowiony {history["resume_count"]}×' if history['resumed'] else 'bez wznowień'
+        lines.append(f'Historia buildu: {resumed}, prób {history["attempts"]}')
+        for number, ((first, last), outcome, code) in enumerate(
+                zip(history['stages'], history['outcomes'], history['exit_codes']), start=1):
+            lines.append(f'  - próba {number}: {first} → {last or "?"}, {outcome or "?"}'
+                         + (f' (kod {code})' if code is not None else ''))
+        if history['resumed_from']:
+            lines.append('  wznowiono od: ' + ', '.join(str(s) for s in history['resumed_from']))
     return '\n'.join(lines)

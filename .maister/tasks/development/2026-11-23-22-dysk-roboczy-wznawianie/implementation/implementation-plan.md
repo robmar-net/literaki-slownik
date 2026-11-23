@@ -324,15 +324,15 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
 **Files to Modify:** `literaki_slownik/verify.py`, `literaki_slownik/export.py`, `tests/test_build_history.py`
 **Estimated Steps:** 5
 
-- [ ] 12.0 Skrót `build_history`
-  - [ ] 12.1 Napisać 3 testy w `tests/test_build_history.py`
+- [x] 12.0 Skrót `build_history`
+  - [x] 12.1 Napisać 3 testy w `tests/test_build_history.py`
     - Wznowiony przebieg: skrót w `verify` (JSON i tekst).
     - Skrót w `release-manifest.json` → `source_run.build_history`.
     - Ręczna zmiana `build_attempts` po verify → `export` kończy się kodem 5.
-  - [ ] 12.2 Funkcja skrótu: `resumed`, `attempts`, `outcomes`, `exit_codes`, `resumed_from`
-  - [ ] 12.3 `verify`: skrót w wyniku JSON i tekstowym. `SEAL_EXCLUDED` bez zmian.
-  - [ ] 12.4 `export`: `source_run.build_history`
-  - [ ] 12.5 Uruchomić tylko testy z 12.1
+  - [x] 12.2 Funkcja skrótu: `resumed`, `attempts`, `outcomes`, `exit_codes`, `resumed_from`
+  - [x] 12.3 `verify`: skrót w wyniku JSON i tekstowym. `SEAL_EXCLUDED` bez zmian.
+  - [x] 12.4 `export`: `source_run.build_history`
+  - [x] 12.5 Uruchomić tylko testy z 12.1
 
 **Acceptance Criteria:**
 - 3 testy przechodzą. K8 bez zmian.

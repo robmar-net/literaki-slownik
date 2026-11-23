@@ -15,7 +15,7 @@ from . import volume
 from .canonical import dumps, load_json, sha256, write_json
 from .inputs import GeneratorError, inspect_sources
 from .run import now
-from .verify import manifest_core_sha256
+from .verify import build_history, manifest_core_sha256
 
 RENAME_SWAP = 0x00000002      # macOS renamex_np
 RENAME_EXCL = 0x00000004      # macOS renamex_np
@@ -169,6 +169,7 @@ def export(run_dir, output_dir, *, allow_test_fixture=False):
             'logical_content_sha256': seal['logical_content_sha256'],
             'inputs_manifest_sha256': manifest['inputs']['manifest_sha256'],
             'code': manifest.get('code'),
+            'build_history': build_history(manifest),
             # Baza nie jest plikiem pakietu; wiąże ją hash logiczny i hash pliku w archiwum przebiegu.
             'database': {**plan['database'], 'archive': 'build.sqlite w katalogu przebiegu',
                          'file_sha256': seal['database_sha256']}},

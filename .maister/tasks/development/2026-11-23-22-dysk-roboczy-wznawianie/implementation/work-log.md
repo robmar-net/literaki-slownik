@@ -65,3 +65,7 @@
 **Steps**: 8.1–8.4. **Tests**: 28/28 + 20/20 sąsiednie; mutacja kolejności stage_durable → czerwony.
 **Files**: database.py (connect build=True: DELETE/FULL/fullfsync ON; full_sync(db)), build.py (stage_durable na granicach etapów i po reset_stage), tests/test_durability_modes.py.
 **Notes**: database.py używa prywatnego canonical._full_sync — do przeglądu; brak walidacji wartości FULLFSYNC_MODE.
+
+## 2026-11-23T12:06:42Z - Group 12 Complete
+**Steps**: 12.1–12.5. **Tests**: test_build_history 3/3; powtórka 6 modułów po fali (verify, export, lifecycle, promote_run, resume_equivalence, build_history) — wynik niżej w commit.
+**Files**: verify.py (build_history, sekcja „Historia buildu”), export.py (source_run.build_history), tests/test_build_history.py.
