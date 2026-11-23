@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raport badania — dysk roboczy i wznawianie</title>
+<style>
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+details > summary { cursor:pointer; font-weight:600; }
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+.c-high { background:var(--ok-soft); color:var(--ok); }
+.c-med { background:var(--warn-soft); color:var(--warn); }
+.c-low { background:var(--crit-soft); color:var(--crit); }
+.tldr { border-left:4px solid var(--accent); }
+.rec { border:2px solid var(--accent); }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media (max-width:700px) { .grid2 { grid-template-columns:1fr; } table { font-size:12.5px; } }
+.wrap { overflow-x:auto; }
+</style>
+</head>
+<body>
+<nav class="crumbs">
+  <a href="../dashboard.html">← Dashboard</a>
+  <span class="here">Raport</span>
+  <a href="research-report.md" target="_blank" rel="noopener" class="md">md twin ↗</a>
+</nav>
+<header>
+  <span class="badge">research-report</span>
+  <h1>Dysk roboczy na /Volumes/Data i wznawianie buildu</h1>
+  <div style="color:var(--dim);font-size:13px">Badanie techniczne · 2026-11-23 · kod <code>literaki-slownik</code> @ <code>b31246e7</code></div>
+</header>
+<div class="tiles">
+  <div class="tile"><b>13</b><span>ustaleń</span></div>
+  <div class="tile"><b>3</b><span>pliki ustaleń</span></div>
+  <div class="tile"><b>~20</b><span>źródeł zewn.</span></div>
+  <div class="tile"><b>3 + 4</b><span>warianty L / W</span></div>
+  <div class="tile"><b>wysoka</b><span>pewność ogólna</span></div>
+</div>
+
+<section class="card tldr">
+  <h2 style="margin-top:0">TL;DR</h2>
+  <p>Buduj na dysku wewnętrznym, a na T7 trzymaj tylko gotowe przebiegi. Każde zniknięcie T7, nawet na 3 s, zabija trwający build. Na dysku wewnętrznym jest 193 GB wolnego miejsca, para A/B zajmuje ~44 GB.<br>
+  Niezależnie od dysku dodaj wznawianie per etap w tej samej bazie i znaczniki per raport. Dziś restart w dowolnym etapie przed <code>reports</code> kosztuje do ~13 h.<br>
+  Od razu popraw <code>.gitignore</code> (<code>/data/work</code>, <code>/cache</code> bez ukośnika) i dodaj strażnik montowania: <code>ismount</code> + znacznik z UUID wolumenu, a przy braku dysku przerwij build.</p>
+  <h2>Key Decisions</h2>
+  <ul>
+    <li><b>Lokalizacja: L3, hybryda.</b> Build wewnątrz, archiwum na <code>/Volumes/Data</code>. USB nie bierze udziału w 13-h zapisie, kod się nie zmienia, K1–K10 też nie.</li>
+    <li><b>Wznawianie: (a), etapy w jednej bazie.</b> Połowa etapów jest już idempotentna. Daje ochronę przed restartem i kill, nie tylko przed USB.</li>
+    <li><b>Migawka (b) tylko przy budowie na USB.</b> Najlepiej przez backup API, a nie <code>VACUUM INTO</code>, bo backup kopiuje strony 1:1.</li>
+    <li><b>ATTACH per etap (c) odrzucony na teraz.</b> Łamie FK, <code>logical_content_report</code> i <code>database_sha256</code>.</li>
+    <li><b>Symlink L1 jako zapas.</b> Tylko gdy zabraknie miejsca wewnątrz, z poprawką <code>.gitignore</code>, strażnikiem i <code>fullfsync=ON</code>.</li>
+  </ul>
+  <h2>Open Questions / Risks</h2>
+  <ul>
+    <li><span class="sev warning">warning</span><b>Piny POP/POP00/TEMATY.</b> Pliki <code>config/generator/{pop-sources,pop-sources-v29,pop00-sources,tematy-sources}.json</code> wskazują usunięty <code>lists-v31-20261012-162111-a</code>. Do decyzji właściciela: przepiąć na v32-a albo przebudować v31.</li>
+    <li><span class="sev warning">warning</span><b>Wynik wznowionego buildu.</b> Nie wiadomo, czy wznowiony build da ten sam <code>logical_content</code> co świeży (rowid po <code>DELETE</code> i ponownym imporcie). Przed parą A/B potrzebny jest test.</li>
+    <li><span class="sev info">info</span><b>Czas <code>decisions</code>.</b> Normalny czas tego etapu nie jest znany (w v32 trwał 61 h, to anomalia).</li>
+    <li><span class="sev info">info</span><b>Time Machine.</b> Nie sprawdzono, czy kopiuje <code>data/work</code> z dysku wewnętrznego na ten sam T7.</li>
+    <li><span class="sev info">info</span><b>Przyczyna zniknięć T7.</b> Jest nieznana: zasilanie, kabel albo firmware FXI72P2Q. Przy budowie na USB to ryzyko zostaje.</li>
+    <li><span class="sev info">info</span><b>Prywatność.</b> Repo jest publiczne. UUID wolumenu ma być tylko w znaczniku na samym wolumenie, nigdy w kodzie ani w konfiguracji.</li>
+  </ul>
+</section>
+
+<nav style="font-size:13px">Spis: <a href="#ustalenia">Ustalenia</a> · <a href="#etapy">Etapy</a> · <a href="#lokalizacja">Lokalizacja</a> · <a href="#wznawianie">Wznawianie</a> · <a href="#swot">SWOT</a> · <a href="#rekomendacja">Rekomendacja</a> · <a href="#zrodla">Źródła</a></nav>
+
+<main>
+<h2 id="ustalenia">Ustalenia</h2>
+<div class="card wrap"><table>
+<tr><th>#</th><th>Ustalenie</th><th>Kategoria</th><th>Pewność</th><th>Źródła</th></tr>
+<tr><td>F1</td><td>7 etapów, jedna baza (<code>journal_mode=delete</code>, <code>synchronous=FULL</code>, bez <code>fullfsync</code>)</td><td>architektura</td><td><span class="badge c-high">wysoka</span></td><td>2</td></tr>
+<tr><td>F2</td><td>Katalogu przebiegu nie da się użyć ponownie; status po awarii zostaje <code>running</code></td><td>wznawianie</td><td><span class="badge c-high">wysoka</span></td><td>2</td></tr>
+<tr><td>F3</td><td>~13 h, z tego <code>reports</code> 8–8,5 h (65%), <code>unresolved</code> 4,1 h</td><td>koszt</td><td><span class="badge c-high">wysoka</span></td><td>3</td></tr>
+<tr><td>F4</td><td>Idempotentne: <code>constructions</code>, <code>decisions</code>; nie: <code>import_*</code>, <code>links</code></td><td>wznawianie</td><td><span class="badge c-high">wysoka</span></td><td>1</td></tr>
+<tr><td>F5</td><td>Kod bierze <code>--run-dir</code>; na sztywno tylko <code>build_pair.sh</code> i 4 konfiguracje z pinami</td><td>ścieżki</td><td><span class="badge c-high">wysoka</span></td><td>1</td></tr>
+<tr><td>F6</td><td>K1–K10/K8 po hashach; przeniesienie przebiegu bezpieczne, przeniesienie repo nie</td><td>powtarzalność</td><td><span class="badge c-high">wysoka</span></td><td>1</td></tr>
+<tr><td>F7</td><td><code>/data/work/</code> nie pasuje do symlinku (R1)</td><td>repo</td><td><span class="badge c-high">wysoka</span></td><td>2</td></tr>
+<tr><td>F8</td><td>Zniknięcie → <code>SQLITE_IOERR_*</code>; hot journal cofa, jeśli leży obok bazy pod tą samą ścieżką</td><td>SQLite</td><td><span class="badge c-med">średnia (T7)</span></td><td>3</td></tr>
+<tr><td>F9</td><td><code>fsync</code> na macOS nie opróżnia cache; <code>F_FULLFSYNC</code> tak; USB może kłamać</td><td>SQLite/macOS</td><td><span class="badge c-med">średnia</span></td><td>3</td></tr>
+<tr><td>F10</td><td><code>/Volumes</code> root 755: brak sobowtóra dla zwykłego procesu; ryzyko przy <code>sudo</code>/<code>Data 1</code></td><td>macOS</td><td><span class="badge c-med">średnia</span></td><td>2</td></tr>
+<tr><td>F11</td><td>T7 Shield: 1 zniknięcie w 7 dniach (2026-11-20 02:32:18, 3 s); ten sam kontener ma Time Machine</td><td>środowisko</td><td><span class="badge c-high">wysoka</span></td><td>1</td></tr>
+<tr><td>F12</td><td>ATTACH łamie FK, <code>logical_content_report</code>, <code>database_sha256</code></td><td>architektura</td><td><span class="badge c-high">wysoka</span></td><td>2</td></tr>
+<tr><td>F13</td><td>Piny POP/POP00/TEMATY na usunięty <code>lists-v31-20261012-162111-a</code></td><td>konfiguracja</td><td><span class="badge c-high">wysoka</span></td><td>1</td></tr>
+</table></div>
+
+<h2 id="etapy">Mapa etapów (v32-a)</h2>
+<div class="card wrap"><table>
+<tr><th>Etap</th><th>Czas</th><th>Wznawialny dziś</th><th>Co zmienić</th></tr>
+<tr><td>preflight</td><td>3 s</td><td>—</td><td>nic</td></tr>
+<tr><td>import_sgjp</td><td>17 min</td><td class="fail">nie</td><td>obciąć tabele, powtórzyć</td></tr>
+<tr><td>import_kwjp</td><td>2 h 24 min</td><td class="fail">nie</td><td>obciąć, powtórzyć</td></tr>
+<tr><td>constructions</td><td>~25 min</td><td class="pass">tak</td><td>nic</td></tr>
+<tr><td>decisions</td><td>? (61 h anomalia)</td><td class="pass">tak</td><td><code>lists/*.txt</code> atomowo</td></tr>
+<tr><td>links</td><td>~26 min</td><td>po rollbacku, ale <code>create table</code></td><td><code>DROP … IF EXISTS</code></td></tr>
+<tr><td>reports</td><td>8,5 h</td><td>w całości</td><td>znaczniki per raport, <code>unresolved.json</code> z pliku</td></tr>
+</table></div>
+
+<h2 id="lokalizacja">Lokalizacja: warianty</h2>
+<div class="card wrap"><table>
+<tr><th>Wariant</th><th>Koszt zmiany</th><th>Ryzyko</th><th>K1–K10</th></tr>
+<tr><td><b>L1 symlink</b> <code>data/work</code> → <code>/Volumes/Data/literaki-slownik/work</code></td><td>~0 kodu; <code>.gitignore</code></td><td>build na USB; mylący błąd przy wiszącym symlinku (R3); wyciek przy złym <code>.gitignore</code> (R1)</td><td>bez zmian</td></tr>
+<tr><td><b>L2 korzeń z env/flagi</b></td><td>mały kod, ~20 miejsc w docs</td><td>piny nie podążą; cichy zapis przy pustym punkcie montowania (R2)</td><td>zmiana pinów → nowy <code>manifest_sha256</code></td></tr>
+<tr class="rec"><td><b>L3 hybryda</b> <span class="badge">zalecana</span>: build wewnątrz, archiwum na T7</td><td>mały (skrypt + runbook)</td><td>jedna para naraz wewnątrz; ewentualnie Time Machine</td><td>bez zmian</td></tr>
+</table></div>
+<div class="grid2">
+<div class="card"><b>Poprawka R1 (zawsze)</b><br><code>/data/work/</code> → <code>/data/work</code>, <code>/cache/</code> → <code>/cache</code>; sprawdzić <code>git check-ignore -v data/work</code>.</div>
+<div class="card"><b>Strażnik montowania</b><br><code>ismount('/Volumes/Data')</code> + znacznik <code>.literaki-work-volume</code> z UUID z <code>diskutil info -plist</code> + stałe <code>st_dev</code>. Sprawdzaj przed startem, przed każdym etapem i przed każdym <code>os.replace</code>. Fail-fast, bez <code>mkdir -p</code> od <code>/Volumes</code>. Wolne miejsce ≥ 2×22 GB na stronę.</div>
+</div>
+
+<h2 id="wznawianie">Wznawianie: warianty</h2>
+<div class="card"><b>USB znika w trakcie zapisu:</b> proces dostaje <code>SQLITE_IOERR</code>. Trzeba zrobić <code>ROLLBACK</code>, zamknąć połączenie i poczekać na ponowne zamontowanie. Przy ponownym otwarciu hot journal cofa przerwaną transakcję. Warunek: <code>-journal</code> leży obok bazy i baza jest otwierana tą samą ścieżką. Na macOS <code>fsync</code> nie opróżnia cache dysku, a <code>F_FULLFSYNC</code> (<code>PRAGMA fullfsync</code>) tak. Nie wiadomo jednak, czy mostek T7 to przekazuje dalej, więc po wznowieniu potrzebny jest <code>quick_check</code>.</div>
+<div class="card wrap"><table>
+<tr><th>Wariant</th><th>3 s USB</th><th>Strata na awarię</th><th>Zmiana kodu</th><th>K1–K10 / A-B</th><th>Miejsce</th></tr>
+<tr><td>dziś</td><td class="fail">nie</td><td>do ~13 h</td><td>—</td><td>—</td><td>22 GB</td></tr>
+<tr class="rec"><td><b>(a) etapy w jednej bazie</b> <span class="badge">zalecany</span></td><td class="pass">tak*</td><td>bieżący etap; raport ≤4,1 h</td><td>średnia (~200–400 linii)</td><td>K8 raz; test „wznowiony = świeży”</td><td>22 GB</td></tr>
+<tr><td><b>(b) migawka po etapie</b> (backup API)</td><td class="pass">tak, także korupcja</td><td>jak (a) + czas kopii</td><td>(a) − idempotencja + ~100</td><td>strony 1:1; <code>VACUUM INTO</code> może zmienić rowid</td><td>+22 GB/stronę</td></tr>
+<tr><td><b>(c) plik per etap + ATTACH</b></td><td class="pass">tak</td><td>jak (a)</td><td>duża + ADR</td><td class="fail">łamie FK, logical_content, sha256</td><td>~22 GB</td></tr>
+<tr class="rec"><td><b>(d) build wewnątrz, przenieś</b> <span class="badge">zalecany</span></td><td class="pass">USB poza grą</td><td>0 od USB</td><td>~0</td><td>bez zmian</td><td>44 GB/parę z 193</td></tr>
+</table>
+<div style="font-size:12px;color:var(--dim)">* jeśli journal cofnie transakcję (pewność średnia)</div></div>
+
+<h2 id="swot">SWOT (stan obecny)</h2>
+<div class="grid2">
+<div class="card" style="border-left:4px solid var(--ok)"><b>Mocne</b><br>manifest z etapami; idempotentne <code>constructions</code>/<code>decisions</code>; kontrakty K niezależne od ścieżki</div>
+<div class="card" style="border-left:4px solid var(--crit)"><b>Słabe</b><br>brak ponownego użycia katalogu; <code>reports</code> tylko w całości; brak strażnika; <code>.gitignore</code> nie łapie symlinku</div>
+<div class="card" style="border-left:4px solid var(--info)"><b>Szanse</b><br>193 GB wewnątrz mieści parę; <code>resume_reports.py</code> jako wzór</div>
+<div class="card" style="border-left:4px solid var(--warn)"><b>Zagrożenia</b><br>T7 znika bez ostrzeżenia; USB może kłamać o <code>fsync</code>; Time Machine na tym samym dysku</div>
+</div>
+
+<h2 id="rekomendacja">Rekomendacja (kolejność)</h2>
+<div class="card wrap"><table>
+<tr><th>#</th><th>Krok</th><th>Priorytet</th><th>Nakład</th><th>Pewność</th></tr>
+<tr><td>1</td><td><code>.gitignore</code> bez ukośnika; <code>git check-ignore -v</code></td><td><span class="sev critical">wysoki</span></td><td>minuty</td><td><span class="badge c-high">wysoka</span></td></tr>
+<tr><td>2</td><td>Decyzja właściciela o pinach POP/POP00/TEMATY</td><td><span class="sev critical">wysoki</span></td><td>decyzja</td><td><span class="badge c-high">wysoka</span></td></tr>
+<tr><td>3</td><td>L3: build wewnątrz; <code>scripts/archive_run.sh</code> (kopia → sha256 → usunięcie źródła); v32-a do archiwum; sprawdzić Time Machine</td><td><span class="sev critical">wysoki</span></td><td>mały</td><td><span class="badge c-high">wysoka</span></td></tr>
+<tr><td>4</td><td>Strażnik montowania i miejsca; logi poza katalogiem na T7</td><td><span class="sev critical">wysoki</span></td><td>mały</td><td><span class="badge c-high">wysoka</span></td></tr>
+<tr><td>5</td><td>Znaczniki per raport, <code>unresolved</code> z pliku, <code>resume_reports.py</code> w <code>ro</code></td><td><span class="sev critical">wysoki</span></td><td>mały–średni</td><td><span class="badge c-high">wysoka</span></td></tr>
+<tr><td>6</td><td><code>build --resume</code> (a) + test „wznowiony = świeży”</td><td><span class="sev warning">średni</span></td><td>średni</td><td><span class="badge c-med">średnia</span></td></tr>
+<tr><td>7</td><td>Tylko przy budowie na T7: L1 + <code>fullfsync=ON</code> + migawka (b)</td><td><span class="sev info">niski</span></td><td>średni</td><td><span class="badge c-med">średnia</span></td></tr>
+<tr><td>8</td><td><code>caffeinate</code>, Spotlight off, bez TM w trakcie, port/kabel, firmware</td><td><span class="sev info">niski</span></td><td>minuty</td><td><span class="badge c-low">niska–średnia</span></td></tr>
+</table>
+<p style="font-size:13px">Nie robić: ATTACH (c) bez ADR; ręcznej migracji ścieżek w manifeście; <code>mkdir -p</code> od <code>/Volumes</code>; buildu przez <code>sudo</code>. CI tylko self-hosted na Macu.</p></div>
+
+<h2 id="zrodla">Źródła i luki</h2>
+<details class="card"><summary>Pliki ustaleń i źródła zewnętrzne</summary>
+<ul>
+<li><code>analysis/findings/codebase-build-stages.md</code>, <code>codebase-paths-inventory.md</code>, <code>external-sqlite-macos.md</code>; <code>analysis/synthesis.md</code></li>
+<li>SQLite: atomiccommit, howtocorrupt, rescode, pragma, wal, lang_attach, lang_vacuum, backup (sqlite.org)</li>
+<li>Apple: <code>man 2 fsync</code>; Python: <code>os.replace</code>, <code>os.path.ismount</code>; TidBITS (sobowtóry <code>/Volumes</code>); wątki Apple i Samsung (T7)</li>
+</ul></details>
+<details class="card"><summary>Luki</summary>
+<ul><li>Normalny czas <code>decisions</code>; czasy etapów v27–v31</li><li>Czasy <code>quick_check</code>, kopii i backup API dla 21 GB na T7</li><li>Komunikat R3 tylko wywnioskowany</li><li>Przyczyna zniknięć T7</li><li>Time Machine a <code>data/work</code></li></ul></details>
+</main>
+</body>
+</html>

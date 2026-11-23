@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warianty rozwiązania — dysk roboczy i wznawianie</title>
+<style>
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+details > summary { cursor:pointer; font-weight:600; }
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+.c-high { background:var(--ok-soft); color:var(--ok); }
+.c-med { background:var(--warn-soft); color:var(--warn); }
+.c-low { background:var(--crit-soft); color:var(--crit); }
+.tldr { border-left:4px solid var(--accent); }
+.rec { border:2px solid var(--accent); }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media (max-width:700px) { .grid2 { grid-template-columns:1fr; } table { font-size:12.5px; } }
+.wrap { overflow-x:auto; }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
+.alt { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:12px 14px; }
+.alt.rec { border:2px solid var(--accent); }
+.alt h3 { font-size:14px; margin:0 0 6px; }
+.alt ul { margin:4px 0; padding-left:18px; } .alt p { margin:4px 0; }
+.rej { opacity:.75; }
+.tldr p { margin:6px 0; }
+td.W { color:var(--ok); font-weight:600; } td.N { color:var(--crit); font-weight:600; } td.S { color:var(--warn); font-weight:600; }
+tr.rec td:first-child { font-weight:700; color:var(--accent); }
+</style>
+</head>
+<body>
+<nav class="crumbs"><a href="../dashboard.html">← Dashboard</a> <a href="research-report.html">Raport</a> <span class="here">Warianty</span> <a href="solution-exploration.md" target="_blank" rel="noopener" class="md">md twin ↗</a></nav>
+<header><h1>Warianty rozwiązania: build na T7 i wznawianie po zniknięciu dysku</h1>
+<span class="badge">solution exploration</span> <span style="color:var(--dim);font-size:12px">2026-11-23</span></header>
+<div class="tiles">
+<div class="tile"><b>5</b><span>obszarów</span></div>
+<div class="tile"><b>17</b><span>wariantów</span></div>
+<div class="tile"><b>1A·2B·3B·4B</b><span>zalecane</span></div>
+<div class="tile"><b>≤4,1 h</b><span>najgorsza strata</span></div>
+<div class="tile"><b>średnia–wysoka</b><span>pewność</span></div>
+</div>
+<section class="tldr card">
+<h2 style="margin-top:0">TL;DR</h2>
+<p>Właściciel chce buildu na T7, więc zniknięcia dysku nie da się uniknąć. Trzeba je przeżyć.</p>
+<p>Rekomendacja: symlink <code>data/work</code> na T7 i strażnik montowania w kodzie (<code>ismount</code>, znacznik na wolumenie, <code>st_dev</code>). Do tego <code>build --resume</code> per etap ze znacznikami per raport oraz nadzorca, który czeka na powrót dysku i sam wznawia build.</p>
+<p>Na trwałość: <code>fullfsync=ON</code> (najpierw zmierzyć koszt) i <code>quick_check</code> po każdym wznowieniu. Powtarzalność pilnuje test „wznowiony = świeży” i historia wznowień w manifeście.</p>
+<p>Odrzucone: praca lokalna z przenoszeniem etapu (to build na dysku wewnętrznym pod inną nazwą), ATTACH oraz migawki po etapach (na razie).</p>
+<h2>Key Decisions</h2><ul>
+<li><b>1A</b> symlink <code>data/work</code> → <code>/Volumes/Data/literaki-slownik/work</code>; <code>.gitignore</code> bez ukośnika.</li>
+<li><b>G1+G2+G3</b> w kodzie buildu, nie tylko w skrypcie; UUID tylko na wolumenie.</li>
+<li><b>2B</b> etap w tej samej bazie + znacznik per raport; 2C odłożone.</li>
+<li><b>3B</b> nadzorca z automatycznym <code>--resume</code> (na 3A); jedyne znane zniknięcie było o 02:32, w nocy.</li>
+<li><b>4B</b> <code>fullfsync=ON</code>, jeśli pomiar da ≤ ~5% czasu; inaczej <b>4C</b>. Zawsze <code>quick_check</code> po wznowieniu.</li>
+<li><b>5A+5B</b> test przerwania i wznowienia + historia w manifeście; <code>verify</code> bez zmian kontraktu.</li></ul>
+<h2>Open Questions / Risks</h2><ul>
+<li><span class="sev warning">warning</span>Koszt <code>fullfsync</code> na T7 nie jest zmierzony (wybór 4B/4C).</li>
+<li><span class="sev warning">warning</span>Częstość zniknięć znamy z 1 zdarzenia w 7 dniach (~7% na 13-h build, niska pewność).</li>
+<li><span class="sev warning">warning</span>Zniknięcie przerywa obie strony A/B naraz, w tym samym etapie; para nie złapie wtedy wspólnego błędu wznowienia.</li>
+<li><span class="sev info">info</span>Mostek USB może przestawiać zapisy; szkodę wykryje <code>quick_check</code> lub <code>verify</code> dopiero po fakcie (koszt: cały build).</li>
+<li><span class="sev info">info</span>Po obcięciu tabel importu bajty bazy różnią się od świeżej; K8 porównuje <code>logical_content</code> (potwierdzić w 5A).</li></ul>
+</section>
+<p style="font-size:13px">Spis: <a href="#a1">Korzeń</a> · <a href="#a2">Granulacja</a> · <a href="#a3">Odzyskiwanie</a> · <a href="#a4">Trwałość</a> · <a href="#a5">Powtarzalność</a> · <a href="#matrix">Macierz</a> · <a href="#rec">Rekomendacja</a></p>
+<main>
+<div class="card"><b>How Might We</b><ol>
+<li>tak podpiąć T7, żeby kod, piny i runbooki działały bez zmian, a brak dysku dawał jasny błąd?</li>
+<li>ograniczyć stratę po przerwie do małej części buildu?</li>
+<li>wrócić do pracy po zniknięciu dysku bez czekania na człowieka?</li>
+<li>nie dopuścić, by baza po wznowieniu była cicho uszkodzona?</li>
+<li>udowodnić, że wznowiony przebieg daje ten sam wynik co świeży?</li></ol></div>
+<h2 id="a1">1. Korzeń roboczy i podpięcie</h2><div class="grid"><div class="alt rec"><h3>1A. Symlink <code>data/work</code> → T7 <span class=badge>zalecany</span></h3><p>Jeden symlink; piny, <code>build_pair.sh</code> i runbooki bez zmian; logi do <code>logs/</code> wewnątrz.</p><p><b>Za:</b> zero zmian ścieżek; K1–K10 bez zmian; journal w katalogu docelowym (<code>connect()</code> rozwiązuje ścieżkę).</p><p><b>Przeciw:</b> wymaga poprawki <code>.gitignore</code> (R1); wiszący symlink → mylący błąd (R3) bez strażnika.</p></div><div class="alt "><h3>1B. Korzeń z env/flagi</h3><p><code>LITERAKI_WORK_ROOT</code> składa <code>--run-dir</code>.</p><p><b>Za:</b> jawne miejsce buildu.</p><p><b>Przeciw:</b> piny nie podążą (nowy <code>manifest_sha256</code>); ~20 miejsc w docs; R2.</p></div><div class="alt "><h3>1C. Symlink per przebieg</h3><p><code>data/work</code> wewnątrz, katalog przebiegu na T7.</p><p><b>Za:</b> małe przebiegi zostają wewnątrz.</p><p><b>Przeciw:</b> więcej ruchomych części; punkt awarii per przebieg.</p></div><div class="alt rec"><h3>G. Strażnik G1+G2+G3 <span class=badge>zalecany</span></h3><p>G1 <code>ismount</code>; G2 znacznik <code>.literaki-work-volume</code> na T7 (UUID tylko na wolumenie); G3 <code>st_dev</code> przed etapem i <code>os.replace</code>. Nigdy <code>mkdir -p</code> od <code>/Volumes</code>; miejsce ≥ 2×22 GB.</p><p><b>Za:</b> jasny błąd zamiast cichego zapisu; łapie <code>Data 1</code>.</p><p><b>Przeciw:</b> przy <code>--resume</code> <code>st_dev</code> się zmienia, więc liczy się G2.</p></div></div><h2 id="a2">2. Granulacja wznawiania</h2><div class="grid"><div class="alt "><h3>2A. Etap w tej samej bazie</h3><p><code>build --resume</code>: istniejący katalog, <code>running</code>→<code>failed</code>, obcięcie <code>import_*</code>, <code>DROP IF EXISTS</code> w <code>links</code>, czasy etapów w manifeście, atomowe <code>write_lists</code>.</p><p><b>Za:</b> połowa pracy już idempotentna; chroni też przed restartem/kill.</p><p><b>Przeciw:</b> przerwa w <code>reports</code> = do 8,5 h.</p></div><div class="alt rec"><h3>2B. 2A + znacznik per raport <span class=badge>zalecany</span></h3><p><code>reports/.done/&lt;raport&gt;.json</code> z sha256; <code>unresolved</code> z pliku.</p><p><b>Za:</b> <code>reports</code> = 65% czasu; strata ≤ 4,1 h.</p><p><b>Przeciw:</b> wynik z pliku musi równać się wynikowi w pamięci.</p></div><div class="alt "><h3>2C. Cięcie od środka</h3><p><code>import_kwjp</code> od ostatniego <code>row_number</code>; <code>unresolved</code> w częściach.</p><p><b>Za:</b> strata do minut.</p><p><b>Przeciw:</b> ryzyko dla <code>logical_content</code>; zysk oczekiwany ~0,1–0,2 h/build.</p></div></div><h2 id="a3">3. Odzyskiwanie po zniknięciu dysku</h2><div class="grid"><div class="alt "><h3>3A. Fail fast + ręczne <code>--resume</code></h3><p><code>ROLLBACK</code>, zamknięcie, kod wyjścia „utrata dysku”, log wewnątrz.</p><p><b>Za:</b> najprostsze.</p><p><b>Przeciw:</b> strata + czas do zauważenia (zniknięcie o 02:32).</p></div><div class="alt rec"><h3>3B. Nadzorca z automatycznym <code>--resume</code> <span class=badge>zalecany</span></h3><p>Czeka na G1+G2 (limit ~30 min), nowy proces <code>build --resume</code>, limit prób, tylko dla kodu „utrata dysku”, pod <code>caffeinate -dimsu</code>.</p><p><b>Za:</b> brak nocnej straty; nie dotyka plików.</p><p><b>Przeciw:</b> trzeba rozróżnić kody wyjścia; przestaje przy uszkodzeniu.</p></div><div class="alt "><h3>3C. Migawka po długim etapie</h3><p>Backup API po <code>import_kwjp</code> i <code>decisions</code>, <code>F_FULLFSYNC</code>, <code>os.replace</code>, znacznik.</p><p><b>Za:</b> chroni przed korupcją.</p><p><b>Przeciw:</b> +22 GB/stronę; czas kopii niezmierzony.</p></div><div class="alt rej"><h3>3D. Etap lokalnie, baza na T7</h3><p>Kopia bazy wewnątrz na czas etapu.</p><p><b>Za:</b> T7 nie bierze udziału w etapie.</p><p><b>Przeciw:</b> 2 kopie 22 GB na etap; to build wewnątrz, odrzucony przez właściciela.</p></div></div><h2 id="a4">4. Trwałość na USB</h2><div class="grid"><div class="alt "><h3>4A. Bez zmian</h3><p><code>synchronous=FULL</code>, <code>fullfsync=off</code>.</p><p><b>Za:</b> zero kosztu.</p><p><b>Przeciw:</b> manifest może powiedzieć <code>complete</code> przed trwałymi danymi.</p></div><div class="alt rec"><h3>4B. <code>fullfsync=ON</code> cały build <span class=badge>zalecany</span></h3><p>Plus <code>F_FULLFSYNC</code> i fsync katalogu w <code>write_json</code>.</p><p><b>Za:</b> najlepsza ochrona kolejności zapisów.</p><p><b>Przeciw:</b> koszt niezmierzony; USB może nie honorować.</p></div><div class="alt "><h3>4C. <code>fullfsync</code> na granicach etapów</h3><p>Tylko końcowy commit etapu i manifest.</p><p><b>Za:</b> prawie zero kosztu; trwałe dane przed <code>complete</code>.</p><p><b>Przeciw:</b> przestawione zapisy w środku etapu mogą uszkodzić strony wcześniejszych etapów.</p></div></div><h2 id="a5">5. Strażnik powtarzalności</h2><div class="grid"><div class="alt "><h3>5A. Test „wznowiony = świeży”</h3><p>Mały zestaw; przerwa na granicach i w środku etapów; porównanie <code>logical_content</code>, <code>canonical-index</code>, <code>lists</code>.</p><p><b>Za:</b> łapie błąd, którego para A/B nie złapie przy wspólnym wznowieniu.</p><p><b>Przeciw:</b> mała skala.</p></div><div class="alt rec"><h3>5B. 5A + historia wznowień <span class=badge>zalecany</span></h3><p><code>stages.*.attempts[]</code>, <code>resumed</code>; <code>verify</code> liczy K1–K10 normalnie i wypisuje historię.</p><p><b>Za:</b> przejrzystość bez zmiany kontraktu K.</p><p><b>Przeciw:</b> sprawdzić wpływ na <code>manifest_core_sha256</code>.</p></div><div class="alt "><h3>5C. Reguła w <code>verify</code>: świeży partner</h3><p>K8 tylko przy co najmniej jednej stronie bez wznowienia.</p><p><b>Za:</b> twarda gwarancja w pełnej skali.</p><p><b>Przeciw:</b> wymusza 13 h przebudowy; zmiana kontraktu (ADR).</p></div></div>
+<h2 id="matrix">Macierz kompromisów</h2>
+<div class="card"><p style="font-size:12px;color:var(--dim)">W = dobrze, Ś = średnio, N = źle. Przy „Ryzyku” W oznacza niskie ryzyko.</p>
+<table><tr><th>Wariant</th><th>Wykonalność</th><th>Wpływ na operatora</th><th>Prostota</th><th>Ryzyko</th><th>Skalowalność</th></tr><tr class=""><td>1A symlink</td><td class="W">W</td><td class="W">W</td><td class="W">W</td><td class="S">Ś</td><td class="S">Ś</td></tr><tr class=""><td>1B env/flaga</td><td class="S">Ś</td><td class="N">N</td><td class="S">Ś</td><td class="N">N</td><td class="W">W</td></tr><tr class=""><td>1C per przebieg</td><td class="S">Ś</td><td class="S">Ś</td><td class="N">N</td><td class="S">Ś</td><td class="W">W</td></tr><tr class=""><td>G1+G2+G3</td><td class="W">W</td><td class="W">W</td><td class="S">Ś</td><td class="W">W</td><td class="W">W</td></tr><tr class=""><td>2A etap</td><td class="W">W</td><td class="S">Ś</td><td class="S">Ś</td><td class="S">Ś</td><td class="S">Ś</td></tr><tr class="rec"><td>2B + raporty</td><td class="W">W</td><td class="W">W</td><td class="S">Ś</td><td class="S">Ś</td><td class="W">W</td></tr><tr class=""><td>2C od środka</td><td class="N">N</td><td class="W">W</td><td class="N">N</td><td class="N">N</td><td class="W">W</td></tr><tr class=""><td>3A ręcznie</td><td class="W">W</td><td class="N">N</td><td class="W">W</td><td class="W">W</td><td class="S">Ś</td></tr><tr class="rec"><td>3B nadzorca</td><td class="W">W</td><td class="W">W</td><td class="S">Ś</td><td class="S">Ś</td><td class="W">W</td></tr><tr class=""><td>3C migawka</td><td class="S">Ś</td><td class="S">Ś</td><td class="S">Ś</td><td class="W">W</td><td class="N">N</td></tr><tr class=""><td>3D lokalnie</td><td class="N">N</td><td class="N">N</td><td class="N">N</td><td class="S">Ś</td><td class="N">N</td></tr><tr class=""><td>4A bez zmian</td><td class="W">W</td><td class="W">W</td><td class="W">W</td><td class="N">N</td><td class="W">W</td></tr><tr class="rec"><td>4B fullfsync</td><td class="W">W</td><td class="S">Ś</td><td class="W">W</td><td class="W">W</td><td class="S">Ś</td></tr><tr class=""><td>4C granice</td><td class="W">W</td><td class="W">W</td><td class="S">Ś</td><td class="S">Ś</td><td class="W">W</td></tr><tr class=""><td>5A test</td><td class="W">W</td><td class="W">W</td><td class="W">W</td><td class="S">Ś</td><td class="W">W</td></tr><tr class="rec"><td>5B + historia</td><td class="W">W</td><td class="W">W</td><td class="S">Ś</td><td class="W">W</td><td class="W">W</td></tr><tr class=""><td>5C reguła</td><td class="S">Ś</td><td class="N">N</td><td class="N">N</td><td class="W">W</td><td class="N">N</td></tr></table></div>
+<h2>Preferencje</h2>
+<div class="card">Właściciel: <b>„Chcę build na T7”</b>. Duże pliki leżą na T7, a praca ma przetrwać zniknięcie dysku bez zaczynania od zera; to wyklucza L3/(d) z raportu i 3D. Stałe: bez zmian polityki słownika, bez CI na runnerach GitHuba, repo publiczne (UUID i prywatne ścieżki poza kodem).</div>
+<h2 id="rec">Rekomendacja</h2>
+<div class="card" style="border:2px solid var(--accent)">
+<p><b>1A + G1/G2/G3 → 2B → 3B (na 3A) → 4B lub 4C po pomiarze + <code>quick_check</code> → 5A+5B.</b></p>
+<ul>
+<li>Symlink nie zmienia ani jednej ścieżki w kodzie, pinach i runbookach.</li>
+<li>Strażnik zamienia każdy przypadek „brak dysku” w jasny błąd z kodem wyjścia, który rozpoznaje nadzorca.</li>
+<li>Wznawianie per etap ze znacznikami raportów ogranicza stratę do bieżącego etapu albo raportu: ≤2,4 h w imporcie, ≤4,1 h w <code>unresolved</code>, zwykle mniej.</li>
+<li>Nadzorca usuwa czas oczekiwania na człowieka, który w nocy byłby największą stratą.</li>
+<li>Test i historia wznowień pilnują, że wznowienie nie zmienia wyniku.</li></ul>
+<p><b>Kolejność:</b></p><ol>
+<li><code>.gitignore</code> (<code>/data/work</code>, <code>/cache</code> bez ukośnika), symlink, logi do <code>logs/</code> wewnątrz, znacznik na T7.</li>
+<li>Strażnik G1–G3 w <code>run.py</code>/<code>build.py</code> i w <code>build_pair.sh</code>, sprawdzenie miejsca.</li>
+<li><code>build --resume</code> (2A) z kodem wyjścia „utrata dysku” i obsługą <code>ROLLBACK</code>/zamknięcia.</li>
+<li>Znaczniki per raport (2B), <code>unresolved</code> z pliku, <code>resume_reports.py</code> w trybie <code>ro</code> albo zastąpiony przez <code>--resume</code>.</li>
+<li>Pomiar <code>fullfsync</code> na T7, potem 4B albo 4C; <code>F_FULLFSYNC</code> i fsync katalogu w <code>write_json</code>; <code>quick_check</code> po wznowieniu.</li>
+<li>Nadzorca (3B) pod <code>caffeinate -dimsu</code>.</li>
+<li>Test 5A i historia 5B; dopiero potem pierwsza para A/B na T7.</li></ol>
+<p><b>Zaakceptowane koszty:</b> przerwa w środku etapu kosztuje cały etap; nie mamy migawki na wypadek uszkodzenia, więc kosztem jest wtedy build od zera; jedna nowa tożsamość kodu (K8), zmieniona raz.</p>
+<p><b>Założenia (jeśli są fałszywe, rekomendacja się zmienia):</b></p><ul>
+<li>Zniknięcia są rzadkie (~1 na tydzień). Jeśli są częstsze, wraca 2C dla <code>import_kwjp</code> i <code>unresolved</code>.</li>
+<li>Hot journal zwykle cofa transakcję na T7. Jeśli <code>quick_check</code> pokaże uszkodzenia, wraca 3C.</li>
+<li>Koszt <code>fullfsync</code> jest akceptowalny albo wystarcza 4C.</li>
+<li>Obcięcie tabel importu daje ten sam <code>logical_content</code>. Jeśli 5A pokaże różnicę, import trzeba wznawiać przez <code>insert or ignore</code> albo usuwać plik bazy i zaczynać od <code>preflight</code> (strata ~2,7 h).</li></ul>
+<p><b>Pewność:</b> średnia–wysoka co do kształtu, średnia co do zachowania T7 (fsync, kolejność zapisów).</p></div>
+<details class="card"><summary>Dlaczego nie inne</summary><ul>
+<li><b>1B env/flaga:</b> nie daje nic ponad symlink, a psuje piny, <code>manifest_sha256</code> i ~20 miejsc w dokumentacji.</li>
+<li><b>1C symlink per przebieg:</b> więcej ruchomych części bez potrzeby, bo właściciel chce cały build na T7.</li>
+<li><b>2A bez znaczników raportów:</b> zostawia stratę 8,5 h w etapie, który zajmuje 65% czasu.</li>
+<li><b>2C cięcie od środka:</b> wysokie ryzyko dla <code>logical_content</code> (<code>unresolved</code>) przy małym oczekiwanym zysku. Wraca, jeśli zniknięcia będą częste.</li>
+<li><b>3A samo ręczne wznawianie:</b> w nocy strata rośnie o godziny oczekiwania. Zostaje jako tryb bazowy pod nadzorcą.</li>
+<li><b>3C migawki:</b> +22 GB na stronę i niezmierzony czas kopii na T7 przeciw ryzyku, którego jeszcze nie zaobserwowano. <code>verify</code> i tak wykryje uszkodzenie.</li>
+<li><b>3D lokalnie + przenieś:</b> to build na dysku wewnętrznym, który właściciel odrzucił, plus 2 kopie 22 GB na etap.</li>
+<li><b>4A bez zmian:</b> dopuszcza <code>complete</code> w manifeście przed trwałymi danymi, a to wprost psuje wznawianie.</li>
+<li><b>5C reguła w <code>verify</code>:</b> zniknięcie dysku przerywa obie strony naraz, więc reguła wymusza przebudowę, której chcemy uniknąć. Zmienia też kontrakt.</li>
+<li><b>ATTACH per etap, WAL:</b> odrzucone w badaniu. ATTACH łamie FK, <code>logical_content_report</code> i <code>database_sha256</code>, a WAL odbiera ATTACH atomowość i niczego tu nie daje.</li></ul></details>
+<details class="card"><summary>Odłożone pomysły</summary><ul>
+<li><b>Przesunięcie stron A/B w czasie</b> (start B po zakończeniu importów A), żeby jedno zniknięcie nie trafiało obu stron w tym samym etapie. Stretch: wzmacnia parę jako strażnika, ale wydłuża build.</li>
+<li><b>Usunięcie przyczyny zniknięć T7:</b> firmware FXI72P2Q, kabel, port, zasilanie, Spotlight wyłączony dla wolumenu, Time Machine poza oknem buildu. Poza zakresem kodu, do decyzji operatora.</li>
+<li><b>Migawka (3C) jako opcja <code>--checkpoint</code>,</b> gdy pojawi się pierwsze uszkodzenie. Stretch.</li>
+<li><b>Piny POP/POP00/TEMATY na usunięty v31:</b> decyzja właściciela z raportu. Poza zakresem.</li>
+<li><b>ATTACH / plik per etap:</b> tylko z osobnym ADR. Poza zakresem.</li>
+<li><b><code>diskutil verifyVolume</code></b> dla śladu <code>.DocumentRevisions-V100-bad-1</code>: tylko na prośbę operatora. Poza zakresem.</li></ul></details>
+</main></body></html>

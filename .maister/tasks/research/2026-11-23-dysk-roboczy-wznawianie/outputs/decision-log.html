@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rejestr decyzji: build na T7 i wznawianie — dysk roboczy i wznawianie</title>
+<style>
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+details > summary { cursor:pointer; font-weight:600; }
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+.c-high { background:var(--ok-soft); color:var(--ok); }
+.c-med { background:var(--warn-soft); color:var(--warn); }
+.c-low { background:var(--crit-soft); color:var(--crit); }
+.tldr { border-left:4px solid var(--accent); }
+.rec { border:2px solid var(--accent); }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media (max-width:700px) { .grid2 { grid-template-columns:1fr; } table { font-size:12.5px; } }
+.wrap { overflow-x:auto; }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
+.alt { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:12px 14px; }
+.alt.rec { border:2px solid var(--accent); }
+.alt h3 { font-size:14px; margin:0 0 6px; }
+.alt ul { margin:4px 0; padding-left:18px; } .alt p { margin:4px 0; }
+.rej { opacity:.75; }
+.tldr p { margin:6px 0; }
+td.W { color:var(--ok); font-weight:600; } td.N { color:var(--crit); font-weight:600; } td.S { color:var(--warn); font-weight:600; }
+tr.rec td:first-child { font-weight:700; color:var(--accent); }
+
+pre{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;overflow-x:auto;font-size:12px}
+.adr{border-left:4px solid var(--ok)}
+</style>
+</head>
+<body>
+<nav class="crumbs"><a href="../dashboard.html">← Dashboard</a> <a href="research-report.html">Raport</a> <a href="solution-exploration.html">Warianty</a> <a href="high-level-design.html">Projekt</a> <span class="here">Decyzje</span> <a href="decision-log.md" target="_blank" rel="noopener" class="md">md twin ↗</a></nav>
+<header><h1>Rejestr decyzji: build na T7 i wznawianie</h1><span class="badge">decision log</span> <span style="color:var(--dim);font-size:12px">2026-11-23</span></header>
+<div class="tiles"><div class="tile"><b>8</b><span>ADR</span></div><div class="tile"><b>8</b><span>accepted</span></div><div class="tile"><b>0</b><span>superseded</span></div><div class="tile"><b>1</b><span>do pomiaru</span></div></div>
+<main>
+<p>Projekt: <a href="high-level-design.md" target="_blank" rel="noopener">high-level-design.md</a> · Warianty: <a href="solution-exploration.md" target="_blank" rel="noopener">solution-exploration.md</a> · Data: 2026-11-23</p>
+<section class="card tldr"><h2>TL;DR</h2>
+<p>8 decyzji, wszystkie przyjęte. Wybór 4B/4C w ADR-007 zapadnie po pomiarze. Najważniejsze: wznawianie per etap w tej samej bazie (ADR-003) i znaczniki per raport (ADR-004). Razem ograniczają stratę do bieżącego etapu albo raportu. Kod wyjścia 75 (ADR-005) to jedyny sygnał, po którym nadzorca ponawia pracę (ADR-006). Historia prób jest objęta pieczęcią, ale nie wchodzi do K8 (ADR-008).</p>
+</section>
+<section class="card tldr"><h2>Key Decisions</h2>
+<ul>
+<li>ADR-001: symlink <code>data/work</code> na T7 (1A).</li>
+<li>ADR-002: strażnik G1+G2+G3; UUID tylko na wolumenie.</li>
+<li>ADR-003: <code>build --resume</code> per etap (2A).</li>
+<li>ADR-004: znaczniki per raport (2B).</li>
+<li>ADR-005: kody wyjścia 75–78.</li>
+<li>ADR-006: nadzorca (3B na 3A).</li>
+<li>ADR-007: <code>fullfsync</code> według pomiaru (4B/4C), <code>quick_check</code>.</li>
+<li>ADR-008: historia prób w manifeście i test „wznowiony = świeży” (5B).</li>
+</ul>
+</section>
+<section class="card tldr"><h2>Open Questions / Risks</h2>
+<ul>
+<li>ADR-007: brak pomiaru kosztu <code>fullfsync</code> i czasu <code>quick_check</code> na T7.</li>
+<li>ADR-003: równość <code>logical_content</code> po odbudowie tabel importu potwierdzi dopiero test.</li>
+<li>ADR-008: brzmienie decyzji 5B mówi „poza zapieczętowanym rdzeniem”. Projekt kładzie historię <b>w</b> rdzeniu pieczęci, a poza K8. Uzasadnienie jest niżej. Jeśli właściciel miał na myśli co innego, trzeba to potwierdzić.</li>
+</ul>
+</section>
+<section class="card adr" id="adr-001"><h2>ADR-001: Symlink <code>data/work</code> na wolumen roboczy T7 <span class="badge">accepted</span></h2>
+<h4>Status</h4>
+<p>Accepted</p>
+<h4>Context</h4>
+<p>Właściciel chce buildu na T7. Kod bierze <code>--run-dir</code>, a <code>build_pair.sh</code>, piny w 4 konfiguracjach i ~20 miejsc w runbookach używają <code>data/work/...</code>. K1–K10 porównują hashe, nie ścieżki. <code>.gitignore</code> z <code>/data/work/</code> nie łapie symlinku, więc symlink z prywatną ścieżką trafiłby do publicznego repo. Logi <code>.out.json</code>/<code>.err</code> leżą obok przebiegu i zginęłyby razem z dyskiem.</p>
+<h4>Decision Drivers</h4>
+<ul>
+<li>Bez zmian w ścieżkach, pinach i runbookach.</li>
+<li>Bez wycieku prywatnej ścieżki do publicznego repo.</li>
+<li>Logi muszą przetrwać zniknięcie T7.</li>
+</ul>
+<h4>Considered Options</h4>
+<ol>
+<li>1A: symlink <code>data/work</code> → wolumen roboczy na T7.</li>
+<li>1B: korzeń z env/flagi (<code>LITERAKI_WORK_ROOT</code>).</li>
+<li>1C: symlink per przebieg.</li>
+</ol>
+<h4>Decision Outcome</h4>
+<p>Wybrana opcja 1A, bo nie zmienia ani jednej ścieżki w kodzie i konfiguracji. Do tego <code>.gitignore</code> dostaje wpisy <code>/data/work</code>, <code>/cache</code> i <code>/logs</code> bez ukośnika, a <code>build_pair.sh</code> pisze logi do <code>logs/</code> na dysku wewnętrznym.</p>
+<h4>Consequences</h4>
+<h5>Good</h5>
+<ul>
+<li>Piny <code>../../data/work</code> i runbooki działają bez zmian.</li>
+<li>K1–K10 i <code>manifest_sha256</code> bez zmian.</li>
+<li>Logi i log nadzorcy przetrwają zniknięcie dysku.</li>
+</ul>
+<h5>Bad</h5>
+<ul>
+<li>Wszystkie przebiegi idą na T7, także małe.</li>
+<li>Wiszący symlink daje mylący błąd, dopóki nie przechwyci go strażnik (ADR-002).</li>
+<li>Absolutne <code>resolved_path</code> w manifeście pokażą ścieżkę po <code>resolve()</code>. To bez wpływu na K, ale widać ją w metadanych.</li>
+</ul>
+</section>
+<section class="card adr" id="adr-002"><h2>ADR-002: Strażnik wolumenu G1+G2+G3 w kodzie buildu <span class="badge">accepted</span></h2>
+<h4>Status</h4>
+<p>Accepted</p>
+<h4>Context</h4>
+<p>Po ponownym montowaniu deskryptory są martwe. Wolumen może wrócić jako <code>Data 1</code>, a pod <code>/Volumes/Data</code> może pojawić się inny dysk albo pusty katalog (przy <code>sudo</code> lub resztce po innym programie). <code>create_run</code> robi dziś <code>mkdir(parents=True)</code>. Repo jest publiczne, więc UUID wolumenu nie może trafić do kodu ani konfiguracji.</p>
+<h4>Decision Drivers</h4>
+<ul>
+<li>Każdy brak dysku ma dawać głośny błąd z rozpoznawalnym kodem.</li>
+<li>Nic nie może się zapisać na dysk systemowy zamiast na T7.</li>
+<li>W repo nie może być żadnego identyfikatora sprzętu.</li>
+<li>Strażnik nie może przeszkadzać testom ani buildom na dysku wewnętrznym.</li>
+</ul>
+<h4>Considered Options</h4>
+<ol>
+<li>Tylko prawa <code>/Volumes</code> (root:wheel 755).</li>
+<li>Strażnik tylko w <code>build_pair.sh</code>.</li>
+<li>G1+G2+G3 w kodzie buildu.</li>
+</ol>
+<h4>Decision Outcome</h4>
+<p>Wybrana opcja 3, bo tylko kod buildu widzi każdy etap i każde <code>os.replace</code>.</p>
+<ul>
+<li>G1: punkt montowania ścieżki po <code>resolve()</code> przechodzi <code>ismount</code>.</li>
+<li>G2: znacznik <code>.literaki-work-volume</code> w korzeniu roboczym (UUID z <code>diskutil</code> i losowy <code>marker_id</code>) jest zakładany raz, przez <code>scripts/init_work_volume.py</code>. Manifest przebiegu zapisuje tylko <code>marker_id</code>.</li>
+<li>G3: <code>st_dev</code> katalogu przebiegu zapamiętane w procesie i sprawdzane przed etapem i przed <code>os.replace</code>. Przy <code>--resume</code> liczy się G2, bo <code>st_dev</code> zmienia się po ponownym montowaniu.</li>
+<li>Ścieżka na systemie plików <code>/</code> bez znacznika: strażnik przepuszcza (testy, buildy wewnątrz). Wolumen zewnętrzny bez znacznika: kod 76.</li>
+<li><code>create_run</code> tworzy tylko ostatni poziom. Wolne miejsce: ≥50 GB na stronę przy starcie. Build nigdy nie działa przez <code>sudo</code>.</li>
+</ul>
+<h4>Consequences</h4>
+<h5>Good</h5>
+<ul>
+<li>Strażnik łapie <code>Data 1</code>, podmianę dysku, pusty katalog i wiszący symlink.</li>
+<li>UUID zostaje na wolumenie. W manifeście jest tylko losowy <code>marker_id</code>.</li>
+<li>Testy hermetyczne działają bez zmian, bo <code>tmp</code> leży na <code>/</code>.</li>
+</ul>
+<h5>Bad</h5>
+<ul>
+<li>Operator musi raz założyć znacznik.</li>
+<li>Znacznik jest jeszcze jednym plikiem, który można przypadkiem usunąć. Wtedy kod 76 i ręczna decyzja.</li>
+</ul>
+</section>
+<section class="card adr" id="adr-003"><h2>ADR-003: <code>build --resume</code> per etap w tej samej bazie <span class="badge">accepted</span></h2>
+<h4>Status</h4>
+<p>Accepted</p>
+<h4>Context</h4>
+<p>Dziś <code>create_run</code> odmawia istniejącego katalogu, a wznawia się tylko całe <code>reports</code> (<code>scripts/resume_reports.py</code>). <code>constructions</code> i <code>decisions</code> są idempotentne (<code>insert or ignore</code>). <code>import_*</code> (zwykły INSERT przy PK) i <code>links</code> (<code>create table</code>) nie są. Status po awarii zostaje <code>running</code>. ATTACH per etap łamie FK, <code>logical_content_report</code> i <code>database_sha256</code>.</p>
+<h4>Decision Drivers</h4>
+<ul>
+<li>Strata ograniczona do bieżącego etapu.</li>
+<li>Bez zmiany kontraktu pieczęci i K1–K10.</li>
+<li>Jak najwięcej z istniejącej idempotencji.</li>
+</ul>
+<h4>Considered Options</h4>
+<ol>
+<li>2A: etap w tej samej bazie.</li>
+<li>2C: cięcie długich etapów od środka.</li>
+<li>Plik per etap + ATTACH.</li>
+<li>Migawka po etapie (3C).</li>
+</ol>
+<h4>Decision Outcome</h4>
+<p>Wybrana opcja 2A, bo połowa etapów jest już idempotentna, a pozostałe da się odbudować prostym <code>DELETE</code> albo <code>DROP IF EXISTS</code>.</p>
+<ul>
+<li><code>--resume</code> wymaga tego samego <code>tree_sha256</code>, czystego kodu i tego samego <code>manifest_sha256</code>. Przebieg nie może być <code>VERIFIED</code>/<code>FROZEN</code>.</li>
+<li>Przy starcie <code>running</code> zmienia się w <code>failed</code>. Etapy <code>complete</code> są pomijane.</li>
+<li><code>import_*</code> czyści tabele etapu i wszystkich późniejszych (w odwrotnej kolejności FK) i importuje od nowa.</li>
+<li><code>links</code>: <code>DROP TABLE IF EXISTS</code> i etap od nowa.</li>
+<li><code>constructions</code> i <code>decisions</code> jadą dalej.</li>
+<li><code>write_lists</code> zapisuje atomowo.</li>
+<li>Plan awaryjny: jeśli test z ADR-008 pokaże różnicę po odbudowie importu, <code>--resume</code> z etapu importu zaczyna w nowym pliku bazy od <code>preflight</code>.</li>
+</ul>
+<h4>Consequences</h4>
+<h5>Good</h5>
+<ul>
+<li>Restart, kill i zniknięcie dysku kosztują bieżący etap (≤2,4 h import, ~25 min pozostałe znane).</li>
+<li>Bez zmian w FK, <code>logical_content_report</code> i pieczęci.</li>
+<li><code>resume_reports.py</code> staje się zbędny jako osobna logika.</li>
+</ul>
+<h5>Bad</h5>
+<ul>
+<li>Przerwa w środku etapu kosztuje cały etap.</li>
+<li>Po <code>DELETE</code> plik bazy ma inne bajty niż świeży (<code>database_sha256</code> się różni). K8 porównuje treść, więc to akceptowalne.</li>
+<li>Nowa ścieżka kodu w <code>build.py</code>. Jednorazowo zmienia się tożsamość kodu (K8).</li>
+</ul>
+</section>
+<section class="card adr" id="adr-004"><h2>ADR-004: Znaczniki per raport, <code>unresolved</code> z pliku <span class="badge">accepted</span></h2>
+<h4>Status</h4>
+<p>Accepted</p>
+<h4>Context</h4>
+<p><code>reports</code> to ~65% czasu buildu (8–8,5 h). Sam <code>unresolved</code> trwa 4,1 h. Jego wynik przechodzi w pamięci do <code>filter_impact</code>, <code>quality_*</code> i <code>coverage</code>. <code>canonical_index</code> ma jawną listę plików, więc nowe pliki w <code>reports/.done/</code> do niego nie wchodzą.</p>
+<h4>Decision Drivers</h4>
+<ul>
+<li>Największy zysk za godzinę pracy.</li>
+<li>Raport wczytany z pliku musi dać ten sam wynik co raport z pamięci.</li>
+</ul>
+<h4>Considered Options</h4>
+<ol>
+<li>Bez znaczników (całe <code>reports</code> od nowa).</li>
+<li>Znacznik per raport z hashem.</li>
+<li>Cięcie <code>unresolved</code> na części (2C).</li>
+</ol>
+<h4>Decision Outcome</h4>
+<p>Wybrana opcja 2, bo najgorsza strata w <code>reports</code> spada z 8,5 h do 4,1 h.</p>
+<ul>
+<li>Po atomowym zapisie raportu powstaje <code>reports/.done/&lt;raport&gt;.json</code> z polami <code>sha256</code>, <code>bytes</code>, <code>tree_sha256</code> i <code>manifest_sha256</code>.</li>
+<li>Przy wznowieniu raport ze zgodnym znacznikiem jest pomijany. Brak znacznika albo niezgodny hash oznacza, że raport liczy się od nowa.</li>
+<li><code>unresolved</code> wczytuje się z <code>reports/unresolved.json</code> (<code>load_json</code>). Test sprawdza, że raporty zależne dają te same bajty.</li>
+<li>Świeży build też pisze znaczniki, więc A i B mają ten sam układ plików.</li>
+</ul>
+<h4>Consequences</h4>
+<h5>Good</h5>
+<ul>
+<li>Restart po <code>unresolved</code> oszczędza ~4 h albo więcej.</li>
+<li>Wzorzec znany z Make i DVC, prosty do sprawdzenia.</li>
+</ul>
+<h5>Bad</h5>
+<ul>
+<li>Druga ścieżka danych dla <code>unresolved</code> (plik zamiast pamięci). Ryzyko różnic typów i kolejności łapie test.</li>
+<li>Wczytanie dużego JSON zwiększa szczyt pamięci przy wznowieniu.</li>
+</ul>
+</section>
+<section class="card adr" id="adr-005"><h2>ADR-005: Kontrakt kodów wyjścia 75–78 <span class="badge">accepted</span></h2>
+<h4>Status</h4>
+<p>Accepted</p>
+<h4>Context</h4>
+<p>Dziś każdy <code>OSError</code> i <code>sqlite3.Error</code> w buildzie kończy się kodem 4, tak jak błąd danych. Nadzorca musi odróżnić „dysk zniknął, warto czekać” od „błąd, ponawianie nic nie da”. Obecne kody to 0, 2, 3, 4, 5 i 130.</p>
+<h4>Decision Drivers</h4>
+<ul>
+<li>Jednoznaczny sygnał do ponowienia.</li>
+<li>Bez kolizji z obecnymi kodami i sensem <code>sysexits</code>.</li>
+</ul>
+<h4>Considered Options</h4>
+<ol>
+<li>Jeden kod błędu i parsowanie stderr w nadzorcy.</li>
+<li>Nowe kody: 75 utrata dysku, 76 zły wolumen, 77 <code>quick_check</code>, 78 brak miejsca.</li>
+</ol>
+<h4>Decision Outcome</h4>
+<p>Wybrana opcja 2, bo kod wyjścia to stabilny kontrakt, a tekst błędu nie.</p>
+<ul>
+<li>Po błędzie I/O klasyfikator robi <code>ROLLBACK</code> (porażka pomijana) i zamyka połączenie. Potem sprawdza strażnika ponownie. Strażnik nie przechodzi: kod 75. Przechodzi: kod 4.</li>
+<li>Próba zapisu <code>failed</code> może się nie udać i jest wtedy pomijana. <code>--resume</code> i tak zamieni <code>running</code> w <code>failed</code>.</li>
+<li>Kody i ich znaczenie trafiają do <code>docs/generator/cli.md</code>.</li>
+</ul>
+<h4>Consequences</h4>
+<h5>Good</h5>
+<ul>
+<li>Nadzorca ma prostą tabelę decyzji.</li>
+<li>Operator od razu widzi przyczynę.</li>
+</ul>
+<h5>Bad</h5>
+<ul>
+<li>Błąd I/O z innego powodu w chwili zniknięcia dysku zostanie uznany za utratę dysku. Limit prób (ADR-006) ogranicza skutek.</li>
+</ul>
+</section>
+<section class="card adr" id="adr-006"><h2>ADR-006: Nadzorca wznawia tylko po kodzie 75 <span class="badge">accepted</span></h2>
+<h4>Status</h4>
+<p>Accepted</p>
+<h4>Context</h4>
+<p>Jedyne znane zniknięcie było o 02:32. Bez nadzorcy strata obejmuje czas do chwili, gdy ktoś to zauważy. Nowy proces ma świeże deskryptory, a SQLite przy otwarciu cofa hot journal. Nadzorca nie może dotykać <code>-journal</code>.</p>
+<h4>Decision Drivers</h4>
+<ul>
+<li>Bez nocnej straty.</li>
+<li>Bez nieskończonego ponawiania błędu kodu.</li>
+<li>Bez uśpienia maszyny w trakcie buildu.</li>
+</ul>
+<h4>Considered Options</h4>
+<ol>
+<li>3A: tylko ręczne <code>build --resume</code>.</li>
+<li>3B: nadzorca na 3A.</li>
+<li>Pętla w <code>build_pair.sh</code> w sh.</li>
+</ol>
+<h4>Decision Outcome</h4>
+<p>Wybrana opcja 2, w postaci <code>scripts/build_supervised.py</code>, bo w Pythonie łatwo przetestować tabelę kodów i ponownie użyć strażnika.</p>
+<ul>
+<li>Jeden nadzorca na stronę. <code>build_pair.sh</code> uruchamia dwa pod <code>caffeinate -dimsu</code>.</li>
+<li>Po kodzie 75 nadzorca co 5 s sprawdza G1+G2, najdłużej 30 min. Potem uruchamia <code>build --resume</code>.</li>
+<li>Limit 3 wznowień. G1 bez G2 kończy się od razu kodem 76.</li>
+<li>Wszystkie inne kody kończą pracę bez ponowienia. Log nadzorcy trafia do <code>logs/</code>.</li>
+<li>Ręczne <code>--resume</code> (3A) zostaje jako tryb bazowy.</li>
+</ul>
+<h4>Consequences</h4>
+<h5>Good</h5>
+<ul>
+<li>Strata to bieżący etap lub raport, bez reakcji człowieka.</li>
+<li>Nadzorca nie zmienia plików przebiegu.</li>
+</ul>
+<h5>Bad</h5>
+<ul>
+<li>Kolejny ruchomy element do utrzymania.</li>
+<li>Przy częstych zniknięciach limit 3 prób może się wyczerpać. Wtedy kod 75 i decyzja człowieka.</li>
+</ul>
+</section>
+<section class="card adr" id="adr-007"><h2>ADR-007: <code>fullfsync</code> według pomiaru, <code>F_FULLFSYNC</code> w plikach, <code>quick_check</code> po wznowieniu <span class="badge">accepted</span></h2>
+<h4>Status</h4>
+<p>Accepted (wybór 4B/4C zapada po pomiarze z kroku 2)</p>
+<h4>Context</h4>
+<p>Na macOS <code>fsync</code> nie opróżnia cache dysku. <code>PRAGMA fullfsync</code> jest domyślnie wyłączone, a <code>write_json</code> robi tylko <code>fsync</code> pliku, bez fsync katalogu. Bez pełnego flushu manifest może zapisać <code>complete</code>, zanim dane etapu będą na nośniku, a <code>--resume</code> pominie wtedy etap z utraconymi danymi. Koszt <code>fullfsync</code> przy commitach co 10 000 wierszy na T7 nie jest znany.</p>
+<h4>Decision Drivers</h4>
+<ul>
+<li>Manifest nie może wyprzedzać danych.</li>
+<li>Koszt czasu ≤ ~5% buildu.</li>
+<li>Najpierw pomiar, bez pełnego buildu.</li>
+</ul>
+<h4>Considered Options</h4>
+<ol>
+<li>4A: bez zmian.</li>
+<li>4B: <code>fullfsync=ON</code> przez cały build.</li>
+<li>4C: <code>fullfsync</code> tylko na granicach etapów.</li>
+<li>WAL albo <code>synchronous&lt;FULL</code>.</li>
+</ol>
+<h4>Decision Outcome</h4>
+<p>Skrypt <code>scripts/measure_fullfsync.py</code> mierzy na T7 commity porcji z <code>fullfsync</code> OFF i ON oraz <code>write_json</code> z <code>F_FULLFSYNC</code>. Opcjonalnie mierzy też <code>quick_check</code> istniejącej bazy w trybie <code>ro</code>.</p>
+<ul>
+<li>Jeśli narzut przeliczony na liczbę commitów buildu wynosi ≤5%, wybieramy 4B. W przeciwnym razie 4C.</li>
+<li>Zawsze: <code>F_FULLFSYNC</code> i fsync katalogu w <code>write_json</code> i nowym <code>write_bytes</code>. <code>PRAGMA quick_check</code> po każdym <code>--resume</code>, a wynik inny niż <code>ok</code> daje kod 77.</li>
+<li>Nigdy WAL, <code>journal_mode=OFF/MEMORY</code> ani <code>synchronous&lt;FULL</code>.</li>
+</ul>
+<h4>Consequences</h4>
+<h5>Good</h5>
+<ul>
+<li>Kolejność „dane, potem manifest” jest zachowana, o ile mostek USB przekazuje flush.</li>
+<li>Decyzja oparta na liczbach.</li>
+</ul>
+<h5>Bad</h5>
+<ul>
+<li>4C nie chroni wspólnych stron B-drzewa przed przestawieniem zapisów w środku etapu.</li>
+<li>Brak gwarancji, że T7 honoruje flush. Ostatnią linią obrony są <code>quick_check</code> i <code>integrity_check</code> w <code>verify</code>.</li>
+<li>Czas <code>quick_check</code> dla 21 GB może dodać minuty do każdego wznowienia.</li>
+</ul>
+</section>
+<section class="card adr" id="adr-008"><h2>ADR-008: Historia prób w manifeście pod pieczęcią, poza K8; test „wznowiony = świeży” <span class="badge">accepted</span></h2>
+<h4>Status</h4>
+<p>Accepted</p>
+<h4>Context</h4>
+<p>Zniknięcie dysku przerywa A i B naraz, w tym samym etapie. Para nie złapie wtedy błędu wznowienia wspólnego dla obu stron. Dziś wznowienie widać tylko w work-logu. <code>manifest_core_sha256</code> obejmuje cały manifest poza <code>readiness</code>, <code>verification</code> i <code>export</code>, więc obejmuje też <code>stages</code>. K8 porównuje <code>tree_sha256</code>, <code>canonical-index</code> i <code>logical_content</code>, a nie manifest.</p>
+<h4>Decision Drivers</h4>
+<ul>
+<li>Dowód, że wznowienie nie zmienia wyniku.</li>
+<li>Pełna przejrzystość bez zmiany kontraktu K.</li>
+<li>Historii nie da się zmienić po <code>verify</code> bez śladu.</li>
+</ul>
+<h4>Considered Options</h4>
+<ol>
+<li>5A: tylko test.</li>
+<li>5B: test i historia w manifeście.</li>
+<li>5C: reguła w <code>verify</code> wymagająca świeżego partnera.</li>
+<li>Historia poza rdzeniem pieczęci (nowe pole w <code>SEAL_EXCLUDED</code>).</li>
+</ol>
+<h4>Decision Outcome</h4>
+<p>Wybrana opcja 5B, bo daje dowód i przejrzystość bez wymuszania przebudowy.</p>
+<ul>
+<li>Hermetyczny test przerywa build na każdej granicy etapu, w środku <code>import_kwjp</code>, <code>constructions</code> i <code>links</code> oraz między raportami. Potem wznawia i porównuje <code>logical_content_report</code>, <code>canonical-index</code> i <code>lists/*.txt</code> ze świeżym buildem.</li>
+<li>Manifest dostaje <code>stages.&lt;etap&gt;.attempts[]</code> (start, koniec, <code>outcome</code>, klasa przyczyny) i <code>resume: {resumed, count}</code>.</li>
+<li>Pola leżą <b>w</b> rdzeniu pieczęci: <code>SEAL_EXCLUDED</code> się nie zmienia, więc <code>verify</code> liczy <code>manifest_core_sha256</code> z historią, a <code>export</code> odmówi po każdej zmianie. Do <code>logical_content</code> i <code>canonical-index</code> historia nie wchodzi, więc K8 jej nie porównuje.</li>
+<li><code>verify</code> wypisuje historię. <code>export</code> przenosi do <code>release-manifest.json</code> skrót <code>build_history</code>: etapy, liczba prób i klasy przyczyn, bez komunikatów i ścieżek.</li>
+</ul>
+<p>Odchylenie od brzmienia 5B („poza zapieczętowanym rdzeniem”): wyłączenie historii z pieczęci pozwoliłoby ją zmienić po <code>verify</code>. Rdzeń pieczęci nie jest porównywany między A i B, więc objęcie go historią nie psuje pary.</p>
+<h4>Consequences</h4>
+<h5>Good</h5>
+<ul>
+<li>Wznowienie jest widoczne w <code>verify</code> i w wydaniu, a historia zamrożona razem z pieczęcią.</li>
+<li>K1–K10 bez zmian.</li>
+</ul>
+<h5>Bad</h5>
+<ul>
+<li>Mały zestaw testowy nie pokaże efektów skali.</li>
+<li>Dopóki test nie przechodzi, wznowiona para nie powinna iść do wydania.</li>
+</ul>
+</section>
+</main>
+</body>
+</html>

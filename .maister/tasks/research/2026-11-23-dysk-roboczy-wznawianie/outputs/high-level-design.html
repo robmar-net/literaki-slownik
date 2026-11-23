@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projekt: build na T7 z wznawianiem po zniknięciu dysku — dysk roboczy i wznawianie</title>
+<style>
+:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+details > summary { cursor:pointer; font-weight:600; }
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+.c-high { background:var(--ok-soft); color:var(--ok); }
+.c-med { background:var(--warn-soft); color:var(--warn); }
+.c-low { background:var(--crit-soft); color:var(--crit); }
+.tldr { border-left:4px solid var(--accent); }
+.rec { border:2px solid var(--accent); }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media (max-width:700px) { .grid2 { grid-template-columns:1fr; } table { font-size:12.5px; } }
+.wrap { overflow-x:auto; }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
+.alt { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:12px 14px; }
+.alt.rec { border:2px solid var(--accent); }
+.alt h3 { font-size:14px; margin:0 0 6px; }
+.alt ul { margin:4px 0; padding-left:18px; } .alt p { margin:4px 0; }
+.rej { opacity:.75; }
+.tldr p { margin:6px 0; }
+td.W { color:var(--ok); font-weight:600; } td.N { color:var(--crit); font-weight:600; } td.S { color:var(--warn); font-weight:600; }
+tr.rec td:first-child { font-weight:700; color:var(--accent); }
+
+pre{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;overflow-x:auto;font-size:12px}
+.adr{border-left:4px solid var(--ok)}
+</style>
+</head>
+<body>
+<nav class="crumbs"><a href="../dashboard.html">← Dashboard</a> <a href="research-report.html">Raport</a> <a href="solution-exploration.html">Warianty</a> <span class="here">Projekt</span> <a href="decision-log.html">Decyzje</a> <a href="high-level-design.md" target="_blank" rel="noopener" class="md">md twin ↗</a></nav>
+<header><h1>Projekt: build na T7 z wznawianiem po zniknięciu dysku</h1><span class="badge">high-level design</span> <span style="color:var(--dim);font-size:12px">2026-11-23</span></header>
+<div class="tiles"><div class="tile"><b>9</b><span>komponenty</span></div><div class="tile"><b>8</b><span>decyzje ADR</span></div><div class="tile"><b>fail-fast + resume</b><span>styl</span></div><div class="tile"><b>12</b><span>kroki wdrożenia</span></div><div class="tile"><b>3</b><span>przykłady</span></div></div>
+<main>
+<p>Typ: high-level design · Data: 2026-11-23 · Kod: <code>literaki-slownik</code> @ <code>b31246e</code> · Decyzje: <a href="decision-log.html">decision-log.md</a></p>
+<section class="card tldr"><h2>TL;DR</h2>
+<p>Katalog <code>data/work</code> to symlink na T7. Strażnik w kodzie (G1 <code>ismount</code>, G2 znacznik na wolumenie, G3 <code>st_dev</code>) zamienia każdy brak dysku w kod wyjścia <b>75</b>. <code>build --resume</code> wznawia od bieżącego etapu w tej samej bazie, a w <code>reports</code> od bieżącego raportu. Nadzorca czeka na powrót dysku i sam uruchamia <code>--resume</code> (do 3 prób). Inne błędy zatrzymują pracę. Trwałość: <code>F_FULLFSYNC</code> w zapisach plików, <code>fullfsync</code> w SQLite według pomiaru, <code>quick_check</code> po każdym wznowieniu. Test „wznowiony = świeży” i historia prób w manifeście pilnują, że wynik się nie zmienia.</p>
+</section>
+<section class="card tldr"><h2>Key Decisions</h2>
+<ul>
+<li>Symlink <code>data/work</code> → wolumen roboczy na T7. <code>.gitignore</code> bez ukośnika, logi na dysku wewnętrznym (<a href="decision-log.html#adr-001">ADR-001</a>).</li>
+<li>Strażnik G1+G2+G3 w kodzie buildu. Identyfikator wolumenu jest tylko na wolumenie, nie w repo (<a href="decision-log.html#adr-002">ADR-002</a>).</li>
+<li>Wznawianie per etap w tej samej bazie, z odbudową tabel etapu nieidempotentnego (<a href="decision-log.html#adr-003">ADR-003</a>).</li>
+<li>Znaczniki per raport w <code>reports/.done/</code>. <code>unresolved</code> wczytywany z pliku (<a href="decision-log.html#adr-004">ADR-004</a>).</li>
+<li>Kontrakt kodów wyjścia. Nadzorca ponawia tylko kod 75 (<a href="decision-log.html#adr-005">ADR-005</a>, <a href="decision-log.html#adr-006">ADR-006</a>).</li>
+<li>Pełny <code>fullfsync</code>, jeśli kosztuje ≤5%, inaczej tylko na granicach etapów. Zawsze <code>F_FULLFSYNC</code> i fsync katalogu w plikach (<a href="decision-log.html#adr-007">ADR-007</a>).</li>
+<li>Historia prób leży w manifeście, objęta pieczęcią, ale poza K8 (<a href="decision-log.html#adr-008">ADR-008</a>).</li>
+</ul>
+</section>
+<section class="card tldr"><h2>Open Questions / Risks</h2>
+<ul>
+<li><b>Koszt <code>fullfsync</code> na T7 i czas <code>quick_check</code> dla 21 GB są niezmierzone.</b> Krok 2 mierzy jedno i drugie, zanim zapadnie wybór 4B/4C.</li>
+<li><b>Mostek USB może przestawiać zapisy.</b> Wtedy <code>quick_check</code> wykryje szkodę, nadzorca stanie (kod 77) i trzeba budować od zera. Migawki (3C) są odłożone.</li>
+<li><b>Zniknięcie dysku przerywa A i B naraz, w tym samym etapie.</b> Para nie złapie błędu wznowienia, który dotyka obu stron. Chroni przed tym tylko test z kroku 6.</li>
+<li><b>Odbudowa tabel importu może zmienić <code>rowid</code> lub kolejność.</b> Jeśli test pokaże różnicę <code>logical_content</code>, import wznawia się od <code>preflight</code> w nowym pliku bazy (strata ~2,7 h).</li>
+<li><b>Normalny czas <code>decisions</code> jest nieznany</b> (w v32 trwał 61 h). Jeśli etap jest długi, wraca cięcie od środka (2C).</li>
+<li><b>Time Machine pisze na ten sam kontener APFS co build.</b> To dodatkowe I/O w trakcie buildu. Niezmierzone.</li>
+<li><b>Zależność:</b> piny POP/POP00/TEMATY wskazują usunięty <code>lists-v31-20261012-162111-a</code>. To osobna decyzja właściciela; ten projekt jej nie rozstrzyga.</li>
+<li><b>Prywatność przed commitem:</b> artefakty fazy 1 <code>analysis/findings/external-sqlite-macos.md</code>, <code>analysis/findings/codebase-paths-inventory.md</code> i <code>analysis/synthesis.md</code> zawierają UUID wolumenu albo ścieżki z katalogu domowego (sprawdzone grepem 2026-11-23). Repo <code>literaki-slownik</code> jest publiczne, więc te dane trzeba usunąć przed commitem. Ten dokument ich nie zawiera.</li>
+</ul>
+</section>
+<h2 id="przegl-d">Przegląd</h2>
+<p><b>Kontekst.</b> Build pary A/B trwa ~13 h i zapisuje ~22 GB na stronę. Właściciel chce go na T7. T7 znika na sekundy (ostatnio 2026-11-20 02:32, 3 s), a każde zniknięcie zabija proces z <code>SQLITE_IOERR</code>. Dziś <code>create_run</code> odmawia istniejącego katalogu, więc każda awaria przed <code>reports</code> kosztuje cały build. Restart maszyny w v32 pokazał, że to samo dotyczy nie tylko USB.</p>
+<p><b>Podejście.</b> <b>Fail fast, potem wznowienie w nowym procesie.</b> Nie ratujemy otwartego połączenia. Proces kończy się czystym kodem 75, a nowy proces otwiera bazę od nowa. SQLite cofa przerwaną transakcję z hot journala, a build pomija gotowe etapy i raporty. <b>Manifest jest dziennikiem</b>, a baza stanem danych. Etap przechodzi w <code>complete</code> dopiero wtedy, gdy jego dane są trwale na nośniku.</p>
+<h2 id="architektura">Architektura</h2>
+<h4>Kontekst systemu (C4 poziom 1)</h4>
+<div style="color:var(--dim);font-size:12px">diagram mermaid (źródło)</div><pre class="mermaid-src">flowchart LR
+  OP([Operator / sesja]) --&gt;|uruchamia parę, czyta logi| SUP[Nadzorca buildu&lt;br/&gt;caffeinate -dimsu]
+  SUP --&gt;|exec build / build --resume&lt;br/&gt;kod wyjścia| GEN[Generator literaki_slownik]
+  GEN --&gt;|czyta wejścia, hash| INT[(Dysk wewnętrzny&lt;br/&gt;repo, cache/, logs/)]
+  GEN --&gt;|SQLite + pliki JSON/TXT&lt;br/&gt;przez symlink data/work| T7[(T7: wolumen roboczy&lt;br/&gt;przebiegi + znacznik)]
+  MAC[macOS: montowanie USB] -.-&gt;|znika / wraca| T7
+  GEN --&gt;|verify / export| REL[(Pakiety wydań)]</pre>
+<ul>
+<li>Operator uruchamia tylko nadzorcę. Nadzorca nie dotyka plików przebiegu.</li>
+<li>T7 może zniknąć w dowolnej chwili. Repo, <code>cache/</code> i logi zostają na dysku wewnętrznym.</li>
+</ul>
+<h4>Kontenery (C4 poziom 2)</h4>
+<div style="color:var(--dim);font-size:12px">diagram mermaid (źródło)</div><pre class="mermaid-src">flowchart TB
+  subgraph INT[Dysk wewnętrzny]
+    PAIR[build_pair.sh&lt;br/&gt;start pary A/B]
+    SUPV[build_supervised.py&lt;br/&gt;pętla: czekaj na dysk, wznów, limit prób]
+    LOGS[(logs/&lt;br/&gt;.out.json, .err, supervisor.log)]
+    CACHE[(cache/ wejścia)]
+    BENCH[measure_fullfsync.py&lt;br/&gt;pomiar jednorazowy]
+  end
+  subgraph CLI[Proces generatora]
+    BUILD[build / build --resume&lt;br/&gt;etapy, klasyfikacja błędów]
+    GUARD[Strażnik wolumenu&lt;br/&gt;G1 ismount, G2 znacznik, G3 st_dev, miejsce]
+    DUR[Trwały zapis&lt;br/&gt;write_json, write_bytes, F_FULLFSYNC]
+    VER[verify / export&lt;br/&gt;K1–K10, pieczęć, historia]
+  end
+  subgraph T7[T7: wolumen roboczy]
+    MARK[(.literaki-work-volume)]
+    RUN[(przebieg: manifest.json,&lt;br/&gt;build.sqlite + -journal,&lt;br/&gt;lists/, reports/, reports/.done/)]
+  end
+  PAIR --&gt; SUPV --&gt; BUILD
+  SUPV --&gt;|G1+G2 poll| GUARD
+  SUPV --&gt; LOGS
+  BUILD --&gt; GUARD
+  BUILD --&gt; DUR --&gt; RUN
+  BUILD --&gt;|SQLite| RUN
+  BUILD --&gt; CACHE
+  GUARD --&gt; MARK
+  VER --&gt; RUN</pre>
+<div class="card" style="overflow-x:auto"><table><tr><th>Kontener</th><th>Odpowiedzialność</th></tr><tr><td><code>build_pair.sh</code></td><td>Uruchamia dwa nadzorcy (A, B) pod <code>caffeinate -dimsu</code>. Logi kładzie w <code>logs/</code>.</td></tr><tr><td><code>build_supervised.py</code></td><td>Uruchamia build jako proces potomny. Po kodzie 75 czeka na G1+G2 i woła <code>--resume</code>. Ma limit prób.</td></tr><tr><td>Generator (<code>build</code>)</td><td>Etapy, wznawianie, klasyfikacja błędów na kody wyjścia.</td></tr><tr><td>Strażnik wolumenu</td><td>Odpowiada na pytanie „czy to ten sam, zamontowany wolumen roboczy”.</td></tr><tr><td>Trwały zapis</td><td>Atomowy zapis plików z pełnym flushem i fsync katalogu.</td></tr><tr><td><code>verify</code> / <code>export</code></td><td>Bez zmian w K1–K10. Wypisują i przenoszą historię prób.</td></tr><tr><td>Wolumen roboczy</td><td>Przebiegi i znacznik. Hot journal leży obok bazy pod tą samą ścieżką.</td></tr></table></div>
+<h2 id="kluczowe-komponenty">Kluczowe komponenty</h2>
+<div class="card" style="overflow-x:auto"><table><tr><th>Komponent</th><th>Cel</th><th>Odpowiedzialności</th><th>Interfejs</th><th>Zależności</th><th>Dotknięte pliki</th></tr><tr><td><b>Strażnik wolumenu</b></td><td>Brak dysku daje jasny błąd, a nie cichy zapis</td><td>G1: punkt montowania ścieżki przebiegu po <code>resolve()</code> przechodzi <code>ismount</code>; G2: znacznik <code>.literaki-work-volume</code> w korzeniu roboczym, jego <code>marker_id</code> zgadza się z manifestem; G3: <code>st_dev</code> katalogu przebiegu bez zmian przed etapem i przed <code>os.replace</code>; wolne miejsce</td><td><code>check(run_dir, expect=None) → VolumeState</code>, wyjątek <code>DiskLost</code> (75), <code>WrongVolume</code> (76), <code>NoSpace</code> (78)</td><td><code>os</code>, znacznik</td><td>nowy moduł w <code>literaki_slownik/</code>, <code>run.py</code>, <code>build.py</code>, <code>canonical.py</code></td></tr><tr><td><b>Inicjalizacja wolumenu</b></td><td>Jednorazowo zakłada znacznik</td><td>Czyta UUID z <code>diskutil info -plist</code>, losuje <code>marker_id</code>, zapisuje znacznik na wolumenie; odmawia, gdy znacznik istnieje</td><td><code>scripts/init_work_volume.py &lt;korzeń&gt;</code></td><td><code>diskutil</code></td><td>nowy skrypt</td></tr><tr><td><b>Trwały zapis</b></td><td><code>complete</code> w manifeście nie wyprzedza danych na nośniku</td><td><code>write_json</code> i nowy <code>write_bytes</code>: tmp w tym samym katalogu, <code>F_FULLFSYNC</code>, <code>os.replace</code>, fsync katalogu; G3 przed <code>os.replace</code></td><td><code>write_json(path, value)</code>, <code>write_bytes(path, data)</code></td><td><code>fcntl</code></td><td><code>canonical.py</code>, <code>build.py</code> (<code>write_lists</code>)</td></tr><tr><td><b>Build ze wznawianiem</b></td><td>Strata = bieżący etap</td><td><code>--resume</code>: sprawdza tożsamość, <code>running→failed</code>, <code>quick_check</code>, pomija <code>complete</code>, odbudowuje etap nieidempotentny, zapisuje <code>attempts[]</code></td><td><code>build --resume --manifest M --run-dir R</code></td><td>strażnik, trwały zapis, SQLite</td><td><code>cli.py</code>, <code>build.py</code>, <code>run.py</code>, <code>database.py</code>, <code>links.py</code></td></tr><tr><td><b>Znaczniki raportów</b></td><td>Strata w <code>reports</code> = bieżący raport</td><td>Po zapisie raportu <code>reports/.done/&lt;raport&gt;.json</code> (<code>sha256</code>, <code>bytes</code>, <code>tree_sha256</code>, <code>manifest_sha256</code>); przy wznowieniu pomija raporty ze zgodnym znacznikiem; <code>unresolved</code> wczytuje z pliku</td><td>wewnętrzne w <code>build.py</code></td><td>trwały zapis</td><td><code>build.py</code>, <code>scripts/resume_reports.py</code> (staje się nakładką)</td></tr><tr><td><b>Klasyfikator błędów</b></td><td>Odróżnia „dysk zniknął” od „błąd danych lub kodu”</td><td>Przy <code>sqlite3.Error</code>/<code>OSError</code>: <code>ROLLBACK</code>, zamknięcie, ponowne sprawdzenie strażnika; brak G1/G2/G3 daje 75, a reszta 4; próbuje zapisać <code>failed</code>; ślad do logu wewnątrz</td><td><code>GeneratorError(code=75)</code></td><td>strażnik</td><td><code>build.py</code>, <code>cli.py</code>, <code>database.py</code></td></tr><tr><td><b>Nadzorca</b></td><td>Wznowienie bez człowieka w nocy</td><td>Po kodzie 75 pyta strażnika co 5 s do 30 min, potem <code>--resume</code> jako nowy proces; zły znacznik przy zdrowym G1 kończy od razu kodem 76; limit 3 prób; inne kody kończą pracę; log do <code>logs/</code></td><td><code>build_supervised.py --manifest M --run-dir R [--max-attempts 3 --wait-min 30]</code></td><td>strażnik (G1+G2), generator</td><td>nowy skrypt, <code>build_pair.sh</code></td></tr><tr><td><b>Pomiar trwałości</b></td><td>Dane do decyzji 4B/4C</td><td>Tymczasowa baza na T7: porcje 10 000 wierszy z commitem, <code>fullfsync</code> OFF/ON, <code>write_json</code> z <code>F_FULLFSYNC</code>; opcjonalnie <code>quick_check</code> istniejącej bazy w trybie <code>ro</code></td><td><code>measure_fullfsync.py --dir &lt;T7&gt; [--quick-check &lt;baza&gt;]</code> → JSON</td><td>SQLite</td><td>nowy skrypt</td></tr><tr><td><b>Historia prób</b></td><td>Wznowienie jest widoczne, a wynik się nie zmienia</td><td><code>stages.&lt;etap&gt;.attempts[]</code> (start, koniec, <code>outcome</code>, klasa przyczyny), <code>resume: {resumed, count}</code>; <code>verify</code> wypisuje, <code>export</code> przenosi skrót</td><td>pola manifestu</td><td>—</td><td><code>run.py</code>, <code>verify.py</code>, <code>export.py</code></td></tr></table></div>
+<h2 id="przep-yw-danych">Przepływ danych</h2>
+<h4>Start (świeży build)</h4>
+<ol>
+<li><code>build_pair.sh</code> sprawdza czysty kod (K8) i uruchamia dwóch nadzorców. Logi trafiają do <code>logs/&lt;przebieg&gt;.*</code>.</li>
+<li><code>build</code>: strażnik rozwiązuje <code>data/work/&lt;przebieg&gt;</code> i znajduje punkt montowania (G1) i znacznik (G2). Sprawdza miejsce: ≥50 GB wolne na stronę.</li>
+<li><code>create_run</code> tworzy tylko ostatni poziom (<code>parents=False</code>). Do manifestu zapisuje <code>work_volume.marker_id</code> i <code>st_dev</code> (tylko w pamięci procesu).</li>
+<li>Strażnik zapisuje <code>st_dev</code> w pamięci jako G3.</li>
+</ol>
+<h4>Etap</h4>
+<ol>
+<li>Przed etapem: G3, potem <code>set_stage(etap, running)</code> i otwarcie <code>attempts[]</code>.</li>
+<li>Praca etapu z commitami co 10 000 wierszy (zachowanie bez zmian).</li>
+<li>Koniec etapu: ostatni commit z pełnym flushem (4B: zawsze, 4C: przełączenie na granicy). Potem pliki etapu przez trwały zapis.</li>
+<li>Na końcu <code>set_stage(etap, complete)</code> przez <code>write_json</code> z <code>F_FULLFSYNC</code>. Kolejność: dane, potem manifest.</li>
+<li>W <code>reports</code> po każdym raporcie: plik raportu, potem znacznik <code>.done</code>.</li>
+</ol>
+<h4>Awaria (zniknięcie dysku)</h4>
+<ol>
+<li>SQLite albo <code>os</code> zgłasza błąd I/O.</li>
+<li>Klasyfikator: <code>ROLLBACK</code> (błąd pomijany), zamknięcie połączenia, ponowny strażnik.</li>
+<li>Strażnik nie przechodzi, więc kod 75. Próba <code>set_stage(failed)</code> może się nie udać, wtedy zostaje <code>running</code>. Linia diagnostyczna idzie na stderr, czyli do <code>logs/</code> wewnątrz.</li>
+<li>Nadzorca dostaje 75 i loguje próbę. Nie rusza plików przebiegu (<code>-journal</code> zostaje na miejscu).</li>
+</ol>
+<h4>Wznowienie</h4>
+<ol>
+<li>Nadzorca co 5 s sprawdza G1+G2. Po powrocie dysku (≤30 min) uruchamia <code>build --resume</code>.</li>
+<li><code>--resume</code> sprawdza po kolei: <code>tree_sha256</code> i <code>git_dirty</code> (kod), <code>manifest_sha256</code> wejść, <code>marker_id</code> (G2), przebieg nie jest <code>VERIFIED</code>/<code>FROZEN</code>. Niezgodność daje kod 4, a zły wolumen 76.</li>
+<li>Otwarcie bazy tą samą ścieżką. SQLite cofa hot journal, potem <code>PRAGMA quick_check</code>. Wynik inny niż <code>ok</code> daje kod 77.</li>
+<li>Każdy <code>running</code> zmienia się w <code>failed</code> (próba zamknięta z <code>outcome: interrupted</code>).</li>
+<li>Etapy <code>complete</code> są pomijane. Pierwszy niegotowy etap działa według tabeli niżej.</li>
+<li><code>reports</code>: raport ze zgodnym znacznikiem jest pomijany. <code>unresolved</code> wczytuje się z <code>reports/unresolved.json</code>, gdy jego znacznik się zgadza.</li>
+</ol>
+<div class="card" style="overflow-x:auto"><table><tr><th>Etap</th><th>Działanie przy wznowieniu</th></tr><tr><td><code>preflight</code></td><td>wznowienie odmówione, gdy baza nie ma kompletu <code>source_artifact</code>; wtedy nowy przebieg (koszt: sekundy)</td></tr><tr><td><code>import_sgjp</code></td><td><code>DELETE</code> z tabel etapu i wszystkich późniejszych (w odwrotnej kolejności FK), potem pełny import</td></tr><tr><td><code>import_kwjp</code></td><td><code>DELETE</code> z <code>corpus_evidence</code> i tabel późniejszych, potem pełny import</td></tr><tr><td><code>constructions</code></td><td>dalej przez <code>insert or ignore</code></td></tr><tr><td><code>decisions</code></td><td>dalej przez <code>insert or ignore</code>; zachowane odmowy przy innej polityce lub payloadzie; <code>write_lists</code> atomowo</td></tr><tr><td><code>links</code></td><td><code>DROP TABLE IF EXISTS</code> dla <code>evidence_link</code>, <code>evidence_candidate</code> i indeksów, potem etap od nowa</td></tr><tr><td><code>reports</code></td><td>per raport ze znacznikami</td></tr></table></div>
+<pre>start ─► [G1 G2 miejsce] ─► etap N ─► dane+flush ─► manifest complete ─► etap N+1 ...
+                               │
+                         błąd I/O ─► ROLLBACK, close ─► [strażnik?] ─ nie ─► exit 75
+                                                          └ tak ─► exit 4 (stop)
+nadzorca: 75 ─► czekaj G1+G2 (≤30 min) ─► build --resume ─► quick_check ─► etap N od nowa
+                                                              └ błąd ─► exit 77 (stop)</pre>
+<h2 id="kontrakt-kod-w-wyj-cia">Kontrakt kodów wyjścia</h2>
+<div class="card" style="overflow-x:auto"><table><tr><th>Kod</th><th>Znaczenie</th><th>Nadzorca</th></tr><tr><td>0</td><td>build kompletny</td><td>koniec, sukces</td></tr><tr><td>2</td><td>błąd argumentów</td><td>stop</td></tr><tr><td>3</td><td>błąd wejść (manifest, hash)</td><td>stop</td></tr><tr><td>4</td><td>błąd buildu (dane, kod, niezgodność tożsamości przy <code>--resume</code>)</td><td>stop</td></tr><tr><td>5</td><td>przebieg <code>VERIFIED</code>/<code>FROZEN</code></td><td>stop</td></tr><tr><td><b>75</b></td><td><b>dysk roboczy zniknął</b> (G1/G2/G3 nie przechodzi po błędzie I/O albo przy starcie <code>--resume</code>)</td><td>czekaj i wznów, maks. 3 próby</td></tr><tr><td><b>76</b></td><td>zły wolumen: znacznik inny lub brak znacznika na wolumenie zewnętrznym</td><td>stop</td></tr><tr><td><b>77</b></td><td><code>quick_check</code> po wznowieniu nie daje <code>ok</code></td><td>stop, decyzja człowieka</td></tr><tr><td><b>78</b></td><td>za mało miejsca</td><td>stop</td></tr><tr><td>130</td><td>przerwane przez operatora (SIGINT)</td><td>stop</td></tr></table></div>
+<p>Kody 75–78 są nowe i nie kolidują z obecnymi (2, 3, 4, 5, 130). Nadzorca kończy się kodem ostatniego procesu albo 75, gdy wyczerpie limit.</p>
+<h2 id="punkty-integracji">Punkty integracji</h2>
+<ul>
+<li><b><code>.gitignore</code></b>: <code>/data/work</code> i <code>/cache</code> bez ukośnika, nowy <code>/logs</code>.</li>
+<li><b><code>build_pair.sh</code></b>: logi do <code>logs/</code>, start przez nadzorcę i <code>caffeinate -dimsu</code>. Ścieżka przebiegu <code>data/work/&lt;p&gt;-&lt;stamp&gt;-&lt;a|b&gt;</code> bez zmian.</li>
+<li><b>CLI</b>: nowa flaga <code>build --resume</code> i kody 75–78 w <code>cli.py</code>. <code>scripts/resume_reports.py</code> staje się nakładką na <code>build --resume</code>.</li>
+<li><b>SQLite</b>: <code>journal_mode=delete</code> i <code>synchronous=FULL</code> bez zmian. <code>fullfsync</code> według ADR-007. Nigdy WAL.</li>
+<li><b><code>verify</code></b>: K1–K10 bez zmian. Wypisuje historię prób. Pieczęć (<code>manifest_core_sha256</code>) obejmuje historię.</li>
+<li><b><code>export</code></b>: <code>release-manifest.json</code> dostaje skrót <code>build_history</code> (czy wznowiony, etapy, liczba prób, klasy przyczyn, bez komunikatów i ścieżek).</li>
+<li><b>Piny <code>../../data/work</code></b> w <code>config/generator/*-sources.json</code>: działają przez symlink bez zmian. Ich martwy cel v31 to osobna zależność.</li>
+<li><b>CI</b>: repo nie ma workflow. Testy uruchamia się lokalnie (<code>python3 -m unittest</code>). Jeśli kiedyś powstanie CI, to tylko na runnerze self-hosted.</li>
+</ul>
+<h2 id="decyzje-projektowe">Decyzje projektowe</h2>
+<div class="card" style="overflow-x:auto"><table><tr><th>ADR</th><th>Decyzja</th><th>Status</th></tr><tr><td><a href="decision-log.html#adr-001">ADR-001</a></td><td>Symlink <code>data/work</code> na T7, <code>.gitignore</code> bez ukośnika, logi wewnątrz</td><td>Accepted</td></tr><tr><td><a href="decision-log.html#adr-002">ADR-002</a></td><td>Strażnik G1+G2+G3 w kodzie; UUID tylko na wolumenie</td><td>Accepted</td></tr><tr><td><a href="decision-log.html#adr-003">ADR-003</a></td><td><code>build --resume</code> per etap w tej samej bazie</td><td>Accepted</td></tr><tr><td><a href="decision-log.html#adr-004">ADR-004</a></td><td>Znaczniki per raport, <code>unresolved</code> z pliku</td><td>Accepted</td></tr><tr><td><a href="decision-log.html#adr-005">ADR-005</a></td><td>Kontrakt kodów wyjścia 75–78</td><td>Accepted</td></tr><tr><td><a href="decision-log.html#adr-006">ADR-006</a></td><td>Nadzorca wznawia tylko po kodzie 75</td><td>Accepted</td></tr><tr><td><a href="decision-log.html#adr-007">ADR-007</a></td><td><code>fullfsync</code> według pomiaru; <code>F_FULLFSYNC</code> w plikach; <code>quick_check</code></td><td>Accepted (wybór 4B/4C po pomiarze)</td></tr><tr><td><a href="decision-log.html#adr-008">ADR-008</a></td><td>Historia prób w manifeście pod pieczęcią, poza K8; test „wznowiony = świeży”</td><td>Accepted</td></tr></table></div>
+<h2 id="kroki-wdro-enia-ma-e-niezale-ne-ka-dy-z-testem">Kroki wdrożenia (małe, niezależne, każdy z testem)</h2>
+<div class="card" style="overflow-x:auto"><table><tr><th>#</th><th>Krok</th><th>Test (unittest, hermetyczny)</th><th>Zależy od</th></tr><tr><td>1</td><td><code>.gitignore</code> (<code>/data/work</code>, <code>/cache</code>, <code>/logs</code>), logi <code>build_pair.sh</code> do <code>logs/</code></td><td><code>git check-ignore</code> na symlinku w repo tymczasowym; skrypt pisze logi do <code>logs/</code></td><td>—</td></tr><tr><td>2</td><td><code>measure_fullfsync.py</code> i jeden pomiar na T7 (bez buildu), zapis wyniku w ADR-007</td><td>test skryptu na <code>tmp</code>: JSON ma oba warianty</td><td>—</td></tr><tr><td>3</td><td>Trwały zapis: <code>F_FULLFSYNC</code> + fsync katalogu w <code>write_json</code>, nowy <code>write_bytes</code>, atomowe <code>write_lists</code></td><td>mock <code>fcntl</code>/<code>os.fsync</code>: wywołania w dobrej kolejności; przerwanie przed <code>replace</code> zostawia stary plik</td><td>—</td></tr><tr><td>4</td><td>Strażnik wolumenu + <code>init_work_volume.py</code>; <code>create_run</code> z <code>parents=False</code></td><td>podstawione <code>ismount</code>/<code>stat</code>: brak montowania → 75, inny znacznik → 76, zmiana <code>st_dev</code> → 75, mało miejsca → 78, ścieżka na dysku systemowym → strażnik nie blokuje</td><td>3</td></tr><tr><td>5</td><td>Klasyfikator błędów i kody 75–78 w <code>cli.py</code>; jawny <code>ROLLBACK</code> i zamknięcie</td><td>wstrzyknięty <code>sqlite3.OperationalError('disk I/O error')</code> przy upadłym strażniku → 75; przy zdrowym → 4</td><td>4</td></tr><tr><td>6</td><td><code>build --resume</code> per etap + <code>attempts[]</code> + <code>quick_check</code> + harness „wznowiony = świeży”</td><td>przerwanie na każdej granicy etapu i w środku <code>import_kwjp</code>/<code>constructions</code>/<code>links</code>; wznowienie; równość <code>logical_content_report</code>, <code>canonical-index</code>, <code>lists/*.txt</code> ze świeżym buildem</td><td>3, 5</td></tr><tr><td>7</td><td>Znaczniki per raport, <code>unresolved</code> z pliku, <code>resume_reports.py</code> jako nakładka</td><td>przerwanie między każdą parą raportów; równość raportów; zły hash znacznika → raport liczony ponownie</td><td>6</td></tr><tr><td>8</td><td><code>fullfsync</code> w <code>connect</code> dla buildu według ADR-007 (4B lub 4C)</td><td>PRAGMA odczytana w trakcie etapu i na granicy ma oczekiwaną wartość</td><td>2, 6</td></tr><tr><td>9</td><td>Nadzorca + <code>build_pair.sh</code> pod <code>caffeinate -dimsu</code></td><td>sztuczny build zwraca sekwencje kodów: 75,75,0 → sukces; 75×4 → stop po 3; 4 → stop bez ponowienia; 77 → stop; brak dysku &gt;limitu → 75</td><td>5</td></tr><tr><td>10</td><td><code>verify</code> wypisuje historię, <code>export</code> przenosi <code>build_history</code></td><td>wznowiony przebieg przechodzi K1–K10; zmiana <code>attempts[]</code> po verify → export odmawia (pieczęć)</td><td>6</td></tr><tr><td>11</td><td>Dokumentacja: <code>docs/generator/cli.md</code> (resume, kody), runbook, nowy ADR w <code>docs/adr/</code></td><td><code>test_documented_names.py</code>, jeśli obejmuje nowe nazwy</td><td>1–10</td></tr><tr><td>12</td><td>Operator: znacznik na T7, symlink, pierwsza para A/B na T7</td><td>— (poza testami; wymaga decyzji o pinach tylko dla POP/TEMATY)</td><td>1–11</td></tr></table></div>
+<p>Kroki 1, 2 i 3 są niezależne i można je zrobić równolegle. Każdy krok zmienia <code>tree_sha256</code>, więc tożsamość kodu (K8) zmienia się, ale para A/B buduje się z jednego commitu.</p>
+<h2 id="plan-test-w">Plan testów</h2>
+<ul>
+<li><b>Jednostkowe</b> (kroki 3, 4, 5, 9): strażnik, trwały zapis, klasyfikator, nadzorca. Podstawiane <code>ismount</code>, <code>stat</code>, <code>fcntl</code> i proces potomny. Bez prawdziwego USB.</li>
+<li><b>„Wznowiony = świeży”</b> (kroki 6, 7): mały zestaw z <code>tests/helpers.py</code>. Przerwanie przez wstrzyknięty wyjątek I/O i przez <code>os._exit</code> w procesie potomnym (kill bez sprzątania).</li>
+<li><b>Punkty przerwania</b>: każda granica etapu; środek <code>import_kwjp</code>, <code>constructions</code> i <code>links</code>; każda przerwa między raportami.</li>
+<li><b>Porównanie ze świeżym buildem</b>: <code>logical_content_report</code>, <code>canonical-index</code>, <code>lists/*.txt</code>. Bajty <code>build.sqlite</code> mogą się różnić (wolne strony) i nie są porównywane.</li>
+<li><b>Podwójne przerwanie</b>: przerwanie w trakcie <code>--resume</code>, potem drugie <code>--resume</code>.</li>
+<li><b>Pieczęć</b>: wznowiony przebieg przechodzi <code>verify</code> z partnerem. Ręczna zmiana historii po verify blokuje <code>export</code>.</li>
+<li><b>Pomiar</b> (krok 2): jednorazowo na T7. Nie jest testem regresji.</li>
+<li>Wszystko lokalnie albo na runnerze self-hosted. Nigdy na runnerze GitHuba.</li>
+</ul>
+<h2 id="konkretne-przyk-ady">Konkretne przykłady</h2>
+<p><b>P1. Nocne zniknięcie w <code>import_kwjp</code>.</b> Dane: para A/B na T7, 02:32. Obie strony są w <code>import_kwjp</code>, które trwa 2,4 h. Zdarzenie: T7 znika na 3 s. Wynik: oba procesy kończą się kodem 75, a <code>-journal</code> zostaje obok bazy. Nadzorcy widzą G1+G2 po ~5 s i uruchamiają <code>--resume</code>. <code>quick_check</code> daje <code>ok</code>. <code>import_kwjp</code> czyści <code>corpus_evidence</code> i importuje od nowa. Strata to czas od startu etapu, bez czekania na człowieka. W manifeście jest <code>import_kwjp.attempts</code> = 2 i <code>resume.resumed=true</code>.</p>
+<p><b>P2. Restart maszyny w <code>reports</code> po <code>unresolved</code>.</b> Dane: <code>unresolved</code>, <code>filter_impact</code> i <code>quality_analyses</code> mają znaczniki. Maszyna restartuje się w <code>quality_links</code>. Zdarzenie: operator rano uruchamia <code>build_supervised.py … --run-dir &lt;przebieg&gt;</code> (start od <code>--resume</code>). Wynik: <code>running</code> zmienia się w <code>failed</code>, a <code>quick_check</code> daje <code>ok</code>. <code>unresolved</code> wczytuje się z pliku, bo znacznik się zgadza. Liczą się tylko <code>quality_links</code> i dalsze raporty. Oszczędność to ~6 h wobec dzisiejszego <code>resume_reports.py</code>.</p>
+<p><b>P3. Inny dysk pod <code>/Volumes/Data</code>.</b> Dane: po odłączeniu pod tą nazwą zamontował się inny wolumen albo wolumen roboczy wrócił jako <code>Data 1</code>. Zdarzenie: nadzorca czeka na G1+G2. Wynik:</p>
+<ul>
+<li>Inny wolumen jako <code>Data</code>: G1 przechodzi, G2 nie. Nadzorca kończy od razu kodem 76 i nic nie zapisuje na obcy dysk.</li>
+<li><code>Data 1</code>: symlink wisi, G1 nie przechodzi. Nadzorca czeka, a po 30 min kończy kodem 75. Nie ma mylącego „katalog już istnieje”.</li>
+<li>W obu przypadkach na dysku systemowym nie powstaje żaden katalog.</li>
+</ul>
+<h2 id="poza-zakresem">Poza zakresem</h2>
+<ul>
+<li>Cięcie długich etapów od środka (2C). Wraca, jeśli zniknięcia będą częste albo <code>decisions</code> okaże się długi.</li>
+<li>Migawki bazy po etapie (3C) i opcja <code>--checkpoint</code>. Wracają przy pierwszym wyniku <code>quick_check</code> ≠ <code>ok</code>.</li>
+<li>Reguła „wznowiony przebieg wymaga świeżego partnera” (5C).</li>
+<li>ATTACH i plik per etap, WAL.</li>
+<li>Przesunięcie stron A/B w czasie.</li>
+<li>Usunięcie przyczyny zniknięć T7 (firmware, kabel, zasilanie, Spotlight, Time Machine). To decyzja operatora.</li>
+<li>Przepięcie pinów POP/POP00/TEMATY. To decyzja właściciela.</li>
+<li>Zmiany polityki słownika, nowe buildy w ramach tego projektu.</li>
+</ul>
+<h2 id="kryteria-sukcesu">Kryteria sukcesu</h2>
+<ol>
+<li>Zniknięcie T7 w dowolnym etapie kończy proces kodem 75 w ciągu sekund. Na dysku systemowym nie powstaje żaden plik przebiegu.</li>
+<li>Po powrocie dysku build sam wznawia pracę. Strata to najwyżej bieżący etap (≤2,4 h import) albo bieżący raport (≤4,1 h <code>unresolved</code>).</li>
+<li>Wznowiony przebieg daje te same <code>logical_content</code>, <code>canonical-index</code> i <code>lists/*.txt</code> co świeży (test z kroku 6 przechodzi dla każdego punktu przerwania).</li>
+<li>Wznowiony przebieg przechodzi <code>verify</code> K1–K10 bez zmian w kontrakcie, a historia prób jest widoczna w <code>verify</code> i w pakiecie wydania.</li>
+<li>Błąd inny niż utrata dysku nie jest ponawiany. Uszkodzona baza zatrzymuje pracę kodem 77.</li>
+<li>W repo nie ma UUID ani ścieżek z katalogu domowego. Symlink <code>data/work</code> jest ignorowany przez git.</li>
+</ol>
+</main>
+</body>
+</html>

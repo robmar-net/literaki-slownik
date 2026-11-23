@@ -1,0 +1,31 @@
+orchestrator:
+  started_phase: phase-1
+  completed_phases: [phase-1, phase-2, phase-3, phase-4, phase-5, phase-6]
+  failed_phases: []
+  options:
+    html_output: true
+    brainstorming_enabled: true
+    design_enabled: true
+  created: 2026-11-23T04:15:32Z
+  updated: 2026-11-23T08:01:33Z
+  task_path: .maister/tasks/research/2026-11-23-dysk-roboczy-wznawianie
+task:
+  title: Duże pliki na /Volumes/Data i wznawianie buildu
+  status: completed
+research_context:
+  research_type: technical
+  research_question: Jak trzymać duże pliki generatora na znikającym dysku zewnętrznym i wznawiać przerwany build bez pracy od zera
+  project_doc_paths: [docs/plan-dalszych-prac-runbook.md, docs/generator/cli.md, docs/generator/publikacja.md]
+  phase_summaries:
+    phase-1: {summary: null, steps_completed: [init, plan, gather, synthesize], decisions: [], risks: [], artifacts: [{path: planning/research-brief.md, label: Brief, html: null}]}
+  gates:
+    phase-1: "Chcę build na T7 — pogłębić wariant budowy na T7 odpornej na zaniki"
+    phase-4:
+      summary: "Wybrano 1A + G1–G3, 2B, 3B na bazie 3A, pomiar fullfsync → 4B/4C, 5B."
+      decision_areas:
+        - {area: lokalizacja, alternatives_count: 3, chosen_approach: "1A symlink data/work → /Volumes/Data/literaki-slownik/work + strażnik G1–G3"}
+        - {area: granulacja, alternatives_count: 3, chosen_approach: "2B build --resume per etap + znacznik per raport"}
+        - {area: odzyskanie, alternatives_count: 4, chosen_approach: "3B nadzorca na bazie 3A"}
+        - {area: trwalosc, alternatives_count: 3, chosen_approach: "pomiar kosztu fullfsync na T7; ≤5% → 4B, inaczej 4C; quick_check po wznowieniu"}
+        - {area: zgodnosc, alternatives_count: 3, chosen_approach: "5B test wznowiony=świeży + historia attempts[] w manifeście"}
+      deferred_ideas: ["2C cięcie etapów od środka", "3C migawki backup API", "5C reguła świeżego partnera"]
