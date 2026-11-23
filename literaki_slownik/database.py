@@ -28,7 +28,14 @@ def connect(path, create=False, readonly=False):
         yield db
         db.commit()
     except BaseException:
-        db.rollback()
+        # Po błędzie dysku rollback i close też mogą rzucić; ich błąd nie zasłania pierwotnego (R4).
+        try:
+            db.rollback()
+        except sqlite3.Error:
+            pass
         raise
     finally:
-        db.close()
+        try:
+            db.close()
+        except sqlite3.Error:
+            pass

@@ -1,5 +1,6 @@
 """Import porcjowany, metryki i jawne statusy niepełnego przebiegu."""
 from collections import Counter
+import errno
 from pathlib import Path
 import resource
 import sqlite3
@@ -8,7 +9,8 @@ from .canonical import dumps, write_json, write_bytes, load_json
 from .database import connect
 from .inputs import GeneratorError, inspect_sources
 from . import sgjp, kwjp
-from .run import create_run, set_stage, STAGES
+from .run import create_run, set_stage, close_attempt, STAGES
+from . import volume
 from .reports import qualifier_coverage, logical_content_report, unresolved_report, persisted_filter_impact, canonical_index, coverage_report
 from .constructions import materialize_confirmed_candidates
 from .links import (create_links, link_report, load_pos_map, verify_link_completeness,
@@ -89,12 +91,46 @@ def write_lists(db, run):
     return {variant: len(keys) for variant, keys in sizes.items()}
 
 
-def build(manifest_path, run_dir, batch_size=10000):
+SQLITE_SPACE = {sqlite3.SQLITE_FULL}
+SQLITE_DAMAGE = {sqlite3.SQLITE_CORRUPT, sqlite3.SQLITE_NOTADB}
+ERRNO_SPACE = {errno.ENOSPC, errno.EDQUOT}
+
+
+def exit_code(error, run, work_volume):
+    """Kod wyjścia błędu buildu (tabela „Kody wyjścia”): strażnik 75/76, miejsce 78, uszkodzenie 77, reszta 4."""
+    if isinstance(error, KeyboardInterrupt):
+        return 130
+    if isinstance(error, GeneratorError):
+        return error.code
+    if isinstance(error, (OSError, sqlite3.Error)):
+        try:
+            volume.check_active()
+            volume.check_mounted(run)
+            volume.check_marker(run, work_volume['marker_id'] if work_volume else None)
+        except GeneratorError as guard:
+            return guard.code
+        except OSError:
+            return 75
+        primary = getattr(error, 'sqlite_errorcode', None)
+        if primary is not None and primary & 0xff in SQLITE_SPACE or getattr(error, 'errno', None) in ERRNO_SPACE:
+            return 78
+        if primary is not None and primary & 0xff in SQLITE_DAMAGE:
+            return 77
+        return 4
+    if isinstance(error, ValueError):
+        return 4
+    return 1
+
+
+def build(manifest_path, run_dir, batch_size=10000, work_root=None):
     if type(batch_size) is not int or batch_size < 1 or batch_size > 10000:
         raise GeneratorError('Porcja musi mieć od 1 do 10 000 rekordów', 2)
     inputs = inspect_sources(manifest_path)
     run = Path(run_dir)
-    create_run(run, inputs)
+    # Strażnik przed create_run: bez wolumenu roboczego nic nie powstaje na dysku systemowym (R1).
+    work_volume = volume.check_fresh(run, work_root)
+    create_run(run, inputs, work_root=work_root, work_volume=work_volume)
+    volume.activate(run)
     stage = 'preflight'
     counts, performance = {}, {}
     try:
@@ -243,16 +279,29 @@ def build(manifest_path, run_dir, batch_size=10000):
         write_json(run / 'reports/performance.json', performance)
         write_json(run / 'reports/canonical-index.json', canonical_index(run))
         stages = load_json(run / 'manifest.json')['stages']
+        try:
+            close_attempt(run, stage, 'incomplete' if any(stages[name]['status'] == 'pending' for name in STAGES)
+                          else 'complete', 0)
+        except Exception:
+            pass  # Niezamknięta próba: --resume ustawi `interrupted`.
         return {'run_dir': str(run.resolve()), 'readiness': 'INCOMPLETE', 'counts': counts,
                 'completed': [name for name in STAGES if stages[name]['status'] == 'complete'],
                 'pending': [name for name in STAGES if stages[name]['status'] == 'pending']}
     except BaseException as error:
+        # Baza jest już po rollbacku i zamknięciu (connect); teraz strażnik i kod (R4).
+        code = exit_code(error, run, work_volume)
         try:
             set_stage(run, stage, 'failed', {'reason': str(error)})
-        except OSError:
-            pass  # Pełny dysk może uniemożliwić nawet zapis statusu; running blokuje odbiór.
+        except Exception:
+            pass  # Pełny albo odłączony dysk może uniemożliwić zapis statusu; running blokuje odbiór.
+        try:
+            close_attempt(run, stage, 'interrupted' if isinstance(error, KeyboardInterrupt) else 'failed', code)
+        except Exception:
+            pass
         if isinstance(error, (KeyboardInterrupt, GeneratorError)):
             raise
         if isinstance(error, (OSError, sqlite3.Error, ValueError)):
-            raise GeneratorError(f'Build nieukończony: {error}', 4, str(run)) from error
+            raise GeneratorError(f'Build nieukończony: {error}', code, str(run)) from error
         raise
+    finally:
+        volume.deactivate()

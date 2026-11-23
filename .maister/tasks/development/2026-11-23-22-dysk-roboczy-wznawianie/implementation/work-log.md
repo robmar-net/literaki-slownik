@@ -29,3 +29,8 @@
 **Steps**: 3.1–3.9. **Tests**: test_measure_fullfsync+test_database 7/7.
 **Pomiar T7**: commit OFF 4,14 ms, ON 17,57 ms; 3 051 commitów buildu v32 → narzut 0,0876% → **4B, FULLFSYNC_MODE='build'** (ADR-020). quick_check v32 (22 GB, ro, immutable) ok w 486 s; sha256/mtime bazy bez zmian. Katalog pomiaru usunięty.
 **Files**: scripts/measure_fullfsync.py, tests/test_measure_fullfsync.py, database.py (stałe), docs/adr/ADR-020-fullfsync.md, verification/fullfsync-measurement.json.
+
+## 2026-11-23T11:33:05Z - Group 5 Complete
+**Steps**: 5.1–5.9. **Tests**: 13 modułów, 119/119 (74 s).
+**Files**: run.py (create_run z work_root, pola manifestu, close_attempt, reguła resztek startu — ostrzejsza niż spec), build.py (check_fresh/activate/deactivate, exit_code), cli.py (--work-root, sqlite3.Error→4), database.py (tolerancja rollback/close), explain.py (stages = statusy), tests/test_run.py, tests/layout_helpers.py (nowy, poza listą), tests/test_run_layout.py, tests/test_exit_codes.py.
+**Notes**: ResourceWarning z tests/test_durable_write.py:121 (grupa 2) — do domknięcia w grupie 14.

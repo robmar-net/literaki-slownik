@@ -1,5 +1,6 @@
 """Polskie polecenia operatora; jedna odpowiedź JSON na stdout."""
 import argparse
+import sqlite3
 import sys
 from .canonical import dumps
 from .inputs import GeneratorError, inspect_sources
@@ -23,6 +24,8 @@ def main(argv=None):
         builder = sub.add_parser('build', help='Zbuduj nowy przebieg')
         builder.add_argument('--manifest', required=True, help='Manifest lokalnych wejść')
         builder.add_argument('--run-dir', required=True, help='Nowy katalog przebiegu')
+        builder.add_argument('--work-root', help='Korzeń wolumenu roboczego ze znacznikiem; przebieg powstaje '
+                             'w <korzeń>/<nazwa>, a --run-dir staje się symlinkiem')
         builder.add_argument('--json', action='store_true', help='Odpowiedź JSON')
         explainer = sub.add_parser('explain', help='Wyjaśnij źródłowe analizy i niewiadome (diagnostyka)')
         explainer.add_argument('--run-dir', required=True, help='Katalog przebiegu do odczytu')
@@ -72,7 +75,7 @@ def main(argv=None):
             result['result'] = {k: v for k, v in checked.items() if k != 'manifest'}
         elif args.command == 'build':
             from .build import build
-            result['result'] = build(args.manifest, args.run_dir)
+            result['result'] = build(args.manifest, args.run_dir, work_root=args.work_root)
         elif args.command == 'explain':
             if args.variant == 'pop00':
                 if not args.pop00_dir:
@@ -121,7 +124,8 @@ def main(argv=None):
     except KeyboardInterrupt:
         result.update(status='error', diagnostics=[{'code': 130, 'message': 'Przerwano operację'}])
         code = 130
-    except OSError as error:
+    except (OSError, sqlite3.Error) as error:
+        # Kody 75–78 przychodzą jako GeneratorError.code; goły błąd dysku albo SQLite to 4, nie traceback.
         result.update(status='error', diagnostics=[{'code': 4, 'message': str(error)}])
         print(str(error), file=sys.stderr)
         code = 4

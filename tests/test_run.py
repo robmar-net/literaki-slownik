@@ -25,3 +25,17 @@ class RunTests(unittest.TestCase):
             with self.assertRaises(GeneratorError):
                 create_run(target, {})
             self.assertEqual(sentinel.read_text(), 'istniejące')
+
+    def test_missing_parent_is_not_created_and_new_fields_start_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with self.assertRaises(GeneratorError) as caught:
+                create_run(Path(directory) / 'brak' / 'run', {})
+            self.assertEqual(caught.exception.code, 4)
+            self.assertFalse((Path(directory) / 'brak').exists())
+            run = Path(directory) / 'run'
+            create_run(run, {})
+            manifest = load_json(run / 'manifest.json')
+            self.assertIsNone(manifest['work_volume'])
+            self.assertEqual(manifest['resume'], {'resumed': False, 'count': 0})
+            self.assertEqual([(a['attempt'], a['ended'], a['outcome']) for a in manifest['build_attempts']],
+                             [(1, None, None)])

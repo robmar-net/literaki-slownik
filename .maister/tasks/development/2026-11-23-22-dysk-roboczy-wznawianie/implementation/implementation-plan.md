@@ -136,8 +136,8 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
 **Files to Modify:** `literaki_slownik/run.py`, `literaki_slownik/build.py`, `literaki_slownik/cli.py`, `literaki_slownik/database.py`, `literaki_slownik/explain.py`, `tests/test_run.py`, `tests/test_run_layout.py`, `tests/test_exit_codes.py`
 **Estimated Steps:** 9
 
-- [ ] 5.0 `build --work-root`, symlink przebiegu i klasyfikator błędów
-  - [ ] 5.1 Napisać 8 testów w `tests/test_run_layout.py` i `tests/test_exit_codes.py`
+- [x] 5.0 `build --work-root`, symlink przebiegu i klasyfikator błędów
+  - [x] 5.1 Napisać 8 testów w `tests/test_run_layout.py` i `tests/test_exit_codes.py`
     - `build --work-root W` (podstawiony znacznik): katalog `W/<nazwa>`, symlink `data/work/<nazwa>` na końcu, `work_volume.marker_id`, jedna próba w `build_attempts`, `resume` = `{false, 0}`.
     - Brak montowania → 75 i brak nowych plików w `data/work`.
     - Resztka startu (bez symlinku, bez `build.sqlite`, wszystkie etapy `pending`) → build przechodzi. Inna zawartość → 4.
@@ -146,14 +146,14 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
     - Rollback rzucający w `connect` i nieudany zapis `failed` nie zmieniają kodu.
     - CLI `build` zwraca te kody. Goły `sqlite3.Error` w `cli.py` → 4, nie traceback.
     - `explain` zwraca `stages` jako `{"<etap>": "<status>"}`.
-  - [ ] 5.2 `run.create_run`: `mkdir(parents=False)`, wariant z `work_root` (sprzątanie resztki startu, symlink po manifeście i `reports/`), pola `work_volume`, `build_attempts`, `resume`. Poprawić `tests/test_run.py`.
-  - [ ] 5.3 Zamykanie próby (`ended`, `last_stage`, `outcome`, `exit_code`). Błąd zamknięcia jest pomijany.
-  - [ ] 5.4 `cli build --work-root`. Bez niego jak dziś (dysk wewnętrzny, `work_volume` null). Po `create_run` `volume.activate`.
-  - [ ] 5.5 Klasyfikator w `except` w `build.py`: rollback (błąd pomijany) → `close` → strażnik (75/76) → `sqlite_errorcode`/`errno` (78/77) → 4. `GeneratorError` i `KeyboardInterrupt` jak dziś.
-  - [ ] 5.6 `database.connect`: rollback i `close` w `try`, ich błąd pomijany
-  - [ ] 5.7 `cli.py`: `except sqlite3.Error` → 4. Kody 75–78 przez `GeneratorError.code`.
-  - [ ] 5.8 `explain`: `stages` tylko ze statusami. K7 nie zależy od historii.
-  - [ ] 5.9 Uruchomić testy z 5.1 i `tests/test_run.py`
+  - [x] 5.2 `run.create_run`: `mkdir(parents=False)`, wariant z `work_root` (sprzątanie resztki startu, symlink po manifeście i `reports/`), pola `work_volume`, `build_attempts`, `resume`. Poprawić `tests/test_run.py`.
+  - [x] 5.3 Zamykanie próby (`ended`, `last_stage`, `outcome`, `exit_code`). Błąd zamknięcia jest pomijany.
+  - [x] 5.4 `cli build --work-root`. Bez niego jak dziś (dysk wewnętrzny, `work_volume` null). Po `create_run` `volume.activate`.
+  - [x] 5.5 Klasyfikator w `except` w `build.py`: rollback (błąd pomijany) → `close` → strażnik (75/76) → `sqlite_errorcode`/`errno` (78/77) → 4. `GeneratorError` i `KeyboardInterrupt` jak dziś.
+  - [x] 5.6 `database.connect`: rollback i `close` w `try`, ich błąd pomijany
+  - [x] 5.7 `cli.py`: `except sqlite3.Error` → 4. Kody 75–78 przez `GeneratorError.code`.
+  - [x] 5.8 `explain`: `stages` tylko ze statusami. K7 nie zależy od historii.
+  - [x] 5.9 Uruchomić testy z 5.1 i `tests/test_run.py`
 
 **Acceptance Criteria:**
 - 8 testów i `test_run.py` przechodzą.

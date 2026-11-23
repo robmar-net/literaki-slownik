@@ -264,7 +264,9 @@ def explain(run_dir, word, variant='standard'):
                 'variant': variant, 'readiness': manifest['readiness'], 'policy_version': VERSION,
                 'assessment_basis': basis,
                 'scope': 'diagnostic_import_and_confirmed_derivation_candidates', 'source_presence': presence,
-                'import_complete': imported, 'stages': stages, 'sources': sources,
+                'import_complete': imported,
+                # Tylko statusy: K7 nie zależy od historii prób ani znaczników czasu (ADR-021).
+                'stages': {name: item['status'] for name, item in stages.items()}, 'sources': sources,
                 'analyses': analyses, 'source_aggregation': source_aggregation, 'derivations': derivations,
                 'persisted_analyses':persisted,
                 'semantic_analyses':[a for a in persisted if 'semantic_trace' in a],
