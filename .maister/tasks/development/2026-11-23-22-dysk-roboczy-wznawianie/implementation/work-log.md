@@ -50,3 +50,8 @@
 **Steps**: 7.1–7.7. **Tests**: 10 modułów, 60/60; harness 19 punktów przerwania (błąd I/O i os._exit), podwójne przerwanie, para wznowiony+świeży → VERIFIED. Mutacje reset_stage i restart_in_place → czerwone.
 **Files**: build.py (reset_stage, guarded_build, resume, restart_in_place), run.py (first_incomplete, check_identity, begin_resume), cli.py (--resume), tests/test_resume.py, tests/test_resume_equivalence.py.
 **Notes**: check_identity wymaga git_dirty is False (ostrzej niż stary resume_reports). Grupa 8: F_FULLFSYNC po reset_stage.
+
+## 2026-11-23T11:55:18Z - Group 11 Complete
+**Steps**: 11.1–11.6. **Tests**: test_clean_work 8/8; 8 mutacji → czerwone, przywrócone.
+**Dry-run na repo**: NOTICE dostępny (50 hashy); 26 kandydatów wydań (~0,42 GB): pop-v1, v1r2, v1r3; tematy v1 (7 tematów + tematy-v1); tematy-matematyka-v2, tematy-medycyna-v2 (a/b). Potrzebne: LL-PL v29/v30/v31, pop-v2/v3, pop00, tematy v2/v3, tematy-wydanie-20261029. Nic nie skasowane.
+**Notes**: pop00-v1-* remisują wersją → zawsze zostają (bezpieczna strona).

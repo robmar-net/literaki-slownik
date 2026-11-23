@@ -299,22 +299,22 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
 **Files to Modify:** `scripts/clean_work.py`, `tests/test_clean_work.py`
 **Estimated Steps:** 6
 
-- [ ] 11.0 Lista domyślnie, kasowanie tylko klas T7 i zaakceptowanych wydań
-  - [ ] 11.1 Napisać 8 testów w `tests/test_clean_work.py`
+- [x] 11.0 Lista domyślnie, kasowanie tylko klas T7 i zaakceptowanych wydań
+  - [x] 11.1 Napisać 8 testów w `tests/test_clean_work.py`
     - Drzewo z każdą klasą: bez `--apply` na dysku nic się nie zmienia. `--apply` kasuje tylko klasy 5–6.
     - `VERIFIED`/`FROZEN` bez symlinku nigdy nie jest kasowany. Katalog z rekordu promocji też nie.
     - Wydanie przypięte, bieżące albo ostatnie w rodzinie nigdy nie jest kandydatem.
     - `NOTICE` w prawdziwym kształcie w tymczasowym repo git z `refs/remotes/origin/main`: hash pliku listy → wydanie potrzebne.
     - Brak repo albo `NOTICE` → zero kandydatów i `server_notice: unavailable` z powodem.
     - `--delete-releases` z nazwą potrzebną → odmowa całości (4). Nazwa kandydata → skasowane po `chmod u+w`.
-  - [ ] 11.2 Klasy 1–8 według pierwszeństwa. Trzymane blokady wykrywa `flock(LOCK_NB)`, próg wieku to 24 h.
-  - [ ] 11.3 Wydania do głębokości 2. Rodzina do `-v<cyfry>`, wersja jako krotka (`v1r2` → (1, 2)), nierozpoznane → klasa 7. Razem z wydaniem idzie jego przebieg `FROZEN`.
-  - [ ] 11.4 Wydania potrzebne
+  - [x] 11.2 Klasy 1–8 według pierwszeństwa. Trzymane blokady wykrywa `flock(LOCK_NB)`, próg wieku to 24 h.
+  - [x] 11.3 Wydania do głębokości 2. Rodzina do `-v<cyfry>`, wersja jako krotka (`v1r2` → (1, 2)), nierozpoznane → klasa 7. Razem z wydaniem idzie jego przebieg `FROZEN`.
+  - [x] 11.4 Wydania potrzebne
     - Piny w `config/generator/*-sources.json`.
     - `NOTICE` przez `git -C <server-repo> show origin/main:NOTICE`, bez `fetch` i bez sieci.
     - `--server-current` i reguła „ostatnie w rodzinie”.
-  - [ ] 11.5 Wyjście JSON (wpis, klasa, rozmiar, powód), `--apply`, `--delete-releases PLIK` (wymaga `--apply`). Kody 0, 2, 4.
-  - [ ] 11.6 Uruchomić tylko testy z 11.1
+  - [x] 11.5 Wyjście JSON (wpis, klasa, rozmiar, powód), `--apply`, `--delete-releases PLIK` (wymaga `--apply`). Kody 0, 2, 4.
+  - [x] 11.6 Uruchomić tylko testy z 11.1
 
 **Acceptance Criteria:**
 - 8 testów przechodzi. Bez zgody właściciela nic nieodtwarzalnego nie znika.
