@@ -34,12 +34,12 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
 **Files to Modify:** `.gitignore`, `tests/test_gitignore.py`
 **Estimated Steps:** 3
 
-- [ ] 1.0 Ignorowanie symlinków przebiegów i logów
-  - [ ] 1.1 Napisać 2 testy w `tests/test_gitignore.py`
+- [x] 1.0 Ignorowanie symlinków przebiegów i logów
+  - [x] 1.1 Napisać 2 testy w `tests/test_gitignore.py`
     - Tymczasowe repo git z kopią `.gitignore`: `git check-ignore` łapie symlink `data/work/x` i plik `logs/x.out.json`.
     - Plik kodu (`literaki_slownik/x.py`) nie jest ignorowany.
-  - [ ] 1.2 Dodać `/logs` do `.gitignore`, bez końcowego ukośnika, z komentarzem po polsku. Wpis `/data/work/` zostaje.
-  - [ ] 1.3 Uruchomić tylko testy z 1.1
+  - [x] 1.2 Dodać `/logs` do `.gitignore`, bez końcowego ukośnika, z komentarzem po polsku. Wpis `/data/work/` zostaje.
+  - [x] 1.3 Uruchomić tylko testy z 1.1
 
 **Acceptance Criteria:**
 - Oba testy przechodzą. Symlinki w `data/work` i pliki w `logs/` są ignorowane (R1, L2).
@@ -49,19 +49,19 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
 **Files to Modify:** `literaki_slownik/canonical.py`, `literaki_slownik/build.py`, `tests/test_durable_write.py`
 **Estimated Steps:** 7
 
-- [ ] 2.0 `write_json` i `write_bytes` trwałe na zewnętrznym dysku
-  - [ ] 2.1 Napisać 5 testów w `tests/test_durable_write.py`
+- [x] 2.0 `write_json` i `write_bytes` trwałe na zewnętrznym dysku
+  - [x] 2.1 Napisać 5 testów w `tests/test_durable_write.py`
     - Kolejność wywołań (mock): tmp w tym samym katalogu → zapis → `fcntl(F_FULLFSYNC)` → hook → `os.replace` → fsync katalogu.
     - Fallback na `os.fsync`, gdy `fcntl` nie ma `F_FULLFSYNC` albo zwraca błąd.
     - Przerwanie przed `replace` zostawia stary plik i nie zostawia tmp.
     - `unlink` rzucający `OSError` nie zmienia typu pierwotnego wyjątku.
     - `write_lists` pisze przez `write_bytes` i daje te same bajty list.
-  - [ ] 2.2 Wspólna funkcja zapisu trwałego dla bajtów, z kolejnością z R3
-  - [ ] 2.3 Hook przed `os.replace`: `set_replace_guard(fn)`, domyślnie brak. Podłącza go grupa 4.
-  - [ ] 2.4 `write_json` serializuje jak dziś (te same bajty) i woła wspólną funkcję. Dodać `write_bytes(path, data)`.
-  - [ ] 2.5 Sprzątanie tmp w `finally` w `try/except OSError`, żeby pierwotny błąd poleciał dalej
-  - [ ] 2.6 `build.write_lists` przez `write_bytes`. Nazwy i bajty plików list bez zmian.
-  - [ ] 2.7 Uruchomić tylko testy z 2.1
+  - [x] 2.2 Wspólna funkcja zapisu trwałego dla bajtów, z kolejnością z R3
+  - [x] 2.3 Hook przed `os.replace`: `set_replace_guard(fn)`, domyślnie brak. Podłącza go grupa 4.
+  - [x] 2.4 `write_json` serializuje jak dziś (te same bajty) i woła wspólną funkcję. Dodać `write_bytes(path, data)`.
+  - [x] 2.5 Sprzątanie tmp w `finally` w `try/except OSError`, żeby pierwotny błąd poleciał dalej
+  - [x] 2.6 `build.write_lists` przez `write_bytes`. Nazwy i bajty plików list bez zmian.
+  - [x] 2.7 Uruchomić tylko testy z 2.1
 
 **Acceptance Criteria:**
 - 5 testów przechodzi. Bajty `write_json` są takie jak przed zmianą.
@@ -71,28 +71,28 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
 **Files to Modify:** `scripts/measure_fullfsync.py`, `tests/test_measure_fullfsync.py`, `literaki_slownik/database.py`, `docs/adr/ADR-020-fullfsync.md`, `.maister/tasks/development/2026-11-23-22-dysk-roboczy-wznawianie/verification/fullfsync-measurement.json`
 **Estimated Steps:** 9
 
-- [ ] 3.0 Pomiar narzutu `fullfsync` i wybór 4B/4C
-  - [ ] 3.1 Napisać 5 testów w `tests/test_measure_fullfsync.py` (na `tempfile`)
+- [x] 3.0 Pomiar narzutu `fullfsync` i wybór 4B/4C
+  - [x] 3.1 Napisać 5 testów w `tests/test_measure_fullfsync.py` (na `tempfile`)
     - JSON ma oba warianty (`fullfsync_off`, `fullfsync_on`: mediana czasu commitu, liczba commitów próby).
     - `--reference-run` (fikstura z `reports/import-counts.json` i `reports/decisions.json`) daje `build_commits`, `overhead_pct` według wzoru ze spec i `choice`.
     - `--quick-check` podaje wynik i czas na kopii fikstury, otwartej tylko do odczytu.
     - Wynik nie zawiera ścieżek absolutnych. Katalog `--dir` znika na końcu.
     - Istniejący `--dir` → odmowa, nic nie skasowane.
-  - [ ] 3.2 `scripts/measure_fullfsync.py` (stdlib, bez importu buildu słownika)
+  - [x] 3.2 `scripts/measure_fullfsync.py` (stdlib, bez importu buildu słownika)
     - Tworzy `--dir` (`parents=False`) i w nim tymczasową bazę: `journal_mode=DELETE`, `synchronous=FULL`.
     - Mierzy serie commitów z partią wierszy przy `fullfsync=OFF` i `ON`, naprzemiennie, kilka powtórzeń, mediana.
-  - [ ] 3.3 Liczba commitów buildu: rekordy referencyjnego przebiegu / 10 000 w górę plus commity etapów
+  - [x] 3.3 Liczba commitów buildu: rekordy referencyjnego przebiegu / 10 000 w górę plus commity etapów
     - `overhead_pct = (ON − OFF) × commity / 46 800 × 100`.
     - `choice`: `build` przy ≤ 5%, inaczej `stage_boundaries`.
-  - [ ] 3.4 `--quick-check DB`: `PRAGMA quick_check` przez URI `mode=ro`, wynik i czas
-  - [ ] 3.5 W `database.py`: stała `FULLFSYNC_MODE = 'build'` i krotka dozwolonych wartości. Zachowanie bez zmian, stałą czyta dopiero grupa 8.
-  - [ ] 3.6 Uruchomić tylko testy z 3.1. Muszą przejść przed 3.7.
-  - [ ] 3.7 Jednorazowy pomiar na T7. Uruchamia tylko ten skrypt, bez `build` i bez zmian w przebiegach.
+  - [x] 3.4 `--quick-check DB`: `PRAGMA quick_check` przez URI `mode=ro`, wynik i czas
+  - [x] 3.5 W `database.py`: stała `FULLFSYNC_MODE = 'build'` i krotka dozwolonych wartości. Zachowanie bez zmian, stałą czyta dopiero grupa 8.
+  - [x] 3.6 Uruchomić tylko testy z 3.1. Muszą przejść przed 3.7.
+  - [x] 3.7 Jednorazowy pomiar na T7. Uruchamia tylko ten skrypt, bez `build` i bez zmian w przebiegach.
     - Sprawdzić, czy `/Volumes/Data` jest punktem montowania i ma wolne miejsce. Gdy nie, przerwać i zgłosić, bez zastępstwa na dysku wewnętrznym.
     - Uruchomić w tle: `python3 scripts/measure_fullfsync.py --dir /Volumes/Data/.measure-<stempel> --reference-run data/work/<ostatni FROZEN> --quick-check data/work/<ostatni FROZEN>/build.sqlite`. Dziś ostatni `FROZEN` to `lists-v32-20261104-161601-a`.
     - Na końcu sprawdzić, czy katalog `.measure-<stempel>` zniknął.
-  - [ ] 3.8 Zapisać JSON wyniku do `verification/fullfsync-measurement.json` w katalogu zadania (bez ścieżek i UUID). Ustawić `FULLFSYNC_MODE` według reguły.
-  - [ ] 3.9 Napisać `docs/adr/ADR-020-fullfsync.md` po polsku, bez ścieżek i UUID
+  - [x] 3.8 Zapisać JSON wyniku do `verification/fullfsync-measurement.json` w katalogu zadania (bez ścieżek i UUID). Ustawić `FULLFSYNC_MODE` według reguły.
+  - [x] 3.9 Napisać `docs/adr/ADR-020-fullfsync.md` po polsku, bez ścieżek i UUID
     - Liczby: czasy ON i OFF, commity, `overhead_pct`, czas `quick_check`, data pomiaru.
     - Wybór 4B/4C.
     - `F_FULLFSYNC` i fsync katalogu w zapisie plików, `quick_check` przy wznowieniu.
@@ -108,24 +108,24 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
 **Files to Modify:** `literaki_slownik/volume.py`, `scripts/init_work_volume.py`, `literaki_slownik/canonical.py`, `tests/test_volume.py`
 **Estimated Steps:** 8
 
-- [ ] 4.0 Moduł `volume.py` i `init_work_volume.py`
-  - [ ] 4.1 Napisać 8 testów w `tests/test_volume.py` (podstawione `os.path.ismount`, `os.stat`, `os.statvfs`, `subprocess`)
+- [x] 4.0 Moduł `volume.py` i `init_work_volume.py`
+  - [x] 4.1 Napisać 8 testów w `tests/test_volume.py` (podstawione `os.path.ismount`, `os.stat`, `os.statvfs`, `subprocess`)
     - Brak montowania → 75. Inny `marker_id` → 76. Zmiana `st_dev` (G3) → 75. Wolne < 50 GB → 78.
     - Ścieżka wewnętrzna bez znacznika i bez `--work-root` → przepuszcza (`work_volume` null).
     - `--work-root` bez znacznika na dysku repo → 76. Zewnętrzny wolumen bez znacznika → 76.
     - `init_work_volume.py` drugi raz → odmowa. Korzeń na dysku repo → odmowa.
     - `find_by_marker` znajduje znacznik pod inną ścieżką (np. `<nazwa> 1`).
     - Hook zapisu: cel w aktywnym przebiegu ze zmienionym `st_dev` → 75, a stary plik zostaje.
-  - [ ] 4.2 `mount_point(path)`: najbliższy przodek po `realpath`, dla którego `ismount` jest prawdą. Do tego punkt montowania repo.
-  - [ ] 4.3 Znacznik `.literaki-work-volume` i kontrole według tabeli „Strażnik”: start świeży (z `--work-root` i bez) oraz `--resume`/nadzorca. Błędy jako `GeneratorError(…, 75|76|78)`.
-  - [ ] 4.4 Miejsce przez `os.statvfs`: próg 50 GB na proces, stała 100 GB dla pary (dla `build_pair.sh`)
-  - [ ] 4.5 G3: `activate(run_dir)` zapamiętuje `realpath` i `st_dev`; `check_active()` i `check_target(path)` (tylko cele w aktywnym przebiegu). Podłączyć przez `canonical.set_replace_guard`.
-  - [ ] 4.6 `find_by_marker(marker_id)` przegląda punkty montowania w `/Volumes`
-  - [ ] 4.7 `scripts/init_work_volume.py <korzeń>`
+  - [x] 4.2 `mount_point(path)`: najbliższy przodek po `realpath`, dla którego `ismount` jest prawdą. Do tego punkt montowania repo.
+  - [x] 4.3 Znacznik `.literaki-work-volume` i kontrole według tabeli „Strażnik”: start świeży (z `--work-root` i bez) oraz `--resume`/nadzorca. Błędy jako `GeneratorError(…, 75|76|78)`.
+  - [x] 4.4 Miejsce przez `os.statvfs`: próg 50 GB na proces, stała 100 GB dla pary (dla `build_pair.sh`)
+  - [x] 4.5 G3: `activate(run_dir)` zapamiętuje `realpath` i `st_dev`; `check_active()` i `check_target(path)` (tylko cele w aktywnym przebiegu). Podłączyć przez `canonical.set_replace_guard`.
+  - [x] 4.6 `find_by_marker(marker_id)` przegląda punkty montowania w `/Volumes`
+  - [x] 4.7 `scripts/init_work_volume.py <korzeń>`
     - UUID z `diskutil info -plist` (`plistlib`), losowy `marker_id` (`secrets`), zapis przez `write_json`.
     - Odmowa, gdy znacznik istnieje albo korzeń leży na dysku repo.
     - stdout: JSON tylko z `marker_id`.
-  - [ ] 4.8 Uruchomić tylko testy z 4.1
+  - [x] 4.8 Uruchomić tylko testy z 4.1
 
 **Acceptance Criteria:**
 - 8 testów przechodzi. Kody zgodne z tabelą „Strażnik”.

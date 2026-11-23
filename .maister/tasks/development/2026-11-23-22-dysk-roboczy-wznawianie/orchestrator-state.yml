@@ -1,6 +1,6 @@
 orchestrator:
   started_phase: phase-1
-  completed_phases: [phase-1, phase-2]
+  completed_phases: [phase-1, phase-2, phase-5, phase-6, phase-7]
   failed_phases: []
   options:
     html_output: true
@@ -14,7 +14,7 @@ orchestrator:
     reality_check_enabled: true
     production_check_enabled: true
   created: 2026-11-23T08:04:34Z
-  updated: 2026-11-23T10:15:04Z
+  updated: 2026-11-23T11:04:27Z
   task_path: .maister/tasks/development/2026-11-23-22-dysk-roboczy-wznawianie
 task:
   title: "#22 Build na T7 z wznawianiem po zniknięciu dysku"
@@ -56,3 +56,10 @@ task_context:
     specification:
       summary: "R1–R13 z kryteriami i testami; kody 75–78; build_attempts/resume/work_volume w manifeście; resume od pierwszego niekompletnego etapu; promote_run.py i clean_work.py; ADR-014..021."
       artifacts: [{path: implementation/spec.md, label: Specyfikacja, html: implementation/spec.html}]
+    implementation_plan:
+      summary: "14 grup, 95 kroków; fala 1: gitignore, trwały zapis, pomiar fullfsync; łańcuch 2→4→5→6→7; potem 8,9,10,11,12; 13 docs; 14 pełny zestaw."
+      artifacts: [{path: implementation/implementation-plan.md, label: Plan, html: implementation/implementation-plan.html}]
+    gates_more:
+      phase-5: "Tak, audyt"
+      phase-6: "Popraw spec, potem plan"
+      phase-7: "2026-11-23T11:04:27Z Tak, ze znacznikiem — znacznik wolumenu na T7 po grupie 4, bez buildu słownika"

@@ -4,7 +4,7 @@ from pathlib import Path
 import resource
 import sqlite3
 import time
-from .canonical import dumps, write_json, load_json
+from .canonical import dumps, write_json, write_bytes, load_json
 from .database import connect
 from .inputs import GeneratorError, inspect_sources
 from . import sgjp, kwjp
@@ -82,7 +82,7 @@ def write_lists(db, run):
             join variant_decision d on d.analysis_key=a.analysis_key
             where d.variant=? and d.membership_status='accept' order by a.game_key''', (variant,))]
         sizes[variant] = keys
-        (run / 'lists' / f'{variant}.txt').write_bytes(''.join(k + '\n' for k in keys).encode('utf-8'))
+        write_bytes(run / 'lists' / f'{variant}.txt', ''.join(k + '\n' for k in keys).encode('utf-8'))
     outside = set(sizes['standard']) - set(sizes['broad'])
     if outside:
         raise GeneratorError(f'STANDARD nie jest podzbiorem BROAD: {len(outside)} słów', 4)

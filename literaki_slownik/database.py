@@ -4,6 +4,11 @@ from pathlib import Path
 import sqlite3
 import unicodedata
 
+# Tryb `fullfsync` buildu (ADR-020): `build` (4B) = ON przez cały build, `stage_boundaries` (4C) = OFF w etapie
+# i F_FULLFSYNC na granicy etapu. Wybrany pomiarem `scripts/measure_fullfsync.py` na T7. Czyta go grupa 8.
+FULLFSYNC_MODES = ('build', 'stage_boundaries')
+FULLFSYNC_MODE = 'build'
+
 
 @contextmanager
 def connect(path, create=False, readonly=False):

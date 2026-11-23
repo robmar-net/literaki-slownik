@@ -1,0 +1,48 @@
+{
+  "build_commits": 3051,
+  "build_seconds_basis": 46800,
+  "choice": "build",
+  "commit_delta_seconds": 0.013433792511932552,
+  "fullfsync_off": {
+    "commits": 1000,
+    "median_commit_seconds": 0.004140041419304907,
+    "pragmas": {
+      "fullfsync": 0,
+      "journal_mode": "delete",
+      "synchronous": 2
+    }
+  },
+  "fullfsync_on": {
+    "commits": 1000,
+    "median_commit_seconds": 0.01757383393123746,
+    "pragmas": {
+      "fullfsync": 1,
+      "journal_mode": "delete",
+      "synchronous": 2
+    }
+  },
+  "measured_on": "2026-11-23",
+  "overhead_pct": 0.0875779934912526,
+  "platform": "darwin",
+  "quick_check": {
+    "messages": [],
+    "result": "ok",
+    "seconds": 486.1298872078769
+  },
+  "reference_run": {
+    "batch_commits": 3044,
+    "build_commits": 3051,
+    "decision_records": 17828737,
+    "import_records": 12524888,
+    "name": "lists-v32-20261104-161601-a",
+    "stage_commits": 7
+  },
+  "schema_version": 1,
+  "settings": {
+    "batch_rows": 10000,
+    "commits_per_trial": 200,
+    "repeats": 5
+  },
+  "sqlite_version": "3.54.1",
+  "threshold_pct": 5
+}

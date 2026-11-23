@@ -3,6 +3,8 @@
 /tmp/
 /data/raw/
 /data/work/
+# Logi nadzorcy buildu; bez ukośnika, bo logs może być symlinkiem
+/logs
 .venv/
 __pycache__/
 *.py[cod]
