@@ -193,8 +193,8 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
 **Files to Modify:** `literaki_slownik/build.py`, `literaki_slownik/run.py`, `literaki_slownik/cli.py`, `tests/test_resume.py`, `tests/test_resume_equivalence.py`
 **Estimated Steps:** 7
 
-- [ ] 7.0 Wznowienie od pierwszego niegotowego etapu
-  - [ ] 7.1 Napisać 8 testów w `tests/test_resume.py` i `tests/test_resume_equivalence.py`
+- [x] 7.0 Wznowienie od pierwszego niegotowego etapu
+  - [x] 7.1 Napisać 8 testów w `tests/test_resume.py` i `tests/test_resume_equivalence.py`
     - Po jednej odmowie na każdą kontrolę (`subTest`): brak przebiegu 4, wiszący symlink 75 (nie 4), G1 75, nieczytelny manifest 4, `VERIFIED` 5, G2 76, miejsce 78, kod 4, wejścia 3, `quick_check` 77.
     - `running` po `os._exit` w procesie potomnym → `failed`. Otwarta próba → `interrupted`, `resume.count` + 1.
     - Niegotowy `preflight` → przebieg od nowa w tym samym katalogu.
@@ -202,12 +202,12 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
     - Harness: przerwanie na każdej granicy etapu, w środku `import_kwjp`, `constructions`, `links` i między każdą parą raportów. Po `--resume` pliki są bajtowo równe świeżemu buildowi.
     - Podwójne przerwanie i drugie `--resume` dają wynik świeżego.
     - Para wznowiony + świeży → `verify` VERIFIED (`complete_pair`).
-  - [ ] 7.2 `cli build --resume --manifest M --run-dir R`
-  - [ ] 7.3 Kontrole w kolejności 1–11 ze spec. Przenieść kontrole z `scripts/resume_reports.py:44-52` do wspólnej walidacji.
-  - [ ] 7.4 Krok 12: `running` → `failed`, otwarta próba `interrupted`, nowa próba, `resume` + 1
-  - [ ] 7.5 Reset w jednej transakcji, z commitem i pełnym flushem przed `set_stage(running)`. DROP dziecka przed rodzicem, DROP przed DELETE.
-  - [ ] 7.6 Harness w testach: wyjątek wstrzykiwany w podstawioną funkcję etapu albo raportu, jedna fikstura, punkty przez `subTest`
-  - [ ] 7.7 Uruchomić tylko testy z 7.1
+  - [x] 7.2 `cli build --resume --manifest M --run-dir R`
+  - [x] 7.3 Kontrole w kolejności 1–11 ze spec. Przenieść kontrole z `scripts/resume_reports.py:44-52` do wspólnej walidacji.
+  - [x] 7.4 Krok 12: `running` → `failed`, otwarta próba `interrupted`, nowa próba, `resume` + 1
+  - [x] 7.5 Reset w jednej transakcji, z commitem i pełnym flushem przed `set_stage(running)`. DROP dziecka przed rodzicem, DROP przed DELETE.
+  - [x] 7.6 Harness w testach: wyjątek wstrzykiwany w podstawioną funkcję etapu albo raportu, jedna fikstura, punkty przez `subTest`
+  - [x] 7.7 Uruchomić tylko testy z 7.1
 
 **Acceptance Criteria:**
 - 8 testów przechodzi. Każdy punkt przerwania daje bajtowo ten sam wynik co świeży build.

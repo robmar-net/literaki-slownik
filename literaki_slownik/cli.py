@@ -23,7 +23,8 @@ def main(argv=None):
         inspect.add_argument('--json', action='store_true', help='Odpowiedź JSON')
         builder = sub.add_parser('build', help='Zbuduj nowy przebieg')
         builder.add_argument('--manifest', required=True, help='Manifest lokalnych wejść')
-        builder.add_argument('--run-dir', required=True, help='Nowy katalog przebiegu')
+        builder.add_argument('--run-dir', required=True, help='Nowy katalog przebiegu (z --resume: istniejący)')
+        builder.add_argument('--resume', action='store_true', help='Wznów przebieg od pierwszego niegotowego etapu')
         builder.add_argument('--work-root', help='Korzeń wolumenu roboczego ze znacznikiem; przebieg powstaje '
                              'w <korzeń>/<nazwa>, a --run-dir staje się symlinkiem')
         builder.add_argument('--json', action='store_true', help='Odpowiedź JSON')
@@ -74,8 +75,14 @@ def main(argv=None):
             checked = inspect_sources(args.manifest)
             result['result'] = {k: v for k, v in checked.items() if k != 'manifest'}
         elif args.command == 'build':
-            from .build import build
-            result['result'] = build(args.manifest, args.run_dir, work_root=args.work_root)
+            if args.resume:
+                if args.work_root is not None:
+                    raise GeneratorError('--resume nie przyjmuje --work-root: przebieg ma już katalog', 2)
+                from .build import resume
+                result['result'] = resume(args.manifest, args.run_dir)
+            else:
+                from .build import build
+                result['result'] = build(args.manifest, args.run_dir, work_root=args.work_root)
         elif args.command == 'explain':
             if args.variant == 'pop00':
                 if not args.pop00_dir:

@@ -45,3 +45,8 @@
 **Steps**: 10.1–10.9. **Tests**: promote_run+export+lifecycle+verify 41/41. Mutacje: warunek indeksu B i odmowa export → czerwone; os.path.exists w _guard nieobjęty (nadmiarowy).
 **Files**: scripts/promote_run.py (S0–S4, lock, log, staging, rename_swap), export.py (rename_swap, on_work_volume → 5), tests/test_promote_run.py.
 **Notes**: --peer opcjonalny; używa prywatnych canonical._full_sync/_sync_directory (do rozważenia w przeglądzie).
+
+## 2026-11-23T11:54:55Z - Group 7 Complete
+**Steps**: 7.1–7.7. **Tests**: 10 modułów, 60/60; harness 19 punktów przerwania (błąd I/O i os._exit), podwójne przerwanie, para wznowiony+świeży → VERIFIED. Mutacje reset_stage i restart_in_place → czerwone.
+**Files**: build.py (reset_stage, guarded_build, resume, restart_in_place), run.py (first_incomplete, check_identity, begin_resume), cli.py (--resume), tests/test_resume.py, tests/test_resume_equivalence.py.
+**Notes**: check_identity wymaga git_dirty is False (ostrzej niż stary resume_reports). Grupa 8: F_FULLFSYNC po reset_stage.

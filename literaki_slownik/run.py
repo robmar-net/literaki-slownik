@@ -6,7 +6,7 @@ from pathlib import Path
 import shutil
 import subprocess
 from .canonical import load_json, write_json
-from .inputs import GeneratorError
+from .inputs import GeneratorError, inspect_sources
 
 STAGES = ('preflight', 'import_sgjp', 'import_kwjp', 'constructions', 'decisions', 'links', 'reports')
 
@@ -111,3 +111,42 @@ def set_stage(path, stage, status, details=None):
     manifest['readiness'] = 'INCOMPLETE'
     manifest['stages'][stage] = {'status': status, 'updated': now(), **(details or {})}
     write_json(target, manifest)
+
+
+def first_incomplete(stages):
+    """Pierwszy etap, który nie jest complete; przy komplecie reports (raporty końcowe od nowa, znaczniki .done)."""
+    return next((name for name in STAGES if stages[name]['status'] != 'complete'), STAGES[-1])
+
+
+def check_identity(manifest, manifest_path):
+    """Kontrole 8–9 wznowienia: ten sam kod bez zmian (4) i ten sam manifest wejść (3). Zwraca wejścia."""
+    current = code_identity()
+    if manifest['code']['tree_sha256'] != current['tree_sha256'] or current['git_dirty'] is not False:
+        raise GeneratorError('Kod generatora różni się od kodu build albo ma niezatwierdzone zmiany', 4)
+    inputs = inspect_sources(manifest_path)
+    if inputs['manifest_sha256'] != manifest['inputs']['manifest_sha256']:
+        raise GeneratorError('Manifest wejść różni się od manifestu build', 3)
+    return inputs
+
+
+def begin_resume(path, first=None):
+    """Krok 12: running → failed, otwarta próba → interrupted, nowa próba, resume + 1. Zwraca pierwszy etap."""
+    target = Path(path) / 'manifest.json'
+    manifest = load_json(target)
+    started = now()
+    running = [name for name in STAGES if manifest['stages'][name]['status'] == 'running']
+    for name in running:
+        manifest['stages'][name] = {'status': 'failed', 'updated': started,
+                                    'reason': 'proces przerwany bez zamknięcia etapu'}
+    attempts = manifest.setdefault('build_attempts', [])
+    if attempts and attempts[-1]['ended'] is None:
+        attempts[-1].update(ended=started, outcome='interrupted',
+                            last_stage=running[-1] if running else attempts[-1]['last_stage'])
+    first = first or first_incomplete(manifest['stages'])
+    attempts.append({'attempt': len(attempts) + 1, 'started': started, 'ended': None, 'first_stage': first,
+                     'last_stage': None, 'outcome': None, 'exit_code': None})
+    count = (manifest.get('resume') or {}).get('count', 0)
+    manifest['resume'] = {'resumed': True, 'count': count + 1}
+    manifest['readiness'] = 'INCOMPLETE'
+    write_json(target, manifest)
+    return first

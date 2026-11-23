@@ -1,6 +1,7 @@
 """Import porcjowany, metryki i jawne statusy niepełnego przebiegu."""
 from collections import Counter
 import errno
+import os
 from pathlib import Path
 import resource
 import shutil
@@ -10,13 +11,14 @@ from .canonical import dumps, write_json, write_bytes, load_json, sha256
 from .database import connect
 from .inputs import GeneratorError, inspect_sources, checked_file
 from . import sgjp, kwjp
-from .run import create_run, set_stage, close_attempt, code_identity, STAGES
+from .run import (create_run, set_stage, close_attempt, code_identity, check_identity, begin_resume,
+                  STAGES)
 from . import volume
 from .reports import qualifier_coverage, logical_content_report, unresolved_report, persisted_filter_impact, canonical_index, coverage_report
 from .constructions import materialize_confirmed_candidates
 from .links import (create_links, link_report, load_pos_map, verify_link_completeness,
                     link_stage_gate, SHARED_POS, DEFAULT_POS_MAP_VERSION)
-from .decisions import materialize_assessments
+from .decisions import materialize_assessments, USE_REVIEW_ID
 from . import standard_age_exceptions
 from . import standard_exclusions
 
@@ -333,6 +335,28 @@ def stage_reports(db, ctx):
     set_stage(run, 'reports', 'complete' if coverage['status'] == 'COMPLETE' else 'pending')
 
 
+# Reset przed wznowieniem (tabela „Reset”): DELETE w kolejności kluczy obcych, dziecko przed rodzicem.
+DERIVED_TABLES = ('variant_decision', 'decision_payload', 'analysis', 'derivation_component', 'derivation_candidate')
+SGJP_TABLES = ('interpretation', 'lexeme', 'surface_form', 'sgjp_record')
+
+
+def reset_stage(db, first):
+    """Tabele etapu first i dalszych do stanu sprzed etapu; jedna transakcja zakończona commitem."""
+    if first in ('preflight', 'reports'):
+        return  # preflight: nowa baza (krok 10); reports: znaczniki .done (R7).
+    if not db.in_transaction:
+        db.execute('BEGIN')
+    # DROP przed DELETE i osobno: przy foreign_keys=ON DROP rodzica sprawdza odwołania dziecka.
+    db.execute('DROP TABLE IF EXISTS evidence_candidate')
+    db.execute('DROP TABLE IF EXISTS evidence_link')
+    if first in ('import_sgjp', 'import_kwjp'):
+        for table in (*DERIVED_TABLES, *(SGJP_TABLES if first == 'import_sgjp' else ()), 'corpus_evidence'):
+            db.execute(f'DELETE FROM {table}')
+        db.execute('DELETE FROM source_artifact WHERE source_id=?', (USE_REVIEW_ID,))
+    # Commit przed set_stage(running) pierwszego etapu (synchronous=FULL daje pełny zapis).
+    db.commit()
+
+
 STAGE_RUNNERS = {'preflight': stage_preflight, 'import_sgjp': stage_import_sgjp, 'import_kwjp': stage_import_kwjp,
                  'constructions': stage_constructions, 'decisions': stage_decisions, 'links': stage_links,
                  'reports': stage_reports}
@@ -358,6 +382,7 @@ def run_build(ctx, first='preflight'):
     """Etapy od first, raporty końcowe i zamknięcie próby; błąd przechodzi do wywołującego."""
     run, performance = ctx['run'], ctx['performance']
     with connect(run / 'build.sqlite', create=first == 'preflight') as db:
+        reset_stage(db, first)
         run_stages(db, ctx, first)
     performance['peak_rss'] = {'value': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
                                'unit': 'bytes on macOS, KiB on Linux'}
@@ -400,10 +425,16 @@ def build(manifest_path, run_dir, batch_size=10000, work_root=None):
     # Strażnik przed create_run: bez wolumenu roboczego nic nie powstaje na dysku systemowym (R1).
     work_volume = volume.check_fresh(run, work_root)
     create_run(run, inputs, work_root=work_root, work_volume=work_volume)
+    return guarded_build(stage_context(manifest_path, run, inputs, batch_size), 'preflight', work_volume)
+
+
+def guarded_build(ctx, first, work_volume):
+    """Etapy od first pod strażnikiem G3; błąd zamyka próbę i dostaje kod z klasyfikatora (R4)."""
+    run = ctx['run']
+    ctx['stage'] = first
     volume.activate(run)
-    ctx = stage_context(manifest_path, run, inputs, batch_size)
     try:
-        return run_build(ctx, 'preflight')
+        return run_build(ctx, first)
     except BaseException as error:
         code = record_failure(error, ctx, work_volume)
         if isinstance(error, (KeyboardInterrupt, GeneratorError)):
@@ -413,3 +444,71 @@ def build(manifest_path, run_dir, batch_size=10000, work_root=None):
         raise
     finally:
         volume.deactivate()
+
+
+def read_run_manifest(run):
+    """Krok 4: manifest przebiegu; brak albo nieczytelny → ponowny G1 (75), inaczej 4."""
+    try:
+        manifest = load_json(run / 'manifest.json')
+        if not all(isinstance(manifest[key], dict) for key in ('stages', 'code', 'inputs')):
+            raise ValueError('pola manifestu')
+        # Brak pola daje KeyError/TypeError, czyli ten sam kod 4 co nieczytelny plik.
+        [manifest['stages'][name]['status'] for name in STAGES]
+        [manifest['code']['tree_sha256'], manifest['inputs']['manifest_sha256'], manifest['readiness']]
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        volume.check_mounted(run)
+        raise GeneratorError('Brak albo nieczytelny manifest przebiegu', 4, str(run)) from error
+    return manifest
+
+
+def database_resumable(run, manifest, work_volume):
+    """Kroki 10–11: False, gdy preflight niegotowy albo baza bez kompletu source_artifact; quick_check ≠ ok → 77."""
+    if manifest['stages']['preflight']['status'] != 'complete' or not (run / 'build.sqlite').is_file():
+        return False
+    try:
+        with connect(run / 'build.sqlite') as db:
+            if db.execute('PRAGMA quick_check').fetchall() != [('ok',)]:
+                raise GeneratorError('PRAGMA quick_check bazy przebiegu ≠ ok', 77, str(run))
+            present = {row[0] for row in db.execute('SELECT source_id FROM source_artifact')}
+    except sqlite3.Error as error:
+        raise GeneratorError(f'Baza przebiegu nie otwiera się: {error}', exit_code(error, run, work_volume),
+                             str(run)) from error
+    return {artifact['source_id'] for artifact in manifest['inputs']['artifacts']} <= present
+
+
+def restart_in_place(run):
+    """Krok 10: przebieg od preflight w tym samym katalogu (baza, journal, reports/ i lists/ od zera)."""
+    for name in ('build.sqlite', 'build.sqlite-journal', 'build.sqlite-wal', 'build.sqlite-shm'):
+        (run / name).unlink(missing_ok=True)
+    for folder in ('reports', 'lists'):
+        if (run / folder).is_dir():
+            for entry in (run / folder).iterdir():
+                if entry.is_dir() and not entry.is_symlink():
+                    shutil.rmtree(entry)
+                else:
+                    entry.unlink()
+    (run / 'reports').mkdir(exist_ok=True)
+
+
+def resume(manifest_path, run_dir, batch_size=10000):
+    """`build --resume`: kontrole 1–12 ze spec (kolejność H1), potem etapy od pierwszego niegotowego."""
+    if type(batch_size) is not int or batch_size < 1 or batch_size > 10000:
+        raise GeneratorError('Porcja musi mieć od 1 do 10 000 rekordów', 2)
+    run = Path(run_dir)
+    if not os.path.lexists(run):
+        raise GeneratorError('Brak przebiegu do wznowienia', 4, str(run))
+    volume.check_mounted(run)  # 2–3: wiszący symlink, G1 → 75 (dysk przed manifestem, który leży na T7).
+    manifest = read_run_manifest(run)
+    if manifest['readiness'] in {'VERIFIED', 'FROZEN'}:
+        raise GeneratorError(f'Przebieg ma status {manifest["readiness"]}; wznowienie po verify jest niedozwolone',
+                             5, str(run))
+    work_volume = manifest.get('work_volume')
+    if volume.check_marker(run, work_volume['marker_id'] if work_volume else None) is not None:  # G2 → 76
+        volume.check_space(volume.mount_point(run))  # 78
+    inputs = check_identity(manifest, manifest_path)  # kod 4, wejścia 3
+    restart = not database_resumable(run, manifest, work_volume)
+    if restart:
+        restart_in_place(run)
+    first = begin_resume(run, 'preflight' if restart else None)
+    result = guarded_build(stage_context(manifest_path, run, inputs, batch_size), first, work_volume)
+    return {**result, 'resumed_from': first}
