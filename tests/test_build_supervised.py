@@ -1,0 +1,261 @@
+"""R9: nadzorca buildu wznawia tylko po 75; build_pair.sh sprawdza środowisko przed startem."""
+from contextlib import redirect_stderr
+import importlib.util
+import io
+import json
+import os
+from pathlib import Path
+import shutil
+import signal
+import stat
+import subprocess
+import tempfile
+import unittest
+from unittest import mock
+
+from literaki_slownik import volume
+from literaki_slownik.canonical import write_json
+from literaki_slownik.inputs import GeneratorError
+
+ROOT = Path(__file__).resolve().parent.parent
+SPEC = importlib.util.spec_from_file_location('build_supervised', ROOT / 'scripts/build_supervised.py')
+build_supervised = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(build_supervised)
+
+
+class FakeClock:
+    """Zegar przesuwany tylko przez podstawiony sleep: testy nie czekają."""
+
+    def __init__(self):
+        self.now = 0.0
+        self.sleeps = []
+
+    def clock(self):
+        return self.now
+
+    def sleep(self, seconds):
+        self.sleeps.append(seconds)
+        self.now += seconds
+
+
+class SupervisorCase(unittest.TestCase):
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, self.tmp, ignore_errors=True)
+        self.run_dir = self.tmp / 'work' / 'lists-x-a'
+        self.run_dir.parent.mkdir()
+        self.logs = self.tmp / 'logs'
+        self.time = FakeClock()
+        self.calls = []
+
+    def fake_build(self, codes, create_run=True):
+        """Podstawiony build: zwraca kolejne kody; przy pierwszym wywołaniu tworzy przebieg."""
+        codes = list(codes)
+
+        def run(argv, out, err):
+            self.calls.append(list(argv))
+            if create_run and not self.run_dir.exists():
+                self.run_dir.mkdir()
+                write_json(self.run_dir / 'manifest.json', {'work_volume': {'marker_id': 'm-1'}})
+            out.write(json.dumps({'attempt': len(self.calls)}) + '\n')
+            return codes.pop(0)
+        return run
+
+    def supervise(self, run, probe=None, find=None, **options):
+        return build_supervised.supervise(
+            'config/generator/sources.json', str(self.run_dir), work_root=options.pop('work_root', None),
+            run_build=run, sleep=self.time.sleep, clock=self.time.clock,
+            probe=probe or (lambda *args: None), find=find or (lambda marker_id: None),
+            logs_dir=self.logs, **options)
+
+    def events(self):
+        path = self.logs / 'lists-x-a.supervisor.log'
+        return [json.loads(line)['event'] for line in path.read_text(encoding='utf-8').splitlines()]
+
+    def test_75_75_0_resumes_twice_and_ends_0(self):
+        code = self.supervise(self.fake_build([75, 75, 0]))
+        self.assertEqual(code, 0)
+        self.assertEqual(len(self.calls), 3)
+        self.assertNotIn('--resume', self.calls[0])
+        self.assertTrue(all('--resume' in argv for argv in self.calls[1:]))
+        self.assertEqual(len((self.logs / 'lists-x-a.out.json').read_text().splitlines()), 3)
+        self.assertEqual(self.events()[-1], 'end')
+
+    def test_four_times_75_stops_with_75_after_three_resumes(self):
+        code = self.supervise(self.fake_build([75, 75, 75, 75, 0]))
+        self.assertEqual(code, 75)
+        self.assertEqual(len(self.calls), 4)
+
+    def test_75_before_the_run_exists_starts_fresh_again(self):
+        code = self.supervise(self.fake_build([75, 0], create_run=False), work_root=str(self.tmp / 'T7'))
+        self.assertEqual(code, 0)
+        self.assertEqual(len(self.calls), 2)
+        for argv in self.calls:
+            self.assertNotIn('--resume', argv)
+            self.assertIn('--work-root', argv)
+
+    def test_other_codes_stop_without_retry(self):
+        for code in (4, 77, 76, 78, 5, 2, 3):
+            self.calls.clear()
+            shutil.rmtree(self.run_dir, ignore_errors=True)
+            self.assertEqual(self.supervise(self.fake_build([code, 0])), code)
+            self.assertEqual(len(self.calls), 1, code)
+            self.assertEqual(self.time.sleeps, [])
+
+    def test_volume_elsewhere_or_wrong_marker_stops_76_at_once(self):
+        def missing(*args):
+            raise GeneratorError('brak dysku', 75)
+        found = self.tmp / 'T7 1'
+        code = self.supervise(self.fake_build([75, 0]), probe=missing, find=lambda marker_id: found)
+        self.assertEqual((code, len(self.calls), self.time.sleeps), (76, 1, []))
+        self.assertIn('elsewhere', self.events())
+
+        def wrong(*args):
+            raise GeneratorError('inny znacznik', 76)
+        self.calls.clear()
+        self.assertEqual(self.supervise(self.fake_build([75, 0]), probe=wrong), 76)
+        self.assertEqual(len(self.calls), 1)
+
+    def test_waiting_longer_than_the_limit_ends_75(self):
+        def missing(*args):
+            raise GeneratorError('brak dysku', 75)
+        code = self.supervise(self.fake_build([75, 0]), probe=missing, wait_seconds=60, poll_seconds=5)
+        self.assertEqual(code, 75)
+        self.assertEqual(len(self.calls), 1)
+        self.assertEqual(sum(self.time.sleeps), 60)
+        self.assertTrue(all(seconds == 5 for seconds in self.time.sleeps))
+
+    def test_disk_returning_during_wait_resumes(self):
+        answers = [75, 75, None]
+
+        def flaky(*args):
+            code = answers.pop(0)
+            if code:
+                raise GeneratorError('brak dysku', code)
+        self.assertEqual(self.supervise(self.fake_build([75, 0]), probe=flaky), 0)
+        self.assertEqual(self.time.sleeps, [5, 5])
+        self.assertIn('--resume', self.calls[1])
+
+    def test_sigint_ends_130_and_other_signals_pass_the_child_code(self):
+        state = {'signal': None}
+        run = self.fake_build([75, 0])
+
+        def interrupted(argv, out, err):
+            state['signal'] = signal.SIGINT
+            return run(argv, out, err)
+        self.assertEqual(self.supervise(interrupted, state=state), 130)
+        self.assertEqual(len(self.calls), 1)
+
+        state['signal'] = None
+        self.calls.clear()
+        run = self.fake_build([75, 0])
+
+        def terminated(argv, out, err):
+            state['signal'] = signal.SIGTERM
+            return run(argv, out, err)
+        self.assertEqual(self.supervise(terminated, state=state), 75)
+        self.assertEqual(len(self.calls), 1)
+
+    def test_lock_is_held_while_supervising_and_a_second_supervisor_refuses(self):
+        seen = []
+
+        def run(argv, out, err):
+            seen.append(build_supervised.lock_held(self.logs / 'lists-x-a.lock'))
+            with redirect_stderr(io.StringIO()):
+                self.assertEqual(self.supervise(self.fake_build([0])), 4)
+            return 0
+        self.assertEqual(self.supervise(run), 0)
+        self.assertEqual(seen, [True])
+        self.assertFalse(build_supervised.lock_held(self.logs / 'lists-x-a.lock'))
+
+
+class ProbeCase(unittest.TestCase):
+    """Domyślna sonda: G1 i G2 strażnika na podstawionym montowaniu (bez /Volumes)."""
+
+    def setUp(self):
+        self.tmp = Path(os.path.realpath(tempfile.mkdtemp()))
+        self.addCleanup(shutil.rmtree, self.tmp, ignore_errors=True)
+        self.repo = self.tmp / 'repo'
+        self.t7 = self.tmp / 'T7'
+        (self.repo / 'data/work').mkdir(parents=True)
+        self.t7.mkdir()
+        self.mounts = {str(self.t7)}
+        for patch in (mock.patch.object(volume, 'REPO_ROOT', self.repo),
+                      mock.patch('os.path.ismount', lambda path: os.path.realpath(path) in self.mounts
+                                 or os.path.realpath(path) == '/')):
+            patch.start()
+            self.addCleanup(patch.stop)
+        write_json(self.t7 / volume.MARKER, {'marker_id': 'm-1'})
+        (self.t7 / 'lists-x-a').mkdir()
+        self.run_dir = self.repo / 'data/work/lists-x-a'
+        self.run_dir.symlink_to(self.t7 / 'lists-x-a')
+
+    def code(self, *args):
+        try:
+            build_supervised.probe(*args)
+        except GeneratorError as error:
+            return error.code
+        return 0
+
+    def test_g1_without_g2_is_76_and_missing_mount_is_75(self):
+        self.assertEqual(self.code(str(self.run_dir), None, 'm-1'), 0)
+        self.assertEqual(self.code(str(self.run_dir), None, 'm-2'), 76)
+        self.mounts.clear()
+        self.assertEqual(self.code(str(self.run_dir), None, 'm-1'), 75)
+        self.assertEqual(self.code(str(self.repo / 'data/work/nowy'), str(self.t7), 'm-1'), 75)
+        self.mounts.add(str(self.t7))
+        self.assertEqual(self.code(str(self.repo / 'data/work/nowy'), str(self.t7), 'm-1'), 0)
+        self.assertEqual(self.code(str(self.repo / 'data/work/nowy'), str(self.t7), 'm-2'), 76)
+
+
+class BuildPairCase(unittest.TestCase):
+    """build_pair.sh w kopii repo z podstawionym PATH: bez caffeinate i bez buildu."""
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, self.tmp, ignore_errors=True)
+        self.repo = self.tmp / 'repo'
+        (self.repo / 'scripts').mkdir(parents=True)
+        shutil.copy(ROOT / 'scripts/build_pair.sh', self.repo / 'scripts/build_pair.sh')
+        self.bin = self.tmp / 'bin'
+        self.bin.mkdir()
+        self.record = self.tmp / 'record.txt'
+        self.tool('git', 'exit 0')
+        self.tool('python3', '[ "$1" = "-c" ] && exit "${FAKE_SPACE_RC:-0}"\necho "python3 $*" >> "$FAKE_RECORD"')
+        self.tool('caffeinate', 'echo "caffeinate $*" >> "$FAKE_RECORD"\nshift\nexec "$@"')
+        self.work = self.tmp / 'T7'
+        self.work.mkdir()
+
+    def tool(self, name, body):
+        path = self.bin / name
+        path.write_text('#!/bin/sh\n' + body + '\n', encoding='utf-8')
+        path.chmod(path.stat().st_mode | stat.S_IXUSR)
+
+    def run_pair(self, env=None, *args):
+        base = {'PATH': f'{self.bin}:/usr/bin:/bin', 'FAKE_RECORD': str(self.record)}
+        return subprocess.run(['/bin/sh', str(self.repo / 'scripts/build_pair.sh'), *args],
+                              env={**base, **(env or {})}, capture_output=True, text=True)
+
+    def test_requires_work_root_name_and_space(self):
+        self.assertEqual(self.run_pair({}, 'lists-x').returncode, 2)
+        self.assertEqual(self.run_pair({'LITERAKI_WORK_ROOT': str(self.work)}).returncode, 2)
+        low = self.run_pair({'LITERAKI_WORK_ROOT': str(self.work), 'FAKE_SPACE_RC': '78'}, 'lists-x')
+        self.assertEqual(low.returncode, 78)
+        self.assertFalse(self.record.exists())
+
+    def test_starts_two_supervisors_under_caffeinate(self):
+        done = self.run_pair({'LITERAKI_WORK_ROOT': str(self.work)}, 'lists-x')
+        self.assertEqual(done.returncode, 0, done.stderr)
+        self.assertTrue((self.repo / 'logs').is_dir())
+        lines = self.record.read_text(encoding='utf-8').splitlines()
+        sleepers = [line for line in lines if line.startswith('caffeinate -dimsu ')]
+        supervisors = [line for line in lines if 'scripts/build_supervised.py' in line]
+        self.assertEqual((len(sleepers), len(supervisors)), (2, 4))
+        for side in 'ab':
+            self.assertTrue(any('--run-dir data/work/lists-x-' in line and line.endswith(
+                f'-{side} --work-root {self.work}') for line in supervisors if line.startswith('python3')),
+                lines)
+
+
+if __name__ == '__main__':
+    unittest.main()

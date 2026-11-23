@@ -55,3 +55,8 @@
 **Steps**: 11.1–11.6. **Tests**: test_clean_work 8/8; 8 mutacji → czerwone, przywrócone.
 **Dry-run na repo**: NOTICE dostępny (50 hashy); 26 kandydatów wydań (~0,42 GB): pop-v1, v1r2, v1r3; tematy v1 (7 tematów + tematy-v1); tematy-matematyka-v2, tematy-medycyna-v2 (a/b). Potrzebne: LL-PL v29/v30/v31, pop-v2/v3, pop00, tematy v2/v3, tematy-wydanie-20261029. Nic nie skasowane.
 **Notes**: pop00-v1-* remisują wersją → zawsze zostają (bezpieczna strona).
+
+## 2026-11-23T11:59:43Z - Group 9 Complete
+**Steps**: 9.1–9.9. **Tests**: test_build_supervised+test_resume_reports 15/15.
+**Files**: scripts/build_supervised.py (nowy), scripts/build_pair.sh (LITERAKI_WORK_ROOT, 100 GB, logs/, caffeinate -dimsu), scripts/resume_reports.py (nakładka), tests/test_build_supervised.py, tests/test_resume_reports.py.
+**Notes**: drugi nadzorca na tej samej blokadzie → 4; /usr/bin/time -l usunięte (peak_rss w performance.json).

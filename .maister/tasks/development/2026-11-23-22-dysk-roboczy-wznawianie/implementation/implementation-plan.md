@@ -235,8 +235,8 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
 **Files to Modify:** `scripts/build_supervised.py`, `scripts/build_pair.sh`, `scripts/resume_reports.py`, `tests/test_build_supervised.py`, `tests/test_resume_reports.py`
 **Estimated Steps:** 9
 
-- [ ] 9.0 Czekanie na dysk i wznawianie tylko po 75
-  - [ ] 9.1 Napisać 8 testów w `tests/test_build_supervised.py` i `tests/test_resume_reports.py` (podstawiony build, `sleep` i zegar)
+- [x] 9.0 Czekanie na dysk i wznawianie tylko po 75
+  - [x] 9.1 Napisać 8 testów w `tests/test_build_supervised.py` i `tests/test_resume_reports.py` (podstawiony build, `sleep` i zegar)
     - 75, 75, 0 → 0. 75 × 4 → 75 po 3 wznowieniach.
     - 75 przed powstaniem przebiegu → świeży build, nie `--resume`.
     - 4 → stop. 77 → stop.
@@ -244,18 +244,18 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
     - SIGINT → 130 bez wznowienia.
     - `build_pair.sh` bez `LITERAKI_WORK_ROOT` → 2.
     - `resume_reports.py` przekazuje kod `build --resume`.
-  - [ ] 9.2 Funkcja `supervise(...)` z wstrzykiwanym uruchamianiem buildu, `sleep`, zegarem i sondą wolumenu. Wybór polecenia: `lexists` i czytelny manifest.
-  - [ ] 9.3 Po 75: co `poll` sekund G1+G2 i `find_by_marker`. Limit `wait` minut, maks. 3 wznowienia.
-  - [ ] 9.4 Sygnały: SIGINT do dziecka i 130. SIGTERM/SIGHUP do dziecka i kod dziecka, bez wznowienia.
-  - [ ] 9.5 Logi w `logs/` na dysku wewnętrznym
+  - [x] 9.2 Funkcja `supervise(...)` z wstrzykiwanym uruchamianiem buildu, `sleep`, zegarem i sondą wolumenu. Wybór polecenia: `lexists` i czytelny manifest.
+  - [x] 9.3 Po 75: co `poll` sekund G1+G2 i `find_by_marker`. Limit `wait` minut, maks. 3 wznowienia.
+  - [x] 9.4 Sygnały: SIGINT do dziecka i 130. SIGTERM/SIGHUP do dziecka i kod dziecka, bez wznowienia.
+  - [x] 9.5 Logi w `logs/` na dysku wewnętrznym
     - `<nazwa>.out.json` (dopisywany), `<nazwa>.err`, `<nazwa>.supervisor.log` (linia JSON na zdarzenie).
     - `flock` na `logs/<nazwa>.lock` przez cały czas pracy. Plików przebiegu nie dotyka.
-  - [ ] 9.6 CLI `main()` opakowuje `supervise` (argumenty ze spec)
-  - [ ] 9.7 `build_pair.sh`
+  - [x] 9.6 CLI `main()` opakowuje `supervise` (argumenty ze spec)
+  - [x] 9.7 `build_pair.sh`
     - Wymaga `LITERAKI_WORK_ROOT` (inaczej 2), czystego kodu i ≥ 100 GB na W (inaczej 78).
     - `mkdir -p logs`, dwóch nadzorców pod `caffeinate -dimsu`. Ścieżki `data/work/<nazwa>-<stempel>-<a|b>` bez zmian.
-  - [ ] 9.8 `resume_reports.py` jako nakładka: dzisiejsze kontrole, potem `build --resume`, kod wyjścia dalej
-  - [ ] 9.9 Uruchomić tylko testy z 9.1
+  - [x] 9.8 `resume_reports.py` jako nakładka: dzisiejsze kontrole, potem `build --resume`, kod wyjścia dalej
+  - [x] 9.9 Uruchomić tylko testy z 9.1
 
 **Acceptance Criteria:**
 - 8 testów przechodzi bez czekania w czasie rzeczywistym. Ponawiany jest tylko kod 75.
