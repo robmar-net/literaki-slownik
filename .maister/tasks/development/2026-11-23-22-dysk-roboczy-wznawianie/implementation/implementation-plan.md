@@ -218,14 +218,14 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
 **Files to Modify:** `literaki_slownik/database.py`, `literaki_slownik/build.py`, `tests/test_durability_modes.py`
 **Estimated Steps:** 4
 
-- [ ] 8.0 Trwałość bazy według wyniku pomiaru
-  - [ ] 8.1 Napisać 4 testy w `tests/test_durability_modes.py`
+- [x] 8.0 Trwałość bazy według wyniku pomiaru
+  - [x] 8.1 Napisać 4 testy w `tests/test_durability_modes.py`
     - Zapisywalny `connect` → `journal_mode=delete`, `synchronous=2` (FULL). `readonly` bez zmian.
     - Tryb `build`: `fullfsync=1` w trakcie etapu i na granicy.
     - Tryb `stage_boundaries`: `fullfsync=0` w etapie. Na końcu `F_FULLFSYNC` na `build.sqlite` (mock), potem pliki etapu, potem manifest `complete`.
-  - [ ] 8.2 `connect` dla bazy zapisywalnej: `journal_mode=DELETE`, `synchronous=FULL`
-  - [ ] 8.3 Pętla etapów stosuje `FULLFSYNC_MODE` z grupy 3. Kolejność zawsze: dane trwale → pliki etapu → manifest.
-  - [ ] 8.4 Uruchomić tylko testy z 8.1
+  - [x] 8.2 `connect` dla bazy zapisywalnej: `journal_mode=DELETE`, `synchronous=FULL`
+  - [x] 8.3 Pętla etapów stosuje `FULLFSYNC_MODE` z grupy 3. Kolejność zawsze: dane trwale → pliki etapu → manifest.
+  - [x] 8.4 Uruchomić tylko testy z 8.1
 
 **Acceptance Criteria:**
 - 4 testy przechodzą w obu trybach. Żadnego WAL ani `synchronous<FULL`.

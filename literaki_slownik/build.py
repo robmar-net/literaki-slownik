@@ -8,6 +8,7 @@ import shutil
 import sqlite3
 import time
 from .canonical import dumps, write_json, write_bytes, load_json, sha256
+from . import database
 from .database import connect
 from .inputs import GeneratorError, inspect_sources, checked_file
 from . import sgjp, kwjp
@@ -28,6 +29,16 @@ def flush(db, sql, batch):
         db.executemany(sql, batch)
         db.commit()
         batch.clear()
+
+
+def stage_durable(db):
+    """Granica etapu (R8): commit danych etapu, a w trybie `stage_boundaries` też F_FULLFSYNC bazy.
+
+    Wołana przed plikami etapu i manifestem: kolejność zawsze dane trwale → pliki etapu → manifest.
+    W trybie `build` commit przy fullfsync=ON sam opróżnia pamięć dysku."""
+    db.commit()
+    if database.FULLFSYNC_MODE == 'stage_boundaries':
+        database.full_sync(db)
 
 
 def import_sgjp(db, artifact, batch_size):
@@ -173,7 +184,7 @@ def stage_preflight(db, ctx):
     for artifact in ctx['inputs']['artifacts']:
         db.execute('INSERT INTO source_artifact VALUES (?,?,?)',
                    (artifact['source_id'], artifact['kind'], dumps(artifact)))
-    db.commit()
+    stage_durable(db)
     # complete dopiero po commicie source_artifact: wznowienie ufa tylko istniejącej bazie.
     set_stage(run, 'preflight', 'complete')
 
@@ -188,6 +199,7 @@ def run_import(db, ctx, stage, predicate, importer):
         for key, expected in artifact.get('expected_counts', {}).items():
             if metrics.get(key) != expected:
                 raise GeneratorError(f'Niezgodne rozliczenie {key}: {metrics.get(key)} != {expected}', 4, sid)
+    stage_durable(db)
     ctx['performance'][stage] = {'seconds': time.monotonic() - start}
 
 
@@ -214,6 +226,7 @@ def stage_constructions(db, ctx):
     start = time.monotonic()
     set_stage(run, 'constructions', 'running')
     construction_counts = materialize_confirmed_candidates(db, ctx['batch_size'])
+    stage_durable(db)
     ctx['performance']['diagnostic_constructions'] = {'seconds': time.monotonic() - start}
     write_json(run / 'reports/construction-candidates.json', canonical_report(construction_counts))
     if construction_counts['full_constructions_pending']:
@@ -249,6 +262,7 @@ def stage_decisions(db, ctx):
         standard_exclusions.check_database(db, exclusions, analyses=False)
     decision_counts = materialize_assessments(db, ctx['batch_size'], use_reviews=use_reviews,
                                               age_exceptions=age_exceptions, standard_exclusions=exclusions)
+    stage_durable(db)
     if age_exceptions:
         decision_counts['standard_age_exceptions']['sha256'] = age_reference['sha256']
     if exclusions:
@@ -274,7 +288,7 @@ def stage_links(db, ctx):
         pos_map = load_pos_map(checked_file(ctx['base'], pos_reference))
         allowed_pos, pos_map_version = pos_map['pairs'], pos_map['version']
     create_links(db, allowed_pos)
-    db.commit()
+    stage_durable(db)
     links = link_report(db, manifest.get('unavailable', []), details=True, pos_map_version=pos_map_version)
     constructions_status = load_json(run / 'manifest.json')['stages']['constructions']['status']
     links['stage_completion'] = link_stage_gate(verify_link_completeness(db, allowed_pos), constructions_status)
@@ -317,6 +331,7 @@ def marked_report(ctx, name, compute):
 def stage_reports(db, ctx):
     run, base, configurations = ctx['run'], ctx['base'], ctx['configurations']
     set_stage(run, 'reports', 'running')
+    stage_durable(db)  # Raporty tylko czytają bazę (tabele temp w RAM); granica przed pierwszym plikiem.
     unresolved = marked_report(ctx, 'unresolved.json', lambda: unresolved_report(db))
     marked_report(ctx, 'filter-impact.json', lambda: persisted_filter_impact(db, unresolved))
     quality_reference = configurations.get('quality')
@@ -353,8 +368,8 @@ def reset_stage(db, first):
         for table in (*DERIVED_TABLES, *(SGJP_TABLES if first == 'import_sgjp' else ()), 'corpus_evidence'):
             db.execute(f'DELETE FROM {table}')
         db.execute('DELETE FROM source_artifact WHERE source_id=?', (USE_REVIEW_ID,))
-    # Commit przed set_stage(running) pierwszego etapu (synchronous=FULL daje pełny zapis).
-    db.commit()
+    # Commit przed set_stage(running) pierwszego etapu; w trybie `stage_boundaries` też F_FULLFSYNC (R8).
+    stage_durable(db)
 
 
 STAGE_RUNNERS = {'preflight': stage_preflight, 'import_sgjp': stage_import_sgjp, 'import_kwjp': stage_import_kwjp,
@@ -381,7 +396,7 @@ def run_stages(db, ctx, first):
 def run_build(ctx, first='preflight'):
     """Etapy od first, raporty końcowe i zamknięcie próby; błąd przechodzi do wywołującego."""
     run, performance = ctx['run'], ctx['performance']
-    with connect(run / 'build.sqlite', create=first == 'preflight') as db:
+    with connect(run / 'build.sqlite', create=first == 'preflight', build=True) as db:
         reset_stage(db, first)
         run_stages(db, ctx, first)
     performance['peak_rss'] = {'value': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,

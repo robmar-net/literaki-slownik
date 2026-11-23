@@ -60,3 +60,8 @@
 **Steps**: 9.1–9.9. **Tests**: test_build_supervised+test_resume_reports 15/15.
 **Files**: scripts/build_supervised.py (nowy), scripts/build_pair.sh (LITERAKI_WORK_ROOT, 100 GB, logs/, caffeinate -dimsu), scripts/resume_reports.py (nakładka), tests/test_build_supervised.py, tests/test_resume_reports.py.
 **Notes**: drugi nadzorca na tej samej blokadzie → 4; /usr/bin/time -l usunięte (peak_rss w performance.json).
+
+## 2026-11-23T12:00:14Z - Group 8 Complete
+**Steps**: 8.1–8.4. **Tests**: 28/28 + 20/20 sąsiednie; mutacja kolejności stage_durable → czerwony.
+**Files**: database.py (connect build=True: DELETE/FULL/fullfsync ON; full_sync(db)), build.py (stage_durable na granicach etapów i po reset_stage), tests/test_durability_modes.py.
+**Notes**: database.py używa prywatnego canonical._full_sync — do przeglądu; brak walidacji wartości FULLFSYNC_MODE.
