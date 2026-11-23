@@ -91,3 +91,6 @@ Repo nie ma `.maister/docs/standards/`; standardami są `AGENTS.md` repo, kontra
 Decyzje właściciela: poprawić 1–12; klasa 6 nie kasuje kompletnego przebiegu czekającego na verify.
 Zmiany: I/O na wolumenie → 75; blokada buildu `.<nazwa>.build.lock` obok symlinku; nadzorca pamięta marker_id; kasowanie przez `.<nazwa>.deleting` (wznawialne); watchdog `--stall-minutes` (mtime + czas CPU); jedna `volume.check_work_root`; walidacja FULLFSYNC_MODE; `workfs.py` i publiczne helpery canonical; runbook z `nohup … & disown`.
 **Testy**: 694/694 OK (431 s) + 5/5 scripts. Każda zmiana zachowania: test czerwony → zielony.
+
+## 2026-11-23T16:55:16Z - Poprawki po ponownym przeglądzie (N1–N8)
+`repeated-75-healthy` (drugie zdrowe 75 w etapie → 4), `cputime-unknown`, `--resume` przez ścieżkę T7 → 4, `.deleting` nie jest wydaniem, lista skasowanych w JSON błędu, `age_days` dla klasy 3. **Testy**: 715/715 OK (415 s) + 5/5.

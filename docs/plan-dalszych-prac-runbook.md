@@ -191,6 +191,10 @@ Opis poleceń i kodów: [cli.md](generator/cli.md#build-na-dysku-roboczym-i-wzna
    Strata: bieżący etap albo raport. Przebieg śledzić w `logs/<przebieg>.supervisor.log`. Build, który przez
    2 h nie zmienia plików przebiegu ani nie zużywa CPU (zawieszone I/O), nadzorca zatrzymuje (`stalled`):
    gdy dysku nie ma, czeka i wznawia jak po 75, a przy zdrowym dysku kończy kodem 4.
+   Dwa 75 z rzędu w tym samym etapie, za każdym razem przy dysku zdrowym od razu, to błąd w kodzie albo błąd I/O
+   niezwiązany z odłączeniem: nadzorca zapisuje `repeated-75-healthy` i kończy kodem 4. Zdarzenie `cputime-unknown`
+   znaczy, że `ps` nie podał czasu CPU i watchdog widzi tylko zmiany plików (etap `reports` może wtedy dostać
+   fałszywe `stalled`).
    Inny kod niż 75 zatrzymuje pracę: przeczytać `logs/<przebieg>.err`. 76 zły wolumen, 77 uszkodzona baza i 78 brak
    miejsca wymagają decyzji człowieka.
 4. **Po restarcie maszyny** nadzorcę uruchamia się ręcznie, dla każdej strony osobno, odpiętego od terminala
@@ -199,6 +203,12 @@ Opis poleceń i kodów: [cli.md](generator/cli.md#build-na-dysku-roboczym-i-wzna
    nohup caffeinate -dimsu python3 scripts/build_supervised.py --manifest config/generator/sources.json \
      --run-dir data/work/<przebieg> > logs/<przebieg>.supervisor.out 2>> logs/<przebieg>.err & disown
    ```
+   Ręczne `build --resume` zawsze przez `data/work/<przebieg>` (symlink), nigdy przez ścieżkę na T7: blokada
+   `.<przebieg>.build.lock` leży obok symlinku, więc tylko tak wyklucza się z nadzorcą. Ścieżkę na T7 build
+   odrzuca kodem 4.
+   Proces zawieszony w I/O odpadającego USB może przeżyć SIGKILL i dalej trzymać blokadę buildu. Wtedy
+   wznowienie kończy się kodem 4 (blokada zajęta). Odłączyć i podłączyć T7 albo zrestartować maszynę, potem
+   uruchomić nadzorcę jak wyżej.
 5. **Odbiór:** przegląd próbek (K7), potem `verify` i od razu promocja A. Promocja kopiuje A na dysk wewnętrzny
    i kasuje B oraz kopię A na T7:
    ```sh
@@ -210,7 +220,9 @@ Opis poleceń i kodów: [cli.md](generator/cli.md#build-na-dysku-roboczym-i-wzna
    → kontrola hashy pakietu → GitHub Release. Wzór: `llpl-v29`, opis w `docs/generator/publikacja.md`.
 7. **Sprzątanie:** `python3 scripts/clean_work.py --work-root <wolumen>/literaki-slownik/work` wypisuje listę
    i niczego nie kasuje. `--apply` kasuje tylko przerwane, nieukończone i porzucone przebiegi na T7 oraz resztki
-   startu starsze niż 24 h. Kompletna para czekająca na verify zostaje („kompletny, czeka na verify”).
+   startu starsze niż 24 h. Kompletna para czekająca na verify zostaje („kompletny, czeka na verify”) bez limitu
+   czasu; `age_days` w liście mówi, od ilu dni. Taki przebieg (np. po nieudanym verify) zajmuje ok. 22 GB
+   i kasuje się go ręcznie.
    Przerwane kasowanie (`.<nazwa>.deleting`) dokańcza następne `--apply`. Stare wydania kasuje się
    wyłącznie po „tak” właściciela dla konkretnej listy: `--apply --delete-releases PLIK`.
 

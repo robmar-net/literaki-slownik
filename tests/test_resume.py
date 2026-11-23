@@ -79,6 +79,16 @@ class ResumeChecksTests(LayoutCase):
         manifest.update(fields)
         write_json(run / 'manifest.json', manifest)
 
+    def test_resume_through_the_t7_path_is_refused_before_the_lock(self):
+        # N4: blokada leży obok podanej ścieżki; wznowienie przez ścieżkę T7 omija blokadę nadzorcy z data/work.
+        self.copy('przez-t7')
+        with self.assertRaises(GeneratorError) as caught:
+            resume(self.manifest, self.data / 'przez-t7')
+        self.assertEqual(caught.exception.code, 4)
+        self.assertIn('data/work', str(caught.exception))
+        self.assertFalse(os.path.lexists(self.data / '.przez-t7.build.lock'))
+        self.assertEqual(len(load_json(self.data / 'przez-t7' / 'manifest.json')['build_attempts']), 1)
+
     def test_each_check_refuses_with_its_code_in_spec_order(self):
         other = load_json(self.manifest)
         other['unavailable'][0]['reason'] = 'INNY'

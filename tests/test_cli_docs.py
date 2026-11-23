@@ -8,7 +8,8 @@ CLI = ROOT / 'docs' / 'generator' / 'cli.md'
 SCRIPTS = ('init_work_volume.py', 'measure_fullfsync.py', 'build_supervised.py', 'promote_run.py',
            'clean_work.py', 'resume_reports.py')
 NAMES = SCRIPTS + ('build_pair.sh', 'LITERAKI_WORK_ROOT', '--resume', '--work-root', 'resumed_from',
-                   'build_history', 'promotion.json', 'logs/<nazwa>.lock')
+                   'build_history', 'promotion.json', 'logs/<nazwa>.lock', 'repeated-75-healthy',
+                   'cputime-unknown', 'age_days')
 CODES = ('0', '2', '3', '4', '5', '75', '76', '77', '78', '130')
 UUID = re.compile(r'[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}')
 HOME = re.compile(r'/Users/|/home/|~/')
@@ -33,6 +34,22 @@ class CliDocsTests(unittest.TestCase):
         codes = section(text, '## Kody i kontrola')
         for code in CODES:
             self.assertRegex(codes, rf'\b{code}\b', f'kod {code}')
+        # Nowy powód kodu 4 nadzorcy jest w tabeli kodów, nie tylko w opisie skryptu.
+        self.assertIn('repeated-75-healthy', codes)
+        # Każde zdarzenie, które nadzorca zapisuje w logu, jest opisane.
+        source = (ROOT / 'scripts' / 'build_supervised.py').read_text(encoding='utf-8')
+        for event in re.findall(r"log\('([a-z0-9-]+)'", source):
+            if '-' in event:
+                self.assertIn(event, text, f'zdarzenie {event}')
+
+    def test_runbook_resumes_only_through_data_work(self):
+        runbook = (ROOT / 'docs' / 'plan-dalszych-prac-runbook.md').read_text(encoding='utf-8')
+        self.assertIn('nigdy przez ścieżkę na T7', runbook)
+        for text in (runbook, CLI.read_text(encoding='utf-8')):
+            self.assertIn('data/work/<', text)
+            self.assertIn('przeżyć SIGKILL', text)
+            self.assertIsNone(UUID.search(text))
+            self.assertIsNone(HOME.search(text))
 
     def test_adr_014_to_021_exist_without_uuid_or_home_path(self):
         for number in range(14, 22):

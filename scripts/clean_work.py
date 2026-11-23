@@ -15,8 +15,10 @@ Wydanie skasuje wyłącznie `--apply --delete-releases PLIK` z nazwami zaakcepto
 właściciela; nazwa spoza kandydatów → odmowa całości. Serwer: `git -C <repo> show origin/main:NOTICE`,
 tylko odczyt, bez fetch. Brak NOTICE → wszystkie wydania potrzebne.
 Kasowanie jest wznawialne: drzewo najpierw dostaje nazwę `.<nazwa>.deleting`, a `--apply` dokańcza
-takie resztki na T7 i w data/work. Kody: 0, 2 argumenty, 4 odmowa albo błąd kasowania, 75 T7 zniknął
-w trakcie kasowania.
+takie resztki na T7 i w data/work. Przebieg „kompletny, czeka na verify” ma w liście `age_days`
+(dni od ostatniej zmiany). Kody: 0, 2 argumenty, 4 odmowa albo błąd kasowania, 75 T7 zniknął
+w trakcie kasowania; przy błędzie dysku w `--apply` stdout ma JSON z `error`, `exit_code` i `deleted`
+(to, co już skasowano).
 """
 import argparse
 import json
@@ -47,6 +49,15 @@ HASH = re.compile(r'(?<![0-9a-f])[0-9a-f]{64}(?![0-9a-f])')
 LEXICON = re.compile(r'(?:lab/)?lexicons/pl-[A-Za-z0-9-]+\.dawg')
 VERSION = re.compile(r'^(?P<family>.+?)-v(?P<version>\d+(?:[a-z]+\d+)*)(?=-|$)')
 LIST_SUFFIXES = ('.txt', '.txt.gz')
+WAITING = 'kompletny, czeka na verify'
+
+
+class CleanError(GeneratorError):
+    """Błąd w trakcie `--apply`; `deleted` to wpisy skasowane przed błędem."""
+
+    def __init__(self, message, code, path, deleted):
+        super().__init__(message, code, path)
+        self.deleted = deleted
 
 
 def parse_version(name):
@@ -150,7 +161,7 @@ def classify_t7(entry, ctx):
     if readiness == 'INCOMPLETE' and set(stages) == set(STAGES) \
             and all((item or {}).get('status') == 'complete' for item in stages.values()):
         # Decyzja właściciela: kompletny build przed verify nie znika, choćby czekał dłużej niż 24 h.
-        return 3, 'kompletny, czeka na verify'
+        return 3, WAITING
     if ctx['now'] - _newest(entry) < AGE:
         return 3, 'zmieniany w ostatnich 24 h'
     if manifest is None:
@@ -174,8 +185,12 @@ def scan_t7(ctx):
         if entry.name in SYSTEM or workfs.is_build_lock(entry.name):
             continue
         number, reason = classify_t7(entry, ctx)
-        items.append({'entry': entry.name, 'where': 't7', 'class': number, 'class_name': CLASSES[number],
-                      'size': workfs.tree_size(entry), 'reason': reason, 'path': entry})
+        item = {'entry': entry.name, 'where': 't7', 'class': number, 'class_name': CLASSES[number],
+                'size': workfs.tree_size(entry), 'reason': reason, 'path': entry}
+        if reason == WAITING:
+            # Czeka bez limitu i zajmuje ~22 GB: właściciel widzi, od ilu dni.
+            item['age_days'] = int((ctx['now'] - _newest(entry)) // 86400)
+        items.append(item)
     return items
 
 
@@ -220,15 +235,22 @@ def _pins():
 
 
 def _find_releases(work):
-    """Wydania w data/work do głębokości 2 oraz katalogi-kontenery wydań."""
+    """Wydania w data/work do głębokości 2 oraz katalogi-kontenery wydań.
+
+    `.<nazwa>.deleting` to przerwane kasowanie, nie wydanie, choćby miało jeszcze release-manifest.json;
+    katalog z taką resztką zostaje kontenerem, żeby `--apply` ją dokończył."""
     releases, containers = [], set()
     for child in sorted(work.iterdir()):
-        if child.is_symlink() or not child.is_dir():
+        if child.is_symlink() or not child.is_dir() or workfs.is_deleting(child.name):
             continue
         if (child / RELEASE).is_file():
             releases.append((child.name, child))
             continue
         for nested in sorted(child.iterdir()):
+            if workfs.is_deleting(nested.name):
+                if (nested / RELEASE).is_file():
+                    containers.add(child.name)
+                continue
             if not nested.is_symlink() and nested.is_dir() and (nested / RELEASE).is_file():
                 releases.append((f'{child.name}/{nested.name}', nested))
                 containers.add(child.name)
@@ -369,8 +391,8 @@ def _approved(path):
     return {line.strip() for line in lines if line.strip() and not line.strip().startswith('#')}
 
 
-def delete_t7(items, ctx):
-    deleted, root = [], ctx['root']
+def delete_t7(items, ctx, deleted):
+    root = ctx['root']
     for item in items:
         if item['class'] not in T7_DELETABLE:
             continue
@@ -388,21 +410,18 @@ def delete_t7(items, ctx):
         else:
             workfs.delete_tree(entry)
         deleted.append({'entry': item['entry'], 'where': 't7', 'class': number, 'size': item['size']})
-    return deleted
 
 
-def finish_internal(ctx, containers):
+def finish_internal(ctx, containers, deleted):
     """Dokańcza przerwane kasowania wydań (`.<nazwa>.deleting`) w data/work i w katalogach z wydaniami."""
-    finished = []
     for directory in [ctx['work'], *(ctx['work'] / name for name in sorted(containers))]:
         for name in workfs.finish_deleting(directory):
-            finished.append({'entry': name, 'where': 'internal', 'class': 7, 'size': 0,
-                             'reason': 'dokończone przerwane kasowanie'})
-    return finished
+            deleted.append({'entry': name, 'where': 'internal', 'class': 7, 'size': 0,
+                            'reason': 'dokończone przerwane kasowanie'})
 
 
-def delete_releases(names, records, referencing, ctx):
-    work, deleted = ctx['work'], []
+def delete_releases(names, records, referencing, ctx, deleted):
+    work = ctx['work']
     by_entry = {record['entry']: record for record in records}
     for name in sorted(names):
         record = by_entry[name]
@@ -418,7 +437,6 @@ def delete_releases(names, records, referencing, ctx):
             workfs.delete_tree(work / run)
             deleted.append({'entry': run, 'where': 'internal', 'class': 8, 'size': size,
                             'reason': f'przebieg wydania {name}'})
-    return deleted
 
 
 def clean(work_root=None, *, apply=False, server_repo=None, server_current=(), delete_file=None):
@@ -439,13 +457,13 @@ def clean(work_root=None, *, apply=False, server_repo=None, server_current=(), d
     deleted = []
     if apply:
         try:
-            deleted += finish_internal(ctx, containers)
-            deleted += delete_t7(t7_items, ctx)
-            deleted += delete_releases(approved, records, referencing, ctx)
+            finish_internal(ctx, containers, deleted)  # Każda funkcja dopisuje od razu: błąd nie gubi listy.
+            delete_t7(t7_items, ctx, deleted)
+            delete_releases(approved, records, referencing, ctx, deleted)
         except OSError as error:
             gone = root is not None and not os.path.isdir(root)
-            raise GeneratorError(f'Kasowanie przerwane błędem dysku: {error}; ponów --apply', 75 if gone else 4,
-                                 getattr(error, 'filename', None)) from error
+            raise CleanError(f'Kasowanie przerwane błędem dysku: {error}; ponów --apply', 75 if gone else 4,
+                             getattr(error, 'filename', None), deleted) from error
     entries = [{key: value for key, value in item.items() if key != 'path'} for item in t7_items + internal_items]
     counts = {}
     for item in entries:
@@ -472,6 +490,9 @@ def main(argv=None):
                        server_current=args.server_current, delete_file=args.delete_releases)
     except GeneratorError as error:
         print(str(error), file=sys.stderr)
+        if isinstance(error, CleanError):
+            print(json.dumps({'error': str(error), 'exit_code': error.code, 'deleted': error.deleted},
+                             ensure_ascii=False, sort_keys=True, indent=1))
         return error.code
     print(json.dumps(result, ensure_ascii=False, sort_keys=True, indent=1))
     return 0

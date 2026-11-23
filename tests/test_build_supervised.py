@@ -16,6 +16,7 @@ from unittest import mock
 from literaki_slownik import volume
 from literaki_slownik.canonical import write_json
 from literaki_slownik.inputs import GeneratorError
+from literaki_slownik.run import STAGES
 from tests.layout_helpers import LayoutCase
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -213,6 +214,60 @@ class SupervisorCase(unittest.TestCase):
         self.assertEqual(self.events()[-2:], ['stalled', 'end'])
 
 
+class Healthy75Tests(SupervisorCase):
+    """N1/N8: 75 przy od razu zdrowej sondzie dwa razy z rzędu w tym samym etapie to błąd kodu, nie dysk."""
+
+    def failing_in(self, *stages):
+        """Build kończy 75 kolejno w podanych etapach (status failed w manifeście); None → kod 0."""
+        stages = list(stages)
+        self.run_dir.mkdir()
+
+        def run(argv, out, err):
+            self.calls.append(list(argv))
+            stage = stages.pop(0)
+            status = {name: {'status': 'complete'} for name in STAGES}
+            if stage is not None:
+                status[stage] = {'status': 'failed'}
+            write_json(self.run_dir / 'manifest.json', {'work_volume': {'marker_id': 'm-1'}, 'stages': status})
+            return 75 if stage is not None else 0
+        return run
+
+    def log_records(self):
+        path = self.logs / 'lists-x-a.supervisor.log'
+        return [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines()]
+
+    def test_two_healthy_75_in_one_stage_stop_4(self):
+        code = self.supervise(self.failing_in('decisions', 'decisions', None))
+        self.assertEqual((code, len(self.calls)), (4, 2))
+        records = self.log_records()
+        repeated = [record for record in records if record['event'] == 'repeated-75-healthy']
+        self.assertEqual([record['stage'] for record in repeated], ['decisions'])
+        self.assertEqual((records[-1]['event'], records[-1]['code']), ('end', 4))
+
+    def test_one_healthy_75_is_retried(self):
+        # Szybki powrót T7 przed sondą: jedno zdrowe 75 dalej wznawia.
+        self.assertEqual(self.supervise(self.failing_in('decisions', None)), 0)
+        self.assertEqual(len(self.calls), 2)
+        self.assertNotIn('repeated-75-healthy', self.events())
+
+    def test_healthy_75_in_another_stage_or_after_a_real_disk_loss_is_retried(self):
+        self.assertEqual(self.supervise(self.failing_in('decisions', 'links', None)), 0)
+        self.assertEqual(len(self.calls), 3)
+
+        shutil.rmtree(self.run_dir)
+        shutil.rmtree(self.logs)
+        self.calls.clear()
+        answers = [None, 75, None]  # druga próba: dysk naprawdę zniknął i wrócił
+
+        def guard(*args):
+            code = answers.pop(0) if answers else None
+            if code:
+                raise GeneratorError('brak dysku', code)
+        self.assertEqual(self.supervise(self.failing_in('decisions', 'decisions', None), probe=guard), 0)
+        self.assertEqual(len(self.calls), 3)
+        self.assertNotIn('repeated-75-healthy', self.events())
+
+
 class FakeChild:
     """Proces potomny na podstawionym zegarze: wait(timeout) przesuwa czas i rzuca TimeoutExpired."""
 
@@ -278,6 +333,55 @@ class WatchdogTests(unittest.TestCase):
         (tmp / 'build.sqlite-journal').write_bytes(b'j')
         self.assertNotEqual(build_supervised.progress(tmp, None), before)
         self.assertEqual(build_supervised.progress(tmp / 'brak', None), build_supervised.progress(tmp / 'brak', None))
+
+
+class CpuTimeUnknownTests(unittest.TestCase):
+    """N2: gdy `ps` nie daje czasu CPU, nadzorca zapisuje `cputime-unknown` raz na proces buildu."""
+
+    def test_unknown_cpu_time_is_logged_once_per_child(self):
+        clock = FakeClock()
+        events = []
+        state = {'signal': None, 'child': None, 'log': lambda event, **fields: events.append((event, fields))}
+        run = build_supervised.subprocess_runner(state, '/brak/run', stall_seconds=7200, poll_seconds=60,
+                                                 clock=clock.clock)
+        empty = subprocess.CompletedProcess(['ps'], 0, stdout='', stderr='')
+        children = []
+
+        def popen(*args, **kwargs):
+            children.append(FakeChild(clock, finish_at=clock.now + 600))
+            return children[-1]
+        with mock.patch.object(build_supervised.subprocess, 'Popen', popen), \
+                mock.patch.object(build_supervised.subprocess, 'run', return_value=empty):
+            self.assertEqual(run(['build'], None, None), 0)
+            self.assertEqual(run(['build'], None, None), 0)
+        self.assertEqual([event for event, _ in events], ['cputime-unknown', 'cputime-unknown'])
+        self.assertEqual([fields['pid'] for _, fields in events], [4242, 4242])
+
+    def test_known_cpu_time_logs_nothing(self):
+        clock = FakeClock()
+        events = []
+        state = {'signal': None, 'child': None, 'log': lambda event, **fields: events.append(event)}
+        run = build_supervised.subprocess_runner(state, '/brak/run', stall_seconds=7200, poll_seconds=60,
+                                                 clock=clock.clock)
+        known = subprocess.CompletedProcess(['ps'], 0, stdout='   0:01.00\n', stderr='')
+        with mock.patch.object(build_supervised.subprocess, 'Popen',
+                               lambda *args, **kwargs: FakeChild(clock, finish_at=clock.now + 600)), \
+                mock.patch.object(build_supervised.subprocess, 'run', return_value=known):
+            self.assertEqual(run(['build'], None, None), 0)
+        self.assertEqual(events, [])
+
+    def test_supervise_hands_its_log_to_the_runner(self):
+        tmp = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, tmp, ignore_errors=True)
+        state = {'signal': None}
+
+        def run(argv, out, err):
+            state['log']('cputime-unknown', pid=1)
+            return 0
+        build_supervised.supervise('m.json', str(tmp / 'work/lists-x-a'), run_build=run, probe=lambda *a: None,
+                                   find=lambda marker_id: None, logs_dir=tmp / 'logs', state=state)
+        lines = (tmp / 'logs/lists-x-a.supervisor.log').read_text(encoding='utf-8').splitlines()
+        self.assertIn('cputime-unknown', [json.loads(line)['event'] for line in lines])
 
 
 class SignalTests(unittest.TestCase):

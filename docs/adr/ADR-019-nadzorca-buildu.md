@@ -35,6 +35,7 @@ Odrzucone: tylko ręczne wznawianie; pętla w `build_pair.sh`.
   i wznowienie kończy się kodem 4 (stop bez szkody).
 - Sygnał przed `Popen` nie uruchamia nowego buildu, a sygnał między `Popen` a przypisaniem dziecka trafia do
   dziecka. Pod `nohup` SIGHUP zostaje ignorowany; runbook uruchamia parę przez `nohup … & disown`.
+- Drugi z rzędu kod 75 w tym samym etapie, gdy sonda jest od razu zdrowa, kończy nadzorcę kodem 4 (zdarzenie `repeated-75-healthy`): to błąd kodu albo I/O niezwiązane z dyskiem, a nie zanik T7. Jedno takie 75 nadal wznawia (szybki powrót T7).
 
 ## Otwarte pytania / ryzyka
 - Po restarcie maszyny nadzorcę uruchamia się ręcznie (z tym samym `--run-dir`). LaunchAgent poza zakresem.

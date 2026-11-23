@@ -11,13 +11,18 @@ przebiegu nie ma → świeży `build --work-root W` (także po 75 sprzed powstan
 symlink jest, a dysku brak → czekanie. Po 75 co `poll` sekund G1+G2 strażnika. Wolumen o tym
 marker_id pod inną ścieżką albo inny znacznik → 76 od razu (marker_id zapamiętany przed pierwszym
 procesem i po każdym, bo po 75 manifest na T7 bywa nieczytelny). Po `wait` minutach albo po
-`max-resumes` wznowieniach → 75. Inne kody kończą pracę z tym kodem. SIGINT trafia do buildu
+`max-resumes` wznowieniach → 75. Dwa 75 z rzędu w tym samym etapie, za każdym razem przy sondzie
+zdrowej od razu (dysk nie zniknął), → zdarzenie `repeated-75-healthy` i kod 4: to błąd w kodzie albo błąd
+I/O spoza odłączenia, a nie utrata dysku. Jedno takie 75 dalej wznawia (T7 wrócił przed sondą).
+Inne kody kończą pracę z tym kodem. SIGINT trafia do buildu
 i kończy kodem 130; SIGTERM i SIGHUP trafiają do buildu i kończą jego kodem, bez wznowienia.
 Uruchomiony przez `nohup` (SIGHUP ignorowany) zostawia SIGHUP ignorowany.
 
 Watchdog: gdy przez `--stall-minutes` (domyślnie 120, 0 wyłącza) nie zmienia się mtime manifestu,
 bazy, journala ani raportów i nie rośnie czas CPU dziecka, nadzorca zapisuje `stalled`, wysyła SIGTERM,
 po 60 s SIGKILL. Strażnik G1/G2 zawodzi → 75 (czekanie i wznowienie), zły wolumen → 76, inaczej 4.
+Gdy `ps` nie podaje czasu CPU, postęp liczy się tylko z mtime; nadzorca zapisuje wtedy raz na proces
+zdarzenie `cputime-unknown`.
 
 Plików przebiegu nie dotyka. Logi na dysku wewnętrznym: logs/<nazwa>.out.json (stdout prób,
 dopisywany), logs/<nazwa>.err, logs/<nazwa>.supervisor.log (linia JSON na zdarzenie).
@@ -41,6 +46,7 @@ sys.path.insert(0, str(ROOT))
 from literaki_slownik import volume, workfs  # noqa: E402
 from literaki_slownik.canonical import load_json  # noqa: E402
 from literaki_slownik.inputs import GeneratorError  # noqa: E402
+from literaki_slownik.run import STAGES  # noqa: E402
 
 RETRY = 75
 LOGS = ROOT / 'logs'
@@ -68,6 +74,14 @@ def _marker_id(run_dir, work_root):
         except GeneratorError:
             return None
     return None
+
+
+def _stage(run_dir):
+    """Etap, w którym przerwała się próba (pierwszy `failed` albo `running`); None, gdy nieznany."""
+    stages = (_manifest(run_dir) or {}).get('stages')
+    if not isinstance(stages, dict):
+        return None
+    return next((name for name in STAGES if (stages.get(name) or {}).get('status') in ('failed', 'running')), None)
 
 
 def probe(run_dir, work_root, marker_id):
@@ -152,27 +166,30 @@ def watch(child, progress, *, clock, stall_seconds, poll_seconds=60, grace_secon
 
 
 def _wait(run_dir, work_root, marker_id, *, probe, find, sleep, clock, wait_seconds, poll_seconds, state, log):
-    """Czeka na dysk. Zwraca 0 (wracamy do pracy), 75 (limit czasu), 76 (zły wolumen) albo sygnał."""
+    """Czeka na dysk. Zwraca (kod, od_razu): 0 (wracamy do pracy), 75 (limit czasu), 76 (zły wolumen) albo
+    sygnał; `od_razu` jest prawdą, gdy dysk był zdrowy już przy pierwszej sondzie."""
     deadline = clock() + wait_seconds
     expected = os.path.realpath(work_root if work_root is not None and not os.path.lexists(run_dir) else run_dir)
+    first = True
     while True:
         try:
             probe(run_dir, work_root, marker_id)
-            return 0
+            return 0, first
         except GeneratorError as error:
             if error.code != RETRY:
                 log('wrong_volume', code=error.code, message=str(error))
-                return error.code
+                return error.code, False
+        first = False
         found = find(marker_id) if marker_id is not None else None
         if found is not None and not workfs.is_within(expected, found):
             log('elsewhere', path=str(found))
-            return 76
+            return 76, False
         if clock() >= deadline:
             log('timeout', seconds=wait_seconds)
-            return RETRY
+            return RETRY, False
         sleep(poll_seconds)
         if state.get('signal') is not None:
-            return 130 if state['signal'] == signal.SIGINT else RETRY
+            return (130 if state['signal'] == signal.SIGINT else RETRY), False
 
 
 def _stalled(run_dir, work_root, marker_id, probe, log):
@@ -190,7 +207,7 @@ def supervise(manifest, run_dir, work_root=None, *, run_build, sleep=time.sleep,
               probe=probe, find=volume.find_by_marker, logs_dir=LOGS, max_resumes=3, wait_seconds=1800,
               poll_seconds=5, state=None):
     """Pętla nadzorcy. `run_build(argv, out, err)` zwraca kod procesu buildu; `state['signal']`
-    ustawia obsługa sygnałów. Zwraca kod wyjścia nadzorcy."""
+    ustawia obsługa sygnałów, a `state['log']` dostaje funkcję logu zdarzeń. Zwraca kod wyjścia nadzorcy."""
     state = {'signal': None} if state is None else state
     run_dir = str(run_dir)
     name = Path(run_dir).name
@@ -211,8 +228,10 @@ def supervise(manifest, run_dir, work_root=None, *, run_build, sleep=time.sleep,
                 record = {'at': time.strftime('%Y-%m-%dT%H:%M:%S%z'), 'event': event, 'run': name, **fields}
                 events.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + '\n')
                 events.flush()
+            state['log'] = log
 
             resumes = 0
+            healthy_stage = None  # etap poprzedniego 75 przy od razu zdrowej sondzie (N1)
             # marker_id znany przed zniknięciem dysku: po 75 manifest na T7 bywa nieczytelny (R9, 76 od razu).
             marker_id = _marker_id(run_dir, work_root)
             while True:
@@ -241,13 +260,22 @@ def supervise(manifest, run_dir, work_root=None, *, run_build, sleep=time.sleep,
                     log('end', code=code, reason='max_resumes')
                     return code
                 log('wait', marker_id_known=marker_id is not None)
-                waited = _wait(run_dir, work_root, marker_id, probe=probe, find=find, sleep=sleep, clock=clock,
-                               wait_seconds=wait_seconds, poll_seconds=poll_seconds, state=state, log=log)
+                waited, at_once = _wait(run_dir, work_root, marker_id, probe=probe, find=find, sleep=sleep,
+                                        clock=clock, wait_seconds=wait_seconds, poll_seconds=poll_seconds,
+                                        state=state, log=log)
                 if waited != 0:
                     log('end', code=waited)
                     return waited
+                stage = _stage(run_dir) if at_once else None
+                if stage is not None and stage == healthy_stage:
+                    # Dysk nie zniknął dwa razy z rzędu, a etap pada tak samo: wznowienie powtórzy błąd.
+                    log('repeated-75-healthy', stage=stage)
+                    log('end', code=4, reason='repeated-75-healthy')
+                    return 4
+                healthy_stage = stage
                 resumes += 1
     finally:
+        state.pop('log', None)
         lock.close()
 
 
@@ -259,11 +287,18 @@ def subprocess_runner(state, run_dir, *, stall_seconds=STALL_SECONDS, poll_secon
         child = subprocess.Popen([sys.executable, '-m', 'literaki_slownik', *argv], cwd=ROOT,
                                  stdout=out, stderr=err, start_new_session=True)
         state['child'] = child
+        warned = []
+
+        def tracked():
+            current = progress(run_dir, child.pid)
+            if current[1] is None and not warned and state.get('log') is not None:
+                warned.append(True)  # Raz na proces: watchdog liczy postęp tylko z mtime (N2).
+                state['log']('cputime-unknown', pid=child.pid)
+            return current
         try:
             if state.get('signal') is not None and child.poll() is None:
                 child.send_signal(state['signal'])  # Sygnał między Popen a przypisaniem dziecka.
-            return watch(child, lambda: progress(run_dir, child.pid), clock=clock, stall_seconds=stall_seconds,
-                         poll_seconds=poll_seconds)
+            return watch(child, tracked, clock=clock, stall_seconds=stall_seconds, poll_seconds=poll_seconds)
         finally:
             state['child'] = None
     return run

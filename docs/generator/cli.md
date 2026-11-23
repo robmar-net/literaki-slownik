@@ -67,6 +67,8 @@ miejsce → 78; inny kod generatora albo niezacommitowany → 4; inny manifest w
 od zera w tym samym katalogu; `PRAGMA quick_check` ≠ `ok` → 77. Raporty ze zgodnym znacznikiem `reports/.done/` są
 pomijane. Etap `links` przy każdym uruchomieniu usuwa i tworzy swoje tabele. Wynik JSON ma `resumed_from`
 (pierwszy etap tej próby). `--resume` z `--work-root` → 2.
+Przebieg na T7 wznawia się zawsze przez `data/work/<nazwa>` (symlink), bo blokada leży obok symlinku. `--run-dir`
+na wolumenie roboczym, który nie leży w `data/work` (ścieżka T7 podana wprost), → 4, przed blokadą.
 
 Manifest przebiegu ma `work_volume` (`marker_id` albo null), `build_attempts` i `resume`. Historia jest pod pieczęcią,
 poza K8. `verify` (JSON i tekst) i `release-manifest.json` (`source_run.build_history`) pokazują skrót `build_history`:
@@ -99,7 +101,13 @@ python3 scripts/clean_work.py [--work-root <korzeń>] [--apply] [--server-repo <
   bo po 75 manifest na T7 bywa nieczytelny). Inne kody kończą pracę z tym kodem; SIGINT → 130. Plików przebiegu
   nie dotyka. Watchdog: `--stall-minutes` (domyślnie 120, 0 wyłącza) bez zmiany mtime manifestu, bazy, journala
   i raportów oraz bez wzrostu czasu CPU buildu → zdarzenie `stalled`, SIGTERM, po 60 s SIGKILL; strażnik zawodzi
-  → 75 (czekanie i wznowienie), zły wolumen → 76, zdrowy → 4. Logi: `logs/<nazwa>.out.json`, `logs/<nazwa>.err`,
+  → 75 (czekanie i wznowienie), zły wolumen → 76, zdrowy → 4. Gdy `ps` nie podaje czasu CPU, watchdog liczy
+  postęp tylko z mtime, a nadzorca raz na proces buildu zapisuje zdarzenie `cputime-unknown`. Dwa 75 z rzędu
+  w tym samym etapie, za każdym razem przy sondzie zdrowej od razu (dysk nie zniknął), → zdarzenie
+  `repeated-75-healthy` i kod 4: błąd w kodzie albo błąd I/O spoza odłączenia. Jedno takie 75 dalej wznawia
+  (T7 wrócił przed sondą). Proces w nieprzerywalnym I/O może przeżyć SIGKILL i trzymać blokadę buildu; wtedy
+  `--resume` i nadzorca kończą kodem 4: odłączyć i podłączyć T7 albo zrestartować maszynę, potem uruchomić
+  nadzorcę ponownie. Logi: `logs/<nazwa>.out.json`, `logs/<nazwa>.err`,
   `logs/<nazwa>.supervisor.log` (zdarzenia JSON); końcowy JSON nadzorca pisze na stdout (`build_pair.sh` kieruje go
   do `logs/<nazwa>.supervisor.out`). Blokada `logs/<nazwa>.lock` przez cały czas pracy; gdy trzyma ją inny
   nadzorca → 4.
@@ -125,7 +133,7 @@ python3 scripts/clean_work.py [--work-root <korzeń>] [--apply] [--server-repo <
 - `export` przebiegu na T7 (symlink albo wolumen roboczy): kod 5, „najpierw promote_run.py”.
 - `clean_work.py`: domyślnie tylko lista JSON (wpis, klasa, rozmiar, powód). Klasy: 1 zweryfikowany, 2 promocja
   w toku, 3 przebieg w toku (blokada nadzorcy albo buildu, zmiany < 24 h albo „kompletny, czeka na verify”:
-  wszystkie etapy `complete` przed verify, bez limitu czasu), 4 nieznana zawartość, 5 osierocony albo przerwane
+  wszystkie etapy `complete` przed verify, bez limitu czasu; wpis ma `age_days`), 4 nieznana zawartość, 5 osierocony albo przerwane
   kasowanie `.<nazwa>.deleting`, 6 nieukończony z symlinkiem, 7 dysk wewnętrzny, tylko lista, 8 stare wydanie.
   `--apply` kasuje klasy 5–6 (tylko przebiegi przerwane albo nieukończone i resztki startu ≥ 24 h) i dokańcza
   przerwane kasowania wydań w `data/work`. Kasowanie jest wznawialne (`.<nazwa>.deleting`). Stare wydanie znika tylko
@@ -133,7 +141,9 @@ python3 scripts/clean_work.py [--work-root <korzeń>] [--apply] [--server-repo <
   daje odmowę całości. Bieżące wydania serwera: `NOTICE` z `origin/main` checkoutu `--server-repo` (domyślnie
   `../server`, tylko odczyt) i `--server-current`. Brak `NOTICE` → wszystkie wydania potrzebne. Korzeń T7
   niedostępny albo zły: `work_root.status` `unavailable` (75) albo `wrong-volume` (76) i T7 pominięty. Kody: 0;
-  2 argumenty; 4 odmowa albo błąd dysku przy kasowaniu; 75 T7 zniknął w trakcie kasowania.
+  2 argumenty; 4 odmowa albo błąd dysku przy kasowaniu; 75 T7 zniknął w trakcie kasowania. Błąd dysku w `--apply`
+  daje na stdout JSON z `error`, `exit_code` i `deleted` (wpisy skasowane przed błędem). Drzewo `.<nazwa>.deleting`
+  nie jest wydaniem, nawet z `release-manifest.json`.
 
 ## POP i POP0 (`pop`)
 
@@ -325,7 +335,7 @@ Kody `build`, `build --resume` i skryptów dysku roboczego ([ADR-018](../adr/ADR
 | 0 | proces bez błędu (etapy mogą zostać `pending`) | koniec |
 | 2 | argumenty | stop |
 | 3 | wejścia: manifest, hash, inny `manifest_sha256` przy `--resume` | stop |
-| 4 | dane, kod, inna tożsamość kodu przy `--resume`, brak przebiegu, inny `sqlite3.Error`/`OSError`, błąd kopii w promocji, zajęta blokada (`.<nazwa>.build.lock`, nadzorcy, promocji), nieznany `FULLFSYNC_MODE`, watchdog przy zdrowym strażniku | stop |
+| 4 | dane, kod, inna tożsamość kodu przy `--resume`, brak przebiegu, inny `sqlite3.Error`/`OSError`, błąd kopii w promocji, zajęta blokada (`.<nazwa>.build.lock`, nadzorcy, promocji), nieznany `FULLFSYNC_MODE`, watchdog przy zdrowym strażniku, `--resume` przez ścieżkę T7 zamiast `data/work`; nadzorca: dwa 75 z rzędu w tym samym etapie przy zdrowej sondzie (`repeated-75-healthy`) | stop |
 | 5 | przebieg `VERIFIED`/`FROZEN`; promocja albo export odmawia (pieczęć, przebieg na T7) | stop |
 | 75 | dysk roboczy zniknął (G1/G3 po błędzie I/O, brak dysku przy starcie); na przebiegu z `work_volume` także `SQLITE_IOERR`/`SQLITE_CANTOPEN`, `EIO`/`ENXIO`/`ENODEV`/`ENOENT`/`EROFS` przy zdrowym strażniku (T7 wrócił przed klasyfikacją); watchdog przy niedostępnym dysku; nadzorca: wyczerpany limit albo czas | czeka i wznawia, maks. 3 razy |
 | 76 | zły wolumen: inny znacznik, wolumen bez znacznika, wolumen pod inną ścieżką, korzeń przebiegów na dysku repo | stop |

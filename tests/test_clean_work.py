@@ -188,6 +188,11 @@ class CleanWorkTests(CleanWorkCase):
             'building': 3})
         reasons = {item['entry']: item['reason'] for item in result['entries']}
         self.assertEqual(reasons['complete'], 'kompletny, czeka na verify')
+        # Kompletny przebieg czeka bez limitu i zajmuje ~22 GB: lista pokazuje jego wiek w dniach.
+        ages = {item['entry']: item.get('age_days') for item in result['entries']}
+        self.assertEqual(ages['complete'], 3)
+        self.assertEqual(ages['complete-bez-linku'], 3)
+        self.assertIsNone(ages['building'])
         self.assertEqual(reasons['building'], 'trzymana blokada buildu')
         self.assertNotIn('.building.build.lock', self.classes(result))
         internal = self.classes(result, 'internal')
@@ -385,8 +390,48 @@ class CleanWorkTests(CleanWorkCase):
         run(self.data / 'orphan', failed=True)
         with mock.patch('shutil.rmtree', side_effect=OSError(errno.EIO, 'Input/output error')):
             code, result = self.clean('--apply')
-        self.assertEqual((code, result), (4, None))
+        self.assertEqual((code, result['exit_code'], result['deleted']), (4, 4, []))
+        self.assertIn('Input/output error', result['error'])
         self.assertIn('Input/output error', self.stderr)
+
+    def test_blad_w_polowie_apply_podaje_liste_juz_skasowanych(self):
+        import errno
+        import shutil
+        self.server_repo(NOTICE.format(list_hash='a' * 64, gz_hash='b' * 64, manifest_hash='c' * 64))
+        run(self.data / 'orphan-a', failed=True)
+        run(self.data / 'orphan-b', failed=True)
+        real_rmtree, calls = shutil.rmtree, []
+
+        def second_fails(path, *args, **kwargs):
+            calls.append(path)
+            if len(calls) == 2:
+                raise OSError(errno.EIO, 'Input/output error')
+            return real_rmtree(path, *args, **kwargs)
+        with mock.patch('shutil.rmtree', second_fails):
+            code, result = self.clean('--apply')
+        self.assertEqual(code, 4, self.stderr)
+        self.assertEqual([(item['entry'], item['where']) for item in result['deleted']], [('orphan-a', 't7')])
+        self.assertFalse(os.path.lexists(self.data / 'orphan-a'))
+
+    def test_przerwane_kasowanie_wydania_nie_jest_wydaniem(self):
+        self.server_repo(NOTICE.format(list_hash='a' * 64, gz_hash='b' * 64, manifest_hash='c' * 64))
+        release(self.work, 'release-LL-PL-v30', text='b\n')
+        # Przerwane kasowanie zostawiło release-manifest.json w drzewie `.<nazwa>.deleting`.
+        release(self.work, '.release-LL-PL-v27.deleting', text='a\n')
+        release(self.work / 'wydania', 'release-LL-PL-v25', text='c\n')
+        release(self.work / 'wydania', '.release-LL-PL-v24.deleting', text='d\n')
+        code, result = self.clean()
+        self.assertEqual(code, 0, self.stderr)
+        entries = {item['entry']: item for item in result['entries']}
+        self.assertNotIn('wydania/.release-LL-PL-v24.deleting', entries)
+        self.assertEqual(entries['.release-LL-PL-v27.deleting']['reason'],
+                         'przerwane kasowanie wydania (.deleting); dokończy --apply')
+        self.assertFalse(any('.deleting' in name for name in result['candidates']), result['candidates'])
+        code, result = self.clean('--apply')
+        self.assertEqual(code, 0, self.stderr)
+        self.assertFalse(os.path.lexists(self.work / '.release-LL-PL-v27.deleting'))
+        self.assertFalse(os.path.lexists(self.work / 'wydania' / '.release-LL-PL-v24.deleting'))
+        self.assertTrue((self.work / 'wydania' / 'release-LL-PL-v25').is_dir())
 
 
 class PromotionThenCleanTests(CleanWorkCase):

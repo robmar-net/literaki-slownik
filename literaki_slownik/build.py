@@ -526,6 +526,19 @@ def restart_in_place(run):
     (run / 'reports').mkdir(exist_ok=True)
 
 
+def check_run_path(run):
+    """Przebieg na wolumenie roboczym wznawia się tylko przez `data/work/<nazwa>` (symlink); ścieżka T7 → 4.
+
+    Blokada `.<nazwa>.build.lock` leży obok podanej ścieżki, więc wznowienie przez ścieżkę T7 nie wykluczałoby
+    się z nadzorcą, który używa symlinku."""
+    work = os.path.realpath(volume.REPO_ROOT / 'data' / 'work')
+    if os.path.realpath(run.absolute().parent) == work or not os.path.exists(run):
+        return
+    if volume.mount_point(run) != volume.repo_mount():
+        raise GeneratorError(f'Przebieg na wolumenie roboczym wznawia się przez data/work/{run.name}, '
+                             'nie przez ścieżkę na T7 (blokada leży obok symlinku)', 4, str(run))
+
+
 def resume(manifest_path, run_dir, batch_size=10000):
     """`build --resume`: kontrole 1–12 ze spec (kolejność H1), potem etapy od pierwszego niegotowego."""
     if type(batch_size) is not int or batch_size < 1 or batch_size > 10000:
@@ -533,6 +546,7 @@ def resume(manifest_path, run_dir, batch_size=10000):
     run = Path(run_dir)
     if not os.path.lexists(run):
         raise GeneratorError('Brak przebiegu do wznowienia', 4, str(run))
+    check_run_path(run)
     with run_lock(run):  # Przed pierwszą zmianą: żywy build albo drugie --resume → 4.
         volume.check_mounted(run)  # 2–3: wiszący symlink, G1 → 75 (dysk przed manifestem, który leży na T7).
         manifest = read_run_manifest(run)
