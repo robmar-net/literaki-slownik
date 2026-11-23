@@ -1,6 +1,6 @@
 orchestrator:
   started_phase: phase-1
-  completed_phases: [phase-1, phase-2, phase-5, phase-6, phase-7, phase-8, phase-10]
+  completed_phases: [phase-1, phase-2, phase-5, phase-6, phase-7, phase-8, phase-10, phase-11, phase-14]
   failed_phases: []
   options:
     html_output: true
@@ -14,12 +14,12 @@ orchestrator:
     reality_check_enabled: true
     production_check_enabled: true
   created: 2026-11-23T08:04:34Z
-  updated: 2026-11-23T13:08:04Z
+  updated: 2026-11-23T16:56:46Z
   task_path: .maister/tasks/development/2026-11-23-22-dysk-roboczy-wznawianie
 task:
   title: "#22 Build na T7 z wznawianiem po zniknięciu dysku"
   description: "Wdrożenie projektu z badania 2026-11-23-dysk-roboczy-wznawianie: symlink data/work na T7, strażnik G1–G3, build --resume per etap i raport, kody 75–78, nadzorca, pomiar fullfsync, test wznowiony=świeży, attempts[] w manifeście."
-  status: in_progress
+  status: completed
   issue: 22
 task_context:
   risk_level: medium-high
@@ -68,3 +68,8 @@ task_context:
       artifacts: [{path: implementation/work-log.md, label: Dziennik, html: null}]
     verification_options:
       summary: "2026-11-23T13:08:04Z wszystkie cztery: code review, pragmatic, reality check, production readiness; e2e i docs wyłączone (brak UI)"
+    verification:
+      summary: "2026-11-23T16:55:26Z ✅ po poprawkach: 13 ostrzeżeń → 0 (7aed1ea, 1a92d3c); 715+5 OK; GO na pierwszą parę na T7; ryzyka: brak testu na sprzęcie, czas pary niezmierzony"
+      artifacts: [{path: verification/implementation-verification.md, label: Weryfikacja, html: verification/implementation-verification.html}]
+    finalize:
+      summary: "2026-11-23T16:56:46Z #22 zamknięte; fazy 3, 4, 9, 12, 13 pominięte (brak defektu do odtworzenia, brak UI)"

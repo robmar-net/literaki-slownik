@@ -47,17 +47,17 @@ details > summary { cursor:pointer; font-weight:600; }
   padding:10px 16px; text-align:center; min-width:90px; }
 .tile b { display:block; font-size:20px; letter-spacing:-.01em; }
 .tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
-.tile.w b { color:var(--warn); } .tile.c b { color:var(--ok); } .tile.i b { color:var(--info); }
-.verdict { background:var(--warn-soft); border:1px solid var(--warn); border-radius:var(--radius);
+.tile.ok b { color:var(--ok); } .tile.w b { color:var(--warn); } .tile.i b { color:var(--info); }
+.verdict { background:var(--ok-soft); border:1px solid var(--ok); border-radius:var(--radius);
   padding:14px 18px; margin:14px 0; font-size:16px; }
-.verdict strong { color:var(--warn); }
+.verdict strong { color:var(--ok); }
 .tldr ul { margin:6px 0 0; padding-left:20px; }
 .table-wrap { overflow-x:auto; }
 .st-warn { color:var(--warn); font-weight:600; }
 .fix-yes { color:var(--ok); font-weight:600; } .fix-dec { color:var(--warn); font-weight:600; }
 .fix-no { color:var(--dim); font-weight:600; }
 ul.check { list-style:none; padding-left:0; margin:0; }
-ul.check li { padding:3px 0; }
+ul.check li { padding:3px 0; } ul.check li::before { content:"✓ "; color:var(--ok); font-weight:700; }
 .meta { color:var(--dim); font-size:12.5px; }
 </style>
 </head>
@@ -67,121 +67,90 @@ ul.check li { padding:3px 0; }
   <a href="../implementation/spec.html">Spec</a>
   <a href="../implementation/implementation-plan.html">Plan</a>
   <span class="here">Weryfikacja</span>
+  <a href="../implementation/work-log.md" target="_blank" rel="noopener">Work-log ↗</a>
   <a href="implementation-verification.md" target="_blank" rel="noopener" class="md">md twin ↗</a>
 </nav>
 
 <header>
   <h1>Weryfikacja wdrożenia #22</h1>
   <span class="badge">Implementation verification</span>
-  <span class="meta">· 2026-11-23 · <a href="implementation-verification.md" target="_blank" rel="noopener">implementation-verification.md ↗</a></span>
+  <span class="meta">· 2026-11-23 · <a href="implementation-verification.md" target="_blank" rel="noopener">implementation-verification.md</a> ↗</span>
 </header>
 
-<div class="verdict">⚠️ <strong>Zaliczone z uwagami.</strong> 0 krytycznych, 13 ostrzeżeń, ~25 uwag info. Plan 95/95, testy 676+5 OK.</div>
+<div class="verdict">✅ <strong>Zaliczone po poprawkach.</strong> 0 krytycznych, 0 otwartych ostrzeżeń, uwagi info zaakceptowane. GO na pierwszą parę na T7.</div>
 
 <div class="tiles">
-  <div class="tile c"><b>0</b><span>krytyczne</span></div>
-  <div class="tile w"><b>13</b><span>ostrzeżenia</span></div>
-  <div class="tile i"><b>~25</b><span>info</span></div>
+  <div class="tile ok"><b>✅</b><span>werdykt</span></div>
+  <div class="tile ok"><b>0</b><span>krytyczne</span></div>
+  <div class="tile ok"><b>0</b><span>otwarte ostrzeżenia</span></div>
   <div class="tile"><b>95/95</b><span>plan</span></div>
-  <div class="tile"><b>676+5</b><span>testy OK</span></div>
+  <div class="tile ok"><b>715 + 5</b><span>testy OK</span></div>
 </div>
 
 <section class="tldr card">
   <h2 style="margin-top:0">TL;DR</h2>
-  <p>Wszystkie przeglądy dają <b>GO</b> na pierwszą parę na T7; żaden nie znalazł utraty danych.</p>
-  <p><b>Najważniejsze:</b></p>
-  <ul>
-    <li>krótkie zniknięcie T7 może dać kod 4 zamiast 75 (nadzorca stanie),</li>
-    <li>brak blokady przy <code>--resume</code>,</li>
-    <li><code>clean_work</code> może po 24 h skasować kompletną parę czekającą na verify.</li>
-  </ul>
+  <p>✅ <strong>Zaliczone (po poprawkach).</strong> 0 krytycznych, 0 otwartych ostrzeżeń, uwagi info zaakceptowane. Plan 95/95, testy 715 + 5 OK.</p>
+  <p>Pierwsza weryfikacja: 13 ostrzeżeń. Poprawione 1–12 (commit <code>7aed1ea</code>), ponowny przegląd: 11/12 rozwiązane, 10 częściowo (4C zostaje jako zapas, z walidacją), 1 nowe (N1) — poprawione z N2–N8 w drugim commicie.</p>
+  <p>GO na pierwszą parę na T7.</p>
   <h2>Otwarte pytania / ryzyka</h2>
   <ul>
-    <li>Para na T7 nie była uruchomiona ani odłączenie USB nie było testowane na sprzęcie — tylko podstawione <code>ismount</code>/<code>stat</code>.</li>
-    <li>Czas pary na T7 niezmierzony (13 h to dysk wewnętrzny).</li>
-    <li>Klasa 6 <code>clean_work</code> (kompletna para INCOMPLETE &gt; 24 h) — decyzja właściciela.</li>
+    <li><span class="sev warning">warning</span>Nic nie sprawdzono na sprzęcie: odłączenie T7 w trakcie buildu, zawieszenie USB (watchdog), odłączenie w trakcie <code>.deleting</code>. Plan: przy pierwszej parze raz odłączyć T7 w krótkim etapie i sprawdzić w logu 75 → wait → <code>--resume</code> → 0.</li>
+    <li><span class="sev warning">warning</span>Czas pary na T7 niezmierzony (nr 13; 13 h dotyczy dysku wewnętrznego). Zmierzyć przy pierwszej parze.</li>
+    <li><span class="sev info">info</span>Przebieg, który oblał verify, i B z <code>peer-kept</code> zostają na T7 bez terminu (~22 GB każdy; decyzja właściciela przy nr 5). <code>clean_work</code> pokazuje <code>age_days</code>; kasuje się je ręcznie.</li>
+    <li><span class="sev info">info</span>Reguła <code>repeated-75-healthy</code> nie obejmuje 75 przed powstaniem manifestu z etapami (wtedy tylko limit 3 wznowień).</li>
   </ul>
 </section>
 
-<nav class="toc meta">Spis: <a href="#podsumowanie">Podsumowanie</a> · <a href="#kontrole">Wyniki kontroli</a> · <a href="#ostrzezenia">Ostrzeżenia</a> · <a href="#rekomendacje">Rekomendacje</a> · <a href="#lista">Lista kontrolna</a></nav>
+<nav class="toc meta">Spis: <a href="#podsumowanie">Podsumowanie</a> · <a href="#kontrole">Wyniki kontroli</a> · <a href="#historia">Historia poprawek</a> · <a href="#rekomendacje">Rekomendacje</a> · <a href="#lista">Lista kontrolna</a></nav>
 
 <main>
 <h2 id="podsumowanie">Podsumowanie</h2>
-<div class="card">
-  Wdrożenie realizuje R1–R13: build na T7, kody 75–78, <code>build --resume</code> per etap i raport, nadzorca, promocja po verify z kasowaniem B, <code>clean_work</code> z kasowaniem wydań tylko po zgodzie, historia prób. Harness „wznowiony = świeży” przechodzi w 19 punktach przerwania.
-</div>
+<div class="card">Wdrożenie realizuje R1–R13: build na T7, kody 75–78, <code>build --resume</code> per etap i raport, nadzorca z watchdogiem, promocja po verify z kasowaniem B, <code>clean_work</code> z kasowaniem wydań tylko po zgodzie, historia prób. Harness „wznowiony = świeży” przechodzi w 19 punktach przerwania.</div>
 
 <h2 id="kontrole">Wyniki kontroli</h2>
-<div class="card table-wrap">
-<table>
-  <thead><tr><th>Kontrola</th><th>Status</th><th>Wynik (kryt./ostrz./info)</th><th>Raport</th></tr></thead>
-  <tbody>
-    <tr><td>Kompletność</td><td class="st-warn">⚠️</td><td>0/1/5 — plan 95/95, docs R13 kompletne</td><td><a href="completeness-check.md" target="_blank" rel="noopener">completeness-check.md ↗</a></td></tr>
-    <tr><td>Testy</td><td class="pass">✅</td><td>676 + 5 OK (grupa 14; ponowiony w readiness: 676 OK)</td><td>work-log</td></tr>
-    <tr><td>Przegląd kodu</td><td class="st-warn">⚠️</td><td>0/4/9</td><td><a href="code-review-report.md" target="_blank" rel="noopener">code-review-report.md ↗</a></td></tr>
-    <tr><td>Przegląd pragmatyczny</td><td class="st-warn">⚠️</td><td>0/5/8</td><td><a href="pragmatic-review.md" target="_blank" rel="noopener">pragmatic-review.md ↗</a></td></tr>
-    <tr><td>Reality check</td><td class="st-warn">⚠️</td><td>0/3/5, GO</td><td><a href="reality-check.md" target="_blank" rel="noopener">reality-check.md ↗</a></td></tr>
-    <tr><td>Gotowość</td><td class="st-warn">⚠️</td><td>0/2/6, GO z mitygacjami (88%)</td><td><a href="production-readiness-report.md" target="_blank" rel="noopener">production-readiness-report.md ↗</a></td></tr>
-  </tbody>
-</table>
-</div>
+<div class="card table-wrap"><table>
+<tr><th>Kontrola</th><th>Pierwszy przebieg</th><th>Po poprawkach</th><th>Raport</th></tr>
+<tr><td>Kompletność</td><td class="st-warn">⚠️ 0/1/5</td><td class="pass">✅ (log standardów uzupełniony)</td><td><a href="completeness-check.md" target="_blank" rel="noopener">completeness-check.md</a></td></tr>
+<tr><td>Testy</td><td class="pass">✅ 676 + 5</td><td class="pass">✅ 715 + 5</td><td><a href="../implementation/work-log.md" target="_blank" rel="noopener">work-log</a></td></tr>
+<tr><td>Przegląd kodu</td><td class="st-warn">⚠️ 0/4/9</td><td class="pass">✅ 0/0/info</td><td><a href="code-review-report.md" target="_blank" rel="noopener">code-review-report.md</a>, <a href="code-review-reverify.md" target="_blank" rel="noopener">code-review-reverify.md</a></td></tr>
+<tr><td>Przegląd pragmatyczny</td><td class="st-warn">⚠️ 0/5/8</td><td class="pass">✅ W1–W5 poprawione</td><td><a href="pragmatic-review.md" target="_blank" rel="noopener">pragmatic-review.md</a></td></tr>
+<tr><td>Reality check</td><td class="st-warn">⚠️ 0/3/5, GO</td><td class="pass">✅ R1, R2 poprawione; R3 = test na sprzęcie</td><td><a href="reality-check.md" target="_blank" rel="noopener">reality-check.md</a></td></tr>
+<tr><td>Gotowość</td><td class="st-warn">⚠️ 0/2/6, GO z mitygacjami</td><td class="pass">✅ W1 poprawione; W2 = pomiar</td><td><a href="production-readiness-report.md" target="_blank" rel="noopener">production-readiness-report.md</a></td></tr>
+</table></div>
 
-<h2 id="ostrzezenia">Ostrzeżenia (13)</h2>
-<div class="card table-wrap">
-<table>
-  <thead><tr><th>#</th><th>Waga</th><th>Źródło</th><th>Problem</th><th>Miejsce</th><th>Do poprawy</th></tr></thead>
-  <tbody>
-    <tr><td>1</td><td><span class="sev warning">warning</span></td><td>reality R1</td><td>T7 wraca zanim pojawi się błąd I/O → strażnik zdrowy → kod 4, nadzorca staje</td><td><code>build.py</code> <code>exit_code</code></td><td class="fix-yes">tak</td></tr>
-    <tr><td>2</td><td><span class="sev warning">warning</span></td><td>code</td><td><code>build --resume</code> bez blokady; <code>resume_reports</code> przyjmuje <code>reports=running</code> — może ruszyć bazę żywego buildu</td><td><code>build.py:508-527</code>, <code>resume_reports.py:50</code></td><td class="fix-yes">tak</td></tr>
-    <tr><td>3</td><td><span class="sev warning">warning</span></td><td>code</td><td>Po 75 nadzorca czyta <code>marker_id</code> z niedostępnego manifestu → <code>None</code> → przeniesiony wolumen daje 75 po 30 min zamiast 76</td><td><code>build_supervised.py:51-61,185</code></td><td class="fix-yes">tak</td></tr>
-    <tr><td>4</td><td><span class="sev warning">warning</span></td><td>code</td><td>Przerwane <code>rmtree</code> B zostawia drzewo bez manifestu (~22 GB), którego nikt nie skasuje</td><td><code>promote_run.py:231-235</code>, <code>clean_work.py:421-428</code></td><td class="fix-yes">tak</td></tr>
-    <tr><td>5</td><td><span class="sev warning">warning</span></td><td>code</td><td>Klasa 6 kasuje kompletną parę INCOMPLETE (czeka na verify) po 24 h</td><td><code>clean_work.py:199-209</code></td><td class="fix-dec">decyzja</td></tr>
-    <tr><td>6</td><td><span class="sev warning">warning</span></td><td>readiness W1</td><td>SIGHUP po zamknięciu terminala kończy parę (129); runbook bez <code>&amp; disown</code>, krok po restarcie bez <code>caffeinate</code></td><td>runbook §5, <code>cli.md</code></td><td class="fix-yes">tak</td></tr>
-    <tr><td>7</td><td><span class="sev warning">warning</span></td><td>reality R2</td><td>Nadzorca bez watchdoga na zawieszone I/O</td><td><code>build_supervised.py</code></td><td class="fix-yes">tak (prosty limit bez postępu)</td></tr>
-    <tr><td>8</td><td><span class="sev warning">warning</span></td><td>pragmatic W2</td><td>Kontrola korzenia w 5 miejscach; korzeń na dysku repo: 75 w <code>probe</code>, 76 w <code>check_fresh</code></td><td><code>volume.py</code>, <code>build_supervised.py:77</code>, …</td><td class="fix-yes">tak</td></tr>
-    <tr><td>9</td><td><span class="sev warning">warning</span></td><td>pragmatic W1</td><td><code>volume.check_resume</code> martwy (tylko testy)</td><td><code>volume.py:106-112</code></td><td class="fix-yes">tak</td></tr>
-    <tr><td>10</td><td><span class="sev warning">warning</span></td><td>pragmatic W3</td><td>Tryb 4C w kodzie mimo odrzucenia; <code>FULLFSYNC_MODE</code> bez walidacji</td><td><code>database.py</code>, <code>build.py</code></td><td class="fix-yes">tak</td></tr>
-    <tr><td>11</td><td><span class="sev warning">warning</span></td><td>pragmatic W4/W5</td><td>Prywatne <code>canonical._full_sync</code>/<code>_sync_directory</code> poza modułem; zdublowane pomocniki (flock, rmtree ro, rozmiar, <code>_inside</code>)</td><td><code>promote_run.py</code>, <code>clean_work.py</code>, <code>database.py</code></td><td class="fix-yes">tak</td></tr>
-    <tr><td>12</td><td><span class="sev warning">warning</span></td><td>completeness</td><td>Pusty „Standards Reading Log” w work-log</td><td><code>work-log.md</code></td><td class="fix-yes">tak</td></tr>
-    <tr><td>13</td><td><span class="sev warning">warning</span></td><td>readiness W2</td><td>Czas pary na T7 niezmierzony</td><td>runbook</td><td class="fix-no">nie (zmierzyć przy 1. parze)</td></tr>
-  </tbody>
-</table>
-</div>
-
-<details class="card">
-  <summary><span class="sev info">info</span> Uwagi info (wybór)</summary>
-  <ul>
-    <li>brak sync katalogów stagingu</li>
-    <li>T7 czytany ~4×22 GB w promocji</li>
-    <li>sygnał między <code>Popen</code> a zapisem dziecka</li>
-    <li>mieszany stdout w <code>supervisor.log</code></li>
-    <li><code>KeyError</code> w <code>resume_reports</code></li>
-    <li><code>OSError</code> z kasowania w <code>clean_work</code> → traceback</li>
-    <li>5 <code>ResourceWarning</code> w starych testach</li>
-  </ul>
-</details>
+<h2 id="historia">Historia poprawek i ponownej weryfikacji</h2>
+<div class="card table-wrap"><table>
+<tr><th>#</th><th>Problem</th><th>Poprawka</th><th>Wynik ponownej kontroli</th></tr>
+<tr><td><b>1</b></td><td>Szybki powrót T7 → kod 4</td><td>I/O (EIO/ENXIO/ENODEV/ENOENT/EROFS, SQLITE IOERR/CANTOPEN) na wolumenie → 75; dysk wewnętrzny nadal 4</td><td class="fix-yes">✓ rozwiązane (<code>build.py:137,165-168</code>)</td></tr>
+<tr><td><b>2</b></td><td><code>--resume</code> bez blokady</td><td><code>.&lt;nazwa&gt;.build.lock</code> obok symlinku na cały build; <code>resume_reports</code> i <code>clean_work</code> ją respektują</td><td class="fix-yes">✓ rozwiązane</td></tr>
+<tr><td><b>3</b></td><td><code>marker_id</code> gubiony po 75</td><td>zapamiętany przed pierwszym procesem i po każdym odczycie</td><td class="fix-yes">✓ rozwiązane</td></tr>
+<tr><td><b>4</b></td><td>Przerwane kasowanie B zostawia 22 GB</td><td><code>workfs.delete_tree</code>: rename na <code>.&lt;nazwa&gt;.deleting</code>, dokończenie przy ponowieniu</td><td class="fix-yes">✓ rozwiązane</td></tr>
+<tr><td><b>5</b></td><td>Klasa 6 kasuje kompletną parę</td><td>decyzja właściciela: nie kasować; klasa 3 „kompletny, czeka na verify” + <code>age_days</code></td><td class="fix-yes">✓ rozwiązane</td></tr>
+<tr><td><b>6</b></td><td>SIGHUP kończy parę</td><td>runbook/cli: <code>nohup … &amp; disown</code>; nadzorca zachowuje ignorowanie SIGHUP</td><td class="fix-yes">✓ rozwiązane</td></tr>
+<tr><td><b>7</b></td><td>Brak watchdoga</td><td><code>--stall-minutes</code> (120), postęp = mtime plików lub czas CPU; <code>cputime-unknown</code> w logu</td><td class="fix-yes">✓ rozwiązane</td></tr>
+<tr><td><b>8</b></td><td>Kontrola korzenia w 5 miejscach, 75 vs 76</td><td><code>volume.check_work_root</code> wszędzie; dysk repo → 76</td><td class="fix-yes">✓ rozwiązane</td></tr>
+<tr><td><b>9</b></td><td>Martwe <code>check_resume</code></td><td>używane w <code>build.resume</code></td><td class="fix-yes">✓ rozwiązane</td></tr>
+<tr><td><b>10</b></td><td>Tryb 4C bez walidacji</td><td>walidacja <code>FULLFSYNC_MODE</code> (kod 4); 4C zostaje jako zapas (ADR-020)</td><td class="fix-dec">częściowo, zaakceptowane</td></tr>
+<tr><td><b>11</b></td><td>Prywatne helpery, duplikaty</td><td>publiczne <code>full_sync</code>/<code>sync_directory</code>/<code>copy_durable</code>, <code>literaki_slownik/workfs.py</code></td><td class="fix-yes">✓ rozwiązane</td></tr>
+<tr><td><b>12</b></td><td>Pusty log standardów</td><td>uzupełniony w work-log</td><td class="fix-yes">✓ rozwiązane</td></tr>
+<tr><td><b>N1/N8</b></td><td>Błąd kodu na T7 wygląda jak zanik dysku</td><td>drugie zdrowe 75 w tym samym etapie → 4 (<code>repeated-75-healthy</code>), ADR-019</td><td class="fix-yes">✓ rozwiązane (test <code>Healthy75Tests</code>)</td></tr>
+<tr><td><b>N3/N4</b></td><td>Hung proces / ręczny resume przez ścieżkę T7</td><td><code>--resume</code> przez ścieżkę T7 → 4; runbook opisuje oba przypadki</td><td class="fix-yes">✓ rozwiązane</td></tr>
+<tr><td><b>N5</b></td><td><code>.X.deleting</code> jako wydanie</td><td>pomijane w <code>_find_releases</code></td><td class="fix-yes">✓ rozwiązane</td></tr>
+<tr><td><b>N7</b></td><td>Brak listy skasowanych przy błędzie</td><td>JSON <code>{error, exit_code, deleted}</code></td><td class="fix-yes">✓ rozwiązane</td></tr>
+<tr><td><b>N6</b></td><td>Puste pliki blokad zostają</td><td>—</td><td class="fix-no"><span class="sev info">info</span>akceptowane</td></tr>
+<tr><td><b>13</b></td><td>Czas pary na T7</td><td>—</td><td class="fix-no">pomiar przy pierwszej parze</td></tr>
+</table></div>
 
 <h2 id="rekomendacje">Rekomendacje</h2>
-<div class="card">
-<ol>
-  <li>Poprawić 1–4, 6–12 (techniczne, testowalne).</li>
-  <li>5: wyłączyć z kasowania przebiegi, których wszystkie etapy są <code>complete</code> (rekomendacja) — po decyzji.</li>
-  <li>Przy pierwszej parze: raz odłączyć T7 w krótkim etapie i sprawdzić w logu 75 → wait → <code>--resume</code> → 0; zapisać czasy etapów.</li>
-</ol>
-</div>
+<div class="card"><ol style="margin:0;padding-left:20px">
+<li>Pierwsza para na T7 (za zgodą właściciela): <code>nohup … &amp; disown</code>, jedno kontrolowane odłączenie T7, zapis czasów etapów do runbooka.</li>
+<li>Poza #22: 5 <code>ResourceWarning</code> w starszych testach (<code>test_links_structures</code>, <code>test_round5_zds</code>, <code>test_sjp_extra</code>).</li>
+</ol></div>
 
 <h2 id="lista">Lista kontrolna</h2>
-<div class="card">
-<ul class="check">
-  <li><span class="pass">☑</span> Plan 95/95</li>
-  <li><span class="pass">☑</span> Testy 676+5</li>
-  <li><span class="pass">☑</span> R1–R13 udokumentowane</li>
-  <li><span class="pass">☑</span> Brak UUID/ścieżek domowych</li>
-  <li><span class="pass">☑</span> <code>config/</code> bez zmian</li>
-  <li><span class="pass">☑</span> Brak CI</li>
-  <li><span class="st-warn">☐</span> Ostrzeżenia 1–12</li>
-</ul>
-</div>
+<div class="card"><ul class="check">
+<li>Plan 95/95</li><li>Testy 715 + 5</li><li>R1–R13 udokumentowane</li><li>Brak UUID/ścieżek domowych</li><li><code>config/</code> bez zmian</li><li>Brak CI</li><li>Ostrzeżenia 1–12 i N1–N8</li>
+</ul></div>
 </main>
 </body>
 </html>
