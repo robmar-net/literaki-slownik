@@ -3,6 +3,7 @@
 ## TL;DR
 Działają inspect-sources, build importu, diagnostyczne explain, verify/export (G7) oraz `pop` (listy POP/POP0, metoda `pop-v3`, ADR-008). Pełny generator nadal jest w implementacji.
 Explain czyta bazę bez zmian i pokazuje wszystkie źródłowe interpretacje.
+Build może iść na dysku roboczym (T7) i wznawiać się po awarii: `--work-root`, `--resume`, nadzorca, promocja (#22).
 Nieaktywna polityka językowa daje unresolved; diagnostyka nie nadaje końcowego członkostwa w liście.
 
 ## Key Decisions
@@ -21,13 +22,16 @@ Nieaktywna polityka językowa daje unresolved; diagnostyka nie nadaje końcowego
 python3 -m literaki_slownik --help
 python3 -m literaki_slownik inspect-sources --manifest config/generator/sources.json --json
 python3 -m literaki_slownik build --manifest config/generator/sources.json --run-dir data/work/import-new --json
+python3 -m literaki_slownik build --manifest config/generator/sources.json --run-dir data/work/<nazwa> --work-root <korzeń> --json
+python3 -m literaki_slownik build --resume --manifest config/generator/sources.json --run-dir data/work/<nazwa> --json
 python3 -m literaki_slownik explain --run-dir data/work/import-new --word PCV
 python3 -m literaki_slownik explain --run-dir data/work/import-new --word DNA --variant broad --json
 python3 -m literaki_slownik verify --run-dir data/work/run-a --peer-run data/work/run-b --review sciezka/quality-review.json --json
 python3 -m literaki_slownik export --run-dir data/work/run-a --output-dir data/work/pakiet-nowy --json
 ```
 
-Dwa przebiegi do `verify` uruchamia równolegle `scripts/build_pair.sh PREFIKS`.
+Dwa przebiegi do `verify` uruchamia równolegle `LITERAKI_WORK_ROOT=<korzeń> scripts/build_pair.sh PREFIKS`
+(dysk roboczy, nadzorcy, wznawianie: [niżej](#build-na-dysku-roboczym-i-wznawianie-22)).
 
 Verify i export opisuje [publikacja.md](publikacja.md#verify-i-export--wdrożenie-g7).
 
@@ -39,6 +43,74 @@ Build przerywa, gdy wpis nie trafia w dokładnie jeden rekord, gdy analiza i tak
 albo gdy forma zostaje w STANDARD przez inną analizę. Kontrola: `python3 scripts/check_standard_exclusions.py
 [--database <przebieg>/build.sqlite --records-only]`. Ślad: `reports/decisions.json` → `standard_exclusions`
 (z `sha256`) i `explain`.
+
+## Build na dysku roboczym i wznawianie (#22)
+
+Decyzje: [ADR-014](../adr/ADR-014-uklad-t7.md) (układ, promocja, sprzątanie), [ADR-015](../adr/ADR-015-straznik-wolumenu.md)
+(strażnik), [ADR-016](../adr/ADR-016-build-resume.md) (`--resume`), [ADR-017](../adr/ADR-017-znaczniki-raportow.md)
+(`reports/.done/`), [ADR-018](../adr/ADR-018-kody-wyjscia-75-78.md) (kody), [ADR-019](../adr/ADR-019-nadzorca-buildu.md)
+(nadzorca), [ADR-020](../adr/ADR-020-fullfsync.md) (`fullfsync`), [ADR-021](../adr/ADR-021-historia-prob.md) (historia prób).
+
+**`build --work-root W`.** Przebieg powstaje w `W/<nazwa>`, a `--run-dir data/work/<nazwa>` staje się symlinkiem.
+`W` musi leżeć na wolumenie ze znacznikiem `.literaki-work-volume` (inaczej 76) i mieć ≥ 50 GB wolnego (inaczej 78).
+`W/<nazwa>` bez symlinku, bez `build.sqlite`, z pustym `reports/` i samymi etapami `pending` to resztka nieudanego
+startu: build ją kasuje i zaczyna od nowa. Inny istniejący katalog: 4. Bez `--work-root` build działa jak wcześniej.
+
+**`build --resume --manifest M --run-dir R`.** Wznawia w tym samym katalogu i bazie, od pierwszego etapu, który nie jest
+`complete`; ten i każdy dalszy liczy się od nowa. Kolejność kontroli: brak `R` → 4; symlink bez celu albo dysk
+niezamontowany → 75; manifest nieczytelny → 75, gdy dysk zniknął, inaczej 4; `VERIFIED`/`FROZEN` → 5; inny znacznik → 76;
+miejsce → 78; inny kod generatora albo niezacommitowany → 4; inny manifest wejść → 3; niegotowy `preflight` → przebieg
+od zera w tym samym katalogu; `PRAGMA quick_check` ≠ `ok` → 77. Raporty ze zgodnym znacznikiem `reports/.done/` są
+pomijane. Etap `links` przy każdym uruchomieniu usuwa i tworzy swoje tabele. Wynik JSON ma `resumed_from`
+(pierwszy etap tej próby). `--resume` z `--work-root` → 2.
+
+Manifest przebiegu ma `work_volume` (`marker_id` albo null), `build_attempts` i `resume`. Historia jest pod pieczęcią,
+poza K8. `verify` (JSON i tekst) i `release-manifest.json` (`source_run.build_history`) pokazują skrót `build_history`:
+`resumed`, `resume_count`, `attempts`, `stages`, `outcomes`, `exit_codes`, `resumed_from`.
+
+```sh
+python3 scripts/init_work_volume.py <korzeń>                     # raz na wolumen
+python3 scripts/measure_fullfsync.py --dir <korzeń>/.measure-<stempel> [--reference-run data/work/<przebieg>] \
+  [--quick-check <przebieg>/build.sqlite] [--commits 200] [--repeats 5] [--batch-rows 10000]
+python3 scripts/build_supervised.py --manifest config/generator/sources.json --run-dir data/work/<nazwa> \
+  [--work-root <korzeń>] [--max-resumes 3] [--wait-minutes 30] [--poll-seconds 5]
+LITERAKI_WORK_ROOT=<korzeń> scripts/build_pair.sh PREFIKS
+python3 scripts/resume_reports.py --manifest config/generator/sources.json --run-dir data/work/<przebieg>
+python3 scripts/promote_run.py --run-dir data/work/<A> [--peer data/work/<B>]
+python3 scripts/clean_work.py [--work-root <korzeń>] [--apply] [--server-repo <checkout serwera>] \
+  [--server-current NAZWA]... [--delete-releases PLIK]
+```
+
+- `init_work_volume.py`: zakłada znacznik w korzeniu wolumenu, na którym leży `<korzeń>`. Znacznik ma UUID wolumenu
+  z `diskutil` i losowy `marker_id`; UUID zostaje tylko na wolumenie, stdout ma sam `marker_id`. Kody: 0; 4 znacznik
+  już jest; 75 brak korzenia albo błąd `diskutil`; 76 korzeń na dysku repo.
+- `measure_fullfsync.py`: tylko tymczasowa baza w nowym katalogu `--dir`, kasowanym na końcu. JSON bez ścieżek:
+  mediany commitów z `fullfsync` OFF i ON; z `--reference-run` też `overhead_pct` i wybór `build`/`stage_boundaries`;
+  z `--quick-check` wynik i czas `quick_check` (baza tylko do odczytu). Kody: 0; 2 argumenty albo `--dir` istnieje.
+- `build_supervised.py`: przebieg istnieje i manifest czytelny → `build --resume`; brak przebiegu → świeży
+  `build --work-root`; symlink bez dysku → czekanie. Ponawia **tylko po 75**: co `--poll-seconds` sprawdza dysk
+  i znacznik, czeka najdłużej `--wait-minutes`, wznawia najwyżej `--max-resumes` razy (potem 75). Inny znacznik albo
+  wolumen pod inną ścieżką → 76 od razu. Inne kody kończą pracę z tym kodem; SIGINT → 130. Plików przebiegu nie dotyka.
+  Logi: `logs/<nazwa>.out.json`, `logs/<nazwa>.err`, `logs/<nazwa>.supervisor.log`. Blokada `logs/<nazwa>.lock`
+  przez cały czas pracy; gdy trzyma ją inny nadzorca → 4.
+- `build_pair.sh`: wymaga `LITERAKI_WORK_ROOT` i zacommitowanego kodu (inaczej 2), znacznika (75 brak wolumenu,
+  76 zły wolumen) i ≥ 100 GB wolnego (78). Uruchamia dwóch nadzorców pod `caffeinate -dimsu`:
+  `data/work/PREFIKS-<stempel>-{a,b}`. Kod 0, gdy obie strony 0, inaczej 1.
+- `resume_reports.py`: nakładka na `build --resume`. Kody: 2 przebieg nie czeka na wznowienie samych raportów;
+  4 inny kod generatora; pozostałe przekazane z `build --resume`.
+- `promote_run.py` (od razu po udanym `verify`): stany S0–S4, każdy wznawialny tym samym poleceniem. Kopia A
+  z T7 do `data/work/.<A>.promote` z kontrolą sha256 i trybu, zamiana symlinku na katalog (`RENAME_SWAP`), potem
+  kasowanie B (`--peer`; tylko `INCOMPLETE` i zgodny `canonical-index`) i kopii A na T7. Manifest A bez zmian;
+  ślad w `promotion.json` (poza pieczęcią) i `logs/<A>.promote.log`, blokada `logs/<A>.promote.lock`.
+  Kody: 0; 2 argumenty; 4 kopia, zamiana albo blokada; 5 pieczęć; 75 T7 zniknął; 76 zły wolumen; 78 brak miejsca wewnątrz.
+- `export` przebiegu na T7 (symlink albo wolumen roboczy): kod 5, „najpierw promote_run.py”.
+- `clean_work.py`: domyślnie tylko lista JSON (wpis, klasa, rozmiar, powód). Klasy: 1 zweryfikowany, 2 promocja
+  w toku, 3 przebieg w toku (< 24 h albo blokada), 4 nieznana zawartość, 5 osierocony, 6 nieukończony z symlinkiem,
+  7 dysk wewnętrzny, tylko lista, 8 stare wydanie. `--apply` kasuje klasy 5–6. Stare wydanie znika tylko
+  z `--apply --delete-releases PLIK`; plik zawiera nazwy, na które właściciel się zgodził, a nazwa spoza kandydatów
+  daje odmowę całości. Bieżące wydania serwera: `NOTICE` z `origin/main` checkoutu `--server-repo` (domyślnie
+  `../server`, tylko odczyt) i `--server-current`. Brak `NOTICE` → wszystkie wydania potrzebne. Kody: 0; 2 argumenty;
+  4 odmowa.
 
 ## POP i POP0 (`pop`)
 
@@ -98,7 +170,7 @@ Sprawdza `SHA256SUMS`, manifest, `POP0 ⊆ POP ⊆ STANDARD`, brak surowego NKJP
 
 Pomiar przed decyzją o progach (tylko odczyt): `python3 scripts/measure_pop.py --output-dir data/work/pop-measure-<stempel> [--sources] [--run-dir] [--release-dir] [--with-membership-ii]`. Wynik: `measure.json`, `timing.json`, `report.md`. Kody: 2 argumenty, 3 piny, 4 katalog istnieje, 5 baza zmieniona lub przebieg nie FROZEN.
 
-Build odmawia istniejącego katalogu. Aktualnie wykonuje preflight i importy; pozostawia INCOMPLETE oraz jawnie pending dla dalszych etapów. Użyj nowego katalogu przy ponowieniu. Nie modyfikuj historycznego audytu.
+Build odmawia istniejącego katalogu (wyjątek: resztka nieudanego startu przy `--work-root`). Przerwany przebieg dokańcza `build --resume` w tym samym katalogu. Nie modyfikuj historycznego audytu.
 
 Explain nie skraca odpowiedzi JSON: pokazuje wszystkie oryginały, pełne ID homonimów, surowe tagi i ich rozwinięcia, nazwy/kwalifikatory, źródła i pierwszy wiersz interpretacji. Duplikaty pozostają w raw tabeli; pierwszy wiersz nie jest listą wszystkich powtórzeń. Tekst zawiera powody ocen na osobnych poziomach. NFC/lower służy wyszukiwaniu; PCV nie staje się dopuszczalne przez zapytanie pcv.
 
@@ -222,6 +294,21 @@ Jeżeli baza ma relacje evidence_link/evidence_candidate, explain pokazuje powi�
 ## Kody i kontrola
 
 JSON: jeden obiekt UTF-8 na stdout, błędy na stderr. Kod 0 oznacza poprawną diagnostykę także dla reject/unresolved/absent. Kod 2: błędne argumenty/schemat, 3: niedopuszczone wejście/hash, 4: błąd operacyjny/odczytu, 130: przerwanie. Kod 5: verify odmówił VERIFIED (JSON `status: refused`, wynik per K) albo export odmówił. Publiczne CLI nie ma obejścia ani trybu fikstury.
+
+Kody `build`, `build --resume` i skryptów dysku roboczego ([ADR-018](../adr/ADR-018-kody-wyjscia-75-78.md)):
+
+| Kod | Znaczenie | Nadzorca |
+|---|---|---|
+| 0 | proces bez błędu (etapy mogą zostać `pending`) | koniec |
+| 2 | argumenty | stop |
+| 3 | wejścia: manifest, hash, inny `manifest_sha256` przy `--resume` | stop |
+| 4 | dane, kod, inna tożsamość kodu przy `--resume`, brak przebiegu, inny `sqlite3.Error`/`OSError`, błąd kopii w promocji, zajęta blokada | stop |
+| 5 | przebieg `VERIFIED`/`FROZEN`; promocja albo export odmawia (pieczęć, przebieg na T7) | stop |
+| 75 | dysk roboczy zniknął (G1/G3 po błędzie I/O, brak dysku przy starcie); nadzorca: wyczerpany limit albo czas | czeka i wznawia, maks. 3 razy |
+| 76 | zły wolumen: inny znacznik, wolumen bez znacznika, wolumen pod inną ścieżką | stop |
+| 77 | `quick_check` ≠ `ok`, `SQLITE_CORRUPT`, `SQLITE_NOTADB` | stop, decyzja człowieka |
+| 78 | brak miejsca: `SQLITE_FULL`, `ENOSPC`, `EDQUOT`, progi startu, promocja | stop |
+| 130 | SIGINT | stop |
 
 ```sh
 python3 -m unittest discover -s tests -p 'test_*.py'

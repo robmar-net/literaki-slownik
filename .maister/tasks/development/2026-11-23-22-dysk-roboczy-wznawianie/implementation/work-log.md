@@ -69,3 +69,7 @@
 ## 2026-11-23T12:06:42Z - Group 12 Complete
 **Steps**: 12.1–12.5. **Tests**: test_build_history 3/3; powtórka 6 modułów po fali (verify, export, lifecycle, promote_run, resume_equivalence, build_history) — wynik niżej w commit.
 **Files**: verify.py (build_history, sekcja „Historia buildu”), export.py (source_run.build_history), tests/test_build_history.py.
+
+## 2026-11-23T12:12:30Z - Group 13 Complete
+**Steps**: 13.1–13.6. **Tests**: test_cli_docs+test_rule_docs 8/8.
+**Files**: docs/adr/ADR-014..019, 021 (nowe), ADR-020 (uzupełnienie), docs/generator/cli.md, docs/plan-dalszych-prac-runbook.md, .maister/docs/INDEX.md, tests/test_cli_docs.py.

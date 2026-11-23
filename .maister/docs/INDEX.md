@@ -25,6 +25,15 @@ Specyfikacja v3 jest materiałem wejściowym użytkownika, nie raportem wyników
 - [Zadanie TEMATY, fala 1](../tasks/development/2026-10-29-12-tematy-fala-1/implementation/spec.md) — 9 tematów, metoda `tematy-v2` (#12); [ADR-012](../../docs/adr/ADR-012-tematy-fala-1.md), bramka w [gate-report.md](../tasks/development/2026-10-29-12-tematy-fala-1/verification/gate-report.md).
 - [ADR-013: TEMATY v2 fali 1](../../docs/adr/ADR-013-tematy-v2-fali-1.md) — 7 tematów v2 (#13), wykluczenie obejmuje dodatki D; bramka v2: dalej wszystkie 10, bez wydania; [gate-report.md](../tasks/development/2026-10-29-13-tematy-v2/verification/gate-report.md).
 - [Zadanie TEMATY przed wydaniem](../tasks/development/2026-10-29-14-tematy-przed-wydaniem/verification/gate-report.md) — #14: matematyka i medycyna v3, 10 tematów z jednego commita, pakiety gotowe do wydania.
+- [ADR-014: build na T7](../../docs/adr/ADR-014-uklad-t7.md) — symlink `data/work/<przebieg>` na T7, promocja po `verify`, `export` tylko wewnątrz, `clean_work.py` (#22).
+- [ADR-015: strażnik wolumenu](../../docs/adr/ADR-015-straznik-wolumenu.md) — G1+G2+G3, znacznik `.literaki-work-volume`, UUID tylko na wolumenie.
+- [ADR-016: `build --resume`](../../docs/adr/ADR-016-build-resume.md) — od pierwszego niegotowego etapu w tej samej bazie, kolejność kontroli, reset tabel.
+- [ADR-017: znaczniki raportów](../../docs/adr/ADR-017-znaczniki-raportow.md) — `reports/.done/`, `unresolved` z pliku.
+- [ADR-018: kody 75–78](../../docs/adr/ADR-018-kody-wyjscia-75-78.md) — dysk zniknął, zły wolumen, uszkodzona baza, brak miejsca.
+- [ADR-019: nadzorca buildu](../../docs/adr/ADR-019-nadzorca-buildu.md) — `build_supervised.py` wznawia tylko po 75, maks. 3 razy.
+- [ADR-020: `fullfsync`](../../docs/adr/ADR-020-fullfsync.md) — pomiar na T7: narzut 0,09%, tryb 4B (`fullfsync=ON` przez cały build).
+- [ADR-021: historia prób](../../docs/adr/ADR-021-historia-prob.md) — `build_attempts` pod pieczęcią, poza K8; `build_history` w `verify` i `export`.
+- [Zadanie: build na T7 z wznawianiem](../tasks/development/2026-11-23-22-dysk-roboczy-wznawianie/implementation/spec.md) — #22; polecenia w [cli.md](../../docs/generator/cli.md#build-na-dysku-roboczym-i-wznawianie-22), przebieg pracy w [runbooku](../../docs/plan-dalszych-prac-runbook.md#nowy-przebieg-i-awaria).
 
 - [Raport końcowy i przekazanie](../tasks/research/2026-10-04-audyt-zrodel-polskich-slownikow/outputs/research-handoff.md).
 - [Implementacja generatora — zakres i luki](../tasks/development/2026-10-04-generator-broad-standard/analysis/gap-analysis.md) — aktywne zadanie development.

@@ -46,6 +46,14 @@ i każdy rodzaj analiz to partie po 10 000, w górę. Pełny wynik:
 Odrzucone: 4C. Daje mniejszy zysk niż 0,1% czasu, a dokłada fsync na granicach etapów i okno,
 w którym dane etapu nie są jeszcze trwałe.
 
+## Wdrożenie w buildzie (#22, grupa 8)
+- `database.connect`: każde połączenie zapisywalne ma `journal_mode=DELETE` i `synchronous=FULL`.
+  Z `build=True` i `FULLFSYNC_MODE = 'build'` też `fullfsync=ON` i `checkpoint_fullfsync=ON`.
+  Połączenie tylko do odczytu nic nie ustawia.
+- `stage_durable` na końcu każdego etapu i po resecie `--resume`: commit przed plikami etapu i manifestem.
+  W trybie `stage_boundaries` dodatkowo `F_FULLFSYNC` pliku bazy (`database.full_sync`). Kod obu trybów
+  zostaje, więc inny dysk roboczy może przejść na 4C zmianą stałej.
+
 ## Otwarte pytania / ryzyka
 - Pomiar dotyczy jednego dysku (T7). Inny dysk roboczy wymaga nowego pomiaru tym samym skryptem.
 - 486 s `quick_check` zmierzono na dysku wewnętrznym. Na T7 może trwać dłużej.

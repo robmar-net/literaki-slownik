@@ -342,20 +342,20 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
 **Files to Modify:** `docs/adr/ADR-014-*.md` … `docs/adr/ADR-021-*.md` (020 tylko uzupełnienie), `docs/generator/cli.md`, `docs/plan-dalszych-prac-runbook.md`, `.maister/docs/INDEX.md`, `tests/test_cli_docs.py`
 **Estimated Steps:** 6
 
-- [ ] 13.0 Opis nowego przebiegu pracy
-  - [ ] 13.1 Napisać 2 testy w `tests/test_cli_docs.py`
+- [x] 13.0 Opis nowego przebiegu pracy
+  - [x] 13.1 Napisać 2 testy w `tests/test_cli_docs.py`
     - `cli.md` zawiera kody 75, 76, 77, 78, `--resume`, `--work-root` i nazwy pięciu nowych skryptów.
     - ADR-014..021 istnieją i nie mają UUID ani ścieżek domowych.
-  - [ ] 13.2 ADR-014..019 i ADR-021 według mapy ze spec i `decision-log.md`. Po polsku, zwięźle. ADR-020 uzupełnić tylko o to, co zmieniła grupa 8.
-  - [ ] 13.3 `docs/generator/cli.md`
+  - [x] 13.2 ADR-014..019 i ADR-021 według mapy ze spec i `decision-log.md`. Po polsku, zwięźle. ADR-020 uzupełnić tylko o to, co zmieniła grupa 8.
+  - [x] 13.3 `docs/generator/cli.md`
     - `build --resume`, `--work-root`, kody 75–78.
     - `build_supervised.py`, `promote_run.py`, `clean_work.py`, `init_work_volume.py`, `measure_fullfsync.py`.
     - Nowe kody `resume_reports.py`.
-  - [ ] 13.4 Runbook (`docs/plan-dalszych-prac-runbook.md`, sekcja „Nowy przebieg i awaria”)
+  - [x] 13.4 Runbook (`docs/plan-dalszych-prac-runbook.md`, sekcja „Nowy przebieg i awaria”)
     - Raz `init_work_volume.py`, potem `build_pair.sh` z `LITERAKI_WORK_ROOT`.
     - Nadzorca po restarcie, `verify … && promote_run.py …`, `clean_work.py` jako lista.
-  - [ ] 13.5 `.maister/docs/INDEX.md`: wpisy ADR-014..021 i zadania #22
-  - [ ] 13.6 Uruchomić tylko testy z 13.1
+  - [x] 13.5 `.maister/docs/INDEX.md`: wpisy ADR-014..021 i zadania #22
+  - [x] 13.6 Uruchomić tylko testy z 13.1
 
 **Acceptance Criteria:**
 - 2 testy przechodzą. Dokumenty opisują wszystkie nowe polecenia i kody.

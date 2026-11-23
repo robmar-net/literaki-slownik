@@ -172,23 +172,42 @@ SJP.pl to tylko miara. Wynik nie jest wejściem budowy i nie dopisujemy z niego 
 
 ### Nowy przebieg i awaria
 
-Przed pełnym uruchomieniem sprawdzić wolne miejsce i utrwalić kod. Poniższa komenda jest wzorem: zastąpić `nowy-unikalny-id` własnym identyfikatorem nieistniejącego katalogu.
+Para A/B buduje się na dysku roboczym (T7), pod nadzorcą, który sam wznawia pracę po zniknięciu dysku.
+Opis poleceń i kodów: [cli.md](generator/cli.md#build-na-dysku-roboczym-i-wznawianie-22), decyzje: ADR-014..021.
+`<wolumen>` to punkt montowania T7, `<nazwa>` to prefiks pary.
 
-```sh
-python3 -m literaki_slownik build --manifest config/generator/sources.json --run-dir data/work/nowy-unikalny-id --json
-```
+1. **Raz na wolumen:** `python3 scripts/init_work_volume.py <wolumen>/literaki-slownik/work`. Na T7 znacznik już jest
+   (2026-11-23); powtórka kończy się kodem 4 i niczego nie zmienia.
+2. **Utrwalić kod** (`git status` czysty w `literaki_slownik/`), potem para:
+   ```sh
+   LITERAKI_WORK_ROOT=<wolumen>/literaki-slownik/work scripts/build_pair.sh <nazwa>
+   # → data/work/<nazwa>-<stempel>-a i -b (symlinki na T7), logi w logs/
+   ```
+   Para trwa ok. 13 h, zajmuje ok. 12 GB RAM i 2 × 22 GB na T7 (start wymaga ≥ 100 GB wolnego).
+3. **Zniknięcie dysku:** build kończy się kodem 75, nadzorca czeka do 30 min i robi `build --resume` (najwyżej 3 razy).
+   Strata: bieżący etap albo raport. Przebieg śledzić w `logs/<przebieg>.supervisor.log`.
+   Inny kod niż 75 zatrzymuje pracę: przeczytać `logs/<przebieg>.err`. 76 zły wolumen, 77 uszkodzona baza i 78 brak
+   miejsca wymagają decyzji człowieka.
+4. **Po restarcie maszyny** nadzorcę uruchamia się ręcznie, dla każdej strony osobno:
+   ```sh
+   python3 scripts/build_supervised.py --manifest config/generator/sources.json --run-dir data/work/<przebieg>
+   ```
+5. **Odbiór:** przegląd próbek (K7), potem `verify` i od razu promocja A. Promocja kopiuje A na dysk wewnętrzny
+   i kasuje B oraz kopię A na T7:
+   ```sh
+   python3 -m literaki_slownik verify --run-dir data/work/<A> --peer-run data/work/<B> --review <przegląd> --json \
+     && python3 scripts/promote_run.py --run-dir data/work/<A> --peer data/work/<B>
+   ```
+   Przerwaną promocję wznawia to samo polecenie. Po skasowaniu B ponowny `verify` A wymaga nowej pary.
+6. **Wydanie:** `export --run-dir data/work/<A> --output-dir NOWY` tylko na dysku wewnętrznym (przebieg na T7 → kod 5)
+   → kontrola hashy pakietu → GitHub Release. Wzór: `llpl-v29`, opis w `docs/generator/publikacja.md`.
+7. **Sprzątanie:** `python3 scripts/clean_work.py --work-root <wolumen>/literaki-slownik/work` wypisuje listę
+   i niczego nie kasuje. `--apply` kasuje tylko nieudane i porzucone przebiegi na T7. Stare wydania kasuje się
+   wyłącznie po „tak” właściciela dla konkretnej listy: `--apply --delete-releases PLIK`.
 
-Do wydania potrzebne są dwa przebiegi (A i B). Uruchamiać je **równolegle**: każdy działa na jednym rdzeniu, więc para trwa tyle co jeden (~14 h zamiast ~28 h). Skrypt robi to i odmawia przy niezacommitowanym kodzie:
-
-```sh
-scripts/build_pair.sh lists-v32   # → data/work/lists-v32-<czas>-a i -b, logi .out.json/.err
-```
-
-Baza ma cache SQLite 4 GB na połączenie (`database.py`); para zajmuje ok. 12 GB RAM i 2 × 22 GB dysku.
-
-Obecny build nadal kończy się gotowością `INCOMPLETE` i nieukończonymi etapami. Nie jest sposobem otrzymania końcowych list. Po awarii zachować manifest/log/bazę, odnotować nieukończony etap i przy ponowieniu użyć nowego katalogu. Nie uznawać częściowego importu za dowód braku słowa.
-
-Wydanie: dwa buildy → przegląd próbek → `verify --run-dir A --peer-run B --review PLIK` (K1–K10) → `export --run-dir A --output-dir NOWY` → kontrola hashy pakietu → GitHub Release. Wzór: `llpl-v29`, opis w `docs/generator/publikacja.md`.
+Build bez `--work-root` (np. `--run-dir data/work/<nazwa>` na dysku wewnętrznym) działa jak wcześniej; przerwany
+dokańcza `build --resume --manifest config/generator/sources.json --run-dir data/work/<nazwa>`.
+Nie uznawać częściowego importu za dowód braku słowa.
 
 ## 6. Odbiór i utrzymanie ticketu
 
