@@ -365,12 +365,12 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
 **Files to Modify:** `tests/test_*.py` (tylko dopiski luk, maks. 10 testów)
 **Estimated Steps:** 5
 
-- [ ] 14.0 Przegląd i uzupełnienie luk
-  - [ ] 14.1 Przejrzeć testy z grup 1–13 (~76)
-  - [ ] 14.2 Znaleźć luki tylko w zakresie #22, np. kody end-to-end przez CLI, promocja + `clean_work.py` na jednym drzewie
-  - [ ] 14.3 Dopisać najwyżej 10 testów
-  - [ ] 14.4 Uruchomić pełny zestaw: `python3 -m unittest discover -s tests -p 'test_*.py'` i `python3 -m unittest discover -s scripts -p 'test_audit_sgjp.py'`. Sprawdzić linię wyniku, nie tylko kod wyjścia.
-  - [ ] 14.5 Kontrole repo
+- [x] 14.0 Przegląd i uzupełnienie luk
+  - [x] 14.1 Przejrzeć testy z grup 1–13 (~76)
+  - [x] 14.2 Znaleźć luki tylko w zakresie #22, np. kody end-to-end przez CLI, promocja + `clean_work.py` na jednym drzewie
+  - [x] 14.3 Dopisać najwyżej 10 testów
+  - [x] 14.4 Uruchomić pełny zestaw: `python3 -m unittest discover -s tests -p 'test_*.py'` i `python3 -m unittest discover -s scripts -p 'test_audit_sgjp.py'`. Sprawdzić linię wyniku, nie tylko kod wyjścia.
+  - [x] 14.5 Kontrole repo
     - grep UUID (8-4-4-4-12) i ścieżek domowych w zmienionych plikach i w artefaktach zadania.
     - Brak `.github/workflows`.
     - `git status` bez plików z `data/work/` i `logs/`.

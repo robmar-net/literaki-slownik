@@ -330,6 +330,44 @@ class CleanWorkTests(CleanWorkCase):
         self.assertEqual(deleted, {'release-LL-PL-v27', 'run-27', 'release-LL-PL-v26'})
 
 
+class PromotionThenCleanTests(CleanWorkCase):
+    """Styk: rekord prawdziwego promote_run.py czyta clean_work.py na tym samym drzewie."""
+
+    def test_przerwana_promocja_chroni_t7_a_ukonczona_zostawia_tylko_kopie_wewnetrzna(self):
+        from literaki_slownik.verify import verify
+        from tests.release_helpers import complete_pair
+        from tests.test_promote_run import Crash, crash_at, promote_run
+        _, run_a, run_b, review = complete_pair(self.data)
+        link_a, link_b = self.work / 'run-a', self.work / 'run-b'
+        os.symlink(run_a, link_a)
+        os.symlink(run_b, link_b)
+        self.assertEqual(verify(link_a, link_b, review, allow_test_fixture=True)['verdict'], 'VERIFIED')
+        with self.assertRaises(Crash):
+            promote_run.promote(link_a, link_b, hook=crash_at('unlinked'))
+        # Bez rekordu B (INCOMPLETE, z symlinkiem, ≥ 24 h) byłby klasą 6 i znikałby z --apply.
+        age(run_a)
+        age(run_b)
+        self.server_repo()
+        code, result = self.clean('--apply')
+        self.assertEqual(code, 0, self.stderr)
+        self.assertEqual(result['deleted'], [])
+        t7 = self.classes(result, 't7')
+        self.assertEqual((t7['run-a'], t7['run-b']), (1, 2))
+        self.assertTrue((run_a / 'manifest.json').is_file())
+        self.assertTrue((run_b / 'manifest.json').is_file())
+        self.assertEqual(self.classes(result, 'internal')['run-a'], 7)
+
+        self.assertEqual(promote_run.promote(link_a, link_b)['status'], 'promoted')
+        code, result = self.clean('--apply')
+        self.assertEqual(code, 0, self.stderr)
+        self.assertEqual(result['deleted'], [])
+        t7 = self.classes(result, 't7')
+        self.assertNotIn('run-a', t7)
+        self.assertNotIn('run-b', t7)
+        self.assertEqual(self.classes(result, 'internal')['run-a'], 7)
+        self.assertTrue((link_a / 'build.sqlite').is_file())
+
+
 if __name__ == '__main__':
     import unittest
     unittest.main()

@@ -119,6 +119,7 @@ class DurableWriteTests(unittest.TestCase):
 
     def test_write_lists_uses_write_bytes_with_same_bytes(self):
         db = sqlite3.connect(':memory:')
+        self.addCleanup(db.close)
         db.executescript('''create table analysis(analysis_key, game_key);
             create table variant_decision(analysis_key, variant, membership_status);
             insert into analysis values (1,'kot'),(2,'ala'),(3,'żuk');

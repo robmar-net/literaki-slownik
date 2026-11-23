@@ -73,3 +73,11 @@
 ## 2026-11-23T12:12:30Z - Group 13 Complete
 **Steps**: 13.1–13.6. **Tests**: test_cli_docs+test_rule_docs 8/8.
 **Files**: docs/adr/ADR-014..019, 021 (nowe), ADR-020 (uzupełnienie), docs/generator/cli.md, docs/plan-dalszych-prac-runbook.md, .maister/docs/INDEX.md, tests/test_cli_docs.py.
+
+## 2026-11-23T12:42:07Z - Group 14 Complete
+**Steps**: 14.1–14.5. **Tests**: +2 testy styku (promocja→clean_work, nadzorca + prawdziwe cli.main; obie mutacje czerwone), poprawka ResourceWarning w test_durable_write.
+**Pełne zestawy**: tests 676/676 OK (392 s); scripts/test_audit_sgjp 5/5 OK. Sonda wycieków stanu globalnego: 0. Grep UUID/ścieżek: czysto (usunięta stara ścieżka domowa z runbooka, linia 108). .github/workflows brak; config/ bez zmian.
+**Notes**: 5 ResourceWarning w testach sprzed #22 (test_links_structures, test_round5_zds, test_sjp_extra) — poza zakresem.
+
+## 2026-11-23T12:42:07Z - Implementation Complete
+**Total Steps**: 95/95. **Test Suite**: 676 + 5 OK. Commity: b53a6d4 … (grupy 1–14).

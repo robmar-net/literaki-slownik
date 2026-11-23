@@ -16,6 +16,7 @@ from unittest import mock
 from literaki_slownik import volume
 from literaki_slownik.canonical import write_json
 from literaki_slownik.inputs import GeneratorError
+from tests.layout_helpers import LayoutCase
 
 ROOT = Path(__file__).resolve().parent.parent
 SPEC = importlib.util.spec_from_file_location('build_supervised', ROOT / 'scripts/build_supervised.py')
@@ -255,6 +256,58 @@ class BuildPairCase(unittest.TestCase):
             self.assertTrue(any('--run-dir data/work/lists-x-' in line and line.endswith(
                 f'-{side} --work-root {self.work}') for line in supervisors if line.startswith('python3')),
                 lines)
+
+
+class SupervisorWithRealBuildTests(LayoutCase):
+    """Styk: nadzorca czyta kody prawdziwego `cli.main build` i jego polecenie przyjmuje parser CLI."""
+
+    def test_disk_lost_in_a_stage_is_75_then_supervisor_resumes_to_a_complete_run(self):
+        import contextlib
+        import sqlite3
+        from literaki_slownik import build as build_module, cli
+        from literaki_slownik.canonical import load_json
+        from literaki_slownik.run import STAGES
+        run_dir = self.work / 'lists-e2e-a'
+        real_decisions = build_module.STAGE_RUNNERS['decisions']
+        lost = []
+
+        def decisions(db, ctx):
+            if not lost:
+                lost.append(True)
+                self.mounts.discard(str(self.data))  # T7 znika w trakcie etapu.
+                raise sqlite3.OperationalError('disk I/O error')
+            return real_decisions(db, ctx)
+
+        codes = []
+
+        def run_build(argv, out, err):
+            with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+                codes.append(cli.main(list(argv)))
+            return codes[-1]
+
+        clock = FakeClock()
+
+        def sleep(seconds):
+            clock.sleep(seconds)
+            self.mounts.add(str(self.data))  # Dysk wraca przy pierwszym czekaniu.
+
+        with mock.patch.dict(build_module.STAGE_RUNNERS, {'decisions': decisions}):
+            code = build_supervised.supervise(
+                str(self.manifest), str(run_dir), work_root=str(self.data), run_build=run_build,
+                sleep=sleep, clock=clock.clock, find=lambda marker_id: None, logs_dir=self.repo / 'logs')
+        self.assertEqual(code, 0)
+        self.assertEqual(codes, [75, 0])
+        self.assertTrue(run_dir.is_symlink())
+        manifest = load_json(run_dir / 'manifest.json')
+        self.assertEqual([manifest['stages'][name]['status'] for name in STAGES], ['complete'] * len(STAGES))
+        self.assertEqual(manifest['resume']['count'], 1)
+        # Strata ≤ bieżący etap: wznowienie zaczyna od etapu, w którym zniknął dysk.
+        self.assertEqual([(attempt['exit_code'], attempt['first_stage']) for attempt in manifest['build_attempts']],
+                         [(75, 'preflight'), (0, 'decisions')])
+        log = (self.repo / 'logs/lists-e2e-a.supervisor.log').read_text(encoding='utf-8').splitlines()
+        argvs = [json.loads(line)['argv'] for line in log if json.loads(line)['event'] == 'start']
+        self.assertIn('--work-root', argvs[0])
+        self.assertEqual(argvs[1][:2], ['build', '--resume'])
 
 
 if __name__ == '__main__':

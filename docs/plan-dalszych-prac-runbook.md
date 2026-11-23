@@ -105,7 +105,7 @@ B/D/E można rozwijać na ukończonej, wersjonowanej bazie niezależnie od bench
 
 ## 5. Runbook wznowienia teraz
 
-Wszystkie komendy uruchamiać z katalogu głównego `literaki-slownik`. Lokalnie repo znajduje się w `~/Projects/Literaki/literaki-slownik`; klon na innym komputerze może mieć inną ścieżkę.
+Wszystkie komendy uruchamiać z katalogu głównego `literaki-slownik`.
 
 ### Kontrola stanu i środowiska
 
