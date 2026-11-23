@@ -265,8 +265,8 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
 **Files to Modify:** `scripts/promote_run.py`, `literaki_slownik/export.py`, `tests/test_promote_run.py`
 **Estimated Steps:** 9
 
-- [ ] 10.0 `promote_run.py` ze stanami S0–S4
-  - [ ] 10.1 Napisać 8 testów w `tests/test_promote_run.py` („T7” = katalog tymczasowy z podstawionym `ismount`, fikstura `complete_pair`)
+- [x] 10.0 `promote_run.py` ze stanami S0–S4
+  - [x] 10.1 Napisać 8 testów w `tests/test_promote_run.py` („T7” = katalog tymczasowy z podstawionym `ismount`, fikstura `complete_pair`)
     - A nie `VERIFIED` → 5. Zmiana pliku na T7 po verify → 5.
     - Różny sha256 albo tryb kopii → 4 i nic nie skasowane.
     - Zniknięcie T7 w trakcie kopii → 75, staging zostaje.
@@ -275,20 +275,20 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
     - B kasowany tylko, gdy jest `INCOMPLETE` i zgadza się `canonical_index_sha256`. Inaczej zostaje.
     - `export` symlinku albo ścieżki na wolumenie roboczym → 5.
     - `export` po promocji przechodzi `changes_since_verify` mimo `promotion.json`. `promotion.json` jest poza pieczęcią i poza `canonical-index`.
-  - [ ] 10.2 Rozpoznanie stanu S0–S4. Blokada `logs/<A>.promote.lock`.
-  - [ ] 10.3 S0: `VERIFIED` (5), `changes_since_verify` puste (5), wolumen i `marker_id` (75/76), miejsce wewnątrz ≥ rozmiar × 1,1 (78)
-  - [ ] 10.4 S1: staging `data/work/.<A>.promote` od zera
+  - [x] 10.2 Rozpoznanie stanu S0–S4. Blokada `logs/<A>.promote.lock`.
+  - [x] 10.3 S0: `VERIFIED` (5), `changes_since_verify` puste (5), wolumen i `marker_id` (75/76), miejsce wewnątrz ≥ rozmiar × 1,1 (78)
+  - [x] 10.4 S1: staging `data/work/.<A>.promote` od zera
     - Tylko zwykłe pliki i katalogi; symlink albo plik specjalny → 4.
     - Zapis trwały, ten sam tryb i `mtime`. Potem porównanie sha256 i trybu z T7.
     - `promotion.json`, a na końcu `changes_since_verify(staging)` puste.
-  - [ ] 10.5 S1 → S2: `renamex_np(RENAME_SWAP)` według wzoru `rename_noreplace`, `unlink` dawnego symlinku, fsync `data/work`
-  - [ ] 10.6 S2/S3
+  - [x] 10.5 S1 → S2: `renamex_np(RENAME_SWAP)` według wzoru `rename_noreplace`, `unlink` dawnego symlinku, fsync `data/work`
+  - [x] 10.6 S2/S3
     - Strażnik dla `t7_path`.
     - Kasowanie B według warunków. Kasowanie kopii A, gdy nie jest katalogiem wewnętrznym.
     - Ustawienie `completed`.
-  - [ ] 10.7 Błąd I/O → strażnik (75/76), inaczej 4. Zdarzenia w `logs/<A>.promote.log`. Manifest A bez zmian.
-  - [ ] 10.8 `export.py`: odmowa 5 dla symlinku albo ścieżki na wolumenie roboczym („przebieg na T7; najpierw promote_run.py”)
-  - [ ] 10.9 Uruchomić tylko testy z 10.1
+  - [x] 10.7 Błąd I/O → strażnik (75/76), inaczej 4. Zdarzenia w `logs/<A>.promote.log`. Manifest A bez zmian.
+  - [x] 10.8 `export.py`: odmowa 5 dla symlinku albo ścieżki na wolumenie roboczym („przebieg na T7; najpierw promote_run.py”)
+  - [x] 10.9 Uruchomić tylko testy z 10.1
 
 **Acceptance Criteria:**
 - 8 testów przechodzi. Promocję da się wznowić z każdego stanu.

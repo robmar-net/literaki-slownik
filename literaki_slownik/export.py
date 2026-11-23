@@ -11,12 +11,15 @@ from pathlib import Path
 import stat
 import sys
 import tempfile
+from . import volume
 from .canonical import dumps, load_json, sha256, write_json
 from .inputs import GeneratorError, inspect_sources
 from .run import now
 from .verify import manifest_core_sha256
 
+RENAME_SWAP = 0x00000002      # macOS renamex_np
 RENAME_EXCL = 0x00000004      # macOS renamex_np
+RENAME_EXCHANGE = 2           # Linux renameat2
 RENAME_NOREPLACE = 1          # Linux renameat2
 AT_FDCWD = -100
 READ_ONLY = stat.S_IRUSR | stat.S_IRGRP | stat.S_IROTH
@@ -49,6 +52,27 @@ def rename_noreplace(source, target):
     if code in (errno.EINVAL, errno.ENOTSUP, errno.ENOSYS):
         return _fallback_rename(source, target)
     raise OSError(code, os.strerror(code), str(target))
+
+
+def rename_swap(source, target):
+    """Atomowo zamienia dwa wpisy katalogu (także symlink z katalogiem). Bez wariantu zastępczego."""
+    source_b, target_b = os.fsencode(source), os.fsencode(target)
+    libc = ctypes.CDLL(None, use_errno=True)
+    try:
+        if sys.platform == 'darwin':
+            result = libc.renamex_np(source_b, target_b, ctypes.c_uint(RENAME_SWAP))
+        else:
+            result = libc.renameat2(AT_FDCWD, source_b, AT_FDCWD, target_b, ctypes.c_uint(RENAME_EXCHANGE))
+    except AttributeError as error:
+        raise OSError(errno.ENOSYS, 'Brak atomowej zamiany nazw', str(target)) from error
+    if result != 0:
+        code = ctypes.get_errno()
+        raise OSError(code, os.strerror(code), str(target))
+
+
+def on_work_volume(run):
+    """Przebieg-symlink albo katalog na innym wolumenie niż repo (T7)."""
+    return Path(run).is_symlink() or volume.mount_point(run) != volume.repo_mount()
 
 
 def write_release_manifest(staging, data):
@@ -101,6 +125,8 @@ def changes_since_verify(run, manifest):
 
 def export(run_dir, output_dir, *, allow_test_fixture=False):
     run, target = Path(run_dir), Path(output_dir)
+    if on_work_volume(run):
+        raise GeneratorError('Przebieg na T7; najpierw promote_run.py', 5, str(run))
     try:
         manifest = load_json(run / 'manifest.json')
     except (OSError, ValueError) as error:

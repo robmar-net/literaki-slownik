@@ -40,3 +40,8 @@
 **Porównanie z HEAD** (te same wejścia): logical-content.json i lists/*.txt identyczne bajtowo; różnią się tylko construction-candidates.json i decisions.json (usunięte new_*) i ich hashe w canonical-index — zamierzone.
 **Files**: build.py (pętla etapów STAGE_RUNNERS, run_build/stage_context/record_failure, metryki z bazy, znaczniki .done), links.py (dwa DROP), tests/test_stage_loop.py, tests/test_report_markers.py.
 **Notes**: constructions z full_constructions_pending kończy pending (dziś flaga zawsze False). Docstring create_links → grupa 13.
+
+## 2026-11-23T11:47:53Z - Group 10 Complete
+**Steps**: 10.1–10.9. **Tests**: promote_run+export+lifecycle+verify 41/41. Mutacje: warunek indeksu B i odmowa export → czerwone; os.path.exists w _guard nieobjęty (nadmiarowy).
+**Files**: scripts/promote_run.py (S0–S4, lock, log, staging, rename_swap), export.py (rename_swap, on_work_volume → 5), tests/test_promote_run.py.
+**Notes**: --peer opcjonalny; używa prywatnych canonical._full_sync/_sync_directory (do rozważenia w przeglądzie).
