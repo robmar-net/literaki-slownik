@@ -164,8 +164,8 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
 **Files to Modify:** `literaki_slownik/build.py`, `literaki_slownik/links.py`, `tests/test_stage_loop.py`, `tests/test_report_markers.py`
 **Estimated Steps:** 8
 
-- [ ] 6.0 `build()` jako pętla etapów według `STAGES`
-  - [ ] 6.1 Napisać 7 testów w `tests/test_stage_loop.py` i `tests/test_report_markers.py`
+- [x] 6.0 `build()` jako pętla etapów według `STAGES`
+  - [x] 6.1 Napisać 7 testów w `tests/test_stage_loop.py` i `tests/test_report_markers.py`
     - `construction-candidates.json` bez `new_candidates`, `decisions.json` bez `new_analyses`/`new_decisions`. Funkcje `materialize_*` dalej je zwracają.
     - `import-counts.json` liczony z bazy ma te same metryki co dziś na fiksturze.
     - `inventory.json`, `qualifier-conditions.json` i `import-counts.json` istnieją przed `import_kwjp: complete`.
@@ -173,16 +173,16 @@ Expected Tests: ~76 w grupach 1–13 (2–8 na grupę) + do 10 w grupie 14
     - `preflight: complete` dopiero po commicie `source_artifact`.
     - Znacznik ze złym hashem → raport liczony od nowa. `unresolved` z pliku daje te same bajty raportów zależnych.
     - `.done/` nie wchodzi do `canonical-index`.
-  - [ ] 6.2 Podział `build()` na funkcje etapów i jedna pętla od wskazanego etapu. Świeży build zaczyna od `preflight`.
-  - [ ] 6.3 Poprawka 1: usunięcie `new_*` z raportów kanonicznych przed zapisem
-  - [ ] 6.4 Poprawki 2 i 3: `import-counts.json` z bazy. Trzy pliki zapisywane na końcu `import_kwjp`, przed `complete`.
-  - [ ] 6.5 Poprawka 4 (`links`): `set_stage(running)`, osobne `DROP TABLE IF EXISTS evidence_candidate`, potem `evidence_link`. Na końcu `complete` albo `pending` z `reason`.
-  - [ ] 6.6 `preflight: complete` po utworzeniu bazy i commicie `source_artifact`
-  - [ ] 6.7 Znaczniki `reports/.done/<raport>.json`
+  - [x] 6.2 Podział `build()` na funkcje etapów i jedna pętla od wskazanego etapu. Świeży build zaczyna od `preflight`.
+  - [x] 6.3 Poprawka 1: usunięcie `new_*` z raportów kanonicznych przed zapisem
+  - [x] 6.4 Poprawki 2 i 3: `import-counts.json` z bazy. Trzy pliki zapisywane na końcu `import_kwjp`, przed `complete`.
+  - [x] 6.5 Poprawka 4 (`links`): `set_stage(running)`, osobne `DROP TABLE IF EXISTS evidence_candidate`, potem `evidence_link`. Na końcu `complete` albo `pending` z `reason`.
+  - [x] 6.6 `preflight: complete` po utworzeniu bazy i commicie `source_artifact`
+  - [x] 6.7 Znaczniki `reports/.done/<raport>.json`
     - Pola: `sha256`, `bytes`, `tree_sha256`, `manifest_sha256`. Najpierw raport, potem znacznik.
     - Raport jest pomijany tylko przy pełnej zgodności. Przy pominięciu `unresolved` czytany z `reports/unresolved.json`.
     - Świeży build też pisze znaczniki.
-  - [ ] 6.8 Uruchomić testy z 6.1 oraz `tests/test_build.py`, `tests/test_reports.py`, `tests/test_lifecycle.py` (regresja podziału)
+  - [x] 6.8 Uruchomić testy z 6.1 oraz `tests/test_build.py`, `tests/test_reports.py`, `tests/test_lifecycle.py` (regresja podziału)
 
 **Acceptance Criteria:**
 - 7 nowych testów i trzy istniejące moduły przechodzą.

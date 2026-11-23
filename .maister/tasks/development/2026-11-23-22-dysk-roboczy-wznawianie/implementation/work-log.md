@@ -34,3 +34,9 @@
 **Steps**: 5.1–5.9. **Tests**: 13 modułów, 119/119 (74 s).
 **Files**: run.py (create_run z work_root, pola manifestu, close_attempt, reguła resztek startu — ostrzejsza niż spec), build.py (check_fresh/activate/deactivate, exit_code), cli.py (--work-root, sqlite3.Error→4), database.py (tolerancja rollback/close), explain.py (stages = statusy), tests/test_run.py, tests/layout_helpers.py (nowy, poza listą), tests/test_run_layout.py, tests/test_exit_codes.py.
 **Notes**: ResourceWarning z tests/test_durable_write.py:121 (grupa 2) — do domknięcia w grupie 14.
+
+## 2026-11-23T11:44:11Z - Group 6 Complete
+**Steps**: 6.1–6.8. **Tests**: 15 modułów, 147/147 (184 s).
+**Porównanie z HEAD** (te same wejścia): logical-content.json i lists/*.txt identyczne bajtowo; różnią się tylko construction-candidates.json i decisions.json (usunięte new_*) i ich hashe w canonical-index — zamierzone.
+**Files**: build.py (pętla etapów STAGE_RUNNERS, run_build/stage_context/record_failure, metryki z bazy, znaczniki .done), links.py (dwa DROP), tests/test_stage_loop.py, tests/test_report_markers.py.
+**Notes**: constructions z full_constructions_pending kończy pending (dziś flaga zawsze False). Docstring create_links → grupa 13.

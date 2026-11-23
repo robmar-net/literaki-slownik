@@ -3,13 +3,14 @@ from collections import Counter
 import errno
 from pathlib import Path
 import resource
+import shutil
 import sqlite3
 import time
-from .canonical import dumps, write_json, write_bytes, load_json
+from .canonical import dumps, write_json, write_bytes, load_json, sha256
 from .database import connect
-from .inputs import GeneratorError, inspect_sources
+from .inputs import GeneratorError, inspect_sources, checked_file
 from . import sgjp, kwjp
-from .run import create_run, set_stage, close_attempt, STAGES
+from .run import create_run, set_stage, close_attempt, code_identity, STAGES
 from . import volume
 from .reports import qualifier_coverage, logical_content_report, unresolved_report, persisted_filter_impact, canonical_index, coverage_report
 from .constructions import materialize_confirmed_candidates
@@ -29,10 +30,9 @@ def flush(db, sql, batch):
 
 def import_sgjp(db, artifact, batch_size):
     sid = artifact['source_id']
-    batch, count = [], 0
+    batch = []
     for number, fields in sgjp.rows(artifact['resolved_path']):
         batch.append((sid, number, *fields))
-        count += 1
         if len(batch) >= batch_size:
             flush(db, 'INSERT INTO sgjp_record VALUES (?,?,?,?,?,?,?)', batch)
     flush(db, 'INSERT INTO sgjp_record VALUES (?,?,?,?,?,?,?)', batch)
@@ -49,30 +49,55 @@ def import_sgjp(db, artifact, batch_size):
                   JOIN lexeme l ON l.source_id=r.source_id AND l.lemma_id=r.lemma
                   WHERE r.source_id=? GROUP BY f.id,l.id,r.tag,r.names,r.qualifiers''', (sid,))
     db.commit()
-    compact = db.execute('SELECT count(*) FROM interpretation WHERE source_id=?', (sid,)).fetchone()[0]
-    expanded = sum(n * sgjp.tag_size(tag) for tag, n in db.execute(
-        'SELECT tag,count(*) FROM interpretation WHERE source_id=? GROUP BY tag', (sid,)))
-    return {'records': count, 'interpretations': compact, 'duplicates': count - compact,
-            'expanded_alternatives': expanded,
-            'lexemes': db.execute('SELECT count(*) FROM lexeme WHERE source_id=?', (sid,)).fetchone()[0],
-            'original_forms': db.execute('SELECT count(DISTINCT form_id) FROM interpretation WHERE source_id=?', (sid,)).fetchone()[0]}
+    return sgjp_counts(db, sid)
 
 
 def import_kwjp(db, artifact, batch_size):
     sid = artifact['source_id']
-    batch, count, sum_freq = [], 0, 0
+    batch = []
     for number, raw, typed in kwjp.rows(artifact['resolved_path'], artifact['kind']):
         if typed['total_freq'] < artifact.get('publication_threshold', 0):
             raise GeneratorError('KWJP poniżej deklarowanego progu publikacji', 4, sid, number)
         unit = raw.get('lemma', raw.get('form', raw.get('unit_1')))
         metrics = {k: raw[k] for k in typed}
         batch.append((sid, number, unit, raw.get('unit_2'), raw.get('pos'), dumps(metrics), dumps(typed), typed['freq']))
-        count += 1
-        sum_freq += typed['freq']
         if len(batch) >= batch_size:
             flush(db, 'INSERT INTO corpus_evidence(source_id,row_number,unit_1,unit_2,pos,raw_metrics,typed_metrics,freq) VALUES (?,?,?,?,?,?,?,?)', batch)
     flush(db, 'INSERT INTO corpus_evidence(source_id,row_number,unit_1,unit_2,pos,raw_metrics,typed_metrics,freq) VALUES (?,?,?,?,?,?,?,?)', batch)
-    return {'records': count, 'sum_freq': sum_freq}
+    return kwjp_counts(db, sid)
+
+
+def is_sgjp(artifact):
+    return artifact['kind'] in {'sgjp_tab', 'lexical_supplement'}
+
+
+def is_kwjp(artifact):
+    return artifact['kind'].startswith('kwjp_')
+
+
+def sgjp_counts(db, sid):
+    """Metryki importu SGJP z bazy (nie z pamięci): wznowienie po import_sgjp daje te same liczby."""
+    one = lambda sql: db.execute(sql, (sid,)).fetchone()[0]
+    records = one('SELECT count(*) FROM sgjp_record WHERE source_id=?')
+    compact = one('SELECT count(*) FROM interpretation WHERE source_id=?')
+    expanded = sum(n * sgjp.tag_size(tag) for tag, n in db.execute(
+        'SELECT tag,count(*) FROM interpretation WHERE source_id=? GROUP BY tag', (sid,)))
+    return {'records': records, 'interpretations': compact, 'duplicates': records - compact,
+            'expanded_alternatives': expanded,
+            'lexemes': one('SELECT count(*) FROM lexeme WHERE source_id=?'),
+            'original_forms': one('SELECT count(DISTINCT form_id) FROM interpretation WHERE source_id=?')}
+
+
+def kwjp_counts(db, sid):
+    records, sum_freq = db.execute('SELECT count(*),coalesce(sum(freq),0) FROM corpus_evidence WHERE source_id=?',
+                                   (sid,)).fetchone()
+    return {'records': records, 'sum_freq': sum_freq}
+
+
+def import_counts(db, artifacts):
+    """Treść import-counts.json: każde importowane źródło, liczone z bazy (poprawka 2)."""
+    return {a['source_id']: sgjp_counts(db, a['source_id']) if is_sgjp(a) else kwjp_counts(db, a['source_id'])
+            for a in artifacts if is_sgjp(a) or is_kwjp(a)}
 
 
 def write_lists(db, run):
@@ -122,6 +147,251 @@ def exit_code(error, run, work_volume):
     return 1
 
 
+# Liczniki „wstawione w tej próbie” zależą od historii przebiegu; raporty kanoniczne ich nie mają (poprawka 1).
+INSERTED_COUNTERS = ('new_candidates', 'new_analyses', 'new_decisions')
+# Raporty etapu reports ze znacznikami .done (R7), w kolejności liczenia.
+MARKED_REPORTS = ('unresolved.json', 'filter-impact.json', 'quality-analyses.json', 'quality-links.json',
+                  'quality-words.json', 'logical-content.json', 'coverage.json')
+
+
+def canonical_report(report):
+    return {key: value for key, value in report.items() if key not in INSERTED_COUNTERS}
+
+
+def stage_context(manifest_path, run, inputs, batch_size=10000):
+    """Stan wspólny etapów jednego wywołania buildu."""
+    return {'manifest_path': manifest_path, 'base': Path(manifest_path).resolve().parent, 'run': Path(run),
+            'inputs': inputs, 'configurations': inputs['manifest']['configurations'],
+            'batch_size': batch_size, 'performance': {}, 'stage': STAGES[0]}
+
+
+def stage_preflight(db, ctx):
+    run = ctx['run']
+    set_stage(run, 'preflight', 'running')
+    for artifact in ctx['inputs']['artifacts']:
+        db.execute('INSERT INTO source_artifact VALUES (?,?,?)',
+                   (artifact['source_id'], artifact['kind'], dumps(artifact)))
+    db.commit()
+    # complete dopiero po commicie source_artifact: wznowienie ufa tylko istniejącej bazie.
+    set_stage(run, 'preflight', 'complete')
+
+
+def run_import(db, ctx, stage, predicate, importer):
+    run = ctx['run']
+    start = time.monotonic()
+    set_stage(run, stage, 'running')
+    for artifact in filter(predicate, ctx['inputs']['artifacts']):
+        sid = artifact['source_id']
+        metrics = importer(db, artifact, ctx['batch_size'])
+        for key, expected in artifact.get('expected_counts', {}).items():
+            if metrics.get(key) != expected:
+                raise GeneratorError(f'Niezgodne rozliczenie {key}: {metrics.get(key)} != {expected}', 4, sid)
+    ctx['performance'][stage] = {'seconds': time.monotonic() - start}
+
+
+def stage_import_sgjp(db, ctx):
+    run_import(db, ctx, 'import_sgjp', is_sgjp, import_sgjp)
+    set_stage(ctx['run'], 'import_sgjp', 'complete')
+
+
+def stage_import_kwjp(db, ctx):
+    run = ctx['run']
+    run_import(db, ctx, 'import_kwjp', is_kwjp, import_kwjp)
+    # Poprawki 2 i 3: trzy raporty importu z bazy, zapisane przed complete.
+    inventory = {name: dict(db.execute(f'SELECT {name},count(*) FROM interpretation GROUP BY {name}'))
+                 for name in ('tag', 'names', 'qualifiers')}
+    write_json(run / 'reports/import-counts.json', import_counts(db, ctx['inputs']['artifacts']))
+    write_json(run / 'reports/inventory.json', inventory)
+    write_json(run / 'reports/qualifier-conditions.json', qualifier_coverage(inventory['qualifiers'].items()))
+    set_stage(run, 'import_kwjp', 'complete')
+
+
+def stage_constructions(db, ctx):
+    # Runda 3: zarejestrowany zbiór konstruktorów jest zamkniętym zakresem wydania.
+    run = ctx['run']
+    start = time.monotonic()
+    set_stage(run, 'constructions', 'running')
+    construction_counts = materialize_confirmed_candidates(db, ctx['batch_size'])
+    ctx['performance']['diagnostic_constructions'] = {'seconds': time.monotonic() - start}
+    write_json(run / 'reports/construction-candidates.json', canonical_report(construction_counts))
+    if construction_counts['full_constructions_pending']:
+        set_stage(run, 'constructions', 'pending', {'reason': 'niepełny zbiór kandydatów konstrukcji'})
+    else:
+        set_stage(run, 'constructions', 'complete')
+
+
+def stage_decisions(db, ctx):
+    run, base, configurations = ctx['run'], ctx['base'], ctx['configurations']
+    start = time.monotonic()
+    set_stage(run, 'decisions', 'running')
+    use_reviews = []
+    use_reference = configurations.get('semantic-uses')
+    if use_reference:
+        use_data = load_json(checked_file(base, use_reference))
+        if (not isinstance(use_data, dict) or set(use_data) != {'schema_version', 'reviews'}
+                or type(use_data['schema_version']) is not int or use_data['schema_version'] != 1):
+            raise GeneratorError('Nieobsługiwany format przeglądu użyć', 4)
+        use_reviews = use_data['reviews']
+    source_hashes = {a['source_id']: a['sha256'] for a in ctx['inputs']['artifacts']}
+    # #4: przypięte wyjątki dawności STANDARD; rekordy sprawdzone przed oceną.
+    age_exceptions = None
+    age_reference = configurations.get(standard_age_exceptions.CONFIG_KEY)
+    if age_reference:
+        age_exceptions = standard_age_exceptions.load(checked_file(base, age_reference), source_hashes=source_hashes)
+        standard_age_exceptions.check_database(db, age_exceptions, analyses=False)
+    # #15: przypięte wykluczenia STANDARD; rekordy sprawdzone przed oceną.
+    exclusions = None
+    exclusion_reference = configurations.get(standard_exclusions.CONFIG_KEY)
+    if exclusion_reference:
+        exclusions = standard_exclusions.load(checked_file(base, exclusion_reference), source_hashes=source_hashes)
+        standard_exclusions.check_database(db, exclusions, analyses=False)
+    decision_counts = materialize_assessments(db, ctx['batch_size'], use_reviews=use_reviews,
+                                              age_exceptions=age_exceptions, standard_exclusions=exclusions)
+    if age_exceptions:
+        decision_counts['standard_age_exceptions']['sha256'] = age_reference['sha256']
+    if exclusions:
+        decision_counts['standard_exclusions']['sha256'] = exclusion_reference['sha256']
+    ctx['performance']['diagnostic_decisions'] = {'seconds': time.monotonic() - start}
+    write_json(run / 'reports/decisions.json', canonical_report(decision_counts))
+    if decision_counts['full_qualification_pending']:
+        set_stage(run, 'decisions', 'pending', {'reason': 'nierozstrzygnięte członkostwo analiz'})
+    else:
+        write_lists(db, run)
+        set_stage(run, 'decisions', 'complete')
+
+
+def stage_links(db, ctx):
+    # Powiązania bezpośrednie są niezależne od kwalifikacji językowej.
+    # Pełny etap wymaga kompletnego zbioru konstrukcji i niezależnej kontroli krawędzi.
+    run, manifest = ctx['run'], ctx['inputs']['manifest']
+    start = time.monotonic()
+    set_stage(run, 'links', 'running')
+    allowed_pos, pos_map_version = SHARED_POS, DEFAULT_POS_MAP_VERSION
+    pos_reference = ctx['configurations'].get('pos-map')
+    if pos_reference:
+        pos_map = load_pos_map(checked_file(ctx['base'], pos_reference))
+        allowed_pos, pos_map_version = pos_map['pairs'], pos_map['version']
+    create_links(db, allowed_pos)
+    db.commit()
+    links = link_report(db, manifest.get('unavailable', []), details=True, pos_map_version=pos_map_version)
+    constructions_status = load_json(run / 'manifest.json')['stages']['constructions']['status']
+    links['stage_completion'] = link_stage_gate(verify_link_completeness(db, allowed_pos), constructions_status)
+    write_json(run / 'reports/links.json', links)
+    ctx['performance']['diagnostic_links'] = {'seconds': time.monotonic() - start}
+    if links['stage_completion']['complete']:
+        set_stage(run, 'links', 'complete')
+    else:
+        set_stage(run, 'links', 'pending',
+                  {'reason': 'niepełne powiązania: ' + '; '.join(links['stage_completion']['blocking'])})
+
+
+def report_marker(ctx, path):
+    """Znacznik R7: bajty raportu oraz kod i wejścia, z którymi powstał."""
+    if 'tree_sha256' not in ctx:
+        ctx['tree_sha256'] = code_identity()['tree_sha256']
+    return {'sha256': sha256(path), 'bytes': path.stat().st_size,
+            'tree_sha256': ctx['tree_sha256'], 'manifest_sha256': ctx['inputs']['manifest_sha256']}
+
+
+def marked_report(ctx, name, compute):
+    """Raport z reports/.done: pominięty tylko przy pełnej zgodności znacznika, wtedy czytany z pliku."""
+    path = ctx['run'] / 'reports' / name
+    marker = ctx['run'] / 'reports/.done' / name
+    try:
+        if load_json(marker) == report_marker(ctx, path):
+            return load_json(path)
+    except (FileNotFoundError, ValueError):
+        pass  # Brak albo nieczytelny znacznik lub raport: raport liczony od nowa.
+    start = time.monotonic()
+    value = compute()
+    write_json(path, value)
+    marker.parent.mkdir(exist_ok=True)
+    write_json(marker, report_marker(ctx, path))
+    ctx['performance']['diagnostic_' + name.removesuffix('.json').replace('-', '_')] = {
+        'seconds': time.monotonic() - start}
+    return value
+
+
+def stage_reports(db, ctx):
+    run, base, configurations = ctx['run'], ctx['base'], ctx['configurations']
+    set_stage(run, 'reports', 'running')
+    unresolved = marked_report(ctx, 'unresolved.json', lambda: unresolved_report(db))
+    marked_report(ctx, 'filter-impact.json', lambda: persisted_filter_impact(db, unresolved))
+    quality_reference = configurations.get('quality')
+    if quality_reference:
+        from .quality import sample_persisted_analyses, sample_corpus_links, sample_word_analyses
+        config = load_json(checked_file(base, quality_reference))
+        marked_report(ctx, 'quality-analyses.json', lambda: sample_persisted_analyses(db, config, unresolved))
+        marked_report(ctx, 'quality-links.json', lambda: sample_corpus_links(db, config))
+        words_reference = configurations.get('quality-words')
+        if words_reference:
+            definitions = load_json(checked_file(base, words_reference))
+            marked_report(ctx, 'quality-words.json',
+                          lambda: sample_word_analyses(db, config, definitions, unresolved))
+    marked_report(ctx, 'logical-content.json', lambda: logical_content_report(db))
+    coverage = marked_report(ctx, 'coverage.json', lambda: coverage_report(db, unresolved))
+    set_stage(run, 'reports', 'complete' if coverage['status'] == 'COMPLETE' else 'pending')
+
+
+STAGE_RUNNERS = {'preflight': stage_preflight, 'import_sgjp': stage_import_sgjp, 'import_kwjp': stage_import_kwjp,
+                 'constructions': stage_constructions, 'decisions': stage_decisions, 'links': stage_links,
+                 'reports': stage_reports}
+
+
+def run_stages(db, ctx, first):
+    """Jedna pętla dla świeżego buildu i wznowienia: etap first i każdy dalszy liczą się od nowa."""
+    order = STAGES[STAGES.index(first):]
+    for stage in order:
+        volume.check_active()
+        ctx['stage'] = stage
+        done = ctx['run'] / 'reports/.done'
+        if stage == 'reports' and first != 'reports' and done.exists():
+            shutil.rmtree(done)  # Znaczniki wiążą się z bazą sprzed ponownych etapów.
+        STAGE_RUNNERS[stage](db, ctx)
+    # Potwierdzenie niezmienności całego kompletu wejść po odczycie.
+    checked = inspect_sources(ctx['manifest_path'])
+    if checked['manifest_sha256'] != ctx['inputs']['manifest_sha256']:
+        raise GeneratorError('Manifest zmienił się w trakcie build', 3)
+
+
+def run_build(ctx, first='preflight'):
+    """Etapy od first, raporty końcowe i zamknięcie próby; błąd przechodzi do wywołującego."""
+    run, performance = ctx['run'], ctx['performance']
+    with connect(run / 'build.sqlite', create=first == 'preflight') as db:
+        run_stages(db, ctx, first)
+    performance['peak_rss'] = {'value': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+                               'unit': 'bytes on macOS, KiB on Linux'}
+    performance['database_bytes'] = (run / 'build.sqlite').stat().st_size
+    write_json(run / 'reports/performance.json', performance)
+    write_json(run / 'reports/canonical-index.json', canonical_index(run))
+    stages = load_json(run / 'manifest.json')['stages']
+    try:
+        close_attempt(run, ctx['stage'], 'incomplete' if any(stages[name]['status'] == 'pending' for name in STAGES)
+                      else 'complete', 0)
+    except Exception:
+        pass  # Niezamknięta próba: --resume ustawi `interrupted`.
+    return {'run_dir': str(run.resolve()), 'readiness': 'INCOMPLETE',
+            'counts': load_json(run / 'reports/import-counts.json'),
+            'completed': [name for name in STAGES if stages[name]['status'] == 'complete'],
+            'pending': [name for name in STAGES if stages[name]['status'] == 'pending']}
+
+
+def record_failure(error, ctx, work_volume):
+    """Status failed i zamknięcie próby po błędzie; zwraca kod wyjścia (R4)."""
+    # Baza jest już po rollbacku i zamknięciu (connect); teraz strażnik i kod.
+    run, stage = ctx['run'], ctx['stage']
+    code = exit_code(error, run, work_volume)
+    try:
+        set_stage(run, stage, 'failed', {'reason': str(error)})
+    except Exception:
+        pass  # Pełny albo odłączony dysk może uniemożliwić zapis statusu; running blokuje odbiór.
+    try:
+        close_attempt(run, stage, 'interrupted' if isinstance(error, KeyboardInterrupt) else 'failed', code)
+    except Exception:
+        pass
+    return code
+
+
 def build(manifest_path, run_dir, batch_size=10000, work_root=None):
     if type(batch_size) is not int or batch_size < 1 or batch_size > 10000:
         raise GeneratorError('Porcja musi mieć od 1 do 10 000 rekordów', 2)
@@ -131,173 +401,11 @@ def build(manifest_path, run_dir, batch_size=10000, work_root=None):
     work_volume = volume.check_fresh(run, work_root)
     create_run(run, inputs, work_root=work_root, work_volume=work_volume)
     volume.activate(run)
-    stage = 'preflight'
-    counts, performance = {}, {}
+    ctx = stage_context(manifest_path, run, inputs, batch_size)
     try:
-        set_stage(run, stage, 'complete')
-        with connect(run / 'build.sqlite', create=True) as db:
-            for artifact in inputs['artifacts']:
-                db.execute('INSERT INTO source_artifact VALUES (?,?,?)',
-                           (artifact['source_id'], artifact['kind'], dumps(artifact)))
-            db.commit()
-            for stage, predicate, importer in [
-                ('import_sgjp', lambda a: a['kind'] in {'sgjp_tab', 'lexical_supplement'}, import_sgjp),
-                ('import_kwjp', lambda a: a['kind'].startswith('kwjp_'), import_kwjp),
-            ]:
-                start = time.monotonic()
-                set_stage(run, stage, 'running')
-                for artifact in filter(predicate, inputs['artifacts']):
-                    sid = artifact['source_id']
-                    metrics = importer(db, artifact, batch_size)
-                    counts[sid] = metrics
-                    for key, expected in artifact.get('expected_counts', {}).items():
-                        if metrics.get(key) != expected:
-                            raise GeneratorError(f'Niezgodne rozliczenie {key}: {metrics.get(key)} != {expected}', 4, sid)
-                performance[stage] = {'seconds': time.monotonic() - start}
-                set_stage(run, stage, 'complete')
-            inventory = {name: dict(db.execute(f'SELECT {name},count(*) FROM interpretation GROUP BY {name}'))
-                         for name in ('tag', 'names', 'qualifiers')}
-            write_json(run / 'reports/import-counts.json', counts)
-            write_json(run / 'reports/inventory.json', inventory)
-            write_json(run / 'reports/qualifier-conditions.json',
-                       qualifier_coverage(inventory['qualifiers'].items()))
-            # Runda 3: zarejestrowany zbiór konstruktorów jest zamkniętym zakresem wydania.
-            stage = 'constructions'
-            start = time.monotonic()
-            set_stage(run, stage, 'running')
-            construction_counts = materialize_confirmed_candidates(db, batch_size)
-            performance['diagnostic_constructions'] = {'seconds': time.monotonic() - start}
-            write_json(run / 'reports/construction-candidates.json', construction_counts)
-            if not construction_counts['full_constructions_pending']:
-                set_stage(run, stage, 'complete')
-            stage='decisions'
-            start=time.monotonic()
-            set_stage(run,stage,'running')
-            use_reviews=[]
-            use_reference=inputs['manifest']['configurations'].get('semantic-uses')
-            if use_reference:
-                from .inputs import checked_file
-                use_data=load_json(checked_file(Path(manifest_path).resolve().parent,use_reference))
-                if (not isinstance(use_data,dict) or set(use_data)!={'schema_version','reviews'}
-                        or type(use_data['schema_version']) is not int or use_data['schema_version']!=1):
-                    raise GeneratorError('Nieobsługiwany format przeglądu użyć',4)
-                use_reviews=use_data['reviews']
-            # #4: przypięte wyjątki dawności STANDARD; rekordy sprawdzone przed oceną.
-            age_exceptions=None
-            age_reference=inputs['manifest']['configurations'].get(standard_age_exceptions.CONFIG_KEY)
-            if age_reference:
-                from .inputs import checked_file
-                age_exceptions=standard_age_exceptions.load(
-                    checked_file(Path(manifest_path).resolve().parent,age_reference),
-                    source_hashes={a['source_id']:a['sha256'] for a in inputs['artifacts']})
-                standard_age_exceptions.check_database(db,age_exceptions,analyses=False)
-            # #15: przypięte wykluczenia STANDARD; rekordy sprawdzone przed oceną.
-            exclusions=None
-            exclusion_reference=inputs['manifest']['configurations'].get(standard_exclusions.CONFIG_KEY)
-            if exclusion_reference:
-                from .inputs import checked_file
-                exclusions=standard_exclusions.load(
-                    checked_file(Path(manifest_path).resolve().parent,exclusion_reference),
-                    source_hashes={a['source_id']:a['sha256'] for a in inputs['artifacts']})
-                standard_exclusions.check_database(db,exclusions,analyses=False)
-            decision_counts=materialize_assessments(db,batch_size,use_reviews=use_reviews,age_exceptions=age_exceptions,
-                                                    standard_exclusions=exclusions)
-            if age_exceptions:
-                decision_counts['standard_age_exceptions']['sha256']=age_reference['sha256']
-            if exclusions:
-                decision_counts['standard_exclusions']['sha256']=exclusion_reference['sha256']
-            performance['diagnostic_decisions']={'seconds':time.monotonic()-start}
-            write_json(run/'reports/decisions.json',decision_counts)
-            if decision_counts['full_qualification_pending']:
-                set_stage(run,stage,'pending',{'reason':'nierozstrzygnięte członkostwo analiz'})
-            else:
-                write_lists(db,run)
-                set_stage(run,stage,'complete')
-            # Powiązania bezpośrednie są niezależne od kwalifikacji językowej.
-            # Pełny etap wymaga kompletnego zbioru konstrukcji i niezależnej kontroli krawędzi.
-            stage = 'links'
-            start = time.monotonic()
-            allowed_pos, pos_map_version = SHARED_POS, DEFAULT_POS_MAP_VERSION
-            pos_reference = inputs['manifest']['configurations'].get('pos-map')
-            if pos_reference:
-                from .inputs import checked_file
-                pos_map = load_pos_map(checked_file(Path(manifest_path).resolve().parent, pos_reference))
-                allowed_pos, pos_map_version = pos_map['pairs'], pos_map['version']
-            create_links(db, allowed_pos)
-            db.commit()
-            links = link_report(db, inputs['manifest'].get('unavailable', []),
-                                details=True, pos_map_version=pos_map_version)
-            constructions_status = load_json(run / 'manifest.json')['stages']['constructions']['status']
-            links['stage_completion'] = link_stage_gate(
-                verify_link_completeness(db, allowed_pos), constructions_status)
-            write_json(run / 'reports/links.json', links)
-            if links['stage_completion']['complete']:
-                set_stage(run, 'links', 'complete')
-            performance['diagnostic_links'] = {'seconds': time.monotonic() - start}
-            stage = 'reports'
-            start = time.monotonic()
-            set_stage(run, stage, 'running')
-            unresolved = unresolved_report(db)
-            write_json(run / 'reports/unresolved.json', unresolved)
-            performance['diagnostic_unresolved'] = {'seconds': time.monotonic() - start}
-            start = time.monotonic()
-            write_json(run / 'reports/filter-impact.json', persisted_filter_impact(db, unresolved))
-            performance['diagnostic_filter_impact'] = {'seconds': time.monotonic() - start}
-            quality_reference=inputs['manifest']['configurations'].get('quality')
-            if quality_reference:
-                from .inputs import checked_file
-                from .quality import sample_persisted_analyses, sample_corpus_links
-                start=time.monotonic()
-                config=load_json(checked_file(Path(manifest_path).resolve().parent,quality_reference))
-                write_json(run/'reports/quality-analyses.json',sample_persisted_analyses(db,config,unresolved))
-                performance['diagnostic_quality_analyses']={'seconds':time.monotonic()-start}
-                start=time.monotonic()
-                write_json(run/'reports/quality-links.json',sample_corpus_links(db,config))
-                performance['diagnostic_quality_links']={'seconds':time.monotonic()-start}
-                words_reference=inputs['manifest']['configurations'].get('quality-words')
-                if words_reference:
-                    from .quality import sample_word_analyses
-                    definitions=load_json(checked_file(Path(manifest_path).resolve().parent,words_reference))
-                    start=time.monotonic()
-                    write_json(run/'reports/quality-words.json',sample_word_analyses(db,config,definitions,unresolved))
-                    performance['diagnostic_quality_words']={'seconds':time.monotonic()-start}
-            start = time.monotonic()
-            write_json(run / 'reports/logical-content.json', logical_content_report(db))
-            performance['diagnostic_logical_content'] = {'seconds': time.monotonic() - start}
-            start = time.monotonic()
-            coverage = coverage_report(db, unresolved)
-            write_json(run / 'reports/coverage.json', coverage)
-            performance['diagnostic_coverage'] = {'seconds': time.monotonic() - start}
-            set_stage(run, stage, 'complete' if coverage['status'] == 'COMPLETE' else 'pending')
-            # Potwierdzenie niezmienności całego kompletu wejść po odczycie.
-            checked = inspect_sources(manifest_path)
-            if checked['manifest_sha256'] != inputs['manifest_sha256']:
-                raise GeneratorError('Manifest zmienił się w trakcie build', 3)
-        performance['peak_rss'] = {'value': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
-                                   'unit': 'bytes on macOS, KiB on Linux'}
-        performance['database_bytes'] = (run / 'build.sqlite').stat().st_size
-        write_json(run / 'reports/performance.json', performance)
-        write_json(run / 'reports/canonical-index.json', canonical_index(run))
-        stages = load_json(run / 'manifest.json')['stages']
-        try:
-            close_attempt(run, stage, 'incomplete' if any(stages[name]['status'] == 'pending' for name in STAGES)
-                          else 'complete', 0)
-        except Exception:
-            pass  # Niezamknięta próba: --resume ustawi `interrupted`.
-        return {'run_dir': str(run.resolve()), 'readiness': 'INCOMPLETE', 'counts': counts,
-                'completed': [name for name in STAGES if stages[name]['status'] == 'complete'],
-                'pending': [name for name in STAGES if stages[name]['status'] == 'pending']}
+        return run_build(ctx, 'preflight')
     except BaseException as error:
-        # Baza jest już po rollbacku i zamknięciu (connect); teraz strażnik i kod (R4).
-        code = exit_code(error, run, work_volume)
-        try:
-            set_stage(run, stage, 'failed', {'reason': str(error)})
-        except Exception:
-            pass  # Pełny albo odłączony dysk może uniemożliwić zapis statusu; running blokuje odbiór.
-        try:
-            close_attempt(run, stage, 'interrupted' if isinstance(error, KeyboardInterrupt) else 'failed', code)
-        except Exception:
-            pass
+        code = record_failure(error, ctx, work_volume)
         if isinstance(error, (KeyboardInterrupt, GeneratorError)):
             raise
         if isinstance(error, (OSError, sqlite3.Error, ValueError)):

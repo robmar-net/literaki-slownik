@@ -128,7 +128,10 @@ def availability(*, observed=None, threshold=None, comparable=False,
 
 
 def create_links(db, allowed_pos=SHARED_POS):
-    """Pełny etap w nowej bazie; ponowienie nie nadpisuje istniejących relacji."""
+    """Pełny etap od nowa: poprzednie tabele powiązań znikają (poprawka 4, wznowienie etapu)."""
+    # Osobne polecenia, dziecko przed rodzicem: przy foreign_keys=ON DROP rodzica sprawdza odwołania.
+    db.execute('drop table if exists evidence_candidate')
+    db.execute('drop table if exists evidence_link')
     db.executescript('''
         create table evidence_link (
             evidence_id integer primary key references corpus_evidence,
