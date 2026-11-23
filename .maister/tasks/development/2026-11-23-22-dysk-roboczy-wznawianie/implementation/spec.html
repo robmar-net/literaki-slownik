@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specyfikacja — #22 dysk roboczy i wznawianie</title>
+<style>:root {
+  --bg:#f6f7f9; --surface:#fff; --border:#e2e5ea; --text:#1a1d23; --dim:#6b7280;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --ok:#16a34a; --ok-soft:#ecfdf3;
+  --warn:#d97706; --warn-soft:#fffbeb; --crit:#dc2626; --crit-soft:#fef2f2;
+  --info:#2563eb; --info-soft:#eff6ff; --radius:10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#111418; --surface:#1a1f26; --border:#2e3640; --text:#e6e9ee; --dim:#9aa4b2;
+    --accent:#818cf8; --accent-soft:#26294a; --ok:#4ade80; --ok-soft:#11291a;
+    --warn:#fbbf24; --warn-soft:#2e2410; --crit:#f87171; --crit-soft:#321616;
+    --info:#60a5fa; --info-soft:#15233a; }
+}
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:1100px; padding:24px 20px 64px; background:var(--bg);
+  color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+h1 { font-size:22px; letter-spacing:-.01em; } h2 { font-size:16px; margin-top:28px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; margin:14px 0; }
+.badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.04em; padding:2px 8px; border-radius:99px; background:var(--accent-soft); color:var(--accent); }
+.sev { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  padding:1.5px 7px; border-radius:99px; margin-right:6px; }
+.sev.critical { background:var(--crit-soft); color:var(--crit); }
+.sev.warning  { background:var(--warn-soft); color:var(--warn); }
+.sev.info     { background:var(--info-soft); color:var(--info); }
+.pass { color:var(--ok); font-weight:600; } .fail { color:var(--crit); font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+th { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--dim); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+img.shot { max-width:100%; border:1px solid var(--border); border-radius:var(--radius); }
+details > summary { cursor:pointer; font-weight:600; }
+.crumbs { display:flex; gap:14px; font-size:13px; margin-bottom:18px; flex-wrap:wrap; }
+.crumbs a.md { margin-left:auto; color:var(--dim); }
+.crumbs .here { font-weight:650; color:var(--text); }
+.tiles { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.tile { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 16px; text-align:center; min-width:90px; }
+.tile b { display:block; font-size:20px; letter-spacing:-.01em; }
+.tile span { font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+.dim { color:var(--dim); font-size:12.5px; }
+.tldr { border-left:4px solid var(--accent); }
+.tldr h2 { margin-top:10px; }
+.toc { font-size:13px; margin:12px 0; line-height:1.9; }
+.split { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media (max-width:760px) { .split { grid-template-columns:1fr; } }
+.stories { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px; }
+.story { margin:0; border-left:3px solid var(--info); }
+.tbl { overflow-x:auto; padding:6px 8px; }
+details { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:10px 14px; margin:10px 0; }
+li.sub { margin-left:18px; list-style:circle; }
+</style>
+</head>
+<body>
+<nav class="crumbs">
+  <a href="../dashboard.html">← Dashboard</a>
+  <span class="here">Spec</span>
+  <a href="spec.md" target="_blank" rel="noopener" class="md">md twin ↗</a>
+</nav>
+<header><span class="badge">specyfikacja</span> <span class="dim">2026-11-23 · <a href="spec.md" target="_blank" rel="noopener">spec.md</a></span>
+<h1>build na T7 z wznawianiem (#22)</h1></header>
+<div class="tiles">
+  <div class="tile"><b>13</b><span>wymagań</span></div>
+  <div class="tile"><b>10</b><span>kodów wyjścia</span></div>
+  <div class="tile"><b>9</b><span>ponowne użycie</span></div>
+  <div class="tile"><b>6</b><span>nowe elementy</span></div>
+  <div class="tile"><b>śr.-wys.</b><span>ryzyko</span></div>
+</div>
+<section class="tldr card">
+<h2>TL;DR</h2><p>Para A/B buduje się na T7: każdy przebieg to katalog na T7 i symlink <code>data/work/&lt;przebieg&gt;</code>. Brak dysku daje kod 75, a nadzorca sam robi <code>build --resume</code>. Wznowienie zaczyna od pierwszego niegotowego etapu, w raportach od pierwszego raportu bez znacznika. Wynik ma być taki sam jak ze świeżego buildu (te same <code>canonical-index</code>, <code>logical-content</code>, <code>lists/*.txt</code>). Po <code>verify</code> skrypt <code>promote_run.py</code> kopiuje A na dysk wewnętrzny (sha256 i tryb), podmienia symlink atomowo, kasuje B i kopię A na T7. <code>export</code> odmawia przebiegu na T7. <code>clean_work.py</code> domyślnie tylko wypisuje. Stare wydania kasuje tylko z listą zaakceptowaną przez właściciela; „bieżące na serwerze” ustala sam z <code>NOTICE</code> serwera. Kod: stdlib, testy <code>unittest</code> bez USB i bez prawdziwego buildu słownika. Jednorazowy pomiar <code>fullfsync</code> na T7 jest częścią wdrożenia.</p>
+<h2>Kluczowe decyzje</h2><ul>
+<li>Wznowienie od pierwszego etapu, który nie jest <code>complete</code>; każdy dalszy etap liczy się od nowa. Tylko tak wynik nie zależy od tego, które etapy były <code>pending</code>.</li>
+<li>Ponowne wykonanie etapu przed <code>reports</code> kasuje <code>reports/.done/</code>, bo znaczniki wiążą się z bazą sprzed resetu.</li>
+<li><code>new_candidates</code>, <code>new_analyses</code>, <code>new_decisions</code> zostają w wartościach funkcji (testy idempotencji), ale build usuwa je z raportów kanonicznych. To najmniejsza zmiana, która odcina K8 od historii.</li>
+<li>„Wolumen roboczy” = punkt montowania ścieżki ma znacznik <code>.literaki-work-volume</code>. Jawny <code>--work-root</code> zawsze wymaga znacznika. Bez <code>--work-root</code> ścieżka na punkcie montowania repo to dysk wewnętrzny (testy i stare przebiegi działają bez zmian).</li>
+<li><code>--resume</code> najpierw sprawdza dysk (symlink, cel, G1 → 75), dopiero potem czyta manifest. Manifest leży na T7, więc odwrotna kolejność dałaby 4 zamiast 75.</li>
+<li>Wznowienie z niegotowym <code>preflight</code> zaczyna przebieg od nowa w tym samym katalogu (kasuje bazę). Dzięki temu nadzorca nie staje po zniknięciu dysku w pierwszych sekundach.</li>
+<li>Promocja nie zmienia manifestu przebiegu, więc pieczęć <code>verify</code> zostaje ważna. Ślad promocji to <code>promotion.json</code> w katalogu przebiegu. Leży poza pieczęcią i poza <code>canonical-index</code>, a test to potwierdza.</li>
+<li>Promocja jest „automatyczna” jako jedno polecenie po <code>verify</code> (bez pytania o B). <code>verify</code> sam niczego nie kopiuje i zostaje komendą tylko do odbioru.</li>
+<li>Podmiana symlinku na katalog jednym <code>renamex_np(RENAME_SWAP)</code>. <code>export.py</code> już woła <code>renamex_np</code> przez <code>ctypes</code>.</li>
+<li>„Bieżące na serwerze” ustala sam skrypt (decyzja właściciela). Wydanie jest bieżące, gdy sha256 jego <code>release-manifest.json</code> albo któregokolwiek pliku z jego <code>files</code> występuje w <code>origin/main:NOTICE</code> repo serwera. <code>NOTICE</code> podaje głównie hashe list. Brak repo albo <code>NOTICE</code> → wszystkie wydania potrzebne.</li>
+<li>Próg miejsca to 50 GB na proces przy starcie i 100 GB na wolumenie przy starcie pary (A+B na jednym T7).</li>
+<li>Tryb <code>fullfsync</code> wybiera jednorazowy pomiar na T7 w trakcie wdrożenia, według reguły ≤5% → 4B, inaczej 4C. Wynik trafia do ADR-020 i do stałej w kodzie.</li>
+<li>Lokalne ADR-001..008 trafiają do repo jako ADR-014..021. ADR-014 opisuje nowy układ.</li>
+</ul>
+<h2>Otwarte pytania i ryzyka</h2><ul>
+<li>Odbudowa tabel importu może w teorii zmienić <code>rowid</code>. Ryzyko jest niskie: <code>logical-content</code> łączy po kluczach trwałych, a SQLite po DELETE wszystkich wierszy numeruje od 1. Plan awaryjny (nowy plik bazy od <code>preflight</code>) zostaje w ADR-016.</li>
+<li>Promocja kopiuje ~22 GB na dysk wewnętrzny. Miejsce jest sprawdzane (kod 78).</li>
+<li>Po skasowaniu B ponowny <code>verify</code> A (np. nowy przegląd K7) wymaga nowej pary.</li>
+<li>Zniknięcie T7 przerywa A i B naraz. Wspólny błąd wznowienia wykryje tylko test z R6, para go nie wykryje.</li>
+<li>„Bieżące na serwerze” zależy od lokalnego <code>origin/main</code> serwera (bez <code>fetch</code>). Nieaktualny checkout może nie znać nowszego wydania. Chroni wtedy reguła „ostatnie w rodzinie” i osobna zgoda właściciela.</li>
+<li>Restart nadzorcy po restarcie maszyny jest ręczny. LaunchAgent jest poza zakresem.</li>
+</ul>
+</section>
+<nav class="toc">Spis: <a href="#wymagania-i-kryteria-akceptacji">Wymagania i kryteria akceptacji</a> · <a href="#stranik-wolumenu">Strażnik wolumenu</a> · <a href="#kody-wyjcia">Kody wyjścia</a> · <a href="#manifest-przebiegu-nowe-pola">Manifest przebiegu: nowe pola</a> · <a href="#wznowienie">Wznowienie</a> · <a href="#trwao-i-fullfsync">Trwałość i <code>fullfsync</code></a> · <a href="#nadzorca">Nadzorca</a> · <a href="#promocja">Promocja</a> · <a href="#sprztanie">Sprzątanie</a> · <a href="#ponowne-uycie">Ponowne użycie</a> · <a href="#podejcie-techniczne">Podejście techniczne</a> · <a href="#wskazwki-implementacyjne">Wskazówki implementacyjne</a> · <a href="#kryteria-sukcesu">Kryteria sukcesu</a> · <a href="#rozwizanie-uwag-audytu">Rozwiązanie uwag audytu</a></nav>
+<main>
+<div class="split">
+  <div class="card"><h2>Cel i zakres</h2><p>Build pary trwa ~13 h i nie może przepadać przez kilkusekundowe zniknięcie T7 ani przez restart. Strata ma wynosić najwyżej bieżący etap albo bieżący raport, bez zmiany wyniku i kontraktu K1–K10.</p><ul><li><b>R1</b> Układ: <code>data/work</code> zostaje katalogiem; nowy przebieg = katalog <code>&lt;korzeń T7&gt;/&lt;nazwa&gt;</code> + sym…</li><li><b>R2</b> Strażnik wolumenu G1/G2/G3 + miejsce; <code>scripts/init_work_volume.py</code></li><li><b>R3</b> Trwały zapis: <code>write_json</code>, nowy <code>write_bytes</code>; <code>write_lists</code> przez <code>write_bytes</code></li><li><b>R4</b> Klasyfikator błędów</li><li><b>R5</b> <code>build --resume --manifest M --run-dir R</code></li><li><b>R6</b> „Wznowiony = świeży” (cztery poprawki niżej)</li><li><b>R7</b> Znaczniki raportów <code>reports/.done/&lt;raport&gt;.json</code></li><li><b>R8</b> SQLite, pomiar i wybór trybu</li><li><b>R9</b> Nadzorca <code>scripts/build_supervised.py</code></li><li><b>R10</b> Promocja <code>scripts/promote_run.py</code> i odmowa <code>export</code></li><li><b>R11</b> Sprzątanie <code>scripts/clean_work.py</code></li><li><b>R12</b> Historia prób w <code>verify</code> i <code>export</code></li><li><b>R13</b> Dokumentacja</li></ul></div>
+  <div class="card"><h2>Poza zakresem</h2><ul>
+<li>Prawdziwe buildy słownika. Pierwsza para na T7 to osobna decyzja właściciela.</li>
+<li>Migracja dzisiejszego <code>data/work</code> (zastępuje ją <code>clean_work.py</code>).</li>
+<li>Zmiany polityki i składu list; piny POP/POP00/TEMATY (martwy cel <code>lists-v31-…-a</code>).</li>
+<li>Cięcie etapów od środka (2C), migawki bazy (3C), reguła świeżego partnera (5C), WAL, ATTACH.</li>
+<li>Automatyczne przepinanie symlinków po zamontowaniu pod inną ścieżką; LaunchAgent nadzorcy.</li>
+<li>Przyczyna zniknięć T7 (kabel, firmware, Spotlight, Time Machine).</li>
+<li>CI. Jeśli kiedyś powstanie, to tylko self-hosted.</li>
+</ul></div>
+</div>
+<h2 id="wymagania-i-kryteria-akceptacji">Wymagania</h2>
+<div class="card tbl"><table><thead><tr><th>ID</th><th>Wymaganie</th><th>Test</th></tr></thead><tbody><tr><td><b>R1</b></td><td>Układ: <code>data/work</code> zostaje katalogiem; nowy przebieg = katalog <code>&lt;korzeń T7&gt;/&lt;nazwa&gt;</code> + symlink <code>data/work/&lt;nazwa&gt;</code></td><td>podstawiony brak montowania → 75 i brak nowych plików w <code>data/work</code>; W bez znacznika na dysku repo → 76; resztka startu → build przechodzi; <code>git check-ignore</code> w repo tymczasowym dla symlinku <code>data/work/x</code> i <code>logs/x</code></td></tr><tr><td><b>R2</b></td><td>Strażnik wolumenu G1/G2/G3 + miejsce; <code>scripts/init_work_volume.py</code></td><td>brak montowania → 75; inny <code>marker_id</code> → 76; zmiana <code>st_dev</code> → 75; wolne &lt;50 GB → 78; ścieżka wewnętrzna bez znacznika i bez <code>--work-root</code> → przepuszcza; init drugi raz → odmowa</td></tr><tr><td><b>R3</b></td><td>Trwały zapis: <code>write_json</code>, nowy <code>write_bytes</code>; <code>write_lists</code> przez <code>write_bytes</code></td><td>mock wywołań: kolejność; fallback na <code>fsync</code>; przerwanie przed <code>replace</code> zostawia stary plik; <code>unlink</code> rzucający OSError nie zmienia typu pierwotnego wyjątku</td></tr><tr><td><b>R4</b></td><td>Klasyfikator błędów</td><td>wstrzyknięty <code>sqlite3.OperationalError('disk I/O error')</code>: strażnik upadły → 75, zdrowy → 4; <code>SQLITE_FULL</code>/<code>ENOSPC</code> → 78; <code>SQLITE_CORRUPT</code> → 77; CLI <code>build</code> zwraca te kody</td></tr><tr><td><b>R5</b></td><td><code>build --resume --manifest M --run-dir R</code></td><td>po jednej odmowie na każdą kontrolę; wiszący symlink → 75, nie 4; <code>running</code> po <code>os._exit</code> w procesie potomnym kończy się <code>failed</code>; podwójne przerwanie i drugie <code>--resume</code> dają wynik świeżego</td></tr><tr><td><b>R6</b></td><td>„Wznowiony = świeży” (cztery poprawki niżej)</td><td>harness parametryzowany punktem przerwania; para → <code>verify</code> VERIFIED (fikstura <code>complete_pair</code>)</td></tr><tr><td><b>R7</b></td><td>Znaczniki raportów <code>reports/.done/&lt;raport&gt;.json</code></td><td>zły hash znacznika → raport liczony od nowa; <code>unresolved</code> z pliku daje te same bajty raportów zależnych; <code>.done</code> poza <code>canonical-index</code></td></tr><tr><td><b>R8</b></td><td>SQLite, pomiar i wybór trybu</td><td>PRAGMA odczytane w trakcie etapu i na granicy mają oczekiwane wartości w obu trybach; skrypt na <code>tmp</code> daje JSON z obydwoma wariantami i <code>overhead_pct</code> przy <code>--reference-run</code></td></tr><tr><td><b>R9</b></td><td>Nadzorca <code>scripts/build_supervised.py</code></td><td>podstawiony build i zegar (bez czekania): 75,75,0 → 0; 75×4 → 75 po 3 wznowieniach; 75 przed powstaniem przebiegu → świeży build, nie <code>--resume</code>; 4 → stop; 77 → stop; G1 bez G2 → 76; wolumen pod inną ścieżką → 76 od razu; czekanie &gt; limitu → 75; SIGINT → 130 bez wznowienia</td></tr><tr><td><b>R10</b></td><td>Promocja <code>scripts/promote_run.py</code> i odmowa <code>export</code></td><td>A nie VERIFIED → 5; zmiana pliku na T7 po verify → 5; różny sha256/tryb kopii → 4 i nic nie skasowane; zniknięcie T7 w trakcie kopii → 75, staging zostaje; przerwanie w każdym stanie i ponowne wywołanie kończy promocję; ponowne wywołanie po <code>export</code> kasuje kopię T7; <code>export</code> symlinku/ścieżki na T7 → 5; <code>export</code> po promocji przechodzi <code>changes_since_verify</code> mimo <code>promotion.json</code></td></tr><tr><td><b>R11</b></td><td>Sprzątanie <code>scripts/clean_work.py</code></td><td>drzewo z każdą klasą: lista bez zmian na dysku; <code>--apply</code> kasuje tylko klasy T7; katalog <code>VERIFIED</code>/<code>FROZEN</code> bez symlinku nigdy nie jest kasowany; katalog z rekordu promocji też nie; wydanie przypięte / bieżące / ostatnie w rodzinie nigdy nie jest kandydatem; fikstura <code>NOTICE</code> w prawdziwym kształcie (hashe list w osobnych liniach) w tymczasowym repo git: wydanie z hashem pliku listy w <code>NOTICE</code> → potrzebne; brak repo lub <code>NOTICE</code> → zero kandydatów i komunikat; <code>--delete-releases</code> z nazwą potrzebną → odmowa całości</td></tr><tr><td><b>R12</b></td><td>Historia prób w <code>verify</code> i <code>export</code></td><td>wznowiony przebieg: skrót w obu miejscach; ręczna zmiana historii po verify → kod 5</td></tr><tr><td><b>R13</b></td><td>Dokumentacja</td><td>grep w testach dokumentacji: kody 75–78 i nazwy skryptów obecne w <code>cli.md</code></td></tr></tbody></table></div>
+<details><summary>Kryteria akceptacji i testy (pełna tabela)</summary><p>Każdy test jest hermetyczny: <code>tempfile</code>, podstawione <code>os.path.ismount</code>, <code>os.stat</code>/<code>os.statvfs</code>, <code>fcntl.fcntl</code>, <code>subprocess</code>. Fikstury pochodzą z <code>tests/helpers.py</code> i <code>tests/release_helpers.py</code>.</p>
+<div class="card tbl"><table><thead><tr><th>ID</th><th>Wymaganie</th><th>Kryteria akceptacji</th><th>Test</th></tr></thead><tbody>
+<tr><td>R1</td><td>Układ: <code>data/work</code> zostaje katalogiem; nowy przebieg = katalog <code>&lt;korzeń T7&gt;/&lt;nazwa&gt;</code> + symlink <code>data/work/&lt;nazwa&gt;</code></td><td><code>build --work-root W</code>: strażnik na W (znacznik wymagany, inaczej 76), <code>mkdir W/&lt;nazwa&gt;</code> (<code>parents=False</code>), manifest i <code>reports/</code> w środku, na końcu symlink. Jeśli <code>W/&lt;nazwa&gt;</code> istnieje bez symlinku, nie ma w nim <code>build.sqlite</code>, a jego manifest ma wszystkie etapy <code>pending</code>, to jest resztka nieudanego startu: build ją kasuje i zaczyna od nowa. Inaczej 4. Bez T7 nic nie powstaje na dysku systemowym. <code>.gitignore</code>: dodać <code>/logs</code> (wpis <code>/data/work/</code> już obejmuje symlinki w środku)</td><td>podstawiony brak montowania → 75 i brak nowych plików w <code>data/work</code>; W bez znacznika na dysku repo → 76; resztka startu → build przechodzi; <code>git check-ignore</code> w repo tymczasowym dla symlinku <code>data/work/x</code> i <code>logs/x</code></td></tr>
+<tr><td>R2</td><td>Strażnik wolumenu G1/G2/G3 + miejsce; <code>scripts/init_work_volume.py</code></td><td>Tabela „Strażnik” niżej. <code>init_work_volume.py &lt;korzeń&gt;</code> zapisuje znacznik (UUID z <code>diskutil info -plist</code>, losowy <code>marker_id</code>). Odmawia, gdy znacznik istnieje albo korzeń leży na dysku repo</td><td>brak montowania → 75; inny <code>marker_id</code> → 76; zmiana <code>st_dev</code> → 75; wolne &lt;50 GB → 78; ścieżka wewnętrzna bez znacznika i bez <code>--work-root</code> → przepuszcza; init drugi raz → odmowa</td></tr>
+<tr><td>R3</td><td>Trwały zapis: <code>write_json</code>, nowy <code>write_bytes</code>; <code>write_lists</code> przez <code>write_bytes</code></td><td>Kolejność: tmp w tym samym katalogu → zapis → <code>F_FULLFSYNC</code> (gdy <code>fcntl</code> go nie ma albo zwraca błąd: <code>os.fsync</code>) → G3 → <code>os.replace</code> → fsync katalogu. Błąd sprzątania tmp w <code>finally</code> nie zasłania pierwotnego błędu</td><td>mock wywołań: kolejność; fallback na <code>fsync</code>; przerwanie przed <code>replace</code> zostawia stary plik; <code>unlink</code> rzucający OSError nie zmienia typu pierwotnego wyjątku</td></tr>
+<tr><td>R4</td><td>Klasyfikator błędów</td><td>Tabela „Kody wyjścia”. <code>connect</code>: rollback i <code>close</code> w <code>try</code>, ich błąd jest pomijany. Nieudany zapis <code>failed</code> nie zmienia kodu</td><td>wstrzyknięty <code>sqlite3.OperationalError('disk I/O error')</code>: strażnik upadły → 75, zdrowy → 4; <code>SQLITE_FULL</code>/<code>ENOSPC</code> → 78; <code>SQLITE_CORRUPT</code> → 77; CLI <code>build</code> zwraca te kody</td></tr>
+<tr><td>R5</td><td><code>build --resume --manifest M --run-dir R</code></td><td>Kolejność w sekcji „Wznowienie”: najpierw dysk (75), potem manifest (4), readiness (5), G2 (76), miejsce (78), kod (4), wejścia (3), <code>quick_check</code> (77). Potem <code>running</code> → <code>failed</code>, otwarta próba → <code>interrupted</code>, reset i etapy</td><td>po jednej odmowie na każdą kontrolę; wiszący symlink → 75, nie 4; <code>running</code> po <code>os._exit</code> w procesie potomnym kończy się <code>failed</code>; podwójne przerwanie i drugie <code>--resume</code> dają wynik świeżego</td></tr>
+<tr><td>R6</td><td>„Wznowiony = świeży” (cztery poprawki niżej)</td><td>Przerwanie na każdej granicy etapu, w środku <code>import_kwjp</code>, <code>constructions</code>, <code>links</code> i między każdą parą raportów. Po <code>--resume</code> pliki <code>reports/canonical-index.json</code>, <code>reports/logical-content.json</code>, <code>lists/*.txt</code> są bajtowo równe świeżemu buildowi. Para wznowiony + świeży przechodzi K8</td><td>harness parametryzowany punktem przerwania; para → <code>verify</code> VERIFIED (fikstura <code>complete_pair</code>)</td></tr>
+<tr><td>R7</td><td>Znaczniki raportów <code>reports/.done/&lt;raport&gt;.json</code></td><td>Pola: <code>sha256</code>, <code>bytes</code>, <code>tree_sha256</code>, <code>manifest_sha256</code> (wejść). Zapis: raport, potem znacznik. Raport jest pomijany tylko wtedy, gdy wszystkie pola zgadzają się z plikiem i bieżącym kodem. Przy pominięciu <code>unresolved</code> czytany z <code>reports/unresolved.json</code>. Świeży build też pisze znaczniki. <code>canonical_index</code> ich nie obejmuje</td><td>zły hash znacznika → raport liczony od nowa; <code>unresolved</code> z pliku daje te same bajty raportów zależnych; <code>.done</code> poza <code>canonical-index</code></td></tr>
+<tr><td>R8</td><td>SQLite, pomiar i wybór trybu</td><td><code>connect</code> dla bazy zapisywalnej: <code>journal_mode=DELETE</code>, <code>synchronous=FULL</code>. Build: tryb <code>fullfsync</code> według stałej (sekcja „Trwałość”). <code>scripts/measure_fullfsync.py</code> pisze JSON. Wdrożenie obejmuje jeden pomiar na T7, wpis w ADR-020 i ustawienie stałej</td><td>PRAGMA odczytane w trakcie etapu i na granicy mają oczekiwane wartości w obu trybach; skrypt na <code>tmp</code> daje JSON z obydwoma wariantami i <code>overhead_pct</code> przy <code>--reference-run</code></td></tr>
+<tr><td>R9</td><td>Nadzorca <code>scripts/build_supervised.py</code></td><td>Sekcja „Nadzorca”</td><td>podstawiony build i zegar (bez czekania): 75,75,0 → 0; 75×4 → 75 po 3 wznowieniach; 75 przed powstaniem przebiegu → świeży build, nie <code>--resume</code>; 4 → stop; 77 → stop; G1 bez G2 → 76; wolumen pod inną ścieżką → 76 od razu; czekanie &gt; limitu → 75; SIGINT → 130 bez wznowienia</td></tr>
+<tr><td>R10</td><td>Promocja <code>scripts/promote_run.py</code> i odmowa <code>export</code></td><td>Sekcja „Promocja”</td><td>A nie VERIFIED → 5; zmiana pliku na T7 po verify → 5; różny sha256/tryb kopii → 4 i nic nie skasowane; zniknięcie T7 w trakcie kopii → 75, staging zostaje; przerwanie w każdym stanie i ponowne wywołanie kończy promocję; ponowne wywołanie po <code>export</code> kasuje kopię T7; <code>export</code> symlinku/ścieżki na T7 → 5; <code>export</code> po promocji przechodzi <code>changes_since_verify</code> mimo <code>promotion.json</code></td></tr>
+<tr><td>R11</td><td>Sprzątanie <code>scripts/clean_work.py</code></td><td>Sekcja „Sprzątanie”</td><td>drzewo z każdą klasą: lista bez zmian na dysku; <code>--apply</code> kasuje tylko klasy T7; katalog <code>VERIFIED</code>/<code>FROZEN</code> bez symlinku nigdy nie jest kasowany; katalog z rekordu promocji też nie; wydanie przypięte / bieżące / ostatnie w rodzinie nigdy nie jest kandydatem; fikstura <code>NOTICE</code> w prawdziwym kształcie (hashe list w osobnych liniach) w tymczasowym repo git: wydanie z hashem pliku listy w <code>NOTICE</code> → potrzebne; brak repo lub <code>NOTICE</code> → zero kandydatów i komunikat; <code>--delete-releases</code> z nazwą potrzebną → odmowa całości</td></tr>
+<tr><td>R12</td><td>Historia prób w <code>verify</code> i <code>export</code></td><td><code>verify</code> (JSON i tekst) pokazuje skrót <code>build_history</code>. <code>export</code> kopiuje go do <code>release-manifest.json</code> → <code>source_run.build_history</code>. Zmiana <code>build_attempts</code> po verify → export odmawia (5)</td><td>wznowiony przebieg: skrót w obu miejscach; ręczna zmiana historii po verify → kod 5</td></tr>
+<tr><td>R13</td><td>Dokumentacja</td><td><code>docs/generator/cli.md</code>: <code>--resume</code>, <code>--work-root</code>, kody 75–78, nowe skrypty, nowe kody <code>resume_reports.py</code>. Runbook: przebieg pracy z T7. ADR-014..021 w <code>docs/adr/</code> (mapa niżej). Wpisy w <code>.maister/docs/INDEX.md</code></td><td>grep w testach dokumentacji: kody 75–78 i nazwy skryptów obecne w <code>cli.md</code></td></tr>
+</tbody></table></div>
+<h3>ADR w repo (z lokalnego rejestru decyzji)</h3>
+<div class="card tbl"><table><thead><tr><th>Repo</th><th>Lokalny</th><th>Treść</th></tr></thead><tbody>
+<tr><td>ADR-014</td><td>ADR-001 (zmieniony)</td><td>układ: <code>data/work</code> wewnątrz, symlink per przebieg na T7, granica odtwarzalności na <code>verify</code>, promocja (D1, D3), <code>export</code> tylko wewnątrz, <code>clean_work.py</code> (D2)</td></tr>
+<tr><td>ADR-015</td><td>ADR-002</td><td>strażnik G1/G2/G3, znacznik, UUID tylko na wolumenie, progi miejsca</td></tr>
+<tr><td>ADR-016</td><td>ADR-003</td><td><code>build --resume</code> od pierwszego niegotowego etapu, kolejność kontroli, reset tabel, plan awaryjny</td></tr>
+<tr><td>ADR-017</td><td>ADR-004</td><td>znaczniki <code>reports/.done/</code>, <code>unresolved</code> z pliku</td></tr>
+<tr><td>ADR-018</td><td>ADR-005</td><td>kody 75–78</td></tr>
+<tr><td>ADR-019</td><td>ADR-006</td><td>nadzorca wznawia tylko po 75</td></tr>
+<tr><td>ADR-020</td><td>ADR-007</td><td><code>fullfsync</code> 4B/4C: wynik pomiaru na T7 i wybór; <code>F_FULLFSYNC</code>, <code>quick_check</code></td></tr>
+<tr><td>ADR-021</td><td>ADR-008</td><td><code>build_attempts</code>/<code>resume</code> na poziomie głównym, pod pieczęcią, poza K8; <code>explain</code> tylko status; test „wznowiony = świeży”</td></tr>
+</tbody></table></div></details>
+<h2>Historie użytkownika</h2><div class="stories"><div class="card story">Jako operator uruchamiam <code>build_pair.sh &lt;nazwa&gt;</code> i rano mam parę gotową do przeglądu, nawet gdy T7 zniknął w nocy.</div><div class="card story">Jako operator po restarcie maszyny uruchamiam nadzorcę z <code>--run-dir</code> i tracę tylko bieżący etap.</div><div class="card story">Jako właściciel mam jedną kopię zachowanego wydania na dysku wewnętrznym (backup), a na T7 tylko rzeczy odtwarzalne.</div><div class="card story">Jako właściciel decyduję, które stare wydania znikają. Skrypt nigdy nie kasuje ich sam.</div></div>
+<h2 id="stranik-wolumenu">Strażnik wolumenu</h2><details><summary>Strażnik wolumenu</summary><p>Nowy moduł <code>literaki_slownik/volume.py</code>. Punkt montowania to najbliższy przodek ścieżki po <code>realpath</code>, dla którego <code>os.path.ismount</code> jest prawdą.</p>
+<div class="card tbl"><table><thead><tr><th>Sytuacja</th><th>Świeży build z <code>--work-root W</code></th><th>Świeży build bez <code>--work-root</code></th><th><code>--resume</code>, nadzorca (oczekiwany <code>marker_id</code>)</th></tr></thead><tbody>
+<tr><td>W albo cel symlinku przebiegu nie istnieje</td><td>75</td><td>—</td><td>75</td></tr>
+<tr><td>punkt montowania = punkt montowania repo</td><td>76 (W bez znacznika na dysku systemowym, wbrew R1)</td><td>przepuszcza (<code>work_volume</code> = null)</td><td>75, gdy przebieg to symlink (wolumen niezamontowany, np. pusty katalog w <code>/Volumes</code>); przepuszcza, gdy przebieg wewnętrzny i manifest ma <code>work_volume</code> null</td></tr>
+<tr><td>inny punkt montowania, brak znacznika</td><td>76</td><td>76</td><td>76</td></tr>
+<tr><td>znacznik jest, <code>marker_id</code> inny</td><td>— (przyjmuje znaleziony)</td><td>—</td><td>76</td></tr>
+<tr><td>znacznik zgodny</td><td>OK</td><td>OK</td><td>OK</td></tr>
+<tr><td><code>st_dev</code> katalogu przebiegu inny niż zapamiętany w procesie (G3)</td><td>75</td><td>75</td><td>75</td></tr>
+<tr><td>wolne miejsce &lt; 50 GB (start buildu lub wznowienia, tylko wolumen roboczy)</td><td>78</td><td>—</td><td>78</td></tr>
+</tbody></table></div>
+<ul>
+<li>G3 jest sprawdzany przed każdym etapem i przed <code>os.replace</code> w zapisie trwałym, gdy cel leży w aktywnym przebiegu procesu.</li>
+<li><code>build_pair.sh</code> przed startem wymaga ≥ 100 GB wolnego na W (dwie strony po ~22 GB plus journal i zapas). Przy braku kończy kodem 78.</li>
+<li>Znacznik <code>.literaki-work-volume</code> w korzeniu wolumenu zawiera UUID z <code>diskutil</code> i <code>marker_id</code>. Do repo i manifestu trafia tylko <code>marker_id</code>.</li>
+<li>Wolumen pod inną ścieżką: gdy G1 nie przechodzi, <code>volume.find_by_marker(marker_id)</code> przegląda punkty montowania w <code>/Volumes</code>. Jeśli znajdzie znacznik o tym <code>marker_id</code> pod inną ścieżką (np. <code>&lt;nazwa&gt; 1</code>), nadzorca kończy od razu kodem 76 i podaje ścieżkę. Symlinków nie przepina sam. SQLite tego nie wymaga, bo hot journal leży obok bazy.</li>
+</ul></details><h2 id="kody-wyjcia">Kody wyjścia</h2><details open><summary>Kody wyjścia</summary><p>Kontrakt dla <code>build</code>, <code>build --resume</code>, nadzorcy i nowych skryptów.</p>
+<div class="card tbl"><table><thead><tr><th>Kod</th><th>Znaczenie</th><th>Nadzorca</th></tr></thead><tbody>
+<tr><td>0</td><td>proces skończył się bez błędu (etapy mogą być <code>pending</code>, jak dziś)</td><td>koniec</td></tr>
+<tr><td>2</td><td>błąd argumentów</td><td>stop</td></tr>
+<tr><td>3</td><td>błąd wejść: manifest, hash, także <code>inputs.manifest_sha256</code> inny niż przy buildzie</td><td>stop</td></tr>
+<tr><td>4</td><td>błąd buildu: dane, kod, inna tożsamość kodu przy <code>--resume</code>, brak przebiegu albo nieczytelny manifest przy zdrowym dysku, inny <code>sqlite3.Error</code>/<code>OSError</code>, błąd kopii przy promocji</td><td>stop</td></tr>
+<tr><td>5</td><td>przebieg <code>VERIFIED</code>/<code>FROZEN</code>; promocja lub export odmawia (pieczęć, wolumen)</td><td>stop</td></tr>
+<tr><td>75</td><td>dysk roboczy zniknął: po błędzie I/O strażnik nie przechodzi (G1/G3) albo brak dysku przy starcie <code>--resume</code>/promocji; nadzorca: wyczerpany limit albo czas</td><td>czekaj i wznów, maks. 3 wznowienia</td></tr>
+<tr><td>76</td><td>zły wolumen: inny znacznik, zewnętrzny wolumen bez znacznika, <code>--work-root</code> bez znacznika, wolumen zamontowany pod inną ścieżką</td><td>stop</td></tr>
+<tr><td>77</td><td><code>quick_check</code> ≠ <code>ok</code> albo <code>SQLITE_CORRUPT</code>/<code>SQLITE_NOTADB</code></td><td>stop, decyzja człowieka</td></tr>
+<tr><td>78</td><td>brak miejsca: <code>SQLITE_FULL</code>, <code>ENOSPC</code>, <code>EDQUOT</code>, progi startu, promocja bez miejsca</td><td>stop</td></tr>
+<tr><td>130</td><td>SIGINT</td><td>stop</td></tr>
+</tbody></table></div>
+<p>Klasyfikacja <code>sqlite3.Error</code>/<code>OSError</code> w <code>build</code>: rollback (błąd pomijany) → zamknięcie → strażnik. Gdy strażnik nie przechodzi, kod to 75 albo 76. Gdy przechodzi: <code>SQLITE_FULL</code>/<code>ENOSPC</code>/<code>EDQUOT</code> → 78, <code>SQLITE_CORRUPT</code>/<code>SQLITE_NOTADB</code> → 77, reszta → 4. <code>GeneratorError</code> i <code>KeyboardInterrupt</code> działają jak dziś. <code>cli.py</code> łapie dodatkowo <code>sqlite3.Error</code> → 4 (dziś kończy się tracebackiem z kodem 1).</p></details><h2 id="manifest-przebiegu-nowe-pola">Manifest przebiegu: nowe pola</h2><details open><summary>Manifest przebiegu: nowe pola</summary><div class="card tbl"><table><thead><tr><th>Pole (poziom główny)</th><th>Kształt</th><th>Kto pisze</th></tr></thead><tbody>
+<tr><td><code>work_volume</code></td><td><code>{"marker_id": "&lt;losowy&gt;"}</code> albo <code>null</code> (dysk wewnętrzny)</td><td><code>create_run</code></td></tr>
+<tr><td><code>build_attempts</code></td><td>lista <code>{"attempt": n, "started", "ended" | null, "first_stage", "last_stage", "outcome", "exit_code"}</code>; <code>outcome</code> ∈ <code>complete</code>, <code>incomplete</code> (są etapy <code>pending</code>), <code>interrupted</code>, <code>failed</code></td><td><code>create_run</code> i <code>--resume</code> otwierają, koniec procesu zamyka; gdy zamknięcie się nie uda, <code>--resume</code> ustawia <code>interrupted</code></td></tr>
+<tr><td><code>resume</code></td><td><code>{"resumed": bool, "count": n}</code></td><td><code>create_run</code> (<code>false</code>, 0), <code>--resume</code> (+1)</td></tr>
+</tbody></table></div>
+<ul>
+<li>Bez komunikatów błędów i ścieżek. Świeże buildy A i B mają ten sam kształt pól.</li>
+<li><code>set_stage</code> dalej zastępuje słownik etapu. Historia nie leży w <code>stages</code>.</li>
+<li>Pieczęć: <code>SEAL_EXCLUDED</code> się nie zmienia, więc <code>manifest_core_sha256</code> obejmuje nowe pola. Zmiana po verify blokuje export (5).</li>
+<li>K8 bez zmian: porównuje <code>tree_sha256</code>, <code>canonical-index</code>, <code>logical-content</code>, a nie manifest.</li>
+<li><code>explain</code> zwraca z <code>stages</code> tylko <code>{"&lt;etap&gt;": "&lt;status&gt;"}</code>, więc K7 nie zależy od historii ani od znaczników czasu. Żaden obecny test nie czyta <code>stages</code> z wyniku <code>explain</code>.</li>
+<li>Skrót <code>build_history</code> (verify, export): <code>{"resumed", "attempts", "outcomes": [...], "exit_codes": [...], "resumed_from": [etapy]}</code>.</li>
+</ul></details><h2 id="wznowienie">Wznowienie</h2><details><summary>Wznowienie</summary><h3>Kolejność kontroli <code>--resume</code></h3>
+<ol>
+<li><code>os.path.lexists(R)</code>: brak → 4 („brak przebiegu”).</li>
+<li><code>R</code> jest symlinkiem, a jego cel nie istnieje → 75.</li>
+<li>G1: punkt montowania celu = punkt montowania repo przy przebiegu-symlinku → 75.</li>
+<li>Odczyt <code>manifest.json</code>: brak albo nieczytelny → najpierw ponowny G1 (75, gdy dysk zniknął), inaczej 4.</li>
+<li><code>readiness</code> <code>VERIFIED</code>/<code>FROZEN</code> → 5.</li>
+<li>G2: <code>marker_id</code> znacznika ≠ <code>work_volume.marker_id</code> (albo manifest ma null, a przebieg leży na wolumenie roboczym) → 76.</li>
+<li>Miejsce ≥ 50 GB na wolumenie roboczym → inaczej 78.</li>
+<li><code>tree_sha256</code> równy i <code>git_dirty</code> false → inaczej 4.</li>
+<li><code>inspect_sources(M)</code>: <code>manifest_sha256</code> równy <code>inputs.manifest_sha256</code> → inaczej 3.</li>
+<li><code>preflight</code> niegotowy (albo brak kompletu <code>source_artifact</code>): kasowanie <code>build.sqlite</code>, <code>-journal</code>, zawartości <code>reports/</code> i <code>lists/</code>, potem przebieg od <code>preflight</code> w tym samym katalogu.</li>
+<li>Otwarcie bazy, <code>PRAGMA quick_check</code> = <code>ok</code> → inaczej 77.</li>
+<li>Każdy <code>running</code> zmienia się w <code>failed</code>, otwarta próba dostaje <code>interrupted</code>, dopisuje się nowa próba, potem reset i etapy.</li>
+</ol>
+<h3>Reset</h3>
+<p>Wznowienie zaczyna od pierwszego etapu z <code>STAGES</code>, który nie jest <code>complete</code>. Ten etap i wszystkie dalsze liczą się od nowa.</p>
+<div class="card tbl"><table><thead><tr><th>Pierwszy niegotowy etap</th><th>Reset przed startem (w tej kolejności)</th></tr></thead><tbody>
+<tr><td><code>preflight</code></td><td>krok 10 wyżej</td></tr>
+<tr><td><code>import_sgjp</code></td><td><code>DROP TABLE IF EXISTS evidence_candidate</code>; <code>DROP TABLE IF EXISTS evidence_link</code> (osobne polecenia, dziecko przed rodzicem); DELETE: <code>variant_decision</code>, <code>decision_payload</code>, <code>analysis</code>, <code>derivation_component</code>, <code>derivation_candidate</code>, <code>interpretation</code>, <code>lexeme</code>, <code>surface_form</code>, <code>sgjp_record</code>, <code>corpus_evidence</code>; wiersz <code>source_artifact</code> <code>own-semantic-use-review-v1</code></td></tr>
+<tr><td><code>import_kwjp</code></td><td>oba DROP jak wyżej; DELETE tabel decisions/constructions w tej samej kolejności, potem <code>corpus_evidence</code>; wiersz przeglądu użyć</td></tr>
+<tr><td><code>constructions</code>, <code>decisions</code></td><td>oba DROP; bez DELETE: <code>constructions</code> ma <code>insert or ignore</code> po kluczu sha256 treści, a <code>decisions</code> ma <code>insert or ignore</code> z porównaniem wierszy</td></tr>
+<tr><td><code>links</code></td><td>oba DROP (indeksy znikają razem z tabelą)</td></tr>
+<tr><td><code>reports</code></td><td>znaczniki <code>.done</code> według R7</td></tr>
+</tbody></table></div>
+<ul>
+<li>Gdy w tej próbie wykonał się jakikolwiek etap przed <code>reports</code>, <code>reports/.done/</code> jest kasowane przed <code>reports</code>.</li>
+<li>Reset idzie w jednej transakcji. Commit z pełnym flushem jest przed <code>set_stage(running)</code>.</li>
+<li><code>build()</code> dzieli się na funkcje etapów według <code>STAGES</code>. Świeży build i <code>--resume</code> idą tą samą pętlą.</li>
+</ul>
+<h3>Cztery poprawki „wznowiony = świeży”</h3>
+<ol>
+<li><code>construction-candidates.json</code> bez <code>new_candidates</code>, <code>decisions.json</code> bez <code>new_analyses</code>/<code>new_decisions</code>. Build usuwa te pola przed zapisem, a funkcje <code>materialize_*</code> zwracają je dalej.</li>
+<li><code>import-counts.json</code> liczony z bazy po etapach importu (te same metryki co dziś), a nie ze słownika w pamięci.</li>
+<li><code>inventory.json</code>, <code>qualifier-conditions.json</code> i <code>import-counts.json</code> zapisywane na końcu <code>import_kwjp</code>, przed <code>set_stage(complete)</code>.</li>
+<li><code>links</code>: <code>set_stage(links, running)</code> na starcie i DROP przed <code>create_links</code>. Na końcu <code>complete</code>, gdy <code>stage_completion.complete</code>. W przeciwnym razie <code>pending</code> z <code>reason</code> (dziś etap zostawał bez zmiany statusu).</li>
+</ol>
+<p>Dodatkowo <code>preflight</code> dostaje <code>complete</code> dopiero po utworzeniu bazy i commicie <code>source_artifact</code>, a <code>write_lists</code> zapisuje atomowo.</p></details><h2 id="trwao-i-fullfsync">Trwałość i <code>fullfsync</code></h2><details><summary>Trwałość i <code>fullfsync</code></summary><div class="card tbl"><table><thead><tr><th>Tryb (stała w <code>database.py</code>)</th><th>Działanie</th><th>Kiedy</th></tr></thead><tbody>
+<tr><td><code>build</code> (4B)</td><td><code>PRAGMA fullfsync=ON</code> przez cały build</td><td>pomiar ≤ 5%</td></tr>
+<tr><td><code>stage_boundaries</code> (4C)</td><td><code>fullfsync=OFF</code> w etapie; na końcu etapu, po ostatnim commicie, <code>F_FULLFSYNC</code> na pliku <code>build.sqlite</code>, potem pliki etapu, potem manifest</td><td>pomiar &gt; 5%</td></tr>
+</tbody></table></div>
+<ul>
+<li>Pomiar w trakcie wdrożenia (T7 jest zamontowany): <code>scripts/measure_fullfsync.py --dir &lt;korzeń T7&gt;/.measure-&lt;stempel&gt; --reference-run data/work/&lt;ostatni zamrożony przebieg&gt; [--quick-check &lt;jego build.sqlite&gt;]</code>. Tylko tymczasowa baza testowa na T7, bez buildu słownika. Katalog pomiaru jest kasowany na końcu.</li>
+<li>Reguła: <code>overhead_pct = (czas commitu ON − OFF) × liczba commitów buildu / 46 800 s × 100</code>. Liczbę commitów skrypt liczy z <code>reports/import-counts.json</code> i <code>reports/decisions.json</code> przebiegu referencyjnego (rekordy / 10 000, w górę) i dolicza commity etapów.</li>
+<li>ADR-020 zapisuje liczby (bez ścieżek i UUID), wybór i czas <code>quick_check</code>. Stała w kodzie dostaje wybraną wartość. Do czasu pomiaru domyślna jest <code>build</code>.</li>
+<li>Kolejność zawsze: dane etapu trwale → pliki etapu → manifest <code>complete</code>.</li>
+<li>Nigdy WAL, <code>journal_mode=OFF/MEMORY</code> ani <code>synchronous&lt;FULL</code>.</li>
+</ul></details><h2 id="nadzorca">Nadzorca</h2><details><summary>Nadzorca</summary><p><code>scripts/build_supervised.py --manifest M --run-dir R [--work-root W] [--max-resumes 3] [--wait-minutes 30] [--poll-seconds 5]</code></p>
+<ul>
+<li>Wybór polecenia przed każdym procesem: <code>os.path.lexists(R)</code> i manifest czytelny → <code>build --resume</code>; <code>R</code> nie istnieje → <code>build --work-root W</code> (świeży, także po 75 sprzed <code>create_run</code>); symlink jest, a dysku brak → czekanie.</li>
+<li><code>marker_id</code> nadzorca zna z manifestu albo, przy świeżym starcie, ze znacznika <code>W</code>.</li>
+<li>Po 75: co <code>poll</code> sekund G1+G2. Gdy OK → nowy proces. G1 bez zgodnego G2 → 76 od razu. Wolumen o tym <code>marker_id</code> pod inną ścieżką → 76 od razu, z tą ścieżką w logu. Po <code>wait</code> minutach → 75. Każde ponowienie po 75 liczy się do limitu 3.</li>
+<li>Inne kody kończą pracę z tym kodem. SIGINT przekazuje procesowi potomnemu i kończy 130. SIGTERM i SIGHUP też przekazuje i kończy kodem procesu potomnego, bez wznowienia (<code>running</code> naprawi następne <code>--resume</code>).</li>
+<li>Nie dotyka plików przebiegu (<code>-journal</code> zostaje).</li>
+<li>Logi leżą na dysku wewnętrznym: <code>logs/&lt;nazwa&gt;.out.json</code> (stdout każdej próby, dopisywany), <code>logs/&lt;nazwa&gt;.err</code>, <code>logs/&lt;nazwa&gt;.supervisor.log</code> (jedna linia JSON na zdarzenie). Przez cały czas pracy nadzorca trzyma blokadę <code>flock</code> na <code>logs/&lt;nazwa&gt;.lock</code>.</li>
+<li>Testowalność: logika w funkcji z wstrzykiwanym uruchamianiem buildu, <code>sleep</code> i zegarem. CLI tylko ją opakowuje.</li>
+<li><code>scripts/build_pair.sh &lt;nazwa&gt;</code>:</li>
+<li class=sub>wymaga <code>LITERAKI_WORK_ROOT</code>, inaczej kończy kodem 2;</li>
+<li class=sub>sprawdza czysty kod jak dziś i ≥ 100 GB na W (inaczej 78);</li>
+<li class=sub>robi <code>mkdir -p logs</code> i uruchamia dwóch nadzorców pod <code>caffeinate -dimsu</code>;</li>
+<li class=sub>ścieżki <code>data/work/&lt;nazwa&gt;-&lt;stempel&gt;-&lt;a|b&gt;</code> się nie zmieniają.</li>
+<li><code>scripts/resume_reports.py</code> staje się nakładką: te same kontrole co dziś (<code>:44-52</code>), potem <code>build --resume</code>. Kod wyjścia przekazuje dalej (dziś 0/2, odtąd kontrakt z tabeli; opis w <code>cli.md</code>).</li>
+</ul></details><h2 id="promocja">Promocja</h2><details><summary>Promocja</summary><p><code>scripts/promote_run.py --run-dir data/work/&lt;A&gt; --peer data/work/&lt;B&gt;</code> uruchamiane od razu po udanym <code>verify</code> (runbook: <code>verify … &amp;&amp; promote_run.py …</code>). Przez cały czas trzyma blokadę <code>logs/&lt;A&gt;.promote.lock</code>. Staging ma stałą nazwę <code>data/work/.&lt;A&gt;.promote</code>.</p>
+<p>Rekord <code>promotion.json</code> w katalogu przebiegu (tylko w kopii wewnętrznej) ma pola: <code>t7_path</code> (realpath kopii A na T7), <code>peer_link</code>, <code>peer_path</code> (realpath B), <code>marker_id</code>, <code>started</code>, <code>completed</code> (null albo czas). Nie jest częścią manifestu ani <code>canonical-index</code>. <code>changes_since_verify</code> go nie czyta, bo sprawdza tylko rdzeń manifestu, wejścia, pliki kanoniczne, <code>build.sqlite</code> i pliki próby verify. Test potwierdza, że export przechodzi.</p>
+<div class="card tbl"><table><thead><tr><th>Stan na dysku</th><th>Akcja</th><th>Kod przy błędzie</th></tr></thead><tbody>
+<tr><td>S0: <code>data/work/&lt;A&gt;</code> to symlink, brak stagingu</td><td>kontrole: A <code>VERIFIED</code> (5); <code>changes_since_verify(A)</code> puste (5); cel na wolumenie roboczym ze zgodnym <code>marker_id</code> (75/76); wolne wewnątrz ≥ rozmiar A × 1,1 (78); dalej jak S1</td><td>5, 75, 76, 78</td></tr>
+<tr><td>S1: symlink + staging (pełny albo częściowy)</td><td>kasowanie stagingu i kopia od zera: tylko zwykłe pliki i katalogi (symlink albo plik specjalny w A → 4); każdy plik zapisem trwałym, z tym samym trybem (<code>S_IMODE</code>) i <code>mtime</code>; potem porównanie sha256 i trybu każdego pliku z T7; zapis <code>promotion.json</code>; <code>changes_since_verify(staging)</code> puste</td><td>różnica → 4; błąd I/O → strażnik: 75/76, inaczej 4; staging zostaje</td></tr>
+<tr><td>S1 → S2</td><td><code>renamex_np(staging, data/work/&lt;A&gt;, RENAME_SWAP)</code>; po zamianie staging to dawny symlink, więc <code>unlink</code>; fsync <code>data/work</code></td><td>błąd zamiany → 4, nic się nie zmienia</td></tr>
+<tr><td>S2/S3: <code>data/work/&lt;A&gt;</code> to katalog z <code>promotion.json</code>, <code>completed</code> = null</td><td>A może być <code>VERIFIED</code> albo <code>FROZEN</code> (dozwolone po exporcie); strażnik dla <code>t7_path</code> (brak dysku → 75); kasowanie B, gdy <code>peer_link</code> dalej wskazuje <code>peer_path</code>, B jest <code>INCOMPLETE</code>, a sha256 jego <code>reports/canonical-index.json</code> równa się <code>canonical_index_sha256</code> z pieczęci A (inaczej B zostaje, wpis w logu); kasowanie kopii A pod <code>t7_path</code> po sprawdzeniu, że to nie jest katalog wewnętrzny; <code>completed</code> ustawione</td><td>75, 76</td></tr>
+<tr><td>S4: <code>completed</code> ustawione</td><td>nic, kod 0</td><td>—</td></tr>
+</tbody></table></div>
+<ul>
+<li>Zdarzenia trafiają do <code>logs/&lt;A&gt;.promote.log</code>.</li>
+<li>Manifest A się nie zmienia.</li>
+<li>Kody: 0, 2, 4, 5, 75, 76, 78.</li>
+<li><code>export</code> (<code>export.py</code>) odmawia kodem 5, gdy <code>run_dir</code> jest symlinkiem albo leży na wolumenie roboczym: „przebieg na T7; najpierw promote_run.py”.</li>
+</ul></details><h2 id="sprztanie">Sprzątanie</h2><details><summary>Sprzątanie</summary><p><code>scripts/clean_work.py [--work-root W] [--apply] [--server-repo ŚCIEŻKA] [--server-current NAZWA]... [--delete-releases PLIK]</code></p>
+<p>Domyślnie tylko lista (JSON na stdout: wpis, klasa, rozmiar, powód). Bez <code>--apply</code> nic nie jest kasowane.</p>
+<p>Klasy według pierwszeństwa. Wygrywa pierwsza pasująca.</p>
+<div class="card tbl"><table><thead><tr><th>#</th><th>Klasa</th><th>Gdzie</th><th><code>--apply</code></th></tr></thead><tbody>
+<tr><td>1</td><td>manifest <code>VERIFIED</code>/<code>FROZEN</code> (z symlinkiem albo bez)</td><td>T7</td><td>nigdy (czeka na promocję)</td></tr>
+<tr><td>2</td><td>promocja w toku: trzymana <code>logs/&lt;x&gt;.promote.lock</code>, staging <code>.&lt;x&gt;.promote</code>, albo ścieżka jest <code>t7_path</code>/<code>peer_path</code> w <code>promotion.json</code> z <code>completed</code> = null</td><td>T7</td><td>nigdy</td></tr>
+<tr><td>3</td><td>przebieg w toku: trzymana <code>logs/&lt;x&gt;.lock</code> albo manifest lub katalog zmieniany &lt; 24 h</td><td>T7</td><td>nigdy</td></tr>
+<tr><td>4</td><td>nieznana zawartość: brak manifestu i nie jest resztką startu z R1</td><td>T7</td><td>nigdy (tylko lista)</td></tr>
+<tr><td>5</td><td>osierocony: brak symlinku w <code>data/work</code>, manifest <code>INCOMPLETE</code> albo resztka startu, ≥ 24 h</td><td>T7</td><td>kasuje</td></tr>
+<tr><td>6</td><td>nieukończony: <code>INCOMPLETE</code>, symlink jest, ≥ 24 h</td><td>T7 (+ symlink)</td><td>kasuje</td></tr>
+<tr><td>7</td><td>promowany przebieg, wydania, dowody, przeglądy, pomiary, przebiegi eksperymentalne, staging, logi</td><td>dysk wewnętrzny</td><td>nigdy (tylko lista)</td></tr>
+<tr><td>8</td><td>stare wydanie (kandydat)</td><td>dysk wewnętrzny</td><td>tylko z <code>--delete-releases</code></td></tr>
+</tbody></table></div>
+<ul>
+<li>Wydanie to katalog z <code>release-manifest.json</code>, szukany w <code>data/work</code> do głębokości 2 (np. <code>tematy-wydanie-…/&lt;pakiet&gt;/</code>). Razem z nim idzie jego przebieg <code>FROZEN</code> (<code>source_run.run_name</code>), jeśli ten nie jest potrzebny innemu wydaniu.</li>
+<li>Rodzina to nazwa do pierwszego <code>-v&lt;cyfry&gt;</code>. Wersja to krotka liczb po <code>v</code>, np. <code>v1r2</code> → (1, 2). Wpis, którego nie da się rozpoznać, dostaje klasę 7.</li>
+<li>Wydanie potrzebne (nigdy kandydat), gdy spełnia choć jedno:</li>
+<li class=sub>ścieżka wydania albo jego przebiegu (<code>run_dir</code>, <code>release_dir</code>, <code>path</code> i katalog nadrzędny pliku) występuje w którymkolwiek <code>config/generator/*-sources.json</code>;</li>
+<li class=sub>jest bieżące na serwerze: sha256 jego <code>release-manifest.json</code> albo któregokolwiek pliku z jego <code>files</code> (listy <code>.txt</code>, <code>.txt.gz</code>) jest wśród 64-znakowych hashy w <code>git -C &lt;server-repo&gt; show origin/main:NOTICE</code>. <code>--server-repo</code> domyślnie <code>../server</code> (repo robmar-net/Literaki-server); tylko odczyt, bez <code>fetch</code>, bez sieci i sekretów. Katalog <code>lexicons/</code> (<code>pl-*-RRRRMMDD.dawg</code>) trafia do listy tylko jako kontekst;</li>
+<li class=sub>brak checkoutu serwera, <code>origin/main</code> albo <code>NOTICE</code>, lub <code>NOTICE</code> bez żadnego hasha → wszystkie wydania potrzebne i zero kandydatów; wynik mówi to wprost (<code>server_notice: unavailable</code> i powód);</li>
+<li class=sub>nazwa albo <code>package_id</code> jest na liście <code>--server-current</code> (ręczny dodatek do <code>NOTICE</code>, nie zamiennik);</li>
+<li class=sub>jest ostatnie w rodzinie (najwyższa wersja; przy remisie najpóźniejsze <code>frozen_at</code>).</li>
+<li><code>--delete-releases PLIK</code> to plik z dokładnymi nazwami zaakceptowanymi przez właściciela. Wymaga <code>--apply</code>. Nazwa spoza kandydatów → odmowa całości (4), nic nie skasowane. Przed kasowaniem <code>chmod u+w</code> (pliki read-only po <code>export</code>).</li>
+<li>Kody: 0, 2 (argumenty), 4 (odmowa).</li>
+</ul></details>
+<h2 id="ponowne-uycie">Ponowne użycie</h2><details><summary>Ponowne użycie</summary><h3>Istniejący kod</h3>
+<ul>
+<li><code>literaki_slownik/canonical.py</code> <code>write_json</code> jest bazą trwałego zapisu; <code>write_bytes</code> dzieli z nim jedną funkcję.</li>
+<li><code>literaki_slownik/run.py</code> <code>STAGES</code>, <code>code_identity</code>, <code>set_stage</code> dają pętlę etapów i kontrolę tożsamości przy <code>--resume</code>. Blokada po verify (<code>:60</code>) już jest.</li>
+<li><code>scripts/resume_reports.py:44-52</code>: kontrole tożsamości kodu i wejść przechodzą do wspólnej walidacji <code>--resume</code>.</li>
+<li><code>literaki_slownik/export.py</code> <code>changes_since_verify</code> sprawdza pieczęć w promocji (na A i na stagingu przed zamianą).</li>
+<li><code>literaki_slownik/export.py</code> <code>rename_noreplace</code> (<code>renamex_np</code> przez <code>ctypes</code>), <code>READ_ONLY</code> i wzorzec stagingu to wzór dla <code>RENAME_SWAP</code> w promocji.</li>
+<li><code>literaki_slownik/reports.py</code> <code>canonical_index</code> ma jawną listę, więc <code>.done/</code> i <code>promotion.json</code> nie wchodzą do K8.</li>
+<li><code>literaki_slownik/verify.py</code> <code>manifest_core_sha256</code> i <code>SEAL_EXCLUDED</code> zostają bez zmian, a pieczęć obejmuje nowe pola.</li>
+<li><code>constructions.py</code>/<code>decisions.py</code> <code>insert or ignore</code> (klucz z treści, w decisions z porównaniem wierszy) daje idempotencję bez zmian.</li>
+<li>Testy:</li>
+<li class=sub><code>tests/test_lifecycle.py:50-84</code> (przerwanie i <code>running</code>);</li>
+<li class=sub><code>tests/test_build.py:151,201</code> (awaria po partii);</li>
+<li class=sub><code>tests/helpers.py</code> <code>fixture_manifest</code>;</li>
+<li class=sub><code>tests/release_helpers.py</code> <code>complete_pair</code>/<code>complete_run</code>; <code>complete_run</code> nadpisuje <code>stages</code>, ale nie rusza pól głównych.</li>
+</ul>
+<h3>Nowe elementy</h3>
+<ul>
+<li><code>literaki_slownik/volume.py</code>: strażnik, klasyfikacja wolumenu i <code>find_by_marker</code>. Dziś nie ma nic podobnego, a potrzebują go <code>build</code>, <code>export</code>, nadzorca, promocja i sprzątanie.</li>
+<li><code>scripts/init_work_volume.py</code>: jednorazowe założenie znacznika.</li>
+<li><code>scripts/build_supervised.py</code>: pętla czekania i wznawiania. W <code>build_pair.sh</code> (sh) byłaby nietestowalna.</li>
+<li><code>scripts/measure_fullfsync.py</code>: dane do wyboru 4B/4C.</li>
+<li><code>scripts/promote_run.py</code>, <code>scripts/clean_work.py</code>: nowe operacje na danych wymagane przez D2/D3.</li>
+</ul></details><h2 id="podejcie-techniczne">Podejście techniczne</h2><details><summary>Podejście techniczne</summary><ul>
+<li>Kolejność grup:</li>
+<li class=sub><code>.gitignore</code>, trwały zapis, skrypt pomiaru i pomiar na T7 (niezależne od siebie);</li>
+<li class=sub>strażnik, klasyfikator i kody;</li>
+<li class=sub>podział <code>build()</code>, cztery poprawki, <code>--resume</code>, <code>.done</code>, harness;</li>
+<li class=sub><code>fullfsync</code> według wyniku pomiaru (ADR-020);</li>
+<li class=sub>nadzorca, <code>build_pair.sh</code>, nakładka;</li>
+<li class=sub>promocja, odmowa <code>export</code>, sprzątanie;</li>
+<li class=sub>historia w <code>verify</code>/<code>export</code>;</li>
+<li class=sub>dokumentacja i ADR.</li>
+<li>Każda zmiana w <code>literaki_slownik/</code> zmienia <code>tree_sha256</code>. Para A/B buduje się z jednego commitu.</li>
+<li>Strażnik działa w procesie: zapamiętuje aktywny przebieg i <code>st_dev</code>. <code>write_json</code> pyta go tylko o cele w tym przebiegu.</li>
+</ul></details><h2 id="wskazwki-implementacyjne">Wskazówki implementacyjne</h2><details><summary>Wskazówki implementacyjne</summary><h3>Testy</h3>
+<ul>
+<li>2–8 testów na grupę kroków. Weryfikacja grupy uruchamia tylko jej nowe testy. Pełny zestaw idzie raz, na końcu: <code>python3 -m unittest discover -s tests -p 'test_*.py'</code>.</li>
+<li>Bez prawdziwego USB i bez prawdziwego buildu słownika, tylko fikstury. Przerwania przez wstrzyknięty wyjątek i <code>os._exit</code> w procesie potomnym.</li>
+<li>Do aktualizacji: <code>tests/test_run.py</code> (<code>parents=False</code>) i testy <code>explain</code>, jeśli któryś zacznie czytać <code>stages</code>.</li>
+<li>Tylko lokalnie. Repo nie ma CI i nie dostaje workflow na runnerach GitHuba.</li>
+</ul>
+<h3>Zgodność ze standardami</h3>
+<ul>
+<li><code>AGENTS.md</code>: po polsku, zwięźle. Repo jest publiczne, więc w kodzie, testach, dokumentach i artefaktach nie ma UUID wolumenu ani ścieżek z katalogu domowego (<code>marker_id</code> jest losowy).</li>
+<li><code>docs/generator/cli.md</code>: JSON na stdout, błędy na stderr, kody jako kontrakt.</li>
+<li>Python stdlib, <code>unittest</code>, styl funkcyjny, <code>GeneratorError(message, code)</code>.</li>
+<li>Bez zmian w składzie słownika, polityce i pinach.</li>
+</ul></details><h2 id="kryteria-sukcesu">Kryteria sukcesu</h2><div class="card"><ol>
+<li>Zniknięcie T7 w dowolnym etapie daje kod 75 w ciągu sekund, a na dysku systemowym nie powstaje żaden plik przebiegu.</li>
+<li>Nadzorca sam wznawia pracę po powrocie dysku. Strata ≤ bieżący etap albo raport.</li>
+<li>Test „wznowiony = świeży” przechodzi dla każdego punktu przerwania, a para wznowiony + świeży → VERIFIED.</li>
+<li>K1–K10 bez zmian. Historia prób jest widoczna w <code>verify</code> i w <code>release-manifest.json</code>.</li>
+<li>Inne błędy nie są ponawiane. Uszkodzona baza zatrzymuje pracę kodem 77.</li>
+<li>Po promocji wydanie i zapieczętowana baza leżą wyłącznie na dysku wewnętrznym, a <code>export</code> z T7 jest niemożliwy.</li>
+<li><code>clean_work.py</code> bez zgody właściciela nie usuwa niczego nieodtwarzalnego. Wydanie wysłane na serwer nigdy nie jest kandydatem.</li>
+<li>W repo nie ma UUID ani ścieżek domowych. <code>git check-ignore</code> łapie symlinki w <code>data/work</code> i <code>logs/</code>.</li>
+<li>ADR-020 zawiera zmierzony narzut i wybrany tryb.</li>
+</ol></div><h2 id="rozwizanie-uwag-audytu">Rozwiązanie uwag audytu</h2><div class="card"><p>Źródło: <code>../verification/spec-audit.md</code>.</p>
+<div class="card tbl"><table><thead><tr><th>ID</th><th>Zmiana</th></tr></thead><tbody>
+<tr><td>H1</td><td>„Kolejność kontroli <code>--resume</code>”: najpierw <code>lexists</code>, cel, G1 (75), potem manifest (4), potem G2 (76). Nadzorca używa <code>lexists</code> (M5)</td></tr>
+<tr><td>H2</td><td>Reguła „bieżące na serwerze” porównuje sha256 <code>release-manifest.json</code> i każdego pliku z <code>files</code> z hashami w <code>NOTICE</code>. Fail-safe bez zmian. Fikstura w prawdziwym kształcie</td></tr>
+<tr><td>H3</td><td>Tabela stanów S0–S4 promocji: 75 przy zniknięciu T7, staging zawsze od zera, <code>changes_since_verify</code> na stagingu przed zamianą, <code>promotion.json</code> z <code>t7_path</code>, praca także po <code>export</code></td></tr>
+<tr><td>M1</td><td>Zamiana <code>renamex_np(RENAME_SWAP)</code> zamiast <code>unlink</code> + <code>rename</code></td></tr>
+<tr><td>M2</td><td>Klasy sprzątania z pierwszeństwem: <code>VERIFIED</code>/<code>FROZEN</code> i promocja w toku nigdy; osierocony tylko <code>INCOMPLETE</code>/resztka startu, ≥ 24 h</td></tr>
+<tr><td>M3</td><td>Dwa osobne <code>DROP</code>, najpierw <code>evidence_candidate</code>; w wierszach importu DROP przed DELETE</td></tr>
+<tr><td>M4</td><td><code>links</code> kończy <code>pending</code> z <code>reason</code>, gdy <code>stage_completion.complete</code> = false</td></tr>
+<tr><td>M5</td><td>Nadzorca: <code>lexists</code> i 75 przed <code>create_run</code> → świeży build; build sprząta resztkę startu (R1); niegotowy <code>preflight</code> przy <code>--resume</code> zaczyna od nowa</td></tr>
+<tr><td>M6</td><td>50 GB na proces, 100 GB na wolumen przy starcie pary</td></tr>
+<tr><td>M7</td><td>Jawny <code>--work-root</code> bez znacznika → 76</td></tr>
+<tr><td>M8</td><td><code>find_by_marker</code>: wolumen pod inną ścieżką → 76 od razu, bez 30 min czekania</td></tr>
+<tr><td>L1</td><td>Inne <code>inputs.manifest_sha256</code> → 3</td></tr>
+<tr><td>L2</td><td><code>.gitignore</code>: tylko dodać <code>/logs</code>; test <code>check-ignore</code> dla <code>data/work/x</code></td></tr>
+<tr><td>L3</td><td>Opis idempotencji <code>constructions</code> poprawiony (klucz z treści)</td></tr>
+<tr><td>L4</td><td>Ryzyko <code>rowid</code> obniżone, plan awaryjny zostaje</td></tr>
+<tr><td>L5</td><td>Zapis o <code>test_explain.py:370</code> poprawiony</td></tr>
+<tr><td>L6</td><td>Wydania zagnieżdżone (głębokość 2), wersje <code>v1r2</code>, nieznane → „nigdy”</td></tr>
+<tr><td>L7</td><td>Pomiar <code>fullfsync</code> w zakresie wdrożenia; SIGTERM/SIGHUP opisane; LaunchAgent poza zakresem</td></tr>
+<tr><td>L8</td><td>Nowe kody <code>resume_reports.py</code> w <code>cli.md</code> (R13)</td></tr>
+<tr><td>L9</td><td>Nadzorca z wstrzykiwanym buildem, <code>sleep</code> i zegarem</td></tr>
+</tbody></table></div></div>
+</main>
+</body>
+</html>

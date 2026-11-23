@@ -1,0 +1,58 @@
+orchestrator:
+  started_phase: phase-1
+  completed_phases: [phase-1, phase-2]
+  failed_phases: []
+  options:
+    html_output: true
+    mockup_format: html
+    spec_audit_enabled: true
+    skip_test_suite: true
+    e2e_enabled: false
+    user_docs_enabled: false
+    code_review_enabled: true
+    pragmatic_review_enabled: true
+    reality_check_enabled: true
+    production_check_enabled: true
+  created: 2026-11-23T08:04:34Z
+  updated: 2026-11-23T10:15:04Z
+  task_path: .maister/tasks/development/2026-11-23-22-dysk-roboczy-wznawianie
+task:
+  title: "#22 Build na T7 z wznawianiem po zniknięciu dysku"
+  description: "Wdrożenie projektu z badania 2026-11-23-dysk-roboczy-wznawianie: symlink data/work na T7, strażnik G1–G3, build --resume per etap i raport, kody 75–78, nadzorca, pomiar fullfsync, test wznowiony=świeży, attempts[] w manifeście."
+  status: in_progress
+  issue: 22
+task_context:
+  risk_level: medium-high
+  research_reference:
+    path: .maister/tasks/research/2026-11-23-dysk-roboczy-wznawianie
+    research_question: "Jak trzymać duże pliki generatora na znikającym dysku zewnętrznym i wznawiać przerwany build bez pracy od zera"
+    research_type: technical
+    confidence_level: medium
+  project_context:
+    project_doc_paths: [docs/plan-dalszych-prac-runbook.md, docs/generator/cli.md, docs/generator/publikacja.md, AGENTS.md]
+  task_characteristics:
+    has_reproducible_defect: false
+    modifies_existing_code: true
+    creates_new_entities: true
+    involves_data_operations: true
+    ui_heavy: false
+  phase_summaries:
+    research:
+      summary: "Wybrano 1A+G1–G3, 2B, 3B na bazie 3A, pomiar fullfsync→4B/4C, 5B; 12 kroków wdrożenia, ADR-001..008."
+      recommended_approach: "analysis/research-context/high-level-design.md"
+    codebase_analysis:
+      summary: "build() liniowy bez punktów wznowienia; cztery zagrożenia wznowiony≠świeży (new_*, import-counts z pamięci, raporty między etapami, CREATE TABLE w links)."
+      artifacts: [{path: analysis/codebase-analysis.md, label: Analiza kodu, html: null}]
+    clarifications:
+      summary: "Właściciel: przenieść całe data/work (25 GB) na T7; usunięcie starego katalogu po osobnej zgodzie."
+    gap_analysis:
+      summary: "Nic z projektu nie jest w kodzie; cztery zmiany wznowiony=świeży najpierw. Reguła backupu: data/work zostaje wewnątrz, nowe przebiegi jako symlinki na T7, promocja na dysk wewnętrzny przed verify (ADR-014), migracja skryptem z klasyfikacją."
+      artifacts: [{path: analysis/gap-analysis.md, label: Analiza luk, html: null}]
+    scope_clarifications:
+      summary: "D1 baza zamrożona wewnątrz; bez migracji, za to clean_work.py; promocja A i kasowanie B po verify; wydania kasowane po zgodzie właściciela."
+      artifacts: [{path: analysis/scope-clarifications.md, label: Decyzje zakresu, html: null}]
+  gates:
+    phase-2: "2026-11-23T10:05:24Z Tak, faza 5 (D1 wewnątrz, D2→clean_work, D3 automatycznie po verify)"
+    specification:
+      summary: "R1–R13 z kryteriami i testami; kody 75–78; build_attempts/resume/work_volume w manifeście; resume od pierwszego niekompletnego etapu; promote_run.py i clean_work.py; ADR-014..021."
+      artifacts: [{path: implementation/spec.md, label: Specyfikacja, html: implementation/spec.html}]
